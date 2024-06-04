@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/changing_symbology.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)" href="terrain_analysis.html" />
+    <link rel="prev" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" href="data_manipulation.html" />
+  <meta name="description" content="QGIS testing documentation: 7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="data_manipulation.html">7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">7.2.1. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-layer-follow-along-changing-raster-layer-symbology">7.2.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Layer သင်္ကေတ ပြောင်းလဲခြင်း (Follow Along: Changing Raster Layer Symbology)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#singleband-gray-follow-along-singleband-gray">7.2.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband gray (Follow Along: Singleband gray)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#singleband-pseudocolor-follow-along-singleband-pseudocolor">7.2.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband pseudocolor (Follow Along: Singleband pseudocolor)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-changing-the-transparency">7.2.5. လိုက်လုပ်ကြည့်ပါ - အလင်းဖောက်နှုန်း ပြောင်းလဲခြင်း (Follow Along: Changing the transparency)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">7.2.6. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">7.2.7. အကိုးအကား (Reference)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">7.2.8. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="terrain_analysis.html">7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">7. </span>မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.2. </span>သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/rasters/changing_symbology.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="data_manipulation.html" class="btn btn-neutral float-left" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="terrain_analysis.html" class="btn btn-neutral float-right" title="7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="raster-lesson-changing-raster-symbology">
+<h1><span class="section-number">7.2. </span>သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)<a class="headerlink" href="#raster-lesson-changing-raster-symbology" title="Link to this heading"></a></h1>
+<p>Raster data များအားလုံးသည် ကောင်းကင်ဓာတ်ပုံများမဟုတ်ကြပါ။ အခြား raster data ပုံစံအမျိုးမျိုးရှိပြီး၊ ထို raster တော်တော်များများကို ကောင်းမွန်စွာ မြင်ရနိုင်ပြီးအသုံးဝင်နိုင်စေရန် သင်္ကေတများပြောင်းလဲပေးရန် လိုအပ်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Raster layer တစ်ခုအတွက် သင်္ကေတပြောင်းလဲရန်။</p>
+<section id="try-yourself">
+<h2><span class="section-number">7.2.1. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Browser</span> Panel ကိုအသုံးပြုပြီး <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster/SRTM/</span></code> အောက်တွင်ရှိသော <code class="file docutils literal notranslate"><span class="pre">srtm_41_19.tif</span></code> ကိုထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">Layers panel</span> ထဲရှိ အဆိုပါ layer ကို right-click နှိပ်ပြီး <span class="guilabel">Zoom to Layer</span> ကိုရွေးကာ layer ၏ extent ကို zoom ချဲ့ကြည့်ပါ။</p></li>
+</ol>
+<p>ဤ dataset သည် <em>Digital Elevation Model (DEM)</em> တစ်ခုဖြစ်ပါသည်။ မြေမျက်နှာပြင် အနိမ့်အမြင့်ကို ဖော်ပြသော မြေပုံတစ်ခုဖြစ်ပြီး၊ ဥပမာအားဖြင့် တောင်တန်းများနှင့် ချိုင့်ဝှမ်းများ မည်သည့်နေရာတွင် ရှိသည်ကို မြင်ရနိုင်ပါသည်။</p>
+<p>ယခင်သင်ခန်းစာတွင်သုံးခဲ့သော dataset ၏ pixel တစ်ခုချင်းစီတွင် အရောင်အချက်အလက်များပါဝင်ပြီး ယခု <em>DEM</em> တွင် pixel တစ်ခုချင်းစီသည် အမြင့် တန်ဖိုးများပါဝင်ပါသည်။</p>
+<p>DEM ကိုထည့်သွင်းလိုက်သည်နှင့် grayscale (မီးခိုးရောင်စကေး) ပုံစံဖြင့် ပြသနေသည်ကို တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/greyscale_dem.png" src="../../../_images/greyscale_dem.png" />
+</figure>
+<p>QGIS သည် image ၏ pixel တန်ဖိုးများကို အမြင်ပိုင်းဆိုင်ရာအတွက် အလိုအလျှောက် stretch (အရောင်တစ်ဆက်တည်း) ပြုလုပ်ပေးပါသည်။ ၎င်း၏ အလုပ်လုပ်ပုံကို နောက်ပိုင်းတွင် ပိုမိုလေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="raster-layer-follow-along-changing-raster-layer-symbology">
+<h2><span class="section-number">7.2.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Layer သင်္ကေတ ပြောင်းလဲခြင်း (Follow Along: Changing Raster Layer Symbology)<a class="headerlink" href="#raster-layer-follow-along-changing-raster-layer-symbology" title="Link to this heading"></a></h2>
+<p>Raster သင်္ကေတကို ပြောင်းလဲရန် မတူညီသောရွေးချယ်စရာ ၂ ခုရှိပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layer Properties</span> dialog အတွင်းတွင် ရှိပါသည်။ Layer ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Properties</span> option ကိုရွေးချယ်ခြင်းအားဖြင့် dialog ကိုဖွင့်ပါ၊ ထို့နောက် <span class="guilabel">Symbology</span> tab သို့ပြောင်းပါ။</p></li>
+<li><p><span class="guilabel">Layers</span> panel ၏ ညာဘက်အပေါ်ရှိ <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <sup>Open the Layer Styling panel</sup> ခလုတ်ကိုနှိပ်ခြင်းဖြင့် (ကီးဘုတ် shortcut <kbd class="kbd docutils literal notranslate">F7</kbd>) <span class="guilabel">Layer Styling</span> panel ကိုပွင့်စေပြီး <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <sup>Symbology</sup> tab သို့ပြောင်းနိုင်ပါသည်။</p></li>
+</ol>
+<p>သင်နှစ်သက်ရာနည်းလမ်းကို ရွေးချယ်ပါ။</p>
+</section>
+<section id="singleband-gray-follow-along-singleband-gray">
+<h2><span class="section-number">7.2.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband gray (Follow Along: Singleband gray)<a class="headerlink" href="#singleband-gray-follow-along-singleband-gray" title="Link to this heading"></a></h2>
+<p>Raster ဖိုင်တစ်ခုသည် ယခင်သင်ခန်းစာမှာကဲ့သို့ ဓာတ်ပုံတစ်ခုမဟုတ်လျှင် ၎င်းကို ထည့်သွင်းသောအခါ default style ကို grayscale gradient အဖြစ် ပြသပါလိမ့်မည်။</p>
+<p>ထို renderer (ပုံဖော်ပြသပေးသည့်အရာ) တွင်ပါဝင်သည့် feature အချို့ကို လေ့လာကြည့်ရအောင်။</p>
+<figure class="align-center">
+<img alt="../../../_images/dem_layer_properties.png" src="../../../_images/dem_layer_properties.png" />
+</figure>
+<p>Default <span class="guilabel">Color gradient</span> ကို <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">to</span> <span class="pre">white</span></code> အဖြစ်သတ်မှတ်ပါသည်၊ ဆိုလိုသည်မှာ pixel တန်ဖိုးအနိမ့်များသည် အနက်ရောင် ဖြစ်ပြီး pixel တန်ဖိုးအမြင့်များသည် အဖြူရောင်ဖြစ်သည်။ အဆိုပါ setting ကို <code class="docutils literal notranslate"><span class="pre">White</span> <span class="pre">to</span> <span class="pre">black</span></code> သို့ပြောင်းလဲကြည့်ပြီး ရလာဒ်ကို ကြည့်ပါ။</p>
+<p>အလွန်အရေးကြီးသည့်အရာမှာ <span class="guilabel">Contrast enhancement</span> parameter ဖြစ်သည်၊ default အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">Stretch</span> <span class="pre">to</span> <span class="pre">MinMax</span></code> အဖြစ်သတ်မှတ်ပါသည်၊ ဆိုလိုသည်မှာ pixel တန်ဖိုးများကို အနိမ့်ဆုံးတန်ဖိုးနှင့် အမြင့်ဆုံးတန်ဖိုးများသို့ stretch လုပ်ပေးခြင်းဖြစ်သည်။</p>
+<p>Enhancement ပြုလုပ်ထားသည့်ပုံ (ဘယ်ဘက်) နှင့် မပြုလုပ်ထားသည့်ပုံ (ညာဘက်) ၏ကွာခြားချက်ကို ကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/enhancement.png" src="../../../_images/enhancement.png" />
+</figure>
+<p>Stretch အတွက် အသုံးပြုသင့်သော အနည်းဆုံးနှင့်အများဆုံးတန်ဖိုးများမှာ <span class="guilabel">Min / Max Value Settings</span> အောက်တွင် လက်ရှိရှိနေသော တန်ဖိုးများဖြစ်သည်။ အနိမ့်ဆုံးနှင့်အမြင့်ဆုံးတန်ဖိုးများကို တွက်ချက်ပြီး stretch အတွက်အသုံးပြုရန် နည်းလမ်းများစွာရှိပါသည်-</p>
+<ol class="arabic simple">
+<li><p><strong>User Defined</strong> - <span class="guilabel">Min</span> နှင့် <span class="guilabel">Max</span> တန်ဖိုးများကို ကိုယ်တိုင် ရိုက်ထည့်ပေးခြင်းဖြစ်သည်။</p></li>
+<li><p><strong>Cumulative count cut</strong> - အလွန် နိမ့်သော သို့မဟုတ် အလွန် မြင့်သောတန်ဖိုးများ ရှိသောအခါ အသုံးဝင်ပါသည်။ ၎င်းသည် အဆိုပါ တန်ဖိုးများ၏ <code class="docutils literal notranslate"><span class="pre">2%</span></code> (သို့မဟုတ် သင်ရွေးချယ်သောတန်ဖိုး) ကို <em>ဖြတ်</em> ပေးပါသည်။</p></li>
+<li><p><strong>Min / max</strong> - Raster ၏ <em>အစစ်အမှန်</em> သို့မဟုတ် <em>ခန့်မှန်းထားသော</em> အနိမ့်ဆုံးနှင့်အမြင့်ဆုံးတန်ဖိုးများ</p></li>
+<li><p><strong>Mean +/- standard deviation</strong> - Mean တန်ဖိုးနှင့် Standard deviation (စံတိမ်းချက်) တန်ဖိုးအရ တွက်ချက်ပေးပါလိမ့်မည်။</p></li>
+</ol>
+</section>
+<section id="singleband-pseudocolor-follow-along-singleband-pseudocolor">
+<h2><span class="section-number">7.2.4. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband pseudocolor (Follow Along: Singleband pseudocolor)<a class="headerlink" href="#singleband-pseudocolor-follow-along-singleband-pseudocolor" title="Link to this heading"></a></h2>
+<p>Grayscale များသည် raster layer များအတွက် အမြဲတမ်းသင့်တော်သည့် style များမဟုတ်ပါ။ DEM အား ပိုမိုအရောင်စုံလင်အောင် စမ်းကြည့်ကြပါမည်။</p>
+<ul class="simple">
+<li><p><span class="guilabel">Render type</span> တွင် <span class="guilabel">Singleband pseudocolor</span> သို့ပြောင်းပါ။ Default ထည့်သွင်းပေးသော အရောင်ကို မကြိုက်လျှင် အခြား <span class="guilabel">Color ramp</span> ကိုရွေးချယ်ပါ။</p></li>
+<li><p>အရောင် အတန်းအစားခွဲခြားမှုအသစ်တစ်ခု ထုတ်ပေးရန် <span class="guilabel">Classify</span> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>ထိုအရောင်ကို DEM တွင် အသုံးပြုရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/dem_pseudocolor_properties.png" src="../../../_images/dem_pseudocolor_properties.png" />
+</figure>
+<p>Raster ကို အောက်ပါပုံစံအတိုင်း မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/pseudocolor_raster.png" src="../../../_images/pseudocolor_raster.png" />
+</figure>
+<p>Raster တန်ဖိုးနိမ့်သော ဧရိယာများကို အပြာရောင်ဖြင့်ပြသပြီး တန်ဖိုးမြင့်သောနေရာများကို အနီရောင်ဖြင့် ပြသနေသည်ကို မြင်တွေ့ရပါမည်။</p>
+</section>
+<section id="follow-along-changing-the-transparency">
+<h2><span class="section-number">7.2.5. </span>လိုက်လုပ်ကြည့်ပါ - အလင်းဖောက်နှုန်း ပြောင်းလဲခြင်း (Follow Along: Changing the transparency)<a class="headerlink" href="#follow-along-changing-the-transparency" title="Link to this heading"></a></h2>
+<p>တစ်ခါတရံတွင် raster layer တစ်ခုလုံး၏ အလင်းဖောက်နှုန်း (transparency) ကို ပြောင်းလဲခြင်းအားဖြင့် အဆိုပါ raster မှ ဖုံးအုပ်နေသော အခြား layer များကို မြင်တွေ့နိုင်ပြီး study area ကို ကောင်းစွာ နားလည်သဘောပေါက်စေနိုင်ပါသည်။</p>
+<p>Raster layer ၏ အလင်းဖောက်နှုန်း ကို ပြောင်းလဲရန် <span class="guilabel">Transparency</span> tab သို့သွားပြီး <span class="guilabel">Global Opacity</span> slider ကိုလျော့ချပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/global_transparency.png" src="../../../_images/global_transparency.png" />
+</figure>
+<p>ပိုမိုစိတ်ဝင်စားစရာကောင်းသည်မှာ အချို့ pixel တန်ဖိုးများအတွက် အလင်းဖောက်နှုန်း ကိုပြောင်းလဲခြင်းဖြစ်သည်။ ဥပမာ- ယခုအသုံးပြုခဲ့သော raster ထဲတွင် ထောင့်များ၌ အရောင်တစ်မျိုးတည်းဖြစ်နေသည်ကို မြင်တွေ့နိုင်ပါသည်။ အဆိုပါ pixel များကို transparent အနေဖြင့် သတ်မှတ်ရန် <span class="guilabel">Transparency</span> tab ထဲရှိ <span class="guilabel">Custom Transparency Options</span> သို့သွားပါ။</p>
+<ul>
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add values manually</sup> ခလုတ်ကို နှိပ်ခြင်းဖြင့် တန်ဖိုးအပိုင်းအခြားတစ်ခုကို ထည့်သွင်းနိုင်ပြီး ၎င်းတို့၏ အလင်းဖောက်မှု ရာခိုင်နှုန်းကို သတ်မှတ်ပေးနိုင်ပါသည်။</p></li>
+<li><p>တစ်ခုထဲသော တန်ဖိုးများအတွက် <a class="reference internal" href="../../../_images/mActionContextHelp.png"><img alt="contextHelp" src="../../../_images/mActionContextHelp.png" style="width: 1.5em;" /></a> <sup>Add values from display</sup> ခလုတ်သည် ပိုမိုအသုံးဝင်ပါသည်</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionContextHelp.png"><img alt="contextHelp" src="../../../_images/mActionContextHelp.png" style="width: 1.5em;" /></a> <sup>Add values from display</sup> ခလုတ်ကိုနှိပ်ပါ။ Dialog ပျောက်သွားမည်ဖြစ်ပြီး မြေပုံနှင့် အပြန်အလှန်လုပ်ဆောင်နိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>DEM ၏ ထောင့်၌ရှိသော အရောင်ပေါ်တွင် click နှိပ်ပါ</p></li>
+<li><p>Transparency ဇယားတွင် click လုပ်ထားသော တန်ဖိုးများဖြင့် ဖြည့်သွားမည်ကို တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/click_transparency.png" src="../../../_images/click_transparency.png" />
+</figure>
+</li>
+<li><p>Dialog ကိုပိတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပြီး ပြောင်းလဲမှုများကို ကြည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/good_raster.png" src="../../../_images/good_raster.png" />
+</figure>
+<p>ယခုဆိုလျှင် ထောင့်များတွင် 100% အလင်းဖောက်သွားမည်ဖြစ်ပါသည်။</p>
+</li>
+</ul>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">7.2.6. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>အထက်ဖော်ပြပါများသည် Raster သင်္ကေတများဆိုင်ရာ အခြေခံ function အချို့ဖြစ်ကြပါသည်။ QGIS တွင် အခြား option များစွာရှိပါသည်၊ ၎င်းတို့မှာ paletted/unique တန်ဖိုးများအသုံးပြု၍ layer တစ်ခုအား သင်္ကေတထည့်ခြင်း၊ multispectral (ရောင်စဉ်တန်းများစွာပါသော) image တစ်ခုထဲရှိ band အမျိုးမျိုးကို အရောင်အမျိုးမျိုးဖြင့် ဖော်ပြခြင်း၊ သို့မဟုတ် အလိုအလျှောက် hillshade effect တစ်ခုပြုလုပ်ခြင်း (DEM raster ဖိုင်များဖြင့်သာ အသုံးဝင်ပါသည်) တို့ဖြစ်ကြပါသည်။</p>
+</section>
+<section id="reference">
+<h2><span class="section-number">7.2.7. </span>အကိုးအကား (Reference)<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
+<p>SRTM dataset ကို <a class="reference external" href="http://srtm.csi.cgiar.org/">http://srtm.csi.cgiar.org/</a> မှရယူထားပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">7.2.8. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် data ကို သင့်လျော်စွာ ပြသပေးနေသည်ကို မြင်တွေ့နိုင်ပြီဖြစ်ပါသည်၊ ၎င်းကို နောက်ထပ် မည်သို့ဆန်းစစ်လေ့လာမှုများ ပြုလုပ်နိုင်သည်ကို ဆက်လက်လေ့လာကြပါမည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_manipulation.html" class="btn btn-neutral float-left" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="terrain_analysis.html" class="btn btn-neutral float-right" title="7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/changing_symbology.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/changing_symbology.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/changing_symbology.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/rasters/changing_symbology.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/rasters/changing_symbology.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/rasters/changing_symbology.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/rasters/changing_symbology.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/rasters/changing_symbology.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/rasters/changing_symbology.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/rasters/changing_symbology.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/rasters/changing_symbology.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/009a8a8ec02fa104ea5dc76aaf1cad99" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

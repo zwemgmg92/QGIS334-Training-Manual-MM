@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/vector_classification/classification.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" href="../map_composer/index.html" />
+    <link rel="prev" title="3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)" href="label_tool.html" />
+  <meta name="description" content="QGIS testing documentation: 3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="attribute_data.html">3.1. သင်ခန်းစာ- Vector ဇယားအချက်အလက်များ (Lesson: Vector Attribute Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label_tool.html">3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nominal-data-follow-along-classifying-nominal-data">3.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Nominal Data များကို အတန်းအစားခွဲခြားခြင်း (Follow Along: Classifying Nominal Data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-more-classification">3.3.2. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- နောက်ထပ် အတန်းအစားခွဲခြားခြင်း (Try Yourself: More Classification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ratio-classification-follow-along-ratio-classification">3.3.3. <abbr title="Moderate level">★★☆</abbr> လုပ်လိုက်ကြည့်ပါ- Ratio Classification (Follow Along: Ratio Classification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classification-try-yourself-refine-the-classification">3.3.4. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Classification ကို ပိုမိုကောင်းမွန်အောင်လုပ်ဆောင်ခြင်း (Try Yourself: Refine the Classification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classification-follow-along-rule-based-classification">3.3.5. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- စည်းမျဉ်းအခြေခံသော Classification (Follow Along: Rule-based Classification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">3.3.6. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">3.3.7. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">3. </span>မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.3. </span>သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/vector_classification/classification.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="label_tool.html" class="btn btn-neutral float-left" title="3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../map_composer/index.html" class="btn btn-neutral float-right" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-classification">
+<h1><span class="section-number">3.3. </span>သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)<a class="headerlink" href="#lesson-classification" title="Link to this heading"></a></h1>
+<p>Label များသည် သီးခြားနေရာများ၏အမည်များကဲ့သို့ အချက်အလက်များအတွက် ကောင်းမွန်ပါသော်လည်း အရာရာတိုင်းအတွက် အသုံးမပြုနိုင်ပါ။ ဥပမာ၊ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> ဧရိယာတစ်ခုချင်းစီသည် ဘာအတွက်အသုံးပြုသလဲဆိုသည်ကို သိချင်လျှင် Label များအသုံးပြုပြီး သိနိုင်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/bad_landuse_labels.png" src="../../../_images/bad_landuse_labels.png" />
+</figure>
+<p>မြေပုံပေါ်ရှိ label များသည် ဖတ်ရှုရန် ခက်ခဲနေပြီး မြေပုံပေါ်တွင် များစွာသော landuse ဧရိယာအမျိုးမျိုးရှိနေလျှင် label များထပ်နေစေပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Vector data များကို ထိရောက်မှုရှိရှိ အတန်းအစားခွဲခြားတတ်စေရန်။</p>
+<section id="nominal-data-follow-along-classifying-nominal-data">
+<h2><span class="section-number">3.3.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Nominal Data များကို အတန်းအစားခွဲခြားခြင်း (Follow Along: Classifying Nominal Data)<a class="headerlink" href="#nominal-data-follow-along-classifying-nominal-data" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Symbology</span> tab သို့သွားပါ</p></li>
+<li><p><span class="guilabel">Single Symbol</span> ဟုပေါ်နေသော dropdown ကိုနှိပ်ပြီး <span class="guilabel">Categorized</span> သို့ပြောင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/categorised_styles.png" src="../../../_images/categorised_styles.png" />
+</figure>
+</li>
+<li><p>Panel အသစ်ထဲတွင် <span class="guilabel">Value</span> ကို <code class="docutils literal notranslate"><span class="pre">landuse</span></code> ဟုပြောင်းပြီး <span class="guilabel">Color ramp</span> ကို <span class="guilabel">Random colors</span> ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">Classify</span> ခလုတ်ကိုနှိပ်ပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/categorised_style_settings.png" src="../../../_images/categorised_style_settings.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p>
+<p>အောက်ပါပုံစံအတိုင်း တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/categorisation_result.png" src="../../../_images/categorisation_result.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> ၏ဘေးတွင်ရှိသော မြား (သို့မဟုတ် အပေါင်းလက္ခဏာ) ကိုနှိပ်ပါ၊ အောက်ပါအတိုင်း category (အမျိုးအစား) များကို တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/categories_explained.png" src="../../../_images/categories_explained.png" />
+</figure>
+<p>Landuse polygon များကို အရောင်ဖြည့်ထားပြီး အတန်းအစားခွဲခြားထားပါသည်၊ ထို့ကြောင့် landuse တူညီသော ဧရိယာများသည် အရောင်အတူတူဖြစ်နေပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Layers</span> panel သို့မဟုတ် <span class="guilabel">Layer Properties</span> dialog ထဲတွင် အရောင်အကွက်ကို click နှစ်ချက်နှိပ်ပြီး landuse ဧရိယာတစ်ခုချင်းစီ၏ သင်္ကေတကို ပြောင်းလဲနိုင်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/change_layer_color.png" src="../../../_images/change_layer_color.png" />
+</figure>
+</li>
+</ol>
+<p>ဗလာ (empty) ဖြစ်နေသော category (အမျိုးအစား) တစ်ခုရှိနေပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/empty_category.png" src="../../../_images/empty_category.png" />
+</figure>
+<p>ဗလာဖြစ်နေသော category သည် landuse တန်ဖိုးမသတ်မှတ်ထားသော သို့မဟုတ် <em>NULL</em> တန်ဖိုးရှိသော မည်သည့်အရာကိုမဆို အရောင်ခြယ်ရန် အသုံးပြုပါသည်။ ဗလာဖြစ်နေသော category ကိုဆက်လက်ထားရှိခြင်းသည် <em>NULL</em> တန်ဖိုးရှိသော ဧရိယာများကို မြေပုံပေါ်တွင်ဖော်ပြရာတွင် အသုံးဝင်ပါသည်။ ဗလာ သို့မဟုတ် <em>NULL</em> တန်ဖိုးကို သိသာစွာ ပြသလိုလျှင် အရောင်ပြောင်းလဲနိုင်ပါသည်။</p>
+<p>လုပ်ဆောင်ထားသည့် ပြောင်းလဲမှုများမပျက်သွားစေရန် မြေပုံကို သိမ်းဆည်းရန် မမေ့ပါနှင့်၊</p>
+</section>
+<section id="try-yourself-more-classification">
+<h2><span class="section-number">3.3.2. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- နောက်ထပ် အတန်းအစားခွဲခြားခြင်း (Try Yourself: More Classification)<a class="headerlink" href="#try-yourself-more-classification" title="Link to this heading"></a></h2>
+<p>အထက်တွင် လေ့လာခဲ့သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer ကို အတန်းအစားခွဲခြားပါ။ <code class="docutils literal notranslate"><span class="pre">building</span></code> field ပေါ်မူတည်ပြီး category ခွဲကာ <span class="guilabel">Spectral</span> အရောင်စဉ်တန်း ကိုအသုံးပြုပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ရလာဒ်ကို မြင်နိုင်ရန် Urban ဧရိယာကို zoom ချဲ့ကြည့်ပါ</p>
+</div>
+</section>
+<section id="ratio-classification-follow-along-ratio-classification">
+<h2><span class="section-number">3.3.3. </span><abbr title="Moderate level">★★☆</abbr> လုပ်လိုက်ကြည့်ပါ- Ratio Classification (Follow Along: Ratio Classification)<a class="headerlink" href="#ratio-classification-follow-along-ratio-classification" title="Link to this heading"></a></h2>
+<p>Classification (အတန်းအစားခွဲခြားခြင်း) အမျိုးအစား ၄ မျိုးရှိပါသည်- <em>nominal</em> ၊ <em>ordinal</em> ၊
+<em>interval</em> နှင့် <em>ratio</em> တို့ဖြစ်ပါသည်။</p>
+<p><strong>nominal</strong> classification တွင် object များကို အတန်းအစားခွဲသည့် category များသည် (name-based) အမည်ကိုအခြေခံပြီး order (အစဉ်) မရှိပါ။ ဥပမာ- မြို့အမည်များ၊ ခရိုင် code များ၊ အစရှိသည်တို့ဖြစ်သည်။ Nominal data များအတွက် အသုံးပြုသော သင်္ကေတများသည် order သို့မဟုတ် magnitude များကို ရည်ညွှန်းခြင်းမရှိသင့်ပါ။</p>
+<ul class="simple">
+<li><p>Point များအတွက် သင်္ကေတပုံသဏ္ဍာန်အမျိုးမျိုးကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Polygon များအတွက် အကွက်ပုံစံအမျိုးမျိုး သို့မဟုတ် အရောင်အမျိုးမျိုးကို အသုံးပြုနိင်ပါသည် (အရောင်ဖျော့နှင့် အရောင်ရင့် ရောမသုံးပါနှင့်)။</p></li>
+<li><p>Line များအတွက် dash (-) ပုံသဏ္ဍာန်အမျိုးမျိုး၊ အရောင်အမျိုးမျိုး (အရောင်ဖျော့နှင့် အရောင်ရင့် ရောမသုံးပါနှင့်) နှင့် line တစ်လျှောက် သင်္ကေတအမျိုးမျိုးကို အသုံးပြုနိုင်ပါသည်။</p></li>
+</ul>
+<p><strong>ordinal</strong> classification တွင် category များကို order တစ်ခုဖြင့် စီစဉ်ထားပါသည်။ ဥပမာ- ကမ္ဘာ့မြို့များ၏ ကုန်သွယ်ရေး၊ ခရီးသွားလာရေး၊ ယဉ်ကျေးမှု၊ စသည်တို့အတွက် အရေးကြီးမှုပေါ်မူတည်၍ ၎င်းမြို့များကို အဆင့်သတ်မှတ်ချက်တစ်ခုပေးထားပါသည်။ Ordinal data များအတွက် အသုံးပြုသော သင်္ကေတများသည် order ကိုရည်ညွှန်းပြီး magnitude ကိုရည်ညွှန်းခြင်းမရှိပါ။</p>
+<ul class="simple">
+<li><p>Point များအတွက် ဖျော့ရာမှ ရင့်သွားသော အရောင်များပါဝင်သော သင်္ကေတများကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Polygon များအတွက် အဆင့်အလိုက် ဖြစ်သော (graduated) အရောင်များ (အဖျော့ မှ အရင့်သို့) ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Line များအတွက် အဆင့်အလိုက် ဖြစ်သော (graduated) အရောင်များ (အဖျော့ မှ အရင့်သို့) ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+</ul>
+<p><strong>interval</strong> classification တွင် ဂဏန်းများသည် အပေါင်း၊ အနှုတ် နှင့် သုည တန်ဖိုးများရှိသော စကေးတစ်ခုအတွင်းရှိသည်။ ဥပမာ- ပင်လယ်ရေမျက်နှာပြင် အထက်ရှိ အမြင့်/ အောက်ရှိ အမြင့်၊ ဒီဂရီ ဆဲလ်စီးယပ် ဖြင့်အပူချိန်။ Interval data များအတွက် အသုံးပြုသော သင်္ကေတများသည် order နှင့် magnitude ကိုရည်ညွှန်းပါသည်။</p>
+<ul class="simple">
+<li><p>Point များအတွက် အရွယ်အစားကွဲပြားသော သင်္ကေတများ (အသေး မှ အကြီး သို့) ကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Polygon များအတွက် အဆင့်အလိုက် ဖြစ်သော အရောင်များ (အဖျော့ မှ အရင့် သို့) ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Line များအတွက် အထူ (thickness) ကို အသုံးပြုနိုင်ပါသည် (အပါး မှ အထူ သို့)</p></li>
+</ul>
+<p><strong>ratio</strong> classification တွင် ဂဏန်းများသည် အပေါင်းနှင့် သုည တန်ဖိုးသာရှိသော စကေးတစ်ခုအတွင်းရှိသည်။ ဥပမာ- ပကတိသုည (0 ဒီဂရီ ကယ်ဗင်) အထက်ရှိ အပူချိန်၊ point တစ်ခုမှ အကွာအဝေး၊ လအလိုက် လမ်းတစ်ခုပေါ်ရှိ ပျမ်းမျှ ယာဉ်အသွားအလာ ပမာဏ၊ အစရှိသည်တို့ဖြစ်သည်။ Interval data များအတွက် အသုံးပြုသော သင်္ကေတများသည် order နှင့် magnitude ကိုရည်ညွှန်းပါသည်။</p>
+<ul class="simple">
+<li><p>Point များအတွက် အရွယ်အစားကွဲပြားသော သင်္ကေတများ (အသေး မှ အကြီး သို့) ကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Polygon များအတွက် အဆင့်အလိုက် ဖြစ်သော အရောင်များ (အဖျော့ မှ အရင့် သို့) သို့မဟုတ် အရွယ်အစားအမျိုးမျိုးဖြင့် ရုပ်ပုံများ ကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Line များအတွက် အထူ (thickness) ကို အသုံးပြုနိုင်ပါသည် (အပါး မှ အထူ သို့)။</p></li>
+</ul>
+<p>အထက်ပါဥပမာထဲတွင် <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ထဲရှိ record တစ်ခုချင်းစီကို ၎င်း၏ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> attribute ပေါ်အခြေခံပြီး အရောင်ခြယ်သရန် nominal classification ကိုအသုံးပြုခဲ့ပါသည်။ ယခုအခါ record များကို ဧရိယာအလိုက် အတန်းအစားခွဲခြားရန် ratio classification ကို အသုံးပြုပါမည်။</p>
+<p>Layer ကို အတန်အစားပြန်ခွဲခြားမည်ဖြစ်သောကြောင့် မသိမ်းဆည်းရသေးလျှင် ရှိနေပြီးသား အတန်းအစားများပျက်ကုန်မည်ဖြစ်သည်။ လက်ရှိ classification ကို သိမ်းဆည်းရန်-</p>
+<ol class="arabic">
+<li><p>Layer ၏ properties dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Style</span> drop-down menu ထဲမှ <span class="guilabel">Save Style …</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Rename Current…</span> ကိုရွေးချယ်ပြီး <code class="docutils literal notranslate"><span class="pre">land</span> <span class="pre">usage</span></code> ဟုရိုက်ထည့်ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+<p>အမျိုးအစားများနှင့် ၎င်းတို့၏သင်္ကေတများကို layer ၏ property များထဲတွင် သိမ်းဆည်းထားပြီဖြစ်သည်။</p>
+</li>
+<li><p><span class="guilabel">Style</span> drop-down menu ၏ <span class="guilabel">Add…</span> ပေါ်တွင် နှိပ်ပြီး <code class="docutils literal notranslate"><span class="pre">ratio</span></code> အမည်ဖြင့် style အသစ်တစ်ခုဖန်တီးပါ။ ၎င်းသည် classification အသစ်ကို သိမ်းဆည်းလိမ့်မည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ကိုပိတ်ပါ။</p></li>
+</ol>
+<p>Landuse ဧရိယာများကို အရွယ်အစားဖြင့် အတန်းအစားခွဲခြားလိုပါသည်၊ သို့သော် ပြဿနာတစ်ခုမှာ အရွယ်အစား field တစ်ခုမပါရှိပါ၊ ထို့ကြောင့် အရွယ်အစား field အသစ်ကိုဖန်တီးပါမည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် Attribute ဇယားကို ဖွင့်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a>  <sup>Toggle editing</sup> ခလုတ်ကို နှိပ်ပြီး edit mode ကိုဝင်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> <sup>New field</sup> ခလုတ်ကိုအသုံးပြု၍ ဒဿမအမျိုးအစားဖြင့် column အသစ်တစ်ခုကို ထည့်သွင်းပြီး <code class="docutils literal notranslate"><span class="pre">AREA</span></code> ဟုအမည်ပေးပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/add_area_column.png" src="../../../_images/add_area_column.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+<p>Field အသစ်ကို ထည့်သွင်းပေးမည်ဖြစ်သည် (ဇယား၏ ညာဘက်အစွန်ဆုံးတွင်ရှိသည်၊ မမြင်ရလျှင် ရေပြင်ညီ scroll လုပ်ပြီးကြည့်နိုင်ပါသည်)။ သို့သော် အခုအချိန်တွင် <em>NULL</em> တန်ဖိုးများအများအပြားပါရှိနေပါသည်။</p>
+<p>ထိုပြဿနာကိုဖြေရှင်းရန် ဧရိယာများကို တွက်ချက်ရန်လိုအပ်ပါသည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="calculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး field calculator ကိုဖွင့်ပါ။</p>
+<p>အောက်ပါ dialog ပွင့်လာပါမည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/calculate_field_dialog.png" src="../../../_images/calculate_field_dialog.png" />
+</figure>
+</li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Update existing fields</span> ကိုအမှန်ခြစ်ပါ</p></li>
+<li><p>Field များ drop-down menu ထဲတွင် <span class="guilabel">AREA</span> ကိုရွေးချယ်ပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/field_calculator_top.png" src="../../../_images/field_calculator_top.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Expression</span> tab အောက်တွင် စာရင်းထဲရှိ <span class="guilabel">Geometry</span> function များအုပ်စုကို ဖြန့်ကြည့်ပြီး <span class="menuselection">$area</span> ကို ရှာပါ။</p></li>
+<li><p>၎င်းကို click နှစ်ချက်နှိပ်လိုက်ပါက <span class="guilabel">Expression</span> field ထဲတွင် ပေါ်လာမည်ဖြစ်သည်</p>
+<figure class="align-center">
+<img alt="../../../_images/geometry_area_select.png" src="../../../_images/geometry_area_select.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Attribute ဇယားထဲရှိ <code class="docutils literal notranslate"><span class="pre">AREA</span></code> field ကိုကြည့်လိုက်ပါက တန်ဖိုးများထည့်သွင်းပြီးသားဖြစ်နေမည်ကို တွေ့ရပါလိမ့်မည် (Data များပေါ်လာစေရန် column ၏ ခေါင်းစီးကို click လုပ်ပေးရန် လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်)</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အဆိုပါ ဧရိယာများသည် project ၏ ဧရိယာယူနစ် setting များအတိုင်းဖြစ်သည်၊ ထို့ကြောင့် စတုရန်းမီတာ သို့မဟုတ် စတုရန်းဒီဂရီ ယူနစ်များဖြင့် ဖြစ်နိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p>တည်းဖြတ်မှုများကိုသိမ်းဆည်းရန် <a class="reference internal" href="../../../_images/mActionSaveEdits.png"><img alt="saveEdits" src="../../../_images/mActionSaveEdits.png" style="width: 1.5em;" /></a> ကိုနှိပ်ပါ၊ ထို့နောက် <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup> ကိုနှိပ်ပြီး edit mode မှ ထွက်ပါ။</p></li>
+<li><p>Attribute ဇယားကို ပိတ်လိုက်ပါ။</p></li>
+</ol>
+<p>ရရှိပြီးသော data ကို <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အားပုံဖော်ပြသရာတွင် အသုံးပြုကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် <span class="guilabel">Layer properties</span> dialog မှ <span class="guilabel">Symbology</span> tab ကိုဖွင့်ပါ</p></li>
+<li><p>Classification style ကို <span class="guilabel">Categorized</span> မှ <span class="guilabel">Graduated</span> သို့ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">Value</span> တွင် <code class="docutils literal notranslate"><span class="pre">AREA</span></code> ဟုပြောင်းပါ</p></li>
+<li><p><span class="guilabel">Color ramp</span> အောက်တွင် <span class="guilabel">Create New Color Ramp…</span> ဆိုသည့် option ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/area_gradient_select.png" src="../../../_images/area_gradient_select.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Gradient</span> ကိုရွေးချယ် (ရွေးချယ်ထားပြီးသားမရှိလျှင်) ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။ အောက်ပါပုံအတိုင်း မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/gradient_color_select.png" src="../../../_images/gradient_color_select.png" />
+</figure>
+<p>၎င်းကို ဧရိယာများကို ညွှန်းဆိုပြသရာတွင် အသုံးပြုမည်ဖြစ်ပြီး ဧရိယာငယ်များကို <span class="guilabel">Color 1</span> အနေဖြင့်ပြသပြီး ဧရိယာအကြီးများကို <span class="guilabel">Color 2</span> အနေဖြင့်ပြသမည်ဖြစ်သည်။</p>
+</li>
+<li><p>သင့်တော်သော အရောင်များကို ရွေးချယ်ပါ</p>
+<p>ဥပမာထဲတွင် ရလာဒ်သည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/gradient_color_example.png" src="../../../_images/gradient_color_example.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Color ramp</span> tab အောက်ရှိ <span class="guilabel">Save Color Ramp…</span> ကိုရွေးချယ်ခြင်းဖြင့် color ramp (အရောင်စဉ်တန်း) ကို သိမ်းဆည်းနိုင်ပါသည်။ Color ramp အတွက် သင့်တော်သော အမည်တစ်ခုပေးပြီး <span class="guilabel">Save</span> ကိုနှိပ်ပါ။ <span class="guilabel">All Color Ramps</span> အောက်တွင် တူညီသော color ramp ကို အလွယ်တကူရွေးချယ်နိုင်ပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Mode</span> အောက်တွင် <a class="reference internal" href="../../../_images/mClassificationEqualCount.png"><img alt="equalCount" src="../../../_images/mClassificationEqualCount.png" style="width: 1.5em;" /></a> <sup>Equal Count (Quantile)</sup> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Classify</span> ကိုနှိပ်ပါ။</p>
+<p>အောက်ပါပုံစံအတိုင်း တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/landuse_gradient_selected.png" src="../../../_images/landuse_gradient_selected.png" />
+</figure>
+<p>ကျန်သောအရာများကို ဒီအတိုင်း ထားခဲ့ပါ။</p>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ-</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/gradient_result_map.png" src="../../../_images/gradient_result_map.png" />
+</figure>
+</section>
+<section id="classification-try-yourself-refine-the-classification">
+<h2><span class="section-number">3.3.4. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Classification ကို ပိုမိုကောင်းမွန်အောင်လုပ်ဆောင်ခြင်း (Try Yourself: Refine the Classification)<a class="headerlink" href="#classification-try-yourself-refine-the-classification" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>အဓိပ္ပါယ်ရှိသော classification တစ်ခုမရမချင်း <span class="guilabel">Mode</span> နှင့် <span class="guilabel">Classes</span> တန်ဖိုးများကို ပြောင်းလဲကြည့်ပါ။</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>အသုံးပြုသော setting များသည် မတူညီနိုင်ပါ၊ <span class="guilabel">Classes</span> = <code class="docutils literal notranslate"><span class="pre">6</span></code> နှင့် <span class="guilabel">Mode</span> = <span class="guilabel">Natural Breaks (Jenks)</span> (အရောင်အတူတူအသုံးပြုထားပြီး) တန်ဖိုးများဖြင့်ဆိုလျှင် မြေပုံသည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/gradient_map_new_mode.png" src="../../../_images/gradient_map_new_mode.png" />
+</figure>
+</div>
+</section>
+<section id="classification-follow-along-rule-based-classification">
+<h2><span class="section-number">3.3.5. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- စည်းမျဉ်းအခြေခံသော Classification (Follow Along: Rule-based Classification)<a class="headerlink" href="#classification-follow-along-rule-based-classification" title="Link to this heading"></a></h2>
+<p>Classification တစ်ခုအတွက် criteria (သတ်မှတ်ချက်) အများအပြားကို ပေါင်းစပ်ခြင်းသည် အသုံးဝင်စေပါသည်၊ သို့သော် သာမန် classification ပြုလုပ်ခြင်းသည် attribute တစ်ခုကိုသာ ထည့်သုံးပါသည်။ ထိုနေရာတွင် စည်းမျဉ်းအခြေခံသော (rule-based) classification သည် အသုံးဝင်လာပါသည်။</p>
+<p>ဤသင်ခန်းစာတွင် အခြားလူနေအိမ်ဧရိယာများနှင့် အခြား landuse အမျိုးအစား (ဧရိယာပေါ်မူတည်ပြီး) များမှ Swellendam မြို့ကို အလွယ်တကူ သတ်မှတ်ဖော်ထုတ်မည့် နည်းလမ်းဖြင့် <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ကိုဖော်ပြသွားမည်ဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Symbology</span> tab သို့ပြောင်းပါ</p></li>
+<li><p>Classification style ကို <span class="guilabel">Rule-based</span> သို့ပြောင်းပါ</p>
+<p>QGIS သည် layer အတွက် လုပ်ဆောင်မည့် လက်ရှိ classification ကိုကိုယ်စားပြုမည့် rule (စည်းမျဉ်း) များကို အလိုအလျောက်ပြသပေးပါလိမ့်မည်။ ဥပမာ- အထက်ပါ လေ့ကျင့်ခန်းကို ပြီးစီးပါက အောက်ပါပုံစံအတိုင်း မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/rule_based_classification.png" src="../../../_images/rule_based_classification.png" />
+</figure>
+</li>
+<li><p>Rule များအားလုံးကို ရွေးချယ်ရန် click နှိပ်ပြီး ဖိဆွဲပါ။</p></li>
+<li><p>ရှိနေပြီးသား rule များအားလုံးကို ဖယ်ရှားရန် <a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> <sup>Remove selected rules</sup> ခလုတ်ကိုအသုံးပြုပါ။</p></li>
+</ol>
+<p>စိတ်ကြိုက် rule များကိုထည့်သွင်းကြည့်ကြပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add rule</sup> ခလုတ်ကို နှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Edit rule</span> dialog ပေါ်လာပါမည်</p></li>
+<li><p><span class="guilabel">Label</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">Swellendam</span> <span class="pre">city</span></code> ကိုထည့်ပါ</p></li>
+<li><p><span class="guilabel">Filter</span> စာသားဘေးရှိ <a class="reference internal" href="../../../_images/mIconExpression.png"><img alt="expression" src="../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး <span class="guilabel">Expression String Builder</span> ကိုဖွင့်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span> <span class="pre">=</span> <span class="pre">'Swellendam'</span></code> ရိုက်ထည့်ပြီး validate လုပ်ပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/query_builder_example.png" src="../../../_images/query_builder_example.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Edit rule</span> dialog သို့ ပြန်သွားပြီး ၎င်းကို မီးခိုးပြာရောင် (grey-blue) အရင့် တစ်ခုထားပြီး border (ဘောင်) ကိုဖယ်ရှားလိုက်ပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/rule_style_result.png" src="../../../_images/rule_style_result.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>အောက်ပါ rule များကို ထည့်သွင်းရန် အထက်ဖော်ပြပါအဆင့်များအတိုင်း ထပ်မံလုပ်ဆောင်ပါ-</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;landuse&quot;</span> <span class="pre">=</span> <span class="pre">'residential'</span> <span class="pre">AND</span> <span class="pre">&quot;name&quot;</span> <span class="pre">&lt;&gt;</span> <span class="pre">'Swellendam'</span></code> ဟူသော သတ်မှတ်ချက်ဖြင့် <strong>Other residential</strong> အညွှန်း။ <span class="guilabel">Fill color</span> ကို မီးခိုးပြာ (blue-grey) အဖျော့ ရွေးချယ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;landuse&quot;</span> <span class="pre">&lt;&gt;</span> <span class="pre">'residential'</span> <span class="pre">AND</span> <span class="pre">&quot;AREA&quot;</span> <span class="pre">&gt;=</span> <span class="pre">605000</span></code> ဟူသော သတ်မှတ်ချက်ဖြင့် <strong>Big non residential areas</strong> အညွှန်း။ အလယ်စိမ်း (mid-green) အရောင်တစ်ခု ရွေးချယ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/criterion_refined_midway.png" src="../../../_images/criterion_refined_midway.png" />
+</figure>
+<p>အဆိုပါ filter များသည် rule နှင့်ကိုက်ညီသော ဧရိယာများကို မြေပုံပေါ်တွင် ဖော်ပြပေးမည်ဖြစ်သည် (605000 စတုရန်းမီတာထက်ငယ်သော non-residential ဧရိယာများသည် rule များထဲတွင် ပါဝင်မည်မဟုတ်ပါ)</p>
+</li>
+<li><p><strong>Small non residential areas</strong> ဟူသော rule အသစ်တစ်ခုကိုအသုံးပြုပြီး ကျန်ရှိနေသော feature များကို ရယူပါမည်။ Filter expression တစ်ခုအစား <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Else</span> ကိုအမှန်ခြစ်ပါ။ အဆိုပါ category ကို သင့်တော်သော အစိမ်းဖျော့ရောင် တစ်ခုပေးထားပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/criterion_else.png" src="../../../_images/criterion_else.png" />
+</figure>
+</li>
+</ol>
+<p>Rule များသည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေသင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/criterion_refined_list.png" src="../../../_images/criterion_refined_list.png" />
+</figure>
+</li>
+<li><p>Apply ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>မြေပုံသည် အောက်ပါပုံစံအတိုင်းဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/rule_based_map_result.png" src="../../../_images/rule_based_map_result.png" />
+</figure>
+<p>ယခုဆိုလျှင် အထင်ကရအဖြစ်ဆုံး လူနေ (residential) ဧရိယာနှင့် အခြား လူမနေသော (non-residential) ဧရိယာများကို ၎င်းတို့၏ အရွယ်အစားအရ အရောင်ခြယ်သထားသော Swellendam ပါဝင်သည့် မြေပုံတစ်ခုကို ရရှိပြီဖြစ်ပါသည်။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">3.3.6. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Symbology (သင်္ကေတဆိုင်ရာများ) သည် layer တစ်ခု၏ attribute များကို အလွယ်တကူ ဖော်ပြပေးစေနိုင်ပါသည်။ ရွေးချယ်လိုက်သော attribute တစ်ခုခုကိုအသုံးပြုပြီး feature များ၏ သိသာထင်ရှားမှုကို မြေပုံဖတ်ရှုသူများအား နားလည်စေနိုင်ပါသည်။ ကြုံတွေ့နေရသည့် ပြဿနာပေါ်မူတည်ပြီး အမျိုးမျိုးသော classification နည်းလမ်းများကို အသုံးချနိုင်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">3.3.7. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် ကြည့်ကောင်းသော မြေပုံတစ်ခုကို ရရှိပြီဖြစ်ပါသည်၊ သို့သော် ထိုမြေပုံကို QGIS အပြင်ဘက်သို့ print ထုတ်နိုင်သော format တစ်ခုဖြင့်မည်သို့ ထုတ်ယူမည်ကို နောက်လာမည့် သင်ခန်းစာတွင် တွေ့ရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="label_tool.html" class="btn btn-neutral float-left" title="3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../map_composer/index.html" class="btn btn-neutral float-right" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_classification/classification.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_classification/classification.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_classification/classification.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/vector_classification/classification.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/vector_classification/classification.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/vector_classification/classification.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_classification/classification.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/vector_classification/classification.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_classification/classification.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/vector_classification/classification.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/vector_classification/classification.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/ca5e334e1c75287da1d48106e80efcc1" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.2. Lesson: Georeferencing a Map &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/map_georeferencing.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="14.3. Lesson: Digitizing Forest Stands" href="stands_digitizing.html" />
+    <link rel="prev" title="14.1. Lesson: Forestry Module Presentation" href="forestry_intro.html" />
+  <meta name="description" content="QGIS testing documentation: 14.2. Lesson: Georeferencing a Map">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">14. Module: Forestry Application</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="forestry_intro.html">14.1. Lesson: Forestry Module Presentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">14.2. Lesson: Georeferencing a Map</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scan-the-map">14.2.1. <abbr title="Basic level">★☆☆</abbr> Scan the map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-georeferencing-the-scanned-map">14.2.2. <abbr title="Basic level">★☆☆</abbr> Follow Along: Georeferencing the scanned map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">14.2.3. In Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">14.2.4. What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stands_digitizing.html">14.3. Lesson: Digitizing Forest Stands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updating_stands.html">14.4. Lesson: Updating Forest Stands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systematic_sampling.html">14.5. Lesson: Systematic Sampling Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forest_maps.html">14.6. Lesson: Creating Detailed Maps with the Atlas Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameters_calculation.html">14.7. Lesson: Calculating the Forest Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_lidar.html">14.8. Lesson: DEM from LiDAR Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="results_map.html">14.9. Lesson: Map Presentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>Module: Forestry Application</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.2. </span>Lesson: Georeferencing a Map</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/forestry/map_georeferencing.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="forestry_intro.html" class="btn btn-neutral float-left" title="14.1. Lesson: Forestry Module Presentation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stands_digitizing.html" class="btn btn-neutral float-right" title="14.3. Lesson: Digitizing Forest Stands" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-georeferencing-a-map">
+<h1><span class="section-number">14.2. </span>Lesson: Georeferencing a Map<a class="headerlink" href="#lesson-georeferencing-a-map" title="Link to this heading"></a></h1>
+<p>A common forestry task would be the update of the information for a forestry
+area. It is possible that the previous information for that area dates several
+years back and was collected analogically (that is, in paper) or perhaps it
+was digitized but all you have left is the paper version of that inventory data.</p>
+<p>Most likely you would like to use that information in your GIS to, for example,
+compare later with later inventories. This means that you will need to digitize
+the information at hand using your GIS software. But before you can start the
+digitizing, there is an important first step to be done, scanning and
+georeferencing your paper map.</p>
+<p><strong>The goal for this lesson:</strong> To learn to use the Georeferencer tool in QGIS.</p>
+<section id="scan-the-map">
+<h2><span class="section-number">14.2.1. </span><abbr title="Basic level">★☆☆</abbr> Scan the map<a class="headerlink" href="#scan-the-map" title="Link to this heading"></a></h2>
+<p>The first task you will have to do is to scan your map. If your map is too big,
+then you can scan it in different parts but keep in mind that you will have to
+repeat preprocessing and georeferencing tasks for each part. So if possible,
+scan the map in as few parts as possible.</p>
+<p>If you are going to use a different map that the one provided with this manual,
+use your own scanner to scan the map as an image file, a resolution of 300 DPI
+will do. If your map has colors, scan the image in color so that you can later
+use those colors to separate information from your map into different  layers
+(for ex., forest stands, contour lines, roads…).</p>
+<p>For this exercise you will use a previously scanned map, you can find it as
+<code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif</span></code> in the data folder <code class="file docutils literal notranslate"><span class="pre">exercise_data/forestry</span></code></p>
+</section>
+<section id="follow-along-georeferencing-the-scanned-map">
+<h2><span class="section-number">14.2.2. </span><abbr title="Basic level">★☆☆</abbr> Follow Along: Georeferencing the scanned map<a class="headerlink" href="#follow-along-georeferencing-the-scanned-map" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Open QGIS and set the project’s CRS to <code class="docutils literal notranslate"><span class="pre">EPSG:3067</span> <span class="pre">-</span> <span class="pre">ETRS89</span> <span class="pre">/</span> <span class="pre">TM35FIN(E,N)</span></code>
+in <span class="menuselection">Project ► Properties ► CRS</span>, which is the currently
+used CRS in Finland.</p>
+<figure class="align-center">
+<img alt="../../../_images/f_1.png" src="../../../_images/f_1.png" />
+</figure>
+</li>
+<li><p>Save the QGIS project as <code class="file docutils literal notranslate"><span class="pre">map_digitizing.qgs</span></code>.</p></li>
+</ol>
+<p>You will use the georeferencing tool from QGIS named <span class="guilabel">Georeferencer</span>.
+To georeference the map:</p>
+<ol class="arabic">
+<li><p>Open the georeference tool, <span class="menuselection">Layer ►</span> <a class="reference internal" href="../../../_images/mGeorefRun.png"><img alt="georefRun" src="../../../_images/mGeorefRun.png" style="width: 1.5em;" /></a>
+<span class="menuselection">Georeferencer…</span>.</p>
+<figure class="align-center">
+<img alt="../../../_images/georeferencer.png" src="../../../_images/georeferencer.png" />
+</figure>
+</li>
+<li><p>Add the map image file, <code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif</span></code>, as the image to georeference,
+<span class="menuselection">File ► Open raster</span>.</p></li>
+<li><p>Click <span class="guilabel">OK</span>.</p></li>
+</ol>
+<p>Next you should define the transformation settings for georeferencing the map:</p>
+<ol class="arabic">
+<li><p>Open <span class="menuselection">Settings ► Transformation settings</span>.</p></li>
+<li><p>Set the <span class="guilabel">Transformation type</span> to <code class="docutils literal notranslate"><span class="pre">Linear</span></code> and
+the <span class="guilabel">Resampling method</span> to <code class="docutils literal notranslate"><span class="pre">Nearest</span> <span class="pre">neighbour</span></code>.</p></li>
+<li><p>Press the <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> <sup>Select CRS</sup> button next to
+the <span class="guilabel">Target SRS</span> option and select the <code class="docutils literal notranslate"><span class="pre">EPSG:2392</span> <span class="pre">-</span> <span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> CRS;
+it is the CRS that was used in Finland back in 1994 when this map was created.</p></li>
+<li><p>Click the icon next to the <span class="guilabel">Output raster</span> box, go to the folder and
+create the folder <code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry\digitizing</span></code> and name the file
+as <code class="file docutils literal notranslate"><span class="pre">rautjarvi_georef.tif</span></code>.</p></li>
+<li><p>Check <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Load in QGIS when done</span></p></li>
+<li><p>Leave the rest of parameters as default.</p>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard10.png" src="../../../_images/Clipboard10.png" />
+</figure>
+</li>
+<li><p>Click <span class="guilabel">OK</span>.</p></li>
+</ol>
+<p>The map contains several cross-hairs marking the coordinates in the map,
+we will use those to georeference this image. You can use the zooming and
+panning tools as you usually do in QGIS to inspect the image in the
+Georeferencer’s window.</p>
+<ol class="arabic">
+<li><p>Zoom in to the left lower corner of the map and note that there is a cross-hair
+with a coordinate pair, X and Y, that as mentioned before are in <code class="docutils literal notranslate"><span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span>
+<span class="pre">zone</span> <span class="pre">2</span></code> CRS. You will use this point as the first ground control point for the
+georeferencing your map.</p></li>
+<li><p>Select the <span class="guilabel">Add point</span> tool and click in the intersection of the
+cross-hairs (pan and zoom as needed).</p></li>
+<li><p>In the <span class="guilabel">Enter map coordinates</span> dialogue write the coordinates that
+appear in the map (X: 2557000 and Y: 6786000) and their CRS
+(<code class="docutils literal notranslate"><span class="pre">EPSG:2392</span> <span class="pre">-</span> <span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code>)</p>
+<figure class="align-center">
+<img alt="../../../_images/fillcoordinates.png" src="../../../_images/fillcoordinates.png" />
+</figure>
+</li>
+<li><p>Click <span class="guilabel">OK</span>.</p>
+<p>The first coordinate for the georeferencing is now ready.</p>
+</li>
+<li><p>Look for other black cross-hairs in the image, they are separated 1000
+meters from each other both in North and East direction. You should be able
+to calculate the coordinates of those points in relation to the first one.</p></li>
+<li><p>Zoom out in the image and move to the right or the top until you find other cross-hair,
+and estimate how many kilometres you have moved. Try to get ground control
+points as far from each other as possible.</p></li>
+<li><p>Digitize at least three more ground control points in the same way you did
+the first one. You should end up with something similar to this:</p>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard09.png" src="../../../_images/Clipboard09.png" />
+</figure>
+</li>
+</ol>
+<p>With already three digitized ground control points you will be able to see the
+georeferencing error as a red line coming out of the points. The error in pixels
+can be seen also in the <span class="guilabel">GCP table</span> in the <span class="guilabel">dX[pixels]</span> and
+<span class="guilabel">dY[pixels]</span> columns. The error in pixels should not be higher than
+10 pixels. If it is, you should review the points you have digitized and the
+coordinates you have entered to find what the problem is. You can use the image
+above as a guide.</p>
+<p>Once you are happy with your control points, you can save them for later use:</p>
+<ol class="arabic simple">
+<li><p>Go to <span class="menuselection">File ► Save GCP points as…</span>.</p></li>
+<li><p>In the folder <code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry\digitizing</span></code>, name the file
+<code class="file docutils literal notranslate"><span class="pre">rautjarvi_map.tif.points</span></code>.</p></li>
+</ol>
+<p>Finally, georeference your map:</p>
+<ol class="arabic">
+<li><p>Go to <span class="menuselection">File ► Start georeferencing</span>.</p></li>
+<li><p>Note that you named the file already as <code class="file docutils literal notranslate"><span class="pre">rautjarvi_georef.tif</span></code>
+when you edited the Georeferencer settings.</p>
+<p>Now you can see the map in QGIS project as a georeferenced raster.
+Note that the raster seems to be slightly rotated, but that is simply because
+the data is in <code class="docutils literal notranslate"><span class="pre">KKJ</span> <span class="pre">/</span> <span class="pre">Finland</span> <span class="pre">zone</span> <span class="pre">2</span></code> and your project is in
+<code class="docutils literal notranslate"><span class="pre">ETRS89</span> <span class="pre">/</span> <span class="pre">TM35FIN(E,N)</span></code>.</p>
+</li>
+<li><p>To check that your data is properly georeferenced, you can</p>
+<ol class="arabic simple">
+<li><p>Open the aerial image in the <code class="file docutils literal notranslate"><span class="pre">exercise_data\forestry</span></code> folder,
+named <code class="file docutils literal notranslate"><span class="pre">rautjarvi_aerial.tif</span></code>.</p></li>
+<li><p>Your map and this image should match quite well: set the map transparency to 50%
+and compare it to the aerial image.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/Clipboard14.png" src="../../../_images/Clipboard14.png" />
+</figure>
+</li>
+<li><p>Save the changes to your QGIS project, you will continue from this point for the
+next lesson.</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">14.2.3. </span>In Conclusion<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>You have now georeferenced a paper map, making it possible to use it as a map
+layer in QGIS.</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">14.2.4. </span>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>In the next lesson, you will digitize the forest stands in your map as polygons
+and add the inventory data to them.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="forestry_intro.html" class="btn btn-neutral float-left" title="14.1. Lesson: Forestry Module Presentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stands_digitizing.html" class="btn btn-neutral float-right" title="14.3. Lesson: Digitizing Forest Stands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/map_georeferencing.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/forestry/map_georeferencing.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/forestry/map_georeferencing.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/forestry/map_georeferencing.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/forestry/map_georeferencing.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/forestry/map_georeferencing.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/forestry/map_georeferencing.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/forestry/map_georeferencing.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/forestry/map_georeferencing.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/forestry/map_georeferencing.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/forestry/map_georeferencing.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/40db3954bfe164c433c17df5ca757eb2" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

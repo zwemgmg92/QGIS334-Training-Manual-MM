@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/index.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)" href="reproject_transform.html" />
+    <link rel="prev" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" href="../create_vector_data/actions.html" />
+  <meta name="description" content="QGIS testing documentation: 6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reproject_transform.html">6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_analysis.html">6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_analysis.html">6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatial_statistics.html">6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/vector_analysis/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../create_vector_data/actions.html" class="btn btn-neutral float-left" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reproject_transform.html" class="btn btn-neutral float-right" title="6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-module-vector-analysis">
+<h1><span class="section-number">6. </span>မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)<a class="headerlink" href="#vector-module-vector-analysis" title="Link to this heading"></a></h1>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် feature အနည်းငယ်ကို edit ပြုလုပ်ပြီး ၎င်း feature များဖြင့် မည်သည့်အရာများလုပ်ဆောင်နိုင်သည်ကို သိရှိလိုမည်ဖြစ်သည်။ Attribute များပါရှိသော feature များရှိခြင်းသည် ကောင်းမွန်ပါသည်၊ သို့သော် အရာရာတိုင်းကိုတော့ ပြောပြပေးနိုင်မည်မဟုတ်ပါ။</p>
+<p>GIS ၏အဓိက အားသာချက်မှာ - <em>GIS သည် မေးခွန်းများကို ဖြေပေးနိုင်သည်</em>။</p>
+<p>နောက်ထပ်လာမည့် မော်ဂျူး ၃ ခုအတွက် GIS function များကိုအသုံးပြုပြီး <em>သုတေသနမေးခွန်း</em> တစ်ခုကို ဖြေဆိုရန် အားထုတ်သွားပါမည်။ ဥပမာ- သင့်အနေဖြင့် အိမ်ခြံမြေပွဲစားတစ်ယောက်ဖြစ်ပြီး သင့်ဖောက်သည်များအတွက် Swellendam တွင် အောက်ပါသတ်မှတ်ချက်များနှင့်ကိုက်ညီသော လူနေအိမ်တစ်ခုကို ရှာဖွေနေပါသည်-</p>
+<ol class="arabic simple">
+<li><p>Swellendam ထဲတွင် တည်ရှိရန်လိုအပ်ပါသည်။</p></li>
+<li><p>ကျောင်းနှင့် သင့်တော်သည့် အကွာအဝေးအတွင်း ရှိရပါမည် (၁ ကီလိုမီတာ ဆိုပါစို့)။</p></li>
+<li><p>အရွယ်အစားအားဖြင့် ၁၀၀ စတုရန်းမီတာ ထက်ပိုကြီးရပါမည်။</p></li>
+<li><p>အဓိကကားလမ်းမနှင့် ၅၀ မီတာအောက် ပိုနီးရပါမည်။</p></li>
+<li><p>စားသောက်ဆိုင်နှင့် ၅၀၀ မီတာအောက် ပိုနီးရပါမည်။</p></li>
+</ol>
+<p>နောက်ထပ်လာမည့် မော်ဂျူးများတွင် လူနေအိမ်ဖွဲ့ဖြိုးတိုးတက်မှုအတွက် သင့်လျော်သော စိုက်ပျိုးမြေနေရာများကို ရှာဖွေရန် GIS analysis tool များ၏ အစွမ်းကို ထိန်းချုပ်အသုံးချသွားပါမည်။</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reproject_transform.html">6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#follow-along-projections">6.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ပုံရိပ်ချစနစ်များ (Follow Along: Projections)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#on-the-fly-reprojection-follow-along-on-the-fly-reprojection">6.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- “On the Fly” Reprojection (Follow Along: “On the Fly” Reprojection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#dataset-crs-follow-along-saving-a-dataset-to-another-crs">6.1.3. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Dataset တစ်ခုကို အခြား CRS အဖြစ်သိမ်းဆည်းခြင်း (Follow Along: Saving a Dataset to Another CRS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#projection-follow-along-creating-your-own-projection">6.1.4. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- ကိုယ်ပိုင် Projection ဖန်တီးခြင်း (Follow Along: Creating Your Own Projection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#in-conclusion">6.1.5. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#further-reading">6.1.6. ထပ်မံဖတ်ရှုရမည်များ (Further Reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproject_transform.html#what-s-next">6.1.7. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic_analysis.html">6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#gis-the-gis-process">6.2.1. <abbr title="Basic level">★☆☆</abbr> GIS လုပ်ငန်းစဉ် (The GIS Process)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#the-problem">6.2.2. <abbr title="Basic level">★☆☆</abbr> ပြဿနာ (The Problem)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#data">6.2.3. <abbr title="Basic level">★☆☆</abbr> Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#project-data-follow-along-start-a-project-and-get-the-data">6.2.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Project တစ်ခုစတင်ပြီး Data များကိုရယူပါ (Follow Along: Start a Project and get the Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#layer-crs-try-yourself-convert-layers-crs">6.2.5. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Layer များ၏ CRS ကိုပြောင်းလဲပါ (Try Yourself: Convert Layers’ CRS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#follow-along-analyzing-the-problem-distances-from-schools-and-roads">6.2.6. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ပြဿနာကိုဆန်းစစ်လေ့လာခြင်း - ကျောင်းများနှင့် လမ်းများမှ အကွာအဝေးများ (Follow Along: Analyzing the Problem: Distances From Schools and Roads)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#try-yourself-distance-from-schools">6.2.7. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- ကျောင်းများမှ အကွာအဝေး (Try Yourself: Distance from schools)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#follow-along-overlapping-areas">6.2.8. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ထပ်နေသော ဧရိယာများ (Follow Along: Overlapping Areas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#follow-along-extract-the-buildings">6.2.9. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အဆောက်အဦများကို ထုတ်ယူခြင်း (Follow Along: Extract the Buildings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#try-yourself-further-filter-our-buildings">6.2.10. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- အဆောက်အဦများကို ထပ်မံ၍ စစ်ထုတ်ခြင်း (Try Yourself: Further Filter our Buildings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#follow-along-select-buildings-of-the-right-size">6.2.11. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အရွယ်အစားမှန်ကန်သော အဆောက်အဦများကို ရွေးချယ်ပါ (Follow Along: Select Buildings of the Right Size)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#try-yourself">6.2.12. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#in-conclusion">6.2.13. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_analysis.html#what-s-next">6.2.14. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_analysis.html">6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#tool-data-follow-along-the-tools-and-the-data">6.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Tool များနှင့် Data များ (Follow Along: The Tools and the Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#point-point-calculate-the-shortest-path-point-to-point">6.3.2. <abbr title="Basic level">★☆☆</abbr> အတိုဆုံးလမ်းကြောင်းကို တွက်ချက်ပါ (point မှ point သို့) (Calculate the shortest path (point to point))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#try-yourself-fastest-path">6.3.3. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- အမြန်ဆုံးလမ်းကြောင်း (Try Yourself: Fastest path)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#follow-along-advanced-options">6.3.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- အဆင့်မြင့်ရွေးချယ်စရာများ (Follow Along: Advanced options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#shortest-path-with-speed-limit">6.3.5. <abbr title="Advanced level">★★★</abbr> အမြန်နှုန်းကန့်သတ်ချက်ဖြင့် အတိုဆုံးလမ်းကြောင်း (Shortest path with speed limit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#service-area-layer-service-area-from-layer">6.3.6. <abbr title="Moderate level">★★☆</abbr> Service area (layer မှ) (Service area (from layer))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#in-conclusion">6.3.7. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_analysis.html#what-s-next">6.3.8. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_statistics.html">6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#dataset-follow-along-create-a-test-dataset">6.4.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- စမ်းသပ် Dataset တစ်ခုဖန်တီးခြင်း (Follow Along: Create a Test Dataset)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#follow-along-basic-statistics">6.4.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အခြေခံစာရင်းအင်းအချက်အလက် (Follow Along: Basic Statistics)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#point-statistics-follow-along-compute-statistics-on-distances-between-points">6.4.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Point များအကြား အကွာအဝေးတွင် statistics တွက်ချက်ပါ (Follow Along: Compute statistics on distances between points)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#layer-follow-along-nearest-neighbor-analysis-within-layer">6.4.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အနီးဆုံးအနီးအနား ဆန်းစစ်လေ့လာခြင်း (layer အတွင်း) (Follow Along: Nearest Neighbor Analysis (within layer))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#follow-along-mean-coordinates">6.4.5. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ပျမ်းမျှ ကိုဩဒိနိတ် (Follow Along: Mean Coordinates)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#follow-along-image-histograms">6.4.6. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ကြိမ်နှုန်းပြဂရပ်များ (Follow Along: Image Histograms)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#follow-along-spatial-interpolation">6.4.7. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တည်နေရာဆိုင်ရာ သွယ်ဝိုက်တွက်ချက်ခြင်း (Follow Along: Spatial Interpolation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#interpolation-try-yourself-different-interpolation-methods">6.4.8. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မတူညီသော Interpolation နည်းလမ်းများ (Try Yourself: Different interpolation methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#in-conclusion">6.4.9. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_statistics.html#what-s-next">6.4.10. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../create_vector_data/actions.html" class="btn btn-neutral float-left" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reproject_transform.html" class="btn btn-neutral float-right" title="6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/index.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/index.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/index.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/vector_analysis/index.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/vector_analysis/index.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/vector_analysis/index.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_analysis/index.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/vector_analysis/index.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_analysis/index.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/vector_analysis/index.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/vector_analysis/index.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/ff9034342f4d83a001089902701b401f" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

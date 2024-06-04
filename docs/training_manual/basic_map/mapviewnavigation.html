@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/basic_map/mapviewnavigation.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)" href="symbology.html" />
+    <link rel="prev" title="2.2. သင်ခန်းစာ- ပထမဆုံး layer များအား ထည့်သွင်းခြင်း (Lesson: Adding your first layers)" href="preparation.html" />
+  <meta name="description" content="QGIS testing documentation: 2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">2.1. သင်ခန်းစာ- Interface ကို ခြုံငုံကြည့်ရှုခြင်း (Lesson: An Overview of the Interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preparation.html">2.2. သင်ခန်းစာ- ပထမဆုံး layer များအား ထည့်သွင်းခြင်း (Lesson: Adding your first layers)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#navigation-tool-follow-along-basic-navigation-tools">2.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အခြေခံ Navigation Tool များ (Follow Along: Basic Navigation Tools)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">2.3.2. နိဂုံးချုပ် (In Conclusion)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="symbology.html">2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">2. </span>မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.3. </span>သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/basic_map/mapviewnavigation.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="preparation.html" class="btn btn-neutral float-left" title="2.2. သင်ခန်းစာ- ပထမဆုံး layer များအား ထည့်သွင်းခြင်း (Lesson: Adding your first layers)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="symbology.html" class="btn btn-neutral float-right" title="2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-navigating-the-map-canvas">
+<h1><span class="section-number">2.3. </span>သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)<a class="headerlink" href="#lesson-navigating-the-map-canvas" title="Link to this heading"></a></h1>
+<p>ဤအပိုင်းတွင် မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (navigation) အတွက် အသုံးပြုမည့် အခြေခံ QGIS navigation tool များအကြောင်း အဓိကပါဝင်ပါမည်။ ထို tool များသည် layer များကို စကေးအမျိုးမျိုး၌ အမြင်ပိုင်းအရကြည့်ရှုစေနိုင်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာ၏ ရည်မှန်းချက်-</strong> QGIS အတွင်း Pan နှင့် Zoom tool များကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရန်နှင့် မြေပုံစကေးအကြောင်း လေ့လာရန်။</p>
+<section id="navigation-tool-follow-along-basic-navigation-tools">
+<h2><span class="section-number">2.3.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အခြေခံ Navigation Tool များ (Follow Along: Basic Navigation Tools)<a class="headerlink" href="#navigation-tool-follow-along-basic-navigation-tools" title="Link to this heading"></a></h2>
+<p>မြေပုံမြင်ကွင်းအတွင်း မည်သို့ navigate ပြုလုပ်မည်ကို မလေ့လာမီတွင် ဤလက်တွေ့လေ့ကျင့်ခန်းအတွင်း သုံးစွဲနိုင်မည့် layer အချို့ကို ထည့်သွင်းကြည့်ရအောင်။</p>
+<ol class="arabic">
+<li><p>Project အလွတ်အသစ်တစ်ခုကိုဖွင့်ပြီး <a class="reference internal" href="preparation.html#tm-prepare-a-map"><span class="std std-ref">Create a Map</span></a> တွင် လေ့လာခဲ့သော အဆင့်များအတိုင်း <code class="docutils literal notranslate"><span class="pre">protected_areas</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">roads</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer များကို project ထဲသို့ထည့်သွင်းပါ။ ရလာဒ်မြင်ကွင်း သည် အောက်တွင်ပြထားသောပုံ <a class="reference internal" href="#figure-roads-buildings-added"><span class="std std-numref">Fig. 2.2</span></a> အတိုင်း ဖြစ်သင့်ပါသည် (အရောင်များမတူညီခြင်းသည် အရေးမကြီးပါ)-</p>
+<figure class="align-center" id="id1">
+<span id="figure-roads-buildings-added"></span><img alt="../../../_images/roads_buildings_added.png" src="../../../_images/roads_buildings_added.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">ထည့်သွင်းထားသော Protected area များ၊ လမ်းများနှင့် အဆောက်အဦများ</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>ဦးစွာ Pan tool အသုံးပြုပုံကို လေ့လာကြည့်ရအောင်။</p>
+<ol class="arabic simple">
+<li><p><cite>Map Navigation Toolbar</cite> ထဲတွင် <a class="reference internal" href="../../../_images/mActionPan.png"><img alt="pan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a> <sup>Pan</sup> ခလုတ်ကို အသုံးပြုနိုင်စေရန် ဖွင့်ထားပေးပါ။</p></li>
+<li><p>Mouse ကို မြေပုံမြင်ကွင်းဧရိယာ၏အလယ်သို့ ရွှေ့ပါ။</p></li>
+<li><p>ဘယ်ဘက် click ကိုဖိနှိပ်ထားပြီး မြေပုံကိုရွှေ့ချင်သည့်လားရာအတိုင်း mouse ကို ဆွဲရွှေ့ပါ။</p></li>
+</ol>
+<p>နောက်ထပ်အနေဖြင့် ထည့်သွင်းထားသော layer များကို zoom ချဲ့ကြည့်ပြီး အနီးကပ်ကြည့်ကြည့်ရအောင်။</p>
+<ol class="arabic">
+<li><p><cite>Map Navigation Toolbar</cite> ထဲတွင် <a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom In</sup> ခလုတ်ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p>အဆောက်အဦများနှင့် လမ်းများ အများဆုံးရှိနေသော ဘယ်ဘက်အပေါ်ဧရိယာသို့ mouse ကိုရွှေ့ပါ။</p></li>
+<li><p>ဘယ်ဘက် click ကိုဖိနှိပ်ထားပါ။</p></li>
+<li><p>ထို့နောက် mouse ကို ဆွဲရွှေ့ပါ၊ အဆောက်အဦနှင့်လမ်းများ များပြားသောဧရိယာကို လွှမ်းခြုံမိသော ထောင့်မှန်စတုဂံတစ်ခု ပေါ်လာလိမ့်မည် (<a class="reference internal" href="#figure-zoom-in-mapview"><span class="std std-numref">Fig. 2.3</span></a>)။</p>
+<figure class="align-center" id="id2">
+<span id="figure-zoom-in-mapview"></span><img alt="../../../_images/zoom_in.png" src="../../../_images/zoom_in.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Zoom ချဲ့ကြည့်ခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>ဘယ်ဘက် click ကို လွှတ်လိုက်ပါ။ ထောင့်မှန်စတုဂံအတွင်း ဧရိယာကို zoom ချဲ့ပေးပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/zoomed_in.png" src="../../../_images/zoomed_in.png" />
+</figure>
+</li>
+<li><p>Zoom ချုံ့ရန် <a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a> <sup>Zoom Out</sup> ခလုတ်ကိုရွေးချယ်ပြီး Zoom ချဲ့ခြင်းတွင် ပြုလုပ်ခဲ့သည့်အတိုင်း လုပ်ဆောင်ပါ။</p></li>
+</ol>
+<p>Pan လုပ်ခြင်း ၊ zoom ချဲ့ကြည့်ခြင်း သို့မဟုတ် zoom ချုံ့ကြည့်ခြင်း ပြုလုပ်တိုင်း QGIS သည် ထိုမြင်ကွင်းများကို history (မှတ်တမ်း) တစ်ခုထဲတွင် သိမ်းဆည်းပေးထားပါသည်။ ထို့ကြောင့် ယခင်ကြည့်ရှုခဲ့သော မြင်ကွင်းတစ်ခုကို နောက်ပြန် ပြန်ခေါ်နိုင်စေပါသည်။</p>
+<ol class="arabic simple">
+<li><p><cite>Map Navigation Toolbar</cite> ထဲတွင် <a class="reference internal" href="../../../_images/mActionZoomLast.png"><img alt="zoomLast" src="../../../_images/mActionZoomLast.png" style="width: 1.5em;" /></a> <sup>Zoom Last</sup> ခလုတ်ကိုနှိပ်ခြင်းဖြင့် ယခင်ကကြည့်ရှုခဲ့သော မြင်ကွင်းကို ပြန်ရောက်စေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomNext.png"><img alt="zoomNext" src="../../../_images/mActionZoomNext.png" style="width: 1.5em;" /></a> <sup>Zoom Next</sup> ခလုတ်ကိုနှိပ်ခြင်းဖြင့် history ထဲတွင် နောက်ထပ်လာမည့်မြင်ကွင်းဆီသို့ ရွှေ့ပေးပါသည်။</p></li>
+</ol>
+<p>တခါတရံတွင် data များကို ရှာဖွေကြည့်ရှုပြီးလျှင် ထည့်သွင်းထားသော layer အားလုံး၏ extent ကို မြင်ရနိုင်ရန် မြင်ကွင်းကို reset (နဂိုမှပြန်စ) ပြုလုပ်ပေးရန် လိုအပ်ပါသည်။ Zoom out tool ကို အကြိမ်များစွာသုံးပြီး လုပ်နေမည့်အစား QGIS တွင် ထိုသို့လုပ်ဆောင်ရန်အတွက် ခလုတ်တစ်ခုပါရှိပါသည်။</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom Full Extent</sup> ခလုတ်ပေါ်တွင် နှိပ်ပါ။</p></li>
+</ol>
+<p>Zoom အချုံ့/အချဲ့ ပြုလုပ်တိုင်း Status bar (အခြေအနေပြဘား) ထဲရှိ <span class="guilabel">Scale</span> တန်ဖိုးသည် ပြောင်းလဲသွားသည်ကို သတိထားကြည့်ကြည့်ပါ။
+<span class="guilabel">Scale</span> တန်ဖိုးသည် မြေပုံစကေးကို ကိုယ်စားပြုပါသည်။
+ယေဘုယျအားဖြင့် <span class="guilabel">:</span> ၏ညာဘက်ဂဏန်းသည် မြေပုံမြင်ကွင်းထဲတွင် မြင်ရသော အရာဝတ္ထုသည် မြေပြင်ရှိ တကယ့်အရာဝတ္ထုထက် အဆမည်မျှသေးငယ်သည်ကို ကိုယ်စားပြုပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/map_scale.png" src="../../../_images/map_scale.png" />
+</figure>
+<p>ဤ field တွင် ကိုယ်တိုင်ရိုက်ထည့်၍လည်း မြေပုံစကေးကို သတ်မှတ်ပေးနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Status bar ထဲတွင် <span class="guilabel">Scale</span> စာသား field ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">50000</span></code> ဟုရိုက်ထည့်ပြီး <kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ပါ။ ထိုသို့လုပ်ခြင်းဖြင့် မြေပုံမြင်ကွင်းထဲရှိ feature များကို ရိုက်ထည့်ထားသောစကေးအတိုင်း ပြန်ရေးဆွဲပေးလိမ့်မည်ဖြစ်သည်။</p></li>
+<li><p>နောက်တနည်းအနေဖြင့် ကြိုတင်သတ်မှတ်ထားသော မြေပုံစကေးများကို ကြည့်ရှုနိုင်ရန် <span class="guilabel">Scale</span> field ၏ option မြားပေါ်တွင် click နှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/map_scale_options.png" src="../../../_images/map_scale_options.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">1:5000</span> ကိုရွေးချယ်ပါ။ ထိုသို့လုပ်ခြင်းသည်လည်း မြေပုံမြင်ကွင်းထဲရှိ မြေပုံစကေးကို update လုပ်ပေးပါလိမ့်မည်။</p></li>
+</ol>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် မြေပုံမြင်ကွင်းအတွင်း အခြေခံ navigation များကို သိရှိသွားပြီ ဖြစ်သည်။ Navigation နှင့်ပတ်သက်သော အခြားနည်းလမ်းများအကြောင်း လေ့လာရန် အသုံးပြုသူလမ်းညွှန်ထဲရှိ <a class="reference internal" href="../../user_manual/map_views/map_view.html#zoom-pan"><span class="std std-ref">Zooming and Panning</span></a> အပိုင်းကို လေ့လာကြည့်ပါ။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">2.3.2. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>မြေပုံမြင်ကွင်းကို မည်သို့ ညွှန်ပြခြင်းလုပ်ဆောင်ရမည်ကို သိခြင်းသည် အရေးကြီးပါသည်။ အဘယ့်ကြောင့်ဆိုသော် ၎င်းသည် layer များကို ရှာဖွေခြင်းနှင့် အမြင်အရ စစ်ဆေးခြင်းများလုပ်ဆောင်နိုင်သောကြောင့်ဖြစ်သည်။ ကနဦး data ဖော်ထုတ်ခြင်း သို့မဟုတ် spatial analysis (တည်နေရာဆိုင်ရာလေ့လာဆန်းစစ်ခြင်း) တစ်ခု၏ ရလာဒ်ကို အတည်ပြုခြင်း အတွက် ၎င်းကိုအသုံးပြုနိုင်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="preparation.html" class="btn btn-neutral float-left" title="2.2. သင်ခန်းစာ- ပထမဆုံး layer များအား ထည့်သွင်းခြင်း (Lesson: Adding your first layers)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="symbology.html" class="btn btn-neutral float-right" title="2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/basic_map/mapviewnavigation.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/basic_map/mapviewnavigation.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/basic_map/mapviewnavigation.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/basic_map/mapviewnavigation.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/basic_map/mapviewnavigation.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/basic_map/mapviewnavigation.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/basic_map/mapviewnavigation.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/basic_map/mapviewnavigation.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/basic_map/mapviewnavigation.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/basic_map/mapviewnavigation.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/basic_map/mapviewnavigation.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/3f611c7cfca9093e6a897b74ff30e373" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

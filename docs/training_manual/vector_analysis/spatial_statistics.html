@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/spatial_statistics.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7. မော်ဂျူး - Raster များ (Module: Rasters)" href="../rasters/index.html" />
+    <link rel="prev" title="6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)" href="network_analysis.html" />
+  <meta name="description" content="QGIS testing documentation: 6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="reproject_transform.html">6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_analysis.html">6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_analysis.html">6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dataset-follow-along-create-a-test-dataset">6.4.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- စမ်းသပ် Dataset တစ်ခုဖန်တီးခြင်း (Follow Along: Create a Test Dataset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-basic-statistics">6.4.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အခြေခံစာရင်းအင်းအချက်အလက် (Follow Along: Basic Statistics)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#point-statistics-follow-along-compute-statistics-on-distances-between-points">6.4.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Point များအကြား အကွာအဝေးတွင် statistics တွက်ချက်ပါ (Follow Along: Compute statistics on distances between points)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-follow-along-nearest-neighbor-analysis-within-layer">6.4.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အနီးဆုံးအနီးအနား ဆန်းစစ်လေ့လာခြင်း (layer အတွင်း) (Follow Along: Nearest Neighbor Analysis (within layer))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-mean-coordinates">6.4.5. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ပျမ်းမျှ ကိုဩဒိနိတ် (Follow Along: Mean Coordinates)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-image-histograms">6.4.6. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ကြိမ်နှုန်းပြဂရပ်များ (Follow Along: Image Histograms)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-spatial-interpolation">6.4.7. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တည်နေရာဆိုင်ရာ သွယ်ဝိုက်တွက်ချက်ခြင်း (Follow Along: Spatial Interpolation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolation-try-yourself-different-interpolation-methods">6.4.8. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မတူညီသော Interpolation နည်းလမ်းများ (Try Yourself: Different interpolation methods)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">6.4.9. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">6.4.10. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">6. </span>မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6.4. </span>သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/vector_analysis/spatial_statistics.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="network_analysis.html" class="btn btn-neutral float-left" title="6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../rasters/index.html" class="btn btn-neutral float-right" title="7. မော်ဂျူး - Raster များ (Module: Rasters)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-spatial-statistics">
+<h1><span class="section-number">6.4. </span>သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)<a class="headerlink" href="#lesson-spatial-statistics" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linfiniti နှင့် S Motala (Cape Peninsula University of Technology) တို့မှ ဖန်တီးပေးထားသော သင်ခန်းစာဖြစ်ပါသည်။</p>
+</div>
+<p>Spatial statistics သည် Vector dataset တစ်ခုကို ဆန်းစစ်လေ့လာရန်နှင့် နားလည်စေရန် လုပ်ဆောင်ပေးနိုင်ပါသည်။ QGIS တွင် statistics ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်းအတွက် အသုံးဝင်သော tool များစွာ ရှိပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> <span class="guilabel">Processing Toolbox</span> ထဲရှိ QGIS ၏ spatial statistics tool များကို အသုံးပြုတတ်စေရန်</p>
+<section id="dataset-follow-along-create-a-test-dataset">
+<h2><span class="section-number">6.4.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- စမ်းသပ် Dataset တစ်ခုဖန်တီးခြင်း (Follow Along: Create a Test Dataset)<a class="headerlink" href="#dataset-follow-along-create-a-test-dataset" title="Link to this heading"></a></h2>
+<p>အလုပ်လုပ်ဆောင်မည့် dataset တစ်ခုရရှိရန် ကျပန်း point များအစုတစ်ခုကို ဖန်တီးပါမည်။</p>
+<p>ထိုသို့လုပ်ဆောင်ရာတွင် point များကိုဖန်တီးလိုသော ဧရိယာကိုသတ်မှတ်ရန် polygon dataset တစ်ခုလိုအပ်ပါမည်။</p>
+<p>Streets (လမ်းများ) ဖြင့် လွှမ်းခြုံထားသော ဧရိယာကို အသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p>Project အသစ်တစ်ခုကိုဖွင့်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">roads</span></code> dataset နှင့် <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster/SRTM/</span></code> ထဲရှိ <code class="docutils literal notranslate"><span class="pre">srtm_41_19</span></code> (ပင်လယ်ရေမျက်နှာပြင်အမြင့်ပြ ဒေတာ) ကို ထည့်သွင်းပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SRTM DEM layer သည် roads layer နှင့် CRS ချင်းမတူညီသည်ကို တွေ့ရကောင်းတွေ့ရနိုင်ပါသည်။ QGIS သည် ထို layer နှစ်ခုလုံးကို CRS တစ်ခုထဲအဖြစ်သို့ projection ပြောင်းလဲပေးပါသည်။ နောက်လာမည့် လေ့ကျင့်ခန်းများအတွက် ထိုကွာခြားမှုသည် အရေးမကြီးပါ၊ သို့သော် projection ပြောင်းလဲကြည့်ပါ (ဤမော်ဂျူးထဲရှိ အစောပိုင်းသင်ခန်းစာတွင် ပြသခဲ့သည့်အတိုင်း)။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Processing</span> toolbox ကိုဖွင့်ပါ</p></li>
+<li><p>Road များအားလုံးကို လွှမ်းခြုံထားသော ဧရိယာတစ်ခုရရှိရန် <span class="menuselection">Vector Geometry ► Minimum bounding geometry</span> tool ကိုအသုံးပြုပြီး <span class="guilabel">Geometry Type</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">Convex</span> <span class="pre">Hull</span></code> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/roads_hull_setup.png" src="../../../_images/roads_hull_setup.png" />
+</figure>
+<p>Output ကိုမသတ်မှတ်ပေးထားပါက <em>Processing</em> သည် ယာယီ layer များကို ဖန်တီးပေးမည်ဖြစ်ပါသည်။ Layer များကို ချက်ချင်းသိမ်းဆည်းမည်လား သို့မဟုတ် နောက်တစ်ဆင့်မှ သိမ်းဆည်းမည်လား ဆိုသည်မှာ မိမိသဘောအတိုင်းဖြစ်သည်။</p>
+</li>
+</ol>
+<section id="point-creating-random-points">
+<h3>ကျပန်း point များဖန်တီးခြင်း (Creating random points)<a class="headerlink" href="#point-creating-random-points" title="Link to this heading"></a></h3>
+<ul>
+<li><p>အဆိုပါ ဧရိယာအတွင်း ကျပန်း point 100 ဖန်တီးရန် <span class="menuselection">Vector Creation ► Random points in layer bounds</span> tool ကိုအသုံးပြုပြီး minimum distance (အနည်းဆုံးအကွာအဝေး) ကို <code class="docutils literal notranslate"><span class="pre">0.0</span></code> ထားပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/random_points_setup.png" src="../../../_images/random_points_setup.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အဝါရောင်သတိပေးချက်သင်္ကေတ သည် အဆိုပါ parameter သည် အကွာအဝေးများနှင့် စပ်လျဉ်းသည်ဟု ဆိုလိုပါသည်။ <span class="guilabel">Bounding geometry</span> layer သည် Geographical Coordinate System တစ်ခုထဲတွင် ရှိနေသည်ကို algorithm မှ သတိပေးခြင်းသာ ဖြစ်ပါသည်။ ဤဥပမာအတွက် အဆိုပါ parameter ကိုအသုံးပြုမည်မဟုတ်သည့်အတွက် ၎င်းကိုလျစ်လျူရှုထားနိုင်ပါသည်။</p>
+</div>
+</li>
+</ul>
+<p>လိုအပ်ပါက ထုတ်ယူထားသော ကျပန်း point များကို ပိုမိုကောင်းမွန်စွာမြင်နိုင်စေရန် legend ၏ အပေါ်သို့ရွှေ့ပေးပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/random_points_result.png" src="../../../_images/random_points_result.png" />
+</figure>
+</section>
+<section id="data-sampling-the-data">
+<h3>Data နမူနာကောက်ယူခြင်း (Sampling the data)<a class="headerlink" href="#data-sampling-the-data" title="Link to this heading"></a></h3>
+<p>Raster မှ နမူနာ dataset တစ်ခုကိုဖန်တီးရန် <span class="menuselection">Raster Analysis ► Sample raster values</span> algorithm ကိုအသုံးပြုရန်လိုအပ်ပါသည်။ ဤ tool သည် point များ၏တည်နေရာများ၌ရှိသော raster ကိုနမူနာကောက်ယူပေးပြီး raster ထဲရှိ band အရေအတွက်ပေါ်မူတည်၍ raster တန်ဖိုးများကို field အသစ် (များ) ထဲသို့ ပေါင်းထည့်ပေးပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Sample raster values</span> algorithm dialog ကိုဖွင့်ပါ</p></li>
+<li><p>Sampling point များပါဝင်သော layer အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">Random_points</span></code> ကိုရွေးပါ၊ တန်ဖိုးများရယူမည့် band အနေဖြင့် SRTM raster ကိုရွေးပါ။ Field အသစ်၏ default အမည်မှာ <code class="docutils literal notranslate"><span class="pre">rvalue_N</span></code> ဖြစ်ပြီး <code class="docutils literal notranslate"><span class="pre">N</span></code> သည် raster band အရေအတွက်ဖြစ်သည်။ ရှေ့ဆက်စာလုံး (prefix) ၏အမည်ကို လိုအပ်သလို ပြောင်းလဲနိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/sample_raster_dialog.png" src="../../../_images/sample_raster_dialog.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>Raster ဖိုင်မှ နမူနာကောက်ယူထားသော data များကို <code class="docutils literal notranslate"><span class="pre">Sampled</span> <span class="pre">Points</span></code> layer ၏ attribute ဇယားထဲတွင် စစ်ဆေးကြည့်နိုင်ပါသည်။ ၎င်း data များသည် သင်ရွေးချယ်ပေးထားသောအမည်ဖြင့် field အသစ်တစ်ခုထဲတွင် ရှိနေပါလိမ့်မည်။</p>
+<p>ဖြစ်နိုင်ချေရှိသော sample layer ကို အောက်တွင်ပြသထားပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/random_samples_result.png" src="../../../_images/random_samples_result.png" />
+</figure>
+<p>Sample point များကို <code class="docutils literal notranslate"><span class="pre">rvalue_1</span></code> field ကိုအသုံးပြုပြီး အတန်းအစားခွဲခြား (classify) ထားပြီး အနီရောင် point များသည် ပိုမြင့်သော အမြင့်၌ ရှိကြပါသည်။</p>
+<p>အဆိုပါ sample layer ကို ကျန်ရှိသော statistics လေ့ကျင့်ခန်းများအတွက် အသုံးပြုသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+<section id="follow-along-basic-statistics">
+<h2><span class="section-number">6.4.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အခြေခံစာရင်းအင်းအချက်အလက် (Follow Along: Basic Statistics)<a class="headerlink" href="#follow-along-basic-statistics" title="Link to this heading"></a></h2>
+<p>အဆိုပါ layer အတွက် အခြေခံ statistics များကို ရယူပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Attributes Toolbar</span> ထဲရှိ <a class="reference internal" href="../../../_images/mActionSum.png"><img alt="sum" src="../../../_images/mActionSum.png" style="width: 1.2em;" /></a> <sup>Show statistical summary</sup> icon ကိုနှိပ်ပါ။ Panel အသစ်တစ်ခုပေါ်လာပါမည်။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် source အဖြစ် <code class="docutils literal notranslate"><span class="pre">Sampled</span> <span class="pre">Points</span></code> layer ကိုသတ်မှတ်ပါ။</p></li>
+<li><p>Field combo box ထဲတွင် <em>rvalue_1</em> field ကိုရွေးချယ်ပါ။ ထို field သည် statistics တွက်ချက်လိုသော field ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Statistics</span> Panel ကို တွက်ချက်ထားသော statistics များဖြင့် အလိုအလျောက် update လုပ်ပေးသွားမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/basic_statistics_results.png" src="../../../_images/basic_statistics_results.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../../../_images/mActionEditCopy.png"><img alt="editCopy" src="../../../_images/mActionEditCopy.png" style="width: 1.5em;" /></a> <sup>Copy Statistics To Clipboard</sup> ခလုတ်ကိုနှိပ်ပြီး တန်ဖိုးများကို copy လုပ်နိုင်ပြီး ရလာဒ်များကို spreadsheet တစ်ခုထဲတွင် paste လုပ်နိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p>လုပ်ဆောင်မှုပြီးသွားသောအခါ <span class="guilabel">Statistics</span> Panel ကိုပိတ်လိုက်ပါ။</p></li>
+</ol>
+<p>အမျိုးမျိုးသော statistics များရရှိနိုင်ပါသည်-</p>
+<dl class="simple">
+<dt>Count</dt><dd><p>Sample များ/တန်ဖိုးများ၏ အရေအတွက်</p>
+</dd>
+<dt>Sum</dt><dd><p>တန်ဖိုးများစုစုပေါင်း</p>
+</dd>
+<dt>Mean</dt><dd><p>ပျမ်းမျှတန်ဖိုးသည် တန်ဖိုးများစုစုပေါင်းကို တန်ဖိုးများအရေအတွက်ဖြင့် စား ခြင်းဖြစ်သည်။</p>
+</dd>
+<dt>Median</dt><dd><p>တန်ဖိုးများအားလုံးကို အငယ်ဆုံးမှ အကြီးဆုံးသို့ စီ သောအခါ အလယ်၌ရှိသော တန်ဖိုး (သို့မဟုတ် အရေအတွက်သည် စုံဂဏန်းဖြစ်လျှင် အလယ်၌ရှိသော တန်ဖိုး ၂ ခု၏ ပျမ်းမျှကိန်း) သည် တန်ဖိုးများ၏ median (တစ်ဝက်ကိန်း) ဖြစ်သည်။</p>
+</dd>
+<dt>St Dev (pop)</dt><dd><p>စံတိမ်းချက် ဖြစ်သည်။ တန်ဖိုးများသည် Mean တန်ဖိုးနှင့် မည်မျှနီးကပ်စွာ စုဖွဲ့နေသည်ကို ဖော်ပြခြင်းဖြစ်သည်။ စံတိမ်းချက် နည်းလေလေ တန်ဖိုးများသည် mean တန်ဖိုးနှင့် နီးကပ်လေလေ ဖြစ်သည်။</p>
+</dd>
+<dt>Minimum</dt><dd><p>အနည်းဆုံးတန်ဖိုး</p>
+</dd>
+<dt>Maximum</dt><dd><p>အများဆုံးတန်ဖိုး</p>
+</dd>
+<dt>Range</dt><dd><p>အနည်းဆုံးနှင့် အများဆုံး တန်ဖိုးများကြား ကွာခြားချက်</p>
+</dd>
+<dt>Q1</dt><dd><p>ဒေတာတစ်ခု၏ ပထမလေးပုံတစ်ပုံ/၂၅ ရာခိုင်နှုန်း (First Quartile)</p>
+</dd>
+<dt>Q3</dt><dd><p>ဒေတာတစ်ခု၏ တတိယလေးပုံတစ်ပုံ/၇၅ ရာခိုင်နှုန်း (Third Quartile)</p>
+</dd>
+<dt>Missing (null) values</dt><dd><p>Data မရှိသော (null) တန်ဖိုးများအရေအတွက်</p>
+</dd>
+</dl>
+</section>
+<section id="point-statistics-follow-along-compute-statistics-on-distances-between-points">
+<h2><span class="section-number">6.4.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Point များအကြား အကွာအဝေးတွင် statistics တွက်ချက်ပါ (Follow Along: Compute statistics on distances between points)<a class="headerlink" href="#point-statistics-follow-along-compute-statistics-on-distances-between-points" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>ယာယီ point layer အသစ်တစ်ခုကိုဖန်တီးပါ။</p></li>
+<li><p>Edit mode ကိုဖွင့်ပြီး အခြား point များအကြားတစ်နေရာရာတွင် point ၃ ခုကို digitize လုပ်ပါ။</p>
+<p>နောက်တစ်နည်းအားဖြင့် ယခင်ကလုပ်ဆောင်ခဲ့သော ကျပန်း point ထုတ်ယူခြင်းနည်းလမ်းကို အသုံးပြုပြီး point အရေအတွက်တွင် <strong>three</strong> points သာ သတ်မှတ်ပေးပါ။</p>
+</li>
+<li><p>Layer အသစ်ကို သင်ကြိုက်နှစ်သက်ရာ format ဖြင့် <span class="guilabel">distance_points</span> အဖြစ် သိမ်းဆည်းပါ။</p></li>
+</ol>
+<p>Layer ၂ ခုထဲရှိ point များအကြား အကွာအဝေးအတွက် statistics ကိုထုတ်ယူရန်-</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Vector Analysis ► Distance matrix</span> tool ကိုဖွင့်ပါ။</p></li>
+<li><p>Input layer အဖြစ် <code class="docutils literal notranslate"><span class="pre">distance_points</span></code> layer ကိုရွေးချယ်ပါ၊ target layer အဖြစ် <code class="docutils literal notranslate"><span class="pre">Sampled</span> <span class="pre">Points</span></code> layer ကိုရွေးချယ်ပါ။</p></li>
+<li><p>အောက်ပါပုံအတိုင်း သတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/distance_matrix_setup.png" src="../../../_images/distance_matrix_setup.png" />
+</figure>
+</li>
+<li><p>Output layer ကို ဖိုင်တစ်ခုအနေဖြင့် သိမ်းဆည်းနိုင်သလို algorithm ကို run ပြီး ယာယီ output layer ကို နောက်ပိုင်းမှ သိမ်းဆည်းနိုင်ပါသည်။</p></li>
+<li><p>Distance matrix layer ကိုထုတ်ယူရန် <span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ရရှိလာသော layer ၏ attribute ဇယားကိုဖွင့်ပါ- တန်ဖိုးများသည် <span class="guilabel">distance_points</span> feature များနှင့် အနီးဆုံးဖြစ်သော <span class="guilabel">Sampled Points</span> layer ထဲရှိ point ၂ ခုနှင့် ထို <span class="guilabel">distance_points</span> feature များအကြား အကွာအဝေးများ ဖြစ်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/distance_matrix_example.png" src="../../../_images/distance_matrix_example.png" />
+</figure>
+</li>
+</ol>
+<p><em>Distance Matrix</em> tool သည် target layer ၏အနီးဆုံး point များနှင့်စပ်လျဉ်းပြီး input layer ၏ point တစ်ခုချင်းစီအတွက် အကွာအဝေး statistics များကို တွက်ချက်ပေးပါသည်။ Output layer ၏ field များတွင် input layer ထဲရှိ point များ၏ အနီးဆုံးသို့ အကွာအဝေးများအတွက် mean (ပျမ်းမျှကိန်း) ၊ standard deviation (စံတိမ်းချက်) ၊ minimum (အနည်းဆုံး) နှင့် maximum (အများဆုံး) တန်ဖိုးများပါဝင်ပါသည်။</p>
+</section>
+<section id="layer-follow-along-nearest-neighbor-analysis-within-layer">
+<h2><span class="section-number">6.4.4. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - အနီးဆုံးအနီးအနား ဆန်းစစ်လေ့လာခြင်း (layer အတွင်း) (Follow Along: Nearest Neighbor Analysis (within layer))<a class="headerlink" href="#layer-follow-along-nearest-neighbor-analysis-within-layer" title="Link to this heading"></a></h2>
+<p>Point layer တစ်ခု၏ nearest neighbor analysis လုပ်ဆောင်ရန်-</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Vector analysis ► Nearest neighbor analysis</span> ကိုရွေးပါ။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Random points</span> layer ကိုရွေးချယ်ပြီး  <span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Result Viewer</span> Panel ထဲတွင် ရလာဒ်များ ပေါ်လာပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/result_viewer.png" src="../../../_images/result_viewer.png" />
+</figure>
+</li>
+<li><p>ရလာဒ်များပါဝင်သော <code class="docutils literal notranslate"><span class="pre">html</span></code> စာမျက်နှာကိုဖွင့်ရန် အပြာရောင် link ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/nearest_neighbour_example.png" src="../../../_images/nearest_neighbour_example.png" />
+</figure>
+</li>
+</ol>
+</section>
+<section id="follow-along-mean-coordinates">
+<h2><span class="section-number">6.4.5. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ပျမ်းမျှ ကိုဩဒိနိတ် (Follow Along: Mean Coordinates)<a class="headerlink" href="#follow-along-mean-coordinates" title="Link to this heading"></a></h2>
+<p>Dataset တစ်ခု၏ ပျမ်းမျှ ကိုဩဒိနိတ်များကို ရရှိရန်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Vector analysis ► Mean coordinate(s)</span> ကိုဖွင့်ပါ။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Input layer</span> အဖြစ် <span class="guilabel">Random points</span> ကိုသတ်မှတ်ပါ၊ အခြား မဖြစ်မနေရွေးချယ်ရန်မလိုအပ်သော အရာများကို မပြောင်းလဲပဲ ချန်ထားပါ။</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>၎င်းရလာဒ်ကို ကျပန်း sample များဖန်တီးစဉ်ကအသုံးပြုခဲ့သော polygon ၏ အလယ်ကိုဩဒိနိတ်နှင့်နှိုင်းယှဉ်ကြည့်ပါမည်။</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Vector geometry ► Centroids</span> ကိုဖွင့်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် input layer အဖြစ် <code class="docutils literal notranslate"><span class="pre">Bounding</span> <span class="pre">geometry</span></code> ကိုရွေးချယ်ပါ။</p></li>
+</ol>
+<p>မြင်တွေ့ရသည့်အတိုင်း ပျမ်းမျှကိုဩဒိနိတ် (ပန်းရောင် point) နှင့် study area ၏ အလယ် (အစိမ်းရောင်) သည် တစ်ထပ်တည်းမကျပါ။</p>
+<p>Centroid သည် layer ၏ barycenter (ဒြပ်ထုဗဟိုချက်အမှတ်) (စတုရန်းတစ်ခု၏ barycenter သည် စတုရန်း၏အလယ်ဗဟိုဖြစ်သည်) ဖြစ်ပြီး ပျမ်းမျှကိုဩဒိနိတ်သည် ကိုဩဒိနိတ်ဆုံမှတ်များအားလုံး၏ ပျမ်းမျှဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/polygon_centroid_mean.png" src="../../../_images/polygon_centroid_mean.png" />
+</figure>
+</section>
+<section id="follow-along-image-histograms">
+<h2><span class="section-number">6.4.6. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ကြိမ်နှုန်းပြဂရပ်များ (Follow Along: Image Histograms)<a class="headerlink" href="#follow-along-image-histograms" title="Link to this heading"></a></h2>
+<p>Dataset တစ်ခု၏ histogram သည် ၎င်း၏တန်ဖိုးများ ပြန့်နှံ့တည်ရှိမှုကို ပြသပါသည်။ QGIS ထဲတွင် ၎င်းကို ပြသရန် အရိုးရှင်းဆုံးနည်းလမ်းမှာ image histogram ဖြင့်ပြသခြင်းဖြစ်သည်။ မည်သည့် image layer (raster dataset) မဆို၏ <span class="guilabel">Layer Properties</span> dialog ထဲတွင် ရရှိနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">srtm_41_19</span></code> layer ပေါ်တွင် right-click နှိပ်ပါ</p></li>
+<li><p><span class="menuselection">Properties</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Histogram</span> tab ကိုရွေးပါ
+ဂရပ်ဖစ်ပုံ ရရှိရန် <span class="guilabel">Compute Histogram</span> ခလုတ်ကို နှိပ်ပါ။ Raster တန်ဖိုးများအတွက် ကြိမ်နှုန်း ပြန့်နှံ့မှုကို ပြသသော ဂရပ်တစ်ခုကို မြင်တွေ့ရပါမည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/histogram_export.png" src="../../../_images/histogram_export.png" />
+</figure>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Save plot</sup> ခလုတ်နှိပ်ပြီး ဂရပ်ကို image တစ်ခုအနေဖြင့် export ထုတ်ယူနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Information</span> tab ထဲတွင် layer နှင့်ပတ်သက်သော အသေးစိတ်အချက်အလက်များကို ကြည့်ရှုနိုင်ပါသည် (mean နှင့် max တန်ဖိုးများသည် ခန့်မှန်းများသာဖြစ်ပြီး အတိအကျမဟုတ်ပါ)။</p></li>
+</ol>
+<p>Mean တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">332.8</span></code> (ခန့်မှန်း 324.3) ဖြစ်ပြီး maximum တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">1699</span></code> (ခန့်မှန်း 1548) ဖြစ်ပါသည်။ Histogram ထဲတွင် zoom ချဲ့ကြည့်နိုင်ပါသည်။ တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">0</span></code> ရှိသော pixel များစွာ ရှိသည့်အတွက် histogram သည် ဒေါင်လိုက်ချုံ့ထားသည့်ပုံစံဖြစ်နေပါသည်။ Zoom ချဲ့ကြည့်ပါက အသေးစိတ်ကို ပိုမိုမြင်ရပါလိမ့်မည်-</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/histogram_export_zoom.png" src="../../../_images/histogram_export_zoom.png" />
+</figure>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mean နှင့် maximum တန်ဖိုးများသည် အထက်ပါအတိုင်း အတူတူဖြစ်မနေလျှင် min/max တန်ဖိုးတွက်ချက်မှုကြောင့် ဖြစ်နိုင်ပါသည်။ <span class="guilabel">Symbology</span> tab ကိုဖွင့်ပြီး <span class="guilabel">Min / Max Value Settings</span> menu ကိုဖြန့်ကြည့်ပါ။ <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a><span class="guilabel">Min / max</span> ကိုရွေးချယ်ပြီး <span class="guilabel">Apply</span> ကိုနှိပ်ပါ။</p>
+</div>
+<p>Histogram တစ်ခုသည် တန်ဖိုးများ၏ ပြန့်နှံ့မှုကို ပြသခြင်းဖြစ်ပြီး တန်ဖိုးများအားလုံးကို ဂရပ်ပေါ်တွင် မြင်ရနိုင်ရန် မလိုအပ်သည်ကို မှတ်သားထားပါ။</p>
+</section>
+<section id="follow-along-spatial-interpolation">
+<h2><span class="section-number">6.4.7. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တည်နေရာဆိုင်ရာ သွယ်ဝိုက်တွက်ချက်ခြင်း (Follow Along: Spatial Interpolation)<a class="headerlink" href="#follow-along-spatial-interpolation" title="Link to this heading"></a></h2>
+<p>Sample point များအစုတစ်ခုရှိပြီး data များကို extrapolate (ခန့်မှန်းတွက်ချက်) ပြုလုပ်လိုသည် ဆိုကြပါစို့။ ဥပမာ- အစောပိုင်းက ဖန်တီးခဲ့သော <span class="guilabel">Sampled points</span>
+dataset မှတဆင့် မြေပြင်အနေအထားသည် မည်သို့ပုံစံဖြစ်မည်ဆိုသည်ကို သိရှိလိုခြင်းဖြစ်သည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Processing Toolbox</span> ထဲရှိ <span class="menuselection">GDAL ► Raster analysis ► Grid (IDW with nearest neighbor searching)</span> tool ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Point layer</span> အတွက် <code class="docutils literal notranslate"><span class="pre">Sampled</span> <span class="pre">points</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Weighting power</span> တွင် <code class="docutils literal notranslate"><span class="pre">5.0</span></code> သတ်မှတ်ပါ</p></li>
+<li><p><span class="guilabel">Advanced parameters</span> ထဲတွင် <span class="guilabel">Z value from field</span> အား <code class="docutils literal notranslate"><span class="pre">rvalue_1</span></code> ဟုသတ်မှတ်ပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပြီး လုပ်ဆောင်မှုပြီးသည်အထိ စောင့်ဆိုင်းပါ</p></li>
+<li><p>Dialog ကိုပိတ်လိုက်ပါ</p></li>
+</ol>
+<p>အောက်ပါပုံသည် မူရင်း dataset (ဘယ်ဘက်) နှင့် sample point များမှ တည်ဆောက်ထားသော dataset (ညာဘက်) ကိုနှိုင်းယှဉ်ထားခြင်းဖြစ်သည်။ Sample point များသည် ကျပန်းတည်နေရာများဖြစ်သောကြောင့် သင်ရရှိသော ပုံနှင့် ကွဲပြားနိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/interpolation_comparison.png" src="../../../_images/interpolation_comparison.png" />
+</figure>
+<p>မြင်တွေ့ရသည့်အတိုင်း sample point 100 သည် မြေပြင်အနေအထားကိုအသေးစိတ်ဖော်ပြရန် မလုံလောက်ပါ။ အကြမ်းမျဉ်းဆန်သော ရလာဒ်ကိုထုတ်ပေးပြီး အဓိပ္ပါယ်ကောက်လွဲမှားနိုင်ပါသည်။</p>
+</section>
+<section id="interpolation-try-yourself-different-interpolation-methods">
+<h2><span class="section-number">6.4.8. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မတူညီသော Interpolation နည်းလမ်းများ (Try Yourself: Different interpolation methods)<a class="headerlink" href="#interpolation-try-yourself-different-interpolation-methods" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>ကျပန်း point 10000 ကိုဖန်တီးရန် အပေါ်တွင်ပြထားသော လုပ်ငန်းစဉ်များအတိုင်း လုပ်ဆောင်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Point အရေအတွက် များနေလျှင် လုပ်ဆောင်ချိန်ကြာမြင့်နိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p>မူရင်း DEM မှနမူနာကောက်ယူရန် အဆိုပါ point များကို အသုံးပြုပါ</p></li>
+<li><p>ဤ dataset တွင် <span class="guilabel">Grid (IDW with nearest neighbor searching)</span> tool ကိုအသုံးပြုပါ</p></li>
+<li><p><span class="guilabel">Power</span> တွင် <code class="docutils literal notranslate"><span class="pre">5.0</span></code> ဟုသတ်မှတ်ပြီး <span class="guilabel">Smoothing</span> တွင် <code class="docutils literal notranslate"><span class="pre">2.0</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+</ol>
+<p>ရလာဒ်များ (ကျပန်း point များ၏တည်နေရာပေါ်မူတည်၍) သည် အနည်းနှင့်အများ အောက်ပါပုံအတိုင်း ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/interpolation_comparison_10000.png" src="../../../_images/interpolation_comparison_10000.png" />
+</figure>
+<p>ရလာဒ်သည် sample point အရေအတွက်များပြားသောကြောင့် မြေပြင်အနေအထားကို ပိုမိုကောင်းမွန်စွာ ဖော်ပြပေးနိုင်ပါသည်။ Sample အရေအတွက်များလေလေ ရလာဒ်ပိုကောင်းလေလေ ဖြစ်သည်ကို မှတ်သားထားပါ။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">6.4.9. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>QGIS တွင် dataset များ၏ တည်နေရာဆိုင်ရာ statistics များဆန်းစစ်လေ့လာရန်အတွက် tool များစွာရှိပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">6.4.10. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် vector analysis ကိုသင်ကြားပြီးဖြစ်ပါသည်။ နောက်လာမည့် မော်ဂျူးတွင် raster များဖြင့် မည်ကဲ့သို့လုပ်ဆောင်နိုင်မည်ကို သင်ကြားရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="network_analysis.html" class="btn btn-neutral float-left" title="6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../rasters/index.html" class="btn btn-neutral float-right" title="7. မော်ဂျူး - Raster များ (Module: Rasters)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/spatial_statistics.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/spatial_statistics.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/spatial_statistics.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_analysis/spatial_statistics.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/vector_analysis/spatial_statistics.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/vector_analysis/spatial_statistics.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/8569c488dfed3c251c3a01b6d5ea349d" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

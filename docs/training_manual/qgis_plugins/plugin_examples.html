@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_plugins/plugin_examples.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" href="../online_resources/index.html" />
+    <link rel="prev" title="9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)" href="fetching_plugins.html" />
+  <meta name="description" content="QGIS testing documentation: 9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fetching_plugins.html">9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quickmapservices-plugin-follow-along-the-quickmapservices-plugin">9.2.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - QuickMapServices Plugin (Follow Along: The QuickMapServices Plugin)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickosm-plugin-follow-along-the-quickosm-plugin">9.2.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - QuickOSM Plugin (Follow Along: The QuickOSM Plugin)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickosm-query-engine-follow-along-the-quickosm-query-engine">9.2.3. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ - QuickOSM Query engine (Follow Along: The QuickOSM Query engine)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dataplotly-plugin-follow-along-the-dataplotly-plugin">9.2.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - DataPlotly Plugin (Follow Along: The DataPlotly Plugin)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">9.2.5. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">9.2.6. နောက်ထပ် ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">9. </span>မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.2. </span>သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/qgis_plugins/plugin_examples.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="fetching_plugins.html" class="btn btn-neutral float-left" title="9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../online_resources/index.html" class="btn btn-neutral float-right" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="qgis-plugin-lesson-useful-qgis-plugins">
+<h1><span class="section-number">9.2. </span>သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)<a class="headerlink" href="#qgis-plugin-lesson-useful-qgis-plugins" title="Link to this heading"></a></h1>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် plugin များကို install ပြုလုပ်ခြင်း၊ အသုံးပြုနိုင်ရန်ဖွင့်ပေးခြင်း နှင့် ပိတ်ခြင်းများကို လုပ်ဆောင်နိုင်ပြီဖြစ်ပါသည်။ အသုံးဝင်သော plugin များ၏ ဥပမာအချို့ကို ကြည့်ခြင်းဖြင့် လက်တွေ့လုပ်ဆောင်ကြည့်ပါမည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Plugin interface ကို အကျွမ်းတဝင်ရှိစေရန် နှင့် အသုံးဝင်သော plugin များအချို့အကြောင်းသိစေရန်။</p>
+<section id="quickmapservices-plugin-follow-along-the-quickmapservices-plugin">
+<h2><span class="section-number">9.2.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - QuickMapServices Plugin (Follow Along: The QuickMapServices Plugin)<a class="headerlink" href="#quickmapservices-plugin-follow-along-the-quickmapservices-plugin" title="Link to this heading"></a></h2>
+<p>QuickMapServices plugin သည် QGIS project ထဲသို့ အောက်ခံမြေပုံများ ထည့်သွင်းပေးသော ရိုးရှင်းပြီးအသုံးပြုရလွယ်သည့် plugin တစ်ခုဖြစ်ပါသည်။ ၎င်းတွင် အမျိုးမျိုးသော ရွေးချယ်စရာများနှင့် setting များရှိပါသည်။ ၎င်း၏ အသွင်အပြင်အချို့ကို လေ့လာကြည့်ကြပါမည်။</p>
+<ol class="arabic">
+<li><p>မြေပုံအသစ်တစ်ခုစတင်ပြီး <code class="file docutils literal notranslate"><span class="pre">training_data</span></code> Geopackage မှ <span class="guilabel">roads</span> layer ကိုထည့်သွင်းပါ။</p></li>
+<li><p><strong>QuickMapServices</strong> plugin ကို install လုပ်ပါ။</p></li>
+<li><p><span class="menuselection">Web ► QuickMapServices</span> တွင် နှိပ်ပါ။ ပထမဆုံး menu တွင် အမျိုးမျိုးသော မြေပုံပံ့ပိုးပေးသူများ (<code class="docutils literal notranslate"><span class="pre">OSM</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">NASA</span></code>) ကိုစာရင်းပြုစုပေးပါသည်။</p></li>
+<li><p>တစ်ခုပေါ်တွင် click နှိပ်လိုက်ပြီး project ထဲသို့ အောက်ခံမြေပုံကို ထည့်သွင်းပါ။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/qms_result.png"><img alt="../../../_images/qms_result.png" src="../../../_images/qms_result.png" style="width: 80%;" /></a>
+</figure>
+</li>
+</ol>
+<p>QMS ၏အဓိကအားသာချက်များထဲမှ တစ်ခုသည် များစွာသော data ပံ့ပိုးပေးသူများဆီသို့ ဝင်ရောက်သုံးစွဲခွင့်ပေးထားခြင်းဖြစ်သည်။ ၎င်းတို့ကို ထည့်သွင်းကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Web ► QuickMapServices ► Settings</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">More services</span> tab သို့သွားပါ။</p></li>
+<li><p>အဆိုပါ tab ၏ စာတိုကို သေချာစွာဖတ်ပြီး သဘောတူညီပါက <span class="guilabel">Get Contributed pack</span> ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Save</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="menuselection">Web ► QuickMapServices</span> menu ကိုပြန်ဖွင့်ပါ၊ ပံ့ပိုးသူများ ပိုမိုများပြားလာသည်ကို မြင်တွေ့ရပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/qms_menu.png" src="../../../_images/qms_menu.png" />
+</figure>
+</li>
+<li><p>သင့်လိုအပ်ချက်နှင့် အကိုက်ညီဆုံးတစ်ခုကို ရွေးချယ်ပြီး data ကို project ထဲသို့ထည့်သွင်းပါ။</p></li>
+</ol>
+<p>ရရှိနိုင်သော data ပံ့ပိုးပေးသူများအတွင်း ရှာဖွေမှု ပြုလုပ်နိုင်ပါသေးသည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Web ► QuickMapServices ► Search QMS</span> ကိုနှိပ်ပြီး plugin ၏ ရှာဖွေမှု tab ကိုဖွင့်ပါ။ Plugin ၏ အဆိုပါ option တွင် မြေပုံ canvas ၏လက်ရှိ extent ပေါ်မူတည်ပြီး သို့မဟုတ် ရှာဖွေသည့်စာလုံး ပေါ်မူတည်ပြီး ရရှိနိုင်သောအောက်ခံမြေပုံများကို filter (စစ်ထုတ်) လုပ်ပေးနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Filter by extent</span> ကိုနှိပ်သောအခါ service တစ်ခု ရရှိနေသည်ကို တွေ့ရပါမည်။ Service တစ်ခုမှမတွေ့လျှင် zoom ချုံ့ပြီး မြင်ကွင်းကို ရွှေ့ကြည့်ပါ သို့မဟုတ် စာလုံးတစ်ခုဖြင့် ရှာဖွေမှုလုပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော dataset ကို ထည့်သွင်းရန် ၎င်းဘေးရှိ <span class="guilabel">Add</span> ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p>အောက်ခံမြေပုံကို ထည့်သွင်းပေးမည်ဖြစ်ပြီး မြေပုံအတွက် နောက်ခံတစ်ခုရရှိမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/qms_search_added.png"><img alt="../../../_images/qms_search_added.png" src="../../../_images/qms_search_added.png" style="width: 80%;" /></a>
+</figure>
+</li>
+</ol>
+</section>
+<section id="quickosm-plugin-follow-along-the-quickosm-plugin">
+<h2><span class="section-number">9.2.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - QuickOSM Plugin (Follow Along: The QuickOSM Plugin)<a class="headerlink" href="#quickosm-plugin-follow-along-the-quickosm-plugin" title="Link to this heading"></a></h2>
+<p>QuickOSM plugin သည် ရိုးရှင်းသော interface တစ်ခုရှိပြီး <a class="reference external" href="https://www.openstreetmap.org/">OpenStreetMap</a>  data များကို ဒေါင်းလုဒ်ပြုလုပ်ပေးနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Project အသစ်တစ်ခုကိုစတင်ပြီး <code class="file docutils literal notranslate"><span class="pre">training_data</span></code> GeoPackage မှ <span class="guilabel">roads</span> layer ကိုထည့်သွင်းပါ။</p></li>
+<li><p><strong>QuickOSM</strong> plugin ကို install ပြုလုပ်ပါ။ Plugin သည် QGIS toolbar ထဲတွင် ခလုတ်အသစ် ၂ ခုကို ထည့်သွင်းပေးမည်ဖြစ်ပြီး <span class="menuselection">Vector ► QuickOSM</span> menu ထဲတွင် သုံးစွဲနိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>QuickOSM dialog ကိုဖွင့်ပါ။ Plugin တွင် မတူညီသော tab များစွာ ပါရှိပါသည်- <span class="guilabel">Quick Query</span> tab ကို အသုံးပြုပါမည်။</p></li>
+<li><p>ယေဘုယျ <span class="guilabel">Key</span> တစ်ခုကို ရွေးချယ်ပြီး သီးသန့် feature များကို ဒေါင်းလုဒ်ပြုလုပ်နိုင်ပါသည် သို့မဟုတ် ပိုမိုပြီးအသေးစိတ်ဖြစ်စေရန် သီးသန့် <span class="guilabel">Key</span> နှင့် <span class="guilabel">Value</span> အတွဲတစ်ခုကို ရွေးချယ်ပြီး ဒေါင်းလုဒ်ပြုလုပ်နိုင်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="guilabel">Key</span> နှင့် <span class="guilabel">Value</span> စနစ်နှင့် အကျွမ်းတဝင်မရှိပါက <span class="guilabel">Help with key/value</span> ခလုတ်ကိုနှိပ်ပါ။ ထိုသို့နှိပ်ခြင်းဖြင့် OpenStreetMap ၏ Key နှင့် Value သဘောတရားအကြောင်း အပြည့်အစုံရှင်းပြထားသော ဝက်ဘ်စာမျက်နှာတစ်ခု ပွင့်လာပါမည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Key</span> menu ထဲတွင် <span class="guilabel">railway</span> ကိုရှာဖွေပြီး <span class="guilabel">Value</span> တွင် အလွတ် (empty) ထားပါ- တန်ဖိုးတစ်ခုခုကို သတ်မှတ်မပေးထားပဲ <span class="guilabel">railway</span> feature များအားလုံးကို ဒေါင်းလုဒ်ပြုလုပ်မည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Layer Extent</span> drop-down menu ကိုနှိပ်ပြီး <span class="guilabel">roads</span> ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">Run query</span> ခလုတ်ကို နှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/quickosm_setup.png" src="../../../_images/quickosm_setup.png" />
+</figure>
+</li>
+</ol>
+<p>စက္ကန့်အနည်းငယ်ကြာပြီးနောက်တွင် plugin သည် <code class="docutils literal notranslate"><span class="pre">railway</span></code> အနေဖြင့် tag လုပ်ထားသော feature များအားလုံးကို ဒေါင်းလုဒ်ပြုလုပ်မည်ဖြစ်ပြီး မြေပုံထဲသို့ တိုက်ရိုက်ထည့်သွင်းပေးမည်ဖြစ်သည်။</p>
+<p>Layer များအားလုံးကို legend ထဲတွင် ထည့်သွင်းပေးမည်ဖြစ်ပြီး မြေပုံ canvas ထဲတွင် ပြသပေးမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/quickosm_result.png"><img alt="../../../_images/quickosm_result.png" src="../../../_images/quickosm_result.png" style="width: 60%;" /></a>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>QuickOSM သည် data များ ဒေါင်းလုဒ်ပြုလုပ်သောအခါ ယာယီ layer ကိုဖန်တီးပေးပါသည်။ ၎င်းတို့ကို အမြဲတမ်းအဖြစ် သိမ်းဆည်းလိုပါက layer ၏ဘေးရှိ  <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon ကိုနှိပ်ပြီး ကြိုက်နှစ်သက်သော option များကိုရွေးချယ်ပါ။ နောက်တစ်နည်းအနေဖြင့် QuickOSM ထဲတွင် <kbd class="kbd docutils literal notranslate">Advanced</kbd> menu ကိုဖွင့်နိုင်ပြီး <span class="guilabel">Directory</span> menu ထဲတွင် data ကို သိမ်းဆည်းမည့်နေရာ ရွေးချယ်ပါ။</p>
+</div>
+</section>
+<section id="quickosm-query-engine-follow-along-the-quickosm-query-engine">
+<h2><span class="section-number">9.2.3. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ - QuickOSM Query engine (Follow Along: The QuickOSM Query engine)<a class="headerlink" href="#quickosm-query-engine-follow-along-the-quickosm-query-engine" title="Link to this heading"></a></h2>
+<p>QuickOSM plugin မှ data များဒေါင်းလုဒ်ပြုလုပ်ရန် အမြန်ဆုံးနည်းလမ်းသည် <span class="guilabel">Quick query</span> tab ကိုအသုံးပြုပြီး parameter အချို့ သတ်မှတ်ခြင်းဖြစ်သည်။ သို့သော် ပိုမိုသီးသန့်ဖြစ်သော data များကို လိုအပ်လျှင် မည်သို့လုပ်မည်နည်း။</p>
+<p>သင်သည် OpenStreetMap query တွင် ကျွမ်းကျင်သူဖြစ်လျှင် QuickOSM plugin ကို သင်၏ကိုယ်ပိုင် query များဖြင့် အသုံးပြုနိုင်ပါသည်။</p>
+<p>QuickOSM တွင် အံ့ဩစရာကောင်းသော Overpass ၏ query engine နှင့်အတူ ကောင်းမွန်သော data parser တစ်ခုပါရှိပါသည်။ ၎င်းသည် သင်လိုအပ်သည့်အတိုင်း data များကို ဒေါင်းလုဒ်ပြုလုပ်ပေးနိုင်ပါသည်။</p>
+<p>ဥပမာ- <a class="reference external" href="https://en.wikipedia.org/wiki/Dolomites">Dolomites</a> ဟုခေါ်သော သီးသန့် တောင်တန်းဧရိယာနှင့်သက်ဆိုင်သည့် တောင်ထိပ် များကို ဒေါင်းလုဒ်ပြုလုပ်လိုပါသည်။</p>
+<p>ထိုအလုပ်ကို <span class="guilabel">Quick query</span> tab ဖြင့် လုပ်ဆောင်၍မရနိုင်ပါ၊ ပိုမို၍အသေးစိတ်ရန်လိုအပ်ပြီး ကိုယ်ပိုင် query ကို ရေးသားရပါမည်။ ၎င်းကို ကြိုးစားကြည့်ကြပါမည်။</p>
+<ol class="arabic">
+<li><p>Project အသစ်တစ်ခုကို စတင်ပါ။</p></li>
+<li><p>QuickOSM plugin ကိုဖွင့်ပြီး <span class="guilabel">Query</span> tab ကိုနှိပ်ပါ။</p></li>
+<li><p>Query canvas ထဲတွင် အောက်ပါ code ကို ကူးထည့်ပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  &lt;!--
+This shows all mountains (peaks) in the Dolomites.
+You may want to use the &quot;zoom onto data&quot; button. =&gt;
+--&gt;
+&lt;osm-script output=&quot;json&quot;&gt;
+&lt;!-- search the area of the Dolomites --&gt;
+&lt;query type=&quot;area&quot;&gt;
+  &lt;has-kv k=&quot;place&quot; v=&quot;region&quot;/&gt;
+  &lt;has-kv k=&quot;region:type&quot; v=&quot;mountain_area&quot;/&gt;
+  &lt;has-kv k=&quot;name:en&quot; v=&quot;Dolomites&quot;/&gt;
+&lt;/query&gt;
+&lt;print mode=&quot;body&quot; order=&quot;quadtile&quot;/&gt;
+&lt;!-- get all peaks in the area --&gt;
+&lt;query type=&quot;node&quot;&gt;
+  &lt;area-query/&gt;
+  &lt;has-kv k=&quot;natural&quot; v=&quot;peak&quot;/&gt;
+&lt;/query&gt;
+&lt;print mode=&quot;body&quot; order=&quot;quadtile&quot;/&gt;
+&lt;!-- additionally, show the outline of the area --&gt;
+&lt;query type=&quot;relation&quot;&gt;
+  &lt;has-kv k=&quot;place&quot; v=&quot;region&quot;/&gt;
+  &lt;has-kv k=&quot;region:type&quot; v=&quot;mountain_area&quot;/&gt;
+  &lt;has-kv k=&quot;name:en&quot; v=&quot;Dolomites&quot;/&gt;
+&lt;/query&gt;
+&lt;print mode=&quot;body&quot; order=&quot;quadtile&quot;/&gt;
+&lt;recurse type=&quot;down&quot;/&gt;
+&lt;print mode=&quot;skeleton&quot; order=&quot;quadtile&quot;/&gt;
+&lt;/osm-script&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ဤ query သည် <code class="docutils literal notranslate"><span class="pre">xml</span></code> ပုံစံ ဘာသာစကားဖြင့် ရေးသားထားပါသည်။ <code class="docutils literal notranslate"><span class="pre">Overpass</span> <span class="pre">QL</span></code> နှင့်ပိုမိုအကျွမ်းတဝင်ရှိလျှင် ဤဘာသာစကားအသုံးပြု၍ query ကို ရေးသားနိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Run Query</span> ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/quickosm_advanced_query.png" src="../../../_images/quickosm_advanced_query.png" />
+</figure>
+</li>
+</ol>
+<p>တောင်ထပ် layer ကို ဒေါင်းလုဒ်ပြုလုပ်ပေးမည်ဖြစ်ပြီး QGIS ထဲတွင် ပြသနေမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/quickosm_advanced_result.png"><img alt="../../../_images/quickosm_advanced_result.png" src="../../../_images/quickosm_advanced_result.png" style="width: 60%;" /></a>
+</figure>
+<p><a class="reference external" href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL">Overpass Query language</a> ကိုအသုံးပြုပြီး ရှုပ်ထွေးသော query များကို ရေးသားနိုင်ပါသည်။ ဥပမာအချို့ကို လေ့လာကြည့်ပြီး query ဘာသာစကားကို ကြိုးစားစမ်းသပ်ကြည့်ပါ။</p>
+</section>
+<section id="dataplotly-plugin-follow-along-the-dataplotly-plugin">
+<h2><span class="section-number">9.2.4. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - DataPlotly Plugin (Follow Along: The DataPlotly Plugin)<a class="headerlink" href="#dataplotly-plugin-follow-along-the-dataplotly-plugin" title="Link to this heading"></a></h2>
+<p><strong>DataPlotly</strong> plugin သည် vector attribute data ၏ <a class="reference external" href="https://d3js.org/">D3</a> plot များကို ဖန်တီးပေးနိုင်ပါသည်။ <a class="reference external" href="https://plotly.com/">plotly</a> library ကြောင့် ဖန်တီးပေးနိုင်ခြင်းဖြစ်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p>Project အသစ်တစ်ခုစတင်ပါ</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data/plugins</span></code> folder မှ <span class="guilabel">sample_points</span> layer ကိုထည့်သွင်းပါ</p></li>
+<li><p><a class="reference internal" href="fetching_plugins.html#plugin-installation"><span class="std std-ref">★☆☆ လိုက်လုပ်ကြည့်ပါ - Plugin အသစ်များထည့်သွင်းခြင်း (Follow Along: Installing New Plugins)</span></a> တွင် ဖော်ပြထားသည့် ညွှန်ကြားချက်များအတိုင်း <span class="guilabel">Data Plotly</span> ကိုရှာဖွေပြီး plugin ကို install လုပ်ပါ။</p></li>
+<li><p>Toolbar ထဲရှိ icon အသစ်ကို click နှိပ်ခြင်းဖြင့် သို့မဟုတ် <span class="menuselection">Plugins ► Data Plotly</span> menu ထဲတွင် click နှိပ်ခြင်းဖြင့် plugin ကိုဖွင့်ပါ။</p></li>
+</ol>
+<p>အောက်ပါဥပမာတွင် <span class="guilabel">sample_points</span> layer ၏ field ၂ ခုကို ရိုးရှင်းသော <code class="docutils literal notranslate"><span class="pre">Scatter</span> <span class="pre">Plot</span></code> တစ်ခု ဖန်တီးပါမည်။ DataPlotly Panel ထဲတွင်-</p>
+<ol class="arabic">
+<li><p>Layer filter ထဲတွင် <span class="guilabel">sample_points</span> ကိုရွေးချယ်ပါ၊ <span class="guilabel">X Field</span> အတွက် <span class="guilabel">cl</span> နှင့် <span class="guilabel">Y Field</span> အတွက် <span class="guilabel">mg</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/dataplotly_setup.png" src="../../../_images/dataplotly_setup.png" />
+</figure>
+</li>
+<li><p>အရောင်များ၊ အမှတ်အသားအမျိုးအစား၊ အလင်းဖောက်နှုန်း နှင့် အခြား setting များကို ပြောင်းလဲလိုလျှင်- အောက်ပါ plot ကိုဖန်တီးရန် parameter အချို့ကို ပြောင်းလဲကြည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/dataplotly_scatterplot.png" src="../../../_images/dataplotly_scatterplot.png" />
+</figure>
+</li>
+<li><p>Parameter များအားလုံးကို သတ်မှတ်ပြီးသည်နှင့် plot ကိုဖန်တီးရန် <span class="guilabel">Create Plot</span> ခလုတ်ကို နှိပ်ပါ။</p></li>
+</ol>
+<p>Plot သည် interactive (အပြန်အလှန်တုံ့ပြန်လုပ်ဆောင်နိုင်) ဖြစ်ပါသည်- ဆိုလိုသည်မှာ plot canvas ကို အရွယ်အစားပြောင်းလဲရန်၊ ရွှေ့ရန် သို့မဟုတ် zoom အချုံ့/အချဲ့ ပြုလုပ်ရန် အပေါ်တွင်ရှိသော ခလုတ်များအားလုံးကို အသုံးပြုနိုင်ပါသည်။ ထို့အပြင် plot ၏ element တစ်ခုချင်းစီသည်လည်း interactive ဖြစ်ပါသည်- plot ပေါ်တွင် point တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော point များကို click နှိပ်ခြင်းဖြင့် plot canvas ထဲတွင် သက်ဆိုင်ရာ point (များ) ကို select ပြုလုပ်ပေးမည်ဖြစ်သည်။</p>
+<p>Plot ၏ ညာဘက်အောက်ခြေထောင့်ရှိ <a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> ကိုနှိပ်ပြီး <code class="docutils literal notranslate"><span class="pre">png</span></code> image တစ်ခုအနေဖြင့် သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionAddHtml.png"><img alt="addHtml" src="../../../_images/mActionAddHtml.png" style="width: 1.5em;" /></a> ကိုနှိပ်ပြီး <code class="docutils literal notranslate"><span class="pre">html</span></code> ဖိုင်တစ်ခုအဖြစ် သိမ်းဆည်းနိုင်ပါသည်။</p>
+<p>နောက်ထပ်လုပ်နိုင်သည်များရှိပါသေးသည်။ တစ်ခါတရံတွင် စာမျက်နှာတစ်ခုတည်းပေါ်တွင် မတူညီသော variable များဖြင့် plot အမျိုးအစားမတူညီသည့် plot ၂ ခု (၂ခုထက်ပိုသော) ရှိလျှင် အသုံးဝင်နိုင်ပါသည်။ ၎င်းကို စမ်းကြည့်ကြပါမည်။</p>
+<ol class="arabic">
+<li><p>Plugin panel ၏ ဘယ်ဘက်အပေါ်ထောင့်ရှိ <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> ခလုတ်ကိုနှိပ်ပြီး အဓိက plot setting သို့ပြန်သွားပါ</p></li>
+<li><p><span class="guilabel">Plot Type</span> တွင် <span class="guilabel">Box Plot</span> သို့ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">Grouping Field</span> တွင် <span class="guilabel">group</span> ကိုရွေးချယ်ပြီး <span class="guilabel">Y Field</span> အနေဖြင့် <span class="guilabel">ph</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p>Panel ၏အောက်ခြေဘက်ရှိ <span class="guilabel">Type of Plot</span> တွင် <span class="guilabel">SinglePlot</span> မှ <span class="guilabel">SubPlots</span> သို့ပြောင်းပါ၊ default အတိုင်း <span class="guilabel">Plot in Rows</span> ကိုရွေးချယ်ပေးထားပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/dataplotly_boxplot.png" src="../../../_images/dataplotly_boxplot.png" />
+</figure>
+</li>
+<li><p>Plot ရေးဆွဲရန် <span class="guilabel">Create Plot</span> ခလုတ်ကိုနှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/dataplotly_subplots.png" src="../../../_images/dataplotly_subplots.png" />
+</figure>
+</li>
+</ol>
+<p>ယခုဆိုလျှင် plot စာမျက်နှာတစ်ခုတည်းတွင် scatter plot နှင့် box plot နှစ်မျိုးစလုံးကို ပြသနေမည်ဖြစ်သည်။ Plot item တစ်ခုချင်းစီကို click နှိပ်နိုင်မည်ဖြစ်ပြီး မြေပုံ canvas ထဲတွင် သက်ဆိုင်ရာ feature များကိုရွေးချယ်နိုင်မည်ဖြစ်သည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a class="reference internal" href="../../../_images/mActionHelpContents.png"><img alt="helpContents" src="../../../_images/mActionHelpContents.png" style="width: 1.5em;" /></a> tab ထဲတွင် plot တစ်ခုချင်းစီအတွက် လမ်းညွှန်စာမျက်နှာတစ်ခုစီ ရှိပါသည်။ Plot အမျိုးအစားများအားလုံးကို လေ့လာကြည့်ပြီး အခြားရရှိနိုင်သော setting များကို ကြည့်ပါ။</p>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">9.2.5. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>QGIS အတွက် ရရှိနိုင်သော အသုံးဝင်သည့် plugin များစွာရှိပါသည်။ အဆိုပါ plugin များကို install ပြုလုပ်ရန်နှင့် စီမံခန့်ခွဲရန်အတွက် built-in (မူလပါရှိသော) tool များကိုအသုံးပြုခြင်းဖြင့် plugin အသစ်များကိုရှာဖွေနိုင်မည်ဖြစ်ပြီး ၎င်းတို့ကို အကောင်းဆုံးအသုံးပြုနိုင်မည်ဖြစ်သည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">9.2.6. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် remote server များပေါ်ရှိ layer များကို အချိန်နှင့်တပြေးညီ မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fetching_plugins.html" class="btn btn-neutral float-left" title="9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../online_resources/index.html" class="btn btn-neutral float-right" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_plugins/plugin_examples.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_plugins/plugin_examples.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_plugins/plugin_examples.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/qgis_plugins/plugin_examples.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/qgis_plugins/plugin_examples.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/qgis_plugins/plugin_examples.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/ce4ce7d0f313190be7441f47f5d9f324" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/vector_classification/label_tool.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)" href="classification.html" />
+    <link rel="prev" title="3.1. သင်ခန်းစာ- Vector ဇယားအချက်အလက်များ (Lesson: Vector Attribute Data)" href="attribute_data.html" />
+  <meta name="description" content="QGIS testing documentation: 3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="attribute_data.html">3.1. သင်ခန်းစာ- Vector ဇယားအချက်အလက်များ (Lesson: Vector Attribute Data)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.2. သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#label-follow-along-using-labels">3.2.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Label များအသုံးပြုခြင်း (Follow Along: Using Labels)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#label-option-follow-along-changing-label-options">3.2.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Label option များကို ပြောင်းလဲခြင်း (Follow Along: Changing Label Options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-label-follow-along-using-labels-instead-of-layer-symbology">3.2.3. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layer သင်္ကေတ အစား Label များကို အသုံးပြုခြင်း (Follow Along: Using Labels Instead of Layer Symbology)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#label-try-yourself-customize-the-labels">3.2.4. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Label များကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း (Try Yourself: Customize the Labels)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#line-follow-along-labeling-lines">3.2.5. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Line များကို အညွှန်းတပ်ခြင်း (Follow Along: Labeling Lines)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-setting-follow-along-data-defined-settings">3.2.6. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Data ဖြင့်သတ်မှတ်နိုင်သော setting များ (Follow Along: Data Defined Settings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-setting-try-yourself-using-data-defined-settings">3.2.7. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Data ဖြင့်သတ်မှတ်သော setting များကို အသုံးပြုခြင်း (Try Yourself: Using Data Defined Settings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#labeling-further-possibilities-with-labeling">3.2.8. <abbr title="Advanced level">★★★</abbr> Labeling နှင့်ပတ်သက်သော နောက်ထပ်လုပ်ဆောင်နိုင်ခြေများ (Further Possibilities With Labeling)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">3.2.9. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">3.2.10. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="classification.html">3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">3. </span>မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.2. </span>သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/vector_classification/label_tool.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="attribute_data.html" class="btn btn-neutral float-left" title="3.1. သင်ခန်းစာ- Vector ဇယားအချက်အလက်များ (Lesson: Vector Attribute Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classification.html" class="btn btn-neutral float-right" title="3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-labels">
+<h1><span class="section-number">3.2. </span>သင်ခန်းစာ - အညွှန်းများ (Lesson: Labels)<a class="headerlink" href="#lesson-labels" title="Link to this heading"></a></h1>
+<p>Object တစ်ခုအကြောင်း သတင်းအချက်အလက်တစ်ခုခုကို ပြသရန် မြေပုံပေါ်တွင် label (အညွှန်း) များထည့်သွင်းနိုင်ပါသည်။ Vector layer မှန်သမျှ ၎င်းနှင့်သက်ဆိုင်ရာ label များရှိနိုင်ပါသည်။ ထို label များသည် layer တစ်ခု၏ attribute data များပေါ်တွင် မူတည်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Layer တစ်ခုတွင် အသုံးဝင်ပြီး ကြည့်ကောင်းသော label များအသုံးပြုရန်</p>
+<section id="label-follow-along-using-labels">
+<h2><span class="section-number">3.2.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Label များအသုံးပြုခြင်း (Follow Along: Using Labels)<a class="headerlink" href="#label-follow-along-using-labels" title="Link to this heading"></a></h2>
+<p>ဦးစွာ GUI ထဲတွင် <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> ခလုတ် မြင်ရအောင်လုပ်ပါ-</p>
+<ol class="arabic">
+<li><p>Menu item <span class="menuselection">View ► Toolbars</span> သို့သွားပါ။</p></li>
+<li><p><span class="guilabel">Label Toolbar</span> item ၏ဘေးတွင် အမှန်ခြစ်ဖြစ်နေအောင် လုပ်ထားပါ။ ဖြစ်မနေလျှင် <span class="guilabel">Label Toolbar</span> ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">places</span></code> layer ကို click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Layer Styling</span> panel ၏ <span class="guilabel">Labels</span> tab ကိုဖွင့်ရန် <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> toolbar ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">No Labels</span> မှ <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <span class="guilabel">Single Labels</span> သို့ပြောင်းပါ။</p>
+<p>Label များအတွက် attribute များမှ မည်သည့် field ကို အသုံးပြုမည်ဆိုသည်ကို ရွေးချယ်ပေးရန် လိုပါသည်။ ယခင်သင်ခန်းစာထဲတွင် <code class="docutils literal notranslate"><span class="pre">name</span></code> field သည် ယခုလုပ်ဆောင်မည့်ကိစ္စအတွက် အသင့်တော်ဆုံး field အဖြစ် ဆုံးဖြတ်ခဲ့ပြီးဖြစ်ပါသည်။</p>
+</li>
+<li><p>Value list မှ <code class="docutils literal notranslate"><span class="pre">name</span></code> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_label_with.png" src="../../../_images/select_label_with.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Apply</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>မြေပုံသည် အောက်ပါပုံစံအတိုင်း label များရှိနေသင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/first_place_names.png" src="../../../_images/first_place_names.png" />
+</figure>
+</section>
+<section id="label-option-follow-along-changing-label-options">
+<h2><span class="section-number">3.2.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Label option များကို ပြောင်းလဲခြင်း (Follow Along: Changing Label Options)<a class="headerlink" href="#label-option-follow-along-changing-label-options" title="Link to this heading"></a></h2>
+<p>အစောပိုင်းက သင်ခန်းစာများတွင် မြေပုံအတွက်ရွေးခဲ့သော style များပေါ်မူတည်၍ label များသည် ကောင်းမွန်စွာ format မဖြစ်ခြင်း၊ point marker များမှ ဝေးလွန်းခြင်း သို့မဟုတ် ထပ်နေခြင်းများ ဖြစ်နေသည်ကိုတွေ့ရနိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အပေါ်တွင် <span class="guilabel">Layer Styling</span> panel ကိုဖွင့်ရန် <span class="guilabel">Label Toolbar</span> ထဲရှိ <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> ခလုတ်ကို အသုံးပြုခဲ့ပါသည်။ ထိုကဲ့သို့သော label option များကို <span class="guilabel">Layer Styling</span> panel နှင့် <span class="guilabel">Layer Properties</span> dialog မှတဆင့်လည်း ဖွင့်နိုင်ပါသည်။ ဤတွင် <span class="guilabel">Layer Properties</span> dialog ကိုအသုံးပြုပါမည်။</p>
+</div>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer ပေါ်တွင် click နှစ်ချက်နှိပ်ပြီး <span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <span class="guilabel">Labels</span> tab ကို select လုပ်ပါ။</p></li>
+<li><p>ဘယ်ဘက် option list ထဲတွင် <span class="guilabel">Text</span> ကို select လုပ်ထားပြီး အောက်တွင်ပြထားသည့်အတိုင်း စာသား format ပြင်ဆင်ခြင်း option များကို ပြင်ဆင်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/label_formatting_options.png" src="../../../_images/label_formatting_options.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Apply</span> ကိုနှိပ်ပါ။</p>
+<p>ထို စာလုံးဖောင့် သည် ကြီးနေပြီး အသုံးပြုသူများနှင့်ပိုရင်းနှီးနေနိုင်သော်လည်း ၎င်းကို ဖတ်ရှုရာတွင် ၎င်းစာသား၏အောက်၌ မည်သည့် layer များ ပုံဖော်ပြသထားသည့်အပေါ်မူတည်နေပါသေးသည်။ ထိုအရာကို ဖြေရှင်းရန် <span class="guilabel">Buffer</span> option ကို ကြည့်ကြည့်ပါ။</p>
+</li>
+<li><p>ဘယ်ဘက် option list မှ <span class="guilabel">Buffer</span> ကို select လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Draw text buffer</span> ၏ဘေးရှိ checkbox ကိုအမှန်ခြစ်ပါ၊ ထို့နောက် အောက်တွင်ပြထားသည့်အတိုင်း option များကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/buffer_options.png" src="../../../_images/buffer_options.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Apply</span> ကိုနှိပ်ပါ။</p>
+<p>နေရာကိုပြသသော label များတွင် အရောင် buffer တစ်ခု သို့မဟုတ် border တစ်ခု ထည့်သွင်းပေးမည်ဖြစ်ပြီး ၎င်းတို့ကို မြေပုံပေါ်တွင် အလွယ်တကူ ရှာတွေ့နိုင်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/buffer_results.png" src="../../../_images/buffer_results.png" />
+</figure>
+<p>ယခုဆိုလျှင် label များကို ၎င်းတို့၏ point marker များနှင့်ဆက်စပ်ပြီး နေရာချထားနိုင်ပြီဖြစ်ပါသည်။</p>
+</li>
+<li><p>ဘယ်ဘက် option list ထဲမှ <span class="guilabel">Placement</span> ကို select လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Around point</span> ကိုရွေးချယ်ပြီး <span class="guilabel">Distance</span> တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">2.0</span></code> မီလီမီတာသို့ ပြောင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/offset_placement_settings.png" src="../../../_images/offset_placement_settings.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Apply</span> ကိုနှိပ်ပါ။</p>
+<p>Label များသည် ၎င်းတို့၏ point marker များနှင့် ထပ်နေခြင်းမရှိတော့သည်ကို မြင်တွေ့ရပါလိမ့်မည်။</p>
+</li>
+</ol>
+</section>
+<section id="layer-label-follow-along-using-labels-instead-of-layer-symbology">
+<h2><span class="section-number">3.2.3. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layer သင်္ကေတ အစား Label များကို အသုံးပြုခြင်း (Follow Along: Using Labels Instead of Layer Symbology)<a class="headerlink" href="#layer-label-follow-along-using-labels-instead-of-layer-symbology" title="Link to this heading"></a></h2>
+<p>အများစုတွင် point တစ်ခု၏ တည်နေရာသည် အလွန်တိတိကျကျဖြစ်ရန် မလိုအပ်ပါ။ ဥပမာ- <code class="docutils literal notranslate"><span class="pre">places</span></code> layer ထဲရှိ point အများစုသည် မြို့တစ်ခုလုံး သို့မဟုတ် ဆင်ခြေဖုံးများကို ရည်ညွှန်းထားပြီး၊ ထိုကဲ့သို့သော feature များနှင့်သက်ဆိုင်သော point များသည် စကေးအကြီးပေါ်တွင် အတိအကျဖြစ်မည်မဟုတ်ပါ။ အမှန်တကယ်တော့ အတိအကျဖြစ်လွန်းသော point တစ်ခုထားခြင်းသည် မြေပုံဖတ်ရာတွင် မကြာခဏ ရှုပ်ထွေးစေနိုင်ပါသည်။</p>
+<p>ဥပမာတစ်ခုပေးရလျှင် ကမ္ဘာ့မြေပုံတစ်ခုပေါ်တွင် European Union (ဥရောပသမဂ္ဂ) အတွက် point တစ်ခုကို Poland နိုင်ငံထဲရှိနေရာတစ်ခုတွင် ချထားသည်ဆိုပါစို့။ မြေပုံဖတ်သည့်သူတစ်ယောက်သည် Poland နိုင်ငံထဲတွင် <em>European Union</em> ဟု label တပ်ထားသော point တစ်ခုကို မြင်ပြီး European Union ၏ မြို့တော်သည် Poland နိုင်ငံထဲတွင်ရှိသည်ဟု ထင်ကောင်းထင်နိုင်ပါသည်။</p>
+<p>ထိုကဲ့သို့သော နားလည်မှုလွဲခြင်းများမဖြစ်စေရန် point သင်္ကေတများကို ပိတ်ထားပြီး ၎င်းတို့ကို label များဖြင့် အစားထိုးလျှင် အသုံးဝင်ပါသည်။</p>
+<p>QGIS တွင် label များကို ၎င်းတို့ရည်ညွှန်းသော point များပေါ်တွင် တိုက်ရိုက်ပုံဖော်ပြသစေရန် နေရာပြောင်းလဲပေးခြင်းဖြင့် လုပ်ဆောင်နိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> dialog မှ <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <span class="guilabel">Labels</span> tab ကိုဖွင့်ပါ။</p></li>
+<li><p>Option list မှ <span class="guilabel">Placement</span> option ကို ရွေးပါ။</p></li>
+<li><p><span class="guilabel">Offset from point</span> ခလုတ်ကိုနှိပ်ပါ</p>
+<p>Point maker နှင့်ဆက်စပ်သော label ၏နေရာကို သတ်မှတ်နိုင်သော <span class="guilabel">Quadrant</span> option ပေါ်လာပါလိမ့်မည်။ Point ၏ အလယ်တွင် label ကို နေရာထားချင်သောကြောင့် center quadrant ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/quadrant_offset_options.png" src="../../../_images/quadrant_offset_options.png" />
+</figure>
+</li>
+<li><p>အရင်ကလုပ်နေကြအတိုင်း layer <span class="guilabel">Symbology</span> ကို ပြင်ဆင်ပြီး point သင်္ကေတများကို ဖျောက်ထားပြီး <span class="guilabel">Marker</span> ၏ အရွယ်အစားကို <code class="docutils literal notranslate"><span class="pre">0.0</span></code> ထားရှိပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/hide_point_marker.png" src="../../../_images/hide_point_marker.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Apply</span> ကိုနှိပ်လိုက်ပါက အောက်ပါရလာဒ်ကို မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/hide_point_marker_results.png" src="../../../_images/hide_point_marker_results.png" />
+</figure>
+</li>
+</ol>
+<p>မြေပုံကို zoom ချုံ့ကြည့်လိုက်လျှင် label အချို့သည် ထပ်နေခြင်းများမဖြစ်စေရန်အတွက် စကေးအကြီးများတွင် ပျောက်သွားသည်ကို တွေ့ရနိုင်ပါသည်။ ထိုသို့ပျောက်သွားခြင်းသည် တစ်ခါတရံတွင် point များစွာရှိသော dataset များဖြင့်လုပ်ကိုင်သောအခါ သင်လိုချင်သည့်ပုံစံဖြစ်နေသော်လည်း အခြားအချိန်များတွင် အသုံးဝင်သော သတင်းအချက်အလက်များ လွတ်သွားပါလိမ့်မည်။ ထိုသို့ဖြစ်ခြင်းကို ကိုင်တွယ်ရန် အခြားဖြစ်နိုင်ခြေတစ်ခုရှိပါသည်၊ ၎င်းကို ဤသင်ခန်းစာ၏ နောက်ထပ်လေ့ကျင့်ခန်းတစ်ခုထဲတွင် သင်ကြားပေးမည်ဖြစ်ပါသည်။ ယခုအတွက်ကတော့ zoom ချုံ့ကြည့်ပြီး toolbar ထဲရှိ <a class="reference internal" href="../../../_images/mActionShowUnplacedLabel.png"><img alt="showUnplacedLabel" src="../../../_images/mActionShowUnplacedLabel.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး ဘာဖြစ်သွားသလဲ ကြည့်ကြည့်ပါ။</p>
+</section>
+<section id="label-try-yourself-customize-the-labels">
+<h2><span class="section-number">3.2.4. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Label များကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း (Try Yourself: Customize the Labels)<a class="headerlink" href="#label-try-yourself-customize-the-labels" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Point marker တစ်ခုနှင့် <code class="docutils literal notranslate"><span class="pre">2.0</span></code> မီလီမီတာ label offset (အရွေ့) တစ်ခုရရှိရန် label နှင့် သင်္ကေတ setting များကို reset (မူလအတိုင်းပြန်ထား) လုပ်ပါ။</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>မြေပုံတွင် marker point များကို ပြသနေသင့်ပြီး label များသည် 2 မီလီမီတာ အရွေ့တွင် ရှိနေသင့်ပါသည်။ Marker များနှင့် label များ၏ style များသည် မြေပုံတွင် ရှင်းလင်းစွာ မြင်ရနေသင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/customised_labels_one.png" src="../../../_images/customised_labels_one.png" />
+</figure>
+</div>
+<ul class="simple">
+<li><p>မြေပုံကို <code class="docutils literal notranslate"><span class="pre">1:100000</span></code> စကေးထားရှိပါ။ <span class="guilabel">Status Bar</span> ထဲရှိ <span class="guilabel">Scale</span> box ထဲတွင် ရိုက်ထည့်ခြင်းဖြင့် လုပ်ဆောင်နိုင်ပါသည်။ Label များကို ထိုစကေး၌ ကြည့်ရှုရာတွင် သင့်လျော်စေရန် label များကို မွမ်းမံပြင်ဆင်ပါ။</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>ဤနောက်ဆုံးရလာဒ်ကို ရရှိရန် ဖြစ်နိုင်ချေတစ်ခုရှိပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/possible_outcome_map.png" src="../../../_images/possible_outcome_map.png" />
+</figure>
+<p>ဤရလာဒ်ကို ရရှိရန်-</p>
+<ul>
+<li><p>ဖောင့်အရွယ်အစား <code class="docutils literal notranslate"><span class="pre">10</span></code> ကိုအသုံးပြုပါ</p></li>
+<li><p>ပတ်လည် point နေရာချထားမှုအကွာအဝေးကို <code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">mm</span></code> အသုံးပြုပါ</p></li>
+<li><p>Marker အရွယ်အစားကို <code class="docutils literal notranslate"><span class="pre">3.0</span> <span class="pre">mm</span></code> အသုံးပြုပါ</p></li>
+<li><p>ထို့အပြင် ဤဥပမာသည် <span class="guilabel">Wrap on character</span> option ကိုအသုံးပြုထားပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/wrap_character_settings.png" src="../../../_images/wrap_character_settings.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Wrap on character</span> တွင် <code class="docutils literal notranslate"><span class="pre">space</span></code> တစ်ခုရိုက်ထည့်ပြီး <span class="guilabel">Apply</span> နှိပ်ပါ။ ဤဥပမာတွင် အချို့သော နေရာအမည်များသည် အလွန်ရှည်နေပြီး စာကြောင်းများစွာဖြင့် ပေါ်နေပါသည်။ ထိုအတွက် မြေပုံပေါ်တွင် ပိုမိုသင့်လျော်စွာဖြစ်စေရန် setting ကို ရှာတွေ့ကောင်းရှာတွေ့နိုင်ပါသည်။</p></li>
+</ul>
+</div>
+</section>
+<section id="line-follow-along-labeling-lines">
+<h2><span class="section-number">3.2.5. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Line များကို အညွှန်းတပ်ခြင်း (Follow Along: Labeling Lines)<a class="headerlink" href="#line-follow-along-labeling-lines" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် label တပ်ခြင်းသည် မည်သို့အလုပ်လုပ်သည်ကို သိရှိပြီးဖြစ်ပါသည်။ သို့သော် ပြဿနာတစ်ခုတော့ရှိနေပါသေးသည်။ Point များနှင့် polygon များကို label တပ်ရသည်မှာ လွယ်ကူသော်လည်း line များအတွက်ဆိုလျှင် ဘယ်လိုဖြစ်မလဲ။ Line များကို point များနည်းတူ label တပ်မည်ဆိုလျှင် ရလာဒ်သည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/bad_street_labels.png" src="../../../_images/bad_street_labels.png" />
+</figure>
+<p>လွယ်လွယ်ကူကူနားလည်စေရန်အတွက် <code class="docutils literal notranslate"><span class="pre">roads</span></code> layer label များကို format ပြန်ပြင်ပါမည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer ကိုဖျောက်ထားပါ</p></li>
+<li><p>အထက်တွင် <code class="docutils literal notranslate"><span class="pre">places</span></code> အတွက် လုပ်ဆောင်ခဲ့သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">roads</span></code> layer အတွက် <a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <span class="guilabel">Single Labels</span> ကိုထားပေးပါ။</p></li>
+<li><p>Label များများကိုမြင်နိုင်စေရန် စာလုံးဖောင့် <span class="guilabel">Size</span> ကို <code class="docutils literal notranslate"><span class="pre">10</span></code> ထားပါ</p></li>
+<li><p>Swellendam မြို့ဧရိယာကို zoom ချဲ့ကြည့်ပါ</p></li>
+<li><p><span class="guilabel">Labels</span> tab ၏ <span class="guilabel">Placement</span> tab ထဲတွင် အောက်ပါ setting များကို ရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/street_label_settings.png" src="../../../_images/street_label_settings.png" />
+</figure>
+<p>စာသား style များသည် default တန်ဖိုးများကိုအသုံးပြုထားပြီး label များသည် ဖတ်ရခက်ခဲနေသည်ကို တွေ့ရပါလိမ့်မည်။ <span class="guilabel">Text</span> ကို မီးခိုးရောင်အရင့် သို့မဟုတ် အနက်ရောင် <span class="guilabel">Color</span> သုံးပြီး <span class="guilabel">Buffer</span> တွင် အဝါဖျော့ <span class="guilabel">Color</span> ကိုသုံးကြည့်ပါ။</p>
+<p>မြေပုံသည် စကေးပေါ်မူတည်၍ အောက်ပါပုံစံနှင့်ဆင်တူ ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/street_label_formatted.png" src="../../../_images/street_label_formatted.png" />
+</figure>
+<p>အချို့သော လမ်းအမည်များသည် တစ်ကြိမ်ထက်ပိုပြီး ပေါ်နေသည်ကို တွေ့ရလိမ့်မည်ဖြစ်သည်။ ထိုကဲ့သို့ မဖြစ်စေရန်-</p>
+</li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ၏ <span class="guilabel">Labels</span> tab ထဲတွင် <span class="guilabel">Rendering</span> option ကိုရွေးချယ်ပြီး အောက်တွင်ပြထားသည့်အတိုင်း <span class="guilabel">Merge connected lines to avoid duplicate labels</span> ကို select လုပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/merge_lines_option.png" src="../../../_images/merge_lines_option.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+<p>အခြားအသုံးဝင်သော function မှာ သတိမထားမိနိုင်လောက်အောင် တိုနေသော feature များအတွက် label များတပ်ခြင်းကို ရှောင်ရှားခြင်းဖြစ်သည်။</p>
+</li>
+<li><p>ထို <span class="guilabel">Rendering</span> panel ထဲမှာပင် <span class="guilabel">Suppress labeling of features smaller than …</span> ၏ တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">5.00</span> <span class="pre">mm</span></code> ဟုသတ်မှတ်ပြီး <span class="guilabel">Apply</span> နှိပ်လိုက်သောအခါ ထွက်လာသောရလာဒ်ကို သတိထားကြည့်ပါ။</p>
+<p>အမျိုးမျိုးသော <span class="guilabel">Placement</span> setting များကိုလည်း စမ်းကြည့်ပါ။ ယခင်တုန်းက မြင်တွေ့ခဲ့ပြီးသည့်အတိုင်း <span class="guilabel">Horizontal</span> option သည် ဤဥပမာအတွက် သိပ်မကောင်းမွန်သောကြောင့် ၎င်းအစား <span class="guilabel">Curved</span> option ကိုစမ်းကြည့်ကြပါမည်။</p>
+</li>
+<li><p><span class="guilabel">Labels</span> tab ၏ <span class="guilabel">Placement</span> panel ထဲတွင် <span class="guilabel">Curved</span> option ကို select လုပ်ပါ။</p></li>
+</ol>
+<p>ရလာဒ်သည် အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/final_street_labels.png" src="../../../_images/final_street_labels.png" />
+</figure>
+<p>ယခင်ကမြင်တွေ့ခဲ့ရသော label အချို့ ပျောက်သွားသည်ကို တွေ့ရပါမည်။ အဘယ်ကြောင့်ဆိုသော ကွေ့ကောက်နေသောလမ်းများအတိုင်း ချောမွေ့ပြီးဖတ်ရလွယ်အောင် label တပ်ရာတွင်ခက်ခဲသောကြောင့် ဖြစ်သည်။ Label တပ်ရာတွင် လမ်းများအကြားနေရာလွတ်များတွင် ရှိမနေပဲ လမ်းများအတိုင်းခြေရာခံလိုက်သောကြောင့် အခြား label များကို ပိုမိုအသုံးဝင်စေနိုင်ပါသည်။ ပိုအသုံးဝင်မည်ထင်သည့် သို့မဟုတ် ပိုမိုကြည့်ကောင်းမည်ထင်သည့် option များကို အသုံးပြုရန် ဆုံးဖြတ်နိုင်ပါသည်။</p>
+</section>
+<section id="data-setting-follow-along-data-defined-settings">
+<h2><span class="section-number">3.2.6. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Data ဖြင့်သတ်မှတ်နိုင်သော setting များ (Follow Along: Data Defined Settings)<a class="headerlink" href="#data-setting-follow-along-data-defined-settings" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">roads</span></code> layer အတွက် label တပ်ခြင်းကို ပိတ်လိုက်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer အတွက် label တပ်ခြင်းကို ပြန်ဖွင့်ပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="openTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး <code class="docutils literal notranslate"><span class="pre">places</span></code> အတွက် attribute ဇယားကိုဖွင့်ပါ</p>
+<p>ယခုအနေဖြင့် စိတ်ဝင်စားသော <code class="docutils literal notranslate"><span class="pre">place</span></code> <em>field</em> တစ်ခုရှိပြီး ထို field သည် <em>record</em> တစ်ခုချင်းစီအတွက် မြို့ပြဧရိယာအမျိုးအစားကို သတ်မှတ်ပေးထားပါသည်။ Label style များအတွက် ထို data ကို အသုံးပြုနိုင်ပါသည်။</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> ၏ <span class="guilabel">Labels</span> panel ထဲရှိ <span class="guilabel">Text</span> panel သို့သွားပါ</p></li>
+<li><p><span class="guilabel">Style</span> ၏အောက်ရှိ Italic text ခလုတ်၏ ဘေးရှိ <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး <span class="guilabel">Expression String Builder</span> ကိုဖွင့်ရန် <span class="menuselection">Edit…</span> ကိုရွေးပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/expression_string_builder.png" src="../../../_images/expression_string_builder.png" />
+</figure>
+</li>
+<li><p><span class="menuselection">Fields and Values</span> အောက်ထဲတွင် <code class="docutils literal notranslate"><span class="pre">place</span></code> ကို click နှစ်ချက်နှိပ်ပြီးနောက် <span class="guilabel">All Unique</span> ကိုနှိပ်ပါ။ ထိုသို့လုပ်ခြင်းသည် ဤ layer ၏ <code class="docutils literal notranslate"><span class="pre">place</span></code> field ထဲရှိ unique (တစ်မျိုးတည်းဖြစ်သော) ဖြစ်သောတန်ဖိုးများအားလုံးကို စာရင်းလုပ်ပေးပါလိမ့်မည်။ Text editor ထဲတွင် <code class="docutils literal notranslate"><span class="pre">=</span></code> တစ်ခုထည့်ပြီး <code class="docutils literal notranslate"><span class="pre">town</span></code> ပေါ်တွင် click နှစ်ချက်နှိပ်ပါ။</p>
+<p>နောက်တစ်နည်းအားဖြင့် text editor ထဲတွင် <code class="docutils literal notranslate"><span class="pre">&quot;place&quot;</span> <span class="pre">=</span> <span class="pre">'town'</span></code> ဟု တိုက်ရိုက် စာရိုက်ထည့်နိုင်ပါသည်။</p>
+</li>
+<li><p><span class="guilabel">OK</span> ကို နှစ်ကြိမ်နှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/expression_builder_settings.png" src="../../../_images/expression_builder_settings.png" />
+</figure>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">place</span></code> field နှင့် <code class="docutils literal notranslate"><span class="pre">town</span></code> ကိုက်ညီသော နေရာများအားလုံးအတွက် label များကို italic (စာလုံးအစောင်း) ဖြင့်ပြသနေသည်ကို သတိပြုကြည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/italic_label_result.png" src="../../../_images/italic_label_result.png" />
+</figure>
+</section>
+<section id="data-setting-try-yourself-using-data-defined-settings">
+<h2><span class="section-number">3.2.7. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Data ဖြင့်သတ်မှတ်သော setting များကို အသုံးပြုခြင်း (Try Yourself: Using Data Defined Settings)<a class="headerlink" href="#data-setting-try-yourself-using-data-defined-settings" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ဤနေရာတွင် အဆင့်မြင့် label တပ်ခြင်း setting များအချို့ကို သရုပ်ပြရန်အတွက် အနည်းငယ် ရှေ့သို့ကျော်လိုက်ပါမည်။ အဆင့်မြင့် level တွင် သင့်အနေဖြင့် အောက်ပါတို့ကို နားလည်သည်ဟု ယူဆထားပါသည်။ အကယ်၍ နားမလည်လျှင် ဤအပိုင်းကို ချန်ထားခဲ့နိုင်ပြီး နောက်ပိုင်းနားလည်သွားသောအခါမှ ပြန်လာပြီးလုပ်ဆောင်နိုင်ပါသည်။</p>
+</div>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> အတွက် Attribute ဇယားကို ဖွင့်ပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> ခလုတ်ကို နှိပ်ပြီး edit mode ထဲသို့သွားပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> ခလုတ်နှိပ်ပြီး column အသစ်တစ်ခု ထပ်ထည့်ပါ</p></li>
+<li><p>အောက်ပါအတိုင်း ပြင်ဆင်သတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/font_size_column.png" src="../../../_images/font_size_column.png" />
+</figure>
+</li>
+<li><p>မတူညီသော နေရာအမျိုးအစားတစ်ခုချင်းစီအတွက် စိတ်ကြိုက် စာလုံးဖောင့် အရွယ်အစားများကို သတ်မှတ်ရန် ထို column ကိုအသုံးပြုပါ (<code class="docutils literal notranslate"><span class="pre">place</span></code> field ထဲရှိ key တစ်ခုစီ)</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic">
+<li><p>Edit mode ထဲတွင်ပဲ ဆက်ရှိနေပြီး <code class="docutils literal notranslate"><span class="pre">FONT_SIZE</span></code> တန်ဖိုးများကို သင်နှစ်သက်သလို သတ်မှတ်ပါ။ ဤဥပမာတွင် မြို့ များအတွက် <code class="docutils literal notranslate"><span class="pre">16</span></code> ၊ ဆင်ခြေဖုံး များအတွက် <code class="docutils literal notranslate"><span class="pre">14</span></code> ၊ နယ်မြေ များအတွက် <code class="docutils literal notranslate"><span class="pre">12</span></code> နှင့် ရွာများ အတွက် <code class="docutils literal notranslate"><span class="pre">10</span></code> ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>ပြောင်းလဲမှုများကို သိမ်းဆည်းပြီး edit mode ကိုပိတ်လိုက်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer အတွက် <span class="guilabel">Text</span> formatting option သို့ပြန်သွားပြီး စာလုံးဖောင့် အရွယ်အစား <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> data defined override dropdown ထဲရှိ <span class="guilabel">Attribute field</span> ထဲမှ <code class="docutils literal notranslate"><span class="pre">FONT_SIZE</span></code> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/font_size_override.png" src="../../../_images/font_size_override.png" />
+</figure>
+</li>
+</ol>
+<p>အထက်ဖော်ပြပါ တန်ဖိုးများကိုအသုံးပြုလျှင် ရလာဒ်သည် အောက်ပါအတိုင်းဖြစ်သင့်ပါသည်-</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/font_override_results.png" src="../../../_images/font_override_results.png" />
+</figure>
+</div></blockquote>
+</div>
+</section>
+<section id="labeling-further-possibilities-with-labeling">
+<h2><span class="section-number">3.2.8. </span><abbr title="Advanced level">★★★</abbr> Labeling နှင့်ပတ်သက်သော နောက်ထပ်လုပ်ဆောင်နိုင်ခြေများ (Further Possibilities With Labeling)<a class="headerlink" href="#labeling-further-possibilities-with-labeling" title="Link to this heading"></a></h2>
+<p>ဤသင်တန်းတွင် option အားလုံးကို ထည့်သွင်းမဖော်ပြနိုင်ပါ၊ သို့သော် <span class="guilabel">Label</span> tab တွင် အခြားများစွာသော အသုံးဝင်သည့် function များရှိသည်ကို သိထားပါ။ စကေးအခြေခံသော ပုံဖော်ပြသခြင်းကို သတ်မှတ်ပေးနိုင်ခြင်း၊ layer တစ်ခုထဲရှိ label များအတွက် ပုံဖော်ပြသမှုဦးစားပေးအဆင့်ကို ပြောင်းလဲနိုင်ခြင်းနှင့် layer attribute များကိုအသုံးပြု၍ label option တိုင်းကို သတ်မှတ်ပေးနိုင်ခြင်းများ လုပ်ဆောင်နိုင်ပါသည်။ Label တစ်ခု၏ အလှည့် ၊ XY တည်နေရာနှင့် အခြားဂုဏ်သတ္တိများကိုပင် သတ်မှတ်ပေးနိုင်ပါသည် (attribute field များရှိလျှင်)၊ ထို့နောက် ထိုဂုဏ်သတ္တိများကို <span class="guilabel">Layer Labeling Options</span> ခလုတ်နှင့်ကပ်လျက်တွင်ရှိသော tool များကို အသုံးပြု၍ တည်းဖြတ်ပြင်ဆင်နိုင်ပါသည်-</p>
+<p><a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionShowPinnedLabels.png"><img alt="showPinnedLabels" src="../../../_images/mActionShowPinnedLabels.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionPinLabels.png"><img alt="pinLabels" src="../../../_images/mActionPinLabels.png" style="width: 1.5em;" /></a>
+<a class="reference internal" href="../../../_images/mActionShowHideLabels.png"><img alt="showHideLabels" src="../../../_images/mActionShowHideLabels.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionMoveLabel.png"><img alt="moveLabel" src="../../../_images/mActionMoveLabel.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionRotateLabel.png"><img alt="rotateLabel" src="../../../_images/mActionRotateLabel.png" style="width: 1.5em;" /></a>
+<a class="reference internal" href="../../../_images/mActionChangeLabelProperties.png"><img alt="changeLabelProperties" src="../../../_images/mActionChangeLabelProperties.png" style="width: 1.5em;" /></a></p>
+<p>(လိုအပ်သော attribute field များပါရှိပြီး edit mode တွင်ရှိနေလျှင် အဆိုပါ tool များသည် active ဖြစ်လာပါလိမ့်မည်)</p>
+<p>Lable တပ်ခြင်းစနစ်၏ ပိုများသောဖြစ်နိုင်ခြေများကို လေ့လာစူးစမ်းကြည့်ပါ။</p>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">3.2.9. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>တသမတ်တည်းမဟုတ်ပဲ ပြောင်းလဲနိုင်စွမ်းရှိသော (dynamic) label များကို ဖန်တီးရာတွင် layer attribute များကို မည်သို့အသုံးပြုသည်ကို သင်ယူပြီးဖြစ်ပါသည်။ ဤနည်းအားဖြင့် မြေပုံသည် ပိုမို၍ အချက်အလက်များပေးစွမ်းနိုင်လာပြီး ကြည့်ရှုရပိုမိုကောင်းမွန်စေပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">3.2.10. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် attribute များသည် မြေပုံအတွက် အမြင်ဆိုင်ရာကွဲပြားမှုများကို မည်ကဲ့သို့ လုပ်ဆောင်သည်ကို သိရှိပြီးဖြစ်သည်။ Object များ၏သင်္ကေတများ သူ့အလိုလိုပြောင်းလဲရန် attribute များကို မည်သို့အသုံးပြုရမည်ဆိုသည်ကို နောက်လာမည့် သင်ခန်းစာတွင် တွေ့ရမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="attribute_data.html" class="btn btn-neutral float-left" title="3.1. သင်ခန်းစာ- Vector ဇယားအချက်အလက်များ (Lesson: Vector Attribute Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classification.html" class="btn btn-neutral float-right" title="3.3. သင်ခန်းစာ- အတန်းအစားခွဲခြားခြင်း (Lesson: Classification)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_classification/label_tool.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_classification/label_tool.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_classification/label_tool.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/vector_classification/label_tool.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/vector_classification/label_tool.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/vector_classification/label_tool.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_classification/label_tool.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/vector_classification/label_tool.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_classification/label_tool.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/vector_classification/label_tool.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/vector_classification/label_tool.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/3ed4ec3f6db6dce2d28ad180010a0842" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

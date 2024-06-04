@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. မော်ဂျူး - Raster များ (Module: Rasters) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/index.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" href="data_manipulation.html" />
+    <link rel="prev" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" href="../vector_analysis/spatial_statistics.html" />
+  <meta name="description" content="QGIS testing documentation: 7. မော်ဂျူး - Raster များ (Module: Rasters)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. မော်ဂျူး - Raster များ (Module: Rasters)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_manipulation.html">7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changing_symbology.html">7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terrain_analysis.html">7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7. </span>မော်ဂျူး - Raster များ (Module: Rasters)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/rasters/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../vector_analysis/spatial_statistics.html" class="btn btn-neutral float-left" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_manipulation.html" class="btn btn-neutral float-right" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="raster-module-rasters">
+<span id="tm-rasters"></span><h1><span class="section-number">7. </span>မော်ဂျူး - Raster များ (Module: Rasters)<a class="headerlink" href="#raster-module-rasters" title="Link to this heading"></a></h1>
+<p>ယခင်သင်ခန်းစာများတွင် raster များကို digitize ပြုလုပ်ခြင်းအတွက် အသုံးပြုခဲ့ပြီးဖြစ်ပါသည်၊ သို့သော် raster data များကို တိုက်ရိုက်လည်း အသုံးပြုနိုင်ပါသေးသည်။ ထိုလုပ်ဆောင်ချက်များကို QGIS တွင်မည်ကဲ့သို့လုပ်ဆောင်ရမည်ကို ဤမော်ဂျူးတွင် မြင်တွေ့ရမည်ဖြစ်သည်။</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_manipulation.html">7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_manipulation.html#raster-data-follow-along-loading-raster-data">7.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster data ထည့်သွင်းခြင်း (Follow Along: Loading Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_manipulation.html#virtual-raster-follow-along-create-a-virtual-raster">7.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Virtual Raster တစ်ခုဖန်တီးပါ (Follow Along: Create a Virtual Raster)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_manipulation.html#raster-data-transforming-raster-data">7.1.3. <abbr title="Advanced level">★★★</abbr> Raster Data များအား အသွင်ပြောင်းလဲခြင်း (Transforming Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_manipulation.html#in-conclusion">7.1.4. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_manipulation.html#what-s-next">7.1.5. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changing_symbology.html">7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#try-yourself">7.2.1. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#raster-layer-follow-along-changing-raster-layer-symbology">7.2.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Layer သင်္ကေတ ပြောင်းလဲခြင်း (Follow Along: Changing Raster Layer Symbology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#singleband-gray-follow-along-singleband-gray">7.2.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband gray (Follow Along: Singleband gray)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#singleband-pseudocolor-follow-along-singleband-pseudocolor">7.2.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Singleband pseudocolor (Follow Along: Singleband pseudocolor)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#follow-along-changing-the-transparency">7.2.5. လိုက်လုပ်ကြည့်ပါ - အလင်းဖောက်နှုန်း ပြောင်းလဲခြင်း (Follow Along: Changing the transparency)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#in-conclusion">7.2.6. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#reference">7.2.7. အကိုးအကား (Reference)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing_symbology.html#what-s-next">7.2.8. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terrain_analysis.html">7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#follow-along-calculating-a-hillshade">7.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တောင်အရိပ်တစ်ခု တွက်ချက်ခြင်း (Follow Along: Calculating a Hillshade)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#hillshade-overlay-follow-along-using-a-hillshade-as-an-overlay">7.3.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Hillshade အား Overlay တစ်ခုအဖြစ် အသုံးပြုခြင်း (Follow Along: Using a Hillshade as an Overlay)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#follow-along-finding-the-best-areas">7.3.3. လိုက်လုပ်ကြည့်ပါ - အကောင်းဆုံးဧရိယာများကို ရှာဖွေခြင်း (Follow Along: Finding the best areas)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#follow-along-calculating-the-slope">7.3.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - လျှောစောက်တွက်ချက်ခြင်း (Follow Along: Calculating the Slope)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#try-yourself-calculating-the-aspect">7.3.5. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မျက်နှာမူရာအရပ် တွက်ချက်ခြင်း (Try Yourself: Calculating the aspect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#follow-along-finding-the-north-facing-aspect">7.3.6. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - မြောက်ဘက် မျက်နှာမူရာအရပ်ကို ရှာဖွေခြင်း (Follow Along: Finding the north-facing aspect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#try-yourself-more-criteria">7.3.7. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - နောက်ထပ်သတ်မှတ်ချက်များ (Try Yourself: More criteria)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#raster-analysis-follow-along-combining-raster-analysis-results">7.3.8. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Analysis ရလာဒ်များအား ပေါင်းစပ်ခြင်း (Follow Along: Combining Raster Analysis Results)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#raster-follow-along-simplifying-the-raster">7.3.9. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို ပေါ့ပါးရိုးရှင်းအောင်လုပ်ခြင်း (Follow Along: Simplifying the Raster)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#raster-follow-along-reclassifying-the-raster">7.3.10. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို အတန်းအစားပြန်ခွဲခြင်း (Follow Along: Reclassifying the Raster)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#raster-follow-along-querying-the-raster">7.3.11. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster တွင် အချက်အလက်များရှာခြင်း (Follow Along: Querying the raster)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#in-conclusion">7.3.12. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain_analysis.html#what-s-next">7.3.13. နောက်ထပ် ဘာအကြောင်းအရာလဲ?  (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../vector_analysis/spatial_statistics.html" class="btn btn-neutral float-left" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_manipulation.html" class="btn btn-neutral float-right" title="7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/index.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/index.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/index.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/rasters/index.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/rasters/index.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/rasters/index.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/rasters/index.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/rasters/index.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/rasters/index.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/rasters/index.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/rasters/index.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/ba87f7196f5a3d3c78f89d12ebe15f36" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

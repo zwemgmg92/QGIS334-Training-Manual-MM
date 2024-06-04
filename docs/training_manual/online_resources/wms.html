@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wms.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="10.2. Lesson: Web Feature Services" href="wfs.html" />
+    <link rel="prev" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wms-layer-follow-along-loading-a-wms-layer">10.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WMS layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WMS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">10.1.2. <abbr title="Basic level">★☆☆</abbr> Try Yourself:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">10.1.3. <abbr title="Advanced level">★★★</abbr> Try Yourself:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">10.1.4. <abbr title="Advanced level">★★★</abbr> Try Yourself:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">10.1.5. In Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">10.1.6. Further Reading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">10.1.7. What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wfs.html">10.2. Lesson: Web Feature Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">10. </span>မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10.1. </span>သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/online_resources/wms.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wfs.html" class="btn btn-neutral float-right" title="10.2. Lesson: Web Feature Services" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="web-mapping-services-lesson-web-mapping-services">
+<span id="wms-services"></span><h1><span class="section-number">10.1. </span>သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)<a class="headerlink" href="#web-mapping-services-lesson-web-mapping-services" title="Link to this heading"></a></h1>
+<p>Web Mapping Service (WMS) တစ်ခုသည် remote server တစ်ခုပေါ်တွင်ရှိသော ဝန်ဆောင်မှုတစ်ခုဖြစ်ပါသည်။ ဝက်ဘ်ဆိုဒ် တစ်ခုနှင့်ဆင်တူပြီး server နှင့်အချိတ်အဆက်ရှိနေသမျှ ၎င်းကိုအသုံးပြုနိုင်မည်ဖြစ်သည်။ QGIS ကိုအသုံးပြု၍ သင်၏လက်ရှိ မြေပုံထဲသို့ WMS တစ်ခုကို တိုက်ရိုက်ထည့်သွင်းနိုင်ပါသည်။</p>
+<p>Plugin များသင်ခန်းစာတွင် Google မှ raster image အသစ်တစ်ခုကို ထည့်သွင်းနိုင်သည်ကို သင်မှတ်မိပါလိမ့်မည်။ သို့သော် ၎င်းသည် တစ်ကြိမ်ထဲသာအပြီးဖြစ်ပြီး image ကိုဒေါင်းလုဒ်ပြုလုပ်ပြီးသည်နှင့် ပြောင်းလဲမှုမရှိတော့ပါ။ WMS သည် ၎င်းနှင့်မတူပဲ တိုက်ရိုက်ဝန်ဆောင်မှုတစ်ခုဖြစ်ပြီး မြေပုံပေါ်တွင် မြင်ကွင်းရွှေ့ခြင်း သို့မဟုတ် zoom အချုံ့/အချဲ့ပြုလုပ်ပါက အလိုအလျောက် refresh ဖြစ်သွားပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> WMS တစ်ခုကို အသုံးပြုတတ်စေရန်နှင့် ၎င်း၏ အကန့်အသတ်များကို နားလည်စေရန်။</p>
+<section id="wms-layer-follow-along-loading-a-wms-layer">
+<h2><span class="section-number">10.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WMS layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WMS Layer)<a class="headerlink" href="#wms-layer-follow-along-loading-a-wms-layer" title="Link to this heading"></a></h2>
+<p>ဤလေ့ကျင့်ခန်းအတွက် သင်တန်းအစတွင် သင်ဖန်တီးခဲ့သော အခြေခံမြေပုံကိုအသုံးပြုနိုင်သလို မြေပုံအသစ်တစ်ခုစတင်ပြီး ရှိပြီးသား layer များကိုလည်း ထည့်သွင်းနိုင်ပါသည်။ ဤဥပမာတွင် မြေပုံအသစ်တစ်ခုကို အသုံးပြုပြီး မူရင်း <span class="guilabel">places</span> ၊ <span class="guilabel">landuse</span> နှင့် <span class="guilabel">protected_areas</span> layer များကိုထည့်သွင်းကာ သင်္ကေတများချိန်ညှိခဲ့ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/new_map.png"><img alt="../../../_images/new_map.png" src="../../../_images/new_map.png" style="width: 100%;" /></a>
+</figure>
+<ol class="arabic">
+<li><p>အဆိုပါ layer များကို မြေပုံအသစ်တစ်ခုထဲသို့ ထည့်သွင်းပါ၊ သို့မဟုတ် သင့်မူရင်းမြေပုံကိုအသုံးပြုပြီး အဆိုပါ layer များကိုသာ မြင်နိုင်အောင် ဖွင့်ထားပါ။</p></li>
+<li><p>Before starting to add the WMS layer, deactivate “on the fly”
+projection (<span class="menuselection">Project ► Properties… ► CRS</span> tab,
+check <span class="guilabel">No CRS (or unknown/non-Earth projection)</span>.
+This may cause the layers to no longer overlap properly, but
+don’t worry: we’ll fix that later.</p></li>
+<li></li>
+<li><p>To add WMS layers, click on the <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> button to open the
+<span class="guilabel">Data Source Manager</span> dialog and enable the <a class="reference internal" href="../../../_images/mActionAddWmsLayer.png"><img alt="addWmsLayer" src="../../../_images/mActionAddWmsLayer.png" style="width: 1.5em;" /></a>
+<span class="guilabel">WMS/WMTS</span> tab.</p>
+<figure class="align-center">
+<img alt="../../../_images/datasourcemanager_wms.png" src="../../../_images/datasourcemanager_wms.png" />
+</figure>
+<p>Remember how you connected to a SpatiaLite or GeoPackage database at the
+beginning of the course. The <span class="guilabel">landuse</span>, <span class="guilabel">buildings</span>, and
+<span class="guilabel">roads</span> layers are stored in a database. To use those layers, you
+first needed to connect to the database. Using a WMS is similar, with the
+exception that the layers are on a remote server.</p>
+</li>
+<li><p>To create a new connection to a WMS, click on the <span class="guilabel">New</span> button.</p>
+<p>You’ll need a WMS address to continue. There are several free WMS servers
+available on the Internet. One of these is <a class="reference external" href="https://ows.terrestris.de/osm/service">terrestris</a>, which makes use of the <a class="reference external" href="https://wiki.openstreetmap.org/wiki/Main_Page">OpenStreetMap</a> dataset.</p>
+</li>
+<li><p>To make use of this WMS, set it up in your current dialog, like this:</p>
+<figure class="align-center">
+<img alt="../../../_images/new_wms_connection.png" src="../../../_images/new_wms_connection.png" />
+</figure>
+<ul class="simple">
+<li><p>The value of the <span class="guilabel">Name</span> field should be <code class="docutils literal notranslate"><span class="pre">terrestris</span></code>.</p></li>
+<li><p>The value of the <span class="guilabel">URL</span> field should be
+<code class="docutils literal notranslate"><span class="pre">https://ows.terrestris.de/osm/service</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Click <span class="guilabel">OK</span>. You should see the new WMS server listed:</p>
+<figure class="align-center">
+<img alt="../../../_images/new_connection_listed.png" src="../../../_images/new_connection_listed.png" />
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Connect</span>. In the list below, you should now see these
+new entries loaded:</p>
+<figure class="align-center">
+<img alt="../../../_images/new_wms_entries.png" src="../../../_images/new_wms_entries.png" />
+</figure>
+<p>These are all the layers hosted by this WMS server.</p>
+</li>
+<li><p>Click once on the <span class="guilabel">OSM-WMS</span> layer.
+This will display the default <span class="guilabel">Coordinate Reference System</span> in use
+and the number of CRSes supported by the dataset:</p>
+<figure class="align-center">
+<img alt="../../../_images/osm_wms_selected.png" src="../../../_images/osm_wms_selected.png" />
+</figure>
+<p>Since we’re not using <code class="docutils literal notranslate"><span class="pre">EPSG:4326</span> <span class="pre">-</span> <span class="pre">WGS</span> <span class="pre">84</span></code> for our map,
+let’s find one that meets our needs.</p>
+<ol class="arabic">
+<li><p>Click the <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a><sup>Select CRS</sup> button. You will see a standard
+<span class="guilabel">Coordinate Reference System Selector</span> dialog
+showing all the CRS the data is published with.</p></li>
+<li><p>We want a <em>projected</em> CRS, so let’s choose <span class="guilabel">WGS 84 / Pseudo-Mercator</span>
+with <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code>. You can use the top <a class="reference internal" href="../../../_images/search.png"><img alt="search" src="../../../_images/search.png" style="width: 1.5em;" /></a> <span class="guilabel">Filter</span> widget.</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/pseudo_mercator_selected.png" src="../../../_images/pseudo_mercator_selected.png" />
+</figure>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Click <span class="guilabel">OK</span>. The Coordinate Reference System associated with
+the entry has changed.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Click <span class="guilabel">Add</span> to load the layer in your project using <span class="guilabel">Layer name`</span>
+(default is <span class="guilabel">OpenStreetMap WMS - by terrestris</span>).</p></li>
+<li><p>Close the <span class="guilabel">Data Source Manager</span> dialog if not done automatically</p></li>
+<li><p>In the <span class="guilabel">Layers</span> panel, click and drag it to the bottom of the list.</p></li>
+<li><p>Zoom out in order to get a global view of the layers. You will notice that
+your layers aren’t located correctly (near west of Africa).
+This is because “on the fly” projection is disabled.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/reprojection_off.png"><img alt="../../../_images/reprojection_off.png" src="../../../_images/reprojection_off.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p>Let’s enable the reprojection again, but using the same projection as the
+<span class="guilabel">OpenStreetMap WMS</span> layer, which is <span class="guilabel">WGS 84 / Pseudo Mercator</span>.</p>
+<ol class="arabic">
+<li><p>Open the <span class="menuselection">Project ► Properties… ► CRS</span> tab</p></li>
+<li><p>Uncheck <span class="guilabel">No CRS (or unknown/non-Earth projection)</span></p></li>
+<li><p>Choose <span class="guilabel">WGS 84 / Pseudo Mercator</span> from the list.</p>
+<figure class="align-center">
+<img alt="../../../_images/enable_projection.png" src="../../../_images/enable_projection.png" />
+</figure>
+</li>
+<li><p>Click <span class="guilabel">OK</span>.</p></li>
+</ol>
+</li>
+<li><p>Now right-click on one of your own layers in the <span class="guilabel">Layers</span> panel and
+click <span class="guilabel">Zoom to layer(s)</span>. You should see the Swellendam
+area:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/wms_result.png"><img alt="../../../_images/wms_result.png" src="../../../_images/wms_result.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+<p>Note how the WMS layer’s streets and our own streets overlap.
+That’s a good sign!</p>
+<section id="the-nature-and-limitations-of-wms">
+<h3>The nature and limitations of WMS<a class="headerlink" href="#the-nature-and-limitations-of-wms" title="Link to this heading"></a></h3>
+<p>By now you may have noticed that this WMS layer actually has many features in it.
+It has streets, rivers, nature reserves, and so on. What’s more, even though it
+looks like it’s made up of vectors, it seems to be a raster, but you can’t
+change its symbology. Why is that?</p>
+<p>This is how a WMS works: it’s a map, similar to a normal map on paper, that you
+receive as an image. What usually happens is that you have vector layers, which
+QGIS renders as a map. But using a WMS, those vector layers are on the WMS
+server, which renders it as a map and sends that map to you as an image.  QGIS
+can display this image, but can’t change its symbology, because all that is
+handled on the server.</p>
+<p>This has several advantages, because you don’t need to worry about the
+symbology. It’s already worked out, and should be nice to look at on any
+competently designed WMS.</p>
+<p>On the other hand, you can’t change the symbology if you don’t like it, and if
+things change on the WMS server, then they’ll change on your map as well. This
+is why you sometimes want to use a Web Feature Service (WFS) instead, which
+gives you vector layers separately, and not as part of a WMS-style map.</p>
+<p>This will be covered in the next lesson, however.
+First, let’s add another WMS layer.</p>
+</section>
+</section>
+<section id="try-yourself">
+<h2><span class="section-number">10.1.2. </span><abbr title="Basic level">★☆☆</abbr> Try Yourself:<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">eAtlas</span></code> WMS server at this URL: <code class="docutils literal notranslate"><span class="pre">https://maps.eatlas.org.au/maps/wms</span></code></p></li>
+<li><p>Load a <span class="guilabel">World: Hillshading</span> layer into the map.</p></li>
+<li><p>You might want to set its <span class="guilabel">Encoding</span> to <span class="guilabel">JPEG</span>
+and its <span class="guilabel">Tile size</span> option to <code class="docutils literal notranslate"><span class="pre">200</span></code> by <code class="docutils literal notranslate"><span class="pre">200</span></code>, so that it loads faster.</p></li>
+<li><p>Your map should look like this (you may need to re-order the layers, and apply some transparency):</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/world_hillshading_result.png"><img alt="../../../_images/world_hillshading_result.png" src="../../../_images/world_hillshading_result.png" style="width: 100%;" /></a>
+</figure>
+</div></blockquote>
+</li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<ol class="arabic">
+<li><p>Go to the Data Source Manager, WMS / WMTS tab and create a new connection entry</p></li>
+<li><p>Use the <a class="reference internal" href="../../../_images/search.png"><img alt="search" src="../../../_images/search.png" style="width: 1.5em;" /></a> text box to filter the list of layers and select the corresponding layer</p></li>
+<li><p>Remember to check/turn its CRS into <span class="guilabel">EPSG:3857 - WGS 84 / Pseudo Mercator</span>
+as the rest of the map.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/add_world_hillshading_layer.png"><img alt="../../../_images/add_world_hillshading_layer.png" src="../../../_images/add_world_hillshading_layer.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p>After the layer is loaded, you can modify its <span class="guilabel">Opacity</span> value
+(under the <span class="guilabel">Transparency</span> properties tab)</p></li>
+</ol>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">10.1.3. </span><abbr title="Advanced level">★★★</abbr> Try Yourself:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Part of the difficulty of using WMS is finding a good (free) server.</p>
+<ul>
+<li><p>Find a new WMS at <a class="reference external" href="https://directory.spatineo.com/">directory.spatineo.com</a> (or elsewhere online).
+It must not have associated fees or restrictions,
+and must have coverage over the Swellendam study area.</p>
+<p>Remember that what you need in order to use a WMS is only its URL
+(and preferably some sort of description).</p>
+</li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Spatineo is one of many places you can search for a OGC data.
+Type in the text area a name, keyword, location of your interest
+to see if you get some working results.
+For this lesson, you might want to filter the results to include WMS only.</p>
+<p>You may notice that many WMS servers are not always available.
+Sometimes this  is temporary, sometimes it is permanent.
+An example of a WMS server that worked at the time of writing
+is the <span class="guilabel">MapServer Demonstration Server</span> WMS
+at <a class="reference external" href="https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities">https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</a>.
+It does not require fees or have access constraints, and it is global.
+Therefore, it does satisfy the requirements.
+Keep in mind, however, that this is merely an example.
+There are many other WMS servers to choose from.</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">10.1.4. </span><abbr title="Advanced level">★★★</abbr> Try Yourself:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add the <span class="guilabel">bluemarble</span> layer from the <span class="guilabel">MapServer Demonstration Server</span>.
+Is that a suitable dataset for our study area?</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<ol class="arabic">
+<li><p>Hide all other WMS layers to prevent them from rendering unnecessarily in the background.</p></li>
+<li><p>Use the same approach as before to add the new server and the appropriate
+layer as hosted on that server:</p>
+<figure class="align-center">
+<img alt="../../../_images/add_bluemarble_layer.png" src="../../../_images/add_bluemarble_layer.png" />
+</figure>
+</li>
+<li><p>If you zoom into the Swellendam area, you’ll notice that this dataset has a low resolution:</p>
+<figure class="align-center">
+<img alt="../../../_images/low_resolution_dataset.png" src="../../../_images/low_resolution_dataset.png" />
+</figure>
+<p>Therefore, it’s better not to use this data for the current map.
+The Blue Marble data is more suitable at global or national scales</p>
+</li>
+</ol>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">10.1.5. </span>In Conclusion<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Using a WMS, you can add inactive maps as backdrops for your existing map data.</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">10.1.6. </span>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://directory.spatineo.com/">Spatineo Directory</a></p></li>
+<li><p><a class="reference external" href="https://wiki.openstreetmap.org/wiki/WMS">OpenStreetMap.org list of WMS servers</a></p></li>
+</ul>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">10.1.7. </span>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Now that you’ve added an inactive map as a backdrop, you’ll be glad to know
+that it’s also possible to add features (such as the other vector layers you
+added before). Adding features from remote servers is possible by using a Web
+Feature Service (WFS). That’s the topic of the next lesson.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wfs.html" class="btn btn-neutral float-right" title="10.2. Lesson: Web Feature Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wms.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/online_resources/wms.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/online_resources/wms.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/online_resources/wms.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/online_resources/wms.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/online_resources/wms.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/online_resources/wms.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/online_resources/wms.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/online_resources/wms.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/online_resources/wms.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/online_resources/wms.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/c8c6e0ca84adeffc7509d5c21a993cb5" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

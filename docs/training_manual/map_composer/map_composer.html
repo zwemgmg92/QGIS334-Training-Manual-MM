@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.1. သင်ခန်းစာ- ပုံထုတ်အပြင်အဆင်ကို အသုံးပြုခြင်း (Lesson: Using Print Layout) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/map_composer/map_composer.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4.2. သင်ခန်းစာ- တသမတ်တည်းမဟုတ်ပဲပြောင်းလဲနိုင်သော ပုံထုတ်အပြင်အဆင်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a Dynamic Print Layout)" href="dynamic_layout.html" />
+    <link rel="prev" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 4.1. သင်ခန်းစာ- ပုံထုတ်အပြင်အဆင်ကို အသုံးပြုခြင်း (Lesson: Using Print Layout)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.1. သင်ခန်းစာ- ပုံထုတ်အပြင်အဆင်ကို အသုံးပြုခြင်း (Lesson: Using Print Layout)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layout-manager-follow-along-the-layout-manager">4.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layout Manager (Follow Along: The Layout Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-basic-map-composition">4.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အခြေခံမြေပုံဖွဲ့စည်းမှု (Follow Along: Basic Map Composition)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-adding-a-title">4.1.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ခေါင်းစဉ်တစ်ခုထည့်သွင်းခြင်း (Follow Along: Adding a Title)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-adding-a-legend">4.1.4. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ရည်ညွှန်းချက် တစ်ခုထည့်သွင်းခြင်း (Follow Along: Adding a Legend)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#legend-item-follow-along-customizing-legend-items">4.1.5. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Legend Item များကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း (Follow Along: Customizing Legend Items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#export-follow-along-exporting-your-map">4.1.6. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- မြေပုံကို export ထုတ်ခြင်း (Follow Along: Exporting Your Map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">4.1.7. နိဂုံးချုပ် (In Conclusion)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic_layout.html">4.2. သင်ခန်းစာ- တသမတ်တည်းမဟုတ်ပဲပြောင်းလဲနိုင်သော ပုံထုတ်အပြင်အဆင်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a Dynamic Print Layout)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="day_1_assignment.html">4.3. အိမ်စာ ၁ (Assignment 1)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4. </span>မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.1. </span>သင်ခန်းစာ- ပုံထုတ်အပြင်အဆင်ကို အသုံးပြုခြင်း (Lesson: Using Print Layout)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/map_composer/map_composer.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dynamic_layout.html" class="btn btn-neutral float-right" title="4.2. သင်ခန်းစာ- တသမတ်တည်းမဟုတ်ပဲပြောင်းလဲနိုင်သော ပုံထုတ်အပြင်အဆင်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a Dynamic Print Layout)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-using-print-layout">
+<h1><span class="section-number">4.1. </span>သင်ခန်းစာ- ပုံထုတ်အပြင်အဆင်ကို အသုံးပြုခြင်း (Lesson: Using Print Layout)<a class="headerlink" href="#lesson-using-print-layout" title="Link to this heading"></a></h1>
+<p>ယခု သင့်တွင် မြေပုံတစ်ခုရှိနေပြီဖြစ်ပြီး ထိုမြေပုံကို ပရင့်ထုတ်ရန် သို့မဟုတ် စာရွက်စာတမ်းတစ်ခုအဖြစ် export ထုတ်ရန်လိုအပ်လာမည်ဖြစ်သည်။ အကြောင်းမှာ GIS မြေပုံဖိုင် တစ်ခုသည် ဓာတ်ပုံတစ်ခုမဟုတ်ပါ။ GIS ပရိုဂရမ်၏ အခြေအနေကို သိမ်းဆည်းထားခြင်းဖြစ်ပြီး သုံးထားသော layer များအားလုံး၊ သက်ဆိုင်ရာ အညွှန်းများ၊ အရောင်များ စသည်တို့ပါဝင်ပါသည်။ QGIS ကဲ့သို့ GIS ပရိုဂရမ် သို့မဟုတ် data မရှိသူများအတွက်ဆိုလျှင် မြေပုံဖိုင်သည် အသုံးဝင်မည်မဟုတ်ပါ။ မြေပုံဖိုင်တစ်ခုကို လူတိုင်း၏ကွန်ပျူတာထဲတွင် ဖတ်ရှုနိုင်ရုံသာမက ပရင့်ထုတ်နိုင်သော format တစ်ခုအဖြစ်သို့ QGIS တွင်ထုတ်ယူနိုင်ပါသည်။ Export ထုတ်ခြင်းနှင့် ပရင့်ထုတ်ခြင်း နှစ်ခုစလုံးကို <em>Print Layout</em> မှတဆင့် ကိုင်တွယ်လုပ်ဆောင်ရပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> လိုအပ်သော setting များပါဝင်သော အခြေခံမြေပုံတစ်ခုကို ဖန်တီးရန် QGIS <em>Print Layout</em> ကို အသုံးပြုတတ်စေရန်</p>
+<section id="layout-manager-follow-along-the-layout-manager">
+<h2><span class="section-number">4.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layout Manager (Follow Along: The Layout Manager)<a class="headerlink" href="#layout-manager-follow-along-the-layout-manager" title="Link to this heading"></a></h2>
+<p>QGIS တွင် မြေပုံဖိုင်တစ်ခုထဲကို အသုံးပြုပြီး မြေပုံမြောက်များစွာကို ဖန်တီးနိုင်ပါသည်။ ထို့အတွက်ကြောင့် <em>Layout Manager</em> ဟုခေါ်သော tool တစ်ခုပါရှိပါသည်။</p>
+<ol class="arabic">
+<li><p>ထို tool ကိုဖွင့်ရန်အတွက် <span class="menuselection">Project ► Layout Manager…</span> menu ကိုနှိပ်ပါ။ <span class="guilabel">Layout manager</span> dialog အလွတ်တစ်ခုပေါ်လာပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/layout_manager_dialog.png" src="../../../_images/layout_manager_dialog.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">New from Template</span> အောက်တွင် <span class="guilabel">Empty layout</span> ကိုရွေးချယ်ပြီး <span class="guilabel">Create…</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>Layout အသစ်၏အမည်ကို Swellendam ဟုပေးပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><em>Print Layout</em> window ကိုတွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/print_composer_dialog.png" src="../../../_images/print_composer_dialog.png" />
+</figure>
+</li>
+</ol>
+<p><span class="menuselection">Project ► New Print Layout…</span> menu မှတဆင့်လည်း layout အသစ်တစ်ခုကို ဖန်တီးနိုင်ပါသည်။</p>
+<p>မည်သည့်လမ်းကြောင်းမှဖန်တီးသည်ဖြစ်စေ print layout အသစ်သည် ပုံတွင်ပြထားသည့်အတိုင်း <span class="menuselection">Project ► Layouts ►</span> menu တွင်မြင်တွေ့ရမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/print_composer_menu.png" src="../../../_images/print_composer_menu.png" />
+</figure>
+</section>
+<section id="follow-along-basic-map-composition">
+<h2><span class="section-number">4.1.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အခြေခံမြေပုံဖွဲ့စည်းမှု (Follow Along: Basic Map Composition)<a class="headerlink" href="#follow-along-basic-map-composition" title="Link to this heading"></a></h2>
+<p>ဤဥပမာတွင် ဖွဲ့စည်းမှုသည် လိုချင်သည့်အတိုင်း ဖြစ်နေပြီးသားဖြစ်သည်။ သင့်မြေပုံတွင် ထိုအတိုင်းဖြစ်အောင် လုပ်ဆောင်ပါ။</p>
+<ol class="arabic">
+<li><p>Layout window ၏အလယ်ရှိ sheet ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Page properties…</span> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Item Properties</span> tab ထဲရှိ တန်ဖိုးများကို အောက်ပါအတိုင်း သတ်မှတ်ပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Size</span>: <code class="docutils literal notranslate"><span class="pre">A4</span></code></p></li>
+<li><p><span class="guilabel">Orientation</span>: <code class="docutils literal notranslate"><span class="pre">Landscape</span></code></p></li>
+</ul>
+<p>သင်လိုချင်သည့်ပုံစံအတိုင်း page layout ကိုရပြီဖြစ်သည်၊ သို့သော် စာမျက်နှာသည် အလွတ်ဖြစ်နေပြီး မြေပုံမရှိသေးပါ။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionAddMap.png"><img alt="addMap" src="../../../_images/mActionAddMap.png" style="width: 1.5em;" /></a> <sup>Add Map</sup> ခလုတ်ကိုနှိပ်ပါ။</p>
+<p>ဤ tool ကို activate လုပ်ပြီး စာမျက်နှာပေါ်တွင် မြေပုံတစ်ခုကို နေရာချထားနိုင်ပါလိမ့်မည်။</p>
+</li>
+<li><p>စာမျက်နှာအလွတ်ပေါ်တွင် လေးထောင့်ကွက် (box) တစ်ခုကို click နှိပ်ပြီးဖိဆွဲပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/drag_add_map.png" src="../../../_images/drag_add_map.png" />
+</figure>
+<p>မြေပုံသည် စာမျက်နှာပေါ်တွင် ပေါ်လာပါလိမ့်မည်။</p>
+</li>
+<li><p>မြေပုံကို click နှိပ်ပြီး ဖိဆွဲကာ ရွှေ့ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/move_map.png" src="../../../_images/move_map.png" />
+</figure>
+</li>
+<li><p>လေးထောင့်ကွက် အနားအစွန်းများကို click နှိပ်ပြီး ဖိဆွဲခြင်းဖြင့် မြေပုံအရွယ်အစားကို ချိန်ညှိပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/resize_map.png" src="../../../_images/resize_map.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>သင့်မြေပုံကို မြင်ရသည့်ပုံစံသည် ကွဲပြားနေနိုင်ပါသည်။ ကိုယ်ပိုင် project ကို မည်သို့ပြင်ဆင်သတ်မှတ်ထားသည်ပေါ် မူတည်သောကြောင့်ဖြစ်သည်။ သို့သော် စိုးရိမ်စရာမရှိပါ။ ညွှန်ကြားချက်များသည် ယေဘုယျသာဖြစ်ပြီး မြေပုံသည်မည်သို့ပုံစံဖြစ်နေနေ အလုပ်လုပ်ပုံအတူတူပင်ဖြစ်သည်။</p>
+</div>
+</li>
+<li><p>အစွန်းများတလျှောက်တွင် စာမျက်နှာဘေးကွက်လပ်နေရာများ (margin) ချန်ထားပြီး ခေါင်းစဉ်အတွက် အပေါ်တွင် နေရာလွတ်ချိန်ထားခဲ့ပါ။</p></li>
+<li><p>အောက်ပါခလုတ်များအသုံးပြုပြီး စာမျက်နှာကို zoom အချုံ့/အချဲ့ ပြုလုပ်ပါ (မြေပုံကိုမဟုတ်ပါ)-</p>
+<p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a></p>
+</li>
+<li><p>အဓိက QGIS window ထဲတွင် မြေပုံကို zoom ချဲ့ပြီး မြင်ကွင်းနေရာရွှေ့ (pan) ကြည့်ပါ။ <a class="reference internal" href="../../../_images/mActionMoveItemContent.png"><img alt="moveItemContent" src="../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a>
+<sup>Move item content</sup> tool ကိုအသုံးပြုပြီးလည်း မြင်ကွင်းနေရာရွှေ့နိုင်ပါသည်။</p>
+<p>Zoom အချုံ့/အချဲ့ပြုလုပ်သည့်အတိုင်း မြေပုံမြင်ကွင်း သည် ပြောင်းလဲနေသွားမည်ဖြစ်သည်။</p>
+</li>
+<li><p>မြေပုံမြင်ကွင်းသည် အကြောင်းတစ်ခုခုကြောင့် လိုက်လံပြောင်းလဲခြင်းမရှိပါက <a class="reference internal" href="../../../_images/mActionRefresh.png"><img alt="refresh" src="../../../_images/mActionRefresh.png" style="width: 1.5em;" /></a> <sup>Refresh view</sup> ခလုတ်ကိုနှိပ်ပြီး မြေပုံကို refresh ပြုလုပ်နိုင်ပါသည်။</p>
+<p>မြေပုံတွင် သတ်မှတ်ထားသော အရွယ်အစားနှင့်နေရာချထားသည် နောက်ဆုံးအပြီးသပ်ဖြစ်ရန်မလိုပါ။ သင်စိတ်တိုင်းမကျလျှင် နောက်ပိုင်းမှ ပြင်ဆင်ပြောင်းလဲနိုင်ပါသည်။ ယခုအတွက်တော့ မြေပုံပေါ်တွင် လုပ်ဆောင်ထားမှုများကို သိမ်းဆည်းရန်လိုအပ်ပါသည်၊ အကြောင်းမှာ QGIS ထဲရှိ <em>Print Layout</em> တစ်ခုသည် အဓိက မြေပုံဖိုင်၏ တစ်စိတ်တပိုင်းဖြစ်ပြီး project ကိုသိမ်းဆည်းထားရပါမည်။</p>
+</li>
+<li><p><span class="menuselection">Layout ►</span> <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a>
+<span class="menuselection">Save Project</span> ကိုနှိပ်ပါ။ ၎င်းသည် လွယ်ကူသော ဖြတ်လမ်းနည်း (shortcut) တစ်ခုဖြစ်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="follow-along-adding-a-title">
+<h2><span class="section-number">4.1.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ခေါင်းစဉ်တစ်ခုထည့်သွင်းခြင်း (Follow Along: Adding a Title)<a class="headerlink" href="#follow-along-adding-a-title" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် မြေပုံသည် စာမျက်နှာပေါ်တွင် ကြည့်ရအဆင်ပြေနေပြီဖြစ်သည်၊ သို့သော် မြေပုံဖတ်ရှုသူများ/အသုံးပြုသူများကို မည်သည့်အကြောင်းအရာဖြစ်ပျက်နေသည်ကို ပြောပြထားခြင်းမရှိသေးပါ။ မြေပုံ element များထည့်သွင်းပြီး အကြောင်းအရာကိုပြောပြရန်လိုအပ်ပါသည်။ ဦးစွာ ခေါင်းစဉ်တစ်ခု ထည့်ကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionLabel.png"><img alt="label" src="../../../_images/mActionLabel.png" style="width: 1.5em;" /></a> <sup>Add Label</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>မြေပုံအပေါ်ဘက် စာမျက်နှာပေါ်တွင် click နှိပ်ပြီး <span class="guilabel">New Item Properties</span> dialog ထဲရှိ အကြံပြုပေးထားသော တန်ဖိုးများအတိုင်းထားပါက မြေပုံ၏အပေါ်တွင် အညွှန်းစာသားတစ်ခုပေါ်လာလိမ့်မည်။</p></li>
+<li><p>၎င်းကို အရွယ်အစားချိန်ညှိပြီး စာမျက်နှာ၏ အပေါ်အလယ်တွင် နေရာချထားပါ။ မြေပုံကို အရွယ်အစားချိန်ညှိပြီး နေရာရွှေ့သည့် နည်းလမ်းအတိုင်း ၎င်းကိုလည်း အရွယ်အစားချိန်ညှိပြီး နေရာရွှေ့နိုင်ပါသည်။</p>
+<p>ခေါင်းစဉ်ကို ရွှေ့လိုက်တိုင်းတွင် စာမျက်နှာအလယ်၌ ခေါင်းစဉ်နေရာချရာတွင် လွယ်ကူစေရန် guideline (မျဉ်း) များပေါ်လာပါလိမ့်မည်။</p>
+<p>သို့သော် Actions Toolbar ထဲတွင် မြေပုံ (စာမျက်နှာမဟုတ်) ပေါ်မူတည်ပြီး ခေါင်းစဉ်နေရာချထားပေးနိုင်သည့် tool တစ်ခုလည်းရှိပါသည်-</p>
+<p><a class="reference internal" href="../../../_images/mActionAlignLeft.png"><img alt="alignLeft" src="../../../_images/mActionAlignLeft.png" style="width: 1.5em;" /></a></p>
+</li>
+<li><p>၎င်းကိုရွေးချယ်ရန် မြေပုံကို click နှိပ်ပါ။</p></li>
+<li><p>မြေပုံနှင့် label နှစ်ခုစလုံးကို ရွေးချယ်ရန်အတွက် <kbd class="kbd docutils literal notranslate">Shift</kbd> ကီးကို ဖိထားပြီး label ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAlignLeft.png"><img alt="alignLeft" src="../../../_images/mActionAlignLeft.png" style="width: 1.5em;" /></a> <sup>Align selected items left</sup> ခလုတ်ကိုရှာပြီး နေရာချထားမှုရွေးချယ်စရာများကို ကြည့်ရန် ၎င်းခလုတ်ဘေးရှိ dropdown မြားကို နှိပ်ပါ၊ ထို့နောက် <a class="reference internal" href="../../../_images/mActionAlignHCenter.png"><img alt="alignHCenter" src="../../../_images/mActionAlignHCenter.png" style="width: 1.5em;" /></a> <span class="guilabel">Align center</span> ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/align_center_dropdown.png" src="../../../_images/align_center_dropdown.png" />
+</figure>
+<p>Label ဘောင်သည် မြေပုံ၏အလယ်တွင် ရှိနေပြီဖြစ်သော်လည်း အကြောင်းအရာများ အလယ်တွင်ရှိမနေသေးပါ။ အညွှန်း၏ အကြောင်းအရာများကို အလယ်တွင်ထားရန်-</p>
+<ol class="arabic">
+<li><p>Label ကို click နှိပ်ပါ။</p></li>
+<li><p>Layout window ၏ ဘေးဘက် panel ထဲရှိ <span class="guilabel">Item Properties</span> tab ကို click နှိပ်ပါ။</p></li>
+<li><p>Label ၏စာသားကို “Swellendam” ဟုပြောင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/title_font_alignment.png" src="../../../_images/title_font_alignment.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Appearance</span> အောက်တွင် စာလုံးဖောင့်နှင့် ညီညာအောင်ညှိခြင်းဆိုင်ရာ (alignment) ရွေးချယ်စရာများကို သတ်မှတ်ရန် ဤ interface ကိုအသုံးပြုပါ-</p>
+<ol class="arabic simple">
+<li><p>သင့်တော်သော စာလုံးဖောင့် အကြီးတစ်ခုကို ရွေးချယ်ပါ (နမူနာတွင် အရွယ်အစား <code class="docutils literal notranslate"><span class="pre">36</span></code> ရှိသော default စာလုံးဖောင့်ကိုအသုံးပြုပါလိမ့်မည်)</p></li>
+<li><p><span class="guilabel">Horizontal Alignment</span> တွင် <span class="guilabel">Center</span> ကိုရွေးပါ။</p></li>
+</ol>
+<p>စာလုံးဖောင့်အရောင်ကိုလည်း ပြောင်းလဲနိုင်ပါသည်၊ သို့သော် default အတိုင်း အနက်ရောင် ထားခြင်းသည် ပိုကောင်းပါသည်။</p>
+</li>
+<li><p>Default setting သည် ခေါင်းစဉ်၏ စာသား box ထဲသို့ frame (ဘောင်) တစ်ခုထည့်သွင်းရန်မဟုတ်ပါ။ သို့သော် frame တစ်ခုထည့်သွင်းချင်ပါက-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Item Properties</span> tab ထဲတွင် <span class="guilabel">Frame</span> option ကိုတွေ့ရသည်အထိ မောက်စ်ကို scroll လုပ်ပါ။</p></li>
+<li><p>Frame ကိုဖွင့်ရန်အတွက် <span class="guilabel">Frame</span> checkbox ကို click နှိပ်ပါ။ Frame ၏ အရောင်နှင့်အကျယ်ကိုလည်း ပြောင်းလဲနိုင်ပါသည်။</p></li>
+</ol>
+</li>
+</ol>
+<p>ဤဥပမာတွင် frame ကိုမဖွင့်ထားပါ၊ ထို့ကြောင့် စာမျက်နှာသည် အောက်ပါအတိုင်းဖြစ်နေပါဦးမည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/page_so_far.png" src="../../../_images/page_so_far.png" />
+</figure>
+<p>အဆိုပါ element များကို မတော်တဆ ရွှေ့မိခြင်းမဖြစ်စေရန် item နေရာများကို lock ပြုလုပ်ထားနိုင်ပါသည်-</p>
+<ol class="arabic">
+<li><p>Label နှင့် မြေပုံ item များ ၂ မျိုးစလုံး select လုပ်ပါ</p></li>
+<li><p><em>Actions</em> Toolbar ထဲရှိ <a class="reference internal" href="../../../_images/mActionLockItems.png"><img alt="lockItems" src="../../../_images/mActionLockItems.png" style="width: 1.5em;" /></a> <sup>Lock Selected Items</sup> ခလုတ်ကိုနှိပ်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Actions</em> Toolbar ထဲ၇ှိ <a class="reference internal" href="../../../_images/mActionUnlockAll.png"><img alt="unlockAll" src="../../../_images/mActionUnlockAll.png" style="width: 1.5em;" /></a> <sup>Unlock All Items</sup> ခလုတ်ကိုနှိပ်ခြင်းဖြင့် item များကို ထပ်မံ တည်းဖြတ်ပြင်ဆင်နိုင်မည်ဖြစ်သည်။</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="follow-along-adding-a-legend">
+<h2><span class="section-number">4.1.4. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ရည်ညွှန်းချက် တစ်ခုထည့်သွင်းခြင်း (Follow Along: Adding a Legend)<a class="headerlink" href="#follow-along-adding-a-legend" title="Link to this heading"></a></h2>
+<p>မြေပုံဖတ်ရှုသူအနေဖြင့် မြေပုံပေါ်ရှိအရာများသည် မည်သည့်အရာကိုဆိုလိုသည်ကို မြင်ရရန်လည်း လိုအပ်ပါသည်။ နေရာနာမည်များကဲ့သို့ အချို့ကိစ္စများတွင် သိသာနိုင်ပါသည်။ တောများ၏အရောင်များကဲ့သို့ ကိစ္စများတွင် ခန့်မှန်းရန် ပိုမိုခက်ခဲပါသည်။ Legend (ရည်ညွှန်းချက်) တစ်ခုထည့်သွင်းကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionAddLegend.png"><img alt="addLegend" src="../../../_images/mActionAddLegend.png" style="width: 1.5em;" /></a> <sup>Add Legend</sup> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>Legend ကို နေရာချထားရန် စာမျက်နှာပေါ်တွင် click နှိပ်ပါ၊ <span class="guilabel">New Item Properties</span> dialog ထဲတွင် ပေးထားသောတန်ဖိုးများအတိုင်းထားပါ။</p></li>
+<li><p>Layout စာမျက်နှာထဲတွင် အဓိက dialog ထဲရှိ layer များ၏ သင်္ကေတများကို ပြသနေသော legend တစ်ခုကို ထည့်သွင်းပြီးဖြစ်ပါသည်။</p></li>
+<li><p>ခါတိုင်းလိုပင် item ကို click နှိပ်ပြီး ရွှေ့လိုသည့်နေရာသို့ ရွှေ့နိုင်ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/legend_added.png"><img alt="../../../_images/legend_added.png" src="../../../_images/legend_added.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+</section>
+<section id="legend-item-follow-along-customizing-legend-items">
+<h2><span class="section-number">4.1.5. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Legend Item များကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း (Follow Along: Customizing Legend Items)<a class="headerlink" href="#legend-item-follow-along-customizing-legend-items" title="Link to this heading"></a></h2>
+<p>Legend ပေါ်ရှိ အရာအားလုံး မဖြစ်မနေမလိုအပ်ပါ၊ ထို့ကြောင့် အချို့မလိုအပ်သော item များကို ဖယ်ရှားပါမည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Item Properties</span> tab ထဲတွင် <span class="guilabel">Legend items</span> အုပ်စုကို ရှာတွေ့ပါလိမ့်မည်</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Auto update</span> ကို အမှန်ခြစ်ဖြုတ်ထားပါက legend item များကို တိုက်ရိုက် မွမ်းမံပြင်ဆင်နိုင်မည်ဖြစ်သည်</p></li>
+<li><p><span class="guilabel">buildings</span> အမည်ဖြင့်တစ်ခုကို select လုပ်ပါ</p></li>
+<li><p>၎င်းကို legend မှ ဖျက်ပစ်ရန် <a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>Item များကိုလည်း အမည်ပြန်ပြောင်းပေးနိုင်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p>ထိုစာရင်းထဲမှ layer တစ်ခုကို select လုပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/symbologyEdit.png"><img alt="symbologyEdit" src="../../../_images/symbologyEdit.png" style="width: 1.5em;" /></a> <sup>Edit selected item properties</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>Layer များကို <code class="docutils literal notranslate"><span class="pre">Places</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Roads</span> <span class="pre">and</span> <span class="pre">Streets</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Surface</span> <span class="pre">Water</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Rivers</span></code> ဟု အမည်ပြန်ပြောင်းပေးပါ။</p></li>
+</ol>
+<p>Item များ၏ အထက်အောက် အစဉ် (order) ကိုလည်း ပြန်စဉ်နိုင်ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/categories_reordered.png"><img alt="../../../_images/categories_reordered.png" src="../../../_images/categories_reordered.png" style="width: 100%;" /></a>
+</figure>
+<p>Legend သည် layer အမည်အသစ်များအတိုင်း လိုက်ကျယ်သွားမည်ဖြစ်သောကြောင့် legend သို့မဟုတ် မြေပုံကို ရွှေ့ပြီး အရွယ်အစားပြန်ပြောင်းလိုက ပြောင်းနိုင်ပါသည်။ ရလာဒ်သည် အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/map_composer_result.png"><img alt="../../../_images/map_composer_result.png" src="../../../_images/map_composer_result.png" style="width: 100%;" /></a>
+</figure>
+</section>
+<section id="export-follow-along-exporting-your-map">
+<h2><span class="section-number">4.1.6. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- မြေပုံကို export ထုတ်ခြင်း (Follow Along: Exporting Your Map)<a class="headerlink" href="#export-follow-along-exporting-your-map" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>သင့်အလုပ်ကို မကြာမကြာ သိမ်းဆည်းရန် သတိရပါသလား။</p>
+</div>
+<p>နောက်ဆုံးတွင် မြေပုံကို export ထုတ်ရန် အဆင်သင့်ဖြစ်နေပါပြီ။ Layout window ၏ ဘယ်ဘက်အပေါ်ထောင့်နားတွင် export ခလုတ်များကို တွေ့ရမည်ဖြစ်သည်-</p>
+<ul>
+<li><p><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="filePrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Print Layout</sup> - Printer တစ်ခုဖြင့် interface များဖြစ်သည်။ မိမိအသုံးပြုမည့် Printer အမျိုးအစားပေါ်မူတည်ပြီး option များ ကွဲပြားလိမ့်မည်ဖြစ်သောကြောင့် ဤခေါင်းစဉ်နှင့်ပတ်သက်သည်များအတွက် printer manual သို့မဟုတ် printing လမ်းညွှန်ကို အကိုးအကားပြုလျှင် ပိုကောင်းပါသည်။</p>
+<p>အခြားခလုတ်များသည် မြေပုံစာမျက်နှာကို ဖိုင်တစ်ခုသို့ export ထုတ်ပေးနိုင်ပါသည်။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export as Image</sup> - အသုံးများသော ဓာတ်ပုံ format အများအပြားကို ရွေးချယ်နိုင်ပါသည်။ အရိုးရှင်းဆုံး option ဖြစ်သော်လည်း ထွက်လာသော ဓာတ်ပုံသည် “အသေ” ဖြစ်နေပြီး edit လုပ်ရန် ခက်ခဲမည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="saveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Export as SVG</sup> - မြေပုံရေးဆွဲသူတစ်ဦး (မြေပုံကို edit ပြုလုပ်ချင်သူ) ထံသို့ မြေပုံကိုပေးပို့လျှင် SVG တစ်ခုအနေဖြင့် export ထုတ်လျှင် အကောင်းဆုံးဖြစ်သည်။ SVG ဆိုသည်မှာ “Scalable Vector Graphic” ဖြစ်ပြီး <a class="reference external" href="https://inkscape.org/">Inkscape</a> ကဲ့သို့ ပရိုဂရမ်များ သို့မဟုတ် အခြား vector ဓာတ်ပုံတည်းဖြတ်ခြင်း software များထဲသို့ ထည့်သွင်းအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export as PDF</sup> - အလုပ်အပ်သူ တစ်ဦးထံသို့ မြေပုံကို ပေးပို့ရန်လိုအပ်ပါက PDF ဖိုင်အနေဖြင့် အသုံးအများဆုံးဖြစ်ပါသည်။ အကြောင်းမှာ PDF အတွက် print option များကို သတ်မှတ်ရ လွယ်ကူပေးကြောင့်ဖြစ်သည်။ အချို့ မြေပုံရေးဆွဲသူများသည် PDF format ကို ထည့်သွင်းပြီး edit လုပ်နိုင်သည့် ပရိုဂရမ်ရှိလျှင် PDF format ကိုလည်း သဘောကျကြပါသည်၊</p></li>
+</ul>
+<p>ယခုအတွက် PDF ကိုအသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export as PDF</sup> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>ဖိုင်သိမ်းဆည်းမည့် နေရာကိုရွေးချယ်ပြီး ဖိုင်အမည်ပေးပါ။ အောက်ပါ dialog ပေါ်လာမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/layout_export_pdf.png" src="../../../_images/layout_export_pdf.png" />
+</figure>
+</li>
+<li><p>Default တန်ဖိုးများကို စိတ်ချလက်ချအသုံးပြုနိုင်ပြီး <span class="guilabel">Save</span> ကိုနှိပ်ပါ။</p>
+<p>QGIS သည် မြေပုံ export ထုတ်ရန် လုပ်ဆောင်ပေးမည်ဖြစ်ပြီး ပြီးဆုံးပါက print layout dialog ၏ထိပ်တွင် စာတို တစ်ခုကို ဖော်ပြပေးပါသည်။</p>
+</li>
+<li><p>PDF ဖိုင်သိမ်းဆည်းထားသော folder ကို ဖွင့်ရန်အတွက် စာတိုထဲရှိ hyperlink ကိုနှိပ်ပါ။</p></li>
+<li><p>၎င်းကိုဖွင့်ကြည့်ပြီး သင့် layout ၏ပုံစံကို ကြည့်ကြည့်ပါ။</p></li>
+<li><p>တစ်ခုခုစိတ်တိုင်းမကျသည်များရှိလျှင် QGIS window သို့ပြန်သွားပြီး မွမ်းမံပြင်ဆင်မှုများပြုလုပ်ကာ export ထပ်ထုတ်ပါ။</p></li>
+<li><p>Project ဖိုင်ကို သိမ်းဆည်းရန် မမေ့ပါနှင့်။</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">4.1.7. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် အခြေခံ မြေပုံ layout တစ်ခု ဖန်တီးခြင်းနည်းလမ်းကို သိရှိပြီးဖြစ်ပါသည်။ နောက်တစ်ဆင့်ကို ဆက်သွားနိုင်ပြီဖြစ်ပြီး layout item များပိုမိုပါဝင်သော ပြောင်းလဲလုပ်ဆောင်နိုင်သည့် မြေပုံ layout တစ်ခုကို ဖန်တီးနိုင်ပြီဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dynamic_layout.html" class="btn btn-neutral float-right" title="4.2. သင်ခန်းစာ- တသမတ်တည်းမဟုတ်ပဲပြောင်းလဲနိုင်သော ပုံထုတ်အပြင်အဆင်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a Dynamic Print Layout)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/map_composer/map_composer.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/map_composer/map_composer.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/map_composer/map_composer.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/map_composer/map_composer.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/map_composer/map_composer.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/map_composer/map_composer.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/map_composer/map_composer.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/map_composer/map_composer.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/map_composer/map_composer.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/map_composer/map_composer.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/map_composer/map_composer.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/eccbc28df10d7e5c3f1843a6f3ff36e4" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

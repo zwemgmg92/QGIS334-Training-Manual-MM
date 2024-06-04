@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/forms.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" href="actions.html" />
+    <link rel="prev" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" href="topo_editing.html" />
+  <meta name="description" content="QGIS testing documentation: 5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="create_new_vector.html">5.1. သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topo_editing.html">5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qgis-form-design-follow-along-using-qgis-form-design-functionality">5.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- QGIS ၏ Form Design လုပ်ဆောင်ချက်ကိုအသုံးပြုခြင်း (Follow Along: Using QGIS’ Form Design Functionality)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-form-try-yourself-using-the-form-to-edit-values">5.3.2. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- တန်ဖိုးများကို Edit လုပ်ရန် Form ကိုအသုံးပြုခြင်း (Try Yourself: Using the Form to Edit Values)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#form-field-follow-along-setting-form-field-types">5.3.3. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Form Field အမျိုးအစားများကို သတ်မှတ်ခြင်း (Follow Along: Setting Form Field Types)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">5.3.4. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-data-try-yourself-creating-test-data">5.3.5. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်စမ်းသပ်ကြည့်ပါ- Test Data ဖန်တီးခြင်း (Try Yourself: Creating Test Data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#form-follow-along-creating-a-new-form">5.3.6. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Form အသစ်တစ်ခု ဖန်တီးခြင်း (Follow Along: Creating a New Form)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#form-layer-follow-along-associating-the-form-with-your-layer">5.3.7. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Form ကို layer ဖြင့် တွဲဖက်အသုံးပြုခြင်း (Follow Along: Associating the Form with Your Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">5.3.8. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">5.3.9. နောက်ထပ်ဖတ်ရှုရမည်များ (Further Reading)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">5.3.10. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html">5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">5. </span>မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.3. </span>သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/create_vector_data/forms.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="topo_editing.html" class="btn btn-neutral float-left" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="actions.html" class="btn btn-neutral float-right" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-forms">
+<h1><span class="section-number">5.3. </span>သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)<a class="headerlink" href="#lesson-forms" title="Link to this heading"></a></h1>
+<p>Digitize ပြုလုပ်ပြီး data အသစ်များ ထည့်သွင်းသောအခါ အဆိုပါ feature အတွက် attribute ထဲတွင် ထည့်သွင်းရမည့် dialog တစ်ခုပေါ်လာပါသည်။ Default အနေဖြင့် အဆိုပါ dialog သည် အလွန်ကြည့်ကောင်းခြင်းမရှိပါ။ ၎င်းသည် သုံးစွဲရာတွင် အခက်အခဲဖြစ်စေနိုင်ပါသည်၊ အထူးသဖြင့် dataset များစွာကို ဖန်တီးရမည်ဆိုလျှင် သို့မဟုတ် အခြားသူများကို digitize ကူညီလုပ်ဆောင်ပေးစေလိုသောအခါ ကူညီလုပ်ဆောင်ပေးမည့်သူများအတွက် default form များသည် ရှုပ်ထွေးနေစေတတ်ပါသည်။</p>
+<p>QGIS တွင် layer တစ်ခုအတွက် ကိုယ်ပိုင်စိတ်ကြိုက် dialog များကို ဖန်တီးနိုင်ပါသည်။ ဤသင်ခန်းစာတွင် မည်သို့လုပ်ဆောင်ရမည်ကို ပြသမည်ဖြစ်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Layer တစ်ခုအတွက် form တစ်ခုဖန်တီးရန်</p>
+<section id="qgis-form-design-follow-along-using-qgis-form-design-functionality">
+<h2><span class="section-number">5.3.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- QGIS ၏ Form Design လုပ်ဆောင်ချက်ကိုအသုံးပြုခြင်း (Follow Along: Using QGIS’ Form Design Functionality)<a class="headerlink" href="#qgis-form-design-follow-along-using-qgis-form-design-functionality" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <code class="docutils literal notranslate"><span class="pre">roads</span></code> layer ကို select လုပ်ပါ။</p></li>
+<li><p><em>Edit Mode</em> ကိုဖွင့်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">roads</span></code> layer ၏ attribute ဇယားကို ဖွင့်ပါ</p></li>
+<li><p>ဇယားထဲရှိ cell တစ်ခုခုပေါ်တွင် right-click နှိပ်ပါ။ <span class="guilabel">Open form</span> entry ပါဝင်သော menu အတိုတစ်ခု ပေါ်လာပါလိမ့်မည်။</p></li>
+<li><p>အဆိုပါ layer အတွက် QGIS မှထုတ်ပေးသော form ကိုကြည့်ရန် ၎င်းအပေါ်တွင် click နှိပ်ပါ</p></li>
+</ol>
+<p><span class="guilabel">Attribute Table</span> ထဲတွင် သီးသန့် street တစ်ခုကို ရှာဖွေနေရခြင်းထက် မြေပုံကို ကြည့်နေစဉ်တွင် လုပ်ဆောင်ရခြင်းသည် ပိုမိုကောင်းမွန်ပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <span class="guilabel">roads</span> layer ကို select လုပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> tool ကိုအသုံးပြု၍ မြေပုံထဲတွင် street တစ်ခုခုပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Identify Results</span> panel ပွင့်လာမည်ဖြစ်ပြီး click လုပ်ထားသော feature နဲ့ပတ်သက်သော ယေဘုယျအချက်အလက်များနှင့် field တန်ဖိုးများပါဝင်သော ဖွဲ့စည်ပုံမြင်ကွင်းတစ်ခုကို ပြသမည်ဖြစ်သည်။</p></li>
+<li><p>Panel ၏ ထိပ်တွင် <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Identify Settings</sup> menu ထဲရှိ <span class="guilabel">Auto open form for single feature results</span> တွင် အမှန်ခြစ်ခြစ်ပါ။</p></li>
+<li><p>မြေပုံထဲရှိ street တစ်ခုခုပေါ်တွင် click ထပ်နှိပ်ပါ။ ယခင်ကပေါ်ခဲ့သော <span class="guilabel">Identify Results</span> dialog နှင့်အတူ ကြည့်ရှုရအကျွမ်းတဝင်ဖြစ်သော form ကို မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/roads_form.png" src="../../../_images/roads_form.png" />
+</figure>
+</li>
+<li><p><em>Identify</em> tool ဖြင့် feature တစ်ခုချင်းပေါ်တွင် click နှိပ်လိုက်တိုင်း <span class="guilabel">Auto open form</span> ကိုအမှန်ခြစ်ခြစ်ထားသရွေ့ ၎င်းအတွက် form သည် ပေါ်လာမည်ဖြစ်သည်။</p></li>
+</ol>
+</section>
+<section id="edit-form-try-yourself-using-the-form-to-edit-values">
+<h2><span class="section-number">5.3.2. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- တန်ဖိုးများကို Edit လုပ်ရန် Form ကိုအသုံးပြုခြင်း (Try Yourself: Using the Form to Edit Values)<a class="headerlink" href="#edit-form-try-yourself-using-the-form-to-edit-values" title="Link to this heading"></a></h2>
+<p>Edit mode ကိုဖွင့်ထားလျှင် feature တစ်ခု၏ attribute များကို edit လုပ်ရန် အဆိုပါ form ကို အသုံးပြုနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Edit mode ကိုဖွင့်ပါ (အကယ်၍ မဖွင့်ရသေးလျှင်)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> tool ကိုအသုံးပြုပြီး Swellendam ကိုဖြတ်ကာ ရှိနေသော main street ပေါ်တွင် click နှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/main_street_selected.png" src="../../../_images/main_street_selected.png" />
+</figure>
+</li>
+<li><p>၎င်း၏ <span class="guilabel">highway</span> တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">secondary</span></code> အဖြစ် edit လုပ်ပါ။</p></li>
+<li><p>Edit mode ကိုပိတ်ပြီး edit လုပ်ထားသည်များကို သိမ်းဆည်းပါ။</p></li>
+<li><p><span class="guilabel">Attribute Table</span> ကိုဖွင့်ကြည့်ပါက ဇယားထဲတွင် တန်ဖိုးသည် update ဖြစ်နေသည်ကို တွေ့ရမည်ဖြစ်ပြီး ရင်းမြစ် data ထဲတွင်လည်း update ဖြစ်နေမည်ဖြစ်သည်။</p></li>
+</ol>
+</section>
+<section id="form-field-follow-along-setting-form-field-types">
+<h2><span class="section-number">5.3.3. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Form Field အမျိုးအစားများကို သတ်မှတ်ခြင်း (Follow Along: Setting Form Field Types)<a class="headerlink" href="#form-field-follow-along-setting-form-field-types" title="Link to this heading"></a></h2>
+<p>Form တစ်ခုကိုအသုံးပြုပြီး edit ပြုလုပ်ခြင်းသည် ကောင်းမွန်သော်လည်း အရာရာတိုင်းကို ကိုယ်တိုင် လက်ဖြင့် ရိုက်ထည့်ပေးနေရဆဲဖြစ်ပါသည်။ သို့ရာတွင် form များတွင် data များကို အမျိုးမျိုးသောနည်းလမ်းများဖြင့် edit လုပ်နိုင်သော <em>widgets</em> အမျိုးမျိုးရှိပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">roads</span> layer ၏ <span class="guilabel">Properties…</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Fields</span> tab သို့ပြောင်းပါ။ အောက်ပါပုံစံကို မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/fields_panel.png" src="../../../_images/fields_panel.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Attributes Form</span> tab သို့ပြောင်းပါ။ အောက်ပါပုံစံကို မြင်တွေ့ရပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/attributes_form.png" src="../../../_images/attributes_form.png" />
+</figure>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oneway</span></code> row ပေါ်တွင် click နှိပ်ပြီး option များစာရင်းထဲတွင် <span class="guilabel">Widget Type</span> အနေဖြင့် <span class="guilabel">Checkbox</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/checkbox_selected.png" src="../../../_images/checkbox_selected.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Edit mode ကိုဖွင့်ပါ (<code class="docutils literal notranslate"><span class="pre">roads</span></code> layer သည် edit mode ထဲတွင် ရှိမနေလျှင်)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> tool ပေါ်တွင် click နှိပ်ပါ</p></li>
+<li><p>အစောပိုင်းကရွေးချယ်ထားသော main road ပေါ်တွင် click နှိပ်ပါ</p></li>
+</ol>
+<p><span class="guilabel">oneway</span> attribute ၏ဘေးတွင် checkbox တစ်ခုရှိနေသည်ကို မြင်တွေ့ရပါလိမ့်မည်၊ <code class="docutils literal notranslate"><span class="pre">True</span></code> (အမှန်ခြစ်ထားသော) သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">False</span></code> (အမှန်ခြစ်ဖြုတ်ထားသော) ကိုရည်ညွှန်းပါသည်။</p>
+</section>
+<section id="try-yourself">
+<h2><span class="section-number">5.3.4. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<p><span class="guilabel">highway</span> field အတွက် ပိုမိုသင့်လျော်သော form widget တစ်ခုကို သတ်မှတ်ပါ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p><span class="guilabel">TYPE</span> အတွက်ဆိုလျှင် road (လမ်း) တစ်ခုအတွက်ဖြစ်နိုင်သော အမျိုးအစားများစွာ မရှိပါ၊ အဆိုပါ layer အတွက် attribute ဇယားကို စစ်ဆေးကြည့်လျှင် အမျိုးအစားများကို ကြိုတင်သတ်မှတ်ထားသည်ကို မြင်တွေ့ရပါလိမ့်မည်။</p>
+<ol class="arabic">
+<li><p>Widget ကို <span class="guilabel">Value Map</span> သို့သတ်မှတ်ပြီး <span class="guilabel">Load Data from Layer</span> ကို click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Label</span> dropdown ထဲတွင် <span class="guilabel">roads</span> ကိုရွေးချယ်ပြီး <span class="guilabel">Value</span> နှင့် <span class="guilabel">Description</span> နှစ်မျိုးစလုံးအတွက် <span class="guilabel">highway</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/value_map_settings.png" src="../../../_images/value_map_settings.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကို ၃ ကြိမ်နှိပ်ပါ။</p></li>
+<li><p>Edit mode ပွင့်နေစဉ်တွင် <span class="guilabel">Identify</span> tool အသုံးပြုပြီး street တစ်ခုပေါ်နှိပ်သောအခါ အောက်ပါပုံစံဖြင့် dialog ပွင့်လာပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/highway_as_value_map.png" src="../../../_images/highway_as_value_map.png" />
+</figure>
+</li>
+</ol>
+</div>
+</section>
+<section id="test-data-try-yourself-creating-test-data">
+<h2><span class="section-number">5.3.5. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်စမ်းသပ်ကြည့်ပါ- Test Data ဖန်တီးခြင်း (Try Yourself: Creating Test Data)<a class="headerlink" href="#test-data-try-yourself-creating-test-data" title="Link to this heading"></a></h2>
+<p>မိမိစိတ်ကြိုက် form တစ်ခုကို အစအဆုံး ပြင်ဆင်နိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Attribute နှစ်ခုပါဝင်သော <code class="docutils literal notranslate"><span class="pre">test-data</span></code> အမည်ဖြင့် point layer တစ်ခုကိုဖန်တီးပါ-</p>
+<ul class="simple">
+<li><p>name (text)</p></li>
+<li><p>age (integer)</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/new_point_layer.png" src="../../../_images/new_point_layer.png" />
+</figure>
+</li>
+<li><p>Data အနည်းငယ်ရရှိစေရန်အတွက် digitizing tool များကို အသုံးပြုပြီး layer အသစ်ပေါ်တွင် point အနည်းငယ် နေရာချပါ။ Point အသစ်တစ်ခု နေရာချတိုင်း QGIS မှပေးသော default attribute form သာ ပွင့်လာမည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အစောပိုင်းသင်ခန်းစာများတွင် Snapping ကို ဖွင့်ထားလျှင် ပြန်ပိတ်ရန် လိုအပ်ပါလိမ့်မည်။</p>
+</div>
+<figure class="align-center">
+<img alt="../../../_images/new_point_entry.png" src="../../../_images/new_point_entry.png" />
+</figure>
+</li>
+</ol>
+</section>
+<section id="form-follow-along-creating-a-new-form">
+<span id="creating-new-form"></span><h2><span class="section-number">5.3.6. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Form အသစ်တစ်ခု ဖန်တီးခြင်း (Follow Along: Creating a New Form)<a class="headerlink" href="#form-follow-along-creating-a-new-form" title="Link to this heading"></a></h2>
+<p>Attribute data များထည့်သွင်းရန်အတွက် စိတ်ကြိုက် form တစ်ခုကို ဖန်တီးလိုခြင်းဖြစ်သည်။ ထိုသို့လုပ်ဆောင်ရန် <em>QT Designer</em> ကို install ပြုလုပ်ထားရန် လိုအပ်ပါသည် (Form များကို ဖန်တီးသော သူများအတွက်သာ လိုအပ်ပါသည်)။</p>
+<ol class="arabic">
+<li><p><em>QT Designer</em> ကိုစတင်ပါ။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် dialog အသစ်တစ်ခုကို ဖန်တီးပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/qt_new_dialog.png" src="../../../_images/qt_new_dialog.png" />
+</figure>
+</li>
+<li><p>Screen ၏ဘယ်ဘက်တွင် <span class="guilabel">Widget Box</span> ကိုရှာဖွေပါ (Default အနေဖြင့်)။ ၎င်းတွင် <span class="guilabel">Line Edit</span> ဟုခေါ်သော item တစ်ခုပါဝင်ပါသည်။</p></li>
+<li><p>အဆိုပါ item ကို form ထဲသို့ click နှိပ်ပြီး ဆွဲထည့်ပါ။ Form ထဲတွင် <span class="guilabel">Line Edit</span> အသစ်တစ်ခုကို ဖန်တီးပေးမည်ဖြစ်သည်။</p></li>
+<li><p>ရွေးချယ်ထားသော line edit element အသစ်၏ <em>properties</em> ကို screen ၏ ညာဘက်တစ်လျှောက် (default အနေဖြင့်) တွင် တွေ့ရမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/qt_line_edit.png" src="../../../_images/qt_line_edit.png" />
+</figure>
+</li>
+<li><p>၎င်း၏ အမည်ကို <code class="docutils literal notranslate"><span class="pre">name</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Spin Box</span> အသစ်တစ်ခုကို ဖန်တီးပြီး ၎င်း၏အမည်ကို <code class="docutils literal notranslate"><span class="pre">age</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">a</span> <span class="pre">New</span> <span class="pre">Person</span></code> စာလုံးအထင်း စာသားဖြင့် <span class="guilabel">Label</span> တစ်ခုကို ထည့်သွင်းပါ (မည်သို့သတ်မှတ်ရမည်ကို object <em>properties</em> ထဲတွင်ကြည့်ပါ)။ နောက်တစ်နည်းအားဖြင့် dialog ၏ခေါင်းစဉ်ကို သူ့အလိုလို သတ်မှတ်ချင်ပေးနိုင်ပါသည် (label တစ်ခုထည့်သွင်းခြင်းထက်)။</p></li>
+<li><p><span class="guilabel">Line Edit</span> နှင့် <span class="guilabel">Spin Box</span> အတွက် <span class="guilabel">Label</span> တစ်ခုထည့်သွင်းပါ။</p></li>
+<li><p>Element များကို စိတ်ကြိုက်အနေအထားဖြင့် အစီအစဉ်ချပါ။</p></li>
+<li><p>Dialog ထဲရှိ တစ်နေရာရာတွင် click နှိပ်ပါ။</p></li>
+<li><p><em>Lay Out in a Form Layout</em> ခလုတ်ကို ရှာပါ (default အားဖြင့် screen ၏ အပေါ်ဘက်အစွန်းရှိ toolbar တစ်ခုထဲတွင်)။ ထိုသို့လုပ်ခြင်းသည် dialog ကို အလိုအလျောက် အပြင်အဆင်ပြုလုပ်ပေးသည်။</p></li>
+<li><p>Dialog ၏ အများဆုံးအရွယ်အစားကို (၎င်း၏ properties ထဲတွင်) <code class="docutils literal notranslate"><span class="pre">200</span></code> (အကျယ်) နှင့် <code class="docutils literal notranslate"><span class="pre">150</span></code> (အမြင့်) သတ်မှတ်ပါ။</p></li>
+<li><p>Form သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/qt_example_form.png" src="../../../_images/qt_example_form.png" />
+</figure>
+</li>
+<li><p>Form အသစ်ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/forms/add_people.ui</span></code> အဖြစ် သိမ်းဆည်းပါ။</p></li>
+<li><p>သိမ်းဆည်းပြီးသောအခါ <em>Qt Designer</em> ကိုပိတ်နိုင်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="form-layer-follow-along-associating-the-form-with-your-layer">
+<h2><span class="section-number">5.3.7. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Form ကို layer ဖြင့် တွဲဖက်အသုံးပြုခြင်း (Follow Along: Associating the Form with Your Layer)<a class="headerlink" href="#form-layer-follow-along-associating-the-form-with-your-layer" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>QGIS သို့ပြန်သွားပါ</p></li>
+<li><p><span class="guilabel">test-data</span> layer ကို click နှစ်ချက်နှိပ်ပြီး ၎င်း၏ properties ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ထဲရှိ <span class="guilabel">Attributes Form</span> tab ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Attribute editor layout</span> dropdown ထဲတွင်  <span class="guilabel">Provide ui-file</span> ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">…</span> ကိုနှိပ်ပြီး ဖန်တီးထားသော <code class="file docutils literal notranslate"><span class="pre">add_people.ui</span></code> ကိုရွေးပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/provide_ui_file.png" src="../../../_images/provide_ui_file.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Layer Properties</span> dialog တွင် <span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Edit mode ကိုဖွင့်ပြီး point အသစ်တစ်ခုကို နေရာချပါ</p></li>
+<li><p>ထိုသို့လုပ်ဆောင်သောအခါ ကိုယ်တိုင်ဖန်တီးထားသော စိတ်ကြိုက် dialog ပေါ်လာပါမည် (QGIS မှဖန်တီးပေးသော ယေဘုယျတစ်ခုအစား)။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> tool အသုံးပြုပြီး point များထဲမှ တစ်ခုကို click နှိပ်လျှင် identify results ထဲတွင် right-click နှိပ်ပြီး <span class="menuselection">View Feature Form</span> ကိုရွေးချယ်ခြင်းအားဖြင့် form ကို ဖွင့်နိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>အဆိုပါ layer အတွက် edit mode ကိုဖွင့်ထားလျှင် ဆက်စပ် menu သည် <span class="menuselection">Edit Feature Form</span> ကိုပြသပေးမည်ဖြစ်ပြီး point စတင်နေရာချပြီးလျှင်ပင် form အသစ်ထဲရှိ attribute များကို ချိန်ညှိနိုင်မည်ဖြစ်သည်။</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">5.3.8. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Form များကို အသုံးပြုပြီး data များကို edit ပြုလုပ်ခြင်း သို့မဟုတ် ဖန်တီးခြင်းများတွင် ပိုမိုလွယ်ကူစေနိုင်ပါသည်။ Widget အမျိုးအစားများကို edit လုပ်ခြင်း သို့မဟုတ် form အသစ်တစ်ခုကို အစအဆုံး ဖန်တီးခြင်းဖြင့် data အသစ်များ digitize ပြုလုပ်မည့်သူများကို အတွေ့အကြုံပိုမိုရစေပြီး နားလည်မှုလွဲခြင်းများနှင့် မလိုလားအပ်သော အမှားများကို လျှော့ချပေးနိုင်ပါသည်။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">5.3.9. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further Reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p>အထက်ဖော်ပြပါ အဆင့်မြင့်အပိုင်းများကို လေ့လာပြီးစီးပြီး Python နှင့်ပတ်သက်သော ဗဟုသုတရှိလျှင် <a class="reference external" href="https://woostuff.wordpress.com/2011/09/05/qgis-tips-custom-feature-forms-with-python-logic/">ဤ blog entry</a> တွင် လေ့လာကြည့်နိုင်ပါသည်။ ထို blog တွင် data validation ၊ autocompletion အစရှိသည့် အဆင့်မြင့်လုပ်ဆောင်မှုများကိုပြုလုပ်နိုင်သော Python logic ဖြင့် စိတ်ကြိုက် feature form များကို ဖန်တီးခြင်းအကြောင်းများပါဝင်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">5.3.10. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Feature တစ်ခုကို identify ပြုလုပ်ရာတွင် form တစ်ခုကို ဖွင့်ခြင်းသည် QGIS မှလုပ်ဆောင်နိုင်သော စံလုပ်ဆောင်ချက် (action) များထဲမှ တစ်ခုဖြစ်ပါသည်။ သို့သော် စိတ်ကြိုက်လုပ်ဆောင်ချက်များကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်။ ထိုအကြောင်းအရာကို နောက်သင်ခန်းစာတွင် သင်ကြားပေးမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="topo_editing.html" class="btn btn-neutral float-left" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="actions.html" class="btn btn-neutral float-right" title="5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/forms.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/forms.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/forms.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/create_vector_data/forms.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/create_vector_data/forms.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/create_vector_data/forms.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/create_vector_data/forms.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/create_vector_data/forms.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/create_vector_data/forms.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/create_vector_data/forms.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/create_vector_data/forms.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/288ae11705a86c614973f1d59ed96672" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

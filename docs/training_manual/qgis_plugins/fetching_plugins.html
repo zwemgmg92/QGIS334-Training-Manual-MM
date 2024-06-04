@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_plugins/fetching_plugins.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)" href="plugin_examples.html" />
+    <link rel="prev" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">9.1. သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plugin-follow-along-managing-plugins">9.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Plugin များ စီမံခန့်ခွဲခြင်း (Follow Along: Managing Plugins)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plugin-follow-along-installing-new-plugins">9.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Plugin အသစ်များထည့်သွင်းခြင်း (Follow Along: Installing New Plugins)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plugin-follow-along-configuring-additional-plugin-repositories">9.1.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ထပ်ဆောင်း Plugin သိုလှောင်ခန်းများကို ပြင်ဆင်သတ်မှတ်ခြင်း (Follow Along: Configuring Additional Plugin Repositories)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">9.1.4. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">9.1.5. နောက်ထပ် ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugin_examples.html">9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">9. </span>မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.1. </span>သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/qgis_plugins/fetching_plugins.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plugin_examples.html" class="btn btn-neutral float-right" title="9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="plugin-lesson-installing-and-managing-plugins">
+<h1><span class="section-number">9.1. </span>သင်ခန်းစာ - Plugin များ ထည့်သွင်းခြင်းနှင့် စီမံခန့်ခွဲခြင်း (Lesson: Installing and Managing Plugins)<a class="headerlink" href="#plugin-lesson-installing-and-managing-plugins" title="Link to this heading"></a></h1>
+<p>Plugin များကိုစတင်အသုံးပြုရန် ၎င်းတို့ကို မည်သို့ ဒေါင်းလုဒ်ပြုလုပ်ရမည်၊ မည်သို့ ထည့်သွင်းရမည်နှင့် မည်သို့ ဖွင့်ပေးရမည်ကို သိရှိရန် လိုအပ်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် <span class="guilabel">Plugin Installer</span> နှင့် <span class="guilabel">Plugin Manager</span> ကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> QGIS plugin စနစ်ကို နားလည်စေရန်နှင့် အသုံးပြုတတ်စေရန်</p>
+<section id="plugin-follow-along-managing-plugins">
+<h2><span class="section-number">9.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Plugin များ စီမံခန့်ခွဲခြင်း (Follow Along: Managing Plugins)<a class="headerlink" href="#plugin-follow-along-managing-plugins" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="guilabel">Plugin Manager</span> ကိုဖွင့်ရန် <span class="menuselection">Plugins ► Manage and Install Plugins</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ပွင့်လာသော dialog ထဲတွင် <span class="guilabel">Processing</span> plugin ကိုရှာဖွေပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_processing_plugin.png" src="../../../_images/select_processing_plugin.png" />
+</figure>
+</li>
+<li><p>အဆိုပါ plugin ၏ဘေးရှိ အကွက်ထဲတွင် click နှိပ်ပြီး ၎င်းကို ပိတ်ရန် အမှန်ခြစ်ဖြုတ်ပါ။</p></li>
+<li><p><span class="guilabel">Close</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>Menu ထဲတွင် ကြည့်လိုက်ပါက <span class="guilabel">Processing</span> menu မရှိတော့သည်ကို တွေ့ရပါလိမ့်မည်။ ဆိုလိုသည်မှာ ယခင်ကအသုံးပြုခဲ့ပြီးသော processing function တော်တော်များများသည် ပျောက်ကွယ်သွားမည်ဖြစ်သည်။ ဥပမာ- <span class="menuselection">Vector ►</span> နှင့် <span class="menuselection">Raster ►</span> menu များကို ကြည့်ပါ။ ထိုသို့ဖြစ်ရခြင်းမှာ ၎င်းတို့သည် <span class="guilabel">Processing</span> plugin ၏တစ်စိတ်တစ်ပိုင်းဖြစ်ပြီး အသုံးပြုနိုင်ရန်အတွက် <span class="guilabel">Processing</span> plugin ကိုဖွင့်ပေးရန်လိုအပ်သောကြောင့်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Plugin Manager</span> ကို ထပ်မံဖွင့်ပြီး <span class="guilabel">Processing</span> plugin ၏ဘေးတွင် အမှန်ခြစ်ပြီး ပြန်ဖွင့်ပေးပါ။</p></li>
+<li><p>Dialog ကို ပိတ်လိုက်ပါ။ <span class="guilabel">Processing</span> menu နှင့် function များကို ထပ်မံ၍အသုံးပြုနိုင်မည်ဖြစ်သည်။</p></li>
+</ol>
+</section>
+<section id="plugin-follow-along-installing-new-plugins">
+<span id="plugin-installation"></span><h2><span class="section-number">9.1.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Plugin အသစ်များထည့်သွင်းခြင်း (Follow Along: Installing New Plugins)<a class="headerlink" href="#plugin-follow-along-installing-new-plugins" title="Link to this heading"></a></h2>
+<p>ဖွင့်ခြင်း ပိတ်ခြင်း ပြုလုပ်နိုင်သည့် plugin များစာရင်းသည် လက်ရှိ install လုပ်ထားပြီးသား plugin များထဲတွင်ဖြစ်ပါသည်။ Plugin အသစ်များကို install ပြုလုပ်ရန်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Plugin Manager</span> dialog ထဲတွင် <span class="guilabel">Not Installed</span> option ကိုရွေးပါ။ Install ပြုလုပ်နိုင်သော plugin များကို ဤနေရာတွင် ပြသပါလိမ့်မည်။ အဆိုပါစာရင်းသည် သင်၏ရှိနေပြီးသား system setup ပေါ်တွင် မူတည်ပြီး ပြောင်းလဲမှုရှိနိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/get_more_plugins.png" src="../../../_images/get_more_plugins.png" />
+</figure>
+</li>
+<li><p>စာရင်းထဲတွင် Plugin ကို select ပြုလုပ်ပြီး ၎င်း plugin နှင့်ပတ်သက်သောအချက်အလက်များကို ရှာဖွေပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/plugin_details.png" src="../../../_images/plugin_details.png" />
+</figure>
+</li>
+<li><p>Plugin panel အောက်ရှိ <span class="guilabel">Install Plugin</span> ခလုတ်ကို နှိပ်ပြီး သင်စိတ်ဝင်စားသော plugin (များ) ကို install ပြုလုပ်ပါ။</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အကယ်၍ plugin တွင် အမှားအချို့ရှိနေလျှင် ၎င်းကို <span class="guilabel">Invalid</span> tab ထဲတွင် စာရင်းပြုစုထားမည်ဖြစ်သည်။ ထို့နောက် အမှားအယွင်းကို ဖြေရှင်းရန် plugin ဖန်တီးသူထံသို့ ဆက်သွယ်နိုင်မည်ဖြစ်သည်။</p>
+</div>
+</section>
+<section id="plugin-follow-along-configuring-additional-plugin-repositories">
+<h2><span class="section-number">9.1.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - ထပ်ဆောင်း Plugin သိုလှောင်ခန်းများကို ပြင်ဆင်သတ်မှတ်ခြင်း (Follow Along: Configuring Additional Plugin Repositories)<a class="headerlink" href="#plugin-follow-along-configuring-additional-plugin-repositories" title="Link to this heading"></a></h2>
+<p>Install ပြုလုပ်နိုင်သည့် plugin များသည် သင်အသုံးပြုရန် ပြင်ဆင်သတ်မှတ်ထားသော plugin <em>repositories</em> ပေါ်တွင် မူတည်ပါသည်။</p>
+<p>QGIS plugin များကို online repository များတွင် သိမ်းဆည်းပါသည်။ Default အားဖြင့် <a class="reference external" href="https://plugins.qgis.org">တရားဝင်
+repository</a> တစ်ခုတည်းသာ active ဖြစ်နေပါသည်၊ ဆိုလိုသည်မှာ ထိုတရားဝင် repository တွင် ဖြန့်ချိထားသော plugin များကိုသာ အသုံးပြုနိုင်ပါသည်။ ရရှိနိုင်သော tool များ ကွဲပြားများပြားစွာရှိသောကြောင့် ထို repository တွင် သင်လိုအပ်သည့်အရာအများစု ရရှိနိုင်ပါသည်။</p>
+<p>သို့ရာတွင် default plugin များအပြင် နောက်ထပ် plugin များကိုစမ်းကြည့်ရန် ဖြစ်နိုင်ပါသည်။ ဦးစွာ ထပ်ဆောင်း repository များကို ပြင်ဆင်သတ်မှတ်ပါမည်။ ထိုသို့လုပ်ဆောင်ရန်-
+#. <span class="guilabel">Plugin Manager</span> dialog ထဲရှိ <span class="guilabel">Settings</span> tab ကိုဖွင့်ပါ</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/plugin_manager_settings.png" src="../../../_images/plugin_manager_settings.png" />
+</figure>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Repository အသစ်တစ်ခု ရှာဖွေရန်နှင့် ထည့်သွင်းရန် <span class="guilabel">Add</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ပြင်ဆင်သတ်မှတ်လိုသော repository အသစ်အတွက် အမည် တစ်ခုနှင့် URL တစ်ခုပေးပြီး <span class="guilabel">Enabled</span> checkbox တွင် အမှန်ခြစ်ခြစ်ထားပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/new_plugins_setting.png" src="../../../_images/new_plugins_setting.png" />
+</figure>
+</li>
+<li><p>ပြင်ဆင်သတ်မှတ်ထားသော Plugin Repositories များစာရင်းထဲတွင် plugin repo အသစ်ကို တွေ့ရပါလိမ့်မည်</p>
+<figure class="align-center">
+<img alt="../../../_images/new_plugin_added.png" src="../../../_images/new_plugin_added.png" />
+</figure>
+</li>
+<li><p>စမ်းသပ်ဆဲ Plugin များကို ပြသရန် <span class="guilabel">Show also experimental plugins</span> checkbox တွင် အမှန်ခြစ်ပေးနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Not Installed</span> tab ကိုပြန်သွားကြည့်လျှင် install ပြုလုပ်ရန်အတွက် ထပ်ဆောင်း plugin များကို မြင်တွေ့ရမည်ဖြစ်သည်။</p></li>
+<li><p>Plugin တစ်ခုကို install ပြုလုပ်ရန် စာရင်းထဲရှိ ၎င်း plugin ပေါ်တွင် click နှိပ်ပြီး <span class="guilabel">Install plugin</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">9.1.4. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>QGIS ထဲတွင် plugin များ install ပြုလုပ်ခြင်းသည် လွယ်ကူရိုးရှင်းပြီး ထိရောက်မှုရှိပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">9.1.5. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်ထပ်အနေဖြင့် အသုံးဝင်သော plugin အချို့ကို ဥပမာများအနေဖြင့် မိတ်ဆက်ပေးသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plugin_examples.html" class="btn btn-neutral float-right" title="9.2. သင်ခန်းစာ - အသုံးဝင်သော QGIS Plugin များ (Lesson: Useful QGIS Plugins)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_plugins/fetching_plugins.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/qgis_plugins/fetching_plugins.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/qgis_plugins/fetching_plugins.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/qgis_plugins/fetching_plugins.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/qgis_plugins/fetching_plugins.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/qgis_plugins/fetching_plugins.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/cfdaf6a70acf5e4305a0a61dc49b92d4" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

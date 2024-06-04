@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/terrain_analysis.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)" href="../complete_analysis/index.html" />
+    <link rel="prev" title="7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)" href="changing_symbology.html" />
+  <meta name="description" content="QGIS testing documentation: 7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="data_manipulation.html">7.1. သင်ခန်းစာ - Raster Data များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with Raster Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changing_symbology.html">7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.3. သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-calculating-a-hillshade">7.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တောင်အရိပ်တစ်ခု တွက်ချက်ခြင်း (Follow Along: Calculating a Hillshade)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hillshade-overlay-follow-along-using-a-hillshade-as-an-overlay">7.3.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Hillshade အား Overlay တစ်ခုအဖြစ် အသုံးပြုခြင်း (Follow Along: Using a Hillshade as an Overlay)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-finding-the-best-areas">7.3.3. လိုက်လုပ်ကြည့်ပါ - အကောင်းဆုံးဧရိယာများကို ရှာဖွေခြင်း (Follow Along: Finding the best areas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-calculating-the-slope">7.3.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - လျှောစောက်တွက်ချက်ခြင်း (Follow Along: Calculating the Slope)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-calculating-the-aspect">7.3.5. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မျက်နှာမူရာအရပ် တွက်ချက်ခြင်း (Try Yourself: Calculating the aspect)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-finding-the-north-facing-aspect">7.3.6. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - မြောက်ဘက် မျက်နှာမူရာအရပ်ကို ရှာဖွေခြင်း (Follow Along: Finding the north-facing aspect)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-more-criteria">7.3.7. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - နောက်ထပ်သတ်မှတ်ချက်များ (Try Yourself: More criteria)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-analysis-follow-along-combining-raster-analysis-results">7.3.8. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Analysis ရလာဒ်များအား ပေါင်းစပ်ခြင်း (Follow Along: Combining Raster Analysis Results)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-follow-along-simplifying-the-raster">7.3.9. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို ပေါ့ပါးရိုးရှင်းအောင်လုပ်ခြင်း (Follow Along: Simplifying the Raster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-follow-along-reclassifying-the-raster">7.3.10. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို အတန်းအစားပြန်ခွဲခြင်း (Follow Along: Reclassifying the Raster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-follow-along-querying-the-raster">7.3.11. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster တွင် အချက်အလက်များရှာခြင်း (Follow Along: Querying the raster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">7.3.12. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">7.3.13. နောက်ထပ် ဘာအကြောင်းအရာလဲ?  (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">7. </span>မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.3. </span>သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/rasters/terrain_analysis.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="changing_symbology.html" class="btn btn-neutral float-left" title="7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../complete_analysis/index.html" class="btn btn-neutral float-right" title="8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-terrain-analysis">
+<h1><span class="section-number">7.3. </span>သင်ခန်းစာ - မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Lesson: Terrain Analysis)<a class="headerlink" href="#lesson-terrain-analysis" title="Link to this heading"></a></h1>
+<p>အချို့ raster အမျိုးအစားများသည် ၎င်းတို့ကိုယ်စားပြုဖော်ပြသော terrain အကြောင်း ပိုမိုထိုးထွင်းသိမြင်စေနိုင်ပါသည်။ Digital Elevation Models (DEMs) များသည် ဤနေရာတွင် အထူးအသုံးဝင်ပါသည်။ ယခင်သင်ခန်းစာတွင် ပြုလုပ်ခဲ့သော အဆိုပြု residential development (လူနေအိမ်ယာများဖွံ့ဖြိုးတိုးတက်မှု) အတွက် စိတ်ဝင်စားသည့်ဧရိယာအကြောင်း ပိုမိုသိရှိနိုင်စေရန် terrain analysis tool များကို ယခုသင်ခန်းစာတွင် အသုံးပြုသွားပါမည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> မြေမျက်နှာသွင်ပြင် အကြောင်း အချက်အလက်များပိုမိုရရှိစေရန် terrain analysis tool များကို အသုံးပြုတတ်စေရန်။</p>
+<section id="follow-along-calculating-a-hillshade">
+<h2><span class="section-number">7.3.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - တောင်အရိပ်တစ်ခု တွက်ချက်ခြင်း (Follow Along: Calculating a Hillshade)<a class="headerlink" href="#follow-along-calculating-a-hillshade" title="Link to this heading"></a></h2>
+<p>ယခင်သင်ခန်းစာတွင် အသုံးပြုခဲ့သော DEM layer ကိုပင် ပြန်လည်အသုံးပြုပါမည်။ <span class="guilabel">Browser</span> panel မှတဆင့် <code class="file docutils literal notranslate"><span class="pre">raster/SRTM/srtm_41_19.tif</span></code> ကိုထည့်သွင်းပါ။</p>
+<p>DEM layer သည် မြေမျက်နှာသွင်ပြင် အနိမ့်အမြင့်ကို ပြသပေးပါသည်၊ သို့သော် တစ်ခါတရံတွင် အနည်းငယ် ယေဘုယျဆန်နိုင်ပါသည်။ ၎င်း DEM တွင် သင်လိုအပ်သော terrain နှင့်ပတ်သက်သည့် 3D အချက်အလက်များအားလုံးပါဝင်သော်လည်း 3D အရာဝတ္ထုပုံစံတစ်ခု မဟုတ်ပါ။ ပိုမိုကောင်းမွန်သော terrain အသွင်အပြင်ကို ရရှိရန် <em>hillshade</em> တစ်ခုကို တွက်ချက်ပေးနိုင်ပါသည်၊ <em>hillshade</em> သည် 3D အသွင် image တစ်ခုဖန်တီးရန် အလင်းရောင်နှင့် အရိပ် ကိုအသုံးပြုပြီး terrain ကိုပုံဖော်ပြပေးသော raster တစ်ခုဖြစ်ပါသည်။</p>
+<p><span class="menuselection">Raster ► Raster terrain analysis</span> menu ထဲရှိ algorithm များကို အသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Hillshade</span> menu ကိုနှိပ်ပါ</p></li>
+<li><p>Algorithm တွင် အလင်းရောင်ရင်းမြစ်၏ တည်နေရာကို သတ်မှတ်ပေးနိုင်ပါသည် - <span class="guilabel">Azimuth</span> ဟုခေါ်ပြီး တန်ဖိုးများအနေဖြင့် 0 (မြောက်ဘက်) ၊ 90
+(အရှေ့ဘက်) ၊ 180 (တောင်ဘက်) နှင့် 270 (အနောက်ဘက်) ရှိပါသည်။ အလင်းရောင်ရင်းမြစ်၏ အမြင့်ကို <span class="guilabel">Vertical angle</span> တွင်သတ်မှတ်ပေးနိုင်ပြီး 0 မှ 90 ဒီဂရီ ဖြစ်ပါသည်။</p></li>
+<li><p>အောက်ပါတန်ဖိုးများကို အသုံးပြုပါမည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Z factor</span> တွင် <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+<li><p><span class="guilabel">Azimuth (horizontal angle)</span> တွင် <code class="docutils literal notranslate"><span class="pre">300.0</span></code>°</p></li>
+<li><p><span class="guilabel">Vertical angle</span> တွင် <code class="docutils literal notranslate"><span class="pre">40.0</span></code>°</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/hillshade_explanation.png" src="../../../_images/hillshade_explanation.png" />
+</figure>
+</li>
+<li><p>ဖိုင်ကို <code class="docutils literal notranslate"><span class="pre">hillshade</span></code> ဟူသော အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster_analysis/</span></code> folder အသစ်ထဲတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>နောက်ဆုံးတွင် <span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p><span class="guilabel">hillshade</span> ဟုခေါ်သော layer အသစ်တစ်ခုရရှိလာမည်ဖြစ်ပြီး အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/hillshade_raster.png" src="../../../_images/hillshade_raster.png" />
+</figure>
+<p>အမြင်အရ ကြည့်ကောင်းပြီး 3D ပုံစံဖြစ်နေပါမည်၊ သို့သော် ၎င်းကို ပိုမိုကောင်းမွန်အောင် လုပ်နိုင်ပါသေးသည်။ သူ့အတိုင်းဆိုလျှင် hillshade သည် ပလတ်စတစ်ပုံသွန်းထားသည့်ပုံစံ ဖြစ်နေပါသည်။ Hillshade ကို overlay (အပေါ်ဖုံးအုပ်) အနေဖြင့်အသုံးပြုပြီး ပိုမိုအရောင်စုံလင်သော အခြား raster များဖြင့် ပေါင်းစပ်ပြီး အသုံးပြုနိုင်ပါသည်။</p>
+</section>
+<section id="hillshade-overlay-follow-along-using-a-hillshade-as-an-overlay">
+<h2><span class="section-number">7.3.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Hillshade အား Overlay တစ်ခုအဖြစ် အသုံးပြုခြင်း (Follow Along: Using a Hillshade as an Overlay)<a class="headerlink" href="#hillshade-overlay-follow-along-using-a-hillshade-as-an-overlay" title="Link to this heading"></a></h2>
+<p>Hillshade တစ်ခုသည် နေ့တစ်နေ့၏အချိန်တစ်ခုတွင်ရှိသော နေရောင်အကြောင်း အလွန်အသုံးဝင်သည့် အချက်အလက်များ ပေးနိုင်ပါသည်။ သို့သော် ၎င်းကို မြေပုံပိုမိုကြည့်ကောင်းစေရန် ရည်ရွယ်ချက်များအတွက်လည်း အသုံးပြုနိုင်ပါသည်။ အဓိကအချက်မှာ hillshade ကို အလင်းဖောက်နေစေရန် သတ်မှတ်ပေးခြင်းဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p>မူရင်း <span class="guilabel">srtm_41_19</span> layer ၏ သင်္ကေတကို <span class="guilabel">Pseudocolor</span> scheme သို့ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">srtm_41_19</span> နှင့် <span class="guilabel">hillshade</span> layer များမှလွဲ၍ ကျန် layer များအားလုံးကို ဖျောက်ထားပါ</p></li>
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <span class="guilabel">hillshade</span> layer ၏အောက်သို့ <span class="guilabel">srtm_41_19</span> layer အား ဆွဲရွှေ့ပါ</p></li>
+<li><p><span class="guilabel">hillshade</span> layer properties ထဲရှိ <span class="guilabel">Transparency</span> tab ထဲတွင် <span class="guilabel">hillshade</span> layer အား transparent ဖြစ်စေရန် သတ်မှတ်ပေးပါ</p></li>
+<li><p><span class="guilabel">Global opacity</span> ကို <code class="docutils literal notranslate"><span class="pre">50%</span></code> သတ်မှတ်ပါ</p>
+<p>အောက်ပါပုံစံအတိုင်း ရရှိပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/hillshade_pseudocolor.png" src="../../../_images/hillshade_pseudocolor.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <span class="guilabel">hillshade</span> layer အား အဖွင့်အပိတ်လုပ်ကြည့်ပြီး ခြားနားမှုကို ကြည့်ပါ။</p></li>
+</ol>
+<p>Hillshade တစ်ခုအား ဤကဲ့သို့ အသုံးပြုခြင်းဖြင့် မြေမျက်နှာသွင်ပြင်အနေအထားကို ပိုမိုကောင်းမွန်စေနိုင်ပါသည်။ ရရှိလာသော ရလာဒ် effect ကို သဘောမကျသေးလျှင် <span class="guilabel">hillshade</span> layer ၏ transparency ကိုပြောင်းလဲပေးနိုင်ပါသည်၊ hillshade သည် အရောင်တောက်လေလေ ၎င်းအောက်ရှိ layer သည် အရောင်မှိန်လာလေလေဖြစ်သည်။ အဆင်ပြေသည့်ပုံစံအတိုင်း ချိန်ညှိပေးရန်လိုအပ်ပါသည်။</p>
+<p>လုပ်ဆောင်ပြီးသောအခါ project အားသိမ်းဆည်းရန် မမေ့ပါနှင့်။</p>
+</section>
+<section id="follow-along-finding-the-best-areas">
+<h2><span class="section-number">7.3.3. </span>လိုက်လုပ်ကြည့်ပါ - အကောင်းဆုံးဧရိယာများကို ရှာဖွေခြင်း (Follow Along: Finding the best areas)<a class="headerlink" href="#follow-along-finding-the-best-areas" title="Link to this heading"></a></h2>
+<p>Think back to the estate agent problem, which we last addressed in the
+<em>Vector Analysis</em> lesson.
+Let us imagine that the buyers now wish to purchase a building and
+build a smaller cottage on the property.
+In the Southern Hemisphere, we know that an ideal plot for development
+needs to have areas on it that:
+<em>Vector Analysis</em> သင်ခန်းစာတွင် လုပ်ဆောင်ခဲ့သော အိမ်ခြံမြေပွဲစားကိစ္စကို ပြန်တွေးကြည့်ပါ။ ဝယ်ယူမည့်သူများသည် အဆောက်အဦတစ်ခုဝယ်ယူပြီး ခြံမြေနေရာတွင် တစ်ထပ်တိုက်ငယ်တစ်ခုဆောက်လုပ်လိုသည် ဆိုကြပါစို့။ Southern Hemisphere (ကမ္ဘာ့တောင်ဘက်ခြမ်း) တွင် development အတွက် အကောင်းဆုံးမြေနေရာသည် အောက်ပါဧရိယာများပေါ်တွင် ရှိရန်လိုအပ်ပါသည်-</p>
+<ul class="simple">
+<li><p>မြောက်ဘက်သို့ မျက်နှာမူခြင်း</p></li>
+<li><p>Slope (လျှောစောက်) 5 ဒီဂရီအောက်ရှိခြင်း</p></li>
+<li><p>သို့သော် Slope သည် 2 ဒီဂရီအောက်ဖြစ်ပါက aspect (မျက်နှာမူရာအရပ်) သည်အရေးမကြီးပါ။</p></li>
+</ul>
+<p>၎င်းတို့အတွက် အကောင်းဆုံးဧရိယာကို ရှာဖွေကြည့်ပါမည်။</p>
+</section>
+<section id="follow-along-calculating-the-slope">
+<h2><span class="section-number">7.3.4. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - လျှောစောက်တွက်ချက်ခြင်း (Follow Along: Calculating the Slope)<a class="headerlink" href="#follow-along-calculating-the-slope" title="Link to this heading"></a></h2>
+<p><em>Slope</em> သည် မြေမျက်နှာသွင်ပြင် မည်မျှ မတ်စောက် သည်ကို ဖော်ပြပေးပါသည်။ ဥပမာ- သင့်အနေဖြင့် မြေနေရာတစ်ခုပေါ်တွင် အိမ်များဆောက်လိုသည်ဆိုပါက ထိုမြေနေရာသည် အတော်အတန် ပြန့်နေရန် လိုအပ်ပါသည်။</p>
+<p>Slope ကိုတွက်ချက်ရန် <span class="menuselection">Processing ► Raster terrain analysis</span> ထဲရှိ <span class="menuselection">Slope</span> algorithm ကိုအသုံးပြုရန် လိုအပ်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p>Algorithm ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Elevation layer</span> အနေဖြင့် <span class="guilabel">srtm_41_19</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Z factor</span> ကို <code class="docutils literal notranslate"><span class="pre">1.0</span></code> ထားပါ</p></li>
+<li><p>Output ကို <code class="docutils literal notranslate"><span class="pre">hillshade</span></code> သိမ်းဆည်းထားသည့် folder ထဲတွင် <code class="docutils literal notranslate"><span class="pre">slope</span></code> ဟူသောအမည်ဖြင့် ဖိုင်တစ်ခုအဖြစ်သိမ်းဆည်းပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>ယခုဆိုလျှင် terrain ၏ slope ကို မြင်တွေ့ရပါလိမ့်မည်၊ pixel တစ်ခုချင်းစီတွင် သက်ဆိုင်ရာ slope တန်ဖိုးကို ပါဝင်ပါသည်။ အနက်ရောင် pixel များသည် ပြန့်သော terrain ကိုပြသပြီး အဖြူရောင် pixel များသည် မတ်စောက်သော terrain ကိုပြသပေးပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/slope_raster.png" src="../../../_images/slope_raster.png" />
+</figure>
+</section>
+<section id="try-yourself-calculating-the-aspect">
+<h2><span class="section-number">7.3.5. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မျက်နှာမူရာအရပ် တွက်ချက်ခြင်း (Try Yourself: Calculating the aspect)<a class="headerlink" href="#try-yourself-calculating-the-aspect" title="Link to this heading"></a></h2>
+<p><em>Aspect</em> သည် terrain ၏ slope များမျက်နှာမူရာ သံလိုက်အိမ်မြောင် လားရာ ဖြစ်သည်။ Aspect တန်ဖိုး 0 သည် မြောက်အရပ်သို့၊ 90 သည် အရှေ့အရပ်သို့ ၊ 180 သည် တောင်အရပ်သို့ နှင့် 270 သည် အနောက်အရပ်သို့ မျက်နှာမူပါသည်။</p>
+<p>ယခု study area သည် Southern Hemisphere (ကမ္ဘာ့တောင်ဘက်ခြမ်း) တွင်ဖြစ်သောကြောင့် နေရောင်ရရှိစေရန်အတွက် အဆောက်အဦများကို မြောက်အရပ်မျက်နှာမူသော slope ပေါ်တွင် တည်ဆောက်သင့်ပါသည်။</p>
+<p><span class="menuselection">Processing ► Raster terrain analysis</span> ထဲရှိ <span class="guilabel">Aspect</span> algorithm ကိုအသုံးပြုပြီး <code class="docutils literal notranslate"><span class="pre">aspect</span></code> layer ကို <code class="docutils literal notranslate"><span class="pre">slope</span></code> layer နှင့်အတူ သိမ်းဆည်းပါ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p><span class="guilabel">Aspect</span> dialog ထဲတွင် အောက်ပါအတိုင်း သတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_dem_aspect.png" src="../../../_images/answer_dem_aspect.png" />
+</figure>
+<p>ရလာဒ်သည်-</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/answer_aspect_result.png" src="../../../_images/answer_aspect_result.png" />
+</figure>
+</div></blockquote>
+</div>
+</section>
+<section id="follow-along-finding-the-north-facing-aspect">
+<h2><span class="section-number">7.3.6. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - မြောက်ဘက် မျက်နှာမူရာအရပ်ကို ရှာဖွေခြင်း (Follow Along: Finding the north-facing aspect)<a class="headerlink" href="#follow-along-finding-the-north-facing-aspect" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် slope နှင့် aspect ကိုဖော်ပြသော raster များရရှိပြီးဖြစ်သည်၊ သို့သော် မည်သည့်နေရာသည် အကောင်းဆုံးအခြေအနေဖြစ်သည်ကို မသိရှိရသေးပါ။ အဆိုပါ analysis ကို <span class="guilabel">Raster calculator</span> ဖြင့် လုပ်ဆောင်နိုင်ပါသည်။</p>
+<p>QGIS တွင် အမျိုးမျိုးသော raster calculator များရှိပါသည်-</p>
+<ul class="simple">
+<li><p><span class="menuselection">Raster ► Raster Calculator</span></p></li>
+<li><p>Processing ထဲတွင်</p>
+<ul>
+<li><p><span class="menuselection">Raster Analysis ► Raster calculator</span></p></li>
+<li><p><span class="menuselection">GDAL ► Raster miscellaneous ► Raster calculator</span></p></li>
+<li><p><span class="menuselection">SAGA ► Raster calculus ► Raster calculator</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Tool တစ်ခုချင်းစီသည် ရလာဒ်အတူတူပင် ထုတ်ပေးပါသည်၊ သို့သော် အသုံးပြုသည့် syntax (စာရေးသားပုံ) သည် အနည်းငယ် ကွာခြားမှုရှိနိုင်ပြီး ရရှိနိုင်သော operator များ ကွဲပြားနိုင်ပါသည်။</p>
+<p><em>Processing Toolbox</em> ထဲရှိ <span class="menuselection">Raster Analysis ► Raster calculator</span> ကို အသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p>Tool ကို click နှစ်ချက်နှိပ်ပြီး ဖွင့်ပါ။</p>
+<ul class="simple">
+<li><p>Dialog ၏ ဘယ်ဘက်အပေါ်တွင် ထည့်သွင်းထားသော raster layer များအားလုံးကို <code class="docutils literal notranslate"><span class="pre">name&#64;N</span></code> အနေဖြင့် ဖော်ပြထားပါသည်၊ <code class="docutils literal notranslate"><span class="pre">name</span></code> သည် layer ၏အမည်ဖြစ်ပြီး <code class="docutils literal notranslate"><span class="pre">N</span></code> သည် band ဖြစ်ပါသည်။</p></li>
+<li><p>Dialog ၏ ညာဘက်အပေါ်တွင် အမျိုးမျိုးသော operator များကို မြင်တွေ့ရပါမည်။ Raster တစ်ခုသည် image တစ်ခုဖြစ်ပြီး ၎င်းကို ဂဏန်းများဖြင့် ဖြည့်ထားသော 2D matrix တစ်ခုအနေဖြင့် တွေးမြင်သင့်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p>မြောက်အရပ်သည် 0 (zero) ဒီဂရီဖြစ်ပါသည်၊ ထို့ကြောင့် terrain သည် မြောက်အရပ်သို့မျက်နှာမူရန် ၎င်း၏ aspect သည် 270 ဒီဂရီထက် ပိုကြီး သို့မဟုတ် 90 ဒီဂရီအောက် ငယ်ရန် လိုအပ်ပါသည်။ ထို့ကြောင့် formula သည်-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">90</span> <span class="n">OR</span> <span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">270</span>
+</pre></div>
+</div>
+</li>
+<li><p>Raster ၏ cell အရွယ်အစား၊ extent နှင့် CRS များကဲ့သို့ အသေးစိတ်များကို သတ်မှတ်ပေးရပါမည်။ မိမိကိုယ်တိုင် ထည့်သွင်းပေးနိုင်သလို <code class="docutils literal notranslate"><span class="pre">Reference</span> <span class="pre">layer</span></code> တစ်ခုရွေးချယ်ပြီး အလိုအလျှောက်သတ်မှတ်ပေးနိုင်ပါသည်။ ဒုတိယ option ကိုရွေးချယ်ရန် <span class="guilabel">Reference layer(s)</span> parameter ဘေးရှိ <span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>Dialog ထဲတွင် <span class="guilabel">aspect</span> layer ကိုရွေးချယ်ပါ၊ အဘယ်ကြောင့်ဆိုသော် resolution တူညီသော layer တစ်ခုရရှိလိုသောကြောင့်ဖြစ်သည်။</p></li>
+<li><p>Layer ကို <code class="docutils literal notranslate"><span class="pre">aspect_north</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p>
+<p>Dialog သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/raster_calculator.png" src="../../../_images/raster_calculator.png" />
+</figure>
+</li>
+<li><p>နောက်ဆုံးတွင် <span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>ရလာဒ်သည် အောက်ပါပုံအတိုင်း ဖြစ်ပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/aspect_result.png" src="../../../_images/aspect_result.png" />
+</figure>
+<p>Output တန်ဖိုးများသည် <code class="docutils literal notranslate"><span class="pre">0</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">1</span></code> ဖြစ်ကြပါသည်။ ဆိုလိုသည်မှာ raster ထဲရှိ pixel တစ်ခုချင်းစီအတွက် ကျွန်ုပ်တို့ ရေးသားခဲ့သော formula သည် အခြေအနေနှင့်ကိုက်ညီမှုရှိသည် သို့မဟုတ် ကိုက်ညီမှုမရှိသည်ကို ပြန်ထုတ်ပေးပါသည်။ ထို့ကြောင့် နောက်ဆုံးရလာဒ်သည် <strong>False (ကိုက်ညီမှုမရှိ)</strong> (0) နှင့် <a href="#id1"><span class="problematic" id="id2">**</span></a>True (ကိုက်ညီမှုရှိ) ** (1) ဖြစ်ပါလိမ့်မည်။</p>
+</section>
+<section id="try-yourself-more-criteria">
+<h2><span class="section-number">7.3.7. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - နောက်ထပ်သတ်မှတ်ချက်များ (Try Yourself: More criteria)<a class="headerlink" href="#try-yourself-more-criteria" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် aspect တွက်ချက်ပြီးဖြစ်ပါသည်၊ DEM မှ layer အသစ် ၂ ခုဖန်တီးပါ။</p>
+<ul class="simple">
+<li><p>ပထမ layer သည် slope <code class="docutils literal notranslate"><span class="pre">2</span></code> ဒီဂရီနှင့်အောက်ရှိသော ဧရိယာများကို ဖော်ထုတ်မည်ဖြစ်သည်။</p></li>
+<li><p>ဒုတိယ layer သည် slope <code class="docutils literal notranslate"><span class="pre">5</span></code> ဒီဂရီနှင့်အောက်ရှိသော ဧရိယာများကို ဖော်ထုတ်မည်ဖြစ်သည်။</p></li>
+<li><p>၎င်းတို့ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster_analysis</span></code> အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">slope_lte2.tif</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">slope_lte5.tif</span></code> ဖိုင်များအနေဖြင့် သိမ်းဆည်းပါ။</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ul>
+<li><p><span class="guilabel">Raster calculator</span> dialog တွင် အောက်ပါအတိုင်းသတ်မှတ်ပါ-</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slope&#64;1</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code> expression ကိုထည့်ပါ</p></li>
+<li><p><span class="guilabel">Reference layer(s)</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">slope</span></code> layer ကိုရွေးပါ</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_raster_calculator_slope.png" src="../../../_images/answer_raster_calculator_slope.png" />
+</figure>
+</li>
+<li><p>5 ဒီဂရီအတွက် expression ထဲရှိ <code class="docutils literal notranslate"><span class="pre">2</span></code> နေရာတွင် <code class="docutils literal notranslate"><span class="pre">5</span></code> ဖြင့်အစားထိုးပြီး ဖိုင်အမည်ကိုလည်း <code class="docutils literal notranslate"><span class="pre">5</span></code> ပြောင်းပါ။</p></li>
+</ul>
+<p>ရလာဒ်များသည်-</p>
+<ul>
+<li><p>2 ဒီဂရီအတွက်-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_2degree_result.png" src="../../../_images/answer_2degree_result.png" />
+</figure>
+</li>
+<li><p>5 ဒီဂရီအတွက်-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_5degree_result.png" src="../../../_images/answer_5degree_result.png" />
+</figure>
+</li>
+</ul>
+</div>
+</section>
+<section id="raster-analysis-follow-along-combining-raster-analysis-results">
+<h2><span class="section-number">7.3.8. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster Analysis ရလာဒ်များအား ပေါင်းစပ်ခြင်း (Follow Along: Combining Raster Analysis Results)<a class="headerlink" href="#raster-analysis-follow-along-combining-raster-analysis-results" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် DEM မှ raster layer ၃ ခု ထုတ်ယူပြီးဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">aspect_north</span>: မြောက်အရပ်မျက်နှာမူသော terrain</p></li>
+<li><p><span class="guilabel">slope_lte2</span>: 2 ဒီဂရီနှင့်အောက်ရှိသော slope</p></li>
+<li><p><span class="guilabel">slope_lte5</span>: 5 ဒီဂရီနှင့်အောက်ရှိသော slope</p></li>
+</ul>
+<p>အခြေအနေနှင့်ကိုက်ညီလျှင် pixel တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">1</span></code> ဖြစ်ပြီး မကိုက်ညီလျှင် <code class="docutils literal notranslate"><span class="pre">0</span></code> ဖြစ်ပါသည်။ ထို့ကြောင့် အဆိုပါ raster ၃ ခုကို မြောက်လိုက်ပါက ၎င်းတို့အားလုံးတွင် တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> ရှိသော pixel များသည် <code class="docutils literal notranslate"><span class="pre">1</span></code> အနေဖြင့် ရရှိပါလိမ့်မည် (ကျန် pixel များသည် <code class="docutils literal notranslate"><span class="pre">0</span></code> ဖြစ်ပါလိမ့်မည်)။</p>
+<p>ကိုက်ညီမှုရှိရမည့် အခြေအနေများမှာ-</p>
+<ul class="simple">
+<li><p>slope 5 ဒီဂရီနှင့်အောက်ရှိပြီး terrain သည် မြောက်အရပ်မျက်နှာမူရမည်</p></li>
+<li><p>slope 2 ဒီဂရီနှင့်အောက်ရှိပြီး terrain မျက်နှာမူရာအရပ်သည် အရေးမကြီးပါ</p></li>
+</ul>
+<p>ထို့ကြောင့် slope 5 ဒီဂရီနှင့်အောက်ရှိပြီး <code class="docutils literal notranslate"><span class="pre">AND</span></code> terrain သည်မြောက်အရပ်မျက်နှာမူသည့် ဧရိယာ (သို့မဟုတ်) <code class="docutils literal notranslate"><span class="pre">OR</span></code> slope 2 ဒီဂရီနှင့်အောက်ရှိသည့် ဧရိယာများကို ရှာဖွေရန်လိုအပ်ပါသည်။ အဆိုပါ terrain များသည် development အတွက် သင့်တော်ပါမည်။</p>
+<p>အဆိုပါ criteria များနှင့်ကိုက်ညီသော ဧရိယာများကို တွက်ချက်ရန်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Raster calculator</span> ကိုထပ်ဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Expression</span> ထဲတွင် အောက်ပါ expression ကိုအသုံးပြုပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">aspect_north</span><span class="o">@</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">AND</span> <span class="n">slope_lte5</span><span class="o">@</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="n">OR</span> <span class="n">slope_lte2</span><span class="o">@</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p><span class="guilabel">Reference layer(s)</span> parameter တွင် <code class="docutils literal notranslate"><span class="pre">aspect_north</span></code> ကိုသတ်မှတ်ပါ (အခြား layer ကိုရွေးချယ်လျှင်လည်း ကိစ္စမရှိပါ - ၎င်းတို့အားလုံးကို <code class="docutils literal notranslate"><span class="pre">srtm_41_19</span></code> မှ တွက်ချက်ထားသောကြောင့်ဖြစ်သည်)</p></li>
+<li><p>Output ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster_analysis/</span></code> ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">all_conditions.tif</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>ရလာဒ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/development_analysis_results.png" src="../../../_images/development_analysis_results.png" />
+</figure>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>အထက်ဖော်ပြပါ အဆင့်များကို အောက်ပါ command အသုံးပြုပြီး တစ်ကြောင်းတည်းအနေဖြင့် ရေးသားနိုင်ပါသည်-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">90</span> <span class="n">OR</span>  <span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">270</span><span class="p">)</span> <span class="n">AND</span> <span class="n">slope</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="n">OR</span> <span class="n">slope</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="raster-follow-along-simplifying-the-raster">
+<h2><span class="section-number">7.3.9. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို ပေါ့ပါးရိုးရှင်းအောင်လုပ်ခြင်း (Follow Along: Simplifying the Raster)<a class="headerlink" href="#raster-follow-along-simplifying-the-raster" title="Link to this heading"></a></h2>
+<p>အထက်တွင်ပြထားသော ဓာတ်ပုံတွင် မြင်တွေ့ရသည့်အတိုင်း ပေါင်းစပ်ထားသော analysis မှ ရလာဒ်တွင် အခြေအနေနှင့်ကိုက်ညီသော အလွန်သေးငယ်သည့်ဧရိယာများစွာ (အဖြူရောင်ဖြင့်) ပါရှိနေပါသည်။ သို့သော် အဆိုပါ ဧရိယာငယ်များသည် analysis အတွက် အမှန်တကယ်အသုံးမဝင်ပါ၊ အဘယ်ကြောင့်ဆိုသော အဆောက်အဦဆောက်ရန်အတွက် ဧရိယာသေးငယ်လွန်းသောကြောင့်ဖြစ်သည်။ အဆိုပါ အသုံးမဝင်သောဧရိယာငယ်များအားလုံးကို ဖယ်ရှားကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Sieve</span> tool ကိုဖွင့်ပါ (<span class="guilabel">Processing Toolbox</span> ထဲရှိ <span class="menuselection">GDAL ► Raster Analysis</span> မှ)</p></li>
+<li><p><span class="guilabel">Input file</span> တွင် <code class="docutils literal notranslate"><span class="pre">all_conditions</span></code> ဖိုင်ကိုထည့်ပြီး <span class="guilabel">Sieved</span> တွင် <code class="file docutils literal notranslate"><span class="pre">all_conditions_sieve.tif</span></code> ဟုသတ်မှတ်ပါ (<code class="file docutils literal notranslate"><span class="pre">exercise_data/raster_analysis/</span></code> အောက်တွင် သိမ်းဆည်းပါ)</p></li>
+<li><p><span class="guilabel">Threshold</span> တွင် 8 (အနည်းဆုံး pixel ၈ ခု တစ်ဆက်တစ်ဆက်တည်းရှိသော) ဟုသတ်မှတ်ပြီး <span class="guilabel">Use 8-connectedness</span> ကိုအမှန်ခြစ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/raster_sieve_dialog.png" src="../../../_images/raster_sieve_dialog.png" />
+</figure>
+<p>Processing ပြီးသည်နှင့်တပြိုင်နက် layer အသစ်ကို ထည့်သွင်းပေးပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/sieve_result_incorrect.png" src="../../../_images/sieve_result_incorrect.png" />
+</figure>
+<p>မည်သို့ဖြစ်ပျက်သွားသည်ကို raster ဖိုင်အသစ်၏ metadata ထဲတွင် ကြည့်နိုင်ပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ၏ <span class="guilabel">Information</span> tab အောက်တွင် metadata ကိုကြည့်ပါ။ <code class="docutils literal notranslate"><span class="pre">STATISTICS_MINIMUM</span></code> တန်ဖိုးကို ကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/sieve_metadata.png" src="../../../_images/sieve_metadata.png" />
+</figure>
+<p>ဤ raster တွင် ၎င်းကိုထုတ်ယူထားသော raster ကဲ့သို့ပင်  <code class="docutils literal notranslate"><span class="pre">1</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">0</span></code> တန်ဖိုးများသာ ရှိနေသင့်ပါသည်၊ သို့သော် ၎င်းတွင် အလွန်ကြီးမားသော အနုတ် ဂဏန်းတစ်ခုလည်း ပါရှိနေပါသည်။ အဆိုပါ ဂဏန်းသည် null တန်ဖိုးတစ်ခုဖြစ်ပါသည်။ အဆိုပါ null တန်ဖိုးများကို zero အဖြစ်သို့ ပြောင်းလဲသတ်မှတ်ပါမည်။</p>
+</li>
+<li><p><span class="guilabel">Raster Calculator</span> ကိုဖွင့်ပြီး အောက်ပါ expression ကိုရေးပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">all_conditions_sieve</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>ထိုသို့လုပ်ခြင်းသည် အနုတ် မဟုတ်သော တန်ဖိုးများအားလုံးကို ချန်ထားပြီး အနုတ်ဂဏန်းများကို zero အဖြစ်သို့ သတ်မှတ်ပေးပါလိမ့်မည်။ တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> ရှိသော ဧရိယာများအားလုံးကို ပကတိအတိုင်း ထားရှိပေးမည်ဖြစ်သည်။</p>
+</li>
+<li><p>Output ကို <code class="docutils literal notranslate"><span class="pre">exercise_data/raster_analysis/</span></code> အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">all_conditions_simple.tif</span></code> ဖိုင်အနေဖြင့် သိမ်းဆည်းပါ။</p></li>
+</ol>
+<p>Output သည် အောက်ပါပုံအတိုင်းဖြစ်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/raster_sieve_correct.png" src="../../../_images/raster_sieve_correct.png" />
+</figure>
+<p>ရလာဒ်သည် ရိုးရှင်းအောင်လုပ်ထားသော ဗားရှင်းတစ်ခုဖြစ်ပါသည်။ မှတ်သားထားရမည်မှာ Tool တစ်ခုကိုအသုံးပြုပြီး ရရှိလာသော ရလာဒ်များသည် မျှော်လင့်ထားသလိုဖြစ်မလာပါက metadata (ရရှိနိုင်ပါက vector attribute များ) ကိုကြည့်ပြီး ပြဿနာကို ဖြေရှင်းနိုင်ပါသည်။</p>
+</section>
+<section id="raster-follow-along-reclassifying-the-raster">
+<h2><span class="section-number">7.3.10. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster ကို အတန်းအစားပြန်ခွဲခြင်း (Follow Along: Reclassifying the Raster)<a class="headerlink" href="#raster-follow-along-reclassifying-the-raster" title="Link to this heading"></a></h2>
+<p>Raster layer များတွင် တွက်ချက်မှုများပြုလုပ်ရန် <em>Raster calculator</em> ကိုအသုံးပြုခဲ့ပြီးဖြစ်ပါသည်။ ရှိနေပြီးသား layer များမှ အချက်အလက်များကို ထုတ်ယူရာတွင် အသုံးပြုနိုင်သော အခြား စွမ်းဆောင်ရည်မြင့်မားသည့် tool လည်းရှိပါသည်။</p>
+<p><code class="docutils literal notranslate"><span class="pre">aspect</span></code> layer တွင် 0 မှ 360 အထိ အပိုင်းအခြားအတွင်း ဂဏန်းတန်ဖိုးများပါရှိသည်ကို သိရှိပြီးဖြစ်ပါသည်။ လုပ်ဆောင်လိုသည်မှာ အဆိုပါ layer ကို aspect ပေါ်မူတည်ပြီး အခြား discrete (ပြတ်ကိန်း) တန်ဖိုးများ (1 မှ 4 သို့) အဖြစ်သို့ <em>reclassify</em> ပြုလုပ်လိုခြင်းဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>1 = North (0 မှ 45 နှင့် 315 မှ 360)</p></li>
+<li><p>2 = East (45 မှ 135)</p></li>
+<li><p>3 = South (135 မှ 225)</p></li>
+<li><p>4 = West (225 မှ 315)</p></li>
+</ul>
+<p>ဤလုပ်ဆောင်မှုကို raster calculator အသုံးပြုပြီး ဆောင်ရွက်နိုင်ပါသည်၊ သို့သော် formula သည် အလွန်ရှည်လျားပါလိမ့်မည်။</p>
+<p>အခြားအသုံးပြုနိုင်သော tool မှာ <span class="guilabel">Processing Toolbox</span> ထဲရှိ <span class="menuselection">Raster analysis</span> တွင်ရှိသော <span class="guilabel">Reclassify by table</span> tool ဖြစ်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Tool ကိုဖွင့်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">raster</span> <span class="pre">layer</span></code> အဖြစ် <span class="guilabel">aspect</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Reclassification table</span> ၏ <span class="guilabel">…</span>  ကိုနှိပ်ပါ။ ဇယားပုံစံ dialog ပေါ်လာမည်ဖြစ်ပြီး class တစ်ခုချင်းစီအတွက် အနည်းဆုံး၊ အများဆုံး နှင့်  တန်ဖိုးအသစ်များကို ရွေးချယ်ပေးနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Add row</span> ခလုတ်ကိုနှိပ်ပြီး row ၅ ခု ထည့်သွင်းပါ။ Row တစ်ခုချင်းစီတွင် အောက်ပါပုံအတိုင်း ဖြည့်သွင်းပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/reclassify_table.png" src="../../../_images/reclassify_table.png" />
+</figure>
+<p>Class တစ်ခုချင်းစီ၏ threshold တန်ဖိုးများကို ပြုမူသည့် algorithm မှအသုံးပြုသောနည်းလမ်းသည် <span class="guilabel">Range boundaries</span> (အပိုင်းအခြားနယ်နိမိတ်) ဖြင့်သတ်မှတ်ခြင်းဖြစ်ပါသည်။</p>
+</li>
+<li><p>Layer ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/raster_analysis/</span></code> folder ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">reclassified.tif</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/reclassify_setup.png" src="../../../_images/reclassify_setup.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>မူလ <span class="guilabel">aspect</span> layer နှင့် <span class="guilabel">reclassified</span> ပြုလုပ်ထားသော layer ကို နှိုင်းယှဉ်ကြည့်ပါက ကြီးကြီးမားမား ကွာခြားမှုမရှိပါ။ သို့သော် legend (ရည်ညွှန်းချက်) ကိုကြည့်ပါက တန်ဖိုးများသည် <code class="docutils literal notranslate"><span class="pre">1</span></code> မှ <code class="docutils literal notranslate"><span class="pre">4</span></code> အထိဖြစ်သွားသည် မြင်တွေ့နိုင်ပါသည်။</p>
+<p>အဆိုပါ layer ကို ပိုကောင်းသော style တစ်ခုပြင်ဆင်ကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layer Styling</span> panel ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Singleband gray</span> အစား <span class="guilabel">Paletted/Unique values</span> ကိုရွေးပါ</p></li>
+<li><p>တန်ဖိုးများကို အလိုအလျှောက် ခေါ်ဆောင်ပြီး ကျပန်းအရောင်များသတ်မှတ်ပေးရန် <span class="guilabel">Classify</span> ခလုတ်ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/unique_style.png" src="../../../_images/unique_style.png" />
+</figure>
+</li>
+</ol>
+<p>Output သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည် (အရောင်များသည် ကျပန်းထုတ်ယူပေးသောကြောင့် သင်ရရှိသော အရောင်နှင့် ကွဲပြားနိုင်ပါသည်)-</p>
+<figure class="align-center">
+<img alt="../../../_images/reclassify_result.png" src="../../../_images/reclassify_result.png" />
+</figure>
+<p>Layer တွင် အသုံးပြုခဲ့သော အဆိုပါ reclassification နည်းလမ်းနှင့် အရောင် style များကြောင့် aspect ဧရိယာများကို ချက်ချင်းခွဲခြားသိနိုင်ပါသည်။</p>
+</section>
+<section id="raster-follow-along-querying-the-raster">
+<h2><span class="section-number">7.3.11. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Raster တွင် အချက်အလက်များရှာခြင်း (Follow Along: Querying the raster)<a class="headerlink" href="#raster-follow-along-querying-the-raster" title="Link to this heading"></a></h2>
+<p>Vector layer များနှင့်မတူသည်မှာ raster layer များတွင် attribute ဇယားမပါရှိပါ။ Pixel တစ်ခုချင်းစီတွင် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော ဂဏန်းတန်ဖိုးများ (band တစ်ခုတည်းရှိသော သို့မဟုတ် band များစွာရှိသော raster များ) ပါဝင်ပါသည်။</p>
+<p>ဤလေ့ကျင့်ခန်းတွင် အသုံးပြုခဲ့သော raster layer များအားလုံးတွင် band တစ်ခုတည်းသာ ပါဝင်ကြပါသည်။ Layer ပေါ်မူတည်ပြီး pixel တန်ဖိုးများသည် elevation (မြေမျက်နှာပြင် အနိမ့်အမြင့်) ၊ aspect (မျက်နှာမူရာအရပ်) သို့မဟုတ် slope (လျှောစောက်) တန်ဖိုးများကို ကိုယ်စားပြုနိုင်ပါသည်။</p>
+<p>Pixel တစ်ခု၏တန်ဖိုးကိုရရှိရန် raster layer ကို query ပြုလုပ်လိုလျှင် <a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> ခလုတ်ကို အသုံးပြုနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Attributes toolbar မှ tool ကို ရွေးပါ</p></li>
+<li><p><span class="guilabel">srtm_41_19</span> layer ၏ ကျပန်းနေရာတစ်ခုပေါ်တွင် click နှိပ်ပါ။ <span class="guilabel">Identify Results</span> တွင် click နှိပ်ထားသော တည်နေရာရှိ band တန်ဖိုးကို ပြသပေးမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/identify_raster.png" src="../../../_images/identify_raster.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Identify Results</span> panel ၏ output ကို <code class="docutils literal notranslate"><span class="pre">tree</span></code> mode မှ <code class="docutils literal notranslate"><span class="pre">table</span></code> mode သို့ပြောင်းလဲနိုင်ပါသည်၊ ထိုသို့ပြုလုပ်ရန် panel ၏အောက်ခြေရှိ <span class="guilabel">View</span> menu ထဲရှိ <span class="guilabel">Table</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/identify_raster_table.png" src="../../../_images/identify_raster_table.png" />
+</figure>
+</li>
+</ol>
+<p>Raster ၏တန်ဖိုးများကို ရယူရန် pixel တစ်ခုချင်းစီအား click နှိပ်နေခြင်းသည် ကြာလာလျှင် ငြီးငွေ့စရာဖြစ်ပါလိမ့်မည်။ ထိုအတွက် <em>Value Tool</em> plugin ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Plugins ► Manage/Install Plugins…</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">All</span> tab ထဲရှိ search box တွင် <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">t</span></code> ဟု ရိုက်ထည့်ပါ</p></li>
+<li><p><em>Value Tool</em> plugin ရွေးပြီး <span class="guilabel">Install Plugin</span> ကိုနှိပ်ပါ၊ ထို့နောက် dialog ကိုပိတ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/value_tool.png" src="../../../_images/value_tool.png" />
+</figure>
+<p><span class="guilabel">Value Tool</span> panel အသစ် ပေါ်လာပါလိမ့်မည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Panel ကိုပိတ်လိုက်ပြီးပါက <span class="menuselection">View ► Panels ► Value Tool</span> မှတဆင့် ၎င်းကို ပြန်ဖွင့်နိုင်ပါသည် သို့မဟုတ် toolbar ထဲရှိ tool icon ကိုနှိပ်ပြီး ပြန်ဖွင့်နိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p>Plugin ကိုအသုံးပြုရန် <span class="guilabel">Enable</span> checkbox ကိုအမှန်ခြစ်ခြစ်ပြီး <span class="guilabel">Layers</span> panel ထဲတွင်လည်း <code class="docutils literal notranslate"><span class="pre">srtm_41_19</span></code> layer ကို အမှန်ခြစ်ခြစ်ထားရန် လိုအပ်ပါသည်။</p></li>
+<li><p>မြေပုံပေါ်တွင် mouse cursor ကိုရွှေ့ပြီး pixel များ၏ တန်ဖိုးများကို ကြည့်ရှုပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/value_tool_query.png" src="../../../_images/value_tool_query.png" />
+</figure>
+</li>
+<li><p>နောက်ထပ်လုပ်ဆောင်နိုင်သည်များ ရှိပါသေးသည်။ Value Tool plugin သည် <span class="guilabel">Layers</span> panel ထဲတွင် ဖွင့်ထားသော raster layer <strong>အားလုံး</strong> ကို query လုပ်ပေးနိုင်ပါသည်။ <span class="guilabel">aspect</span> နှင့် <span class="guilabel">slope</span> layer များကို ဖွင့်ထားပြီး မြေပုံပေါ်တွင် mouse cursor ကိုတင်ကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/value_tool_query_multi.png" src="../../../_images/value_tool_query_multi.png" />
+</figure>
+</li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">7.3.12. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>DEM တစ်ခုမှ analysis ရလာဒ်များကိုအားလုံးကို မည်သို့ထုတ်ယူရမည်ကို မြင်တွေ့ခဲ့ပြီးဖြစ်ပါသည်။ ၎င်းတို့တွင် hillshade ၊ slope နှင့် aspect တွက်ချက်မှုများပါဝင်ပါသည်။ နောက်ထပ်ဆန်းစစ်လေ့လာမှုများထပ်မံလုပ်ဆောင်ပြီး အဆိုပါ ရလာဒ်များကို ပေါင်းစပ်ရာတွင်လည်း raster calculator ကို မည်သို့အသုံးပြုရမည်ကို မြင်တွေ့ခဲ့ပြီးဖြစ်သည်။ နောက်ဆုံးအနေဖြင့် layer တစ်ခုကို မည်သို့ reclassify လုပ်ဆောင်ပြီး ရလာဒ်များကို မည်သို့ query လုပ်ဆောင်ရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">7.3.13. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ?  (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် analysis နှစ်ခုလုပ်ဆောင်ပြီးဖြစ်ပါသည်- အလားအလာရှိသော သင့်တော်သည့် မြေကွက်နေရာများကို ပြသပေးသော vector analysis နှင့် အလားအလာရှိသော သင့်တော်သည့် မြေမျက်နှာသွင်ပြင်ကို ပြသပေးသော raster analysis တို့ဖြစ်ကြပါသည်။ နောက်လာမည့် မော်ဂျူးထဲရှိ သင်ခန်းစာတွင် အဆိုပါ analysis နှစ်ခုကို ပေါင်းစပ်ပြီး နောက်ဆုံးရလာဒ်ကို မည်သို့ဖော်ထုတ်ရမည်ကို သင်ကြားပေးမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="changing_symbology.html" class="btn btn-neutral float-left" title="7.2. သင်ခန်းစာ - Raster သင်္ကေတ ပြောင်းလဲခြင်း (Lesson: Changing Raster Symbology)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../complete_analysis/index.html" class="btn btn-neutral float-right" title="8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/terrain_analysis.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/rasters/terrain_analysis.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/rasters/terrain_analysis.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/rasters/terrain_analysis.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/rasters/terrain_analysis.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/rasters/terrain_analysis.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/rasters/terrain_analysis.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/rasters/terrain_analysis.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/rasters/terrain_analysis.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/rasters/terrain_analysis.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/rasters/terrain_analysis.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/6ad7a4d1aacffa60a3cfa1c7b506233f" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

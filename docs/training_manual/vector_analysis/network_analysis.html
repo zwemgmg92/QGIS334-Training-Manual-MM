@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/network_analysis.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" href="spatial_statistics.html" />
+    <link rel="prev" title="6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)" href="basic_analysis.html" />
+  <meta name="description" content="QGIS testing documentation: 6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="reproject_transform.html">6.1. သင်ခန်းစာ- Data များအား ပုံရိပ်ချစနစ်ပြောင်းလဲခြင်းနှင့် အသွင်ပြောင်းလဲခြင်း (Lesson: Reprojecting and Transforming Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="basic_analysis.html">6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.3. သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tool-data-follow-along-the-tools-and-the-data">6.3.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Tool များနှင့် Data များ (Follow Along: The Tools and the Data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#point-point-calculate-the-shortest-path-point-to-point">6.3.2. <abbr title="Basic level">★☆☆</abbr> အတိုဆုံးလမ်းကြောင်းကို တွက်ချက်ပါ (point မှ point သို့) (Calculate the shortest path (point to point))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-fastest-path">6.3.3. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- အမြန်ဆုံးလမ်းကြောင်း (Try Yourself: Fastest path)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-advanced-options">6.3.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- အဆင့်မြင့်ရွေးချယ်စရာများ (Follow Along: Advanced options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortest-path-with-speed-limit">6.3.5. <abbr title="Advanced level">★★★</abbr> အမြန်နှုန်းကန့်သတ်ချက်ဖြင့် အတိုဆုံးလမ်းကြောင်း (Shortest path with speed limit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-area-layer-service-area-from-layer">6.3.6. <abbr title="Moderate level">★★☆</abbr> Service area (layer မှ) (Service area (from layer))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">6.3.7. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">6.3.8. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spatial_statistics.html">6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">6. </span>မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6.3. </span>သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/vector_analysis/network_analysis.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="basic_analysis.html" class="btn btn-neutral float-left" title="6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spatial_statistics.html" class="btn btn-neutral float-right" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-network-analysis">
+<h1><span class="section-number">6.3. </span>သင်ခန်းစာ- လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Lesson: Network Analysis)<a class="headerlink" href="#lesson-network-analysis" title="Link to this heading"></a></h1>
+<p>Point နှစ်ခုအကြား အတိုဆုံးအကွာအဝေးကို တွက်ချက်ခြင်းသည် အသုံးများသော GIS လုပ်ဆောင်မှုတစ်ခုဖြစ်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် tool များကို <span class="guilabel">Processing Toolbox</span> ထဲတွင် တွေ့နိုင်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> <span class="guilabel">Network analysis</span> algorithm များကို အသုံးပြုတတ်စေရန်</p>
+<section id="tool-data-follow-along-the-tools-and-the-data">
+<h2><span class="section-number">6.3.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Tool များနှင့် Data များ (Follow Along: The Tools and the Data)<a class="headerlink" href="#tool-data-follow-along-the-tools-and-the-data" title="Link to this heading"></a></h2>
+<p>Network analysis algorithm များအားလုံးကို <span class="menuselection">Processing ► Network Analysis</span> menu ထဲတွင် ရှာဖွေနိုင်ပါသည်။ Tool များစွာ ရှိသည်ကို မြင်တွေ့နိုင်ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/select_network_algorithms.png"><img alt="../../../_images/select_network_algorithms.png" src="../../../_images/select_network_algorithms.png" style="width: 50%;" /></a>
+</figure>
+<p><code class="file docutils literal notranslate"><span class="pre">exercise_data/network_analysis/network.qgz</span></code> project ကို ဖွင့်ပါ။ Layer နှစ်ခု ပါဝင်ပါသည်-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">network_points</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">network_lines</span></code></p></li>
+</ul>
+<p><span class="guilabel">network_lines</span> layer တွင် style တစ်ခုပါရှိပြီးသားဖြစ်ပြီး လမ်းကြောင်းကွန်ယက်ကို နားလည်နိုင်စေရန် ကူညီပေးပါသည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/network_map.png"><img alt="../../../_images/network_map.png" src="../../../_images/network_map.png" style="width: 100%;" /></a>
+</figure>
+<p>Shortest path tool များသည် အောက်ပါတို့ကို ပေးထားပါက ကွန်ယက်တစ်ခု၏ point နှစ်ခုအကြား အတိုဆုံး သို့မဟုတ် အမြန်ဆုံး လမ်းကြောင်းကို တွက်ချက်ပေးနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>မြေပုံပေါ်တွင် ရွေးချယ်ထားသော စမှတ် နှင့် ဆုံးမှတ် များ</p></li>
+<li><p>မြေပုံပေါ်တွင် ရွေးချယ်ထားသော  စမှတ် နှင့် point layer တစ်ခုမှယူထားသော ဆုံးမှတ် များ</p></li>
+<li><p>Point layer တစ်ခုမှယူထားသော စမှတ်များနှင့် မြေပုံပေါ်တွင် ရွေးချယ်ထားသော ဆုံးမှတ်</p></li>
+</ul>
+<p>စလုပ်ကြည့်ရအောင်။</p>
+</section>
+<section id="point-point-calculate-the-shortest-path-point-to-point">
+<h2><span class="section-number">6.3.2. </span><abbr title="Basic level">★☆☆</abbr> အတိုဆုံးလမ်းကြောင်းကို တွက်ချက်ပါ (point မှ point သို့) (Calculate the shortest path (point to point))<a class="headerlink" href="#point-point-calculate-the-shortest-path-point-to-point" title="Link to this heading"></a></h2>
+<p><span class="menuselection">Network analysis ► Shortest path (point to point)</span> သည် မြေပုံပေါ်တွင် ကိုယ်တိုင်ရွေးချယ်ထားသော point နှစ်ခုအကြား အတိုဆုံးအကွာအဝေးကို တွက်ချက်ပေးပါသည်။</p>
+<p>ဤဥပမာတွင် point နှစ်ခုအကြား <strong>အတိုဆုံး</strong> (အမြန်ဆုံး မဟုတ်) လမ်းကြောင်းကို တွက်ချက်ပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Shortest path (point to point)</span> algorithm ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Vector layer representing network</span> အတွက် <span class="guilabel">network_lines</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Path type to calculate</span> အတွက် <code class="docutils literal notranslate"><span class="pre">Shortest</span></code> ကိုသုံးပါ</p>
+<p>အောက်ပါ point နှစ်ခုကို analysis အတွက် စမှတ် နှင့် ဆုံးမှတ်များအဖြစ် အသုံးပြုပါ-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/start_end_point.png"><img alt="../../../_images/start_end_point.png" src="../../../_images/start_end_point.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p><span class="guilabel">Start point (x, y)</span> ဘေးရှိ <span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပြီး ပုံထဲရှိ <code class="docutils literal notranslate"><span class="pre">Starting</span> <span class="pre">Point</span></code> ဟုရေးထားသော တည်နေရာကို ရွေးပါ။ ရွေးချယ်မှုတိကျစေရန်အတွက် Snapping (တစ်ခုနှင့်တစ်ခုဆွဲကပ်ခြင်း) option များကို ဖွင့်ထားပါ။ Click နှိပ်လိုက်သော point ၏ ကိုဩဒိနိတ်များကို ထည့်သွင်းသွားမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">End point (x, y)</span> အတွက် <code class="docutils literal notranslate"><span class="pre">Ending</span> <span class="pre">point</span></code> ဟုရေးထားသော တည်နေရာကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Run</span> ခလုတ်ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/shortest_point.png"><img alt="../../../_images/shortest_point.png" src="../../../_images/shortest_point.png" style="width: 80%;" /></a>
+</figure>
+</li>
+<li><p>ရွေးချယ်ထားသော point များအကြား အတိုဆုံးလမ်းကြောင်းကိုပြသသော line layer အသစ်တစ်ခုကို ဖန်တီးပေးမည်ဖြစ်သည်။ ရလာဒ်ကို ပိုမိုမြင်နိုင်စေရန် <code class="docutils literal notranslate"><span class="pre">network_lines</span></code> layer ကို အမှန်ခြစ်ဖျောက်ထားပါ-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/shortest_point_result.png"><img alt="../../../_images/shortest_point_result.png" src="../../../_images/shortest_point_result.png" style="width: 80%;" /></a>
+</figure>
+</li>
+<li><p>ရလာဒ် layer ၏ attribute ဇယားကို ဖွင့်ပါ။ စမှတ် ၏ကိုဩဒိနိတ်၊ ဆုံးမှတ်၏ ကိုဩဒိနိတ်နှင့် <strong>cost</strong> ဆိုသည့် field ၃ ခုပါဝင်ပါသည်။</p>
+<p><span class="guilabel">Path type to calculate</span> အဖြစ် <code class="docutils literal notranslate"><span class="pre">Shortest</span></code> ကိုရွေးချယ်ခဲ့သောကြောင့် <strong>cost</strong> ဆိုသည်မှာ တည်နေရာ နှစ်ခုအကြား <strong>အကွာအဝေး</strong> ကို layer ယူနစ်များဖြင့် ဖော်ပြခြင်းဖြစ်သည်။</p>
+<p>ယခုဥပမာတွင် ရွေးချယ်ထားသော point များအကြား <em>အတိုဆုံး</em> အကွာအဝေးသည် <code class="docutils literal notranslate"><span class="pre">1000</span></code> မီတာ ဝန်းကျင်ဖြစ်ပါသည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/shortest_point_attributes.png"><img alt="../../../_images/shortest_point_attributes.png" src="../../../_images/shortest_point_attributes.png" style="width: 80%;" /></a>
+</figure>
+</li>
+</ol>
+<p>ယခုဆိုလျှင် tool ကို မည်သို့အသုံးပြုရမည်ကို သိရှိပြီးဖြစ်ပါသည်၊ အခြား တည်နေရာများတွင် စမ်းသပ်ကြည့်ပါ။</p>
+</section>
+<section id="try-yourself-fastest-path">
+<span id="network-fastest-path"></span><h2><span class="section-number">6.3.3. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- အမြန်ဆုံးလမ်းကြောင်း (Try Yourself: Fastest path)<a class="headerlink" href="#try-yourself-fastest-path" title="Link to this heading"></a></h2>
+<p>ယခင်လေ့ကျင့်ခန်းမှ data များကိုသုံး၍ point နှစ်ခုအကြား အမြန်ဆုံးလမ်းကြောင်း ကို တွက်ချက်ရန် ကြိုးစားကြည့်ပါ။</p>
+<p>စမှတ် မှ ဆုံးမှတ် သို့သွားရန် အချိန်ဘယ်လောက်လိုအပ်ပါသလဲ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Network Analysis ► Shortest Path (Point to Point)</span> ကိုဖွင့်ပြီး dialog တွင် အောက်ပါအတိုင်းဖြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/fastest_path_result.png" src="../../../_images/fastest_path_result.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Path type to calculate</span> တွင် <code class="docutils literal notranslate"><span class="pre">Fastest</span></code> ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပြီး dialog ကိုပိတ်ပါ။</p></li>
+<li><p>ရလာဒ် layer ၏ attribute ဇယားကိုဖွင့်ပါ။ <span class="guilabel">cost</span> field တွင် point များအကြား သွားလာရန် ကြာမြင့်ချိန် (နာရီ၏ အပိုင်းဂဏန်းအနေဖြင့်) ပါဝင်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/fastest_path_attribute.png" src="../../../_images/fastest_path_attribute.png" />
+</figure>
+</li>
+</ol>
+</div>
+</section>
+<section id="follow-along-advanced-options">
+<h2><span class="section-number">6.3.4. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- အဆင့်မြင့်ရွေးချယ်စရာများ (Follow Along: Advanced options)<a class="headerlink" href="#follow-along-advanced-options" title="Link to this heading"></a></h2>
+<p>Network Analysis tool များအတွက် နောက်ထပ်ရွေးချယ်စရာများကို လုပ်ဆောင်ကြည့်ပါမည်။ <a class="reference internal" href="#network-fastest-path"><span class="std std-ref">ပြီးခဲ့သည့်လေ့ကျင့်ခန်း</span></a> တွင် point နှစ်ခုအကြား <strong>အမြန်ဆုံး</strong> လမ်းကြောင်းကို တွက်ချက်ခဲ့ပါသည်။ သွားလာရန် ကြာမြင့်ချိန်သည် သွားလာသည့် <strong>အမြန်နှုန်း</strong> ပေါ်တွင် မူတည်ပါသည်။</p>
+<p>ပြီးခဲ့သည့်လေ့ကျင့်ခန်းတွင် အသုံးပြုခဲ့သော layer များနှင့် စမှတ် ဆုံးမှတ် point များကို ပြန်လည်အသုံးပြုပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Shortest path (point to point)</span> algorithm ကိုဖွင့်ပါ</p></li>
+<li><p>ယခင်ကလုပ်ဆောင်ခဲ့သည့်အတိုင်း <span class="guilabel">Input layer</span> ၊ <span class="guilabel">Start point (x, y)</span> နှင့် <span class="guilabel">End point (x, y)</span> တို့ကို ဖြည့်ပါ</p></li>
+<li><p><span class="guilabel">Path type to calculate</span> တွင် <code class="docutils literal notranslate"><span class="pre">Fastest</span></code> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Advanced parameter</span> menu ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Default speed (km/h)</span> တွင် default တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">50</span></code> မှ <code class="docutils literal notranslate"><span class="pre">4</span></code> သို့ပြောင်းပါ</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/shortest_path_advanced.png"><img alt="../../../_images/shortest_path_advanced.png" src="../../../_images/shortest_path_advanced.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Algorithm ကိုလုပ်ဆောင်ပြီးနှင့်တပြိုင်နက် dialog ကိုပိတ်ပြီး ရလာဒ် layer ၏ attribute ဇယားကို ဖွင့်ပါ။</p>
+<p>သင်ရွေးချယ်ခဲ့သော မြန်နှုန်း parameter အတိုင်း <em>cost</em> field  တွင် တန်ဖိုးများပါဝင်မည်ဖြစ်သည်။ <em>cost</em> field တွင် နာရီအပိုင်းကိန်းများကို ဖတ်ရှုရလွယ်ကူသော <em>မိနစ်</em> တန်ဖိုးများသို့ ပြောင်းလဲပေးနိုင်ပါသည်။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="calculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> icon ကိုနှိပ်ပြီး field calculator ကိုဖွင့်ပါ</p></li>
+<li><p>Path cost ကို <span class="guilabel">minutes</span> အနေဖြင့် သိမ်းဆည်းရန် field အသစ်တစ်ခု ထည့်သွင်းပါ။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/shortest_path_conversion.png"><img alt="../../../_images/shortest_path_conversion.png" src="../../../_images/shortest_path_conversion.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+<p>ယခုဆိုလျှင် point တစ်ခုမှ တစ်ခုသို့ <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">km/h</span></code> အမြန်နှုန်းဖြင့်သွားလျှင် အချိန် မိနစ်မည်မျှ ကြာမြင့်မည်ကို သိရှိနိုင်ပြီဖြစ်သည်။</p>
+</section>
+<section id="shortest-path-with-speed-limit">
+<h2><span class="section-number">6.3.5. </span><abbr title="Advanced level">★★★</abbr> အမြန်နှုန်းကန့်သတ်ချက်ဖြင့် အတိုဆုံးလမ်းကြောင်း (Shortest path with speed limit)<a class="headerlink" href="#shortest-path-with-speed-limit" title="Link to this heading"></a></h2>
+<p>Network analysis toolbox တွင် အခြား စိတ်ဝင်စားစရာရွေးချယ်စရာများရှိပါသည်။ အောက်ဖော်ပြပါမြေပုံကို ကြည့်ပါ-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/speed_limit.png"><img alt="../../../_images/speed_limit.png" src="../../../_images/speed_limit.png" style="width: 100%;" /></a>
+</figure>
+<p>လမ်းတစ်ခုချင်းစီအတွက် <strong>အမြန်နှုန်းကန့်သတ်ချက်</strong> ပေါ်မူတည်ပြီး <strong>အမြန်ဆုံး</strong> လမ်းကြောင်းကို သိလိုပါသည် (ဖော်ပြထားသော label များသည် km/h ဖြင့်အမြန်နှုန်းကန့်သတ်ချက်များဖြစ်သည်)။ အမြန်နှုန်းကန့်သတ်ချက်ကို ထည့်မတွက်ထားသော အတိုဆုံးလမ်းကြောင်းသည် ခရမ်းရောင် လမ်းကြောင်းဖြစ်ပါသည်။ သို့သော် ထိုလမ်းတွင် အမြန်နှုန်းကန့်သတ်ချက်သည် 20 km/h ဖြစ်ပြီး အစိမ်းရောင်လမ်းတွင် 100 km/h နှုန်းဖြင့် သွားနိုင်ပါသည်။</p>
+<p>ပထမဆုံးလေ့ကျင့်ခန်းတွင် လုပ်ဆောင်ခဲ့သည့်အတိုင်း <span class="menuselection">Network analysis ► Shortest path (point to point)</span> ကိုအသုံးပြုမည်ဖြစ်ပြီး စမှတ်နှင့်ဆုံးမှတ် point များကို ကိုယ်တိုင် ရွေးချယ်မည်ဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Network analysis ► Shortest path (point to point)</span> algorithm ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Vector layer representing network</span> parameter အတွက် <span class="guilabel">network_lines</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Path type to calculate</span> တွင် <code class="docutils literal notranslate"><span class="pre">Fastest</span></code> ကိုရွေးချယ်ပါ</p></li>
+<li><p>ယခင်ကလုပ်ဆောင်ခဲ့သည့်အတိုင်း <span class="guilabel">Start point (x, y)</span> နှင့် <span class="guilabel">End point (x, y)</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Advanced parameters</span> menu ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Speed Field</span> parameter တွင် <em>speed</em> field ကိုရွေးချယ်ပါ။ ထိုသို့ရွေးချယ်ခြင်းဖြင့် algorithm သည် လမ်းတစ်ခုချင်းစီအတွက် အမြန်နှုန်းကန့်သတ်ချက်ကို ထည့်သွင်းစဉ်းစားမည်ဖြစ်သည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/speed_limit_parameters.png"><img alt="../../../_images/speed_limit_parameters.png" src="../../../_images/speed_limit_parameters.png" style="width: 100%;" /></a>
+</figure>
+</li>
+<li><p><span class="guilabel">Run</span> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>ရလာဒ်ကို ပိုမိုကောင်းမွန်စွာမြင်ရနိုင်ရန် <code class="docutils literal notranslate"><span class="pre">network_lines</span></code> layer ကိုပိတ်ထားပါ</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/speed_limit_result.png"><img alt="../../../_images/speed_limit_result.png" src="../../../_images/speed_limit_result.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+<p>မြင်တွေ့ရသည့်အတိုင်း အမြန်ဆုံးလမ်းကြောင်းသည် အတိုဆုံးလမ်းကြောင်းနှင့်သက်ဆိုင်မှုမရှိပါ။</p>
+</section>
+<section id="service-area-layer-service-area-from-layer">
+<h2><span class="section-number">6.3.6. </span><abbr title="Moderate level">★★☆</abbr> Service area (layer မှ) (Service area (from layer))<a class="headerlink" href="#service-area-layer-service-area-from-layer" title="Link to this heading"></a></h2>
+<p><span class="menuselection">Network Analysis ► Service area (from layer)</span> algorithm သည် point layer တစ်ခုမှ သတ်မှတ်အကွာအဝေး သို့မဟုတ် သတ်မှတ်အချိန်တစ်ခုအတွင်း ရောက်ရှိနိုင်သော ဧရိယာများကိုရှာပါ ဆိုသည့်မေးခွန်းကို ဖြေရှင်းပေးနိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="menuselection">Network Analysis ► Service area (from point)</span> နှင့် algorithm အတူတူဖြစ်ပါသည်၊ သို့သော် ၎င်းသည် မြေပုံပေါ်တွင် point ကို ကိုယ်တိုင်ရွေးချယ်နိုင်စေပါသည်။</p>
+</div>
+<p><span class="guilabel">network_points</span> layer ၏ point တစ်ခုချင်းစီမှ ဘယ်လောက်ဝေးဝေးသွားနိုင်သည်ဆိုသည့် အကွာအဝေးကို <code class="docutils literal notranslate"><span class="pre">250</span></code> မီတာ ပေးထားပါ။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">network_points</span></code> layer မှလွဲ၍ ကျန် layer များအားလုံးကို အမှန်ခြစ်ဖြုတ်ထားပါ</p></li>
+<li><p><span class="menuselection">Network Analysis ► Service area (from layer)</span> algorithm ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Vector layer representing network</span> အတွက် <code class="docutils literal notranslate"><span class="pre">network_lines</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Vector layer with start points</span> အတွက် <code class="docutils literal notranslate"><span class="pre">network_points</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Path type to calculate</span> ထဲတွင် <code class="docutils literal notranslate"><span class="pre">Shortest</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Travel cost</span> parameter အတွက် <code class="docutils literal notranslate"><span class="pre">250</span></code> ထည့်ပါ။</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပြီး dialog ကိုပိတ်ပါ</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/service_area.png"><img alt="../../../_images/service_area.png" src="../../../_images/service_area.png" style="width: 100%;" /></a>
+</figure>
+<p>ရလာဒ် layer သည် point feature များမှ 250 မီတာအထိ ရောက်ရှိနိုင်သော အများဆုံးလမ်းကြောင်းကို ပြသပေးမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/service_area_result.png"><img alt="../../../_images/service_area_result.png" src="../../../_images/service_area_result.png" style="width: 100%;" /></a>
+</figure>
+</li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">6.3.7. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် အတိုဆုံး နှင့် အမြန်ဆုံး လမ်းကြောင်း ပြဿနာများကို ဖြေရှင်းရန် <span class="guilabel">Network analysis</span> algorithm ကိုမည်သို့အသုံးပြုရမည်ကို သိရှိပြီးဖြစ်ပါသည်။</p>
+<p>Vector layer data များတွင် spatial statistic (တည်နေရာဆိုင်ရာ စာရင်းအင်းအချက်အလက်) အချို့ကို လုပ်ဆောင်နိုင်ပြီဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">6.3.8. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Vector dataset များတွင် spatial statistics algorithm များ မည်သို့လုပ်ဆောင်ရမည်ကို နောက်လာမည့် သင်ခန်းစာတွင် မြင်တွေ့ရမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basic_analysis.html" class="btn btn-neutral float-left" title="6.2. သင်ခန်းစာ - Vector ဆန်းစစ်လေ့လာခြင်း (Lesson: Vector Analysis)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spatial_statistics.html" class="btn btn-neutral float-right" title="6.4. သင်ခန်းစာ - တည်နေရာဆိုင်ရာစာရင်းအင်းအချက်အလက် (Lesson: Spatial Statistics)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/network_analysis.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/vector_analysis/network_analysis.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/vector_analysis/network_analysis.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/vector_analysis/network_analysis.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/vector_analysis/network_analysis.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/vector_analysis/network_analysis.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_analysis/network_analysis.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/vector_analysis/network_analysis.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_analysis/network_analysis.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/vector_analysis/network_analysis.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/vector_analysis/network_analysis.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/1c17847739933d3403889dbf45d772fb" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

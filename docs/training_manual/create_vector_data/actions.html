@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/actions.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)" href="../vector_analysis/index.html" />
+    <link rel="prev" title="5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)" href="forms.html" />
+  <meta name="description" content="QGIS testing documentation: 5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="create_new_vector.html">5.1. သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topo_editing.html">5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#field-follow-along-add-a-field-for-images">5.4.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ဓာတ်ပုံများအတွက် Field တစ်ခုထည့်သွင်းခြင်း (Follow Along: Add a Field for Images)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-follow-along-creating-an-action">5.4.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Action တစ်ခုဖန်တီးခြင်း (Follow Along: Creating an Action)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-searching-the-internet">5.4.3. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- အင်တာနက်တွင် ရှာဖွေခြင်း (Follow Along: Searching the Internet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qgis-web-follow-along-open-a-webpage-directly-in-qgis">5.4.4. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- QGIS တွင် Web စာမျက်နှာတစ်ခုကို တိုက်ရိုက်ဖွင့်ခြင်း (Follow Along: Open a Webpage Directly in QGIS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">5.4.5. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">5.4.6. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">5. </span>မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.4. </span>သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/create_vector_data/actions.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="forms.html" class="btn btn-neutral float-left" title="5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vector_analysis/index.html" class="btn btn-neutral float-right" title="6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-actions">
+<h1><span class="section-number">5.4. </span>သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)<a class="headerlink" href="#lesson-actions" title="Link to this heading"></a></h1>
+<p>ယခင်ပြီးခဲ့သောသင်ခန်းစာတွင် default action (လုပ်ဆောင်ချက်) တစ်ခုအကြောင်း မြင်တွေ့ခဲ့ပြီးဖြစ်ပါသည်။ ယခုအခါ ကိုယ်ပိုင် action များကို သတ်မှတ်ဖန်တီးမည်ဖြစ်ပါသည်။</p>
+<p>Action တစ်ခုဆိုသည်မှာ feature တစ်ခုပေါ်တွင် click နှိပ်လိုက်သောအခါ ဖြစ်ပေါ်လာသည့် တစ်စုံတစ်ရာဖြစ်သည်။ မြေပုံတွင် အပိုလုပ်ဆောင်ချက် အများအပြားကို ထည့်သွင်းနိုင်ပါသည်၊ ဥပမာအားဖြင့် object တစ်ခုအကြောင်း ထပ်ဆောင်းအချက်အလက်များကို ထုတ်ယူပေးနိုင်ပါသည်။ Action များသတ်မှတ်ပေးခြင်းသည် မြေပုံတွင် မြင်ကွင်းအသွင် အသစ်တစ်ခုလုံးကို ထည့်သွင်းပေးနိုင်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> စိတ်ကြိုက်ပြင်ဆင်ထားသော action များထည့်သွင်းနည်းကို လေ့လာရန်</p>
+<p>ဤသင်ခန်းစာတွင် ယခင်က ဖန်တီးခဲ့သော <span class="guilabel">school_property</span> layer ကို အသုံးပြုမည်ဖြစ်သည်။ နမူနာ data တွင် digitize ပြုလုပ်ခဲ့သော property ၃ ခုစီ၏ ဓာတ်ပုံများပါဝင်ပါသည်။ လုပ်ဆောင်ပေးရမည်မှာ property တစ်ခုချင်းစီကို ၎င်း၏ဓာတ်ပုံ နှင့်ဆက်စပ်ပေးရန်ဖြစ်သည်။ ထို့နောက် property ပေါ်တွင် click နှိပ်သောအခါ ထို property အတွက် ဓာတ်ပုံ ပွင့်လာစေရန် action တစ်ခုကိုဖန်တီးမည်ဖြစ်သည်။</p>
+<section id="field-follow-along-add-a-field-for-images">
+<h2><span class="section-number">5.4.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- ဓာတ်ပုံများအတွက် Field တစ်ခုထည့်သွင်းခြင်း (Follow Along: Add a Field for Images)<a class="headerlink" href="#field-follow-along-add-a-field-for-images" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer တွင် ဓာတ်ပုံနှင့် ဆက်စပ်မည့် property မရှိသေးပါ။ ပထမဦးစွာ ထိုအတွက် field တစ်ခုကို ဖန်တီးမည်ဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Fields</span> tab ပေါ်တွင် click နှိပ်ပါ။</p></li>
+<li><p>Edit mode ကို ဖွင့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/toggle_editing_mode.png" src="../../../_images/toggle_editing_mode.png" />
+</figure>
+</li>
+<li><p>Column အသစ်တစ်ခု ထည့်သွင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/add_new_column.png" src="../../../_images/add_new_column.png" />
+</figure>
+</li>
+<li><p>အောက်ပါတန်ဖိုးများကို ရိုက်ထည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/column_settings.png" src="../../../_images/column_settings.png" />
+</figure>
+</li>
+<li><p>Field ကိုဖန်တီးပြီးသွားသောအခါ <span class="guilabel">Attributes Form</span> tab သို့သွားပြီး <code class="docutils literal notranslate"><span class="pre">image</span></code> field ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Widget Type</span> ကို <span class="guilabel">Attachment</span> ဟုသတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_file_name.png" src="../../../_images/select_file_name.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ထဲတွင် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">school_property</span> layer ထဲရှိ feature ၃ ခုထဲမှ တစ်ခုပေါ်တွင် click နှိပ်ရန် <span class="guilabel">Identify</span> tool ကိုအသုံးပြုပါ။</p>
+<p>Edit mode တွင်ရှိနေသေးသောကြောင့် dialog သည် ပွင့်နေပြီး အောက်ပါပုံစံအတိုင်း ပေါ်နေသင့်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/school_property_no_image.png" src="../../../_images/school_property_no_image.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">image</span> field ဘေးရှိ <span class="guilabel">…</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ဓာတ်ပုံအတွက် ဖိုင်လမ်းကြောင်းကို ရွေးချယ်ပါ။ ဓာတ်ပုံများသည် <code class="file docutils literal notranslate"><span class="pre">exercise_data/school_property_photos/</span></code> ထဲတွင်ရှိနေပြီး ၎င်းတို့နှင့် ဆက်စပ်မည့် feature များနှင့် အမည်အတူတူဖြစ်နေပါမည်။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ဤနည်းလမ်းကို အသုံးပြု၍ ဓာတ်ပုံများအားလုံးကို သက်ဆိုင်ရာမှန်ကန်သော feature များနှင့် ဆက်စပ်ပေးပါ။</p></li>
+<li><p>Edit လုပ်ထားသည်များကို သိမ်းဆည်းပြီး edit mode မှထွက်ပါ။</p></li>
+</ol>
+</section>
+<section id="action-follow-along-creating-an-action">
+<h2><span class="section-number">5.4.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Action တစ်ခုဖန်တီးခြင်း (Follow Along: Creating an Action)<a class="headerlink" href="#action-follow-along-creating-an-action" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="guilabel">school_property</span> layer အတွက် <span class="guilabel">Actions</span> tab ကိုဖွင့်ပြီး <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add a new action</sup> ခလုတ်ကိုနှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/layer_actions.png" src="../../../_images/layer_actions.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Add New Action</span> dialog ထဲတွင် <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Image</span></code> ဟူသည့် စာသားအား <span class="guilabel">Description</span> field ထဲသို့ ရိုက်ထည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/show_image_action.png" src="../../../_images/show_image_action.png" />
+</figure>
+<p>နောက်ထပ်ဆက်လုပ်ရမည့်အရာများသည် သင့်ကွန်ပျူတာ၏ OS ပေါ်မူတည်ပြီး ကွဲပြားပါသည်၊ ထို့ကြောင့် သင့်တော်သည်အတိုင်း ရွေးချယ်ပါ-</p>
+<ul>
+<li><p>Windows</p>
+<p><span class="guilabel">Type</span> dropdown ကိုနှိပ်ပြီး <span class="guilabel">Open</span> ကိုရွေးချယ်ပါ။</p>
+</li>
+<li><p>Ubuntu Linux</p>
+<p><span class="guilabel">Action</span> အောက်တွင် <em>Gnome Image Viewer</em> အတွက် <code class="docutils literal notranslate"><span class="pre">eog</span></code> ကိုရေးပါ၊ သို့မဟုတ် <em>ImageMagick</em> ကိုအသုံးပြုရန် <code class="docutils literal notranslate"><span class="pre">display</span></code> ကိုရေးပါ။ ရေးထားသော command ၏နောက်တွင် space တစ်ခုထည့်ရန် မမေ့ပါနှင့်။</p>
+</li>
+<li><p>macOS</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Type</span> dropdown ကိုနှိပ်ပြီး <span class="guilabel">Mac</span> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Action</span> အောက်တွင် <code class="docutils literal notranslate"><span class="pre">open</span></code> ကိုရေးပါ။ ရေးထားသော command ၏နောက်တွင် space တစ်ခုထည့်ရန် မမေ့ပါနှင့်။</p></li>
+</ol>
+</li>
+</ul>
+<p>Command များကို ဆက်လက်ရေးနိုင်ပြီဖြစ်ပါသည်။</p>
+<p>သင့်အနေဖြင့် ဓာတ်ပုံကိုဖွင့်ချင်ပြီး QGIS သည် ဓာတ်ပုံထားရှိရာနေရာကို သိရှိပါသည်။ လုပ်ဆောင်ရမည်မှာ ဓာတ်ပုံရှိသည့်နေရာကို <span class="guilabel">Action</span> ကိုပြောပြပေးရန်ဖြစ်သည်။</p>
+</li>
+<li><p>စာရင်းထဲမှ <span class="guilabel">image</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_image.png" src="../../../_images/select_image.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Insert field</span> ခလုတ်ကိုနှိပ်ပါ။ QGIS သည် <span class="guilabel">Action Text</span> field ထဲတွင် <code class="docutils literal notranslate"><span class="pre">[%</span> <span class="pre">&quot;image&quot;</span> <span class="pre">%]</span></code> ကိုထည့်သွင်းပေးမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Add New Action</span> dialog ကိုပိတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ကိုပိတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>Action အသစ်ကို စမ်းသပ်ကြည့်ပါမည်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <span class="guilabel">school_property</span> layer ကိုနှိပ်ပါ၊ ၎င်းကို highlight ပြသမည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mAction.png"><img alt="actionRun" src="../../../_images/mAction.png" style="width: 1.5em;" /></a> <sup>Run feature action</sup> ခလုတ်ကိုရှာပါ (<span class="guilabel">Attributes Toolbar</span> ထဲတွင်)</p></li>
+<li><p>ထိုခလုတ်၏ ညာဘက်ရှိ အောက်ဘက်ပြမြား (down arrow) ကိုနှိပ်ပါ။ ယခုလက်ရှိအထိ အဆိုပါ layer အတွက် သင်ဖန်တီးခဲ့သည့် action တစ်ခုသာရှိနေပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/run_feature_action_select.png" src="../../../_images/run_feature_action_select.png" />
+</figure>
+</li>
+<li><p>Tool ကို activate လုပ်ရန် ထိုခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>အဆိုပါ tool ကိုအသုံးပြုပြီး school property ၃ ခုထဲမှ တစ်ခုခုပေါ်တွင် click နှိပ်ပါ။</p>
+<p>ထို click နှိပ်လိုက်သော property အတွက် ဓာတ်ပုံပွင့်လာသင့်ပါသည်။</p>
+</li>
+</ol>
+</section>
+<section id="follow-along-searching-the-internet">
+<h2><span class="section-number">5.4.3. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- အင်တာနက်တွင် ရှာဖွေခြင်း (Follow Along: Searching the Internet)<a class="headerlink" href="#follow-along-searching-the-internet" title="Link to this heading"></a></h2>
+<p>မြေပုံကိုကြည့်နေပြီး မြေပုံထဲရှိ စိုက်ပျိုးမြေတစ်ခု၏ဧရိယာကို သိချင်သည် ဆိုကြပါစို့။ ထို ဧရိယာအကြောင်း မည်သည့်အရာမျှ မသိရှိသေးပဲ ထိုအတွက် ယေဘုယျအချက်အလက်များကို ရှာဖွေလိုသည်ဟု ယူဆကြည့်ပါ။ သင့်အနေဖြင့် ထိုဧရိယာ၏အမည်ကို Google တွင် ရှာဖွေကောင်းရှာဖွေပါလိမ့်မည်။ ထို့ကြောင့် QGIS ကို ထိုကိစ္စအတွက် အလိုအလျှောက်လုပ်ဆောင်ပေးရန် စေခိုင်းကြည့်ပါမည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">landuse</span> layer အတွက် attribute ဇယားကို ဖွင့်ပါ။</p>
+<p>Landuse ဧရိယာတစ်ခုချင်းစီအတွက် <code class="docutils literal notranslate"><span class="pre">name</span></code> field ကိုအသုံးပြုပြီး Google တွင် ရှာဖွေပါမည်။</p>
+</li>
+<li><p>Attribute ဇယားကို ပိတ်ပါ။</p></li>
+<li><p><span class="guilabel">Layer Properties</span> ထဲရှိ <span class="guilabel">Actions</span> သို့ပြန်သွားပါ။</p></li>
+<li><p>ကြိုတင်သတ်မှတ်ထားသော action များကို ထည့်သွင်းရန် <span class="guilabel">Create Default Actions</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Search Web</span> ဟူသောအမည်တိုဖြင့် <span class="guilabel">Open URL</span> action မှလွဲ၍ ကျန်သော action များအားလုံးကို <a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a>
+<sup>Remove the selected action</sup> ခလုတ်ဖြင့် ဖယ်ရှားပါ။</p></li>
+<li><p>ကျန်နေသော action ကို edit လုပ်ရန် ၎င်းကို click နှစ်ချက်နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Description</span> တွင် <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Search</span></code> ဟုပြောင်းပြီး <span class="guilabel">Short Name</span> field မှာ အကြောင်းအရာကို ဖယ်ရှားပါ။</p></li>
+<li><p><span class="guilabel">Canvas</span> သည် အမှန်ခြစ်ထားသော <span class="guilabel">Action scopes</span> များကြားတွင် ရှိနေအောင်ထားပါ။</p>
+<p>နောက်ထပ်ဆက်လုပ်ရမည့်အရာများသည် သင့်ကွန်ပျူတာ၏ OS ပေါ်မူတည်ပြီး ကွဲပြားပါသည်၊ ထို့ကြောင့် သင့်တော်သည်အတိုင်း ရွေးချယ်ပါ-</p>
+<ul>
+<li><p>Windows</p>
+<p><span class="guilabel">Type</span> အောက်တွင် <span class="guilabel">Open</span> ကိုရွေးချယ်ပါ။ Internet Explorer ကဲ့သို့သော browser တွင် Internet address တစ်ခုကိုပွင့်စေပါသည်။</p>
+</li>
+<li><p>Ubuntu Linux</p>
+<p><span class="guilabel">Action</span> အောက်တွင် <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code> ကိုရေးပါ။ Chrome သို့မဟုတ် Firefox ကဲ့သို့သော browser တွင် Internet address တစ်ခုကိုပွင့်စေပါသည်။</p>
+</li>
+<li><p>macOS</p>
+<p><span class="guilabel">Action</span> အောက်တွင် <code class="docutils literal notranslate"><span class="pre">open</span></code> ကိုရေးပါ။ Safari ကဲ့သို့သော browser တွင် Internet address တစ်ခုကိုပွင့်စေပါသည်။</p>
+</li>
+</ul>
+<p>Command များကို ဆက်လက်ရေးနိုင်ပြီဖြစ်ပါသည်။</p>
+<p>အထက်ပါ မည်သည့် command ကိုအသုံးပြုသည်ဖြစ်စေ ဖွင့်ရမည့် Internet address ကိုပြောပြပေးရန်လိုအပ်ပါသည်။ ၎င်းကို Google တွင် အလိုအလျှောက်ရှာဖွေလိုခြင်းဖြစ်သည်။</p>
+<p>Google ကိုအသုံးပြုသောအခါ Google Search bar ထဲတွင် ရှာဖွေလိုသော စာသားကို ရိုက်ထည့်လေ့ရှိပါသည်။ သို့သော် သင့်ကွန်ပျူတာကို သင့်ကိုယ်စား လုပ်စေလိုခြင်းဖြစ်သည်။ Google တွင် တစ်စုံတစ်ခုကို ရှာဖွေသည့်နည်းလမ်းသည် Internet browser တွင် <code class="docutils literal notranslate"><span class="pre">https://www.google.com/search?q=SEARCH_PHRASE</span></code> address ကိုထည့်ပေးခြင်းဖြစ်ပြီး <code class="docutils literal notranslate"><span class="pre">SEARCH_PHRASE`</span></code> သည် ရှာဖွေလိုသော စာသားဖြစ်သည်။ ယခုအချိန်ထိ ရှာဖွေလိုသော စာသားကို မသိသေးသောကြောင့် ပထမအပိုင်းကိုသာ ထည့်ပေးပါမည် (search phrase မပါပဲ)။</p>
+</li>
+<li><p><span class="guilabel">Action</span> field ထဲတွင် <code class="docutils literal notranslate"><span class="pre">https://www.google.com/search?q=</span></code> ကိုရေးပါ။ ၎င်းကို မရေးခင် ကနဦး command နောက်တွင် space တစ်ခုထည့်ရန် မမေ့ပါနှင့်။</p>
+<p>သင် click လုပ်လိုက်သော feature တစ်ခုခု၏ <code class="docutils literal notranslate"><span class="pre">name</span></code> တန်ဖိုးအတွက် Google တွင် ရှာဖွေရန် QGIS မှတဆင့်လုပ်ဆောင်စေလိုခြင်းဖြစ်သည်။</p>
+</li>
+<li><p><span class="guilabel">name</span> field ကို ရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Insert</span> ခလုတ်ကို နှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/google_search_action.png" src="../../../_images/google_search_action.png" />
+</figure>
+<p>ဆိုလိုသည်မှာ QGIS သည် <code class="docutils literal notranslate"><span class="pre">https://www.google.com/search?q=[%</span> <span class="pre">&quot;name&quot;</span> <span class="pre">%]</span></code> လိပ်စာကိုဖွင့်ပေးမည်ဖြစ်သည်။ <code class="docutils literal notranslate"><span class="pre">[%</span> <span class="pre">&quot;name&quot;</span> <span class="pre">%]</span></code> သည် ရှာဖွေမည့် စာသားအနေဖြင့် <code class="docutils literal notranslate"><span class="pre">name</span></code> field ၏အကြောင်းအရာကို  QGIS အားအသုံးပြုစေပါသည်။</p>
+<p>ဥပမာ- <code class="docutils literal notranslate"><span class="pre">Marloth</span> <span class="pre">Nature</span> <span class="pre">Reserve</span></code> အမည်ရှိသော landuse ဧရိယာပေါ်တွင် click နှိပ်သောအခါ QGIS သည် browser ကို <code class="docutils literal notranslate"><span class="pre">https://www.google.com/search?q=Marloth%20Nature%20Reserve</span></code> သို့ပို့ပေးမည်ဖြစ်ပြီး၊ ထို့နောက် Google တွင်ရှာဖွေ၍ “Marloth Nature Reserve” နှင့်ပတ်သက်သောအကြောင်းအရာများကို ပြန်ထုတ်ပေးပါလိမ့်မည်။</p>
+</li>
+<li><p>၎င်းကိုမသတ်မှတ်ရသေးလျှင် အထက်တွင်ရှင်းပြထားသည့်အတိုင်း ပြင်ဆင်သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Add New Action</span> dialog ကိုပိတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Layer Properties</span> dialog ကိုပိတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>အသစ်ထည့်ထားသော action ကိုစမ်းသပ်ကြည့်ပါမည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <span class="guilabel">landuse</span> layer ကိုဖွင့်ထားပြီး <a class="reference internal" href="../../../_images/mAction.png"><img alt="actionRun" src="../../../_images/mAction.png" style="width: 1.5em;" /></a> <sup>Run feature action</sup> ခလုတ်၏ညာဘက်ရှိ အောက်ဘက်မြားကိုနှိပ်ပြီး အဆိုပါ layer အတွက် သတ်မှတ်ထားသော action (<code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Search</span></code>) ကိုသာ ရွေးချယ်ပါ။</p></li>
+<li><p>မြေပုံပေါ်တွင် မြင်တွေ့ရသော landuse ဧရိယာတစ်ခုခုပေါ်တွင် click နှိပ်ပါ။ Browser ပွင့်လာမည်ဖြစ်ပြီး အဆိုပါဧရိယာ၏ <code class="docutils literal notranslate"><span class="pre">name</span></code> တန်ဖိုးတွင် ထည့်ထားသော နေရာကို Google တွင်ရှာဖွေပေးပါလိမ့်မည်။</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Action သည် အလုပ်မလုပ်လျှင် ထည့်သွင်းထားသည်များအားလုံး မှန်ကန်မှု ရှိ/မရှိ စစ်ဆေးပါ၊ စာလုံးပေါင်းအမှားအယွင်းများ အဖြစ်များပါသည်။</p>
+</div>
+</section>
+<section id="qgis-web-follow-along-open-a-webpage-directly-in-qgis">
+<h2><span class="section-number">5.4.4. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- QGIS တွင် Web စာမျက်နှာတစ်ခုကို တိုက်ရိုက်ဖွင့်ခြင်း (Follow Along: Open a Webpage Directly in QGIS)<a class="headerlink" href="#qgis-web-follow-along-open-a-webpage-directly-in-qgis" title="Link to this heading"></a></h2>
+<p>Web စာမျက်နှာတစ်ခုအား ပြင်ပ browser တစ်ခုထဲတွင် မည်သို့ဖွင့်ရမည်ကို အထက်ပါကဏ္ဍတွင် မြင်တွေ့ရပြီးဖြစ်ပါသည်။ သို့ရာတွင် အသုံးပြုသူများသည် OS အမျိုးမျိုးအသုံးပြုနိုင်သည့်အတွက် action တစ်ခုတည်းအတွက်ကို တူညီသောအခြေခံ command မျိုးမရှိပါ။ အချို့ OS ဗားရှင်းများတွင် browser ဖွင့်ပေးမည့် အထက်ဖော်ပြပါ command များသည် အလုပ်မလုပ်သည်များရှိနိုင်ပါသည်။ ထိုအရာသည် မကျော်လွှားနိုင်သော ပြဿနာတစ်ခုဖြစ်နိုင်ပါသည်။</p>
+<p>သို့သော် QGIS တွင် အံ့ဩစရာကောင်းလောက်အောင် အသုံးဝင်ပြီး ဘက်စုံအသုံးပြုနိုင်သော Qt library ရှိပါသည်။ QGIS action များသည် စိတ်ကြိုက်ဆုံးဖြတ်နိုင်သော (field attribute တစ်ခု၏အကြောင်းအရာပေါ်တွင် အခြေခံသော variable အချက်အလက်များကိုအသုံးပြုခြင်းကို ဆိုလိုပါသည်) Python command များလည်း ဖြစ်နိုင်ပါသည်။</p>
+<p>Web စာမျက်နှာတစ်ခုကို ပြသရန် python action တစ်ခုကို မည်သို့အသုံးပြုရမည်ကို တွေ့မြင်ရမည်ဖြစ်ပါသည်။ ပြင်ပ browser တစ်ခုထဲတွင် web စာမျက်နှာတစ်ခုကို ဖွင့်ခြင်းနှင့် ယေဘုယျအားဖြင့် တူညီပါသည်၊ သို့သော် အသုံးပြုသူ၏စနစ်ထဲတွင် browser ရှိနေရန် မလိုအပ်ပါ။ အဘယ်ကြောင့်ဆိုသော် ၎င်းသည် pop-up window တစ်ခုထဲတွင် အကြောင်းအရာများကိုပြသရန်  Qt QWebView class (webkit ကိုအခြေခံထားသော html widget တစ်ခု) ကိုအသုံးပြုထားသောကြောင့်ဖြစ်သည်။</p>
+<p>ယခုအကြိမ်တွင် Wikipedia ကိုအသုံးပြုကြည့်ပါမည်။ ထို့ကြောင့် URL သည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://wikipedia.org/wiki/SEARCH_PHRASE</span></code></p>
+<p>Layer action ကိုဖန်တီးရန်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပြီး  <span class="guilabel">Actions</span> tab သို့သွားပါ။</p></li>
+<li><p>အောက်ပါ property များကိုအသုံးပြုပြီး action အသစ်တစ်ခုကို သတ်မှတ်ပါ-</p>
+<ul>
+<li><p><span class="guilabel">Type</span>: <code class="docutils literal notranslate"><span class="pre">Python</span></code></p></li>
+<li><p><span class="guilabel">Description</span>: <code class="docutils literal notranslate"><span class="pre">Wikipedia</span></code></p></li>
+<li><p><span class="guilabel">Scope</span>: <code class="docutils literal notranslate"><span class="pre">Feature</span></code>, <code class="docutils literal notranslate"><span class="pre">Canvas</span></code></p></li>
+<li><p><span class="guilabel">Action Text</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qgis.PyQt.QtCore</span> <span class="kn">import</span> <span class="n">QUrl</span>
+<span class="kn">from</span> <span class="nn">qgis.PyQt.QtWebKitWidgets</span> <span class="kn">import</span> <span class="n">QWebView</span>
+
+<span class="n">myWV</span> <span class="o">=</span> <span class="n">QWebView</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">myWV</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="s1">&#39;https://wikipedia.org/wiki/[%name%]&#39;</span><span class="p">))</span>
+<span class="n">myWV</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/python_action_example.png" src="../../../_images/python_action_example.png" />
+</figure>
+<p>ဤတွင် လုပ်ဆောင်သွားသည်များမှာ-</p>
+<ul class="simple">
+<li><p>Action ကို စတင်သောအခါ <code class="docutils literal notranslate"><span class="pre">[%name%]</span></code> သည် အမှန်တကယ်ရှိသော attribute တန်ဖိုးဖြင့် အစားထိုးသွားမည်ဖြစ်သည်။</p></li>
+<li><p>Code သည် ရိုးရှင်းစွာပင် <code class="docutils literal notranslate"><span class="pre">QWebView</span></code> အသစ်တစ်ခုဖန်တီးပြီး ၎င်း၏ URL ကိုသတ်မှတ်ကာ desktop ပေါ်တွင် window တစ်ခုအဖြစ်မြင်နိုင်စေရန် <code class="docutils literal notranslate"><span class="pre">show()</span></code> ကိုခေါ်ယူပေးပါသည်။</p></li>
+</ul>
+<p>စနစ်ထဲတွင် သီးခြား ဓာတ်ပုံကြည့်ရှုနိုင်သည့် software တစ်ခုခုမလိုအပ်ပဲ ဓာတ်ပုံကို ယခုနည်းလမ်းဖြင့်လည်း ကြည့်ရှုနိုင်ပါသည်။</p>
+</li>
+<li><p>သင်ဖန်တီးခဲ့သော Wikipedia action ကိုအသုံးပြုပြီး Wikipedia စာမျက်နှာကို ဖွင့်ရန် အထက်ဖော်ပြပါနည်းလမ်းများကို အသုံးပြုကြည့်ပါ။</p></li>
+</ol>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">5.4.5. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Action များသည် QGIS ထဲတွင် မြေပုံကြည့်ရှုသူများအတွက် အသုံးဝင်သော မြေပုံဆိုင်ရာထပ်ဆောင်းလုပ်ဆောင်ချက်များကို လုပ်ဆောင်နိုင်စေပါသည်။ မည်သည့် OS အတွက်မဆို လုပ်ဆောင်နိုင်သော shell command များ နှင့် Python ကြောင့် များစွာလုပ်ဆောင်နိုင်မည်ဖြစ်သည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">5.4.6. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် vector data ဖန်တီးခြင်းအမျိုးမျိုးကို သိရှိပြီးဖြစ်ပါသည်၊ နောက်လာမည့်မော်ဂျူးတွင် သင့်အနေဖြင့် ပြဿနာများကို ဖြေရှင်းရန် data ကို မည်သို့ဆန်းစစ်လေ့လာရမည်ကို လေ့လာရပါလိမ့်မည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="forms.html" class="btn btn-neutral float-left" title="5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vector_analysis/index.html" class="btn btn-neutral float-right" title="6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/actions.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/actions.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/actions.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/create_vector_data/actions.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/create_vector_data/actions.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/create_vector_data/actions.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/create_vector_data/actions.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/create_vector_data/actions.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/create_vector_data/actions.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/create_vector_data/actions.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/create_vector_data/actions.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/22f70f5197e777863b8af5fd76c8b23b" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

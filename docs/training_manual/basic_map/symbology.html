@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/basic_map/symbology.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)" href="../vector_classification/index.html" />
+    <link rel="prev" title="2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)" href="mapviewnavigation.html" />
+  <meta name="description" content="QGIS testing documentation: 2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">2.1. သင်ခန်းစာ- Interface ကို ခြုံငုံကြည့်ရှုခြင်း (Lesson: An Overview of the Interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preparation.html">2.2. သင်ခန်းစာ- ပထမဆုံး layer များအား ထည့်သွင်းခြင်း (Lesson: Adding your first layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mapviewnavigation.html">2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.4. သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-changing-colors">2.4.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အရောင်များပြောင်းလဲခြင်း (Follow Along: Changing Colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">2.4.2. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-changing-symbol-structure">2.4.3. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတဖွဲ့စည်းပုံကိုပြောင်းလဲခြင်း (Follow Along: Changing Symbol Structure)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">2.4.4. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-scale-based-visibility">2.4.5. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- စကေးပေါ်မူတည်ပြီး မြင်ရနိုင်မှု (Follow Along: Scale-Based Visibility)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-follow-along-adding-symbol-layers">2.4.6. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတ layer များ ထည့်သွင်းခြင်း (Follow Along: Adding Symbol Layers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.4.7. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-ordering-symbol-levels">2.4.8. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတအဆင့်များ စီခြင်း (Follow Along: Ordering Symbol Levels)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.4.9. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.4.10. <abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-follow-along-symbol-layer-types">2.4.11. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတ layer အမျိုးအစားများ (Follow Along: Symbol layer types)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backlink-symbology-marker-line">2.4.12. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geometry-generator-follow-along-geometry-generator-symbology">2.4.13. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Geometry generator သင်္ကေတ (Follow Along: Geometry generator symbology)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#svg-fill-follow-along-creating-a-custom-svg-fill">2.4.14. <abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- စိတ်ကြိုက် SVG Fill တစ်ခုဖန်တီးခြင်း (Follow Along: Creating a Custom SVG Fill)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">2.4.15. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-reading">2.4.16. ထပ်မံဖတ်ရှုရန် (Further Reading)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">2.4.17. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">2. </span>မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.4. </span>သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/basic_map/symbology.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="mapviewnavigation.html" class="btn btn-neutral float-left" title="2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vector_classification/index.html" class="btn btn-neutral float-right" title="3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-symbology">
+<h1><span class="section-number">2.4. </span>သင်ခန်းစာ- သင်္ကေတဆိုင်ရာ (Lesson: Symbology)<a class="headerlink" href="#lesson-symbology" title="Link to this heading"></a></h1>
+<p>Layer တစ်ခု၏ သင်္ကေတဆိုင်ရာသည် ၎င်းကို မြေပုံပေါ်တွင်မြင်ရသော အသွင်အပြင်ဖြစ်ပါသည်။ တည်နေရာဆိုင်ရာရှုထောင့်အရ data များကို ကိုယ်စားပြုဖော်ပြရာတွင် အခြားနည်းလမ်းများထက် GIS ၏အခြေခံအားသာချက်မှာ data များကို ပုံသေမဟုတ်ပဲ ပြောင်းလဲမှုရှိစွာ ကိုယ်စားပြုဖော်ပြနိုင်ခြင်းဖြစ်သည်။</p>
+<p>ထို့ကြောင့် မြေပုံ၏အမြင်ပိုင်းဆိုင်ရာအသွင်အပြင် (layer တစ်ခုချင်းစီ၏ သင်္ကေတဆိုင်ရာပေါ်တွင် မူတည်သော) သည် အလွန်အရေးကြီးပါသည်။ သင်ရေးဆွဲလိုက်သော မြေပုံကိုသုံးစွဲသူသည် မြေပုံပေါ်ရှိကိုယ်စားပြုအရာများကို လွယ်ကူစွာမြင်နိုင်စေရန် လိုအပ်ပါသည်။ သင့်အနေဖြင့် အလုပ်လုပ်နေသော data များကို ဖော်ထုတ်ကြည့်ရှုရာတွင် သင်္ကေတဆိုင်ရာကို ကောင်းကောင်းမွန်မွန်ပြုလုပ်ထားခြင်းသည် များစွာ အထောက်အကူဖြစ်စေပါသည်။</p>
+<p>တနည်းအားဖြင့် သင့်တော်ကောင်းမွန်သော သင်္ကေတဆိုင်ရာ ရှိခြင်းသည် မလိုအပ်တာများလုပ်ဆောင်ခြင်းမဟုတ်သလို ရှိရန် ကောင်းရုံသာ မဟုတ်ပါ။ အမှန်အားဖြင့် GIS ကို ကောင်းမွန်စွာအသုံးပြုပြီး လူအများအသုံးပြုနိုင်စေရန် မြေပုံနှင့်အချက်အလက်များကို ထုတ်လုပ်ပေးရာတွင် ၎င်းသည် သင့်အတွက် မရှိမဖြစ်လိုအပ်သောအရဖြစ်ပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> မည်သည့် vector layer အတွက်မဆို သင်လိုချင်သော သင်္ကေတများဖန်တီးနိုင်စေရန်။</p>
+<section id="follow-along-changing-colors">
+<h2><span class="section-number">2.4.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- အရောင်များပြောင်းလဲခြင်း (Follow Along: Changing Colors)<a class="headerlink" href="#follow-along-changing-colors" title="Link to this heading"></a></h2>
+<p>Layer တစ်ခု၏ သင်္ကေတကို ပြောင်းလဲရန် ၎င်း layer ၏ <span class="guilabel">Layer Properties</span> ကိုဖွင့်ပါ။ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ၏အရောင်ကို ဦးစွာပြောင်းလဲကြည့်ရအောင်။</p>
+<ol class="arabic">
+<li><p>Layer များစာရင်းထဲရှိ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ပေါ်တွင် right-click နှိပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော menu ထဲမှ <span class="guilabel">Properties…</span> ကိုရွေးချယ်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Default အားဖြင့် Layer များစာရင်းထဲရှိ layer ပေါ်တွင် click ၂ ချက်နှိပ်ခြင်းအားဖြင့် layer ၏ property များကို ဖွင့်နိုင်ပါသည်။</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><span class="guilabel">Layers</span> panel ထိပ်ရှိ <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> ခလုတ်သည် <span class="guilabel">Layer Styling</span> panel ကိုပွင့်စေပါသည်။ ထို panel ကိုသုံး၍ layer ၏ property များအချို့ကို ပြောင်းလဲပေးနိုင်ပါသည်- default အားဖြင့် ပြောင်းလဲမှုများကို ချက်ချင်းအသုံးပြုပေးမည်ဖြစ်သည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Layer Properties</span> window ထဲတွင် <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <span class="guilabel">Symbology</span> tab ကို ရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/layer_properties_style.png" src="../../../_images/layer_properties_style.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Color</span> အညွှန်းဘေးရှိ အရောင်ရွေးချယ်သည့်ခလုတ်ကို နှိပ်ပါ။ စံအရောင်များပါဝင်သော dialog ပွင့်လာပါမည်။</p></li>
+<li><p>မီးခိုးရောင် (Gray) ကိုရွေးချယ်ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Layer Properties</span> window ထဲတွင် <span class="guilabel">OK</span> ကို ထပ်နှိပ်ပါ၊ ထို့နောက် layer တွင် အရောင်ပြောင်းလဲသွားသည်ကို မြင်တွေ့ရမည်ဖြစ်သည်။</p></li>
+</ol>
+</section>
+<section id="try-yourself">
+<h2><span class="section-number">2.4.2. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">water</span></code> layer ၏အရောင်ကို အပြာနုရောင် (light blue) သို့ပြောင်းလဲပါ။ <span class="guilabel">Layer Properties</span> menu အစား <span class="guilabel">Layer Styling</span> panel ကိုအသုံးပြုကြည့်ပါ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ul class="simple">
+<li><p>ပြောင်းလဲလိုသည့်အတိုင်း အရောင်များ ပြောင်းလဲခြင်းရှိမရှိကို အတည်ပြုပါ။</p></li>
+<li><p>ရည်ညွှန်းချက်ထဲရှိ <code class="docutils literal notranslate"><span class="pre">water</span></code> layer ကိုရွေးပြီး <a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <sup>Open the Layer Styling panel</sup> ခလုတ်ပေါ်တွင် click နှိပ်ပါ။ ရေ layer နှင့်ကိုက်ညီမည့် အရောင်တစ်ခုသို့ ပြောင်းလဲပါ။</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/answer_water_blue.png" src="../../../_images/answer_water_blue.png" />
+</figure>
+<p>တစ်ကြိမ်တွင် layer တစ်ခုတွင်သာ လုပ်ဆောင်လိုပြီး အခြား layer များမပါစေလိုသောအခါ layer စာရင်းထဲရှိ layer အမည်၏ဘေးရှိ အမှန်ခြစ် box ကိုနှိပ်ခြင်းဖြင့် layer တစ်ခုကို ဖျောက်ထားနိုင်ပါသည်။ Box သည် အမှန်ခြစ်မဟုတ်ပဲ ဗလာဖြစ်နေလျှင် layer သည် ပျောက်နေမည်ဖြစ်သည်။</p>
+</div>
+</section>
+<section id="follow-along-changing-symbol-structure">
+<h2><span class="section-number">2.4.3. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတဖွဲ့စည်းပုံကိုပြောင်းလဲခြင်း (Follow Along: Changing Symbol Structure)<a class="headerlink" href="#follow-along-changing-symbol-structure" title="Link to this heading"></a></h2>
+<p>Layer ၏အရောင်တင်မကပဲ ပိုများသော သင်္ကေတဆိုင်ရာများ ရှိပါသည်။ နောက်ထပ်အနေဖြင့် မြေပုံကို အမြင်ပိုင်းအရ ရှုပ်ပွမှုနည်းစေရန် မတူညီသော မြေအသုံးချမှုဧရိယာ (land use areas) များအကြားရှိ မျဉ်းများကို ဖယ်ရှားချင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> window ကိုဖွင့်ပါ။</p>
+<p><a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <span class="guilabel">Symbology</span> tab အောက်တွင် ယခင်ကအတိုင်း dialog ကိုတွေ့ရပါမည်။ သို့သော် ဒီတစ်ကြိမ်မှာတော့ အရောင်ကို ခပ်မြန်မြန်ပြောင်းလဲခြင်းထက် ပိုသောအရာများကိုလုပ်ဆောင်နေခြင်း ဖြစ်ပါသည်။</p>
+</li>
+<li><p>သင်္ကေတ layer ဖွဲ့စည်းပုံထဲတွင် <span class="guilabel">Fill</span> dropdown ကို ဖြန့်ကြည့်လိုက်ပြီး <span class="guilabel">Simple fill</span> ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Stroke style</span> dropdown ပေါ်တွင် click နှိပ်ပါ။ ထိုအချိန်တွင် မျဉ်းတိုတစ်ကြောင်းနှင့် <span class="guilabel">Solid Line</span> စာလုံးကို ပြသေနေပါလိမ့်မည်။</p></li>
+<li><p>၎င်းကို <span class="guilabel">No Line</span> သို့ပြောင်းလဲပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/simple_fill_selected.png" src="../../../_images/simple_fill_selected.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>ယခုအခါ <code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer တွင် ဧရိယာများအကြား မည်သည့်မျဉ်းမှ ရှိတော့မည်မဟုတ်ပါ။</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">2.4.4. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">water</span></code> layer ၏သင်္ကေတကို အပြာရင့်ရောင် ဘောင်မျဉ်း (outline) ရအောင် ထပ်မံပြောင်းလဲကြည့်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rivers</span></code> layer ၏ သင်္ကေတကို သင့်တင့်သော ရေလမ်းကြောင်းပုံစံတစ်ခု ပြောင်းလဲကြည့်ပါ။</p></li>
+</ul>
+<p><a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <sup>Open the Layer Styling panel</sup> ခလုတ်ကိုအသုံးပြုပြီး ပြောင်းလဲမှုများကို ချက်ချင်းမြင်တွေ့နိုင်သည်ကို မမေ့ပါနှင့်။ ထို panel တွင် layer တစ်ခုကို သင်္ကေတဆိုင်ရာပြောင်းလဲစဉ်တွင် ပြောင်းလဲမှုတစ်ခုချင်းစီကို undo ပြုလုပ်နိုင်ပါသည်။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>သင့်မြေပုံသည် ဤပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_symbology1.png" src="../../../_images/answer_symbology1.png" />
+</figure>
+<p>သင့်အနေဖြင့် ယခုမှစတင်အသုံးပြုသူတစ်ယောက်ဖြစ်လျှင် ဤနေရာတွင် ရပ်ထားနိုင်ပါသည်။</p>
+<ul class="simple">
+<li><p>ကျန်ရှိနေသော layer များအားလုံးအတွက် အထက်တွင်ဖော်ပြခဲ့သောနည်းလမ်းကို အသုံးပြုပြီး အရောင်နှင့် style များကို ပြောင်းလဲပါ။</p></li>
+<li><p>အရာဝတ္ထုများအတွက် သဘာဝအရောင်များကို စမ်းသုံးကြည့်ပါ။ ဥပမာ- လမ်းတစ်ခုဆိုလျှင် အနီရောင် သို့မဟုတ် အပြာရောင် မဖြစ်သင့်ပဲ မီးခိုးရောင် သို့မဟုတ် အနက်ရောင် ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>အမျိုးမျိုးသော <span class="guilabel">Fill style</span> များဖြင့် စမ်းသပ်ကြည့်ပြီး polygon များအတွက် <span class="guilabel">Stroke style</span> setting များကိုစမ်းသပ်ကြည့်ပါ။</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../../_images/answer_symbology2.png" src="../../../_images/answer_symbology2.png" />
+</figure>
+</div>
+</section>
+<section id="follow-along-scale-based-visibility">
+<h2><span class="section-number">2.4.5. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- စကေးပေါ်မူတည်ပြီး မြင်ရနိုင်မှု (Follow Along: Scale-Based Visibility)<a class="headerlink" href="#follow-along-scale-based-visibility" title="Link to this heading"></a></h2>
+<p>တစ်ခါတရံ layer တစ်ခုသည် ပေးထားသောစကေးတစ်ခုအတွက် မကိုက်ညီသည်ကို တွေ့ရပါလိမ့်မည်။ ဥပမာ- ကမ္ဘာ့တိုက်ကြီးများအားလုံး၏ dataset သည် အသေးစိတ်မှုနည်းပါးပြီး လမ်းအဆင့် (street level) ၌ အလွန်တိကျမှုမရှိနိုင်ပါ။ ထိုသို့ဖြစ်သောအခါ သင့်အနေဖြင့် dataset ကို မသင့်လျော်သော စကေးများ၌ ဖျောက်ထားချင်လိမ့်မည်။</p>
+<p>ဤကိစ္စရပ်တွင် အဆောက်အဦများကို စကေးအသေးများ၌ မမြင်ရအောင် ဖျောက်ထားရန်ဆုံးဖြတ်နိုင်ပါသည်။ ဥပမာ- ဤမြေပုံသည် အလွန်အသုံးမဝင်ပါ။ အဆောက်အဦများကို ထိုစကေး၌ ခွဲခြားရန် ခက်ခဲပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/buildings_small_scale.png" src="../../../_images/buildings_small_scale.png" />
+</figure>
+<p>စကေးပေါ်မူတည်ပြီး ပုံဖော်ပြသခြင်းကို လုပ်ဆောင်ရန်-</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/rendering.png"><img alt="rendering" src="../../../_images/rendering.png" style="width: 1.5em;" /></a> <span class="guilabel">Rendering</span> tab ကို activate လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Scale dependent visibility</span> ဆိုသော checkbox တွင် click နှိပ်ပြီး စကေးပေါ်မူတည်ပြီး ပုံဖော်ပြသခြင်းကို အသုံးပြုနိုင်အောင်ဖွင့်ပေးပါ-</p></li>
+<li><p><span class="guilabel">Minimum</span> တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">1:10000</span></code> သို့ပြောင်းလဲပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/scale_dependent_visibility.png" src="../../../_images/scale_dependent_visibility.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>မြေပုံတွင် zoom အချုံ့/အချဲ့ပြုလုပ်ကြည့်ပြီး စမ်းသပ်ကြည့်ပါ။ <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer သည် မည်သည့်အချိန်တွင် ပျောက်သွားပြီး မည်သည့်အချိန်တွင် ပြန်ပေါ်လာသည်ကို သတိထားကြည့်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mouse ဘီးလုံးကို အသုံးပြုပြီး အဆင့်အလိုက် zoom ချဲ့ကြည့်နိုင်ပါသည်။ နောက်တစ်နည်းအားဖြင့် zoom tool များကို အသုံးပြုနိုင်ပါသည်။</p>
+<p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a></p>
+</div>
+</section>
+<section id="layer-follow-along-adding-symbol-layers">
+<h2><span class="section-number">2.4.6. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတ layer များ ထည့်သွင်းခြင်း (Follow Along: Adding Symbol Layers)<a class="headerlink" href="#layer-follow-along-adding-symbol-layers" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် layer များအတွက် ရိုးရိုးရှင်းရှင်း သင်္ကေတပြောင်းလဲနည်းကို သိရှိပြီးဖြစ်ပါသည်။ နောက်တစ်ဆင့်အနေဖြင့် ပိုမိုရှုပ်ထွေးသော သင်္ကေတဆိုင်ရာများ ဖန်တီးသွားမည်ဖြစ်ပါသည်။ QGIS တွင် သင်္ကေတ layer များအသုံးပြု၍ ၎င်းတို့ကို ဖန်တီးနိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ၏ သင်္ကေတ property panel ကိုပြန်သွားပါ (သင်္ကေတ layer များဖွဲ့စည်းပုံထဲရှိ <span class="guilabel">Simple fill</span> ကို click နှိပ်ခြင်းဖြင့်)။</p>
+<p>ဤဥပမာတွင် လက်ရှိ သင်္ကေတ၌ ဘောင်မျဉ်း (outline) မပါရှိ (ဆိုလိုသည်မှာ- <span class="guilabel">No Line</span> border style ကိုအသုံးပြုထားခြင်းဖြစ်သည်)။</p>
+<figure class="align-center">
+<img alt="../../../_images/simple_fill_selected.png" src="../../../_images/simple_fill_selected.png" />
+</figure>
+</li>
+<li><p>ဖွဲ့စည်းပုံထဲတွင် <span class="guilabel">Fill</span> အဆင့်ကို ရွေးချယ်ပြီး <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add symbol layer</sup> ခလုတ်ကိုနှိပ်ပါ။ သင်္ကေတ layer အသစ်တစ်ခုထည့်သွင်းထားပြီးသော dialog ပုံစံကို အောက်ပါအတိုင်းမြင်တွေ့ရမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_symbol_layer.png" src="../../../_images/new_symbol_layer.png" />
+</figure>
+<p>တစ်ကြိမ်နှင့်တစ်ကြိမ် ပေါ်လာမည့် အရောင်သည် မတူညီနိုင်ပါ၊ သို့သော် အရောင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</li>
+</ol>
+<p>ယခုဆိုလျှင် ဒုတိယ သင်္ကေတ layer တစ်ခုရှိနေပြီဖြစ်ပါသည်။ Solid (အပြည့်ဖြည့်ထားသော) အရောင် ဖြစ်နေသောကြောင့် ယခင်ထည့်သွင်းထားသော သင်္ကေတကို လုံးလုံးဖုံးအုပ်နေပါလိမ့်မည်။ ထို့အပြင် မလိုချင်သော <span class="guilabel">Solid Line</span> border style တစ်ခုရှိနေပါသည်။ ထို သင်္ကေတကို ပြောင်းလဲရတော့မည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>မြေပုံ layer တစ်ခုနှင့် သင်္ကေတ layer တစ်ခုအကြားကွဲပြားမှုကို နားလည်ရန် အရေးကြီးပါသည်။ မြေပုံ layer တစ်ခုသည် မြေပုံထဲသို့ ထည့်သွင်းထားသော vector (သို့မဟုတ် raster) တစ်ခုဖြစ်ပါသည်။ သင်္ကေတ layer တစ်ခုဆိုသည်မှာ မြေပုံ layer တစ်ခုကို ကိုယ်စားပြုဖော်ပြရန် အသုံးပြုသည့် သင်္ကေတ၏အစိတ်အပိုင်းဖြစ်ပါသည်။ ဤသင်တန်းတွင် မြေပုံ layer တစ်ခုကို layer တစ်ခုဟုသာ အမြဲလိုလို ရည်ညွှန်းခေါ်ဆိုပါလိမ့်မည်။ သို့သော် မရှုပ်ထွေးစေရန် သင်္ကေတ layer တစ်ခုကို သင်္ကေတ layer တစ်ခုဟုသာ အမြဲတမ်း ခေါ်ဆိုသုံးစွဲပါလိမ့်မည်။</p>
+</div>
+<p>ရွေးချယ်ထားသော <span class="guilabel">Simple Fill</span> သင်္ကေတ layer အသစ်ဖြင့်-</p>
+<ol class="arabic">
+<li><p>ယခင်ကပြုလုပ်ခဲ့သည့်အတိုင်း border style ကို <span class="guilabel">No Pen</span> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p>Fill (အဖြည့်) style ကို <span class="guilabel">Solid</span> သို့မဟုတ် <span class="guilabel">No brush</span> မဟုတ်သော အခြားတစ်ခုခုသို့ ပြောင်းလဲပါ။ ဥပမာ-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_fill_settings.png" src="../../../_images/new_fill_settings.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p>ယခုဆိုလျှင် သင်ပြုလုပ်ထားသော ရလာဒ်ကို မြင်တွေ့နိုင်ပြီး လိုအပ်သလို ညှိနိုင်ပါသည်။ နောက်ထပ် သင်္ကေတ layer အများအပြားကို ထပ်မံထည့်သွင်းနိုင်ပြီး layer အတွက် အသွင်အပြင် (texture) တစ်ခုဖန်တီးပေးနိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/multiple_symbol_layers.png" src="../../../_images/multiple_symbol_layers.png" />
+</figure>
+<p>တကယ့်မြေပုံအစစ်တစ်ခုထဲတွင် အသုံးပြုရမည့် အရောင်အများအပြား ရှိကောင်းရှိနေနိုင်ပါသည်။</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.4.7. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>အထက်တွင်ဖော်ပြခဲ့သော နည်းလမ်းများကိုအသုံးပြု၍ <code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer အတွက် ရိုးရိုးသင်္ကေတတစ်ခု ဖန်တီးကြည့်ပါ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p><code class="docutils literal notranslate"><span class="pre">buildings</span></code> layer ကို သင့်စိတ်ကြိုက် ပြင်ဆင်သတ်မှတ်ပါ။ သို့သော် မြေပုံပေါ်တွင် အခြား layer များနှင့် မတူညီအောင် ပြောင်းလဲပါ။</p>
+<p>ဤဥပမာကိုကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_buildings_symbology.png" src="../../../_images/answer_buildings_symbology.png" />
+</figure>
+</div>
+</section>
+<section id="follow-along-ordering-symbol-levels">
+<h2><span class="section-number">2.4.8. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတအဆင့်များ စီခြင်း (Follow Along: Ordering Symbol Levels)<a class="headerlink" href="#follow-along-ordering-symbol-levels" title="Link to this heading"></a></h2>
+<p>သင်္ကေတ layer များကို ပုံဖော်ပြသရာတွင် မြေပုံ layer အမျိုးမျိုးကို ပုံဖော်ပြသသည့်အတိုင်း ၎င်းတို့ကို အစဉ်လိုက် ပုံဖော်ပြသပါသည်။ ဆိုလိုသည်မှာ အချို့ကိစ္စရပ်များတွင် သင်္ကေတတစ်ခုထဲတွင် သင်္ကေတ layer အများအပြားရှိခြင်းသည် မလိုလားအပ်သော ရလာဒ်များကို ထွက်လာစေပါသည်။</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">roads</span></code> layer တွင် ထပ်ဆောင်း သင်္ကေတ layer တစ်ခုထပ်ထည့်ပါ (အထက်တွင် ဖော်ပြခဲ့သော သင်္ကေတ layer များထပ်ထည့်ခြင်းနည်းလမ်းကို အသုံးပြု၍)</p></li>
+<li><p><span class="guilabel">Stroke width</span> ကို <code class="docutils literal notranslate"><span class="pre">1.5</span></code> ထားပြီး အရောင်ကို အနက်ရောင် ထားပေးပါ။</p></li>
+<li><p>ထိပ်ဆုံး layer အသစ်တစ်ခုကို အထူ (thickness) <code class="docutils literal notranslate"><span class="pre">0.8</span></code> ထားပြီး အရောင်ကို အဖြူရောင် ထားပေးပါ။</p></li>
+</ol>
+<p>အောက်ပါအတိုင်းဖြစ်သွားပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/bad_roads_symbology.png" src="../../../_images/bad_roads_symbology.png" />
+</figure>
+<p>လမ်းများတွင် <em>လမ်းသွယ်</em> ပုံစံ သင်္ကေတတစ်ခုရှိသွားမည်ဖြစ်သည်၊ သို့သော် မြင်တွေ့ရသည့်အတိုင်း မျဉ်းများတစ်ခုနှင့်တစ်ခုဆုံဖြတ်သည့်နေရာတွင် မျဉ်းအချင်းချင်းထပ်နေပါသည်။ မိမိတို့လိုချင်သည်မှာ ထိုပုံစံအတိုင်းမဟုတ်ပါ။</p>
+<p>ထိုသို့မဖြစ်စေရန် သင်္ကေတအဆင့်များကို စီနိုင်ပြီး သင်္ကေတ layer အမျိုးမျိုးအား မည်သည့် အစီအစဉ် (order) ဖြင့်ပုံဖော်ပြသမည်ကို ထိန်းချုပ်ပေးနိုင်ပါသည်။</p>
+<p>သင်္ကေတ layer များ၏ order ကို ပြောင်းလဲရန်-</p>
+<ol class="arabic">
+<li><p>သင်္ကေတာ layer များဖွဲ့စည်းပုံထဲရှိ ထိပ်ဆုံးရှိ <span class="guilabel">Line</span> layer ကို ရွေးပါ။</p></li>
+<li><p>Window ၏ညာဘက်အောက်ထောင့်ရှိ <span class="menuselection">Advanced ► Symbol levels…</span> ကိုနှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/symbol_levels_main_dialog.png" src="../../../_images/symbol_levels_main_dialog.png" />
+</figure>
+<p>အောက်ပါပုံစံ dialog တစ်ခုပွင့်လာပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/symbol_levels_dialog.png" src="../../../_images/symbol_levels_dialog.png" />
+</figure>
+</li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Enable symbol levels</span> ကို အမှန်ခြစ်ပါ။ ထို့နောက်တွင် သက်ဆိုင်ရာအဆင့် နံပါတ်ကို ရိုက်ထည့်ပြီး သင်္ကေတတစ်ခုချင်းစီ၏ layer order ကို သတ်မှတ်ပေးနိုင်ပါသည်။ 0 သည် အောက်တွင်ရှိသော layer ဖြစ်သည်။</p>
+<p>ဤဥပမာတွင် အောက်ပါအတိုင်း option ကို ပွင့်အောင် activate လုပ်ချင်ရုံသာဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/correct_symbol_layers.png" src="../../../_images/correct_symbol_layers.png" />
+</figure>
+<p>၎င်းသည် အနက်ရောင်မျဉ်းအထူအပေါ်တွင် အဖြူရောင်မျဉ်းကို ပုံဖော်ပြသပေးပါလိမ့်မည်-</p>
+</li>
+<li><p>မြေပုံဆီသို့ ပြန်သွားရန် <span class="guilabel">OK</span> ကို ၂ ကြိမ်နှိပ်ပါ။</p>
+<p>မြေပုံသည် အောက်ပါပုံစံအတိုင်း ပေါ်လာမည်ဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/better_roads_symbology.png" src="../../../_images/better_roads_symbology.png" />
+</figure>
+</li>
+</ol>
+<p>လုပ်ဆောင်ပြီးလျှင် သင်္ကေတကို သိမ်းဆည်းရန် မမေ့ပါနှင့်၊ နောက်ပိုင်းတွင် သင်္ကေတကို ထပ်ပြောင်းလဲသောအခါ ယခုပြင်ဆင်ထားသည့်သင်္ကေတကို မဆုံးရှုံးစေရန်ဖြစ်သည်။ <span class="guilabel">Layer Properties</span> dialog ၏ အောက်ခြေရှိ <span class="guilabel">Save Style…</span> ခလုတ်ကို နှိပ်ခြင်းဖြင့် လက်ရှိ သင်္ကေတ style ကို သိမ်းဆည်းနိုင်ပါသည်။ <span class="guilabel">QGIS QML Style File</span> format ကို အသုံးပြုပြီး သိမ်းဆည်းပါလိမ့်မည်။</p>
+<p>သင်ပြင်ဆင်ထားသော style ကို <code class="file docutils literal notranslate"><span class="pre">solution/styles/better_roads.qml</span></code> folder ထဲတွင်သိမ်းဆည်းပါ။ <span class="guilabel">Load Style…</span> ခလုတ်ကိုနှိပ်ပြီး ယခင်က သိမ်းဆည်းထားသော style များကို အချိန်မရွေး ပြန်ထည့်သွင်းအသုံးပြုနိုင်ပါသည်။ Style တစ်ခုကို မပြောင်းလဲခင်တွင် မသိမ်းဆည်းရသေးသော မည်သည့် style မဆို ပျက်သွားမည်ကို သတိပြုပါ။</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.4.9. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">roads</span></code> layer ၏ အသွင်အပြင်ကို ထပ်မံပြောင်းလဲကြည့်ပါ။</p>
+<p>လမ်းများကို မီးခိုးဖျော့ရောင် ဘောင်မျဉ်း (outline) အပါး တစ်ခုနှင့် အလယ်တွင် အနက်ရောင်မျဉ်းအပါးတစ်ခုပါဝင်သော အဝါရောင်လမ်းကျဉ်းပြုလုပ်ပါ။ <span class="menuselection">Advanced ► Symbol levels…</span> dialog မှတဆင့် layer ပုံဖော်ပြသခြင်း order ကို ပြောင်းလဲရန်လိုသည်ကို သတိရပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/target_road_symbology.png" src="../../../_images/target_road_symbology.png" />
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>လိုအပ်သော သင်္ကေတကို ပြုလုပ်ရန် သင်္ကေတ layer ၃ ခုလိုအပ်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_road_symbology.png" src="../../../_images/answer_road_symbology.png" />
+</figure>
+<p>အောက်ဆုံး သင်္ကေတ layer သည် မီးခိုးရောင်အပြည့် မျဉ်းကျယ်တစ်ခုဖြစ်သည်။ ၎င်း၏အပေါ်တွင် အဝါရောင်အပြည့်ဖြင့် အနည်းငယ်ပါးသောမျဉ်းတစ်ခုရှိပြီး ထိပ်ဆုံးတွင် အနက်အပြည့် မျဉ်းအပါးတစ်ခုရှိပါသည်။</p>
+<p>သင်ဖန်တီးလိုက်သော သင်္ကေတ layer များသည် အထက်ပါအတိုင်း ဆင်တူနေလျှင် သင်လိုချင်သော ရလာဒ်တော့ မရရှိသေးပါ-</p>
+<ol class="arabic">
+<li><p>သင်္ကေတအဆင့်များသည် အောက်ပါပုံစံအတိုင်း ဟုတ်/မဟုတ် စစ်ဆေးကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_road_symbol_levels.png" src="../../../_images/answer_road_symbol_levels.png" />
+</figure>
+</li>
+<li><p>ယခုဆိုလျှင် သင့်မြေပုံသည် အောက်ပါပုံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/target_road_symbology_answer.png" src="../../../_images/target_road_symbology_answer.png" />
+</figure>
+</li>
+</ol>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.4.10. </span><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>သင်္ကေတအဆင့်များကို အတန်းအစားခွဲခြားထားသော (classified) layer များအတွက်လည်း သုံးနိုင်ပါသည် (ဆိုလိုသည်မှာ- သင်္ကေတများစွာပါဝင်သော layer များဖြစ်သည်)။ အတန်းအစားခွဲခြားခြင်း (classification) အပိုင်းကို ယခုအချိန်တွင် မသင်ကြားထားရသေးသောကြောင့် အခြေခံမျှသာဖြစ်သော ကြိုတင်အတန်းအစားခွဲခြားထားသည့် data အချို့ဖြင့် လုပ်ဆောင်သွားမည်ဖြစ်သည်။</p>
+<ol class="arabic">
+<li><p>Project အသစ်တစ်ခုကို ဖန်တီးပြီး <code class="docutils literal notranslate"><span class="pre">roads</span></code> dataset ကိုသာ ထည့်သွင်းပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data/styles</span></code> ထဲတွင် ပေးထားသော <code class="file docutils literal notranslate"><span class="pre">advanced_levels_demo.qml</span></code> style ဖိုင်ကို layer တွင်အသုံးပြုပါ။ <span class="guilabel">Layer Properties</span> dialog ၏ အောက်ခြေရှိ <span class="menuselection">Style ► Load Style…</span> combobox မှတဆင့် လုပ်ဆောင်နိုင်ပါသည်။</p></li>
+<li><p>Swellendam ဧရိယာကို zoom ချဲ့ကြည့်ပါ။</p></li>
+<li><p>သင်္ကေတ layer များကိုအသုံးပြုပြီး layer များ၏ ဘောင်မျဉ်း (outline) များကို အောက်ပါပုံအတိုင်း ဖြစ်အောင်လုပ်ဆောင်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/correct_advanced_levels.png" src="../../../_images/correct_advanced_levels.png" />
+</figure>
+</li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic simple">
+<li><p>သင်္ကေတအဆင့်များကို အောက်ပါတန်ဖိုးများအတိုင်း ချိန်ညှိပါ-</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/answer_road_symbol_layers.png" src="../../../_images/answer_road_symbol_layers.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>တန်ဖိုးအမျိုးမျိုးသုံးပြီး စမ်းသပ်ကြည့်ပါ။</p></li>
+<li><p>နောက်ထပ်လေ့ကျင့်ခန်းကို ဆက်မသွားခင် မူရင်းမြေပုံကို ထပ်မံဖွင့်ကြည့်ပါ။</p></li>
+</ol>
+</div>
+</section>
+<section id="layer-follow-along-symbol-layer-types">
+<h2><span class="section-number">2.4.11. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- သင်္ကေတ layer အမျိုးအစားများ (Follow Along: Symbol layer types)<a class="headerlink" href="#layer-follow-along-symbol-layer-types" title="Link to this heading"></a></h2>
+<p>အဖြည့်အရောင်များကို သတ်မှတ်ခြင်းနှင့် ကြိုတင်သတ်မှတ်ထားသောပုံစံများကို အသုံးပြုခြင်းအပြင် သင်္ကေတ layer အမျိုးအစား အမျိုးမျိုးကို အသုံးပြုနိုင်ပါသည်။ ယခုအချိန်ထိ အသုံးပြုနေခဲ့သော အမျိုးအစားသည် <span class="guilabel">Simple Fill</span> အမျိုးအစားသာလျှင်ဖြစ်ပါသည်။ သင်္ကေတများကို နောက်ထပ်စိတ်ကြိုက်ပြင်ဆင်ရန် ပိုမိုအဆင့်မြင့်သော သင်္ကေတ layer အမျိုးအစားများကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Vector (Point ၊ line နှင့် polygon) အမျိုးအစားတစ်ခုချင်းစီတွင် ကိုယ်ပိုင်သင်္ကေတ layer အမျိုးအစားများရှိပါသည်။ Point များအတွက် ရရှိနိုင်သော အမျိုးအစားများကို ပထမဦးစွာကြည့်ကြည့်ပါမည်။</p>
+<section id="point-layer-point-symbol-layer-types">
+<h3>Point သင်္ကေတ layer အမျိုးအစားများ (Point Symbol Layer Types)<a class="headerlink" href="#point-layer-point-symbol-layer-types" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> မှလွဲ၍ ကျန်သော layer များအားလုံးကို အမှန်ခြစ်ဖြုတ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">places</span></code> layer အတွက် သင်္ကေတဆိုင်ရာ property ကိုပြောင်းလဲပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/places_layer_properties.png" src="../../../_images/places_layer_properties.png" />
+</figure>
+</li>
+<li><p>သင်္ကေတ layer များဖွဲ့စည်းပုံထဲရှိ <span class="guilabel">Simple marker</span> layer ကိုရွေးချယ်ခြင်းဖြင့် အမျိုးမျိုးသော သင်္ကေတ layer အမျိုးအစားများကို ရရှိနိုင်ပါသည်၊ ထို့နောက်တွင် <span class="guilabel">Symbol layer type</span> dropdown ကိုနှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/marker_type_dropdown.png" src="../../../_images/marker_type_dropdown.png" />
+</figure>
+</li>
+<li><p>အသုံးပြုနိုင်သော ရွေးချယ်စရာအမျိုးမျိုးထဲမှ သင့်တော်မည်ထင်သည့် style ဖြင့် သင်္ကေတတစ်ခုကို ရွေးချယ်ပါ။</p></li>
+<li><p>သင့်တော်မည်ထင်သည့်အရာမရှိလျှင် <span class="guilabel">Size</span> <code class="docutils literal notranslate"><span class="pre">3.00</span></code> နှင့် <span class="guilabel">Stroke width</span> <code class="docutils literal notranslate"><span class="pre">0.5</span></code> ရှိပြီး အဖြူရောင် ဘောင်မျဉ်း (outline) နှင့် အစိမ်းဖျော့အရောင်ဖြည့်ထားသော  အဝိုင်းပုံစံ <span class="guilabel">Simple marker</span> တစ်ခုကို အသုံးပြုပါ။</p></li>
+</ol>
+</section>
+<section id="line-layer-line-symbol-layer-types">
+<h3>Line သင်္ကေတ layer အမျိုးအစားများ (Line Symbol Layer Types)<a class="headerlink" href="#line-layer-line-symbol-layer-types" title="Link to this heading"></a></h3>
+<p>Line data များအတွက် အသုံးပြုနိုင်သော ရွေးချယ်စရာအမျိုးမျိုးကို ကြည့်ရှုရန်-</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">roads</span></code> layer ၏ ထိပ်ဆုံး သင်္ကေတ layer အတွက် <span class="guilabel">Symbol layer type</span> ကို <span class="guilabel">Marker line</span> သို့ပြောင်းလဲပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/change_to_marker_line.png" src="../../../_images/change_to_marker_line.png" />
+</figure>
+</li>
+<li><p>သင်္ကေတ layer များဖွဲ့စည်းပုံထဲတွင် <span class="guilabel">Simple marker</span> layer ကိုရွေးချယ်ပါ။ အောက်ပါ dialog အတိုင်းဖြစ်အောင် သင်္ကေတ property များကိုပြောင်းလဲပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/simple_marker_line_properties.png" src="../../../_images/simple_marker_line_properties.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Marker line</span> layer ကိုရွေးချယ်ပြီး interval (ကြားအကွာအဝေး) ကို <code class="docutils literal notranslate"><span class="pre">1.00</span></code> သို့ပြောင်းပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/marker_line_interval.png" src="../../../_images/marker_line_interval.png" />
+</figure>
+</li>
+<li><p>Style ကို apply မလုပ်ခင်တွင် သင်္ကေတအဆင့်များ မှန်ကန်အောင် ပြုလုပ်ပါ (ရှေ့ပိုင်းတွင် အသုံးပြုခဲ့သော <span class="menuselection">Advanced ► Symbol levels</span> dialog မှတဆင့်)</p></li>
+</ol>
+<p>Style ကို apply လုပ်ပြီးသည်နှင့် မြေပုံပေါ်တွင် ရလာဒ်ကို ကြည့်ကြည့်ပါ။ မြင်တွေ့ရသည့်အတိုင်း ထိုသင်္ကေတများသည် လမ်းတလျှောက်အတိုင်း ဦးတည်ရာပြောင်းလဲသွားပါသည်၊ သို့သော် လမ်းအတိုင်း အမြဲတမ်း ကွေ့သွားခြင်းမရှိပါ။ ထိုအရာသည် အချို့ကိစ္စရပ်များအတွက် အသုံးဝင်ပါသော်လည်း အခြားအရာအတွက်တော့ အသုံးမဝင်ပါ။ သင်နှစ်သက်ပါက မေးခွန်းထဲရှိ သင်္ကေတ layer ကို ယခင်ပုံစံအတိုင်း ပြန်ပြောင်းနိုင်ပါသည်။</p>
+</section>
+<section id="polygon-layer-polygon-symbol-layer-types">
+<h3>Polygon သင်္ကေတ layer အမျိုးအစားများ (Polygon Symbol Layer Types)<a class="headerlink" href="#polygon-layer-polygon-symbol-layer-types" title="Link to this heading"></a></h3>
+<p>Polygon data များအတွက် အသုံးပြုနိုင်သော ရွေးချယ်စရာအမျိုးမျိုးကို ကြည့်ရှုရန်-</p>
+<ol class="arabic">
+<li><p>ယခင်က အခြား layer များအတွက်ပြုလုပ်သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">water</span></code> layer အတွက် <span class="guilabel">Symbol layer type</span> ကိုပြောင်းပါ။</p></li>
+<li><p>စာရင်းထဲရှိ အမျိုးမျိုးသော ရွေးချယ်စရာများကို ရှာဖွေကြည့်ရှုပါ။</p></li>
+<li><p>၎င်းတို့ထဲမှ သင့်တော်သည့် အရာတစ်ခုကို ရွေးချယ်ပါ။</p></li>
+<li><p>သင့်တော်သည့် ရွေးချယ်စရာမတွေ့လျှင် အောက်ပါ option များဖြင့် <span class="guilabel">Point pattern fill</span> ကိုအသုံးပြုပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/pattern_fill_size.png" src="../../../_images/pattern_fill_size.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../../_images/pattern_fill_distances.png" src="../../../_images/pattern_fill_distances.png" />
+</figure>
+</li>
+<li><p>ပုံမှန် <span class="guilabel">Simple fill</span> တစ်ခုဖြင့် သင်္ကေတ layer အသစ်တစ်ခုကို ထည့်သွင်းပါ။</p></li>
+<li><p>၎င်းကို အပြာနုရောင်အဖြည့် နှင့် အပြာရင့်ရောင် border ဖြစ်အောင် ပြုလုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Move down</span> ခလုတ်ကိုအသုံးပြုပြီး ၎င်းကို point pattern သင်္ကေတ layer အောက်သို့ ရွှေ့ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/simple_fill_move_down.png" src="../../../_images/simple_fill_move_down.png" />
+</figure>
+</li>
+</ol>
+<p>ရလာဒ်အနေဖြင့် water layer အတွက် texture သင်္ကေတတစ်ခုရရှိမည်ဖြစ်သည်။ Texture ကိုပြုလုပ်ပေးသော အရာများဖြစ်သည့် အရွယ်အစား (size) ၊ ပုံသဏ္ဍာန် (shape) နှင့် အစက်တစ်ခုချင်းစီ၏ အကွာအဝေး (distance of the individual dots) ကိုပြောင်းလဲပေးနိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="backlink-symbology-marker-line">
+<span id="id5"></span><h2><span class="section-number">2.4.12. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#backlink-symbology-marker-line" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">protected_areas</span></code> layer တွင် အလင်းဖောက်နိုင်သော အစိမ်းရောင်အဖြည့်အရောင်တစ်ခုကို အသုံးပြုပြီး ဘောင်မျဉ်း (outline) ကို အောက်ပါပုံစံအတိုင်း ပြောင်းလဲပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/marker_line_preview.png" src="../../../_images/marker_line_preview.png" />
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>သင်္ကေတဖွဲ့စည်းပုံ၏ ဥပမာများမှာ-</p>
+<figure class="align-center">
+<img alt="../../../_images/answer_marker_line.png" src="../../../_images/answer_marker_line.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../../_images/answer_marker_line2.png" src="../../../_images/answer_marker_line2.png" />
+</figure>
+</div>
+</section>
+<section id="geometry-generator-follow-along-geometry-generator-symbology">
+<h2><span class="section-number">2.4.13. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- Geometry generator သင်္ကေတ (Follow Along: Geometry generator symbology)<a class="headerlink" href="#geometry-generator-follow-along-geometry-generator-symbology" title="Link to this heading"></a></h2>
+<p>Layer အမျိုးအစားအားလုံးအတွက် Geometry generator သင်္ကေတကို အသုံးပြုနိုင်ပါသည် (point များ၊ line များနှင့် polygon များ)။ ရရှိလာမည့် သင်္ကေတသည် layer အမျိုးအစားပေါ်တွင် တိုက်ရိုက်မူတည်ပါသည်။</p>
+<p>အချုပ်ပြောရလျှင် Geometry generator သင်္ကေတသည် ထိုသင်္ကေတအတွင်းမှာပင် တည်နေရာဆိုင်ရာ (spatial) လုပ်ဆောင်မှုများအချို့ကို လုပ်ဆောင်နိုင်စေပါသည်။ ဥပမာအားဖြင့် point layer တစ်ခုကို ဖန်တီးရန်မလိုပဲ polygon layer တစ်ခုပေါ်တွင် အမှန်တကယ်ရှိသော အလယ်ဗဟို (centroid) ရှာဖွေသည့်လုပ်ဆောင်မှုကို လုပ်ဆောင်နိုင်ပါသည်။</p>
+<p>ထို့အပြင် ရရှိလာသည့် သင်္ကေတ၏ ပုံပန်သဏ္ဍာန်ကို ပြောင်းလဲရန် style ဆိုင်ရာရွေးချယ်စရာအားလုံး ရှိပါသည်။</p>
+<p>စမ်းလုပ်ကြည့်ကြရအောင်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">water</span></code> layer ကိုရွေးချယ်ပါ။</p></li>
+<li><p><span class="guilabel">Simple fill</span> ပေါ်တွင် click နှိပ်ပြီး <span class="guilabel">Symbol layer type</span> ကို <span class="guilabel">Geometry generator</span> သို့ပြောင်းပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/geometry_generator.png" src="../../../_images/geometry_generator.png" />
+</figure>
+</li>
+<li><p>Spatial query မရေးသားမီတွင် ရလာဒ်အတွက် ဂျီဩမေတြီအမျိုးအစား (Geometry Type) ကို ရွေးပေးရပါမည်။ ဤဥပမာတွင် feature တစ်ခုချင်းစီအတွက် centroid (အလယ်ဗဟို) များကို ဖန်တီးမည်ဖြစ်သည့်အတွက် ဂျီဩမေတြီအမျိုးအစား (Geometry Type) ကို <span class="guilabel">Point / Multipoint</span> ပြောင်းပေးပါ။</p></li>
+<li><p>Query panel ထဲတွင် query ကိုရေးကြည့်ပါမည်-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>centroid($geometry)
+</pre></div>
+</div>
+<figure class="align-center">
+<img alt="../../../_images/geometry_generator_query.png" src="../../../_images/geometry_generator_query.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်သောအခါ <code class="docutils literal notranslate"><span class="pre">water</span></code> layer အား point layer တစ်ခုအဖြစ် ပုံဖော်ပြသသည်ကို မြင်တွေ့ရပါလိမ့်မည်။ Layer ၏ သင်္ကေတအတွင်းမှာပင် spatial လုပ်ဆောင်မှုတစ်ခုကို ဆောင်ရွက်လိုက်ခြင်းဖြစ်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/geometry_generator_result.png" src="../../../_images/geometry_generator_result.png" />
+</figure>
+</li>
+</ol>
+<p>Geometry generator သင်္ကေတအသုံးပြုပြီး <em>သာမန်</em> သင်္ကေတများထက် ကျော်လွန်ပြီး လုပ်ဆောင်နိုင်ပါသည်။</p>
+<section id="id6">
+<h3><abbr title="Advanced level">★★★</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Geometry generator သည် သင်္ကေတအဆင့် နောက်တစ်ဆင့်သာ ဖြစ်ပါသည်။ <span class="guilabel">Geometry generator</span> အောက်တွင် နောက်ထပ် <span class="guilabel">Simple fill</span> တစ်ခုထည့်သွင်းကြည့်ပါ။</p>
+<p>Geometry generator သင်္ကေတ၏ Simple marker ပုံသဏ္ဍာန်ကိုလည်း ပြောင်းလဲကြည့်ပါ။</p>
+<p>နောက်ဆုံးရလာဒ်သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/geometry_generator_preview.png" src="../../../_images/geometry_generator_preview.png" />
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<ol class="arabic simple">
+<li><p>သင်္ကေတအဆင့် နောက်တစ်ဆင့်ထပ်ထည့်ရန် <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionArrowDown.png"><img alt="arrowDown" src="../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး သင်္ကေတအသစ်ကို စာရင်း၏အောက်ခြေသို့ရွှေ့ပါ။</p></li>
+<li><p>Water polygon ကိုဖြည့်ရန် အရောင်ကောင်းကောင်း တစ်ခုကိုရွေးပါ။</p></li>
+<li><p>Geometry generator သင်္ကေတ၏ <span class="guilabel">Marker</span> ပေါ်တွင် click နှိပ်ပြီး စက်ဝိုင်းပုံသဏ္ဍာန်ကို အခြားနှစ်သက်ရာပုံစံသို့ပြောင်းပါ။</p></li>
+<li><p>ပိုမိုအသုံးဝင်သော ရလာဒ်များရရှိရန် အခြားရွေးချယ်စရာများကို စမ်းသပ်ကြည့်ပါ။</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="svg-fill-follow-along-creating-a-custom-svg-fill">
+<h2><span class="section-number">2.4.14. </span><abbr title="Advanced level">★★★</abbr> လိုက်လုပ်ကြည့်ပါ- စိတ်ကြိုက် SVG Fill တစ်ခုဖန်တီးခြင်း (Follow Along: Creating a Custom SVG Fill)<a class="headerlink" href="#svg-fill-follow-along-creating-a-custom-svg-fill" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ဤလေ့ကျင့်ခန်းကိုလုပ်ဆောင်ရန် အခမဲ့ vector တည်းဖြတ်ခြင်း software ဖြစ်သော <a class="reference external" href="https://inkscape.org/">Inkscape</a> ကို install ပြုလုပ်ထားရန် လိုအပ်ပါလိမ့်မည်။</p>
+</div>
+<ol class="arabic">
+<li><p>Inkscape ပရိုဂရမ်ကို စဖွင့်လိုက်ပါ။ အောက်ပါ interface အတိုင်း မြင်တွေ့ရပါမည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/inkscape_default.png" src="../../../_images/inkscape_default.png" />
+</figure>
+<p>Corel ကဲ့သို့ အခြား vector image တည်းဖြတ်ခြင်း ပရိုဂရမ်များကို အသုံးပြုဖူးလျှင် သင့်အနေဖြင့် ဤ interface ကို ရင်းနှီးနေပါလိမ့်မည်။</p>
+<p>ပထမဆုံးအနေဖြင့် texture အသေးတစ်ခုအတွက် ကိုက်ညီမည့် canvas အရွယ်အစားကို ပြောင်းလဲပါမည်။</p>
+</li>
+<li><p><span class="menuselection">File ► Document Properties</span> ကိုနှိပ်လျှင် <span class="guilabel">Document Properties</span> dialog ပွင့်လာမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Units</span> ကို <span class="guilabel">px</span> သို့ပြောင်းပါ။</p></li>
+<li><p><span class="guilabel">Width</span> နှင့် <span class="guilabel">Height</span> ကို <code class="docutils literal notranslate"><span class="pre">100</span></code> ပြောင်းပါ။</p></li>
+<li><p>ပြောင်းလဲပြင်ဆင်ပြီးပါက dialog ကိုပိတ်လိုက်ပါ။</p></li>
+<li><p>အလုပ်လုပ်နေသော စာမျက်နှာကို မြင်ရရန် <span class="menuselection">View ► Zoom ► Page</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Circle</span> tool ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/inkscape_circle_tool.png" src="../../../_images/inkscape_circle_tool.png" />
+</figure>
+</li>
+<li><p>Ellipse (ဘဲဥပုံ) တစ်ခုရေးဆွဲရန် စာမျက်နှာပေါ်တွင် click နှိပ်ပြီး ဖိဆွဲပါ။ ဘဲဥပုံ ကို စက်ဝိုင်းပုံစံဖြစ်စေရန် ဆွဲနေစဉ်တွင် <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ခလုတ်ကိုဖိထားပါ။</p></li>
+<li><p>ရေးဆွဲထားသော စက်ဝိုင်းပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Fill and Stroke</span> option ကိုဖွင့်ပါ။ ၎င်းကို ပုံဖော်ပြသမှုအတွက် မွမ်းမံပြင်ဆင်နိုင်ပါသည်၊ ဥပမာ-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Fill</span> အရောင်ကို grey-blue (မီးခိုးပြာ) အဖျော့အရောင်သို့ ပြောင်းလဲပါ၊</p></li>
+<li><p><span class="guilabel">Stroke paint</span> tab ထဲတွင် border အတွက် ပိုနက်သောအရောင်တစ်ခုကို သတ်မှတ်ပါ၊</p></li>
+<li><p>ထို့နောက် <span class="guilabel">Stroke style</span> tab အောက်ထဲတွင် border ၏အထူ ကို လျှော့ပါ။</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/inkscape_stroke_fill.png" src="../../../_images/inkscape_stroke_fill.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Pencil</span> tool ကိုအသုံးပြု၍ မျဉ်းတစ်ကြောင်းရေးဆွဲပါ-</p>
+<ol class="arabic simple">
+<li><p>မျဉ်းကို စတင်ဆွဲရန် click တစ်ချက်နှိပ်လိုက်ပါ။ 15 ဒီဂရီတိုးသွားသည့်နေရာတိုင်း၌ ဆွဲကပ် (snap) စေရန် <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ကိုဖိထားပြီး ဆွဲပါ။</p></li>
+<li><p>Mouse မြားကို ရေပြင်ညီအတိုင်း ရွှေ့သွားပြီး click တစ်ချက်နှိပ်ပြီး point တစ်ခုကိုနေရာချပါ။</p></li>
+<li><p>မျဉ်း၏ မျဉ်းအဆစ် (vertex) ကို click နှိပ်ကာ ဆွဲကပ်ပြီး ဒေါင်လိုက်မျဉ်းတစ်ခုဆွဲပါ၊ ထို့နောက် click တစ်ချက်နှိပ်ပြီး အဆုံးသတ်လိုက်ပါ။</p></li>
+<li><p>အဆုံးသတ် vertex ၂ ခုကို ချိတ်ဆက်လိုက်ပါ။</p></li>
+<li><p>စက်ဝိုင်း၏အပြင်မျဉ်းနှင့် ကိုက်ညီစေရန် တြိဂံသင်္ကေတ၏ အရောင်နှင့်အကျယ်ကို ပြောင်းလဲပြီး လိုအပ်သလို ရွှေ့ပေးပါ။ အောက်ပါပုံအတိုင်း သင်္ကေတတစ်ခုရရှိစေရန်ဖြစ်သည်-</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/inkscape_final_symbol.png" src="../../../_images/inkscape_final_symbol.png" />
+</figure>
+</li>
+<li><p>ဖန်တီးထားသော သင်္ကေတကို ကြိုက်နှစ်သက်ပါက သင်တန်းဖိုင်လမ်းကြောင်းအောက်ရှိ <code class="file docutils literal notranslate"><span class="pre">exercise_data/symbols</span></code> အောက်တွင် <code class="docutils literal notranslate"><span class="pre">landuse_symbol</span></code> အမည်ဖြင့် SVG ဖိုင်အဖြစ်သိမ်းဆည်းပါ။</p></li>
+</ol>
+<p>QGIS ထဲတွင်-</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer အတွက် <span class="guilabel">Layer Properties</span> ကိုဖွင့်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <span class="guilabel">Symbology</span> tab ထဲတွင် အောက်ပါပုံတွင်ပြထားသည့်အတိုင်း <span class="guilabel">Symbol Layer Type</span> ကို <span class="guilabel">SVG Fill</span> အဖြစ်ပြောင်းခြင်းအားဖြင့် သင်္ကေတဖွဲ့စည်းပုံကို ပြောင်းလဲပါ။</p></li>
+<li><p><span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပြီး SVG image ကိုရွေးချယ်ရန် <span class="guilabel">Select File…</span> ကိုနှိပ်ပါ။</p>
+<p>၎င်းကို သင်္ကေတဖွဲ့စည်းပုံထဲသို့ ထည့်သွင်းလိုက်မည်ဖြစ်ပြီး ၎င်း၏အရောင်၊ ထောင့် ၊ effect ၊ ယူနစ်များ၊ စသည်တို့ကို စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/svg_symbol_settings.png" src="../../../_images/svg_symbol_settings.png" />
+</figure>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">landuse</span></code> layer ထဲရှိ feature များသည် အောက်မြေပုံပေါ်တွင်ပါရှိသည့် texture အတိုင်း ဖြစ်နေသင့်ပါသည်။ အကယ်၍ texture များကို မမြင်ရလျှင် မြေပုံမြင်ကွင်းကို zoom ချဲ့ကြည့်ရန်လိုအပ်နိုင်ပါသည် သို့မဟုတ် layer property ထဲတွင် <span class="guilabel">Texture width</span> ကို ပိုကြီးကြီး သတ်မှတ်ပေးရန် လိုအပ်နိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/svg_symbol_result.png" src="../../../_images/svg_symbol_result.png" />
+</figure>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">2.4.15. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Layer အမျိုးမျိုးအတွက် သင်္ကေတပြောင်းလဲခြင်းသည် vector ဖိုင်များကို ဖတ်ရလွယ်ကူသောမြေပုံတစ်ခုအဖြစ်သို့ ကူးပြောင်းခြင်းဖြစ်ပါသည်။ မည်သည့်အရာများဖြစ်ပျက်နေသည်ကို တွေ့နိုင်ရုံသာမက အမြင်အရလည်း ကြည့်ကောင်းစေပါသည်။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">2.4.16. </span>ထပ်မံဖတ်ရှုရန် (Further Reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://gis.stackexchange.com/questions/3083/seeking-examples-of-beautiful-maps">လှပသေသပ်သောမြေပုံ ဥပမာများ (Examples of Beautiful Maps)</a></p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">2.4.17. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Layer များတစ်ခုလုံးအတွက် သင်္ကေတများပြောင်းလဲခြင်းသည် အသုံးဝင်ပါသည်၊ သို့သော် layer တစ်ခုချင်းစီတွင်ပါဝင်သော အချက်အလက်များကို ထိုမြေပုံများကိုဖတ်ရှုသူများ မသိရှိနိုင်သေးပါ။ လမ်းသွယ်များ၏ အမည်များက ဘာတွေလဲ၊ ဧရိယာတစ်ခုသည် မည်သည့် စီမံအုပ်ချုပ်မှုဒေသထဲတွင် ပါဝင်နေသလဲ၊ လယ်ကွင်းများ၏ နှိုင်းရမျက်နှာပြင်ဧရိယာက ဘာလဲ။ ထိုသို့သော အချက်အလက်များအားလုံးကို လက်ရှိတွင် မမြင်ရနိုင်သေးပါ။ မြေပုံပေါ်တွင် ထိုသို့သော data များကို မည်သို့ ကိုယ်စားပြုဖော်ပြမည်ကို နောက်လာမည့် သင်ခန်းစာတွင် ရှင်းလင်းပြသသွားပါမည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ခုနက သင့်မြေပုံကို သိမ်းဆည်းဖို့ သတိရပါလား?</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mapviewnavigation.html" class="btn btn-neutral float-left" title="2.3. သင်ခန်းစာ- မြေပုံမြင်ကွင်းအတွင်း ညွှန်ပြခြင်း (Lesson: Navigating the Map Canvas)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vector_classification/index.html" class="btn btn-neutral float-right" title="3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/basic_map/symbology.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/basic_map/symbology.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/basic_map/symbology.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/basic_map/symbology.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/basic_map/symbology.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/basic_map/symbology.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/basic_map/symbology.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/basic_map/symbology.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/basic_map/symbology.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/basic_map/symbology.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/basic_map/symbology.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b92469a5665c289738f0f0fc4ceca231" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

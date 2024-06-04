@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.4. သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/complete_analysis/analysis_exercise.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" href="../qgis_plugins/index.html" />
+    <link rel="prev" title="8.3. အိမ်စာ (Assignment)" href="assignment.html" />
+  <meta name="description" content="QGIS testing documentation: 8.4. သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="raster_to_vector.html">8.1. သင်ခန်းစာ- Raster မှ Vector သို့အမျိုးအစားပြောင်းခြင်း (Lesson: Raster to Vector Conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis_combination.html">8.2. သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment.html">8.3. အိမ်စာ (Assignment)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">8.4. သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#problem-statement">8.4.1. ပြဿနာဖော်ပြချက် (Problem Statement)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solution-outline">8.4.2. အကြမ်းဖျင်းဖြေရှင်းချက် (Solution Outline)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-setting-up-the-map">8.4.3. လိုက်လုပ်ကြည့်ပါ - မြေပုံ ပြင်ဆင်သတ်မှတ်ခြင်း (Follow Along: Setting up the Map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-loading-data-into-the-map">8.4.4. မြေပုံထဲသို့ Data များထည့်သွင်းခြင်း (Loading Data into the Map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-changing-the-layer-order">8.4.5. Layer အပေါ်အောက်အစီအစဉ် ပြောင်းလဲခြင်း (Changing the layer order)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-the-correct-districts">8.4.6. မှန်ကန်သော ခရိုင်များကို ရှာဖွေခြင်း (Find the Correct Districts)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-clip-the-rasters">8.4.7. Raster များအား တိဖြတ်ခြင်း (Clip the Rasters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-layer-changing-the-symbology-of-vector-layers">8.4.8. Vector layer များ၏ သင်္ကေတပြောင်းလဲခြင်း (Changing the symbology of vector layers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-layer-changing-the-symbology-of-raster-layers">8.4.9. Raster layer များ၏ သင်္ကေတပြောင်းလဲခြင်း (Changing the symbology of raster layers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clean-up-the-map">8.4.10. မြေပုံကို ရှင်းလင်းခြင်း (Clean up the map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-hillshade">8.4.11. တောင်အရိပ် ဖန်တီးခြင်း (Create the hillshade)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slope">8.4.12. လျှောစောက် (Slope)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-aspect">8.4.13. မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မျက်နှာမူရာအရပ် (Try Yourself: Aspect)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-reclassifying-rasters">8.4.14. Raster များအား အတန်းအစားပြန်လည်ခွဲခြားခြင်း (Reclassifying rasters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-combining-rasters">8.4.15. Raster များပေါင်းစည်းခြင်း (Combining rasters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finding-rural-areas">8.4.16. ကျေးလက်ဒေသဧရိယာများ ရှာဖွေခြင်း (Finding rural areas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buffer-creating-a-negative-buffer">8.4.17. အတွင်းဘက် buffer တစ်ခုဖန်တီးခြင်း (Creating a negative buffer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-vector-vectorizing-the-raster">8.4.18. Raster အား Vector အဖြစ်သို့ပြောင်းလဲခြင်း (Vectorizing the raster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fixing-geometry">8.4.19. ဂျီဩမေတြီမှန်ကန်အောင်ပြုပြင်ခြင်း (Fixing geometry)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-determining-the-intersection-of-vectors">8.4.20. Vector များထိဖြတ်ခြင်းကို ဆုံးဖြတ်ခြင်း (Determining the Intersection of vectors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon-calculating-the-area-for-each-polygon">8.4.21. Polygon တစ်ခုချင်းစီအတွက် ဧရိယာတွက်ချက်ခြင်း (Calculating the area for each polygon)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-areas-of-a-given-size">8.4.22. သတ်မှတ်အရွယ်အစားရှိသည့် ဧရိယာများကို ရွေးချယ်ခြင်း (Selecting areas of a given size)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#university-of-cape-town-digitize-the-university-of-cape-town">8.4.23. University of Cape Town ကို ဂျီဩမေတြီရေးဆွဲခြင်း (Digitize the University of Cape Town)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#university-of-cape-town-find-the-locations-that-are-closest-to-the-university-of-cape-town">8.4.24. University of Cape Town နှင့်အနီးဆုံး နေရာများကိုရှာဖွေခြင်း (Find the locations that are closest to the University of Cape Town)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">8. </span>မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8.4. </span>သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/complete_analysis/analysis_exercise.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="assignment.html" class="btn btn-neutral float-left" title="8.3. အိမ်စာ (Assignment)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../qgis_plugins/index.html" class="btn btn-neutral float-right" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-supplementary-exercise">
+<h1><span class="section-number">8.4. </span>သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise)<a class="headerlink" href="#lesson-supplementary-exercise" title="Link to this heading"></a></h1>
+<p>ဤသင်ခန်းစာတွင် GIS analysis အပြည့်အစုံတစ်ခုကို QGIS ထဲတွင် မည်သို့လုပ်ဆောင်ရမည်ကို လမ်းညွှန်ပေးမည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ယခုသင်ခန်းစာကို Linfiniti Consulting (South Africa) နှင့်
+Siddique Motala (Cape Peninsula University of Technology) မှ ပြုစုထားပါသည်။</p>
+</div>
+<section id="problem-statement">
+<h2><span class="section-number">8.4.1. </span>ပြဿနာဖော်ပြချက် (Problem Statement)<a class="headerlink" href="#problem-statement" title="Link to this heading"></a></h2>
+<p>လုပ်ဆောင်ရမည့်တာဝန်မှာ Cape Peninsula အတွင်းနှင့်အနီးပတ်လည်တွင် ရှားပါး fynbos အပင်မျိုးစိတ်အတွက် သင့်တော်သော ရှင်သန်ပေါက်ရောက်ရာနေရာ (habitat) ဧရိယာများကို ရှာဖွေရန်ဖြစ်သည်။ ရှာဖွေရမည့်ဧရိယာ နယ်ပယ်အကျယ်အဝန်းသည် မြောက်ပိုင်းရှိ Melkbosstrand နှင့် တောင်ပိုင်းရှိ Strand အကြား Cape Town နှင့် Cape
+Peninsula ကိုလွှမ်းခြုံပါသည်။ ရုက္ခဗေဒပညာရှင်များသည် အပင်မျိုးစိတ်မှ ကြိုက်နှစ်သက်သော အောက်ပါအခြေအနေများကို ပံ့ပိုးပေးထားပါသည်-</p>
+<ul class="simple">
+<li><p>၎င်းသည် အရှေ့ဘက်မျက်နှာမူသော slope များတွင် ပေါက်ရောက်သည်</p></li>
+<li><p>လျှောစောက် (gradient) ရာခိုင်နှုန်း 15 % နှင့် 60 % အကြားရှိသော slope များတွင် ပေါက်ရောက်သည်</p></li>
+<li><p>နှစ်စဉ်မိုးရေချိန် 1000 မီလီမီတာအထက်ရှိသော ဧရိယာများတွင် ပေါက်ရောက်သည်</p></li>
+<li><p>၎င်းကို လူနေအိမ်များနှင့် အနည်းဆုံး 250 မီတာကွာဝေးသောနေရာတွင်သာ တွေ့နိုင်သည်</p></li>
+<li><p>၎င်းပေါက်ရောက်သော ဧရိယာသည် အနည်းဆုံး 6000 စတုရန်းမီတာအကျယ်ဧရိယာရှိသင့်သည်</p></li>
+</ul>
+<p>သင်သည် တက္ကသိုလ်ကျောင်းသားတစ်ယောက်အနေဖြင့် သင့်တော်မည့် မြေဧရိယာ ၄ ခုတွင် အပင်ကို ရှာဖွေရန် သဘောတူထားပြီးဖြစ်သည်။ သင်သည် အဆိုပါ သင့်တော်မည့် မြေဧရိယာ ၄ ခုကို သင်နေထိုင်ရာ University of Cape Town နှင့်အနီးဆုံး နေရာများဖြစ်စေလိုပါသည်။ သင်အနေဖြင့် မည်သည့်နေရာများတွင်ရှာဖွေမည်ကို ဆုံးဖြတ်ရန် GIS ကျွမ်းကျင်မှုများကို အသုံးပြုပါ။</p>
+</section>
+<section id="solution-outline">
+<h2><span class="section-number">8.4.2. </span>အကြမ်းဖျင်းဖြေရှင်းချက် (Solution Outline)<a class="headerlink" href="#solution-outline" title="Link to this heading"></a></h2>
+<p>ဤလေ့ကျင့်ခန်းအတွက် data များကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/more_analysis</span></code> folder ထဲတွင် တွေ့နိုင်ပါသည်။</p>
+<p>သင့်အနေဖြင့် University of Cape Town နှင့်အနီးဆုံးဖြစ်သော သင့်တော်မည့် မြေဧရိယာ ၄ ခုကို ရှာဖွေပါတော့မည်။</p>
+<p>ဖြေရှင်းချက်တွင် အောက်ပါတို့ပါဝင်ပါလိမ့်မည်-</p>
+<ol class="arabic simple">
+<li><p>အရှေ့ဘက်မျက်နှာမူသော slope များနှင့် သတ်မှတ် လျှောစောက်ရာခိုင်နှုန်း (gradient) ရှိသော slope များကို ရှာဖွေရန် DEM raster layer တစ်ခုကို ဆန်းစစ်လေ့လာခြင်း</p></li>
+<li><p>သတ်မှတ်ထားသော မိုးရေချိန်ပမာဏရှိသော ဧရိယာများကိုရှာဖွေရန် rainfall raster layer တစ်ခုကို ဆန်းစစ်လေ့လာခြင်း</p></li>
+<li><p>လူနေအိမ်များနှင့်အဝေးတွင်ရှိပြီး သတ်မှတ်ထားသော အရွယ်အစားရှိသည့် ဧရိယာများကို ရှာဖွေရန် zoning vector layer တစ်ခုကို ဆန်းစစ်လေ့လာခြင်း</p></li>
+</ol>
+</section>
+<section id="follow-along-setting-up-the-map">
+<h2><span class="section-number">8.4.3. </span>လိုက်လုပ်ကြည့်ပါ - မြေပုံ ပြင်ဆင်သတ်မှတ်ခြင်း (Follow Along: Setting up the Map)<a class="headerlink" href="#follow-along-setting-up-the-map" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Screen ၏ ညာဘက်အောက်ခြေထောင့်ရှိ <a class="reference internal" href="../../../_images/mIconProjectionEnabled.png"><img alt="projectionEnabled" src="../../../_images/mIconProjectionEnabled.png" style="width: 1.5em;" /></a> <sup>Current CRS</sup> ခလုတ်ကိုနှိပ်ပါ။ ပေါ်လာသော dialog ၏ <span class="guilabel">CRS</span> tab ထဲတွင် “Filter” tool ကိုသုံးပြီး “33S” ဟုရိုက်ရှာပါ။ <span class="guilabel">WGS 84 / UTM zone 33S</span> (EPSG code <code class="docutils literal notranslate"><span class="pre">32733</span></code> ဖြင့်) ကိုရွေးပါ။</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+<figure class="align-center" id="id1">
+<img alt="../../../_images/crs.png" src="../../../_images/crs.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">CRS သတ်မှတ်ပေးခြင်း</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Save Project</sup> ခလုတ်ကို နှိပ်ပြီး သို့မဟုတ် <span class="menuselection">Project ► Save As…</span> menu item ကိုအသုံးပြုပြီး project ကိုသိမ်းဆည်းပါ။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဆိုသည့် ဖိုင်လမ်းကြောင်းအသစ်ကို သင့်ကွန်ပျူတာထဲတွင် ဖန်တီးထားပြီး project ကို ၎င်းဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းပါ။ Layer များကို ဖန်တီးတိုင်း ထိုဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းပါ။ Project ကို <code class="file docutils literal notranslate"><span class="pre">your_name_fynbos.qgs</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p>
+</li>
+</ol>
+</section>
+<section id="data-loading-data-into-the-map">
+<h2><span class="section-number">8.4.4. </span>မြေပုံထဲသို့ Data များထည့်သွင်းခြင်း (Loading Data into the Map)<a class="headerlink" href="#data-loading-data-into-the-map" title="Link to this heading"></a></h2>
+<p>Data ကို process လုပ်ဆောင်ရန် လိုအပ်သော layer (street name များ ၊ zone များ ၊ rainfall ၊ DEM ၊ district များ) များကို မြေပုံ canvas ထဲသို့ ထည့်သွင်းရန် လိုအပ်ပါသည်။</p>
+<section id="vector">
+<h3>Vector များအတွက်—<a class="headerlink" href="#vector" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><em>Data Source Manager Toolbar</em> ထဲရှိ <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> ကိုနှိပ်ပြီး ပေါ်လာသော dialog ထဲတွင် <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Vector</span> tab ကိုဖွင့်ပါ သို့မဟုတ် <span class="menuselection">Layer ► Add Layer ►</span> <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add Vector Layer…</span> menu item ကိုအသုံးပြုပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">File</span> ကိုရွေးချယ်ထားပါ</p></li>
+<li><p>Vector dataset (များ) ကို ဖွင့်ရန် <span class="guilabel">…</span> ခလုတ်ကို နှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">exercise_data/more_analysis/Streets</span></code> ဖိုင်လမ်းကြောင်းကို ဖွင့်ပါ</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">Street_Names_UTM33S.shp</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Open</span> ကိုနှိပ်ပါ</p>
+<p>မူရင်း Dialog ပေါ်လာမည်ဖြစ်ပြီး <span class="guilabel">Vector dataset(s)</span> ဘေးရှိ စာသား field ထဲတွင် သတ်မှတ်ပေးထားသော ဖိုင်လမ်းကြောင်းပေါ်နေမည်ဖြစ်သည်။
+ဖိုင်ကို မှန်မှန်ကန်ကန် ရွေးချယ်ထားမထား ထိုထဲတွင် ကြည့်နိုင်ပါသည်။ ထို field ထဲတွင် ဖိုင်လမ်းကြောင်းကို ကိုယ်တိုင်လည်းရိုက်ထည့်ပေးနိုင်ပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Add</span> ကိုနှိပ်ပါ။ Vector layer ကို မြေပုံထဲသို့ ထည့်သွင်းပေးပါလိမ့်မည်။ ၎င်းအတွက် အရောင်ကို အလိုအလျှောက် သတ်မှတ်ပေးပါမည်။ အရောင်ကို နောက်ပိုင်းတွင် ပြောင်းလဲပါမည်။</p></li>
+<li><p>Layer ကို <code class="docutils literal notranslate"><span class="pre">Streets</span></code> ဟူ၍ အမည်ပြောင်းပေးပါ။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ ၎င်း layer ပေါ်တွင် right-click နှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Rename</span> ကို click နှိပ်ပြီး layer ကို အမည်ပြောင်းပါ၊ ပြီးလျှင် <kbd class="kbd docutils literal notranslate">Enter</kbd> နှိပ်ပါ</p></li>
+</ol>
+</li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">Zoning</span></code> ဖိုင်လမ်းကြောင်းထဲရှိ <code class="file docutils literal notranslate"><span class="pre">Generalised_Zoning_Dissolve_UTM33S.shp</span></code> ဖိုင်ကို ထည့်သွင်းပါ။</p></li>
+<li><p>၎င်းကို <code class="docutils literal notranslate"><span class="pre">Zoning</span></code> ဟု အမည်ပြောင်းပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">admin_boundaries/Western_Cape_UTM33S.shp</span></code> vector layer ကိုလည်း မြေပုံထဲသို့ ထည့်သွင်းပါ။</p></li>
+<li><p>၎င်းကို <code class="docutils literal notranslate"><span class="pre">Districts</span></code> ဟု အမည်ပြောင်းပါ။</p></li>
+</ol>
+</section>
+<section id="raster">
+<h3>Raster များအတွက်—<a class="headerlink" href="#raster" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> ခလုတ်ကိုနှိပ်ပြီး ပေါ်လာသော dialog ထဲတွင် <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Raster</span> tab ကိုဖွင့်ပေးပါ၊ သို့မဟုတ် <span class="menuselection">Layer ► Add Layer ►</span> <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add Raster Layer…</span> menu item ကိုအသုံးပြုပါ</p></li>
+<li><p>Ensure that <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">File</span> is selected</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">File</span> ကိုရွေးချယ်ထားပါ</p></li>
+<li><p>သင့်လျော်သည့်ဖိုင်နေရာသို့ ညွှန်ပေးပြီး ဖိုင်ကို ရွေးချယ်ကာ <span class="guilabel">Open</span> ကိုနှိပ်ပါ</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">DEM/SRTM.tif</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">rainfall/reprojected/rainfall.tif</span></code> raster ဖိုင် ၂ ခုကို ထိုအတိုင်းပင်ဖွင့်ပါ</p></li>
+<li><p>SRTM raster ကို <code class="docutils literal notranslate"><span class="pre">DEM</span></code> ဟုအမည်ပြောင်းပေးပြီး rainfall raster ကို <code class="docutils literal notranslate"><span class="pre">Rainfall</span></code> (အစစာလုံး အကြီးဖြင့်) ဟုအမည်ပြောင်းပေးပါ</p></li>
+</ol>
+</section>
+</section>
+<section id="layer-changing-the-layer-order">
+<h2><span class="section-number">8.4.5. </span>Layer အပေါ်အောက်အစီအစဉ် ပြောင်းလဲခြင်း (Changing the layer order)<a class="headerlink" href="#layer-changing-the-layer-order" title="Link to this heading"></a></h2>
+<p><span class="guilabel">Layers</span> panel ထဲတွင် layer များကို click နှိပ်ဖိဆွဲပြီး အပေါ်အောက်ရွှေ့ကာ မြေပုံပေါ်တွင် မြင်ရသည့် order ကိုပြောင်းလဲနိုင်ပါသည်။</p>
+<p>ယခုဆိုလျှင် data များအားလုံးကို ထည့်သွင်းပြီးဖြစ်ကာ analysis ကို စတင်နိုင်ပြီဖြစ်ပါသည်။ Clipping (တိဖြတ်ခြင်း) လုပ်ဆောင်မှုကို ဦးစွာ လုပ်ဆောင်ထားလျှင် အကောင်းဆုံးဖြစ်ပါသည်။ ထိုသို့လုပ်ဆောင်ခြင်းဖြင့် မလိုအပ်သည့်ဧရိယာများတွင် တန်ဖိုးများတွက်ချက်ရန်မလိုအပ်တော့သောကြောင့် လုပ်ဆောင်မှုစွမ်းအား မြန်ဆန်လာစေပါသည်။</p>
+</section>
+<section id="find-the-correct-districts">
+<h2><span class="section-number">8.4.6. </span>မှန်ကန်သော ခရိုင်များကို ရှာဖွေခြင်း (Find the Correct Districts)<a class="headerlink" href="#find-the-correct-districts" title="Link to this heading"></a></h2>
+<p>ရှေ့တွင်ဖော်ပြထားသော ရှာဖွေမည့်ဧရိယာအရ အောက်ဖော်ပြပါ ခရိုင်များအတွင်း ကန့်သတ်ရန် လိုအပ်ပါသည်-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Bellville</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Goodwood</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Kuils</span> <span class="pre">River</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mitchells</span> <span class="pre">Plain</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Simon</span> <span class="pre">Town</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Wynberg</span></code></p></li>
+</ul>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">Districts</span></code> layer ပေါ်တွင် right-click နှိပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော menu ထဲတွင် <span class="guilabel">Filter…</span> menu item ကိုရွေးပါ။ <span class="guilabel">Query Builder</span> dialog ပေါ်လာပါမည်။</p></li>
+<li><p>သတ်မှတ်ထားသည့် district များကိုသာ ရွေးချယ်ရန် query တစ်ခုတည်ဆောက်ပါမည်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Fields</span> list ထဲတွင် <code class="docutils literal notranslate"><span class="pre">NAME_2</span></code> field ကို click နှစ်ချက်နှိပ်ပါ၊ အောက်တွင်ရှိသည့် <span class="guilabel">SQL where clause</span> စာသား field ထဲတွင် ပေါ်လာမည်ဖြစ်သည်။</p></li>
+<li><p>SQL query ထဲတွင် ဆက်ရေးရန် <span class="guilabel">IN</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(</span></code> လက်သည်းကွင်း အဖွင့်ရေးပါ။</p></li>
+<li><p><span class="guilabel">Values</span> list အောက်ရှိ <span class="guilabel">All</span> ခလုတ်ကိုနှိပ်ပါ။</p>
+<p>အနည်းငယ်ကြာပြီးနောက်တွင် ရွေးချယ်ထားသော field (<code class="docutils literal notranslate"><span class="pre">NAME_2</span></code>) ၏တန်ဖိုးများပါဝင်သော <span class="guilabel">Values</span> list ပေါ်လာပါလိမ့်မည်။</p>
+</li>
+<li><p>SQL query ထဲတွင် ဆက်တွဲရေးသားရန် <span class="guilabel">Values</span> list ထဲရှိ <code class="docutils literal notranslate"><span class="pre">Bellville</span></code> ကို click နှစ်ချက်နှိပ်ပါ။</p></li>
+<li><p>ကော်မာ (,) တစ်ခုထည့်ပြီး <code class="docutils literal notranslate"><span class="pre">Cape</span></code> district ကိုထည့်ရန် click နှစ်ချက်နှိပ်ပါ။</p></li>
+<li><p>ကျန်ရှိသော district များအတွက် အထက်ပါအဆင့်အတိုင်း ထပ်ခါထပ်ခါလုပ်ဆောင်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">)</span></code> လက်သည်းကွင်း ပိတ်ပါ။</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<img alt="../../../_images/query_builder.png" src="../../../_images/query_builder.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">Query builder</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<div class="legend">
+<p>နောက်ဆုံး query သည် အောက်ပါအတိုင်းဖြစ်သင့်ပါသည် (Bracket ထဲရှိ district များ၏ order သည် အရေးမကြီးပါ)-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;NAME_2&quot;</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;Bellville&#39;</span><span class="p">,</span> <span class="s1">&#39;Cape&#39;</span><span class="p">,</span> <span class="s1">&#39;Goodwood&#39;</span><span class="p">,</span> <span class="s1">&#39;Kuils River&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Mitchells Plain&#39;</span><span class="p">,</span> <span class="s1">&#39;Simon Town&#39;</span><span class="p">,</span> <span class="s1">&#39;Wynberg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">OR</span></code> operator ကိုလည်း အသုံးပြုနိုင်ပါသည်၊ query သည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Bellville&#39;</span> <span class="n">OR</span> <span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Cape&#39;</span> <span class="n">OR</span>
+<span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Goodwood&#39;</span> <span class="n">OR</span> <span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Kuils River&#39;</span> <span class="n">OR</span>
+<span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Mitchells Plain&#39;</span> <span class="n">OR</span> <span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Simon Town&#39;</span> <span class="n">OR</span>
+<span class="s2">&quot;NAME_2&quot;</span> <span class="o">=</span> <span class="s1">&#39;Wynberg&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p><span class="guilabel">OK</span> နှစ်ကြိမ်နှိပ်ပါ။</p>
+<p>အထက်ပါ စာရင်းထဲရှိ district များသာ မြေပုံပေါ်တွင် ပေါ်နေမည်ဖြစ်သည်။</p>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="raster-clip-the-rasters">
+<h2><span class="section-number">8.4.7. </span>Raster များအား တိဖြတ်ခြင်း (Clip the Rasters)<a class="headerlink" href="#raster-clip-the-rasters" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် စိတ်ဝင်စားသည့် ဧရိယာတစ်ခုရှိပြီး raster များကို အဆိုပါ ဧရိယာဖြင့် တိဖြတ် (clip) နိုင်ပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="menuselection">Raster ► Extraction ► Clip Raster by Mask Layer…</span> menu item ကိုရွေးချယ်ပြီး clipping dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Input layer</span> dropdown list ထဲတွင် <code class="docutils literal notranslate"><span class="pre">DEM</span></code> layer ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Mask layer</span> dropdown list ထဲတွင် <code class="docutils literal notranslate"><span class="pre">Districts</span></code> layer ကိုရွေးချယ်ပါ</p></li>
+<li><p>အောက်သို့ scroll လုပ်ပြီး <span class="guilabel">Clipped (mask)</span> စာသား field ထဲတွင် output တည်နေရာကိုသတ်မှတ်ရန်  <span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပြီး <span class="guilabel">Save to File…</span> ကိုရွေးချယ်ပါ</p>
+<ol class="arabic simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းသို့ ညွှန်ပေးပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEM_clipped.tif</span></code> ဟူသော ဖိုင်အမည်ကို ရိုက်ထည့်ပါ</p></li>
+<li><p>Save လုပ်ပါ</p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p>
+<p>Clipping လုပ်ဆောင်မှု ပြီးဆုံးသွားပြီးနောက်တွင် clip လုပ်ထားသော ဧရိယာကို ပြန်လည်အသုံးပြုနိုင်စေရန် <span class="guilabel">Clip Raster by Mask Layer</span> dialog ကိုဆက်ဖွင့်ထားပါ</p>
+</li>
+<li><p><span class="guilabel">Input layer</span> dropdown list ထဲတွင် <code class="docutils literal notranslate"><span class="pre">Rainfall</span></code> raster layer ကိုရွေးချယ်ပြီး output ကို <code class="file docutils literal notranslate"><span class="pre">Rainfall_clipped.tif</span></code> ဖိုင်အနေဖြင့် သိမ်းဆည်းပါ</p></li>
+<li><p>အခြား option များကို မပြောင်းလဲပဲ ထားပြီး <span class="guilabel">Run</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ဒုတိယ clipping လုပ်ဆောင်မှု ပြီးဆုံးသွားပြီးနောက်တွင် <span class="guilabel">Clip Raster by Mask Layer</span> dialog ကိုပိတ်ထားနိုင်ပါသည်။</p></li>
+<li><p>မြေပုံကို သိမ်းဆည်းပါ။</p>
+<figure class="align-center" id="id3">
+<img alt="../../../_images/clipped_r_filtered_v_reordered_l.png" src="../../../_images/clipped_r_filtered_v_reordered_l.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text">Filter လုပ်ထားသော vector ၊ clip လုပ်ထားသော raster နှင့် order ပြန်စီထားသော layer များပါဝင်သော မြေပုံမြင်ကွင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<section id="raster-align-the-rasters">
+<h3>Raster များကို တန်းညှိခြင်း (Align the rasters)<a class="headerlink" href="#raster-align-the-rasters" title="Link to this heading"></a></h3>
+<p>Analysis အတွက် raster များသည် CRS အတူတူရှိရန် လိုအပ်ပြီး ၎င်းတို့ကို align ပြုလုပ်ပေးရပါမည်။</p>
+<p>Rainfall data ၏ resolution ကို 30 မီတာ (pixel အရွယ်အစား) သို့ ဦးစွာပြောင်းလဲပါမည်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ  <code class="docutils literal notranslate"><span class="pre">Rainfall_clipped</span></code> layer ပေါ်တွင် click နှိပ်ထားပါ (၎င်းကို highlight ဖြင့်ပြနေမည်ဖြစ်သည်)</p></li>
+<li><p><span class="guilabel">Warp (Reproject)</span> dialog ကိုဖွင့်ရန် <span class="menuselection">Raster ► Projections ► Warp (Reproject)…</span> menu item ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Resampling method to use</span> အောက်တွင် <span class="guilabel">Bilinear (2x2 kernel)</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Output file resolution in target georeferenced units</span> တွင် <code class="docutils literal notranslate"><span class="pre">30</span></code> ဟုသတ်မှတ်ပါ</p></li>
+<li><p>အောက်သို့ scroll လုပ်ပြီး <span class="guilabel">Reprojected</span> အကွက်ထဲတွင် output ကို <code class="file docutils literal notranslate"><span class="pre">Rainfall30.tif</span></code> ဖိုင်အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">rainfall/reprojected</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p>
+<figure class="align-center" id="id4">
+<img alt="../../../_images/wrap_rainfall.png" src="../../../_images/wrap_rainfall.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.6 </span><span class="caption-text">Warp (Reproject) Rainfall_clipped</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>ထို့နောက် DEM ကို align လုပ်ပါမည်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">DEM_clipped</span></code> ပေါ်တွင် click နှိပ်ထားပါ (၎င်းကို highlight ဖြင့်ပြနေမည်ဖြစ်သည်)</p></li>
+<li><p><span class="guilabel">Warp (Reproject)</span> dialog ကိုဖွင့်ရန် <span class="menuselection">Raster ► Projections ► Warp (Reproject)…</span> menu item ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Target CRS</span> အောက်တွင် <span class="guilabel">Project CRS: EPSG:32733 - WGS 84 / UTM zone 33S</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Resampling method to use</span> တွင် <span class="guilabel">Bilinear (2x2 kernel)</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Output file resolution in target georeferenced units</span> တွင် <code class="docutils literal notranslate"><span class="pre">30</span></code> ဟုသတ်မှတ်ပါ</p></li>
+<li><p>အောက်သို့ scroll လုပ်ပြီး <span class="guilabel">Georeferenced extents of output file to be created</span> ၏ညာဘက်ရှိ ခလုတ်ကိုနှိပ်ပြီး <span class="menuselection">Calculate from Layer ► Rainfall30</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p>အောက်သို့ scroll လုပ်ပြီး <span class="guilabel">Reprojected</span> အကွက်ထဲတွင် output ကို <code class="file docutils literal notranslate"><span class="pre">DEM30.tif</span></code> ဖိုင်အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">DEM/reprojected</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+</ol>
+<p>ကောင်းမွန်စွာမြင်ရနိုင်ရန်အတွက် layer များအတွက် သင်္ကေတများကို ပြောင်းလဲပေးရန် လိုအပ်ပါသည်။</p>
+</section>
+</section>
+<section id="vector-layer-changing-the-symbology-of-vector-layers">
+<h2><span class="section-number">8.4.8. </span>Vector layer များ၏ သင်္ကေတပြောင်းလဲခြင်း (Changing the symbology of vector layers)<a class="headerlink" href="#vector-layer-changing-the-symbology-of-vector-layers" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <span class="guilabel">Streets</span> layer ပေါ်တွင် right-click နှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော menu မှ <span class="guilabel">Properties</span> ကိုရွေးပါ</p></li>
+<li><p>ထပ်မံပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Symbology</span> tab သို့သွားပါ</p></li>
+<li><p>အပေါ်ရှိ <span class="guilabel">Line</span> entry တွင် click နှိပ်ပါ</p></li>
+<li><p>စာရင်းထဲရှိ သင်္ကေတတစ်ခုကိုရွေးချယ်ပါ သို့မဟုတ် အသစ်တစ်ခုသတ်မှတ်ပါ (အရောင်၊ အလင်းဖောက်နှုန်း၊….)</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပြီး <span class="guilabel">Layer Properties</span> dialog ကိုပိတ်ပါ။ <span class="guilabel">Streets</span> layer ၏ ပုံဖော်ပြသမှု ပြောင်းလဲသွားပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Zoning</span> layer အတွက်လည်း ထိုအတိုင်းလုပ်ဆောင်ပြီး သင့်တော်သည့် အရောင်တစ်ခု ရွေးချယ်ပါ</p></li>
+</ol>
+</section>
+<section id="raster-layer-changing-the-symbology-of-raster-layers">
+<span id="changing-raster-symbology"></span><h2><span class="section-number">8.4.9. </span>Raster layer များ၏ သင်္ကေတပြောင်းလဲခြင်း (Changing the symbology of raster layers)<a class="headerlink" href="#raster-layer-changing-the-symbology-of-raster-layers" title="Link to this heading"></a></h2>
+<p>Raster layer သင်္ကေတသည် အနည်းငယ်ကွဲပြားပါသည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Rainfall30</span> raster layer အတွက် <span class="guilabel">Properties</span> dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Symbology</span> tab သို့သွားပါ။ Dialog သည် vector layer များအတွက် dialog နှင့် အလွန်ကွဲပြားသည်ကို သတိထားမိပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Min/Max Value Settings</span> ကို ဖြန့်ကြည့်ပါ</p></li>
+<li><p><span class="guilabel">Mean +/- standard deviation</span> ကိုရွေးချယ်ထားပါ</p></li>
+<li><p>၎င်း၏သက်ဆိုင်ရာ အကွက်ထဲရှိ တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">2.00</span></code> ထားပါ</p></li>
+<li><p><span class="guilabel">Contrast enhancement</span> အတွက် <span class="guilabel">Stretch to MinMax</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Color gradient</span> အတွက် <span class="guilabel">White to Black</span> သို့ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p>
+<figure class="align-center" id="id5">
+<img alt="../../../_images/raster_symbology.png" src="../../../_images/raster_symbology.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.7 </span><span class="caption-text">Raster symbology</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><code class="docutils literal notranslate"><span class="pre">Rainfall30</span></code> raster သည် အရောင်ပြောင်းလဲသွားမည်ဖြစ်ပြီး pixel တစ်ခုချင်းစီအတွက် မတူညီသော တောက်ပမှု (brightness) တန်ဖိုးများကို တွေ့မြင်ရမည်ဖြစ်သည်။</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEM30</span></code> layer အတွက်လည်း ထိုအတိုင်းလုပ်ဆောင်ပြီး stretching အတွက်အသုံးပြုသော standard deviations တွင် <code class="docutils literal notranslate"><span class="pre">4.00</span></code> ဟုသတ်မှတ်ပါ</p></li>
+</ol>
+</section>
+<section id="clean-up-the-map">
+<h2><span class="section-number">8.4.10. </span>မြေပုံကို ရှင်းလင်းခြင်း (Clean up the map)<a class="headerlink" href="#clean-up-the-map" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲမှ မူလ <code class="docutils literal notranslate"><span class="pre">Rainfall</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">DEM</span></code> layer များအပြင် <code class="docutils literal notranslate"><span class="pre">Rainfall_clipped</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">DEM_clipped</span></code> layer များကို ဖယ်ရှားပါ-</p>
+<ul>
+<li><p>အဆိုပါ layer များပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Remove</span> ကိုရွေးပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ထိုသို့လုပ်ခြင်းသည် သင့်ကွန်ပျူတာ မှ data များကို ဖယ်ရှားလိုက်ခြင်းမဟုတ်ပဲ မြေပုံပေါ်မှသာ ဖယ်ရှားလိုက်ခြင်းဖြစ်သည်။</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>မြေပုံကို သိမ်းဆည်းပါ။</p></li>
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ vector layer များ၏ဘေးရှိ box တွင် အမှန်ခြစ်ဖြုတ်ထားခြင်းခြင်း ၎င်း vector layer များကို ဖျောက်ထားနိုင်ပါသည်။ ထိုသို့လုပ်ခြင်းဖြင့် မြေပုံထဲတွင်ပုံဖော်ပြသမှု မြန်ဆန်စေပြီး အချိန်ကုန်သက်သာစေပါသည်။</p></li>
+</ol>
+</section>
+<section id="create-the-hillshade">
+<h2><span class="section-number">8.4.11. </span>တောင်အရိပ် ဖန်တီးခြင်း (Create the hillshade)<a class="headerlink" href="#create-the-hillshade" title="Link to this heading"></a></h2>
+<p>Hillshade ဖန်တီးရန်အတွက် ရေးသားထားသော algorithm တစ်ခုကို အသုံးပြုရန် လိုအပ်ပါလိမ့်မည်။</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <code class="docutils literal notranslate"><span class="pre">DEM30</span></code> ပေါ်တွင် click နှိပ်ထားပါ (၎င်းကို highlight ဖြင့်ပြနေမည်ဖြစ်သည်)</p></li>
+<li><p><span class="guilabel">Hillshade</span> dialog ကိုဖွင့်ရန် <span class="menuselection">Raster ► Analysis ► Hillshade…</span> menu item ကိုနှိပ်ပါ</p></li>
+<li><p>အောက်သို့ scroll လုပ်ပြီး <span class="guilabel">Hillshade</span> အကွက်တွင် output ကို <code class="file docutils literal notranslate"><span class="pre">hillshade.tif</span></code> ဟူသော အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Processing ပြီးဆုံးသည်အထိ စောင့်ပါ။</p>
+<figure class="align-center" id="id6">
+<img alt="../../../_images/hillshade.png" src="../../../_images/hillshade.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.8 </span><span class="caption-text">Raster analysis Hillshade</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p><span class="guilabel">Layers</span> panel ထဲတွင် <code class="docutils literal notranslate"><span class="pre">hillshade</span></code> layer အသစ်ပေါ်လာမည်ဖြစ်သည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">hillshade</span></code> layer ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Properties</span>
+dialog ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Transparency</span> tab တွင် <span class="guilabel">Global Opacity</span> ၌ <code class="docutils literal notranslate"><span class="pre">20%</span></code> သတ်မှတ်ပါ</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>အလင်းဖောက်ထားသော hillshade သည် clip ပြုလုပ်ထားသော DEM ပေါ်တွင် အထင်အရှားရောက်နေသောအခါ မြင်ရသည့် effect ကိုကြည့်ပါ။ Layer များ၏ order ကို ပြောင်းလဲပေးနိုင်ပါသည်၊ သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">Rainfall30</span></code> layer ကို ပိတ်ထားပြီး effect ကို ကြည့်ရှုနိုင်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="slope">
+<h2><span class="section-number">8.4.12. </span>လျှောစောက် (Slope)<a class="headerlink" href="#slope" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="guilabel">Slope</span> algorithm dialog ကိုဖွင့်ရန် <span class="menuselection">Raster ► Analysis ► Slope…</span> menu item ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Input layer</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">DEM30</span></code> ကိုရွေးချယ်ပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Slope expressed as percent instead of degrees</span> ကိုအမှန်ခြစ်ပါ။ Slope ကို မတူညီသော ယူနစ်များဖြင့် ဖော်ပြပေးနိုင်ပါသည် (ရာခိုင်နှုန်း သို့မဟုတ် ဒီဂရီ)။ ကျွန်ုပ်တို့၏ criteria တွင် အပင်ပေါက်ရောက်နိုင်သည့် slope သည် 15% နှင့် 60% ဖြစ်သည့်အတွက် slope data ကို percent (ရာခိုင်နှုန်း) ဖြင့်ဖော်ပြရန် လိုအပ်ပါသည်။</p></li>
+<li><p>Output အတွက် သင့်တော်မည့် ဖိုင်အမည်နှင့် ဖိုင်လမ်းကြောင်းကို သတ်မှတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှတ်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p>
+<figure class="align-center" id="id7">
+<img alt="../../../_images/slope.png" src="../../../_images/slope.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.9 </span><span class="caption-text">Raster analysis Slope</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Slope image ကို တွက်ချက်ပြီး မြေပုံထဲသို့ ထည့်သွင်းပြီးဖြစ်ပါသည်။ ခါတိုင်းလိုပင် ၎င်းကို grayscale ဖြင့် ပုံဖော်ပြသနေပါမည်။ အရောင်ပိုမိုစုံလင်သော သင်္ကေတတစ်ခုသို့ ပြောင်းလဲပါ-</p>
+<ol class="arabic simple">
+<li><p>Layer ၏ <span class="guilabel">Properties</span> dialog  ကိုဖွင့်ပါ (ခါတိုင်းလိုပင် layer ကို right-click နှိပ်ပြီး)</p></li>
+<li><p><span class="guilabel">Symbology</span> tab သို့သွားပါ</p></li>
+<li><p><span class="guilabel">Singleband gray</span> ဟုဖော်ပြထားသော နေရာ (<span class="guilabel">Render type</span> dropdown menu ထဲတွင်) တွင် <span class="guilabel">Singleband pseudocolor</span> သို့ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">Min / Max Value Settings</span> အတွက် <span class="guilabel">Mean +/- standard deviation x</span> ကိုရွေးချယ်ပြီး တန်ဖိုးကို <code class="docutils literal notranslate"><span class="pre">2.0</span></code> ဟုသတ်မှတ်ပါ</p></li>
+<li><p>သင့်တော်သော <span class="guilabel">Color ramp</span> တစ်ခုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+</section>
+<section id="try-yourself-aspect">
+<h2><span class="section-number">8.4.13. </span>မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မျက်နှာမူရာအရပ် (Try Yourself: Aspect)<a class="headerlink" href="#try-yourself-aspect" title="Link to this heading"></a></h2>
+<p><span class="menuselection">Raster ► Analysis</span> menu ထဲမှ <span class="guilabel">Aspect…</span> ကိုရွေးချယ်ပြီး slope တွက်ချက်သည့်အတိုင်း လုပ်ဆောင်ပါ။</p>
+<p>Project ကို အခါအားလျော်စွာ သိမ်းဆည်းပေးရန် မမေ့ပါနှင့်။</p>
+</section>
+<section id="raster-reclassifying-rasters">
+<h2><span class="section-number">8.4.14. </span>Raster များအား အတန်းအစားပြန်လည်ခွဲခြားခြင်း (Reclassifying rasters)<a class="headerlink" href="#raster-reclassifying-rasters" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="menuselection">Raster ► Raster calculator…</span> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Output layer</span> အတွက် ဖိုင်လမ်းကြောင်းအဖြစ် <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ကို သတ်မှတ်ပြီး <code class="file docutils literal notranslate"><span class="pre">slope15_60.tif</span></code> ဖိုင်အမည်ဖြင့် သိမ်းဆည်းပါ</p></li>
+<li><p><span class="guilabel">Open output file after running algorithm</span> တွင် အမှန်ခြစ်ခြစ်ထားပါ</p>
+<p>ဘယ်ဘက်ခြမ်းရှိ <span class="guilabel">Raster bands</span> စာရင်းထဲတွင် <span class="guilabel">Layers</span> panel ထဲရှိ raster layer များအားလုံးကို မြင်တွေ့ရပါလိမ့်မည်။ Slope layer သည် <span class="guilabel">slope</span> ဟူသောအမည်ဖြင့်ရှိနေလျှင် ၎င်းကို <code class="docutils literal notranslate"><span class="pre">slope&#64;1</span></code> အနေဖြင့် စာရင်းပြုစုထားပါလိမ့်မည်။ Slope raster ၏ band 1 ကို ညွှန်းဆိုခြင်းဖြစ်ပါသည်။</p>
+</li>
+<li><p>Slope သည်  <code class="docutils literal notranslate"><span class="pre">15</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">60</span></code> ဒီဂရီကြားတွင် ရှိရန်လိုအပ်ပါသည်။</p>
+<p>Interface ထဲရှိ list item များနှင့် ခလုတ်များကိုအသုံးပြုပြီး အောက်ပါ expression ကိုရေးသားပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">slope</span><span class="o">@</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">slope</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><span class="guilabel">Output layer</span> field တွင် သင့်တော်မည့် ဖိုင်အမည်နှင့် ဖိုင်လမ်းကြောင်း သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p>
+<figure class="align-center" id="id8">
+<img alt="../../../_images/raster_calculator_slope.png" src="../../../_images/raster_calculator_slope.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.10 </span><span class="caption-text">Raster calculator Slope</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>အထက်ပါနည်းလမ်းအတိုင်း မှန်ကန်သော aspect (အရှေ့ဘက်မျက်နှာမူ- <code class="docutils literal notranslate"><span class="pre">45</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">135</span></code> ဒီဂရီအကြား) ကိုရှာဖွေပါ။</p>
+<ol class="arabic">
+<li><p>အောက်ပါ expression ကိုရေးသားပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">45</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span><span class="n">aspect</span><span class="o">@</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">135</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>ရလာဒ် layer ထဲတွင် အရှေ့ဘက်မျက်နှာမူသော slope များအားလုံးသည် အဖြူရောင် ဖြစ်နေမည်ဖြစ်သည် (မနက်ခင်းနေရောင်ခြည် ကျရောက်နေသည့်အတိုင်း)။</p>
+<p>ထိုနည်းအတိုင်း မှန်ကန်သော rainfall (<code class="docutils literal notranslate"><span class="pre">1000</span></code> မီလီမီတာထက် ပိုများသော) ကိုရှာဖွေပါ။ အောက်ပါ expression ကို အသုံးပြုပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Rainfall30</span><span class="o">@</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<p>ယခုဆိုလျှင် criteria ၃ ခုစလုံးအား raster တစ်ခုချင်းစီအဖြစ် ရရှိပြီဖြစ်ပါသည်။ မည်သည့်ဧရိယာများသည် criteria အားလုံးနှင့်ကိုက်ညီသည်ကို ရှာဖွေရန် ၎င်း raster များကို ပေါင်းစည်းရန် လိုအပ်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် raster များကို တစ်ခုနှင့်တစ်ခု မြှောက်ပေးရပါမည်။ ထိုသို့မြှောက်ပေးသောအခါ တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> ရှိသော ထပ်နေသည့် pixel များအားလုံးသည် တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> အဖြစ်သာ ကျန်ရှိပါလိမ့်မည် (ဆိုလိုသည်မှာ ထိုနေရာသည် criteria နှင့်ကိုက်ညီသော နေရာဖြစ်သည်)၊ သို့သော် raster ၃ ခုထဲမှ တစ်ခုခုတွင် pixel တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">0</span></code> ရှိနေလျှင် (ဆိုလိုသည်မှာ ထိုနေရာသည် criteria နှင့်မကိုက်ညီသော နေရာဖြစ်သည်) ရလာဒ်တွင် <code class="docutils literal notranslate"><span class="pre">0</span></code> ဖြစ်နေပါလိမ့်မည်။ ဤနည်းအားဖြင့် ရလာဒ်တွင် သင့်တော်သည့် criteria များအားလုံးနှင့်ကိုက်ညီသော ဧရိယာများသာပါဝင်ပါလိမ့်မည်။</p>
+</section>
+<section id="raster-combining-rasters">
+<h2><span class="section-number">8.4.15. </span>Raster များပေါင်းစည်းခြင်း (Combining rasters)<a class="headerlink" href="#raster-combining-rasters" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><em>Raster Calculator</em> ကိုဖွင့်ပါ (<span class="menuselection">Raster ► Raster Calculator…</span>)</p></li>
+<li><p>အောက်ပါ expression ကိုရေးသားပါ (layer များအတွက် သင့်တော်သော အမည်များဖြင့်)-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">aspect45_135</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="n">slope15_60</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="n">rainfall_1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Output ဖိုင်လမ်းကြောင်းကို <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> အဖြစ်သတ်မှတ်ပါ</p></li>
+<li><p>Output raster ကို <code class="file docutils literal notranslate"><span class="pre">aspect_slope_rainfall.tif</span></code> ဖိုင်အမည်ပေးပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>Raster အသစ်သည် Criteria ၃ ခုစလုံးနှင့်ကိုက်ညီသော ဧရိယာများကိုပြသပေးမည်ဖြစ်ပါသည်။</p>
+<p>Project ကိုသိမ်းဆည်းပါ။</p>
+<figure class="align-center" id="id9">
+<img alt="../../../_images/aspect_slope_rainfall.png" src="../../../_images/aspect_slope_rainfall.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.11 </span><span class="caption-text">Criteria ၃ ခုစလုံးနှင့်ကိုက်ညီသော မြေပုံမြင်ကွင်း</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>နောက်ထပ် ကိုက်ညီရမည့် criterion တစ်ခုမှာ ဧရိယာသည် မြို့ပြလူနေဧရိယာများမှ <code class="docutils literal notranslate"><span class="pre">250</span></code> မီတာ ကွာဝေးရပါမည်။ တွက်ချက်မည့်ဧရိယာသည် ကျေးလက်ဒေသဧရိယာ (rural areas) များအတွင်း ရှိရမည်ဖြစ်ပြီး ဧရိယာ၏အစွန်းမှ <code class="docutils literal notranslate"><span class="pre">250</span></code> မီတာ သို့မဟုတ် ပိုများသော အကွာအဝေးတွင်ဖြစ်ရပါမည်။ ထို့ကြောင့် ကျေးလက်ဒေသဧရိယာများကို ဦးစွာ ရှာဖွေရန် လိုအပ်ပါသည်။</p>
+</section>
+<section id="finding-rural-areas">
+<h2><span class="section-number">8.4.16. </span>ကျေးလက်ဒေသဧရိယာများ ရှာဖွေခြင်း (Finding rural areas)<a class="headerlink" href="#finding-rural-areas" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ layer များအားလုံးကို ဖျောက်ထားပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Zoning</span></code> vector layer ကို ဖွင့်ထားပါ</p></li>
+<li><p>၎င်း layer ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Attribute Table</span> dialog ကိုဖွင့်ပါ။ ဤနေရာတွင် မြေနေရာကို နည်းလမ်းအမျိုးမျိုးဖြင့် zone ခွဲထားပါသည်။ ကျေးလက်ဒေသဧရိယာများကို သီးသန့်ခွဲထုတ်လိုပါသည်။ Attribute table ကိုပိတ်လိုက်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Zoning</span></code> layer ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Query Builder</span> dialog ကိုဖွင့်ရန် <span class="guilabel">Filter…</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p>အောက်ပါ query ကိုရေးသားပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Gen_Zoning&quot;</span> <span class="o">=</span> <span class="s1">&#39;Rural&#39;</span>
+</pre></div>
+</div>
+<p>အခက်အခဲကြုံနေရလျှင် အစောပိုင်းကဖော်ပြခဲ့သော ညွှန်ကြားချက်များကို ကြည့်ပါ။</p>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပြီး <span class="guilabel">Query Builder</span> dialog ကိုပိတ်ပါ။ Query သည် feature တစ်ခုသာ ပြန်ထုတ်ပေးသင့်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/query_builder_zoning.png" src="../../../_images/query_builder_zoning.png" />
+</figure>
+<p>Query builder Zoning</p>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">Zoning</span></code> layer မှ rural polygon များကို မြင်တွေ့ရပါမည်။ ၎င်းတို့ကို သိမ်းဆည်းရန် လိုအပ်ပါမည်။</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Zoning</span></code> တွင် right-click နှိပ်ပြီး <span class="menuselection">Export ► Save Features As…</span> ကိုရွေးချယ်ပါ။</p></li>
+<li><p>Layer ကို <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းအောက်တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Output ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">rural.shp</span></code> ဟုအမည်ပေးပါ</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Project ကို သိမ်းဆည်းပါ</p></li>
+</ol>
+<p>Rural ဧရိယာများ၏အစွန်းမှ <code class="docutils literal notranslate"><span class="pre">250m</span></code> အတွင်းရှိသော ဧရိယာများကို ချန်လှပ်ထားရန် လိုအပ်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် အောက်တွင်ရှင်းပြထားသည့်အတိုင်း အတွင်းဘက် buffer (negative buffer) တစ်ခု ဖန်တီးပေးပါမည်။</p>
+</section>
+<section id="buffer-creating-a-negative-buffer">
+<h2><span class="section-number">8.4.17. </span>အတွင်းဘက် buffer တစ်ခုဖန်တီးခြင်း (Creating a negative buffer)<a class="headerlink" href="#buffer-creating-a-negative-buffer" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="menuselection">Vector ► Geoprocessing Tools ► Buffer…</span> ကိုနှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် input vector layer အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">rural</span></code> layer ကိုရွေးပါ (<span class="guilabel">Selected features only</span> ကိုအမှန်ခြစ်ဖြုတ်ထားသင့်ပါသည်)</p></li>
+<li><p><span class="guilabel">Distance</span> တွင် <code class="docutils literal notranslate"><span class="pre">-250</span></code> ဟုသတ်မှတ်ပါ။ အနုတ်တန်ဖိုးသည် buffer ကိုအတွင်းဘက်သို့ ဖန်တီးပေးမည်ဖြစ်သည်။ ယူနစ်များကို မီတာ ရွေးချယ်ထားပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Dissolve result</span> ကို အမှန်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Buffered</span> ထဲတွင် output ဖိုင်အား <code class="file docutils literal notranslate"><span class="pre">rural_buffer.shp</span></code> ဖိုင်အမည်ပေးပြီး <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းပါ</p></li>
+<li><p><span class="guilabel">Save</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပြီး processing ပြီးဆုံးသည်အထိစောင့်ပါ</p></li>
+<li><p><span class="guilabel">Buffer</span> dialog ကိုပိတ်ပါ</p>
+<p>Buffer သည် မှန်မှန်ကန်ကန်အလုပ်ဖြစ်/မဖြစ်ဆိုသည်ကို <code class="docutils literal notranslate"><span class="pre">rural</span></code> layer နှင့် <code class="docutils literal notranslate"><span class="pre">rural_buffer</span></code> layer နှစ်ခုခြားနားချက်ကို ယှဉ်ကြည့်ပါ။ ခြားနားချက်ကို မြင်တွေ့ရရန် layer order ကို ပြောင်းလဲပေးရန် လိုကောင်းလိုပါလိမ့်မည်။</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rural</span></code> layer ကို ဖယ်ရှားလိုက်ပါ</p></li>
+<li><p>Project ကိုသိမ်းဆည်းပါ</p>
+<figure class="align-center" id="id10">
+<img alt="../../../_images/rural_buffer.png" src="../../../_images/rural_buffer.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.12 </span><span class="caption-text">Rural buffer ဖြင့်မြေပုံမြင်ကွင်း</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>ယခုဆိုလျှင် <code class="docutils literal notranslate"><span class="pre">rural_buffer</span></code> vector layer ကို <code class="docutils literal notranslate"><span class="pre">aspect_slope_rainfall</span></code> raster ဖြင့်ပေါင်းစည်းရန် လိုအပ်ပါသည်။ ၎င်းတို့ကိုပေါင်းစည်းရန် layer တစ်ခုခု၏ data format ကို ပြောင်းလဲရန် လိုအပ်ပါမည်။ ဤတွင် raster ကို vector အဖြစ်သို့ပြောင်းလဲပါမည်၊ အဘယ်ကြောင့်ဆိုသော် vector layer များသည် ဧရိယာများတွက်ချက်ရာတွင် ပိုအဆင်ပြေသောကြောင့်ဖြစ်သည်။</p>
+</section>
+<section id="raster-vector-vectorizing-the-raster">
+<h2><span class="section-number">8.4.18. </span>Raster အား Vector အဖြစ်သို့ပြောင်းလဲခြင်း (Vectorizing the raster)<a class="headerlink" href="#raster-vector-vectorizing-the-raster" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="menuselection">Raster ► Conversion ► Polygonize (Raster to  Vector)…</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Input layer</span> အဖြစ် <code class="file docutils literal notranslate"><span class="pre">aspect_slope_rainfall</span></code> raster ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Name of the field to create</span> တွင် <code class="docutils literal notranslate"><span class="pre">suitable</span></code> ဟုသတ်မှတ်ပါ (default field အမည်သည် <code class="docutils literal notranslate"><span class="pre">DN</span></code> - ဒစ်ဂျစ်တယ်ဂဏန်းဒေတာ ဖြစ်ပါသည်)</p></li>
+<li><p>Output ကို သိမ်းဆည်းပါ။ <span class="guilabel">Vectorized</span> အောက်တွင် <span class="guilabel">Save file as</span> ကိုရွေးပါ။ ဖိုင်လမ်းကြောင်းကို <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> တွင်သတ်မှတ်ပြီး ဖိုင်အမည်ကို <code class="file docutils literal notranslate"><span class="pre">aspect_slope_rainfall_all.shp</span></code> ဟုအမည်ပေးပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Processing ပြီးဆုံးသွားသောအခါ dialog ကိုပိတ်ပါ။</p>
+<figure class="align-center" id="id11">
+<img alt="../../../_images/vectorized.png" src="../../../_images/vectorized.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.13 </span><span class="caption-text">Raster မှ Vector သို့</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Raster ၏ဧရိယာများအားလုံးကို vector အဖြစ်သို့ ပြောင်းလဲပြီးဖြစ်ပါသည်၊ ထို့ကြောင့် <code class="docutils literal notranslate"><span class="pre">suitable</span></code> field ထဲတွင် တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> ရှိသော ဧရိယာများကိုသာ ရွေးချယ်ရန် လိုအပ်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Vector layer အသစ်အတွက် <span class="guilabel">Query Builder</span> dialog ကိုဖွင့်ပါ (right-click -
+<span class="guilabel">Filter…</span>)</p></li>
+<li><p>အောက်ပါ query ကိုရေးပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;suitable&quot;</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Query ပြီးဆုံးကြောင်း သေချာပါက (criteria ၃ ခုစလုံးနှင့်ကိုက်ညီသော၊ ဆိုလိုသည်မှာ တန်ဖိုး <code class="docutils literal notranslate"><span class="pre">1</span></code> ရှိသော၊ ဧရိယာများကိုသာ မြင်နိုင်လျှင်) layer ကို right-click နှိပ်ပြီး <span class="menuselection">Export ► Save Features As…</span> ကိုအသုံးပြု၍ ရလာဒ်များမှ vector ဖိုင်အသစ်တစ်ခု ဖန်တီးပါ</p></li>
+<li><p>ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">aspect_slope_rainfall_1.shp</span></code> ဟုအမည်ပေးပါ</p></li>
+<li><p>မြေပုံမှ <code class="docutils literal notranslate"><span class="pre">aspect_slope_rainfall_all</span></code> layer ကိုဖယ်ရှားပါ</p></li>
+<li><p>Project ကိုသိမ်းဆည်းပါ</p></li>
+</ol>
+<p>Raster တစ်ခုကို vector အဖြစ်သို့ပြောင်းရန် algorithm တစ်ခုကိုအသုံးပြုသောအခါ တစ်ခါတရံတွင် algorithm သည် “Invalid geometries” (“ဆီလျော်မှုမရှိသောဂျီဩမေတြီများ”) ဟူ၍ ထုတ်ပေးပါသည်၊ ဆိုလိုသည်မှာ နောက်ပိုင်း ဆန်းစစ်လေ့လာခြင်းတွင် အခက်အခဲဖြစ်စေနိုင်သော polygon အလွတ်များပါနေခြင်း၊ သို့မဟုတ် အမှားများပါဝင်သော polygon များရှိနေခြင်းတို့ဖြစ်သည်။ ထို့ကြောင့် “Fix Geometry” tool ကိုအသုံးပြုရန် လိုအပ်ပါသည်။</p>
+</section>
+<section id="fixing-geometry">
+<h2><span class="section-number">8.4.19. </span>ဂျီဩမေတြီမှန်ကန်အောင်ပြုပြင်ခြင်း (Fixing geometry)<a class="headerlink" href="#fixing-geometry" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Processing Toolbox</span> ထဲတွင် “Fix geometries” ဟုရိုက်ရှာပြီး ၎င်းကို <span class="guilabel">Execute…</span> လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Input layer</span> အတွက် <code class="docutils literal notranslate"><span class="pre">aspect_slope_rainfall_1</span></code> ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Fixed geometries</span> အောက်တွင် <span class="guilabel">Save file as</span> ကိုရွေးချယ်ပြီး output ကို <code class="file docutils literal notranslate"><span class="pre">fixed_aspect_slope_rainfall.shp</span></code> ဟူသောဖိုင်အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ခြစ်ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Processing ပြီးဆုံးသွားသောအခါ dialog ကိုပိတ်ပါ</p></li>
+</ol>
+<p>ယခုဆိုလျှင် raster ကို vector အဖြစ်သို့ပြောင်းလဲပြီး ရလာဒ် ဂျီဩမေတြီကို မှန်ကန်အောင်ပြုပြင်ပြီးဖြစ်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">fixed_aspect_slope_rainfall</span></code> layer နှင့် <code class="docutils literal notranslate"><span class="pre">rural_buffer</span></code> layer နှစ်ခု ထိဖြတ်ခြင်း (intersection) ကိုရှာဖွေခြင်းဖြင့် Aspect ၊ slope နှင့် rainfall criteria များကို လူနေအိမ်များမှအကွာအဝေး (distance from human settlement) criteria ဖြင့် ပေါင်းစည်းနိုင်ပြီဖြစ်ပါသည်။</p>
+</section>
+<section id="vector-determining-the-intersection-of-vectors">
+<h2><span class="section-number">8.4.20. </span>Vector များထိဖြတ်ခြင်းကို ဆုံးဖြတ်ခြင်း (Determining the Intersection of vectors)<a class="headerlink" href="#vector-determining-the-intersection-of-vectors" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><span class="menuselection">Vector ► Geoprocessing Tools ► Intersection…</span> ကိုနှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Input layer</span> အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">rural_buffer</span></code> layer ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Overlay layer</span> အတွက်  <code class="docutils literal notranslate"><span class="pre">fixed_aspect_slope_rainfall</span></code> layer ကိုရွေးပါ</p></li>
+<li><p><span class="guilabel">Intersection</span> တွင် output ဖိုင်အား <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်း၌ သိမ်းဆည်းပါ</p></li>
+<li><p>Output ဖိုင်အား <code class="file docutils literal notranslate"><span class="pre">rural_aspect_slope_rainfall.shp</span></code> ဟုအမည်ပေးပါ</p></li>
+<li><p><span class="guilabel">Save</span> ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပြီး processing ပြီးဆုံးသည်အထိစောင့်ပါ</p></li>
+<li><p><span class="guilabel">Intersection</span> dialog ကိုပိတ်ပါ</p>
+<p>Intersection သည် မှန်မှန်ကန်ကန်အလုပ်ဖြစ်/မဖြစ်ကို ထပ်နေသည့်ဧရိယာများသာ ကျန်ရှိနေခြင်းကို ကြည့်၍ စစ်ဆေးပါ။</p>
+</li>
+<li><p>Project ကိုသိမ်းဆည်းပါ</p></li>
+</ol>
+<p>သတ်မှတ်စာရင်းထဲရှိ နောက်ထပ် criteria မှာ ဧရိယာသည်  <code class="docutils literal notranslate"><span class="pre">6000</span></code> စတုရန်းမီတာထက် ကြီးရမည်ဖြစ်သည်။ ဤ project အတွက် သင့်တော်မည့်အရွယ်အစားရှိသည့် ဧရိယာများကို ဖော်ထုတ်ရန် polygon ဧရိယာများကို တွက်ချက်ပါမည်။</p>
+</section>
+<section id="polygon-calculating-the-area-for-each-polygon">
+<h2><span class="section-number">8.4.21. </span>Polygon တစ်ခုချင်းစီအတွက် ဧရိယာတွက်ချက်ခြင်း (Calculating the area for each polygon)<a class="headerlink" href="#polygon-calculating-the-area-for-each-polygon" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Vector layer အသစ်တွင် right-click နှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Open attribute table</span> ကိုရွေးပါ</p></li>
+<li><p>ဇယား၏ဘယ်ဘက်အပေါ်ရှိ <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup> ခလုတ်ကိုနှိပ်ပါ၊ သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">e</kbd></kbd> ကိုနှိပ်ပါ</p></li>
+<li><p>ဇယား၏ အပေါ်တစ်လျှောက် toolbar ထဲရှိ <a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="calculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> <sup>Open field calculator</sup> ခလုတ်ကိုနှိပ်ပါ၊ သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">i</kbd></kbd> ကိုနှိပ်ပါ</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Create new field</span> ကိုအမှန်ခြစ်ခြစ်ထားပြီး <span class="guilabel">Output field name</span> တွင် <code class="docutils literal notranslate"><span class="pre">area</span></code> ဟုသတ်မှတ်ပါ။ Output field အမျိုးအစားသည် decimal number (real) ဖြစ်သင့်ပါသည်။ <span class="guilabel">Precision</span> တွင် <code class="docutils literal notranslate"><span class="pre">1</span></code> (ဒဿမတစ်နေရာ) ဟု သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Expression</span> ထဲတွင် အောက်ပါကို ရိုက်ထည့်ပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$area
+</pre></div>
+</div>
+<p>ဆိုလိုသည်မှာ field calculator သည် vector layer ထဲရှိ polygon တစ်ခုချင်းစီ၏ ဧရိယာတွက်ချက်ပေးမည်ဖြစ်ပြီး integer column အသစ်တစ်ခု (<code class="docutils literal notranslate"><span class="pre">area</span></code> ဟုခေါ်သော) ထဲတွင် တွက်ချက်ထားသောတန်ဖိုးကို ထည့်သွင်းပေးမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id12">
+<img alt="../../../_images/field_calculator_area.png" src="../../../_images/field_calculator_area.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.14 </span><span class="caption-text">Field Calculator</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> ဟုခေါ်သော နောက်ထပ် field အသစ်ကိုလည်း ထည့်သွင်းပါ။ <span class="guilabel">Field calculator expression</span> ထဲတွင် အောက်ပါကို ရိုက်ထည့်ပါ-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$id
+</pre></div>
+</div>
+<p>ထိုသို့လုပ်ခြင်းသည် polygon တစ်ခုချင်းစီတွင် သီးခြား ID တစ်ခုစီရှိနေစေမည်ဖြစ်သည်။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup> ကိုထပ်မံ၍ နှိပ်ပါ၊ edit လုပ်ထားသည်များကို သိမ်းဆည်းမည်လား မေးမြန်းလာပါက သိမ်းဆည်းပေးပါ။</p>
+<figure class="align-center" id="id13">
+<img alt="../../../_images/attribute_table.png" src="../../../_images/attribute_table.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.15 </span><span class="caption-text">Area နှင့် id column များပါဝင်သော Attribute table</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="selecting-areas-of-a-given-size">
+<h2><span class="section-number">8.4.22. </span>သတ်မှတ်အရွယ်အစားရှိသည့် ဧရိယာများကို ရွေးချယ်ခြင်း (Selecting areas of a given size)<a class="headerlink" href="#selecting-areas-of-a-given-size" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် ဧရိယာများကို ရရှိပြီးဖြစ်ပါသည်-</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">6000</span></code> စတုရန်းမီတာထက်ကြီးသော polygon များကိုသာ ရွေးချယ်ရန် query တစ်ခုတည်ဆောက်ပါ (ခါတိုင်းလိုပင်)။ Query သည်-:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;area&quot;</span> <span class="o">&gt;</span> <span class="mi">6000</span>
+</pre></div>
+</div>
+</li>
+<li><p>ရွေးချယ်ထားသည်များကို <code class="file docutils literal notranslate"><span class="pre">suitable_areas.shp</span></code> ဟူသောအမည်ဖြင့် vector layer အသစ်တစ်ခုအဖြစ် <code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းပါ။</p></li>
+</ol>
+<p>ယခုဆိုလျှင် ရှားပါး fynbos အပင်အတွက် ပေါက်ရောက်နိုင်သည့် criteria များအားလုံးနှင့်ကိုက်ညီသော သင့်တော်သည့်ဧရိယာများ ရရှိပြီဖြစ်ပါသည်။ ထိုဧရိယာများထဲမှ University of Cape Town နှင့်အနီးဆုံးဖြစ်သော ဧရိယာ ၄ ခုကို ရွေးချယ်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="university-of-cape-town-digitize-the-university-of-cape-town">
+<h2><span class="section-number">8.4.23. </span>University of Cape Town ကို ဂျီဩမေတြီရေးဆွဲခြင်း (Digitize the University of Cape Town)<a class="headerlink" href="#university-of-cape-town-digitize-the-university-of-cape-town" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><code class="file docutils literal notranslate"><span class="pre">Rasterprac</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် vector layer အသစ်တစ်ခုဖန်တီးပါ၊ သို့သော် ဤတစ်ကြိမ်တွင် <span class="guilabel">Geometry type</span> အနေဖြင့် <span class="guilabel">Point</span> ကိုအသုံးပြုပြီး ၎င်းကို <code class="file docutils literal notranslate"><span class="pre">university.shp</span></code> ဟု အမည်ပေးပါ။</p></li>
+<li><p>၎င်း၏ CRS ကိုမှန်ကန်အောင် ပြုလုပ်ပါ (<code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">CRS:EPSG:32733</span> <span class="pre">-</span> <span class="pre">WGS</span> <span class="pre">84</span> <span class="pre">/</span> <span class="pre">UTM</span> <span class="pre">zone</span> <span class="pre">33S</span></code>)</p></li>
+<li><p><span class="guilabel">OK</span> နှိပ်ပြီး layer အသစ်ဖန်တီးခြင်းကို အဆုံးသတ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">university</span></code> layer အသစ်နှင့် <code class="docutils literal notranslate"><span class="pre">Streets</span></code> layer မှလွဲ၍ ကျန် layer များအားလုံးကို ဖျောက်ထားပါ။</p></li>
+<li><p>နောက်ခံမြေပုံ (OSM) တစ်ခုထည့်သွင်းပါ-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Browser</span> panel မှတဆင့် <span class="menuselection">XYZ Tiles ► OpenStreetMap</span> သို့သွားပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpenStreetMap</span></code> အား <span class="guilabel">Layers</span> panel ၏အောက်ခြေသို့ ဖိဆွဲ၍ရွှေ့ပါ</p></li>
+</ol>
+<p>Internet browser အသုံးပြုပြီး University of Cape Town ၏တည်နေရာကို ရှာဖွေပါ။ Cape Town ၏ ထူးခြားသောပထဝီဝင်အနေအထားအရ University သည် ထင်သာမြင်သာရှိသော တည်နေရာတွင်တည်ရှိပါသည်။ QGIS သို့ပြန်မသွားခင်တွင် University ၏တည်နေရာနှင့် အနီးအနားရှိနေရာများကို မှတ်သားထားပါ။</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Streets</span></code> layer ကို click လုပ်ထားပြီး <code class="docutils literal notranslate"><span class="pre">university</span></code> layer သည်  <span class="guilabel">Layers</span> panel ထဲတွင် highlight ဖြစ်နေအောင်လုပ်ထားပါ</p></li>
+<li><p><span class="menuselection">View ► Toolbars</span> menu item တွင် <span class="guilabel">Digitizing</span> ကိုရွေးချယ်ထားပါ။ ခဲတံပုံဖြင့် toolbar icon တစ်ခု (<a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup>) ကိုမြင်တွေ့ရပါမည်။ ၎င်းသည် <em>Toggle Editing</em> ခလုတ်ဖြစ်ပါသည်။</p></li>
+<li><p><em>edit mode</em> ဖွင့်ရန် <span class="guilabel">Toggle editing</span> ခလုတ်ကိုနှိပ်ပါ။ ထိုသို့လုပ်ခြင်းဖြင့် vector layer တစ်ခုကို edit လုပ်နိုင်မည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle editing</sup> ခလုတ်၏ အနီးအနားတွင်ရှိသော <a class="reference internal" href="../../../_images/mActionCapturePoint.png"><img alt="capturePoint" src="../../../_images/mActionCapturePoint.png" style="width: 1.5em;" /></a> <sup>Add Point Feature</sup> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">Add feature</span> tool ပွင့်လာပါက University of Cape Town ၏တည်နေရာကို အကောင်းဆုံးခန့်မှန်းထားသောနေရာတွင် left-click နှိပ်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> ထည့်သွင်းရန် မေးမြန်းလာပါက ကိန်းပြည့် (integer) တစ်ခုထည့်ပေးပါ</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveEdits.png"><img alt="saveEdits" src="../../../_images/mActionSaveEdits.png" style="width: 1.5em;" /></a> <sup>Save Layer Edits</sup> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>Edit ပြုလုပ်နေသည်ကို ရပ်တန့်ရန် <span class="guilabel">Toggle editing</span> ခလုတ်ကိုနှိပ်ပါ</p></li>
+<li><p>Project ကိုသိမ်းဆည်းပါ</p></li>
+</ol>
+</section>
+<section id="university-of-cape-town-find-the-locations-that-are-closest-to-the-university-of-cape-town">
+<h2><span class="section-number">8.4.24. </span>University of Cape Town နှင့်အနီးဆုံး နေရာများကိုရှာဖွေခြင်း (Find the locations that are closest to the University of Cape Town)<a class="headerlink" href="#university-of-cape-town-find-the-locations-that-are-closest-to-the-university-of-cape-town" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><em>Processing Toolbox</em> ထဲတွင် <em>Join Attributes by Nearest</em> algorithm (<span class="menuselection">Vector general ► Join Attributes by Nearest</span>) ကိုဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Input layer</span> သည် <code class="docutils literal notranslate"><span class="pre">university</span></code> ဖြစ်သင့်ပြီး <span class="guilabel">Input layer 2</span> သည် <code class="docutils literal notranslate"><span class="pre">suitable_areas</span></code> ဖြစ်သင့်ပါသည်။</p></li>
+<li><p>သင့်တော်သော output ဖိုင်အမည်နှင့် ဖိုင်လမ်းကြောင်းတစ်ခုသတ်မှတ်ပါ (<span class="guilabel">Joined layer</span>)</p></li>
+<li><p><span class="guilabel">Maximum nearest neighbors</span> တွင် <code class="docutils literal notranslate"><span class="pre">4</span></code> ဟုသတ်မှတ်ပါ</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Open output file after running algorithm</span> ကိုအမှန်ခြစ်ထားပါ</p></li>
+<li><p>ကျန်ရှိသော parameter များတွင် default တန်ဖိုးများအတိုင်း ထားပါ</p></li>
+<li><p><span class="guilabel">Run</span> ကိုနှိပ်ပါ</p></li>
+</ol>
+<p>ရလာဒ် point layer တွင် feature ၄ ခုပါဝင်ပါလိမ့်မည် - ၎င်းတို့တွင် University ၏တည်နေရာနှင့် အချက်အလက်များအားလုံးပါရှိသည့်အပြင် အနီးအနားရှိ သင့်လျော်သည့် ဧရိယာများ၏ အချက်အလက်များ (<code class="docutils literal notranslate"><span class="pre">id</span></code> အပါအဝင်) နှင့် ထို university တည်နေရာသို့ အကွာအဝေး အားလုံးပါရှိပါလိမ့်မည်။</p>
+<ol class="arabic simple">
+<li><p>Join (ချိတ်ဆက်) ထားသော ရလာဒ်၏ attribute ဇယားကိုဖွင့်ပါ</p></li>
+<li><p>အနီးဆုံးဖြစ်သည့် သင့်တော်သောဧရိယာ ၄ ခု၏ <code class="docutils literal notranslate"><span class="pre">id</span></code> ကိုမှတ်သားထားပြီး attribute ဇယားကိုပိတ်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">suitable_areas</span></code> layer ၏ attribute ဇယားကိုဖွင့်ပါ</p></li>
+<li><p>University နှင့်အနီးဆုံးဖြစ်သော သင့်တော်သည့်ဧရိယာ ၄ ခုကို ရွေးချယ်ရန် query တစ်ခုတည်ဆောက်ပါ (<code class="docutils literal notranslate"><span class="pre">id</span></code> field ကိုအသုံးပြု၍ရွေးချယ်ခြင်း)</p></li>
+</ol>
+<p>ဤအရာသည် သုတေသနမေးခွန်း၏ နောက်ဆုံးအဖြေဖြစ်ပါသည်။</p>
+<p>နောက်ဆုံးရလာဒ်ကိုတင်ပြရန်အတွက် label အပြည့်အစုံထည့်သွင်းထားသော မြေပုံအပြင်အဆင် (layout) တစ်ခုဖန်တီးပါ၊ ထို layout ထဲတွင် DEM သို့မဟုတ် Slope raster ကဲ့သို့သော အောက်ခံတစ်ခုပေါ်တွင် အလင်းဖောက်နှုန်း ပမာဏတစ်ခုသတ်မှတ်ထားသည့် (semi-transparent) hillshade layer ထည့်သွင်းပါ၊ ထို့အပြင် University နှင့် <code class="docutils literal notranslate"><span class="pre">suitable_areas</span></code> layer ကိုထည့်သွင်းပေးကာ university နှင့်အနီးဆုံးဖြစ်သည့် သင့်တော်သော ဧရိယာ ၄ ခုကို highlight လုပ်ပေးပါ။ Output မြေပုံကို ဖန်တီးရာတွင် မြေပုံရေးဆွဲခြင်းအတွက် အကောင်းဆုံးအလေ့အထများ အားလုံးအတိုင်း လိုက်နာဆောင်ရွက်ပါ။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="assignment.html" class="btn btn-neutral float-left" title="8.3. အိမ်စာ (Assignment)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../qgis_plugins/index.html" class="btn btn-neutral float-right" title="9. မော်ဂျူး - Plugin များ (Module: Plugins)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/complete_analysis/analysis_exercise.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/complete_analysis/analysis_exercise.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/complete_analysis/analysis_exercise.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/complete_analysis/analysis_exercise.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/complete_analysis/analysis_exercise.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/complete_analysis/analysis_exercise.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/a7b00103695c518787c263f791720a04" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

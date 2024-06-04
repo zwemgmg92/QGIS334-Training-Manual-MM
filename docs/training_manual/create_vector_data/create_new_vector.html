@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.1. သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/create_new_vector.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" href="topo_editing.html" />
+    <link rel="prev" title="5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 5.1. သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.1. သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layer-dialog-follow-along-the-layer-creation-dialog">5.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layer ဖန်တီးခြင်း Dialog (Follow Along: The Layer Creation Dialog)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-follow-along-data-sources">5.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Data အရင်းအမြစ်များ (Follow Along: Data Sources)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon-digitize-try-yourself-digitizing-polygons">5.1.3. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Polygon များကို Digitize ပြုလုပ်ခြင်း (Try Yourself: Digitizing Polygons)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vertex-editor-table-follow-along-using-vertex-editor-table">5.1.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Vertex Editor Table ကိုအသုံးပြုခြင်း (Follow Along: Using Vertex Editor Table)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#line-digitize-try-yourself-digitizing-lines">5.1.5. <abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Line များကို Digitize ပြုလုပ်ခြင်း (Try Yourself: Digitizing Lines)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">5.1.6. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">5.1.7. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="topo_editing.html">5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forms.html">5.3. သင်ခန်းစာ- ပုံစံများ (Lesson: Forms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html">5.4. သင်ခန်းစာ - လုပ်ဆောင်ချက်များ (Lesson: Actions)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">5. </span>မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.1. </span>သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/create_vector_data/create_new_vector.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topo_editing.html" class="btn btn-neutral float-right" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-dataset-lesson-creating-a-new-vector-dataset">
+<h1><span class="section-number">5.1. </span>သင်ခန်းစာ- Vector Dataset အသစ်တစ်ခုဖန်တီးခြင်း (Lesson: Creating a New Vector Dataset)<a class="headerlink" href="#vector-dataset-lesson-creating-a-new-vector-dataset" title="Link to this heading"></a></h1>
+<p>သင်အသုံးပြုသော data များသည် တစ်နေရာရာမှ လာသော data များဖြစ်သည်။ အသုံးအများဆုံး application များအတွက် data များသည် ရှိနေပြီးသားဖြစ်သည်။ သို့သော် အထူးသီးသန့်ဖြစ်သော project များအတွက် အသင့်သုံးစွဲရန် data ရှိနေခြင်း နည်းပါးပါသည်။ ထိုကိစ္စများတွင် သင့်အနေဖြင့် သင့်ကိုယ်ပိုင် data အသစ်များကို ဖန်တီးရန်လိုအပ်လာပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> Vector dataset အသစ်တစ်ခုဖန်တီးရန်</p>
+<section id="layer-dialog-follow-along-the-layer-creation-dialog">
+<h2><span class="section-number">5.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Layer ဖန်တီးခြင်း Dialog (Follow Along: The Layer Creation Dialog)<a class="headerlink" href="#layer-dialog-follow-along-the-layer-creation-dialog" title="Link to this heading"></a></h2>
+<p>Vector data အသစ်တစ်ခုကို မထည့်သွင်းခင်တွင် ၎င်း data ကို ထည့်သွင်းမည့် vector dataset တစ်ခုလိုအပ်ပါသည်။ ဤဥပမာတွင် ရှိနေပြီးသား dataset တစ်ခုကို edit ပြုလုပ်ခြင်းထက် data အသစ်တစ်ခုလုံးကို ဖန်တီးခြင်းဖြင့် စတင်ပါမည်။ ထို့ကြောင့် ကိုယ်ပိုင် dataset အသစ်ကို ဦးစွာ သတ်မှတ်ရန် လိုအပ်ပါသည်။</p>
+<ol class="arabic">
+<li><p>QGIS ကိုဖွင့်ပြီး project အလွတ်တစ်ခုဖန်တီးပါ။</p></li>
+<li><p><span class="menuselection">Layer ► Create Layer ► New Shapefile Layer</span> ကိုနှိပ်ပါ။ Layer အသစ်တစ်ခုကို သတ်မှတ်ပေးနိုင်မည့် <span class="guilabel">New Shapefile Layer</span> dialog ပေါ်လာပါမည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/create_vector_layer.png" src="../../../_images/create_vector_layer.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">File name</span> field အတွက် <span class="guilabel">…</span> ကိုနှိပ်ပါ။ သိမ်းဆည်းမည့် idalog တစ်ခုပေါ်လာပါလိမ့်မည်။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data</span></code> ဖိုင်လမ်းကြောင်းသို့ ညွှန်ပေးလိုက်ပါ။</p></li>
+<li><p>Layer အသစ်ကို <code class="file docutils literal notranslate"><span class="pre">school_property.shp</span></code> အဖြစ် သိမ်းဆည်းပါ။</p>
+<p>ဤအဆင့်တွင် မည်သည့် dataset အမျိုးအစားကို လိုချင်သည်ကို ဆုံးဖြတ်ရန် အရေးကြီးပါသည်။ မတူညီသော Vector layer အမျိုးအစားတစ်ခုချင်းစီသည် နောက်ကွယ်တွင် “တည်ဆောက်ပုံမတူညီပါ” ၊ ထို့ကြောင့် layer ကိုဖန်တီးပြီးသည်နှင့် ၎င်း၏အမျိုးအစားကို မပြောင်းလဲနိုင်ပါ။</p>
+<p>နောက်လာမည့် လေ့ကျင့်ခန်းအတွက် ဧရိယာများကိုဖော်ပြမည့် feature အသစ်များကို ဖန်တီးသွားပါမည်။ ထိုသို့သော feature များအတွက် polygon dataset တစ်ခုကို ဖန်တီးရန် လိုအပ်ပါလိမ့်မည်။</p>
+</li>
+<li><p><span class="guilabel">Geometry Type</span> အတွက် dropdown menu မှ <span class="guilabel">Polygon</span> ကိုရွေးချယ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/polygon_selected.png" src="../../../_images/polygon_selected.png" />
+</figure>
+<p>Dialog ၏ကျန်သောအပိုင်းများတွင် သက်ရောက်မှုမရှိသော်လည်း vector dataset ကိုဖန်တီးသောအခါ အသုံးပြုမည့် ဂျီဩမေတြီအမျိုးအစားကို မှန်ကန်စေပါသည်။</p>
+<p>နောက်ထပ် field တွင် Coordinate Reference System (ရည်ညွှန်းကိုဩဒိနိတ်စနစ်) သို့မဟုတ် CRS ကိုသတ်မှတ်ပေးနိုင်ပါသည်။ CRS သည် ကမ္ဘာ့မြေမျက်နှာပြင်ပေါ်ရှိ တည်နေရာတစ်ခုကို ကိန်းဂဏန်း ကိုဩဒိနိတ်များဖြင့် ဆက်စပ်ပေးသည့် နည်းလမ်းတစ်ခုဖြစ်ပါသည်။ ထပ်မံလေ့လာရန် အသုံးပြုသူလမ်းညွှန်ရှိ <a class="reference internal" href="../../user_manual/working_with_projections/working_with_projections.html#label-projections"><span class="std std-ref">Working with Projections</span></a> တွင်ကြည့်ရှုပါ။</p>
+<p>ဤဥပမာအတွက် default CRS ဖြစ်သော WGS84 ကို အသုံးပြုပါမည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/default_crs.png" src="../../../_images/default_crs.png" />
+</figure>
+<p><span class="guilabel">New Field</span> အောက်တွင် အုပ်စုဖွဲ့ထားသော field များအစုအဝေးတစ်ခု ရှိပါသည်။ Default အားဖြင့် layer အသစ်တစ်ခုသည် <code class="docutils literal notranslate"><span class="pre">id</span></code> field ဆိုသော attribute တစ်ခုသာရှိပါသည် (<span class="guilabel">Fields list</span> ထဲတွင် မြင်တွေ့ရနိုင်ပါသည်)။ သို့သော် ဖန်တီးမည့် data သည် အသုံးဝင်စေရန်အတွက် layer အသစ်ထဲတွင် ဖန်တီးမည့် feature များအကြောင်း တစ်စုံတစ်ရာကို ပြောပြရန် လိုအပ်ပါသည်။ လက်ရှိအရ  <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">data</span></code> များထည့်သွင်းမည့် <code class="docutils literal notranslate"><span class="pre">name</span></code> ဟုခေါ်သော field တစ်ခုထည့်သွင်းလျှင် လုံလောက်မည်ဖြစ်ပြီး စာသား၏အလျားကို စာလုံးရေ <code class="docutils literal notranslate"><span class="pre">80</span></code> ဖြင့်ကန့်သတ်ထားပါမည်။</p>
+</li>
+<li><p>အောက်တွင်ပြထားသော setup အတိုင်းထား၍ <span class="guilabel">Add to Fields List</span> ခလုတ်ကို နှိပ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_attribute.png" src="../../../_images/new_attribute.png" />
+</figure>
+</li>
+<li><p>Dialog သည် အောက်ပါပုံစံအတိုင်း ဖြစ်/မဖြစ် စစ်ဆေးကြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_attribute_added.png" src="../../../_images/new_attribute_added.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<p><span class="guilabel">Layers</span> panel ထဲတွင် layer အသစ် ပေါ်လာသင့်ပါသည်။</p>
+</section>
+<section id="data-follow-along-data-sources">
+<span id="tm-datasources"></span><h2><span class="section-number">5.1.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ- Data အရင်းအမြစ်များ (Follow Along: Data Sources)<a class="headerlink" href="#data-follow-along-data-sources" title="Link to this heading"></a></h2>
+<p>Data အသစ်များဖန်တီးသောအခါ မြေပြင်ပေါ်တွင် အမှန်တကယ်ရှိသော အရာဝတ္ထုများအကြောင်း ဖြစ်ရပါမည်။ ထို့ကြောင့် တစ်နေရာရာမှ အချက်အလက်များကို ရယူရန် လိုအပ်ပါသည်။</p>
+<p>အရာဝတ္ထုများအကြောင်း data များကိုရယူရန် နည်းလမ်းများစွာရှိပါသည်။ ဥပမာ- လက်တွေ့မြေပြင်တွင်ရှိသော point များကို ရယူရန် GPS ကိုအသုံးပြုပြီး data များကို QGIS ထဲသို့ထည့်သွင်းနိုင်ပါသည်။ သို့မဟုတ် point များကို theodolite အသုံးပြုပြီး တိုင်းတာနိုင်ပြီး ကိုဩဒိနိတ်များကို ကိုယ်တိုင်ရိုက်ထည့်ကာ feature အသစ်များကို ဖန်တီးနိုင်ပါသည်။ သို့မဟုတ် ဂြိုလ်တုဓာတ်ပုံ သို့မဟုတ် ကောင်းကင်ဓာတ်ပုံ ကဲ့သို့သော remote sensing data များမှ အရာဝတ္ထုများကို ခြေရာခံရန် digitizing process (မြေပုံအချက်အလက်ရေးဆွဲခြင်းလုပ်ငန်းစဉ်) ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<p>ယခုဥပမာအတွက် digitizing နည်းလမ်းကို အသုံးပြုပါမည်။ နမူနာ raster dataset များကို ပေးထားပါသည်၊ ထို့ကြောင့် ၎င်း dataset များကို လိုအပ်သလို ထည့်သွင်းရန် လိုအပ်ပါမည်။</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Data Source Manager</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p>ဘယ်ဘက်အခြမ်းရှိ <a class="reference internal" href="../../../_images/mIconRaster.png"><img alt="raster" src="../../../_images/mIconRaster.png" style="width: 1.5em;" /></a> <span class="guilabel">Raster</span> ကို select လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Source</span> panel ထဲတွင် <span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပါ-</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data/raster/</span></code> သို့ညွှန်ပေးပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">3420C_2010_327_RGB_LATLNG.tif</span></code> ဖိုင်ကိုရွေးချယ်ပါ။</p></li>
+<li><p>Dialog window ကိုပိတ်ရန် <span class="guilabel">Open</span> ကိုနှိပ်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/add_raster.png" src="../../../_images/add_raster.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Add</span> ကိုနှိပ်ပြီး <span class="guilabel">Close</span> ကိုနှိပ်ပါ။ မြေပုံထဲတွင် ဓာတ်ပုံ တစ်ခု ပေါ်လာပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/raster_added.png" src="../../../_images/raster_added.png" />
+</figure>
+</li>
+<li><p>ကောင်းကင်ဓာတ်ပုံတစ်ခုပေါ်လာသည်ကို မမြင်ရလျှင် layer အသစ်ကို select လုပ်ပြီး right-click နှိပ်ကာ <span class="guilabel">Zoom to Layer</span> ကိုရွေးပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/zoom_to_raster.png" src="../../../_images/zoom_to_raster.png" />
+</figure>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom In</sup> ခလုတ်ကိုနှိပ်လိုက်ပြီး အောက်ဖော်ပြပါ အပြာရောင်ဖြင့် highlight (ထင်ရှားအောင်ပြသ) ပြထားသော ဧရိယာကို zoom ချဲ့ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/map_area_zoom.png" src="../../../_images/map_area_zoom.png" />
+</figure>
+</li>
+</ol>
+<p>အောက်ပါ field ၃ ခုကို digitize လုပ်နိုင်ပြီ ဖြစ်ပါသည်-</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../../_images/field_outlines1.png" src="../../../_images/field_outlines1.png" />
+</figure>
+</div></blockquote>
+<p>Digitize စတင်မလုပ်မီ <code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ကို ကောင်းကင်ဓာတ်ပုံ၏ အပေါ်သို့ ရွှေ့ပါ။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layers</span> pane ထဲရှိ <code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ကို select လုပ်ပြီး အပေါ်သို့ ဖိဆွဲတင်ပါ။</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../../_images/move_school_layer.png" src="../../../_images/move_school_layer.png" />
+</figure>
+<p>Digitizing စတင်ရန် <strong>edit mode</strong> သို့ဝင်ရန် လိုအပ်ပါသည်။ ထိုသို့လုပ်ခြင်းသည် အရေးကြီးသော data များကို အမှတ်တမဲ့ edit လုပ်မိခြင်း သို့မဟုတ် ဖျက်မိဖြင်းမဖြစ်စေရန် ကာကွယ်ပေးသည်။ Edit mode ကို layer တစ်ခုချင်းစီအတွက် သီးသန့် အဖွင့်အပိတ်ပြုလုပ်ပေးပါသည်။</p>
+<p><code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer အတွက် edit mode သို့ဝင်ရန်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ကို နှိပ်ပြီး select လုပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle Editing</sup> ခလုတ်ကို နှိပ်ပါ။</p>
+<p>ထိုခလုတ်ကိုရှာမတွေ့လျှင် <span class="guilabel">Digitizing</span> toolbar ကိုဖွင့်ထား/မထား စစ်ဆေးပါ။ <span class="menuselection">View ►
+Toolbars ► Digitizing</span> menu ၏ဘေးတွင် အမှန်ခြစ်ရှိရမည်ဖြစ်သည်။</p>
+<p>Edit mode ထဲရောက်သွားလျှင် digitizing tool အချို့ active ဖြစ်လာသည်ကို မြင်တွေ့ရပါလိမ့်မည်-</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionCapturePolygon.png"><img alt="capturePolygon" src="../../../_images/mActionCapturePolygon.png" style="width: 1.5em;" /></a> <sup>Capture Polygon</sup></p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionVertexToolActiveLayer.png"><img alt="vertexToolActiveLayer" src="../../../_images/mActionVertexToolActiveLayer.png" style="width: 1.5em;" /></a> <sup>Vertex Tool</sup></p></li>
+</ul>
+</div></blockquote>
+<p>အခြားသက်ဆိုင်ရာ ခလုတ်များ active မဖြစ်သေးသော်လည်း data အသစ်များဖြင့် အပြန်အလှန်စတင်လုပ်ကိုင်သောအခါ active ဖြစ်လာပါလိမ့်မည်။</p>
+<p><span class="guilabel">Layers</span> panel ထဲရှိ <code class="docutils literal notranslate"><span class="pre">school_property</span></code> တွင် ခဲတံ icon ပေါ်လာပါလိမ့်မည်၊ ၎င်းသည် edit mode တွင် ရှိနေသည်ကို ဖော်ပြခြင်းဖြစ်သည်။</p>
+</li>
+<li><p>School ကွင်းများကို digitizing စတင်ရန် <a class="reference internal" href="../../../_images/mActionCapturePolygon.png"><img alt="capturePolygon" src="../../../_images/mActionCapturePolygon.png" style="width: 1.5em;" /></a> <sup>Capture Polygon</sup> ခလုတ်ကို နှိပ်ပါ။</p>
+<p>Mouse cursor သည် ကြက်ခြေခတ် ပုံစံဖြစ်လာပါလိမ့်မည်။ ၎င်းသည် digitizing ပြုလုပ်မည့် point များကို ပိုမိုတိကျစွာ နေရာချထားနိုင်စေပါသည်။ Digitizing ပြုလုပ်နေစဉ်တွင် mouse ဘီးလုံးကို အသုံးပြုပြီး မြေပုံကို zoom အချုံ့/အချဲ့ ပြုလုပ်နိုင်ပြီး mouse ဘီးလုံးကို ဖိထားပြီး မြေပုံထဲတွင် တစ်နေရာမှတစ်နေရာသို့ ရွှေ့နိုင်မည်ဖြစ်သည်။</p>
+<p>Digitize ပြုလုပ်မည့် ပထမဆုံး feature သည် athletics field ဖြစ်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/school_area_one.png" src="../../../_images/school_area_one.png" />
+</figure>
+</li>
+<li><p>ကွင်းပြင်၏ အစွန်းတလျှောက်တစ်နေရာတွင် point တစ်ခုကို click နှိပ်ခြင်းဖြင့် digitizing ကိုစတင်ပါ။</p></li>
+<li><p>ကွင်းပြင်တစ်ခုလုံးကို အပြည့်အဝ လွှမ်းခြုံသည်အထိ အစွန်းတလျှောက်တွင် နောက်ထပ် click များထပ်နှိပ်ပြီး point များကို နေရာချပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/school_field_outline.png" src="../../../_images/school_field_outline.png" />
+</figure>
+</li>
+<li><p>နောက်ဆုံး point ကိုနေရာချပြီးသောအခါ polygon ရေးဆွဲခြင်းကို အဆုံးသတ်ရန် right-click ကိုနှိပ်ပါ။ ထိုသို့လုပ်ခြင်းသည် feature ကို အဆုံးသတ်ပေးပြီး <span class="guilabel">Attributes</span> dialog ကို ပြသပေးပါလိမ့်မည်။</p></li>
+<li><p>တန်ဖိုးများကို အောက်ပါအတိုင်း ဖြည့်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/school_area_one_attributes.png" src="../../../_images/school_area_one_attributes.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ၊ ထို့နောက်တွင် feature အသစ်တစ်ခုဖန်တီးပြီးဖြစ်ပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/new_feature.png" src="../../../_images/new_feature.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် <code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ကို select လုပ်ပါ။</p></li>
+<li><p>Right click နှိပ်ပြီး <span class="guilabel">Open Attribute Table</span> ကိုရွေးပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/open_attribute_table.png" src="../../../_images/open_attribute_table.png" />
+</figure>
+<p>ဇယားထဲတွင် ထည့်သွင်းထားသော feature ကို မြင်တွေ့ရပါလိမ့်မည်။ Edit mode ထဲရှိနေစဉ်တွင် update ပြုလုပ်လိုသော cell ပေါ်တွင် click နှစ်ချက်နှိပ်ပြီး attribute data များကို update လုပ်နိုင်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/feature_table.png" src="../../../_images/feature_table.png" />
+</figure>
+</li>
+<li><p>Attribute ဇယားကို ပိတ်လိုက်ပါ။</p></li>
+<li><p>ဖန်တီးထားသော feature အသစ်ကို သိမ်းဆည်းရန် <a class="reference internal" href="../../../_images/mActionSaveEdits.png"><img alt="saveEdits" src="../../../_images/mActionSaveEdits.png" style="width: 1.5em;" /></a> <sup>Save Edits</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+</ol>
+<p>Feature တစ်ခုကို digitize ပြုလုပ်နေစဉ်တွင် အမှားအယွင်းတစ်ခုခုပြုလုပ်မိလျှင် ဖန်တီးပြီးသည့်အချိန်တွင် ပြန်လည် edit လုပ်နိုင်ပါသည်။ အမှားအယွင်းတစ်ခုခုလုပ်မိလျှင် အထက်ပါအတိုင်း feature ဖန်တီးခြင်းကို ပြီးဆုံးအောင်အထိ digitize ပြုလုပ်ပါ။ ထို့နောက်-</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionVertexToolActiveLayer.png"><img alt="vertexToolActiveLayer" src="../../../_images/mActionVertexToolActiveLayer.png" style="width: 1.5em;" /></a> <sup>Vertex Tool</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>ရွှေ့လိုသော vertex ၏အပေါ်သို့ mouse cursor ကိုတင်ပြီး vertex ပေါ်တွင် left click နှိပ်ပါ။</p></li>
+<li><p>နေရာအမှန်သို့ mouse ကိုရွှေ့ပြီး left click နှိပ်ပါ။ Vertex ကို တည်နေရာအသစ်သို့ ရွှေ့ပေးပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/select_vertex.png" src="../../../_images/select_vertex.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../../_images/moved_vertex.png" src="../../../_images/moved_vertex.png" />
+</figure>
+<p>Line မျဉ်းပိုင်းများကို ထိုနည်းအတိုင်း ရွှေ့ပေးနိုင်ပါသည်၊ သို့သော် line မျဉ်းပိုင်း၏ အလယ်မှတ်ပေါ်တွင် mouse ကိုတင်ထားရန် လိုအပ်ပါသည်။</p>
+<p>ပြောင်းလဲမှုတစ်ခုကို undo ပြုလုပ်လိုလျှင် <a class="reference internal" href="../../../_images/mActionUndo.png"><img alt="undo" src="../../../_images/mActionUndo.png" style="width: 1.5em;" /></a> <sup>Undo</sup> ခလုတ် သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd> ကိုနှိပ်နိုင်ပါသည်။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveEdits.png"><img alt="saveEdits" src="../../../_images/mActionSaveEdits.png" style="width: 1.5em;" /></a> <sup>Save Edits</sup> ခလုတ်ကိုနှိပ်ပြီး ပြောင်းလဲမှုများကို သိမ်းဆည်းရန် မမေ့ပါနှင့်။</p></li>
+<li><p>Edit ပြုလုပ်ပြီးသောအခါ edit mode မှထွက်ရန် <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle Editing</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+</ol>
+</section>
+<section id="polygon-digitize-try-yourself-digitizing-polygons">
+<h2><span class="section-number">5.1.3. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Polygon များကို Digitize ပြုလုပ်ခြင်း (Try Yourself: Digitizing Polygons)<a class="headerlink" href="#polygon-digitize-try-yourself-digitizing-polygons" title="Link to this heading"></a></h2>
+<p>School နှင့်အပေါ်ဘက်ရှိ ကွင်းပြင်ကို digitize ပြုလုပ်ပါ။ အောက်ပါဓာတ်ပုံကို အသုံးပြုပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/field_outlines1.png" src="../../../_images/field_outlines1.png" />
+</figure>
+<p>Feature အသစ်တစ်ခုချင်းစီတွင် သီးသန့် <code class="docutils literal notranslate"><span class="pre">id</span></code> တန်ဖိုးတစ်ခုစီရှိရမည်ကို သတိရပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Layer တစ်ခုထဲသို့ feature များထည့်သွင်းပြီးသောအခါ edit လုပ်ထားသည်များကို သိမ်းဆည်းရန်နှင့် edit mode မှ ထွက်ရန် မမေ့ပါနှင့်။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">school_property</span></code> အတွက် အရောင်ဖြည့်ခြင်း၊ အနားသတ်မျဉ်း၊ အညွှန်းနေရာချထားခြင်းနှင့် format ပြင်ဆင်ခြင်းများကို အရှေ့ပိုင်းသင်ခန်းစာများတွင် လေ့လာခဲ့သည့် နည်းလမ်းများကိုအသုံးပြုပြီး style ပြင်ဆင်နိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="vertex-editor-table-follow-along-using-vertex-editor-table">
+<h2><span class="section-number">5.1.4. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ- Vertex Editor Table ကိုအသုံးပြုခြင်း (Follow Along: Using Vertex Editor Table)<a class="headerlink" href="#vertex-editor-table-follow-along-using-vertex-editor-table" title="Link to this heading"></a></h2>
+<p>Feature တစ်ခုကို edit လုပ်ရန် နောက်ထပ်နည်းတစ်ခုမှာ <span class="guilabel">Vertex Editor</span> table ကိုအသုံးပြုပြီး vertex တစ်ခုချင်းစီအတွက် အမှန်တကယ် ကိုဩဒိနိတ်တန်ဖိုးများကို ကိုယ်တိုင်ရိုက်ထည့်ခြင်းဖြစ်ပါသည်။</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ကို edit mode တွင်ထားပါ။</p></li>
+<li><p>Activate မလုပ်ထားရသေးလျှင် <a class="reference internal" href="../../../_images/mActionVertexToolActiveLayer.png"><img alt="vertexToolActiveLayer" src="../../../_images/mActionVertexToolActiveLayer.png" style="width: 1.5em;" /></a> <sup>Vertex Tool</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">school_property</span></code> layer ထဲရှိ ဖန်တီးထားခဲ့သော polygon feature များထဲမှ တစ်ခုပေါ်သို့ mouse ကိုရွှေ့ပြီး ၎င်းအပေါ်တွင် right-click နှိပ်ပါ။ ထိုသို့လုပ်ခြင်းသည် feature ကို select ပြုလုပ်ပေးမည်ဖြစ်ပြီး <span class="guilabel">Vertex Editor</span> ပွင့်လာပါလိမ့်မည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/vertex_editor_table.png" src="../../../_images/vertex_editor_table.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ထိုဇယားတွင် feature ၏ vertex များအတွက် ကိုဩဒိနိတ်များပါဝင်ပါသည်။ ထို feature အတွက် vertex ၇ ခုရှိသော်လည်း မြေပုံဧရိယာထဲတွင် ၆ ခုကိုသာ မြင်ရမည်ကို သတိထားကြည့်ပါ။ သေချာကြည့်ကြည့်ပါက row 0 နှင့် row 6 သည် ကိုဩဒိနိတ်များ တူညီနေသည်ကို တွေ့ရပါလိမ့်မည်။ ၎င်းတို့သည် feature ဂျီဩမေတြီ၏ အစ vertex နှင့် အဆုံး vertex များဖြစ်ကြပါပြီး polygon feature အပိတ်တစ်ခုဖန်တီးရန် လိုအပ်ပါသည်။</p>
+</div>
+</li>
+<li><p>Select လုပ်ထားသော feature ၏ vertex တစ်ခု သို့မဟုတ် vertex များပေါ်တွင် click နှိပ်ပြီး လေးထောင့်ကွက်တစ်ခု ဖိဆွဲပါ၊</p>
+<figure class="align-center">
+<img alt="../../../_images/vertex_select.png" src="../../../_images/vertex_select.png" />
+</figure>
+<p>Select လုပ်ထားသော vertex များသည် အပြာရောင်သို့ ပြောင်းလဲသွားမည်ဖြစ်ပြီး <span class="guilabel">Vertex Editor</span> table တွင် vertex ၏ ကိုဩဒိနိတ်များပါဝင်သော သက်ဆိုင်ရာ row များ highlight ဖြစ်နေပါလိမ့်မည်</p>
+<figure class="align-center">
+<img alt="../../../_images/vertex_selected.png" src="../../../_images/vertex_selected.png" />
+</figure>
+</li>
+<li><p>ကိုဩဒိနိတ်တစ်ခုကို update လုပ်ရန် ဇယားထဲရှိ edit လုပ်လိုသော cell ပေါ်တွင် click နှစ်ချက်နှိပ်ပြီး တန်ဖိုးအသစ်ကို ရိုက်ထည့်ပါ။ ဤဥပမာတွင် row  <code class="docutils literal notranslate"><span class="pre">4</span></code> ၏ x ကိုဩဒိနိတ်ကို <code class="docutils literal notranslate"><span class="pre">20.4450</span></code> မှ <code class="docutils literal notranslate"><span class="pre">20.4444</span></code> သို့ပြောင်းပြီး update လုပ်ထားပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/edit_vertex_in_vertex_editor.png" src="../../../_images/edit_vertex_in_vertex_editor.png" />
+</figure>
+</li>
+<li><p>Update တန်ဖိုးကို ထည့်သွင်းပြီးနောက် enter ကိုနှိပ်ပါ။ မြေပုံ window ထဲတွင် vertex သည် တည်နေရာအသစ်သို့ ရွေ့သွားသည်ကို မြင်တွေ့ရပါမည်။</p></li>
+<li><p>Edit ပြုလုပ်ပြီးသောအခါ edit mode မှထွက်ရန် <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle Editing</sup> ကိုနှိပ်ပြီး edit လုပ်ထားသည်များကို သိမ်းဆည်းပါ။</p></li>
+</ol>
+</section>
+<section id="line-digitize-try-yourself-digitizing-lines">
+<h2><span class="section-number">5.1.5. </span><abbr title="Basic level">★☆☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Line များကို Digitize ပြုလုပ်ခြင်း (Try Yourself: Digitizing Lines)<a class="headerlink" href="#line-digitize-try-yourself-digitizing-lines" title="Link to this heading"></a></h2>
+<p>လမ်းများ layer ပေါ်တွင် အမှတ်အသားမလုပ်ရသေးသော လမ်းကြောင်း (route) နှစ်ခုကို digitize ပြုလုပ်မည်ဖြစ်ပါသည်၊ တစ်ခုသည် path တစ်ခုဖြစ်ပြီး အခြားတစ်ခုသည် track တစ်ခုဖြစ်သည်။ Path သည် Railton ဆင်ခြေဖုံး၏ တောင်ဘက်အစွန်းတစ်လျှောက်တွင်ရှိပြီး အစနှင့်အဆုံးသည် မှတ်သားထားသော လမ်းများ၌ရှိပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/path_start_end.png" src="../../../_images/path_start_end.png" />
+</figure>
+<p>Track သည် တောင်ဘက်သို့ အနည်းငယ်ဝေးကွာပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/track_start_end.png" src="../../../_images/track_start_end.png" />
+</figure>
+<ol class="arabic simple">
+<li><p><em>roads</em> layer သည် သင့်မြေပုံထဲတွင် မရှိသေးပါက ဒေါင်းလုဒ်ပြုလုပ်ထားသော သင်တန်း data <code class="file docutils literal notranslate"><span class="pre">exercise_data</span></code> folder ထဲတွင်ပါဝင်သော <code class="file docutils literal notranslate"><span class="pre">training-data.gpkg</span></code> GeoPackage ဖိုင်မှ <code class="file docutils literal notranslate"><span class="pre">roads</span></code> layer ကိုထည့်သွင်းပါ။ မည်သို့ထည့်သွင်းရမည်ကို <a class="reference internal" href="../basic_map/preparation.html#load-geopackage"><span class="std std-ref">★☆☆ လိုက်လုပ်ကြည့်ပါ- GeoPackage Database တစ်ခုမှ vector data ကိုထည့်သွင်းခြင်း (Follow Along: Loading vector data from a GeoPackage Database)</span></a> တွင်ဖတ်ရှုနိုင်ပါသည်။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">exercise_data</span></code> directory ထဲတွင် <code class="docutils literal notranslate"><span class="pre">routes.shp</span></code> အမည်ဖြင့် <code class="docutils literal notranslate"><span class="pre">id</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">type</span></code> attribute များပါဝင်သော ESRI Shapefile line dataset အသစ်တစ်ခုကို ဖန်တီးပါ (အထက်တွင် ပြထားသော နည်းများကို အသုံးပြုပါ)။</p></li>
+<li><p><span class="guilabel">routes</span> layer ကို edit mode ဖွင့်ပေးပါ။</p></li>
+<li><p>Line feature နှင့်လုပ်ဆောင်နေသောကြောင့် line digitizing mode ကိုစတင်ရန် <a class="reference internal" href="../../../_images/mActionCaptureLine.png"><img alt="captureLine" src="../../../_images/mActionCaptureLine.png" style="width: 1.5em;" /></a> <sup>Add Line</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">routes</span></code> layer ပေါ်တွင် path နှင့် track ကို တစ်ကြိမ်လျှင် တစ်ခုစီ digitize ပြုလုပ်ပါ။ လမ်းကြောင်းများအတိုင်း တိကျနိုင်သမျှတိကျအောင် ထောင့်ချိုးများနှင့် အကွေ့နေရာများတွင် point များထပ်ထည့်ပြီး ကြိုးစားဆွဲကြည့်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> attribute တန်ဖိုးတွင် <code class="docutils literal notranslate"><span class="pre">path</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">track</span></code> ဟုသတ်မှတ်ပါ။</p></li>
+<li><p>ဆွဲထားသော လမ်းကြောင်းများတွင် style ထည့်သွင်းရန် <span class="guilabel">Layer Properties</span> dialog ကိုအသုံးပြုပါ။ Path များနှင့် track များအတွက် မတူညီသော style များကို အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>လုပ်ဆောင်ထားသော edit များကို သိမ်းဆည်းပြီး <a class="reference internal" href="../../../_images/mActionToggleEditing.png"><img alt="toggleEditing" src="../../../_images/mActionToggleEditing.png" style="width: 1.5em;" /></a> <sup>Toggle Editing</sup> ခလုတ်ကိုနှိပ်ကာ edit mode ကိုပိတ်ပါ။</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>သင်္ကေတဆိုင်ရာများသည် အရေးမကြီးသော်လည်း ရလာဒ် အောက်ပါပုံအတိုင်း အနည်းနှင့်အများ ဆင်တူသင့်ပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../_images/routes_layer_result.png" src="../../../_images/routes_layer_result.png" />
+</figure>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">5.1.6. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် feature များမည်သို့ဖန်တီးရမည်ကို သိရှိပြီးဖြစ်ပါသည်။ ဤသင်ခန်းစာတွင် point feature များထည့်သွင်းခြင်းမပါဝင်ပါ၊ အကြောင်းမှာ ပိုမိုရှုပ်ထွေးသော feature များ (line များနှင့် polygon များ) ဖြင့်လုပ်ဆောင်ပြီးပြီဖြစ်သည့်အတွက် ထိုအရာသည် မဖြစ်မနေမလိုအပ်တော့ပါ။ Point ထားလိုသော နေရာတွင် click တစ်ချက်သာနှိပ်ရခြင်းမှလွဲ၍ attribute များကို ခါတိုင်းလိုပင် ထည့်သွင်းပြီး feature ကို ဖန်တီးမည်ဖြစ်သည့်အတွက် အလုပ်လုပ်ပုံမှာ အတူတူပင်ဖြစ်သည်။</p>
+<p>Digitize ပြုလုပ်တတ်ခြင်းသည် အရေးကြီးပါသည်၊ အကြောင်းမှာ ၎င်းသည် GIS ပရိုဂရမ်များတွင် အလွန်အသုံးများသော လုပ်ဆောင်မှုတစ်ခုဖြစ်ပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">5.1.7. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>GIS layer တစ်ခုထဲရှိ feature များသည် ရုပ်ပုံများသာမဟုတ်ပါ၊ မြေမျက်နှာပြင်ရှိ အရာဝတ္ထုများဖြစ်သည်။ ဥပမာ- ကပ်လျက်ရှိသော polygon များသည် တစ်ခုနှင့်တစ်ခု မည်သည့်နေရာတွင် ဆက်နွယ်မှုရှိသည်ကို သိကြပါသည်။ ၎င်းကို <strong>topology (ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ)</strong> ဟုခေါ်ပါသည်။ နောက်လာမည့် သင်ခန်းစာတွင် ထိုအရာသည် ဘာကြောင့် အသုံးဝင်နိုင်သည်ဆိုသည့် ဥပမာကို မြင်တွေ့ရပါလိမ့်မည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topo_editing.html" class="btn btn-neutral float-right" title="5.2. သင်ခန်းစာ- Feature ၏ ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Lesson: Feature Topology)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/create_new_vector.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/create_vector_data/create_new_vector.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/create_vector_data/create_new_vector.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/create_vector_data/create_new_vector.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/create_vector_data/create_new_vector.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/create_vector_data/create_new_vector.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/create_vector_data/create_new_vector.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/create_vector_data/create_new_vector.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/create_vector_data/create_new_vector.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/create_vector_data/create_new_vector.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/create_vector_data/create_new_vector.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/47b17330e450bb5a1b249720728065ad" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

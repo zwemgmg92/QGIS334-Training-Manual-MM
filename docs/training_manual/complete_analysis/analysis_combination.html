@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.2. သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/training_manual/complete_analysis/analysis_combination.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="8.3. အိမ်စာ (Assignment)" href="assignment.html" />
+    <link rel="prev" title="8.1. သင်ခန်းစာ- Raster မှ Vector သို့အမျိုးအစားပြောင်းခြင်း (Lesson: Raster to Vector Conversion)" href="raster_to_vector.html" />
+  <meta name="description" content="QGIS testing documentation: 8.2. သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">သင်တန်းလက်စွဲ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../foreword/index.html">1. သင်တန်းမိတ်ဆက် (Course Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_map/index.html">2. မော်ဂျူး- အခြေခံမြေပုံတစ်ခု ဖန်တီးခြင်းနှင့် စူးစမ်းလေ့လာခြင်း (Module: Creating and Exploring a Basic Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_classification/index.html">3. မော်ဂျူး- Vector data များအား အတန်းအစားခွဲခြားခြင်း (Module: Classifying Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_composer/index.html">4. မော်ဂျူး- မြေပုံများကို အချောသပ်ပြင်ဆင်ခြင်း (Module: Laying out the Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_vector_data/index.html">5. မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector_analysis/index.html">6. မော်ဂျူး- Vector ဆန်းစစ်လေ့လာခြင်း (Module: Vector Analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rasters/index.html">7. မော်ဂျူး - Raster များ (Module: Rasters)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="raster_to_vector.html">8.1. သင်ခန်းစာ- Raster မှ Vector သို့အမျိုးအစားပြောင်းခြင်း (Lesson: Raster to Vector Conversion)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">8.2. သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself">8.2.1. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-inspecting-the-results">8.2.2. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- ရလာဒ်များကို စစ်ဆေးခြင်း (Try Yourself: Inspecting the Results)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analysis-try-yourself-refining-the-analysis">8.2.3. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Analysis ကို ပိုမိုကောင်းမွန်အောင်လုပ်ခြင်း (Try Yourself: Refining the Analysis)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">8.2.4. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">8.2.5. နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="assignment.html">8.3. အိမ်စာ (Assignment)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis_exercise.html">8.4. သင်ခန်းစာ - နောက်ဆက်တွဲ လေ့ကျင့်ခန်း (Lesson: Supplementary Exercise)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">8. </span>မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8.2. </span>သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/complete_analysis/analysis_combination.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="raster_to_vector.html" class="btn btn-neutral float-left" title="8.1. သင်ခန်းစာ- Raster မှ Vector သို့အမျိုးအစားပြောင်းခြင်း (Lesson: Raster to Vector Conversion)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="assignment.html" class="btn btn-neutral float-right" title="8.3. အိမ်စာ (Assignment)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="lesson-combining-the-analyses">
+<h1><span class="section-number">8.2. </span>သင်ခန်းစာ- လေ့လာဆန်းစစ်မှုများကို ပေါင်းစပ်ခြင်း (Lesson: Combining the Analyses)<a class="headerlink" href="#lesson-combining-the-analyses" title="Link to this heading"></a></h1>
+<p>Raster analysis ၏ vector ပြောင်းလဲထားသော ရလာဒ်များကို အသုံးပြုခြင်းသည် သင့်လျော်သောမြေပြင် (suitable terrain) ပေါ်ရှိ အဆောက်အဦများကိုသာ ရွေးချယ်နိုင်စေပါသည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> သင့်လျော်သောအကွက်များကို ရွေးထုတ်ရာတွင် vector ပြောင်းလဲထားသော terrain ရလာဒ်များကို အသုံးပြုတတ်စေရန်</p>
+<section id="try-yourself">
+<h2><span class="section-number">8.2.1. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- (Try Yourself:)<a class="headerlink" href="#try-yourself" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>လက်ရှိမြေပုံကို သိမ်းဆည်းပါ (<code class="file docutils literal notranslate"><span class="pre">raster_analysis.qgs</span></code>)။</p></li>
+<li><p>အစောပိုင်း vector analysis ပြုလုပ်စဉ်က ဖန်တီးထားသော မြေပုံကို ဖွင့်ပါ (<code class="file docutils literal notranslate"><span class="pre">analysis.qgs</span></code> ဖိုင်ဖြင့် သိမ်းဆည်းခဲ့ပါသည်)</p></li>
+<li><p><span class="guilabel">Layers</span> panel ထဲတွင် အောက်ပါ layer များကို ဖွင့်ပေးပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">hillshade</span></p></li>
+<li><p><span class="guilabel">solution</span> (သို့မဟုတ် <span class="guilabel">buildings_over_100</span>)</p></li>
+</ul>
+</li>
+<li><p>ထို layer များအပြင် <code class="file docutils literal notranslate"><span class="pre">suitable_terrain.shp</span></code> dataset ကိုလည်း ထည့်သွင်းပါ။</p></li>
+<li><p>အချို့ layer များကို မတွေ့လျှင် <code class="file docutils literal notranslate"><span class="pre">exercise_data/residential_development/</span></code> ထဲတွင် ရှာဖွေပါ။</p></li>
+<li><p><span class="guilabel">Intersection</span> tool (<span class="menuselection">Vector ► Geoprocessing Tools</span>) ကိုအသုံးပြုပြီး <span class="guilabel">suitable_terrain</span> layer နှင့်ထိဖြတ်နေသော အဆောက်အဦများသာ ပါဝင်သည့် vector layer အသစ်တစ်ခုဖြစ်သော <code class="file docutils literal notranslate"><span class="pre">new_solution.shp</span></code> ကို ဖန်တီးပါ။</p></li>
+</ol>
+<p>ယခုဆိုလျှင် အဆောက်အဦအချို့ကိုသာ ပြသနေသော layer တစ်ခုရှိသင့်ပြီဖြစ်သည်၊ ဥပမာ-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_solution_example.png" src="../../../_images/new_solution_example.png" />
+</figure>
+</section>
+<section id="try-yourself-inspecting-the-results">
+<h2><span class="section-number">8.2.2. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- ရလာဒ်များကို စစ်ဆေးခြင်း (Try Yourself: Inspecting the Results)<a class="headerlink" href="#try-yourself-inspecting-the-results" title="Link to this heading"></a></h2>
+<p><span class="guilabel">new_solution</span> layer ထဲရှိ အဆောက်အဦတစ်ခုချင်းစီကို ရှာကြည့်ပါ။ <span class="guilabel">new_solution</span> layer ၏ သင်္ကေတများကို ဘောင်မျဉ်း (outline) များသာပါဝင်အောင် ပြောင်းလဲပြီး <span class="guilabel">suitable_terrain</span> layer နှင့် ၎င်းအဆောက်အဦများကို နှိုင်းယှဉ်ကြည့်ပါ။ အချို့အဆောက်အဦများနဲ့ပတ်သက်ပြီး သင်ဘာသတိထားမိပါသလဲ။ <span class="guilabel">suitable_terrain</span> layer ဖြင့် ထိဖြတ်နေရုံဖြင့် အဆောက်အဦအားလုံး suitable (သင့်လျော်သည်) ဖြစ်ပါသလား။ ဖြစ်သည်ဆိုလျှင် ဘာကြောင့်ပါလဲ၊ မဖြစ်ဘူးဆိုလျှင် ဘာကြောင့်ပါလဲ။ သင့်အနေဖြင့် မည်သည့်အဆောက်အဦများကို suitable မဖြစ်ဘူးလို့ ယူဆပါသလဲ။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p><code class="file docutils literal notranslate"><span class="pre">new_solution</span></code> layer ထဲရှိ အချို့ အဆောက်အဦများသည် <span class="guilabel">Intersection</span> tool ဖြင့် ဖြတ်ထားခြင်းခံထားရသည်ကို သင်သတိထားမိနိုင်ပါသည်။ ဆိုလိုသည်မှာ suitable terrain ပေါ်တွင် အဆောက်အဦ၏တစ်စိတ်တပိုင်းသာ ကျရောက်နေခြင်းဖြစ်သည်။ ထို့ကြောင့်  အဆိုပါ အဆောက်အဦများကို သတိထားပြီး dataset မှ ဖယ်ရှားပစ်နိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="analysis-try-yourself-refining-the-analysis">
+<h2><span class="section-number">8.2.3. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ- Analysis ကို ပိုမိုကောင်းမွန်အောင်လုပ်ခြင်း (Try Yourself: Refining the Analysis)<a class="headerlink" href="#analysis-try-yourself-refining-the-analysis" title="Link to this heading"></a></h2>
+<p>အချို့သော အဆောက်အဦများသည် ရလာဒ်တွင်ပါဝင်နေသော်လည်း အမှန်တကယ် suitable (သင့်လျော်) ဖြစ်သည်ကို တွေ့မြင်နိုင်ပါသည်။ ထို့ကြောင့် ယခုအခါ analysis ကို ပိုမိုကောင်းမွန်အောင်လုပ် (refine) နိုင်ပါသည်။</p>
+<p>Analysis သည် <span class="guilabel">suitable_terrain</span> layer အတွင်း အပြည့်အဝကျရောက်သော အဆောက်အဦများကိုသာလျှင် ရလာဒ်ပြန်ထုတ်ပေးနိုင်သည်မျိုး လိုချင်တာဖြစ်ပါသည်။ ထိုသို့ဖြစ်အောင် မည်သို့လုပ်ဆောင်ရမလဲ။ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော Vector Analysis tool များကိုအသုံးပြုပါ၊ အဆောက်အဦများအားလုံးသည် 100 မီတာအရွယ်အစားထက် ကျော်လွန်သည်ကို မမေ့ပါနှင့်။</p>
+<div class="dropdown admonition">
+<p class="admonition-title">အဖြေ</p>
+<p>ယခုအချိန်တွင် analysis သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/new_solution_example.png" src="../../../_images/new_solution_example.png" />
+</figure>
+<p>အချင်းဝက် 100 မီတာရှိသော စက်ဝိုင်းဧရိယာတစ်ခုဟု ယူဆကြည့်ပါ။</p>
+<figure class="align-center">
+<img alt="../../../_images/circle_100.png" src="../../../_images/circle_100.png" />
+</figure>
+<p>If it is greater than 100 meters in radius, then subtracting 100 meters from
+its size (from all directions) will result in a part of it being left in the
+middle.
+အချင်းဝက် 100 မီတာထက် ကြီးလျှင်</p>
+<figure class="align-center">
+<img alt="../../../_images/circle_with_remainder.png" src="../../../_images/circle_with_remainder.png" />
+</figure>
+<p>Therefore, you can run an <em>interior buffer</em> of 100 meters on your existing
+<span class="guilabel">suitable_terrain</span> vector layer. In the output of the buffer
+function, whatever remains of the original layer will represent areas where
+there is suitable terrain for 100 meters beyond.</p>
+<p>လက်တွေ့သရုပ်ပြရန်-</p>
+<ol class="arabic">
+<li><p>Buffer dialog ကိုဖွင့်ရန် <span class="menuselection">Vector ► Geoprocessing Tools ► Buffer(s)</span> သို့သွားပါ။</p></li>
+<li><p>အောက်ပါပုံစံအတိုင်း သတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/suitable_terrain_buffer.png" src="../../../_images/suitable_terrain_buffer.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">suitable_terrain</span> layer ကို  <code class="docutils literal notranslate"><span class="pre">10</span></code> segment နှင့် buffer အကွာအဝေး <code class="docutils literal notranslate"><span class="pre">-100</span></code> ဖြင့် အသုံးပြုပါ။ (မြေပုံသည် Projected CRS ကိုအသုံးပြုထားသောကြောင့် အကွာအဝေးသည် အလိုအလျှောက် မီတာ ဖြင့် ဖြစ်နေပါမည်)</p></li>
+<li><p>ရလာဒ်ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/residential_development/</span></code> ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">suitable_terrain_continuous100m.shp</span></code> အဖြစ် သိမ်းဆည်းပါ။</p></li>
+<li><p>လိုအပ်လျှင် layer အသစ်အား မူရင်း <span class="guilabel">suitable_terrain</span> layer ၏အပေါ်သို့ ရွှေ့ပါ။</p>
+<p>ရလာဒ်သည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/suitable_buffer_results.png" src="../../../_images/suitable_buffer_results.png" />
+</figure>
+</li>
+<li><p>ယခုအခါ <span class="guilabel">Select by Location</span> tool ကိုအသုံးပြုပါ (<span class="menuselection">Vector ►
+Research Tools ► Select by location</span>)</p></li>
+<li><p>အောက်ပါပုံစံအတိုင်း သတ်မှတ်ပါ-</p>
+<figure class="align-center">
+<img alt="../../../_images/select_by_location.png" src="../../../_images/select_by_location.png" />
+</figure>
+</li>
+<li><p><span class="guilabel">suitable_terrain_continuous100m.shp</span> ထဲရှိ feature များနှင့် ထိဖြတ်နေသော <span class="guilabel">new_solution</span> ထဲရှိ feature များကို ရွေးချယ်ပါ။</p>
+<p>ရလာဒ်သည် အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<figure class="align-center">
+<img alt="../../../_images/buffer_select_result.png" src="../../../_images/buffer_select_result.png" />
+</figure>
+<p>အဝါရောင် အဆောက်အဦများသည် ရွေးချယ်ခံထားရသည်များဖြစ်သည်။ အချို့အဆောက်အဦများသည် <span class="guilabel">suitable_terrain_continuous100m</span> layer အသစ်၏ အပြင်ဘက်တွင် တစ်စိတ်တပိုင်းကျရောက်နေသော်လည်း ၎င်းတို့သည် မူရင်း <span class="guilabel">suitable_terrain</span> layer အတွင်းတွင် ကောင်းမွန်စွာကျရောက်နေပြီး ကျွန်ုပ်တို့၏ လိုအပ်ချက်များနှင့် ကိုက်ညီပါသည်။</p>
+</li>
+<li><p>ရွေးချယ်ထားသည်များကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/residential_development/</span></code> အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">final_answer.shp</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p></li>
+</ol>
+</div>
+</section>
+<section id="in-conclusion">
+<h2><span class="section-number">8.2.4. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>ယခုဆိုလျှင် သင့်အနေဖြင့် မူလမေးခွန်းကို အဖြေရှာဖွေပြီးဖြစ်ပါသည်။ မည်သည့်အပိုင်းများကို တိုးတက်အောင် လုပ်ဆောင်ရမည်ဆိုသည်နှင့်ပတ်သက်သော အကြံပြုချက်အတွက် သင့်အမြင်ကို ဖြေဆိုပေးနိုင်ပြီဖြစ်ပါသည် (Anaysis ကိုအခြေပြုသည့် အကြောင်းအရင်းများ)</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">8.2.5. </span>နောက်ထပ် ဘာအကြောင်းအရာလဲ? (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်တစ်ပိုင်းတွင် အဆိုပါရလာဒ်များကို သင်၏ ဒုတိယ assignment အနေဖြင့် တင်ပြရပါလိမ့်မည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="raster_to_vector.html" class="btn btn-neutral float-left" title="8.1. သင်ခန်းစာ- Raster မှ Vector သို့အမျိုးအစားပြောင်းခြင်း (Lesson: Raster to Vector Conversion)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="assignment.html" class="btn btn-neutral float-right" title="8.3. အိမ်စာ (Assignment)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/complete_analysis/analysis_combination.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/training_manual/complete_analysis/analysis_combination.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/training_manual/complete_analysis/analysis_combination.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/training_manual/complete_analysis/analysis_combination.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/training_manual/complete_analysis/analysis_combination.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/training_manual/complete_analysis/analysis_combination.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/training_manual/complete_analysis/analysis_combination.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/training_manual/complete_analysis/analysis_combination.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/training_manual/complete_analysis/analysis_combination.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/training_manual/complete_analysis/analysis_combination.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/training_manual/complete_analysis/analysis_combination.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b88a1d86f4a76483163615d11f0828fb" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
