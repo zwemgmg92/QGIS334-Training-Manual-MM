@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.2. Lesson: Web Feature Services &mdash; QGIS Documentation  documentation</title>
+  <title>10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="11. Module: QGIS Server" href="../qgis_server/index.html" />
+    <link rel="next" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" href="../qgis_server/index.html" />
     <link rel="prev" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" href="wms.html" />
-  <meta name="description" content="QGIS testing documentation: 10.2. Lesson: Web Feature Services">
+  <meta name="description" content="QGIS testing documentation: 10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -99,23 +99,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="wms.html">10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">10.2. Lesson: Web Feature Services</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-loading-a-wfs-layer">10.2.1. <abbr title="Basic level">★☆☆</abbr> Follow Along: Loading a WFS Layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-querying-a-wfs-layer">10.2.2. <abbr title="Moderate level">★★☆</abbr> Follow Along: Querying a WFS Layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">10.2.3. In Conclusion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-s-next">10.2.4. What’s Next?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.2. သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wfs-layer-follow-along-loading-a-wfs-layer">10.2.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WFS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wfs-layer-query-follow-along-querying-a-wfs-layer">10.2.2. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုအား Query လုပ်ခြင်း (Follow Along: Querying a WFS Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">10.2.3. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">10.2.4. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
 </ul>
@@ -138,13 +138,13 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
           <li class="breadcrumb-item"><a href="index.html"><span class="section-number">10. </span>မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">10.2. </span>Lesson: Web Feature Services</li>
+      <li class="breadcrumb-item active"><span class="section-number">10.2. </span>သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/online_resources/wfs.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="wms.html" class="btn btn-neutral float-left" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. Module: QGIS Server" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -153,156 +153,105 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="lesson-web-feature-services">
-<h1><span class="section-number">10.2. </span>Lesson: Web Feature Services<a class="headerlink" href="#lesson-web-feature-services" title="Link to this heading"></a></h1>
-<p>A Web Feature Service (WFS) provides its users with GIS data in formats that
-can be loaded directly in QGIS. Unlike a WMS, which provides you only with a
-map which you can’t edit, a WFS gives you access to the features themselves.</p>
-<p><strong>The goal for this lesson:</strong> To use a WFS and understand how it differs from a
-WMS.</p>
-<section id="follow-along-loading-a-wfs-layer">
-<h2><span class="section-number">10.2.1. </span><abbr title="Basic level">★☆☆</abbr> Follow Along: Loading a WFS Layer<a class="headerlink" href="#follow-along-loading-a-wfs-layer" title="Link to this heading"></a></h2>
+<section id="web-feature-services-lesson-web-feature-services">
+<h1><span class="section-number">10.2. </span>သင်ခန်းစာ - Web Feature Services (Lesson: Web Feature Services)<a class="headerlink" href="#web-feature-services-lesson-web-feature-services" title="Link to this heading"></a></h1>
+<p>Web Feature Service (WFS) တစ်ခုသည် QGIS ထဲတွင် တိုက်ရိုက်ထည့်သွင်းအသုံးပြုနိုင်သော format များဖြင့် GIS data များပံ့ပိုးပေးပါသည်။ WMS နှင့်မတူသည်မှာ WMS သည် ပြင်ဆင်၍မရသောမြေပုံတစ်ခုကိုသာ ပံ့ပိုးပေးပြီး WFS သည် feature များကို သုံးစွဲခွင့်ပေးခြင်းဖြစ်သည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> WFS တစ်ခုကိုအသုံးပြုတတ်စေရန်နှင့် WMS နှင့် WFS ကွာခြားပုံကို နားလည်စေရန်။</p>
+<section id="wfs-layer-follow-along-loading-a-wfs-layer">
+<h2><span class="section-number">10.2.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုထည့်သွင်းခြင်း (Follow Along: Loading a WFS Layer)<a class="headerlink" href="#wfs-layer-follow-along-loading-a-wfs-layer" title="Link to this heading"></a></h2>
 <ol class="arabic">
-<li><p>Start a new map. This is for demo purposes and won’t be saved.</p></li>
-<li><p>Click the <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> button.</p></li>
-<li><p>Enable the <a class="reference internal" href="../../../_images/mIconWfs.png"><img alt="wfs" src="../../../_images/mIconWfs.png" style="width: 1.5em;" /></a> <span class="guilabel">WFS / OGC API - Features</span> tab.</p></li>
-<li><p>Click the <span class="guilabel">New</span> button.</p></li>
-<li><p>In the dialog that appears, enter the <span class="guilabel">Name</span> as <code class="docutils literal notranslate"><span class="pre">nsidc.org</span></code>
-and the <span class="guilabel">URL</span> as
-<code class="docutils literal notranslate"><span class="pre">https://nsidc.org/cgi-bin/atlas_south?version=1.1.0</span></code>.</p>
+<li><p>မြေပုံအသစ်တစ်ခုစတင်ပါ။ နမူနာပြသခြင်းအတွက်ဖြစ်ပြီး ၎င်းကိုသိမ်းဆည်းမည်မဟုတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconWfs.png"><img alt="wfs" src="../../../_images/mIconWfs.png" style="width: 1.5em;" /></a> <span class="guilabel">WFS / OGC API - Features</span> tab ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">New</span> ခလုတ်ကိုနှိပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော dialog ထဲတွင် <span class="guilabel">Name</span> နေရာ၌ <code class="docutils literal notranslate"><span class="pre">nsidc.org</span></code> ဟုထည့်ပြီး <span class="guilabel">URL</span> တွင် <code class="docutils literal notranslate"><span class="pre">https://nsidc.org/cgi-bin/atlas_south?version=1.1.0</span></code> ဟုထည့်ပါ။</p>
 <figure class="align-center">
 <img alt="../../../_images/new_wfs_connection.png" src="../../../_images/new_wfs_connection.png" />
 </figure>
 </li>
-<li><p>Click <span class="guilabel">OK</span>, and the new connection will appear in your
-<span class="guilabel">Server connections</span>.</p></li>
-<li><p>Click the <span class="guilabel">Connect</span>. A list of the available layers will appear:</p>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ၊ <span class="guilabel">Server connections</span> ထဲတွင် ချိတ်ဆက်မှုအသစ်ပေါ်လာပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Connect</span> ကိုနှိပ်ပါ။ ရရှိနိုင်သော layer များစာရင်း ပေါ်လာပါလိမ့်မည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/wfs_connection_layers.png" src="../../../_images/wfs_connection_layers.png" />
 </figure>
 </li>
-<li><p>Uncheck the <span class="guilabel">Only request features overlapping the view extent</span> option
-below the layers list, since your current map canvas may not cover our area of
-interest: Antarctica.</p></li>
-<li><p>Find the layer <span class="guilabel">antarctica_country_border</span>.
-You can use the <span class="guilabel">Filter</span> box at the top.</p></li>
-<li><p>Click on the layer to select it:</p></li>
-<li><p>Find and select also the layer <span class="guilabel">south_poles_wfs</span>.
-You might need to hold <kbd class="kbd docutils literal notranslate">Ctrl</kbd>.</p>
+<li><p>Layer များစာရင်းအောက်ရှိ <span class="guilabel">Only request features overlapping the view extent</span> ကိုအမှန်ခြစ်ဖြုတ်ပါ၊ အကြောင်းမှာ သင့်လက်ရှိမြေပုံ canvas သည် စိတ်ဝင်စားသည့်ဧရိယာ Antarctica ကို မလွှမ်းခြုံနိုင်သောကြောင့်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">antarctica_country_border</span> layer ကိုရှာပါ။ အပေါ်ဘက်ရှိ <span class="guilabel">Filter</span> box ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>Layer ပေါ်တွင် click နှိပ်ပြီး select လုပ်ပါ-</p></li>
+<li><p><span class="guilabel">south_poles_wfs</span> layer ကိုလည်း ရှာဖွေပြီး select လုပ်ပါ။ <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ကိုဖိထားရန် လိုအပ်ပါမည်။</p>
 <figure class="align-center">
 <img alt="../../../_images/south_poles_wfs.png" src="../../../_images/south_poles_wfs.png" />
 </figure>
 </li>
-<li><p>Click <span class="guilabel">Add</span>.</p>
-<p>It may take a while to load the layers. When they are loaded, they will appear in
-the map, showing the outlines of Antarctica and a few points over.</p>
+<li><p><span class="guilabel">Add</span> ကိုနှိပ်ပါ။</p>
+<p>Layer များကိုထည့်သွင်းရန် အချိန်အနည်းငယ်ကြာမြင့်နိုင်ပါသည်။ ထည့်သွင်းပြီးသည်နှင့် မြေပုံထဲတွင် layer များပေါ်လာမည်ဖြစ်ပြီး Antarctica ၏အနားသတ်မျဉ်းများနှင့် ၎င်းအပေါ်ရှိ point အနည်းငယ်ကိုမြင်ရမည်ဖြစ်သည်။</p>
 <figure class="align-center">
 <img alt="../../../_images/antarctica_border.png" src="../../../_images/antarctica_border.png" />
 </figure>
-<p>How is this different from having a WMS layer?</p>
+<p>WMS layer တစ်ခုနှင့် မည်သို့ခြားနားပါသလဲ။</p>
 </li>
-<li><p>Select any of the layers and you’ll notice that feature selection and
-attribute table tools are enabled. These are vector layers.</p></li>
-<li><p>Select the <span class="guilabel">south_poles_wfs</span> layer and open its attribute table.
-You should see this:</p>
+<li><p>Layer တစ်ခုခုပေါ်တွင် select လုပ်ကြည့်ပါ၊ feature selection နှင့် attribute table tool များပွင့်လာသည်ကို တွေ့ရပါလိမ့်မည်။ ၎င်းတို့သည် vector layer များဖြစ်ကြပါသည်။</p></li>
+<li><p><span class="guilabel">south_poles_wfs</span> layer ၏ attribute table ကိုဖွင့်ကြည့်ပါ။ အောက်ပါအတိုင်းတွေ့ရပါလိမ့်မည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/poles_attribute_table.png" src="../../../_images/poles_attribute_table.png" />
 </figure>
-<p>Since the points have attributes, we are able to label them,
-as well as change their symbology. Here’s an example:</p>
+<p>Point များတွင် attribute များရှိသောကြောင့် ၎င်းတို့ကို label တပ်နိုင်မည်ဖြစ်သလို သင်္ကေတများလည်း ပြောင်းလဲပေးနိုင်ပါသည်။ ဥပမာ-</p>
 <figure class="align-center">
 <img alt="../../../_images/labelling_example.png" src="../../../_images/labelling_example.png" />
 </figure>
 </li>
 </ol>
-<section id="differences-from-wms-layers">
-<h3>Differences from WMS layers<a class="headerlink" href="#differences-from-wms-layers" title="Link to this heading"></a></h3>
-<p>A Web Feature Service returns the layer itself, not just a map rendered from
-it. This gives you direct access to the data, meaning that you can change its
-symbology and run analysis functions on it. However, this is at the cost of
-much more data being transmitted. This will be especially obvious if the layers
-you’re loading have complicated shapes, a lot of attributes, or many features;
-or even if you’re just loading a lot of layers. WFS layers typically take a
-very long time to load because of this.</p>
+<section id="wms-layer-differences-from-wms-layers">
+<h3>WMS layer များနှင့် ကွာခြားချက် (Differences from WMS layers)<a class="headerlink" href="#wms-layer-differences-from-wms-layers" title="Link to this heading"></a></h3>
+<p>Web Feature Service  သည် layer ကိုပြန်ထုတ်ပေးပါသည်၊ layer ဖြင့်ပုံဖော်ထားသောမြေပုံတစ်ခုကို ထုတ်ပေးခြင်းမဟုတ်ပါ။ Data ကိုတိုက်ရိုက်သုံးစွဲခွင့်ပေးထားပြီး သင်္ကေတ ပြောင်းလဲခြင်းနှင့် ၎င်း data ဖြင့် analysis များလုပ်ဆောင်နိုင်ပါသည်။ သို့သော် data များပြားစွာ ပို့ဆောင်ပေးရခြင်းဖြစ်စေပါသည်။ အထူးသဖြင့် ထည့်သွင်းနေသော layer များတွင် ရှုပ်ထွေးသော ပုံသဏ္ဍာန်များရှိခြင်း၊ attribute အများအပြားရှိခြင်း၊ သို့မဟုတ် feature များစွာရှိခြင်းနှင့် layer အများအပြားထည့်သွင်းလျှင် သိသာပါသည်။ ထိုအတွက်ကြောင့် WFS layer များကို ထည့်သွင်းရာတွင် အချိန်အလွန်ကြာမြင့်နိုင်ပါသည်။</p>
 </section>
 </section>
-<section id="follow-along-querying-a-wfs-layer">
-<h2><span class="section-number">10.2.2. </span><abbr title="Moderate level">★★☆</abbr> Follow Along: Querying a WFS Layer<a class="headerlink" href="#follow-along-querying-a-wfs-layer" title="Link to this heading"></a></h2>
-<p>Although it is of possible to query a WFS layer after having loaded
-it, it’s often more efficient to query it before you load it. That way, you’re
-only requesting the features you want, meaning that you use far less bandwidth.</p>
-<p>For example, on the WFS server we’re currently using, there is a layer called
-<span class="guilabel">countries (excluding Antarctica)</span>. Let’s say that we want to know
-where South Africa is relative to the <span class="guilabel">south_poles_wfs</span> layer (and
-perhaps also the <span class="guilabel">antarctica_country_border</span> layer) that’s already
-been loaded.</p>
-<p>There are two ways to do this. You can load the whole <span class="guilabel">countries …</span>
-layer, and then build a query as usual once it’s loaded. However, transmitting
-the data for all the countries in the world and then only using the data for
-South Africa seems a bit wasteful of bandwidth. Depending on your connection,
-this dataset can take several minutes to load.</p>
-<p>The alternative is to build the query as a filter before even loading the layer
-from the server.</p>
+<section id="wfs-layer-query-follow-along-querying-a-wfs-layer">
+<h2><span class="section-number">10.2.2. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - WFS Layer တစ်ခုအား Query လုပ်ခြင်း (Follow Along: Querying a WFS Layer)<a class="headerlink" href="#wfs-layer-query-follow-along-querying-a-wfs-layer" title="Link to this heading"></a></h2>
+<p>WFS layer တစ်ခုကို ထည့်သွင်းပြီးနောက်ပိုင်းမှ query ပြုလုပ်နိုင်သော်လည်း မထည့်သွင်းမီ query ပြုလုပ်ခြင်းက ပိုမို၍အကျိုးရှိပါသည်။ ထိုနည်းဖြင့် အလိုရှိသော feature များကိုသာ တောင်းဆိုနိုင်မည်ဖြစ်သည်။</p>
+<p>ဥပမာ- လက်ရှိအသုံးပြုနေသော WFS server ပေါ်တွင် <span class="guilabel">countries (excluding Antarctica)</span> layer တစ်ခုရှိပါသည်။ South Africa သည် ထည့်သွင်းထားပြီးသော <span class="guilabel">south_poles_wfs</span> layer (နှင့် <span class="guilabel">antarctica_country_border</span> layer) နှင့် မည်သည့်နေရာတွင် ဆက်စပ်နေသည်ကို သိလိုသည် ဆိုကြပါစို့။</p>
+<p>လုပ်ဆောင်ရန် နည်းလမ်း ၂ မျိုးရှိပါသည်။ တစ်နည်းမှာ <span class="guilabel">countries …</span> layer တစ်ခုလုံးကို ထည့်သွင်းပြီး query တစ်ခု တည်ဆောက်ခြင်းဖြစ်သည်။ သို့သော် ကမ္ဘာပေါ်ရှိနိုင်ငံအားလုံးအတွက် data များကူးပြောင်းရယူပြီးမှ South Africa အတွက် data ကိုသာ အသုံးပြုခြင်းသည် bandwidth များကိုဖြုန်းတီးသလိုဖြစ်ပါသည်။ အင်တာနက် connection ပေါ်မူတည်၍ dataset ထည့်သွင်းရန် အချိန်ကြာမြင့်နိုင်ပါသည်။</p>
+<p>နောက်တစ်နည်းမှာ layer ကိုမထည့်သွင်းမီ query ပြုလုပ်ခြင်းဖြစ်သည်။</p>
 <ol class="arabic">
-<li><p>Enable the <span class="guilabel">WFS / OGC API Features</span> tab in the
-<span class="guilabel">Data Source Manager</span> dialog</p></li>
-<li><p>Connect to the server we used before and you should see the list of available layers.</p></li>
-<li><p>Find and double-click the <span class="guilabel">countries (excluding Antarctica)</span> layer.
-The layer name is <code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code>.
-You can also select the layer and press <span class="guilabel">Build query</span> button at
-the bottom of the dialog:</p>
+<li><p><span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <span class="guilabel">WFS / OGC API Features</span> tab ကိုဖွင့်ပါ။</p></li>
+<li><p>ယခင်ကအသုံးပြုခဲ့သော server ကို ချိတ်ဆက်ပြီး ရရှိနိုင်သော layer များစာရင်းကိုကြည့်ပါ။</p></li>
+<li><p><span class="guilabel">countries (excluding Antarctica)</span> layer ကိုရှာပြီး click နှစ်ချက်နှိပ်ပါ။ Layer အမည်သည် <code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code> ဖြစ်ပါသည်။ Layer ကို select ပြုလုပ်ပြီး dialog အောက်ခြေရှိ <span class="guilabel">Build query</span> ခလုတ်ကိုလည်း နှိပ်နိုင်ပါသည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/select_country_filter.png" src="../../../_images/select_country_filter.png" />
 </figure>
 </li>
-<li><p>In the dialog that appears, type the following
-<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">country_borders_excluding_antarctica</span> <span class="pre">WHERE</span> <span class="pre">&quot;Countryeng&quot;</span> <span class="pre">=</span> <span class="pre">'South</span> <span class="pre">Africa'</span></code>
-query in the <span class="guilabel">SQL Statement</span> box.</p>
+<li><p>ပေါ်လာသော dialog ထဲရှိ <span class="guilabel">SQL Statement</span> box ထဲတွင် <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">country_borders_excluding_antarctica</span> <span class="pre">WHERE</span> <span class="pre">&quot;Countryeng&quot;</span> <span class="pre">=</span> <span class="pre">'South</span> <span class="pre">Africa'</span></code> ဆိုသည့် query ကိုရိုက်ထည့်ပါ။</p>
 <figure class="align-center">
 <img alt="../../../_images/country_sa_builder.png" src="../../../_images/country_sa_builder.png" />
 </figure>
 </li>
-<li><p>Press <span class="guilabel">OK</span>.</p></li>
-<li><p>The expression used will appear as the <span class="guilabel">Sql</span> value of the target layer:</p>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>အသုံးပြုသော expression သည် target layer ၏ <span class="guilabel">Sql</span> တန်ဖိုးအနေဖြင့် ပေါ်လာပါလိမ့်မည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/country_filter_enabled.png" src="../../../_images/country_filter_enabled.png" />
 </figure>
 </li>
-<li><p>Click <span class="guilabel">Add</span> with the layer selected as above.
-Only the country with the <code class="docutils literal notranslate"><span class="pre">Countryeng</span></code> value of <code class="docutils literal notranslate"><span class="pre">South</span> <span class="pre">Africa</span></code> will load from
-that layer:</p>
+<li><p>အထက်တွင် select လုပ်ထားသော layer ကို <span class="guilabel">Add</span> လုပ်ပါ။ အဆိုပါ layer မှ <code class="docutils literal notranslate"><span class="pre">Countryeng</span></code> ၏တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">South</span> <span class="pre">Africa</span></code> ဖြစ်သော နိုင်ငံကိုသာ ထည့်သွင်းပေးမည်ဖြစ်သည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/antarctica_sa.png" src="../../../_images/antarctica_sa.png" />
 </figure>
-<p>Did you notice the <a class="reference internal" href="../../../_images/mIndicatorFilter.png"><img alt="indicatorFilter" src="../../../_images/mIndicatorFilter.png" style="width: 1.5em;" /></a> icon next to the
-<code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code> layer? It indicates that the loaded
-layer is filtered and does not display in the project all of its features.</p>
+<p><code class="docutils literal notranslate"><span class="pre">country_borders_excluding_antarctica</span></code> layer ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorFilter.png"><img alt="indicatorFilter" src="../../../_images/mIndicatorFilter.png" style="width: 1.5em;" /></a> icon ကိုသတိထားမိပါသလား။ ထို icon သည် ထည့်သွင်းထားသော layer ကို filter ပြုလုပ်ထားသည်ဟု ညွှန်ပြခြင်းဖြစ်ပြီး ၎င်း layer ထဲရှိ feature များအားလုံးကို project ထဲတွင် ပြသမည်မဟုတ်ပါ။</p>
 </li>
-<li><p>You don’t have to, but if you tried both methods, you’ll notice that this is a
-lot faster than loading all the countries before filtering them!</p></li>
+<li><p>နည်းလမ်း ၂ မျိုးစလုံးကိုစမ်းကြည့်လျှင် ယခုနည်းသည် filter မလုပ်ခင် နိုင်ငံများအားလုံးကို ထည့်သွင်းခြင်းနည်းလမ်း ထက် ပိုမြန်သည်ကို သတိထားမိလိမ့်မည်။</p></li>
 </ol>
-<section id="notes-on-wfs-availability">
-<h3>Notes on WFS availability<a class="headerlink" href="#notes-on-wfs-availability" title="Link to this heading"></a></h3>
-<p>It is rare to find a WFS hosting features you need, if your needs are very
-specific. The reason why Web Feature Services are relatively rare is because of
-the large amounts of data that must be transmitted to describe a whole feature.
-It is therefore not very cost-effective to host a WFS rather than a WMS, which
-sends only images.</p>
-<p>The most common type of WFS you’ll encounter will therefore probably be on a
-local network or even on your own computer, rather than on the Internet.</p>
+<section id="wfs-notes-on-wfs-availability">
+<h3>WFS ရရှိနိုင်မှု (Notes on WFS availability)<a class="headerlink" href="#wfs-notes-on-wfs-availability" title="Link to this heading"></a></h3>
+<p>သင်လိုအပ်သည့် feature များသည် အလွန်သီးခြားဖြစ်နေလျှင် အဆိုပါ feature များကိုပံ့ပိုးပေးသော WFS တစ်ခုကို ရှာဖွေရန် ခက်ခဲပါသည်။ Web Feature Service များ အတော်လေးရှားပါးရခြင်းမှာ feature တစ်ခုလုံးကို ကူးပြောင်းရာတွင် data ပမာဏကြီးမားသောကြောင့်ဖြစ်သည်။ ထို့ကြောင့် image များကိုသာပေးပို့သော WMS တစ်ခုထက်စာလျှင် WFS တစ်ခုကို host လုပ်ရခြင်းသည် ကုန်ကျစရိတ်များပြားပါသည်။</p>
+<p>ထို့ကြောင့် သင်တွေ့ရမည် အသုံးအများဆုံး WFS အမျိုးအစားသည် အင်တာနက်ပေါ်တွင်ရှိသည်ထက် local network တစ်ခု သို့မဟုတ် မိမိကွန်ပျူတာပေါ်တွင် ရှိခြင်းမျိုး ဖြစ်နိုင်ပါသည်။</p>
 </section>
 </section>
 <section id="in-conclusion">
-<h2><span class="section-number">10.2.3. </span>In Conclusion<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
-<p>WFS layers are preferable over WMS layers if you need direct access to the
-attributes and geometries of the layers. However, considering the amount of
-data that needs to be downloaded (which leads to speed problems and also a lack
-of easily available public WFS servers) it’s not always possible to use a WFS
-instead of a WMS.</p>
+<h2><span class="section-number">10.2.3. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>Layer များ၏ attribute များနှင့် ဂျီဩမေတြီများကို တိုက်ရိုက်သုံးစွဲရန်လိုအပ်လျှင် WFS layer များသည် WMS layer များထက် ပိုမိုကောင်းမွန်ပါသည်။ သို့သော် ဒေါင်းလုဒ်ပြုလုပ်ရမည့် data ပမာဏကို ထည့်သွင်းစဉ်းစားပါက (အင်တာနက်အမြန်နှုန်းပြဿနာနှင့် အလွယ်တကူရရှိနိုင်သော WFS server များရှားပါးခြင်း ကိုပါထည့်သွင်းစဉ်းစားပါက) WMS တစ်ခုအစား WFS ကိုအမြဲတမ်းအသုံးပြုနိုင်မည်တော့မဟုတ်ပါ။</p>
 </section>
 <section id="what-s-next">
-<h2><span class="section-number">10.2.4. </span>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
-<p>Next, you’ll see how to use QGIS Server to provide OGC services.</p>
+<h2><span class="section-number">10.2.4. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် OGC service များကိုရရှိရန် QGIS Server ကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
 </section>
 </section>
 
@@ -311,14 +260,14 @@ instead of a WMS.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="wms.html" class="btn btn-neutral float-left" title="10.1. သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. Module: QGIS Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../qgis_server/index.html" class="btn btn-neutral float-right" title="11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
       </span></p>
   </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>13. Module: Assessment &mdash; QGIS Documentation  documentation</title>
+  <title>13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="14. Module: Forestry Application" href="../forestry/index.html" />
-    <link rel="prev" title="12.2. Lesson: GRASS Tools" href="../grass/grass_tools.html" />
-  <meta name="description" content="QGIS testing documentation: 13. Module: Assessment">
+    <link rel="next" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" href="../forestry/index.html" />
+    <link rel="prev" title="12.2. သင်ခန်းစာ - GRASS Tools (Lesson: GRASS Tools)" href="../grass/grass_tools.html" />
+  <meta name="description" content="QGIS testing documentation: 13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -98,29 +98,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. Module: QGIS Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">13. Module: Assessment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-base-map">13.1. Create a base map</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#add-the-point-layer">13.1.1. Add the point layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-the-line-layer">13.1.2. Add the line layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-the-polygon-layer">13.1.3. Add the polygon layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-the-raster-backdrop">13.1.4. Create the raster backdrop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#finalize-the-base-map">13.1.5. Finalize the base map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgis_server/index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-base-map">13.1. အောက်ခံမြေပုံတစ်ခုဖန်တီးပါ (Create a base map)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#point-layer-add-the-point-layer">13.1.1. Point layer ထည့်သွင်းပါ (Add the point layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#line-layer-add-the-line-layer">13.1.2. Line layer ထည့်သွင်းခြင်း (Add the line layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon-layer-add-the-polygon-layer">13.1.3. Polygon layer ထည့်သွင်းခြင်း (Add the polygon layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-create-the-raster-backdrop">13.1.4. Raster နောက်ခံ ဖန်တီးခြင်း (Create the raster backdrop)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finalize-the-base-map">13.1.5. အောက်ခံမြေပုံကို အပြီးသတ်ခြင်း (Finalize the base map)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#analyze-the-data">13.2. Analyze the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-analyze-the-data">13.2. Data ကို ဆန်းစစ်လေ့လာခြင်း (Analyze the data)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id10">13.2.1. <abbr title="Moderate level">★★☆</abbr> / <abbr title="Advanced level">★★★</abbr></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#final-map">13.3. Final Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-map">13.3. အပြီးသတ်မြေပုံ (Final Map)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
 </ul>
@@ -142,13 +142,13 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">13. </span>Module: Assessment</li>
+      <li class="breadcrumb-item active"><span class="section-number">13. </span>မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/assessment/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../grass/grass_tools.html" class="btn btn-neutral float-left" title="12.2. Lesson: GRASS Tools" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../forestry/index.html" class="btn btn-neutral float-right" title="14. Module: Forestry Application" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../grass/grass_tools.html" class="btn btn-neutral float-left" title="12.2. သင်ခန်းစာ - GRASS Tools (Lesson: GRASS Tools)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../forestry/index.html" class="btn btn-neutral float-right" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -158,175 +158,137 @@
   <blockquote>
 <div></div></blockquote>
 <section id="module-assessment">
-<h1><span class="section-number">13. </span>Module: Assessment<a class="headerlink" href="#module-assessment" title="Link to this heading"></a></h1>
-<p>Use your own data for this section. You will need:</p>
+<h1><span class="section-number">13. </span>မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)<a class="headerlink" href="#module-assessment" title="Link to this heading"></a></h1>
+<p>ဤအပိုင်းအတွက် သင့်ကိုယ်ပိုင် data ကိုအသုံးပြုပါ။ အောက်ပါတို့ လိုအပ်ပါလိမ့်မည်-</p>
 <ul class="simple">
-<li><p>a point vector dataset of points of interest, with point names and multiple
-categories</p></li>
-<li><p>a line vector dataset of roads</p></li>
-<li><p>a polygon vector dataset of land use (using property boundaries)</p></li>
-<li><p>a visual-spectrum image (such as an aerial photograph)</p></li>
-<li><p>a DEM (downloadable from <a class="reference external" href="http://srtm.csi.cgiar.org/">the CGIAR-CSI</a> if you
-don’t have your own)</p></li>
+<li><p>Point အမည်များနှင့် category များစွာပါဝင်သော point vector dataset တစ်ခု</p></li>
+<li><p>လမ်းများ၏ line vector dataset တစ်ခု</p></li>
+<li><p>မြေအသုံးချမှုပြ polygon vector dataset တစ်ခု (property boundaries ကိုအသုံးပြုပြီး)</p></li>
+<li><p>visual-spectrum ဓာတ်ပုံတစ်ခု (ဥပမာ-ကောင်းကင်ဓာတ်ပုံ)</p></li>
+<li><p>DEM တစ်ခု (မရှိသေးလျှင် <a class="reference external" href="http://srtm.csi.cgiar.org/">the CGIAR-CSI</a> မှ ဒေါင်းလုဒ်ရယူနိုင်ပါသည်)</p></li>
 </ul>
 <section id="create-a-base-map">
-<h2><span class="section-number">13.1. </span>Create a base map<a class="headerlink" href="#create-a-base-map" title="Link to this heading"></a></h2>
-<p>Before doing any data analysis, you will need a base map, which will provide
-your analysis result with context.</p>
-<section id="add-the-point-layer">
-<h3><span class="section-number">13.1.1. </span>Add the point layer<a class="headerlink" href="#add-the-point-layer" title="Link to this heading"></a></h3>
+<h2><span class="section-number">13.1. </span>အောက်ခံမြေပုံတစ်ခုဖန်တီးပါ (Create a base map)<a class="headerlink" href="#create-a-base-map" title="Link to this heading"></a></h2>
+<p>မည်သည့် data analysis တစ်ခုမှ မလုပ်ခင်တွင် သင့် analysis ရလာဒ်ကို ဆက်စပ်ပြသပေးမည့် base map တစ်ခုလိုအပ်ပါလိမ့်မည်။</p>
+<section id="point-layer-add-the-point-layer">
+<h3><span class="section-number">13.1.1. </span>Point layer ထည့်သွင်းပါ (Add the point layer)<a class="headerlink" href="#point-layer-add-the-point-layer" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Add in the point layer. Based on the level that you’re doing the course at,
-do only what is listed in the appropriate section below:</p></li>
+<li><p>Point layer ထဲတွင်ထည့်သွင်းပါ။ သင့်အနေဖြင့် သင်တန်း၌လုပ်ဆောင်နေသော အဆင့်ပေါ်မူတည်၍ အောက်ပါ အဆင့်များထဲမှ သင့်တော်ရာအဆင့်ကိုသာ ဆောင်ရွက်ပါ-</p></li>
 </ul>
 <section id="id1">
 <h4><abbr title="Basic level">★☆☆</abbr><a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Label the points according to a unique attribute, such as place names.  Use a
-small font and keep the labels inconspicuous. The information should be
-available, but shouldn’t be a main feature of the map.</p></li>
-<li><p>Classify the points themselves into different colors based on a category.
-For example, categories could include “tourist destination”, “police
-station”, and “town center”.</p></li>
+<li><p>Point များကို attribute တစ်ခုခုဖြင့် label တပ်ပါ၊ ဥပမာ- နေရာအမည်များ။ စာလုံးဖောင့်အသေးကို အသုံးပြုပြီး label များကို မထင်မရှားပြုလုပ်ထားပါ။ အချက်အလက်ကို ပြသရုံသာဖြစ်ပြီး မြေပုံ၏အဓိက feature အနေဖြင့်မဖြစ်သင့်ပါ။</p></li>
+<li><p>Point များကို category ပေါ်မူတည်ပြီး အရောင်အမျိုးမျိုးသို့ classify ပြုလုပ်ပါ။ ဥပမာ- category တွင် “tourist destination” ၊ “police station” ၊ နှင့် “town center” တို့ပါဝင်နိုင်ပါသည်။</p></li>
 </ul>
 </section>
 <section id="id2">
 <h4><abbr title="Moderate level">★★☆</abbr><a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Do the same as the <abbr title="Basic level">★☆☆</abbr> section.</p></li>
-<li><p>Classify the point size by importance: the more significant a feature, the
-larger its point. However, don’t exceed the point size of <kbd class="kbd docutils literal notranslate">2.00</kbd>.</p></li>
-<li><p>For features that aren’t located at a single point (for example,
-provincial/regional names, or town names at a large scale), don’t assign any
-point at all.</p></li>
+<li><p><abbr title="Basic level">★☆☆</abbr> section အတိုင်းလုပ်ဆောင်ပါ။</p></li>
+<li><p>Point အရွယ်အစားကို classify ပြုလုပ်ပါ- feature တစ်ခုသည် သိသာထင်ရှားလေလေ ၎င်း point အရွယ်အစား ကြီးလေလေဖြစ်သည်။ သို့သော် point အရွယ်အစားကို <kbd class="kbd docutils literal notranslate">2.00</kbd> ထက် မကျော်လွန်ပါစေနှင့်။</p></li>
+<li><p>Point တစ်ခုတည်းတွင် ရှိမနေသော feature များအတွက် (ဥပမာ- ပြည်နယ်/တိုင်း အမည်များ၊ သို့မဟုတ် စကေးအကြီး၌ရှိသော မြို့အမည်များ) မည်သည့် point မျှမသတ်မှတ်ပါနှင့်။</p></li>
 </ul>
 </section>
 <section id="id3">
 <h4><abbr title="Advanced level">★★★</abbr><a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Don’t use point symbols to symbolize the layer at all. Instead, use labels
-centered over the points; the point symbols themselves should have no size.</p></li>
-<li><p>Use <span class="guilabel">Data defined settings</span> to style the labels into meaningful
-categories.</p></li>
-<li><p>Add appropriate columns to the attribute data if necessary. When doing so,
-don’t create fictional data - rather, use the <span class="guilabel">Field Calculator</span> to
-populate the new columns, based on appropriate existing values in the
-dataset.</p></li>
+<li><p>Layer ကို သင်္ကေတပြင်ဆင်ရန် မည်သည့် point သင်္ကေတကိုမျှအသုံးမပြုပါနှင့်။ ထိုအစား point များပေါ်တွင် label ကိုအလယ်၌ထားပြီး အသုံးပြုပါ၊ point သင်္ကေတများတွင် အရွယ်အစားမရှိသင့်ပါ။</p></li>
+<li><p>Label များကို အဓိပ္ပါယ်ရှိသော category များအဖြစ်သို့ style ထည့်သွင်းရန် <span class="guilabel">Data defined settings</span> ကိုအသုံးပြုပါ။</p></li>
+<li><p>လိုအပ်ပါက attribute data တွင် သင့်လျော်သော column များထည့်သွင်းပါ။ ထိုသို့လုပ်ဆောင်သောအခါ စိတ်ကူးယဉ်ဆန်သော data များ မဖန်တီးပါနှင့်၊ ထို့အစား dataset ထဲရှိ ရှိနေပြီးသား သင့်လျော်သော တန်ဖိုးများပေါ်အခြေခံပြီး column အသစ်များကိုထည့်သွင်းရန် <span class="guilabel">Field Calculator</span> ကိုအသုံးပြုပါ။</p></li>
 </ul>
 </section>
 </section>
-<section id="add-the-line-layer">
-<h3><span class="section-number">13.1.2. </span>Add the line layer<a class="headerlink" href="#add-the-line-layer" title="Link to this heading"></a></h3>
+<section id="line-layer-add-the-line-layer">
+<h3><span class="section-number">13.1.2. </span>Line layer ထည့်သွင်းခြင်း (Add the line layer)<a class="headerlink" href="#line-layer-add-the-line-layer" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Add the road layer and then change its symbology. Don’t label the roads.</p></li>
+<li><p>Road layer ကိုထည့်သွင်းပြီး ၎င်း၏ သင်္ကေတကို ပြောင်းလဲပါ။ Road များကို label မတပ်ပါနှင့်။</p></li>
 </ul>
 <section id="id4">
 <h4><abbr title="Basic level">★☆☆</abbr><a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Change the road symbology to a light color with a broad line. Make it
-somewhat transparent as well.</p></li>
+<li><p>Road သင်္ကေတကို မျဉ်းကြောင်းထူထူဖြင့် အရောင်ဖျော့သော သင်္ကေတသို့ ပြောင်းလဲပါ။ ၎င်းကို အနည်းငယ် transparent (အလင်းဖောက်) ပြုလုပ်ထားပါ။</p></li>
 </ul>
 </section>
 <section id="id5">
 <h4><abbr title="Moderate level">★★☆</abbr><a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Create a symbol with multiple symbol layers. The resulting symbol should look
-like a real road. You can use a simple symbol for this; for example, a black
-line with a thin white solid line running down the center. It can be more
-elaborate as well, but the resulting map should not look too busy.</p></li>
-<li><p>If your dataset has a high density of roads at the scale you want to show the
-map at, you should have two road layers: the elaborate road-like symbol, and
-a simpler symbol at smaller scales. (Use scale-based visibility to make them
-switch out at appropriate scales.)</p></li>
-<li><p>All symbols should have multiple symbol layers. Use symbols to make them
-display correctly.</p></li>
+<li><p>သင်္ကေတ layer များစွာဖြင့် သင်္ကေတတစ်ခုကို ဖန်တီးပါ။ ရလာဒ်သင်္ကေတသည် လမ်းအစစ်နှင့် ပုံစံတူသင့်ပါသည်။ ထိုအတွက် ရိုးရှင်းသောသင်္ကေတတစ်ခုကို အသုံးပြုနိုင်ပါသည်- ဥပမာ၊ အလယ်တွင် အဖြူရောင် မျဉ်းအပါး ပါဝင်သော အနက်ရောင် မျဉ်းတစ်ခု။ ၎င်းသင်္ကေတကို ပိုမို၍လည်း ပြင်ဆင်နိုင်ပါသည်၊ သို့သော် ရလာဒ်မြေပုံသည် အလွန်ရှုပ်ရှုပ်ထွေးထွေး ပုံစံဖြစ်မနေသင့်ပါ။</p></li>
+<li><p>မြေပုံပေါ်တွင် သင်ပြသလိုသော စကေး၌ road များ များပြားစွာရှိနေလျှင် road layer နှစ်ခု ရှိသင့်ပါသည်- road ပုံစံ သင်္ကေတ နှင့် စကေးအသေး၌ရှိသော ရိုးရိုးသင်္ကေတတစ်ခု။ (သင့်လျော်သောစကေးများ၌ မြင်ရနိုင်စေရန် စကေးအခြေခံသော မြင်ရနိုင်မှု (scale-based visibility) ကိုအသုံးပြုပါ)</p></li>
+<li><p>သင်္ကေတများအားလုံးတွင် သင်္ကေတ layer အများအပြား ပါရှိသင့်ပါသည်။ ၎င်းတို့ကို မှန်မှန်ကန်ကန် ပြသနိုင်မည့် သင်္ကေတများကိုအသုံးပြုပါ။</p></li>
 </ul>
 </section>
 <section id="id6">
 <h4><abbr title="Advanced level">★★★</abbr><a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Do the same as in the <abbr title="Moderate level">★★☆</abbr> section above.</p></li>
-<li><p>In addition, roads should be classified. When using realistic road-like
-symbols, each type of road should have an appropriate symbol; for example, a
-highway should appear to have two lanes in either direction.</p></li>
+<li><p>အထက်ဖော်ပြပါ <abbr title="Moderate level">★★☆</abbr> section အတိုင်းလုပ်ဆောင်ပါ။</p></li>
+<li><p>ထို့အပြင် road များကို classify လုပ်ထားသင့်ပါသည်။ လမ်းပုံစံအစစ်နှင့်တူသော သင်္ကေတများကိုအသုံးပြုသောအခါ road အမျိုးအစားတစ်ခုချင်းစီတွင် သင့်လျော်သော သင်္ကေတတစ်ခုစီရှိသင့်ပါသည်၊ ဥပမာ- highway လမ်းများသည် လားရာတစ်ဖက်တစ်ချက်စီဖြင့် လမ်း ၂ လမ်းပါရှိသည့်ပုံစံဖြစ်သင့်ပါသည်။</p></li>
 </ul>
 </section>
 </section>
-<section id="add-the-polygon-layer">
-<h3><span class="section-number">13.1.3. </span>Add the polygon layer<a class="headerlink" href="#add-the-polygon-layer" title="Link to this heading"></a></h3>
+<section id="polygon-layer-add-the-polygon-layer">
+<h3><span class="section-number">13.1.3. </span>Polygon layer ထည့်သွင်းခြင်း (Add the polygon layer)<a class="headerlink" href="#polygon-layer-add-the-polygon-layer" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Add the land use layer and change its symbology.</p></li>
+<li><p>မြေအသုံးချမှု (land use) layer ကိုထည့်သွင်းပြီး ၎င်း၏ သင်္ကေတကို ပြောင်းလဲပါ။</p></li>
 </ul>
 <section id="id7">
 <h4><abbr title="Basic level">★☆☆</abbr><a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Classify the layer according to land use. Use solid colors.</p></li>
+<li><p>Layer ကို land use အရ classify ပြုလုပ်ပါ။ အပိတ် (solid) အရောင်များကို အသုံးပြုပါ။</p></li>
 </ul>
 </section>
 <section id="id8">
 <h4><abbr title="Moderate level">★★☆</abbr><a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Classify the layer according to land use. Where appropriate, incorporate
-symbol layers, different symbol types, etc. Keep the results looking subdued
-and uniform, however. Keep in mind that this will be part of a backdrop!</p></li>
+<li><p>Layer ကို land use အရ classify ပြုလုပ်ပါ။ သင့်လျော်သည့်နေရာများတွင် သင်္ကေတ layer များ၊ အမျိုးမျိုး သင်္ကေတအမျိုးအစားများ၊ စသည်တို့ကို ပေါင်းစပ်ပါ။ ဤသို့လုပ်ဆောင်ခြင်းသည် နောက်ခံ (backdrop) တစ်ခု၏ တစ်စိတ်တစ်ပိုင်းသာဖြစ်ပါသည်။</p></li>
 </ul>
 </section>
 <section id="id9">
 <h4><abbr title="Advanced level">★★★</abbr><a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Use rule-based classification to classify the land use into general
-categories, such as “urban”, “rural”, “nature reserve”, etc.</p></li>
+<li><p>Rule-based classification ကိုအသုံးပြုပြီး land use ကို “urban” ၊ “rural” ၊ “nature reserve” အစရှိသည့် ယေဘုယျ category များအဖြစ်သို့ classify ပြုလုပ်ပါ။</p></li>
 </ul>
 </section>
 </section>
-<section id="create-the-raster-backdrop">
-<h3><span class="section-number">13.1.4. </span>Create the raster backdrop<a class="headerlink" href="#create-the-raster-backdrop" title="Link to this heading"></a></h3>
+<section id="raster-create-the-raster-backdrop">
+<h3><span class="section-number">13.1.4. </span>Raster နောက်ခံ ဖန်တီးခြင်း (Create the raster backdrop)<a class="headerlink" href="#raster-create-the-raster-backdrop" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Create a hillshade from the DEM, and use it as an overlay for a classified
-version of the DEM itself. You could also use the <span class="guilabel">Relief</span> plugin
-(as shown in the lesson on plugins).</p></li>
+<li><p>DEM မှ hillshade တစ်ခုဖန်တီးပါ၊ ထို့နောက် ၎င်းကို classify ပြုလုပ်ထားသော DEM တစ်ခုအတွက် overlay (အဖုံးအအုပ်) အဖြစ်အသုံးပြုပါ။ <span class="guilabel">Relief</span> plugin ကိုလည်း အသုံးပြုနိုင်ပါသည် (Plugin များ သင်ခန်းစာတွင် ပြထားသည့်အတိုင်း)။</p></li>
 </ul>
 </section>
 <section id="finalize-the-base-map">
-<h3><span class="section-number">13.1.5. </span>Finalize the base map<a class="headerlink" href="#finalize-the-base-map" title="Link to this heading"></a></h3>
+<h3><span class="section-number">13.1.5. </span>အောက်ခံမြေပုံကို အပြီးသတ်ခြင်း (Finalize the base map)<a class="headerlink" href="#finalize-the-base-map" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Using the resources above, create a base map using some or all of the
-layers. This map should include all the basic information needed to orient
-the user, as well as being visually unified / “simple”.</p></li>
+<li><p>အထက်ပါ resource များကိုအသုံးပြုပြီး layer များအားလုံး သို့မဟုတ် အချို့ကိုသုံးကာ base map တစ်ခုဖန်တီးပါ။ ထိုမြေပုံတွင် အသုံးပြုသူကိုပြသရန်လိုအပ်သော အခြေခံအချက်အလက်များအားလုံး ပါဝင်သင့်သည်သာမက အမြင်ပိုင်းဆိုင်ရာအရလည်း ရိုးရိုးရှင်းရှင်းဖြစ်သင့်ပါသည်။</p></li>
 </ul>
 </section>
 </section>
-<section id="analyze-the-data">
-<h2><span class="section-number">13.2. </span>Analyze the data<a class="headerlink" href="#analyze-the-data" title="Link to this heading"></a></h2>
+<section id="data-analyze-the-data">
+<h2><span class="section-number">13.2. </span>Data ကို ဆန်းစစ်လေ့လာခြင်း (Analyze the data)<a class="headerlink" href="#data-analyze-the-data" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>You are looking for a property that satisfies certain criteria.</p></li>
-<li><p>You can decide on your own criteria, which you must document.</p></li>
-<li><p>There are some guidelines for these criteria:</p>
+<li><p>သင်သည် criteria အချို့နှင့်ကိုက်ညီသော property တစ်ခုကို ရှာဖွေနေပါသည်။</p></li>
+<li><p>ကိုယ်ပိုင် criteria ကိုဆုံးဖြတ်နိုင်ပါသည်။ Criteria များကိုမှတ်တမ်းပြုလုပ်ထားရပါမည်။</p></li>
+<li><p>အဆိုပါ criteria များအတွက် လမ်းညွှန်ချက်အချို့ရှိပါသည်-</p>
 <ul>
-<li><p>the target property should be of (a) certain type(s) of land use</p></li>
-<li><p>it should be within a given distance from roads, or be crossed by a road</p></li>
-<li><p>it should be within a given distance from some category of points, like a
-hospital for example</p></li>
+<li><p>လိုချင်သည့် property သည် land use အမျိုးအစားတစ်ခုခုဖြစ်သင့်သည်</p></li>
+<li><p>၎င်းသည် လမ်းများမှ အကွာအဝေးတစ်ခုအတွင်း ရှိသင့်သည်၊ သို့မဟုတ် လမ်းတစ်ခုမှ ဖြတ်သွားသင့်သည်</p></li>
+<li><p>၎င်းသည် point category အချို့မှ အကွာအဝေးတစ်ခုအတွင်း ရှိသင့်သည်၊ ဥပမာ- ဆေးရုံမှ အကွာအဝေးမည်မျှအတွင်း ရှိသင့်သည်။</p></li>
 </ul>
 </li>
 </ul>
 <section id="id10">
 <h3><span class="section-number">13.2.1. </span><abbr title="Moderate level">★★☆</abbr> / <abbr title="Advanced level">★★★</abbr><a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Include raster analysis in your results. Consider at least one derived
-property of the raster, such as its aspect or slope.</p></li>
+<li><p>သင့်ရလာဒ်ထဲတွင် raster analysis လုပ်ဆောင်ပါ။ Aspect သို့မဟုတ် slope ကဲ့သို့ raster မှတွက်ထုတ်ရသည့် ရလာဒ် အနည်းဆုံးတစ်ခုပါဝင်အောင် လုပ်ဆောင်ပါ။</p></li>
 </ul>
 </section>
 </section>
 <section id="final-map">
-<h2><span class="section-number">13.3. </span>Final Map<a class="headerlink" href="#final-map" title="Link to this heading"></a></h2>
+<h2><span class="section-number">13.3. </span>အပြီးသတ်မြေပုံ (Final Map)<a class="headerlink" href="#final-map" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Use the <span class="guilabel">Print Layout</span> to create a final map, which incorporates
-your analysis results.</p></li>
-<li><p>Include this map in a document along with your documented criteria. If the
-map has become too visually busy due to the added layer(s), deselect the
-layers which you feel are the least necessary.</p></li>
-<li><p>Your map must include a title and a legend.</p></li>
+<li><p>Analysis ရလာဒ်များပါဝင်သော အပြီးသတ်မြေပုံတစ်ခုဖန်တီးရန် <span class="guilabel">Print Layout</span> ကိုအသုံးပြုပါ၊</p></li>
+<li><p>Criteria မှတ်တမ်းနှင့်အတူ document တစ်ခုထဲတွင် ထိုမြေပုံကိုထည့်သွင်းပါ။ မြေပုံသည် ထည့်သွင်းထားသော layer များကြောင့် အမြင်ပိုင်းအရ အလွန်ရှုပ်ထွေးနေလျှင် မလိုအပ်သော layer များကို select ဖြုတ်ထားနိုင်ပါသည်။</p></li>
+<li><p>မြေပုံတွင် ခေါင်းစဉ်တစ်ခုနှင့် ရည်ညွှန်းချက်တစ်ခု ပါရှိရပါမည်။</p></li>
 </ul>
 </section>
 </section>
@@ -335,15 +297,15 @@ layers which you feel are the least necessary.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../grass/grass_tools.html" class="btn btn-neutral float-left" title="12.2. Lesson: GRASS Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../forestry/index.html" class="btn btn-neutral float-right" title="14. Module: Forestry Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../grass/grass_tools.html" class="btn btn-neutral float-left" title="12.2. သင်ခန်းစာ - GRASS Tools (Lesson: GRASS Tools)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../forestry/index.html" class="btn btn-neutral float-right" title="14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
       </span></p>
   </div>
 

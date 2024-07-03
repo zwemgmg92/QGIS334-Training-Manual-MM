@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>11.2. Lesson: Serving WMS &mdash; QGIS Documentation  documentation</title>
+  <title>11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="12. Module: GRASS" href="../grass/index.html" />
-    <link rel="prev" title="11.1. Lesson: Install QGIS Server" href="install.html" />
-  <meta name="description" content="QGIS testing documentation: 11.2. Lesson: Serving WMS">
+    <link rel="next" title="12. မော်ဂျူး - GRASS (Module: GRASS)" href="../grass/index.html" />
+    <link rel="prev" title="11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)" href="install.html" />
+  <meta name="description" content="QGIS testing documentation: 11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -98,28 +98,28 @@
 <li class="toctree-l2"><a class="reference internal" href="../complete_analysis/index.html">8. မော်ဂျူး- ဆန်းစစ်လေ့လာမှုကို ပြီးမြောက်အောင်လုပ်ဆောင်ခြင်း (Module: Completing the Analysis)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../qgis_plugins/index.html">9. မော်ဂျူး - Plugin များ (Module: Plugins)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../online_resources/index.html">10. မော်ဂျူး - အွန်လိုင်း အရင်းအမြစ်များ (Module: Online Resources)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">11. Module: QGIS Server</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="install.html">11.1. Lesson: Install QGIS Server</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">11.2. Lesson: Serving WMS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#logging">11.2.1. Logging</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">11. မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install.html">11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">11.2. သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logging">11.2.1. မှတ်တမ်း (Logging)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getmap-requests">11.2.2. GetMap requests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#try-yourself-change-the-image-and-layers-parameters">11.2.3. <abbr title="Moderate level">★★☆</abbr> Try Yourself: Change the Image and Layers parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-use-filter-opacities-and-styles-parameters">11.2.4. <abbr title="Moderate level">★★☆</abbr> Follow Along: Use Filter, Opacities and Styles parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-use-redlining">11.2.5. <abbr title="Moderate level">★★☆</abbr> Follow Along: Use Redlining</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image-layer-parameter-try-yourself-change-the-image-and-layers-parameters">11.2.3. <abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - Image နှင့် Layer parameter များပြောင်းလဲခြင်း (Try Yourself: Change the Image and Layers parameters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#style-follow-along-use-filter-opacities-and-styles-parameters">11.2.4. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ခြင်း ၊ အလင်းပိတ်နှုန်းနှင့် Style သတ်မှတ်ချက်များ အသုံးပြုခြင်း (Follow Along: Use Filter, Opacities and Styles parameters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#redlining-follow-along-use-redlining">11.2.5. <abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Redlining အသုံးပြုခြင်း (Follow Along: Use Redlining)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getprint-requests">11.2.6. GetPrint requests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">11.2.7. In Conclusion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-s-next">11.2.8. What’s Next?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">11.2.7. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">11.2.8. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. Module: GRASS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. Module: Assessment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. Module: Forestry Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. Module: Database Concepts with PostgreSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. Module: Spatial Database Concepts with PostGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass/index.html">12. မော်ဂျူး - GRASS (Module: GRASS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assessment/index.html">13. မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. Module: Using Spatial Databases in QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
 </ul>
@@ -141,14 +141,14 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">11. </span>Module: QGIS Server</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">11.2. </span>Lesson: Serving WMS</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">11. </span>မော်ဂျူး - QGIS ဆာဗာ (Module: QGIS Server)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11.2. </span>သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/qgis_server/wms.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="install.html" class="btn btn-neutral float-left" title="11.1. Lesson: Install QGIS Server" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../grass/index.html" class="btn btn-neutral float-right" title="12. Module: GRASS" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../grass/index.html" class="btn btn-neutral float-right" title="12. မော်ဂျူး - GRASS (Module: GRASS)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -157,36 +157,25 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="lesson-serving-wms">
-<h1><span class="section-number">11.2. </span>Lesson: Serving WMS<a class="headerlink" href="#lesson-serving-wms" title="Link to this heading"></a></h1>
-<p>The data used for this exercise are available in the <code class="file docutils literal notranslate"><span class="pre">qgis-server-tutorial-data</span></code>
-subdirectory of the <a class="reference internal" href="../foreword/intro.html#data-downloadlink"><span class="std std-ref">training data</span></a> you downloaded.
-For convenience and to avoid possible permissions problems, we will assume
-that these files are stored in <code class="file docutils literal notranslate"><span class="pre">/home/qgis/projects</span></code> directory.
-Hence, adapt the following instructions to your path.</p>
-<p>The demo data contains a QGIS project named <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> that is already
-prepared to be served with QGIS Server.
-If you want to use your own project or you want to learn how a project
-is prepared see the <span class="xref std std-ref">Creatingwmsfromproject</span> section.</p>
+<section id="wms-lesson-serving-wms">
+<h1><span class="section-number">11.2. </span>သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)<a class="headerlink" href="#wms-lesson-serving-wms" title="Link to this heading"></a></h1>
+<p>ဤလေ့ကျင့်ခန်းအတွက် အသုံးပြုမည့် data များသည် သင်ဒေါင်းလုဒ်ပြုလုပ်ထားသော <a class="reference internal" href="../foreword/intro.html#data-downloadlink"><span class="std std-ref">training data</span></a> ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">qgis-server-tutorial-data</span></code> ထဲတွင် ရှိပါသည်။ အဆင်ပြေပြေဖြစ်စေရန်နှင့် သုံးစွဲခွင့်ပြဿနာများမရှိစေရန် ထိုဖိုင်များကို <code class="file docutils literal notranslate"><span class="pre">/home/qgis/projects</span></code> ထဲတွင် သိမ်းဆည်းထားသည်ဟု ယူဆပါမည်။ ထို့ကြောင့် အောက်ပါညွှန်ကြားချက်များအတိုင်း လုပ်ဆောင်ပါ။</p>
+<p>နမူနာ data တွင် <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> ဆိုသည့် QGIS project တစ်ခုပါဝင်ပြီး ထို project သည် QGIS Server ဖြင့် serve လုပ်ရန် ပြင်ဆင်ထားပြီးသားဖြစ်ပါသည်။ သင့်ကိုယ်ပိုင် project အားအသုံးပြုလိုလျှင် သို့မဟုတ် project တစ်ခုအားမည်သို့ ပြင်ဆင်ရမည်ကို လေ့လာရန် <span class="xref std std-ref">Creatingwmsfromproject</span> တွင် ကြည့်ရှုပါ။</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This module presents the URLs so that the audience can easily distinguish
-the parameters and parameters values. While the normal format is:</p>
+<p>ဤမော်ဂျူးတွင် parameter များနှင့် parameter တန်ဖိုးများကို အလွယ်တကူခွဲခြားနိုင်စေရန် URL များကို တင်ပြထားပါသည်။ ပုံမှန် format သည်အောက်ပါအတိုင်းဖြစ်ပြီး-</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...&amp;</span><span class="n">field1</span><span class="o">=</span><span class="n">value1</span><span class="o">&amp;</span><span class="n">field2</span><span class="o">=</span><span class="n">value2</span><span class="o">&amp;</span><span class="n">field3</span><span class="o">=</span><span class="n">value3</span>
 </pre></div>
 </div>
-<p>this tutorial uses:</p>
+<p>ယခု tutorial တွင်အသုံးပြုထားသည်မှာ-</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">field1</span><span class="o">=</span><span class="n">value1</span>
 <span class="o">&amp;</span><span class="n">field2</span><span class="o">=</span><span class="n">value2</span>
 <span class="o">&amp;</span><span class="n">field3</span><span class="o">=</span><span class="n">value3</span>
 </pre></div>
 </div>
-<p>Pasting them into Mozilla Firefox works properly but other web browsers
-like Chrome may add unwanted spaces between the <code class="docutils literal notranslate"><span class="pre">field:parameter</span></code> pairs.
-So, if you encounter this issue you can either use Firefox or modify
-the URLs so that they’re in one line format.</p>
+<p>၎င်းတို့ကို Mozilla Firefox ထဲတွင် ကူးထည့်ပါက ကောင်းမွန်စွာအလုပ်ဖြစ်သော်လည်း Chrome ကဲ့သို့ အခြား web browser များထဲတွင် <code class="docutils literal notranslate"><span class="pre">field:parameter</span></code> အတွဲများအကြား space အပိုများ ပါနိုင်ပါသည်။ ထို့ကြောင့် အဆိုပါပြဿနာမျိုးနှင့်ကြုံတွေ့ရပါက Firefox ကိုအသုံးပြုနိုင်သလို URL ကို line တစ်ခုတည်းဖြစ်အောင် မွမ်းမံပြင်ဆင်ပြီး အသုံးပြုနိုင်ပါသည်။</p>
 </div>
-<p>Let’s make a WMS GetCapabilities request in the web browser or with curl:</p>
+<p>Web browser ထဲတွင် WMS GetCapabilities request တစ်ခုပြုလုပ်ကြည့်ပါမည်-</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://qgisplatform.demo/cgi-bin/qgis_mapserv.fcgi
 ?SERVICE<span class="o">=</span>WMS
 <span class="p">&amp;</span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.3.0
@@ -194,72 +183,49 @@ the URLs so that they’re in one line format.</p>
 <span class="p">&amp;</span><span class="nv">map</span><span class="o">=</span>/home/qgis/projects/world.qgs
 </pre></div>
 </div>
-<p>In the Apache config from the previous lesson the <code class="docutils literal notranslate"><span class="pre">QGIS_PROJECT_FILE</span></code> variable
-sets the default project to <code class="file docutils literal notranslate"><span class="pre">/home/qgis/projects/world.qgs</span></code>. However, in
-the above request we made use of the <strong>map</strong> parameter to be explicit and to
-show it can be used to point at any project. If you delete the <strong>map</strong> parameter
-from the above request QGIS Server will output the same response.</p>
-<p>By pointing any WMS client to the <code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> URL, the client gets in
-response an XML document with metadata of the Web Map Server’s information,
-e.g. what layers does it serve, the geographical coverage, in
-what format, what version of WMS etc.</p>
-<p>As QGIS is also a <a class="reference internal" href="../../user_manual/working_with_ogc/ogc_client_support.html#ogc-wms"><span class="std std-ref">WMS/WMTS Client</span></a> you can create a new WMS server connection
-with the help of the above GetCapabilities url. See the <a class="reference internal" href="../online_resources/wms.html#wms-services"><span class="std std-ref">သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</span></a>
-or the  <a class="reference internal" href="../../user_manual/working_with_ogc/ogc_client_support.html#ogc-wms-servers"><span class="std std-ref">WMS/WMTS Server ရွေးခြင်း (Selecting WMS/WMTS Servers)</span></a> section on how to do it.</p>
-<p>By adding the <code class="docutils literal notranslate"><span class="pre">countries</span></code> WMS layer to your QGIS project you should get an image
-like the one below:</p>
-<figure class="align-center" id="id1">
+<p>ယခင်သင်ခန်းစာထဲမှ Apache config ထဲတွင် <code class="docutils literal notranslate"><span class="pre">QGIS_PROJECT_FILE</span></code> variable သည် default project အား <code class="file docutils literal notranslate"><span class="pre">/home/qgis/projects/world.qgs</span></code> အဖြစ်သတ်မှတ်ပါသည်။ သို့သော် အထက်ဖော်ပြပါ request ထဲတွင် ရှင်းရှင်းလင်းလင်းဖြစ်စေရန်နှင့် ၎င်းအား မည်သည့် project မဆိုသို့ညွှန်းပေးရန်အသုံးပြုနိုင်ကြောင်း ပြသရန် <strong>map</strong> parameter ကိုအသုံးပြုထားပါသည်။ Request ထဲတွင် <strong>map</strong> parameter အားဖျက်လိုက်လျှင်လည်း QGIS Server သည် အတူတူပင် တုံ့ပြန်ပါလိမ့်မည်။</p>
+<p>WMS client တစ်ခုခုအား <code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> URL သို့ညွှန်ပေးခြင်းအားဖြင့် Web Map Server ၏အချက်အလက် meta များပါဝင်သော XML document တစ်ခုကိုရရှိမည်ဖြစ်သည်၊ ဥပမာ- serve လုပ်ထားသည့် layer များ၊ လွှမ်းခြုံသောနယ်နိမိတ်အတိုင်းအတာ၊ အသုံးပြုထားသည့် format ၊ WMS ဗားရှင်း ၊ အစရှိသည်တို့ ပါဝင်ပါသည်။</p>
+<p>QGIS သည်လည်း <a class="reference internal" href="../../user_manual/working_with_ogc/ogc_client_support.html#ogc-wms"><span class="std std-ref">WMS/WMTS Client</span></a> တစ်ခုဖြစ်သောကြောင့် GetCapabilities url ဖြင့် WMS server connection တစ်ခုကိုဖန်တီးနိုင်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် <a class="reference internal" href="../online_resources/wms.html#wms-services"><span class="std std-ref">သင်ခန်းစာ - Web Mapping Services (Lesson: Web Mapping Services)</span></a> သို့မဟုတ် <a class="reference internal" href="../../user_manual/working_with_ogc/ogc_client_support.html#ogc-wms-servers"><span class="std std-ref">WMS/WMTS Server ရွေးခြင်း (Selecting WMS/WMTS Servers)</span></a> တွင် ကြည့်ပါ။</p>
+<p>သင့် QGIS project ထဲသို့ <code class="docutils literal notranslate"><span class="pre">countries</span></code> WMS layer ကိုထည့်သွင်းသောအခါ အောက်ပါပုံအတိုင်း ရရှိပါလိမ့်မည်-</p>
+<figure class="align-center" id="id2">
 <img alt="../../../_images/qgis_getmap_request.png" src="../../../_images/qgis_getmap_request.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.30 </span><span class="caption-text">QGIS Desktop consuming the QGIS Server countries layer WMS service</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.30 </span><span class="caption-text">QGIS Desktop တွင် QGIS Server countries layer WMS service ကိုအသုံးပြုထားပုံ</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>QGIS Server serves layers that are defined in the <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project.
-By opening the project with QGIS you can see there are multiple styles for
-the countries layer. QGIS Server is also aware of this and you can choose
-the style you want in your request.  The <code class="docutils literal notranslate"><span class="pre">classified_by_population</span></code> style
-was chosen in the above image.</p>
+<p>QGIS Server သည် <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project ထဲတွင် သတ်မှတ်ထားသော layer များကို serve လုပ်ပေးပါသည်။ QGIS တွင် project ကိုဖွင့်ခြင်းအားဖြင့် countries layer အတွက် style များစွာကို မြင်တွေ့နိုင်ပါသည်။ QGIS Server သည် ထိုကိစ္စကိုလည်း ဂရုပြုလုပ်ဆောင်ပေးပြီး request ထဲတွင် လိုချင်သည့် style ကို ရွေးချယ်ပေးနိုင်ပါသည်။ အထက်ဖော်ပြပါပုံတွင် <code class="docutils literal notranslate"><span class="pre">classified_by_population</span></code> style ကိုရွေးချယ်ထားပါသည်။</p>
 </div>
 <section id="logging">
-<h2><span class="section-number">11.2.1. </span>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
-<p>When you’re setting up a server, the logs are always important as they show
-you what’s going on. We have setup in the <code class="file docutils literal notranslate"><span class="pre">*.conf</span></code> file the following logs:</p>
+<h2><span class="section-number">11.2.1. </span>မှတ်တမ်း (Logging)<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<p>Server တစ်ခုကို set up လုပ်သောအခါ မည်သည့်အရာများဖြစ်ပျက်နေသည်ကို ပြသရန် log (မှတ်တမ်း) များသည် အမြဲတမ်းအရေးကြီးပါသည်။ <code class="file docutils literal notranslate"><span class="pre">*.conf</span></code> ဖိုင်ထဲတွင် အောက်ပါ log များကို set up လုပ်ထားပါသည်-</p>
 <ul class="simple">
-<li><p>QGIS Server log at <code class="file docutils literal notranslate"><span class="pre">/logs/qgisserver.log</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">qgisplatform.demo</span></code> Apache access log at <code class="file docutils literal notranslate"><span class="pre">qgisplatform.demo.access.log</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">qgisplatform.demo</span></code> Apache error log at <code class="file docutils literal notranslate"><span class="pre">qgisplatform.demo.error.log</span></code></p></li>
+<li><p>QGIS Server log အား <code class="file docutils literal notranslate"><span class="pre">/logs/qgisserver.log</span></code> တွင်</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qgisplatform.demo</span></code> Apache access log အား <code class="file docutils literal notranslate"><span class="pre">qgisplatform.demo.access.log</span></code> တွင်</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qgisplatform.demo</span></code> Apache error log အား <code class="file docutils literal notranslate"><span class="pre">qgisplatform.demo.error.log</span></code> တွင်</p></li>
 </ul>
-<p>The log files are simply text files so you can use a text editor to check them
-out. You can also use the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command in a terminal:
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/logs/qgisserver.log</span></code>.</p>
-<p>This will continuously output in the terminal what’s written in that log file.
-You can also have three terminals opened for each of the log files like so:</p>
-<figure class="align-center" id="id2">
+<p>Log ဖိုင်များသည် ရိုးရိုးစာသားဖိုင်များသာဖြစ်ပြီး ၎င်းတို့ကို text editor အသုံးပြုပြီး စစ်ဆေးကြည့်နိုင်ပါသည်။ Terminal ထဲတွင်လည်း <code class="docutils literal notranslate"><span class="pre">tail</span></code> command ကိုအသုံးပြုနိုင်ပါသည်- <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/logs/qgisserver.log</span></code></p>
+<p>ထိုသို့လုပ်ခြင်းဖြင့် log ဖိုင်ထဲတွင် ရေးသားသည်များကို terminal ထဲတွင် output ထုတ်ပေးပါလိမ့်မည်။ Log ဖိုင် တစ်ခုချင်းစီအတွက် အောက်ပါအတိုင်း terminal ၃ ခုကိုလည်း ဖွင့်ထားနိုင်ပါသည်-</p>
+<figure class="align-center" id="id3">
 <img alt="../../../_images/terminal_tail_log.jpg" src="../../../_images/terminal_tail_log.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.31 </span><span class="caption-text">Using the <code class="docutils literal notranslate"><span class="pre">tail</span></code> command to visualise QGIS Server logs output</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.31 </span><span class="caption-text">QGIS Server logs output များကို မြင်ရနိုင်စေရန် <code class="docutils literal notranslate"><span class="pre">tail</span></code> command အားအသုံးပြုခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>When you use QGIS Desktop to consume the QGIS Server WMS services you will
-see all the requests QGIS sends to the Server in the access log, the errors
-of QGIS Server in the QGIS Server log etc.</p>
+<p>QGIS Server WMS service များအား QGIS Desktop တွင် အသုံးပြုသောအခါ QGIS မှ Server သို့ပေးပို့သော request များအားလုံးကို access log ထဲတွင်လည်းကောင်း၊ QGIS Server ၏ error များကို QGIS Server log ထဲတွင်လည်းကောင်း အစရှိသဖြင့် တွေ့နိုင်ပါသည်။</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>If you look at the logs in the following sections you should get a better
-understanding on what’s happening.</p></li>
-<li><p>By restarting Apache while looking in the QGIS Server log you can find
-some extra pointers on how things work.</p></li>
+<li><p>အောက်ပါအပိုင်းများထဲမှ log များကို ကြည့်ပါက ပိုမိုနားလည်သဘောပေါက်မည်ဖြစ်သည်။</p></li>
+<li><p>QGIS Server log ကိုကြည့်နေစဉ်တွင် Apache ကို ပြန်လည်စတင်ပါက မည်သို့အလုပ်လုပ်ဆောင်နေသည်ကို မြင်တွေ့ရနိုင်ပါသည်။</p></li>
 </ul>
 </div>
 </section>
 <section id="getmap-requests">
 <h2><span class="section-number">11.2.2. </span>GetMap requests<a class="headerlink" href="#getmap-requests" title="Link to this heading"></a></h2>
-<p>In order to display the <code class="docutils literal notranslate"><span class="pre">countries</span></code> layer, QGIS Desktop, like any other WMS
-client, is using <code class="docutils literal notranslate"><span class="pre">GetMap</span></code> requests.</p>
-<p>A simple request looks like:</p>
+<p>QGIS Desktop တွင် <code class="docutils literal notranslate"><span class="pre">countries</span></code> layer ကိုပြသရန် အခြား WMS client များကဲ့သို့ <code class="docutils literal notranslate"><span class="pre">GetMap</span></code> request ကိုအသုံးပြုပါသည်။</p>
+<p>ရိုးရှင်းသော request တစ်ခု၏ပုံစံမှာ-</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://qgisplatform.demo/cgi-bin/qgis_mapserv.fcgi
 ?MAP<span class="o">=</span>/home/qgis/projects/world.qgs
 <span class="p">&amp;</span><span class="nv">SERVICE</span><span class="o">=</span>WMS
@@ -273,38 +239,27 @@ client, is using <code class="docutils literal notranslate"><span class="pre">Ge
 <span class="p">&amp;</span><span class="nv">FORMAT</span><span class="o">=</span>image/jpeg
 </pre></div>
 </div>
-<p>The above request should output the following image:</p>
+<p>အထက်ဖော်ပြပါ request သည် အောက်ပါပုံကို ထုတ်ပေးပါလိမ့်မည်-</p>
 <p><strong>Figure: simple GetMap request to QGIS Server</strong></p>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <img alt="../../../_images/getmap_simple_request.jpg" src="../../../_images/getmap_simple_request.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.32 </span><span class="caption-text">Qgis Server response after a simple GetMap request</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.32 </span><span class="caption-text">ရိုးရှင်းသော GetMap request တစ်ခုအား QGIS Server မှ တုံ့ပြန်ပုံ</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
-<section id="try-yourself-change-the-image-and-layers-parameters">
-<h2><span class="section-number">11.2.3. </span><abbr title="Moderate level">★★☆</abbr> Try Yourself: Change the Image and Layers parameters<a class="headerlink" href="#try-yourself-change-the-image-and-layers-parameters" title="Link to this heading"></a></h2>
-<p>Based on the request above, let’s replace the <code class="docutils literal notranslate"><span class="pre">countries</span></code> layer with another.</p>
-<p>In order to see what other layers are available you could open up the
-<code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project in QGIS and look at its contents. Keep in mind
-though that the WMS clients don’t have access to the QGIS project, they just
-look at the capabilities document contents.</p>
-<p>Also, there’s a configuration option so that some of the layers existing in the
-QGIS project are ignored by QGIS when serving the WMS service.</p>
-<p>So, you could look at the layer list when you point QGIS Desktop to the
-<code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> URL or you could try yourself finding other layer names
-in the <code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> XML response.</p>
-<p>One of the layer names that you could find and works is <code class="docutils literal notranslate"><span class="pre">countries_shapeburst</span></code>.
-You may find others but keep in mind some may not be visible at such a small
-scale so you could get a blank image as response.</p>
-<p>You can also play around with others parameters from above, like changing the
-returned image type to <code class="docutils literal notranslate"><span class="pre">image/png</span></code>.</p>
+<section id="image-layer-parameter-try-yourself-change-the-image-and-layers-parameters">
+<h2><span class="section-number">11.2.3. </span><abbr title="Moderate level">★★☆</abbr> မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - Image နှင့် Layer parameter များပြောင်းလဲခြင်း (Try Yourself: Change the Image and Layers parameters)<a class="headerlink" href="#image-layer-parameter-try-yourself-change-the-image-and-layers-parameters" title="Link to this heading"></a></h2>
+<p>အထက်ဖော်ပြပါ request ကိုအခြေခံ၍  <code class="docutils literal notranslate"><span class="pre">countries</span></code> layer အား နောက်ထပ် layer တစ်ခုဖြင့် အစားထိုးကြည့်ပါမည်။</p>
+<p>အခြား ရရှိနိုင်သည့် layer များကိုကြည့်ရန် QGIS ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project ကိုဖွင့်ပြီး ၎င်းတွင်ပါဝင်သည်များကို ကြည့်နိုင်ပါသည်။ စိတ်ထဲမှတ်သားထားရမည်မှာ WMS client များသည် QGIS project ထဲသို့ဝင်ရောက်သုံးစွဲခွင့်မရှိပါ၊ ၎င်းတို့သည် အကြောင်းအရာများကိုသာ ကြည့်ရှုခြင်းဖြစ်သည်။</p>
+<p>ထို့အပြင် WMS service လုပ်ဆောင်နေစဉ်တွင် QGIS project ထဲရှိ layer အချို့ကို QGIS မှလျစ်လျူရှုစေရန်အတွက် configuration option တစ်ခုလည်းရှိပါသည်။</p>
+<p>ထို့ကြောင့် QGIS Desktop ကို <code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> URL သို့ညွှန်းပေးသောအခါ layer စာရင်းတွင်ကြည့်နိုင်သလို <code class="docutils literal notranslate"><span class="pre">GetCapabilities</span></code> XML ထဲတွင် အခြား layer အမည်များကို ကိုယ်တိုင်ရှာဖွေနိုင်ပါသည်။</p>
+<p>Layer အမည်များထဲမှ တစ်ခုသည် <code class="docutils literal notranslate"><span class="pre">countries_shapeburst</span></code> ဖြစ်ပါသည်။ အခြား layer များကိုရှာဖွေနိုင်သော်လည်း အချို့ layer များသည် စကေးငယ်သောအခြေအနေတွင် မြင်ရနိုင်မည်မဟုတ်ပဲ ဗလာ image တစ်ခုကိုသာ ပြန်ထုတ်ပေးပါလိမ့်မည်။</p>
+<p>အထက်တွင်ဖော်ပြထားသော အခြား parameter များကိုလည်း ပြောင်းလဲကြည့်နိုင်ပါသည်၊ ဥပမာ- ပြန်ထုတ်ပေးမည့် image အမျိုးအစားကို <code class="docutils literal notranslate"><span class="pre">image/png</span></code> သို့ပြောင်းလဲပေးခြင်းဖြစ်သည်။</p>
 </section>
-<section id="follow-along-use-filter-opacities-and-styles-parameters">
-<h2><span class="section-number">11.2.4. </span><abbr title="Moderate level">★★☆</abbr> Follow Along: Use Filter, Opacities and Styles parameters<a class="headerlink" href="#follow-along-use-filter-opacities-and-styles-parameters" title="Link to this heading"></a></h2>
-<p>Let’s do another request that adds another layer, some
-<span class="xref std std-ref">basic parameters</span>, <strong>FILTER</strong> and <strong>OPACITIES</strong>, but also
-uses the standard STYLES parameter.</p>
+<section id="style-follow-along-use-filter-opacities-and-styles-parameters">
+<h2><span class="section-number">11.2.4. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ခြင်း ၊ အလင်းပိတ်နှုန်းနှင့် Style သတ်မှတ်ချက်များ အသုံးပြုခြင်း (Follow Along: Use Filter, Opacities and Styles parameters)<a class="headerlink" href="#style-follow-along-use-filter-opacities-and-styles-parameters" title="Link to this heading"></a></h2>
+<p>နောက်ထပ် layer တစ်ခု ၊ <span class="xref std std-ref">အခြေခံ parameter များ</span> ၊ <strong>FILTER</strong> နှင့် <strong>OPACITIES</strong> များထည့်သွင်းရန် နောက်ထပ် request တစ်ခုလုပ်ကြည့်ပါမည်။ စံ STYLE parameter ကိုလည်း အသုံးပြုမည်ဖြစ်ပါသည်။</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://qgisplatform.demo/cgi-bin/qgis_mapserv.fcgi
 ?MAP<span class="o">=</span>/home/qgis/projects/world.qgs
 <span class="p">&amp;</span><span class="nv">SERVICE</span><span class="o">=</span>WMS
@@ -321,20 +276,18 @@ uses the standard STYLES parameter.</p>
 <span class="p">&amp;</span><span class="nv">FILTER</span><span class="o">=</span>countries:<span class="s2">&quot;name&quot;</span><span class="w"> </span>IN<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;Germany&#39;</span><span class="w"> </span>,<span class="w"> </span><span class="s1">&#39;Italy&#39;</span><span class="w"> </span><span class="o">)</span>
 </pre></div>
 </div>
-<p>The above request should output the following image:</p>
-<figure class="align-center" id="id4">
+<p>အောက်ပါ image အတိုင်း output ရပါလိမ့်မည်-</p>
+<figure class="align-center" id="id5">
 <img alt="../../../_images/getmap_filter_opacities.jpg" src="../../../_images/getmap_filter_opacities.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.33 </span><span class="caption-text">Response to a GetMap request with FILTER and OPACITIES parameters</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.33 </span><span class="caption-text">FILTER နှင့် OPACITIES parameter များပါဝင်သော GetMap request တစ်ခု၏ တုံ့ပြန်ပုံ</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>As you can see from the above image, among other things, we told QGIS Server
-to render only <strong>Germany</strong> and <strong>Italy</strong> from the countries layer.</p>
+<p>အထက်ပါပုံတွင် မြင်တွေ့ရသည့်အတိုင်း countries layer မှ <strong>Germany</strong> နှင့် <strong>Italy</strong> ကိုသာ ပုံဖော်ပြသရန် QGIS Server အား ပြောလိုက်ခြင်းဖြစ်သည်။</p>
 </section>
-<section id="follow-along-use-redlining">
-<h2><span class="section-number">11.2.5. </span><abbr title="Moderate level">★★☆</abbr> Follow Along: Use Redlining<a class="headerlink" href="#follow-along-use-redlining" title="Link to this heading"></a></h2>
-<p>Let’s do another GetMap request that makes use of the <span class="xref std std-ref">redlining</span> feature and of the <strong>SELECTION</strong> parameter detailed in the
-<span class="xref std std-ref">Basics</span> section:</p>
+<section id="redlining-follow-along-use-redlining">
+<h2><span class="section-number">11.2.5. </span><abbr title="Moderate level">★★☆</abbr> လိုက်လုပ်ကြည့်ပါ - Redlining အသုံးပြုခြင်း (Follow Along: Use Redlining)<a class="headerlink" href="#redlining-follow-along-use-redlining" title="Link to this heading"></a></h2>
+<p><span class="xref std std-ref">အခြေခံများ</span> အပိုင်းတွင် အသေးစိတ်ဖော်ပြထားသော <span class="xref std std-ref">redlining</span> feature နှင့် <strong>SELECTION</strong> parameter အသုံးပြုရန် နောက်ထပ် GetMap request တစ်ခုလုပ်ကြည့်ပါမည်-</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://qgisplatform.demo/cgi-bin/qgis_mapserv.fcgi
 ?MAP<span class="o">=</span>/home/qgis/projects/world.qgs
 <span class="p">&amp;</span><span class="nv">SERVICE</span><span class="o">=</span>WMS
@@ -356,25 +309,20 @@ to render only <strong>Germany</strong> and <strong>Italy</strong> from the coun
 <span class="p">&amp;</span><span class="nv">SELECTION</span><span class="o">=</span>countries:171,65
 </pre></div>
 </div>
-<p>Pasting the above request in your web browser should output the following image:</p>
-<figure class="align-center" id="id5">
+<p>အထက်ပါ request အား web browser ထဲတွင် ကူးထည့်ပါက အောက်ပါပုံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်-</p>
+<figure class="align-center" id="id6">
 <img alt="../../../_images/getmap_redlining_selection.jpg" src="../../../_images/getmap_redlining_selection.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.34 </span><span class="caption-text">Response to a request with the REDLINING feature and SELECTION parameter</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.34 </span><span class="caption-text">REDLINING feature နှင့် SELECTION parameter ပါဝင်သော request တစ်ခုမှ တုံ့ပြန်ပုံ</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>You can see from the above image that the countries with the 171 and 65 ids were
-highlighted in yellow (Romania and France) by using the <strong>SELECTION</strong> parameter
-and we used the <strong>REDLINING</strong> feature to overlay a rectangle with the
-<strong>QGIS Tutorial</strong> label.</p>
+<p>အထက်ပါပုံတွင် မြင်ရသည့်အတိုင်း id 171 နှင့် id 65 ရှိသော နိုင်ငံများ (Romania နှင့် France) ကို အဝါရောင်ဖြင့် highlight ပြရန် <strong>SELECTION</strong> parameter ကိုအသုံးပြုခြင်းဖြစ်ပြီး <strong>QGIS Tutorial</strong> ဆိုသည့် label ပါရှိသော ထောင့်မှန်စတုဂံအကွက်အတွက် <strong>REDLINING</strong> feature ကိုအသုံးပြုခဲ့ပါသည်။</p>
 </section>
 <section id="getprint-requests">
 <h2><span class="section-number">11.2.6. </span>GetPrint requests<a class="headerlink" href="#getprint-requests" title="Link to this heading"></a></h2>
-<p>One very nice feature of QGIS Server is that it makes use of the QGIS Desktop
-print layouts. You can learn about it in the <span class="xref std std-ref">wms_getprint</span> section.</p>
-<p>If you open the <code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project with QGIS Desktop you will find a
-print layout named <code class="docutils literal notranslate"><span class="pre">Population</span> <span class="pre">distribution</span></code>. A simplified <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code>
-request that exemplifies this amazing feature is:</p>
+<p>QGIS Server ၏အလွန်ကောင်းမွန်သောအရာတစ်ခုသည် QGIS Desktop print layout များကို ပြုလုပ်နိုင်ခြင်းဖြစ်သည်။ ထိုအကြောင်းကို <span class="xref std std-ref">wms_getprint</span> အပိုင်းတွင် လေ့လာနိုင်ပါသည်။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">world.qgs</span></code> project အား QGIS Desktop ဖြင့်ဖွင့်လျှင် <code class="docutils literal notranslate"><span class="pre">Population</span> <span class="pre">distribution</span></code> ဟုအမည်ပေးထားသော print layout တစ်ခုကို တွေ့ရပါလိမ့်မည်။ ရိုးရှင်းသော <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code>
+request တစ်ခုမှာ-</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://qgisplatform.demo/cgi-bin/qgis_mapserv.fcgi
 ?map<span class="o">=</span>/home/qgis/projects/world.qgs
 <span class="p">&amp;</span><span class="nv">SERVICE</span><span class="o">=</span>WMS
@@ -389,46 +337,37 @@ request that exemplifies this amazing feature is:</p>
 <span class="p">&amp;</span><span class="nv">LAYERS</span><span class="o">=</span>countries
 </pre></div>
 </div>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id7">
 <img alt="../../../_images/getprint.jpg" src="../../../_images/getprint.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.35 </span><span class="caption-text">Shows the pdf resulted from the above GetPrint request</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.35 </span><span class="caption-text">အထက်ပါ GetPrint request မှရရှိလာသော Pdf ရလာဒ်ကို ပြသပုံ</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>Naturally, it’s hard to write your <code class="docutils literal notranslate"><span class="pre">GetMap</span></code>, <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code> etc. requests.</p>
-<p><a class="reference external" href="https://github.com/qgis/qgis-web-client">QGIS Web Client</a> or QWC is a Web
-client project that can work alongside QGIS Server so that you can publish
-your projects on the Web or help you create QGIS Server requests for a better
-understanding about the possibilities.</p>
-<p>You can install it like this:</p>
+<p>ပုံမှန်အားဖြင့် <code class="docutils literal notranslate"><span class="pre">GetMap</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code> အစရှိသည့် request များကို ရေးသားရန် ခက်ခဲပါသည်။</p>
+<p><a class="reference external" href="https://github.com/qgis/qgis-web-client">QGIS Web Client</a> သို့မဟုတ် QWC သည် Web client project တစ်ခုဖြစ်ပြီး QGIS Server နှင့်တွဲဖက်အလုပ်လုပ်နိုင်သည့်အတွက် သင်၏ project များကို Web ပေါ်တွင် ဖြန့်ချိနိုင်မည်ဖြစ်ပါသည်၊ သို့မဟုတ် ပိုမိုနားလည်သဘောပေါက်စေရန်အတွက် QGIS Server request များဖန်တီးရာတွင် ကူညီပေးနိုင်ပါသည်။</p>
+<p>၎င်းကို အောက်ပါအတိုင်း install ပြုလုပ်နိုင်ပါသည်-</p>
 <ul class="simple">
-<li><p>As user <code class="docutils literal notranslate"><span class="pre">qgis</span></code> go to the home directory with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/qgis</span></code>.</p></li>
-<li><p>Download the QWC project from <a class="reference external" href="https://github.com/qgis/QGIS-Web-Client/archive/master.zip">here</a> and unzip it.</p></li>
-<li><p>Make a symbolic link to the <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> directory as it’s the <code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> that
-we’ve setup in the virtual host configuration. If you unzipped the archive under
-<code class="file docutils literal notranslate"><span class="pre">/home/qgis/Downloads/QGIS-Web-Client-master</span></code> we can do that with
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/home/qgis/Downloads/QGIS-Web-Client-master</span> <span class="pre">/var/www/html/</span></code>.</p></li>
-<li><p>Access <a class="reference external" href="http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs">http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs</a>
-from your Web browser.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qgis</span></code> ဆိုသည့် user အနေဖြင့် <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/qgis</span></code> ဖိုင်လမ်းကြောင်းသို့သွားပါ။</p></li>
+<li><p><a class="reference external" href="https://github.com/qgis/QGIS-Web-Client/archive/master.zip">ဤနေရာ</a> မှ QWC project ကို ဒေါင်းလုဒ်ရယူပြီး zip ဖြည်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> ဖိုင်ကြောင်းသို့ညွှန်းသော ကိုယ်စားပြုလင့်ခ် တစ်ခုပြုလုပ်ပါ၊ အဘယ်ကြောင့်ဆိုသော် ၎င်းသည် virtual host configuration ထဲတွင် setup ပြုလုပ်ထားသော <code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> ဖြစ်သောကြောင့်ဖြစ်သည်။ Archive အား <code class="file docutils literal notranslate"><span class="pre">/home/qgis/Downloads/QGIS-Web-Client-master</span></code> အောက်တွင် zip ဖြည်လျှင် <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/home/qgis/Downloads/QGIS-Web-Client-master</span> <span class="pre">/var/www/html/</span></code> ကိုအသုံးပြုပြီးပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p>Web browser တွင် <a class="reference external" href="http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs">http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs</a> ကိုဖွင့်ပါ။</p></li>
 </ul>
-<p>Now you should be able to see the Map as in the following figure:</p>
-<figure class="align-center" id="id7">
+<p>ယခုအခါ အောက်ပါပုံအတိုင်း မြေပုံကို မြင်ရပါလိမ့်မည်-</p>
+<figure class="align-center" id="id8">
 <img alt="../../../_images/qwc.jpg" src="../../../_images/qwc.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.36 </span><span class="caption-text">QGIS Web Client consuming the world.qgs project</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 11.36 </span><span class="caption-text">world.qgs project ကိုအသုံးပြုထားသော QGIS Web Client</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If you click the Print button in QWC you can interactively create <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code>
-requests. You can also click the <code class="docutils literal notranslate"><span class="pre">?</span></code> icon in the QWC to access the available
-help so that you can better discover the QWC possibilities.</p>
+<p>QWC ထဲတွင် Print ခလုတ်ကိုနှိပ်လျှင် <code class="docutils literal notranslate"><span class="pre">GetPrint</span></code> request ကိုဖန်တီးနိုင်မည်ဖြစ်ပါသည်။ QWC ထဲတွင် <code class="docutils literal notranslate"><span class="pre">?</span></code> icon ကိုနှိပ်ပြီးလည်း အကူအညီများကို ရယူနိုင်ပါသည်။</p>
 </section>
 <section id="in-conclusion">
-<h2><span class="section-number">11.2.7. </span>In Conclusion<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
-<p>You learned how use QGIS Server to provide WMS Services.</p>
+<h2><span class="section-number">11.2.7. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>WMS Service များရယူရန် QGIS Server အားမည်သို့အသုံးပြုရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။</p>
 </section>
 <section id="what-s-next">
-<h2><span class="section-number">11.2.8. </span>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
-<p>Next, you’ll see how to use QGIS as a frontend for the famous GRASS GIS.</p>
+<h2><span class="section-number">11.2.8. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် လူသိများသော GRASS GIS အတွက် frontend တစ်ခုအဖြစ် QGIS အားမည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
 </section>
 </section>
 
@@ -436,15 +375,15 @@ help so that you can better discover the QWC possibilities.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="install.html" class="btn btn-neutral float-left" title="11.1. Lesson: Install QGIS Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../grass/index.html" class="btn btn-neutral float-right" title="12. Module: GRASS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="11.1. သင်ခန်းစာ - QGIS Server ကို Install ပြုလုပ်ခြင်း (Lesson: Install QGIS Server)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../grass/index.html" class="btn btn-neutral float-right" title="12. မော်ဂျူး - GRASS (Module: GRASS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jun 04, 10:58 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
       </span></p>
   </div>
 
