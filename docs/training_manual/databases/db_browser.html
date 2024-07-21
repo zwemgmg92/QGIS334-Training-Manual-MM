@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>18.1. Lesson: Working with Databases in the QGIS Browser &mdash; QGIS Documentation  documentation</title>
+  <title>18.1. သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="18.2. Lesson: Using DB Manager to work with Spatial Databases in QGIS" href="db_manager.html" />
+    <link rel="next" title="18.2. သင်ခန်းစာ - Spatial Database များဖြင့်အလုပ်လုပ်ရန် QGIS ထဲတွင် DB Manager ကိုအသုံးပြုခြင်း (Lesson: Using DB Manager to work with Spatial Databases in QGIS)" href="db_manager.html" />
     <link rel="prev" title="18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)" href="index.html" />
-  <meta name="description" content="QGIS testing documentation: 18.1. Lesson: Working with Databases in the QGIS Browser">
+  <meta name="description" content="QGIS testing documentation: 18.1. သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -104,21 +104,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">18.1. Lesson: Working with Databases in the QGIS Browser</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-adding-database-tables-to-qgis-using-the-browser">18.1.1. <abbr title="Basic level">★☆☆</abbr> Follow Along: Adding Database Tables to QGIS using the Browser</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along-adding-a-filtered-set-of-records-as-a-layer">18.1.2. <abbr title="Basic level">★☆☆</abbr> Follow Along: Adding a filtered set of records as a Layer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">18.1.3. In Conclusion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#what-s-next">18.1.4. What’s Next?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">18.1. သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#browser-qgis-database-table-follow-along-adding-database-tables-to-qgis-using-the-browser">18.1.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Browser အသုံးပြု၍ QGIS ထဲသို့ Database Table များထည့်သွင်းခြင်း (Follow Along: Adding Database Tables to QGIS using the Browser)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#record-layer-follow-along-adding-a-filtered-set-of-records-as-a-layer">18.1.2. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ထားသော record အစုတစ်ခုကို Layer တစ်ခုအနေဖြင့် ထည့်သွင်းခြင်း (Follow Along: Adding a filtered set of records as a Layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-conclusion">18.1.3. နိဂုံးချုပ် (In Conclusion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-s-next">18.1.4. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="db_manager.html">18.2. Lesson: Using DB Manager to work with Spatial Databases in QGIS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="spatialite.html">18.3. Lesson: Working with SpatiaLite databases in QGIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="db_manager.html">18.2. သင်ခန်းစာ - Spatial Database များဖြင့်အလုပ်လုပ်ရန် QGIS ထဲတွင် DB Manager ကိုအသုံးပြုခြင်း (Lesson: Using DB Manager to work with Spatial Databases in QGIS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spatialite.html">18.3. သင်ခန်းစာ - QGIS ထဲတွင် SpatiaLite database များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with SpatiaLite databases in QGIS)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
 </ul>
 </li>
 </ul>
@@ -139,13 +139,13 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
           <li class="breadcrumb-item"><a href="index.html"><span class="section-number">18. </span>မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">18.1. </span>Lesson: Working with Databases in the QGIS Browser</li>
+      <li class="breadcrumb-item active"><span class="section-number">18.1. </span>သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/databases/db_browser.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="index.html" class="btn btn-neutral float-left" title="18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="db_manager.html" class="btn btn-neutral float-right" title="18.2. Lesson: Using DB Manager to work with Spatial Databases in QGIS" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="db_manager.html" class="btn btn-neutral float-right" title="18.2. သင်ခန်းစာ - Spatial Database များဖြင့်အလုပ်လုပ်ရန် QGIS ထဲတွင် DB Manager ကိုအသုံးပြုခြင်း (Lesson: Using DB Manager to work with Spatial Databases in QGIS)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -154,67 +154,43 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="lesson-working-with-databases-in-the-qgis-browser">
-<h1><span class="section-number">18.1. </span>Lesson: Working with Databases in the QGIS Browser<a class="headerlink" href="#lesson-working-with-databases-in-the-qgis-browser" title="Link to this heading"></a></h1>
-<p>In the previous 2 modules we looked at the basic concepts, features and
-functions of relational databases as well as extensions that let us store,
-manage, query and manipulate spatial data in a relational database. This
-section will dive deeper into how to effectively use spatial databases in QGIS.</p>
-<p><strong>The goal for this lesson:</strong> To learn how to interact with spatial databases
-using the QGIS Browser interface.</p>
-<section id="follow-along-adding-database-tables-to-qgis-using-the-browser">
-<h2><span class="section-number">18.1.1. </span><abbr title="Basic level">★☆☆</abbr> Follow Along: Adding Database Tables to QGIS using the Browser<a class="headerlink" href="#follow-along-adding-database-tables-to-qgis-using-the-browser" title="Link to this heading"></a></h2>
-<p>We have already briefly looked at how to add tables from a database as QGIS
-layers, now lets look at this in a bit more detail and look at the different
-ways this can be done in QGIS. Lets start by looking at the new Browser
-interface.</p>
+<section id="qgis-browser-database-lesson-working-with-databases-in-the-qgis-browser">
+<h1><span class="section-number">18.1. </span>သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser)<a class="headerlink" href="#qgis-browser-database-lesson-working-with-databases-in-the-qgis-browser" title="Link to this heading"></a></h1>
+<p>ပြီးခဲ့သည့် မော်ဂျူး ၂ ခုတွင် relational database များ၏ သဘောတရားများ၊ အသွင်အပြင်များနှင့် function များအကြောင်းအပြင် relational database တစ်ခုထဲတွင် spatial data များသိမ်းဆည်းခြင်း၊ စီမံခန့်ခွဲခြင်း၊ query လုပ်ခြင်းနှင့် ကိုင်တွယ်ခြင်းများ လုပ်ဆောင်နိုင်သော extension များအကြောင်းကိုလည်း လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ ဤအပိုင်းတွင် QGIS ထဲ၌ spatial database များကို မည်သို့ ထိရောက်စွာအသုံးပြုရမည်ကို ထဲထဲဝင်ဝင် လေ့လာသွားပါမည်။</p>
+<p><strong>ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-</strong> QGIS Browser ဖြင့် spatial database များ အပြန်အလှန်လုပ်ဆောင်ပုံကို လေ့လာရန်။</p>
+<section id="browser-qgis-database-table-follow-along-adding-database-tables-to-qgis-using-the-browser">
+<h2><span class="section-number">18.1.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - Browser အသုံးပြု၍ QGIS ထဲသို့ Database Table များထည့်သွင်းခြင်း (Follow Along: Adding Database Tables to QGIS using the Browser)<a class="headerlink" href="#browser-qgis-database-table-follow-along-adding-database-tables-to-qgis-using-the-browser" title="Link to this heading"></a></h2>
+<p>Database တစ်ခုထဲရှိ table များကို QGIS layer များအဖြစ် ထည့်သွင်းနည်းကို အကြမ်းဖျဉ်း လေ့လာခဲ့ပြီးဖြစ်ပါသည်၊ ယခုအခါ ပိုမိုအသေးစိတ်လုပ်ဆောင်ကြည့်မည်ဖြစ်ပြီး QGIS ထဲတွင် လုပ်ဆောင်နိုင်မည့် မတူညီသောနည်းလမ်းများကို လေ့လာမည်ဖြစ်သည်။ Browser interface ဖြင့် စတင်ပါမည်။</p>
 <ul class="simple">
-<li><p>Start a new empty map in QGIS.</p></li>
-<li><p>Open the Browser by clicking the <span class="guilabel">Browser</span> tab at the bottom of the
-<em>Layer Panel</em></p></li>
-<li><p>Open the PostGIS portion of the tree and you should find your previously
-configured connection available (you may need to click the Refresh button at
-the top of the browser window).</p></li>
+<li><p>QGIS ထဲတွင် မြေပုံအလွတ်အသစ်တစ်ခု စဖွင့်ပါ။ျ</p></li>
+<li><p><em>Layer Panel</em> ၏အောက်ခြေရှိ <span class="guilabel">Browser</span> tab ကိုနှိပ်ပြီး Browser ကိုဖွင့်ပါ</p></li>
+<li><p>PostGIS အပိုင်းကို ဖွင့်ပါက ယခင်က configure ပြုလုပ်ခဲ့သော connection ကိုတွေ့သင့်ပါသည် (Browser window ၏ အပေါ်ရှိ Refresh ခလုတ်ကိုနှိပ်ရန် လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်)။</p></li>
 </ul>
 <figure class="align-center">
 <img alt="../../../_images/browser_panel.png" src="../../../_images/browser_panel.png" />
 </figure>
 <ul class="simple">
-<li><p>Double clicking on any of the table/layers listed here will add it to the Map
-Canvas.</p></li>
-<li><p>Right Clicking on a table/layer in this view will give you a few options.
-Click on the <span class="guilabel">Properties</span> item to look at the properties of the
-layer.</p></li>
+<li><p>စာရင်းထဲရှိ table/layer တစ်ခုခုကို click နှစ်ချက်နှိပ်လိုက်ပါက ၎င်းကို မြေပုံမြင်ကွင်းထဲသို့ ထည့်သွင်းပေးမည်ဖြစ်သည်။</p></li>
+<li><p>Table/layer တစ်ခုပေါ်တွင် right click နှိပ်ပါက option အနည်းငယ်ကို တွေ့ရပါမည်။ Layer ၏ ဂုဏ်သတ္တိများကို ကြည့်ရန် <span class="guilabel">Properties</span> ကိုနှိပ်ပါ။</p></li>
 </ul>
 <figure class="align-center">
 <img alt="../../../_images/postgis_layer_properties.png" src="../../../_images/postgis_layer_properties.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Of course you can also use this interface to connect to PostGIS
-databases hosted on a server external to your workstation. Right clicking
-on the PostGIS entry in the tree will allow you to specify connection
-parameters for a new connection.</p>
+<p>သင့်ကွန်ပျူတာပြင်ပရှိ server တစ်ခုပေါ်တွင် host လုပ်ထားသော PostGIS database ကို ချိတ်ဆက်ရန်လည်း ဤ interface ကိုအသုံးပြုနိုင်ပါသည်။ PostGIS ပေါ်တွင် right click နှိပ်ပြီး connection အသစ်တစ်ခုအတွက် connection parameter များကို သတ်မှတ်ပေးနိုင်မည်ဖြစ်သည်။</p>
 </div>
 </section>
-<section id="follow-along-adding-a-filtered-set-of-records-as-a-layer">
-<h2><span class="section-number">18.1.2. </span><abbr title="Basic level">★☆☆</abbr> Follow Along: Adding a filtered set of records as a Layer<a class="headerlink" href="#follow-along-adding-a-filtered-set-of-records-as-a-layer" title="Link to this heading"></a></h2>
-<p>Now that we have seen how to add an entire table as a QGIS layer it might be
-nice to learn how to add a filtered set of records from a table as a layer
-by using queries that we learned about in previous sections.</p>
+<section id="record-layer-follow-along-adding-a-filtered-set-of-records-as-a-layer">
+<h2><span class="section-number">18.1.2. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ထားသော record အစုတစ်ခုကို Layer တစ်ခုအနေဖြင့် ထည့်သွင်းခြင်း (Follow Along: Adding a filtered set of records as a Layer)<a class="headerlink" href="#record-layer-follow-along-adding-a-filtered-set-of-records-as-a-layer" title="Link to this heading"></a></h2>
+<p>Table တစ်ခုလုံးကို QGIS layer အဖြစ် ထည့်သွင်းနည်းကို သိရှိခဲ့ပြီးဖြစ်ပါသည်၊ table တစ်ခုမှ filter လုပ်ထားသော record များအစုတစ်ခုကို query များအသုံးပြုပြီး layer တစ်ခုအနေဖြင့် ထည့်သွင်းနည်းကို လေ့လာသင့်ပါသည်။</p>
 <ul>
-<li><p>Start a new empty map with no layers</p></li>
-<li><p>Click the <span class="guilabel">Add PostGIS Layers</span> button or select <span class="menuselection">Layer
-► Add PostGIS Layers</span> from the menu.</p></li>
-<li><p>In the <span class="guilabel">Add PostGIS Table(s)</span> dialog that comes up, connect to the
-<kbd class="kbd docutils literal notranslate">postgis_demo</kbd> connection.</p></li>
-<li><p>Expand the <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">public</kbd> <kbd class="kbd docutils literal notranslate">schema</kbd></kbd> and you should find the three tables we were
-working with previously.</p></li>
-<li><p>Click the <kbd class="kbd docutils literal notranslate">lines</kbd> layer to select it, but instead of adding it, click
-the <span class="guilabel">Set Filter</span> button to bring up the <span class="guilabel">Query Builder</span>
-dialog.</p></li>
-<li><p>Construct the following expression using the buttons or by entering it
-directly:</p>
+<li><p>မည်သည့် layer မှမပါဝင်သော မြေပုံအလွတ် အသစ်တစ်ခုကို ဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Add PostGIS Layers</span> ခလုတ်ကိုနှိပ်ပါ သို့မဟုတ် menu မှ <span class="menuselection">Layer ► Add PostGIS Layers</span> ကိုရွေးပါ။</p></li>
+<li><p>ပေါ်လာသော <span class="guilabel">Add PostGIS Table(s)</span> dialog တွင် <kbd class="kbd docutils literal notranslate">postgis_demo</kbd> connection သို့ချိတ်ဆက်ပါ။</p></li>
+<li><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">public</kbd> <kbd class="kbd docutils literal notranslate">schema</kbd></kbd> ကိုဖြန့်ကြည့်ပါက ယခင်ကအလုပ်လုပ်ခဲ့သော table ၃ ခုကို တွေ့ရမည်ဖြစ်သည်။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">lines</kbd> layer ကို click နှိပ်ပြီး <span class="guilabel">Set Filter</span> ခလုတ်ကိုနှိပ်ပါ၊ <span class="guilabel">Query Builder</span> dialog ပွင့်လာပါမည်။</p></li>
+<li><p>အောက်ပါ expression ကို ခလုတ်များအသုံးပြု၍ဖြစ်စေ တိုက်ရိုက် ရိုက်ထည့်၍ဖြစ်စေ တည်ဆောက်ပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;roadtype&quot;</span> <span class="o">=</span> <span class="s1">&#39;major&#39;</span>
 </pre></div>
 </div>
@@ -224,22 +200,18 @@ directly:</p>
 <img alt="../../../_images/pg_table_filter.png" src="../../../_images/pg_table_filter.png" />
 </figure>
 <ul class="simple">
-<li><p>Click <span class="guilabel">OK</span> to complete editing the filter and click <span class="guilabel">Add</span>
-to add the filtered layer to your map.</p></li>
-<li><p>Rename the <kbd class="kbd docutils literal notranslate">lines</kbd> layer in the tree to <kbd class="kbd docutils literal notranslate">roads_primary</kbd>.</p></li>
+<li><p>Edit ပြုလုပ်ခြင်းနှင့် filter လုပ်ခြင်းကို အပြီးသတ်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ၊ filter လုပ်ထားသော layer ကို မြေပုံထဲသို့ ထည့်သွင်းရန် <span class="guilabel">Add</span> ကိုနှိပ်ပါ။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">lines</kbd> layer ကို <kbd class="kbd docutils literal notranslate">roads_primary</kbd> ဟုနာမည်ပြောင်းပေးပါ။</p></li>
 </ul>
-<p>You will notice that only the Primary Roads have been added to your map rather
-than the entire layer.</p>
+<p>မြေပုံထဲတွင် layer တစ်ခုလုံးမဟုတ်ပဲ Primary Roads များကိုသာ ထည့်သွင်းပေးသည်ကို တွေ့ရပါမည်။</p>
 </section>
 <section id="in-conclusion">
-<h2><span class="section-number">18.1.3. </span>In Conclusion<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
-<p>You have seen how to interact with spatial databases using the QGIS Browser and
-how to add layers to your map based on a query filter.</p>
+<h2><span class="section-number">18.1.3. </span>နိဂုံးချုပ် (In Conclusion)<a class="headerlink" href="#in-conclusion" title="Link to this heading"></a></h2>
+<p>QGIS Browser အသုံးပြုပြီး spatial database များဖြင့် အပြန်အလှန်လုပ်ကိုင်ပုံ နှင့် query filter တစ်ခုပေါ်မူတည်ပြီး မြေပုံထဲသို့ layer များထည့်သွင်းနည်းကို တွေ့မြင်ခဲ့ပြီးဖြစ်ပါသည်။</p>
 </section>
 <section id="what-s-next">
-<h2><span class="section-number">18.1.4. </span>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
-<p>Next you’ll see how to work with the DB Manager interface in QGIS for a more
-complete set of database management tasks.</p>
+<h2><span class="section-number">18.1.4. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s Next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်သင်ခန်းစာတွင် ပိုမိုပြီးပြည့်စုံသော database စီမံခန့်ခွဲမှုလုပ်ငန်းများအတွက် QGIS ထဲတွင် DB Manager ကို မည်ကဲ့သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။</p>
 </section>
 </section>
 
@@ -248,14 +220,14 @@ complete set of database management tasks.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="db_manager.html" class="btn btn-neutral float-right" title="18.2. Lesson: Using DB Manager to work with Spatial Databases in QGIS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="db_manager.html" class="btn btn-neutral float-right" title="18.2. သင်ခန်းစာ - Spatial Database များဖြင့်အလုပ်လုပ်ရန် QGIS ထဲတွင် DB Manager ကိုအသုံးပြုခြင်း (Lesson: Using DB Manager to work with Spatial Databases in QGIS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 

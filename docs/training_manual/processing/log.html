@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>17.9. The processing log &mdash; QGIS Documentation  documentation</title>
+  <title>17.9. လုပ်ဆောင်မှုမှတ်တမ်း (The processing log) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="17.10. The raster calculator. No-data values" href="no_data.html" />
-    <link rel="prev" title="17.8. Running an external algorithm" href="first_saga_alg.html" />
-  <meta name="description" content="QGIS testing documentation: 17.9. The processing log">
+    <link rel="next" title="17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)" href="no_data.html" />
+    <link rel="prev" title="17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)" href="first_saga_alg.html" />
+  <meta name="description" content="QGIS testing documentation: 17.9. လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -104,50 +104,50 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. The QGIS processing guide</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. An important warning before starting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Setting-up the processing framework</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. Running our first algorithm. The  toolbox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. More algorithms and data types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="crs.html">17.6. CRSs. Reprojecting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. Running an external algorithm</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">17.9. The processing log</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#follow-along">17.9.1. <abbr title="Basic level">★☆☆</abbr> Follow Along</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#advanced">17.9.2. <abbr title="Advanced level">★★★</abbr> Advanced</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. မစတင်မီ အရေးကြီးသော သတိပေးချက် (An important warning before starting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Processing framework ပြင်ဆင်သတ်မှတ်ခြင်း (Setting-up the processing framework)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. ပထမဦးဆုံး algorithm ကို Run ခြင်း (Running our first algorithm. The  toolbox)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crs.html">17.6. CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. ရွေးချယ်ခြင်း (Selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">17.9. လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along">17.9.1. <abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ (Follow Along)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced">17.9.2. <abbr title="Advanced level">★★★</abbr> အဆင့်မြင့် (Advanced)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. The raster calculator. No-data values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector calculator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. Defining extents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. First analysis example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Clipping and merging raster layers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. Hydrological analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Starting with the model designer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. More complex models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Numeric calculations in the modeler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. A model within a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Using modeler-only tools for creating a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. Interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. More interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. More iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. The batch processing interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Models in the batch processing interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector ဂဏန်းတွက်စက် (Vector calculator)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. နယ်ပယ်အတိုင်းအတာများသတ်မှတ်ခြင်း (Defining extents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML ရလာဒ်များ (HTML outputs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. ပထမဆုံး ဆန်းစစ်လေ့လာခြင်းဥပမာ (First analysis example)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Raster layer များဖြတ်တိခြင်းနှင့် ပေါင်းစည်းခြင်း (Clipping and merging raster layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. ဇလဗေဒဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Hydrological analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Model designer စတင်အသုံးပြုခြင်း (Starting with the model designer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. ပိုမိုရှုပ်ထွေးသော model များ (More complex models)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Modeler ထဲတွင် ကိန်းဂဏန်းတွက်ချက်မှု ပြုလုပ်ခြင်း (Numeric calculations in the modeler)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. Model တစ်ခုအတွင်းရှိ Model တစ်ခု (A model within a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Model တစ်ခုဖန်တီးရန်အတွက် modeler ထဲတွင်သာရှိသော tool များအသုံးပြုခြင်း (Using modeler-only tools for creating a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. နောက်ထပ် သွယ်ဝိုက်တွက်ချက်ခြင်းနည်းများ (More interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Algorithm များ ထပ်ခါတလဲလဲ လုပ်ဆောင်ခြင်း (Iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. နောက်ထပ် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း (More iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. အစုအဖွဲ့လိုက် processing လုပ်ဆောင်ပေးသည့်အရာ၏ interface (The batch processing interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Batch processing interface ထဲရှိ Model များ (Models in the batch processing interface)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hooks.html">17.28. Pre- and post-execution script hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. Other programs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation and contouring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector simplification and smoothing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. Planning a solar farm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="r_intro.html">17.33. Use R scripts in Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. Predicting landslides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. အခြားပရိုဂရမ်များ (Other programs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation နှင့် ကွန်တိုရေးဆွဲခြင်း (Interpolation and contouring)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector ကိုရိုးရှင်းအောင်လုပ်ခြင်းနှင့် ချောမွေ့အောင်လုပ်ခြင်း (Vector simplification and smoothing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r_intro.html">17.33. Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
 </ul>
 </li>
 </ul>
@@ -167,14 +167,14 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>The QGIS processing guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">17.9. </span>The processing log</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17.9. </span>လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/processing/log.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="first_saga_alg.html" class="btn btn-neutral float-left" title="17.8. Running an external algorithm" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="no_data.html" class="btn btn-neutral float-right" title="17.10. The raster calculator. No-data values" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="first_saga_alg.html" class="btn btn-neutral float-left" title="17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="no_data.html" class="btn btn-neutral float-right" title="17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -184,63 +184,42 @@
   <blockquote>
 <div></div></blockquote>
 <section id="the-processing-log">
-<h1><span class="section-number">17.9. </span>The processing log<a class="headerlink" href="#the-processing-log" title="Link to this heading"></a></h1>
+<h1><span class="section-number">17.9. </span>လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)<a class="headerlink" href="#the-processing-log" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This lesson describes the processing log.</p>
+<p>ဤသင်ခန်းစာတွင် processing log အကြောင်းဖော်ပြထားပါသည်။</p>
 </div>
-<p>All the analysis performed with the processing framework is logged in QGIS logging system.
-This allows you to know more about what has been done with the processing tools,
-to solve problems when they happen, and also to re–run previous operations,
-since the logging system also implements some interactivity.</p>
-<p>To open the log, click on the balloon at the bottom right, on the QGIS status bar.
-Some algorithms might leave here information about their execution.
-For instance, those algorithms that call an external application
-usually log the console output of that application to this entry.
-If you have a look at it, you will see that the output of the SAGA algorithm that we just run
-(and that fails to execute because input data was not correct) is stored here.</p>
-<p>This is helpful to understand what is going on.
-Advanced users will be able to analyze that output to find out why the algorithm failed.
-If you are not an advanced user, this will be useful for others to help you diagnose the problem you are having,
-which might be a problem in the installation of the external software or an issue with the data you provided.</p>
-<p>Even if the algorithm could be executed, some algorithms might leave warnings in case the result might not be right.
-For instance, when executing an interpolation algorithm with a very small amount of points,
-the algorithm can run and will produce a result, but it is likely that it will not be correct, since more points should be used.
-It’s a good idea to regularly check for this type of warnings if you are not sure about some aspect of a given algorithm.</p>
-<p>From the <span class="menuselection">Processing ► History…</span> menu, you’ll find <em>algorithms</em> that are executed,
-regardless of they are executed from the GUI or from the console (which will be explained later in this manual).
-The execution is stored in this dialog as a console call.
-That means that everytime you run an algorithm, a console command is added to the log,
-and you have the full history of your working session.
-Here is how that history looks like:</p>
+<p>Processing framework ဖြင့်လုပ်ဆောင်သော analysis များအားလုံးကို QGIS logging စနစ်ထဲတွင် မှတ်တမ်းထားရှိပါသည်။ Logging စနစ်သည် အချို့သောအပြန်အလှန်တုန့်ပြန် လုပ်ဆောင်နိုင်မှုများကြောင့် processing tool များဖြင့် လုပ်ဆောင်ခဲ့သည်များအကြောင်းပိုမိုသိရှိစေနိုင်ခြင်း၊ ပြဿနာများဖြစ်လာသောအခါ ဖြေရှင်းရန် ပိုမိုသိရှိစေနိုင်ခြင်းနှင့် ယခင်လုပ်ဆောင်ခဲ့သော operation များကို နောက်တစ်ကြိမ် ပြန် run နိုင်စေခြင်းများ လုပ်ဆောင်နိုင်စေပါသည်။</p>
+<p>Log ကိုဖွင့်ရန် QGIS status bar ညာဘက်အောက်ခြေရှိ balloon (ပူပေါင်းပုံစံ message) ကို click နှိပ်ပါ။ အချို့သော algorithm များသည် ၎င်းတို့၏လုပ်ဆောင်မှုများအကြောင်း အချက်အလက်များကို ထိုနေရာတွင် ချန်ထားကောင်းချန်ထားနိုင်ပါသည်။ ဥပမာအားဖြင့် ပြင်ပ application တစ်ခုကို ခေါ်ယူအသုံးပြုသော algorithm များသည် console output ကို ထိုနေရာတွင် မှတ်တမ်းထား (log) လေ့ရှိပါသည်။ ၎င်းကို ဖွင့်ကြည့်ပါက ကျွန်ုပ်တို့ run ခဲ့ပြီးသော SAGA algorithm ၏ output (နှင့် input data မှားယွင်းသောကြောင့် လုပ်ဆောင်မှု မအောင်မြင်ခြင်း) ကို ထိုနေရာတွင် သိမ်းဆည်းထားသည်ကို မြင်တွေ့ရပါလိမ့်မည်။</p>
+<p>ထိုနေရာကို ကြည့်ခြင်းဖြင့် ဖြစ်ပျက်နေသည်များကို နားလည်စေနိုင်ပါသည်။ အဆင့်မြင့် အသုံးပြုသူများအနေဖြင့် algorithm လုပ်ဆောင်မှုမအောင်မြင်ရခြင်းအကြောင်းရင်းကို ရှာဖွေရန် ထို output ကိုကြည့်ပြီး လေ့လာဆန်းစစ်နိုင်ပါလိမ့်မည်။ သင်သည် အဆင့်မြင့်အသုံးပြုသူတစ်ဦးမဟုတ်ပါက သင်ကြုံတွေ့နေရသည့် ပြင်ပ software install ပြုလုပ်ရာတွင်ဖြစ်သောပြဿနာ သို့မဟုတ် ထည့်သွင်းသော data နှင့်ပတ်သက်သော ပြဿနာများကို ကူညီဖြေရှင်းပေးမည့် အခြားသောသူများအတွက် log ကိုကြည့်ခြင်းဖြင့် အသုံးဝင်ပါလိမ့်မည်။</p>
+<p>အချို့သော Algorithm များသည် လုပ်ဆောင်မှုပြီးသွားလျှင်ပင် ရလာဒ်မှန်ကန်မှုမရှိနိုင်သည့်အတွက် သတိပေးချက် (warning) များ ပြသကောင်းပြသနိုင်ပါသည်။  ဥပမာအားဖြင့် point အရေအတွက်အလွန်နည်းနည်းဖြင့် interpolation algorithm တစ်ခုကို လုပ်ဆောင်သောအခါ algorithm သည် run နိုင်ပြီး ရလာဒ်တစ်ခုကို ထုတ်ပေးပါလိမ့်မည်၊ သို့သော် point များစွာကို အသုံးပြုသင့်သောကြောင့် ရလာဒ်သည် မှန်ကန်နိုင်လိမ့်မည်မဟုတ်ပါ။ Algorithm တစ်ခု၏ အချို့သော ရှုထောင့်များအကြောင်း မသိရှိပါက ထိုကဲ့သို့ သတိပေးချက်မျိုးကို ပုံမှန်စစ်ဆေးပေးလျှင် ပိုမိုကောင်းမွန်ပါသည်။</p>
+<p><span class="menuselection">Processing ► History…</span> menu ထဲတွင် GUI မှဖြစ်စေ console မှဖြစ်စေ (နောက်ပိုင်းသင်ခန်းစာတွင် ရှင်းပြပါမည်) run ထားသော <em>algorithms</em> များကို တွေ့နိုင်ပါသည်။ လုပ်ဆောင်မှုကို console call တစ်ခုအနေဖြင့် ဤ dialog ထဲတွင် သိမ်းဆည်းထားပါသည်။ ဆိုလိုသည်မှာ algorithm တစ်ခုကို run သည့်အချိန်တိုင်း log ထဲတွင် console command တစ်ခုကို ထည့်သွင်းပေးပြီး အလုပ်လုပ်ဆောင်နေသော session ၏ history အပြည့်အစုံ ပါရှိမည်ဖြစ်သည်။ History ၏ပုံစံသည် အောက်ပါအတိုင်းဖြစ်ပါသည်-</p>
 <figure class="align-default">
 <img alt="../../../_images/history.png" src="../../../_images/history.png" />
 </figure>
-<p>This can be very useful when starting working with the console, to learn about the syntax of algorithms.
-We will use it when we discuss how to run analysis commands from the console.</p>
+<p>၎င်းသည် Console ဖြင့် စတင်အလုပ်လုပ်သောအခါ algorithm များ၏ syntax အကြောင်းလေ့လာရာတွင် အလွန်အသုံးဝင်ပါသည်။ ၎င်းကို console မှ analysis command များကို မည်ကဲ့သို့ run ရမည်ကိုလေ့လာရာတွင် အသုံးပြုပါမည်။</p>
 <section id="follow-along">
-<h2><span class="section-number">17.9.1. </span><abbr title="Basic level">★☆☆</abbr> Follow Along<a class="headerlink" href="#follow-along" title="Link to this heading"></a></h2>
-<p>The history is also interactive, and you can run any previous algorithm just by double-clicking on its entry.
-This is an easy way of replicating the work we already did before.</p>
-<p>For instance, try the following:</p>
+<h2><span class="section-number">17.9.1. </span><abbr title="Basic level">★☆☆</abbr> လိုက်လုပ်ကြည့်ပါ (Follow Along)<a class="headerlink" href="#follow-along" title="Link to this heading"></a></h2>
+<p>History သည် interactive (အပြန်အလှန်တုံ့ပြန်လုပ်ဆောင်နိုင်) လည်းဖြစ်ပါသည်၊ ယခင် လုပ်ဆောင်ခဲ့ပြီးသော မည်သည့် algorithm ကိုမဆို click နှစ်ချက်နှိပ်ပြီး run နိုင်ပါသည်။ ယခင်က လုပ်ဆောင်ခဲ့ပြီးသောအလုပ်များကို ပုံတူပွားလုပ်ဆောင်ရာတွင် လွယ်ကူစေပါသည်။</p>
+<p>ဥပမာအားဖြင့် အောက်ပါအတိုင်း ကြိုးစားလုပ်ကြည့်ပါ-</p>
 <ol class="arabic simple">
-<li><p>Open the data corresponding to the first chapter of this manual and run the algorithm explained there.</p></li>
-<li><p>Now go to the log dialog and locate the last algorithm in the list, which corresponds to the algorithm you have just run.</p></li>
-<li><p>Double-click on it and a new result should be produced, just like when you run it using the normal dialog and calling it from the toolbox.</p></li>
+<li><p>ဤလက်စွဲ၏ ပထမဆုံးအခန်းနှင့် သက်ဆိုင်သော data ကိုဖွင့်ပြီး ထိုအခန်းတွင်ရှင်းပြခဲ့သော algorithm ကို run ပါ။</p></li>
+<li><p>Log dialog သို့သွားပြီး စာရင်းထဲရှိ သင် run ခဲ့ပြီးသော နောက်ဆုံး algorithm ကို ရွေးချယ်ပါ။</p></li>
+<li><p>၎င်း algorithm ကို click နှစ်ချက်နှိပ်ပြီး ရလာဒ်အသစ်တစ်ခုကို ထုတ်ပါ၊ toolbox မှခေါ်ယူပြီး ပုံမှန် dialog ကိုအသုံးပြုကာ run သကဲ့သို့ ဖြစ်သည်။</p></li>
 </ol>
 </section>
 <section id="advanced">
-<h2><span class="section-number">17.9.2. </span><abbr title="Advanced level">★★★</abbr> Advanced<a class="headerlink" href="#advanced" title="Link to this heading"></a></h2>
-<p>You can also modify the algorithm.</p>
+<h2><span class="section-number">17.9.2. </span><abbr title="Advanced level">★★★</abbr> အဆင့်မြင့် (Advanced)<a class="headerlink" href="#advanced" title="Link to this heading"></a></h2>
+<p>Algorithm ကိုလည်း မွမ်းမံပြင်ဆင်နိုင်ပါသည်။</p>
 <ol class="arabic">
-<li><p>Copy the algorithm call</p></li>
-<li><p>Open the <span class="menuselection">Plugins ► Python console</span></p></li>
-<li><p>Paste your copy to run the analysis; change the text at will.</p></li>
-<li><p>To display the resulting file, type:</p>
+<li><p>Algorithm call ကို copy ကူးပါ</p></li>
+<li><p><span class="menuselection">Plugins ► Python console</span> ကိုဖွင့်ပါ</p></li>
+<li><p>Analysis ကို run ရန် copy ကူးထားသည်ကို paste လုပ်ပါ၊ စာသားများကို ပြောင်းလဲပါ။</p></li>
+<li><p>ရလာဒ်ဖိုင်ကို ပြသရန် အောက်ပါကို ရိုက်ထည့်ပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="s1">&#39;/path/filename.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer name in legend&#39;</span><span class="p">,</span> <span class="s1">&#39;ogr&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Otherwise, you can use:</p>
+<p>သို့မဟုတ်၊ အောက်ပါကို အသုံးပြုနိုင်ပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">processing</span><span class="o">.</span><span class="n">runAndloadResults</span>
 </pre></div>
 </div>
@@ -253,15 +232,15 @@ This is an easy way of replicating the work we already did before.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="first_saga_alg.html" class="btn btn-neutral float-left" title="17.8. Running an external algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="no_data.html" class="btn btn-neutral float-right" title="17.10. The raster calculator. No-data values" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="first_saga_alg.html" class="btn btn-neutral float-left" title="17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="no_data.html" class="btn btn-neutral float-right" title="17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 

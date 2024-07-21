@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>17.6. CRSs. Reprojecting &mdash; QGIS Documentation  documentation</title>
+  <title>17.6. CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="17.7. Selection" href="selection.html" />
-    <link rel="prev" title="17.5. More algorithms and data types" href="second_alg.html" />
-  <meta name="description" content="QGIS testing documentation: 17.6. CRSs. Reprojecting">
+    <link rel="next" title="17.7. ရွေးချယ်ခြင်း (Selection)" href="selection.html" />
+    <link rel="prev" title="17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)" href="second_alg.html" />
+  <meta name="description" content="QGIS testing documentation: 17.6. CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -104,46 +104,46 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. The QGIS processing guide</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. An important warning before starting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Setting-up the processing framework</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. Running our first algorithm. The  toolbox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. More algorithms and data types</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">17.6. CRSs. Reprojecting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. Running an external algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log.html">17.9. The processing log</a></li>
-<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. The raster calculator. No-data values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector calculator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. Defining extents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. First analysis example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Clipping and merging raster layers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. Hydrological analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Starting with the model designer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. More complex models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Numeric calculations in the modeler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. A model within a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Using modeler-only tools for creating a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. Interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. More interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. More iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. The batch processing interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Models in the batch processing interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. မစတင်မီ အရေးကြီးသော သတိပေးချက် (An important warning before starting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Processing framework ပြင်ဆင်သတ်မှတ်ခြင်း (Setting-up the processing framework)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. ပထမဦးဆုံး algorithm ကို Run ခြင်း (Running our first algorithm. The  toolbox)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">17.6. CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. ရွေးချယ်ခြင်း (Selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">17.9. လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector ဂဏန်းတွက်စက် (Vector calculator)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. နယ်ပယ်အတိုင်းအတာများသတ်မှတ်ခြင်း (Defining extents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML ရလာဒ်များ (HTML outputs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. ပထမဆုံး ဆန်းစစ်လေ့လာခြင်းဥပမာ (First analysis example)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Raster layer များဖြတ်တိခြင်းနှင့် ပေါင်းစည်းခြင်း (Clipping and merging raster layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. ဇလဗေဒဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Hydrological analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Model designer စတင်အသုံးပြုခြင်း (Starting with the model designer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. ပိုမိုရှုပ်ထွေးသော model များ (More complex models)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Modeler ထဲတွင် ကိန်းဂဏန်းတွက်ချက်မှု ပြုလုပ်ခြင်း (Numeric calculations in the modeler)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. Model တစ်ခုအတွင်းရှိ Model တစ်ခု (A model within a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Model တစ်ခုဖန်တီးရန်အတွက် modeler ထဲတွင်သာရှိသော tool များအသုံးပြုခြင်း (Using modeler-only tools for creating a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. နောက်ထပ် သွယ်ဝိုက်တွက်ချက်ခြင်းနည်းများ (More interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Algorithm များ ထပ်ခါတလဲလဲ လုပ်ဆောင်ခြင်း (Iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. နောက်ထပ် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း (More iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. အစုအဖွဲ့လိုက် processing လုပ်ဆောင်ပေးသည့်အရာ၏ interface (The batch processing interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Batch processing interface ထဲရှိ Model များ (Models in the batch processing interface)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hooks.html">17.28. Pre- and post-execution script hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. Other programs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation and contouring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector simplification and smoothing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. Planning a solar farm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="r_intro.html">17.33. Use R scripts in Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. Predicting landslides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. အခြားပရိုဂရမ်များ (Other programs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation နှင့် ကွန်တိုရေးဆွဲခြင်း (Interpolation and contouring)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector ကိုရိုးရှင်းအောင်လုပ်ခြင်းနှင့် ချောမွေ့အောင်လုပ်ခြင်း (Vector simplification and smoothing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="r_intro.html">17.33. Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
 </ul>
 </li>
 </ul>
@@ -163,14 +163,14 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>The QGIS processing guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">17.6. </span>CRSs. Reprojecting</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17.6. </span>CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/processing/crs.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="second_alg.html" class="btn btn-neutral float-left" title="17.5. More algorithms and data types" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="selection.html" class="btn btn-neutral float-right" title="17.7. Selection" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="second_alg.html" class="btn btn-neutral float-left" title="17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="selection.html" class="btn btn-neutral float-right" title="17.7. ရွေးချယ်ခြင်း (Selection)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -179,118 +179,66 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="crss-reprojecting">
-<h1><span class="section-number">17.6. </span>CRSs. Reprojecting<a class="headerlink" href="#crss-reprojecting" title="Link to this heading"></a></h1>
+<section id="crss-projection-crss-reprojecting">
+<h1><span class="section-number">17.6. </span>CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)<a class="headerlink" href="#crss-projection-crss-reprojecting" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this lesson we will discuss how Processing uses CRSs.
-We will also see a very useful algorithm: reprojecting.</p>
+<p>ဤသင်ခန်းတွင် Processing သည် မည်ကဲ့သို့ CRS များကိုအသုံးပြုသည်ကို လေ့လာရမည်ဖြစ်ပါသည်။ Reprojecting ဟုခေါ်သည့် အလွန်အသုံးဝင်သော algorithm ကိုလည်း လေ့လာရမည်ဖြစ်ပါသည်။</p>
 </div>
-<p>CRS’s are a great source of confusion for QGIS Processing users, so here are
-some general rules about how they are handled by geoalgorithms when creating a new layer.</p>
+<p>CRS များသည် QGIS Processing အသုံးပြုသူများအတွက် လွန်စွာရှုပ်ထွေးပါသည်၊ ထို့ကြောင့် layer အသစ်တစ်ခုဖန်တီးသောအခါ geoalgorithm များမှ CRS များကို ကိုင်တွယ်ပုံအကြောင်း ယေဘုယျစည်းမျဉ်းအချို့ကို အောက်တွင် ဖော်ပြထားပါသည်။</p>
 <ul class="simple">
-<li><p>If there are input layers, it will use the CRS of the first layer. This is
-assumed to be the CRS of all input layers, since they should have the same one.
-If you use layers with unmatching CRS’s, QGIS will warn you about it. Notice that
-the CRS of input layers is shown along with its name in the parameters dialog.</p></li>
+<li><p>Input layer များစွာရှိလျှင် ပထမဦးဆုံး layer ၏ CRS ကိုအသုံးပြုပါလိမ့်မည်။ Layer များအားလုံးတွင် CRS အတူတူရှိသင့်သောကြောင့် ထို CRS ကို input layer များအားလုံး၏ CRS အဖြစ်မှတ်ယူပါသည်။ CRS မတူညီသော layer များကို အသုံးပြုလျှင် QGIS မှ သတိပေးပါလိမ့်မည်။ Input layer များ၏ CRS ကို parameter dialog ထဲတွင် နာမည်နှင့်အတူ ပြသပေးပါသည်။</p></li>
 </ul>
 <figure class="align-default">
 <img alt="../../../_images/crs_layer.png" src="../../../_images/crs_layer.png" />
 </figure>
 <ul class="simple">
-<li><p>If there are no input layer, it will use the project CRS, unless the algorithm
-contains a specific CRS field (as it happened in the last lesson with the
-graticule algorithm)</p></li>
+<li><p>Input layer တစ်ခုမျှ မရှိပဲ algorithm တွင် သီးသန့် CRS field တစ်ခုမပါရှိပါက project ၏ CRS ကိုအသုံးပြုပါလိမ့်မည် (ပြီးခဲ့သည့် သင်ခန်းစာထဲရှိ graticule algorithm ကဲ့သို့ ဖြစ်သည်)</p></li>
 </ul>
-<p>Open the project corresponding to this lesson and you will see two layers named
-23030 and 4326. They both contain the same points, but in different CRSs
-(EPSG:23030 and EPSG:4326). They appear in the same place because QGIS is
-reprojecting on the fly to the project CRS (EPSG:4326), but they are not
-actually the same layer.</p>
-<p>Open the <em>Export/Add geometry columns</em> algorithm.</p>
+<p>ဤသင်ခန်းစာနှင့်သက်ဆိုင်သော project ကိုဖွင့်ပါ၊ 23030 နှင့် 4326 ဟုအမည်ပေးထားသော layer နှစ်ခုကို တွေ့ရပါမည်။ ၎င်းတို့ နှစ်ခုလုံးတွင် တူညီသော point များပါရှိပါသည်၊ သို့သော် CRS တော့မတူညီပါ (EPSG:23030 နှင့် EPSG:4326)။ ထို point များသည် တစ်နေရာထဲတွင် ကျရောက်နေပါမည်၊ အဘယ်ကြောင့်ဆိုသော် ၎င်းတို့သည် layer အတူတူမဟုတ်သော်လည်း QGIS သည် project CRS (EPSG:4326) သို့ projection ပြောင်းလဲပေးထားသောကြောင့်ဖြစ်သည်။</p>
+<p><em>Export/Add geometry columns</em> algorithm ကိုဖွင့်ပါ။</p>
 <figure class="align-default">
 <img alt="../../../_images/add_geom.png" src="../../../_images/add_geom.png" />
 </figure>
-<p>This algorithm add new columns to the attributes table of a vector layer.
-The content of the columns depend on the type of geometry of the layer.
-In the case of points, it adds new columns with the X and Y coordinates
-of each point.</p>
-<p>In the list of available layers that you will find in the input layer field,
-you will see each one with its corresponding CRS. That means that, although
-they appear in the same place in your canvas, they will be treated differently.
-Select the 4326 layer.</p>
-<p>The other parameter of the algorithm allows to set how the algorithm uses
-coordinates to calculate the new value that it will add to the resulting
-layers. Most algorithms do not have an option like that, and just use the
-coordinates directly. Select the <em>Layer CRS</em> option to just use coordinates
-as they are. This is how almost all geoalgorithms work.</p>
-<p>You should get a new layer with exactly the same points as the other two layers.
-If you right click on the name of the layer and open its properties, you will
-see that it shares the same CRS of the input layer, that is, EPSG:4326.
-When the layer is loaded into QGIS, you will not be asked to enter the CRS
-of the layer, since QGIS already knows about it.</p>
-<p>If you open the attributes table of the new layer you will see that it
-contains two new fields with the X and Y coordinates of each point.</p>
+<p>ဤ algorithm သည် vector layer တစ်ခု၏ attribute ဇယားထဲသို့ column အသစ်များကို ထည့်သွင်းပေးပါသည်။ Column များ၏ အကြောင်းအရာသည် layer ၏ ဂျီဩမေတြီအမျိုးအစားပေါ်မူတည်ပါသည်။ Point များအတွက်မူ point တစ်ခုချင်းစီ၏ X နှင့် Y ကိုဩဒိနိတ်များပါဝင်သော column အသစ်များကို ထည့်သွင်းပေးပါသည်။</p>
+<p>Input layer field ထဲရှိ အသုံးပြုနိုင်သော layer များစာရင်းထဲတွင် layer တစ်ခုချင်းစီကို ၎င်းတို့၏သက်ဆိုင်ရာ CRS တစ်ခုစီဖြင့် တွေ့ရပါလိမ့်မည်။ ဆိုလိုသည်မှာ ၎င်း layer များသည် မြေပုံ canvas ထဲတွင် တစ်နေရာထဲတွင် ပေါ်နေသော်လည်း ၎င်းတို့သည် သီးခြား CRS တစ်ခုစီရှိနေခြင်းဖြစ်သည်။ 4326 layer ကိုရွေးချယ်ပါ။</p>
+<p>Algorithm ၏ အခြားသော parameter သည် ရလာဒ် layer များတွင်ထည့်သွင်းပေးမည့် တန်ဖိုးအသစ်ကိုတွက်ချက်ရန် ကိုဩဒိနိတ်များကို algorithm မှ မည်ကဲ့သို့အသုံးပြုမည်ကို သတ်မှတ်ပေးပါသည်။ Algorithm အများစုတွင် ထိုကဲ့သို့သော option မျိုးမပါရှိပဲ ကိုဩဒိနိတ်များကို တိုက်ရိုက်သာအသုံးပြုခြင်းဖြစ်ပါသည်။ ကိုဩဒိနိတ်များကို သူ့အတိုင်းသာ အသုံးပြုရန် <em>Layer CRS</em> option ကို ရွေးချယ်ပါ။ ၎င်းသည် geoalgorithm အားလုံးနီးပါး၏ အလုပ်လုပ်ဆောင်သည့် ပုံစံဖြစ်သည်။</p>
+<p>အခြား layer နှစ်ခုနှင့် တစ်ထပ်ထဲတူညီသော point များပါရှိသည့် layer အသစ်တစ်ခုကို ရရှိပါမည်။ Layer ၏ နာမည်ပေါ်တွင် right click နှိပ်ပြီး property ကိုဖွင့်ကြည့်ပါက ၎င်းသည် input layer ၏ CRS အတိုင်းအသုံးပြုထားသည်ကို တွေ့ရပါမည်၊ EPSG:4326 ဖြစ်ပါသည်။ Layer ကို QGIS ထဲသို့ ထည့်သွင်းလိုက်သောအခါ QGIS မှသိရှိပြီးသားဖြစ်သောကြောင့် layer ၏ CRS ကို ထည့်သွင်းပေးရန် မေးမြန်းတော့မည်မဟုတ်ပါ။</p>
+<p>Layer အသစ်၏ attribute ဇယားကို ဖွင့်ကြည့်ပါက point တစ်ခုချင်းစီ၏ X နှင့် Y ကိုဩဒိနိတ်များပါရှိသော field အသစ်နှစ်ခုကို ရှိနေသည်ကို တွေ့ရပါမည်။</p>
 <figure class="align-default">
 <img alt="../../../_images/attribs2.png" src="../../../_images/attribs2.png" />
 </figure>
-<p>Those coordinate values are given in the layer CRS, since we chose that option.
-However, even if you choose another option, the output CRS of the layer would
-have been the same, since the input CRS is used to set the CRS of the output layer.
-Choosing another option will cause the values to be different, but not the
-resulting point to change or the CRS of the output layer to be different to
-the CRS of the input one.</p>
-<p>Now do the same calculation using the other layer. You should find the resulting
-layer rendered exactly in the same place as the other ones, and it will have the
-EPSG:23030 CRS, since that was the one of the input layer.</p>
-<p>If you go to its attribute table, you will see values that are different to
-the ones in the first layer that we created.</p>
+<p>၎င်း option ကိုရွေးချယ်ထားခဲ့သောကြောင့် အဆိုပါ ကိုဩဒိနိတ်တန်ဖိုးများကို layer CRS ထဲတွင် ပေးထားပြီးသားဖြစ်ပါသည်။ သို့သော် အခြား option ကို ရွေးချယ်ခဲ့ပါက output layer ၏ CRS တွင်သတ်မှတ်ရန် input CRS ကိုအသုံးပြုသောကြောင့် CRS အတူတူဖြစ်နေပါမည်။ အခြား option ကိုရွေးချယ်ခြင်းဖြင့် တန်ဖိုးများ ကွဲပြားသွားနိုင်သော်လည်း ရလာဒ် point ကို မပြောင်းလဲစေနိုင်ပါ၊ သို့မဟုတ် input layer ၏ CRS နှင့် output layer ၏ CRS အတူတူပင်ဖြစ်နေပါမည်။</p>
+<p>အခြား layer ကို အသုံးပြုပြီး ထိုအတိုင်း တွက်ချက်မှုလုပ်ဆောင်ပါ။ ရလာဒ် layer သည် အခြားသော layer များကဲ့သို့ နေရာတစ်ခုထဲတွင် အတိအကျဖြစ်နေသည်ကို တွေ့ရပါလိမ့်မည်၊ CRS သည် input layer ၏ CRS အတိုင်း EPSG:23030 ဖြစ်နေပါလိမ့်မည်။</p>
+<p>ယခု ဖန်တီးထားသော layer ၏ attribute ဇယားကို ဖွင့်ကြည့်ပါက ပထမတစ်ကြိမ် ဖန်တီးထားခဲ့သော layer နှင့် တန်ဖိုးများမတူညီသည်ကို တွေ့ရပါလိမ့်မည်။</p>
 <figure class="align-default">
 <img alt="../../../_images/attribs.png" src="../../../_images/attribs.png" />
 </figure>
-<p>This is because the original data is different (it uses a different CRS),
-and those coordinates are taken from it.</p>
-<p>What should you learn from this? The main idea behind these examples is that
-geoalgorithms use the layer as it is in its original data source, and completely
-ignore the reprojections that QGIS might be doing before rendering.
-In other words, do not trust what you see in the canvas, but always have in mind
-that the original data will be used. That is not so important in this case,
-since we are just using one single layer at a time, but in an algorithm that
-needs several of them (such as a clip algorithm), layers that appear to match
-or overlay might be very far one from each other, since they might have different CRSs.</p>
-<p>Algorithms performs no reprojection (except in the reprojection algorithm
-that we will see next), so it is up to you to make sure that layers have
-matching CRS’s.</p>
-<p>An interesting module that deals with CRS’s is the reprojection one.
-It represents a particular case, since it has an input layer (the one to reproject),
-but it will not use its CRS for the output one.</p>
-<p>Open the <em>Reproject layer</em> algorithm.</p>
+<p>ထိုသို့ဖြစ်ရခြင်းမှာ မူရင်း data မတူညီသောကြောင့်ဖြစ်ပြီး (၎င်းသည် မတူညီသော CRS ကို အသုံးပြုထားပါသည်) ကိုဩဒိနိတ်များကို မူရင်း data ယူထားသောကြောင့်ဖြစ်သည်။</p>
+<p>ဤဥပမာများ၏ အဓိကအချက်မှာ geoalgorithm များသည် ၎င်းတို့၏ မူရင်း data source အတိုင်း layer ကို အသုံးပြုပြီး ပုံဖော်ပြသခြင်းမလုပ်မီတွင် QGIS မှ ပြုလုပ်မည့် projection ပြောင်းလဲခြင်းများကို လုံးဝ လုပ်ဆောင်ခြင်းမရှိပါ။ တစ်နည်းအားဖြင့် ဆိုရသော် မူရင်း data ကိုအမြဲတမ်းအသုံးပြုသည်ကို မှတ်သားထားပါ။ ဤဥပမာ၌ တစ်ကြိမ်တွင် layer တစ်ခုကိုသာ အသုံးပြုသည့်အတွက် ထိုကိစ္စသည် အလွန်အရေးမကြီးပါ။ သို့သော် layer များစွာလိုအပ်သော algorithm တစ်ခုတွင် (clip algorithm ကဲ့သို့) layer များသည် CRS များ မတူညီသောကြောင့် ကိုက်ညီမှုရှိရမည့် သို့မဟုတ် ထပ်နေရမည့် layer များသည် တစ်ခုနှင့်တစ်ခုလွန်စွာ ကွာဝေးနိုင်ပါသည်၊</p>
+<p>Algorithm များသည် projection ပြောင်းလဲခြင်းများကို မလုပ်ဆောင်ပါ (reprojection algorithm မှလွဲ၍)၊ ထို့ကြောင့် layer များသည် CRS များကိုက်ညီမှုရှိရန် လိုအပ်ပါသည်။</p>
+<p>CRS များနှင့်ပတ်သက်သော စိတ်ဝင်စားစရာကောင်းသည့်မော်ဂျူးသည် reprojection မော်ဂျူးဖြစ်ပါသည်။ ၎င်းသည် သီးသန့်လုပ်ဆောင်မှုတစ်ခုဖြစ်ပြီး input layer တစ်ခု (projection ပြောင်းလဲမည့် layer) ထည့်သွင်းပေးရမည်ဖြစ်သည်၊ သို့သော် output layer အတွက် input layer ၏ CRS ကို အသုံးပြုမည်မဟုတ်ပါ။</p>
+<p><em>Reproject layer</em> algorithm ကိုဖွင့်ပါ။</p>
 <figure class="align-default">
 <img alt="../../../_images/reprojection.png" src="../../../_images/reprojection.png" />
 </figure>
-<p>Select any of the layers as input, and select EPSG:23029 as the destination CRS.
-Run the algorithm and you will get a new layer, identical to the input one,
-but with a different CRS. It will appear on the same region of the canvas,
-like the other ones, since QGIS will reproject it on the fly, but its original
-coordinates are different. You can see that by running the <em>Export/Add geometry
-columns</em> algorithm using this new layer as input, and veryfing that the added
-coordinates are different to the ones in the attribute tables of both of the
-two layers that we had computed before.</p>
+<p>Layer များထဲမှ တစ်ခုခုကို input အဖြစ်ရွေးချယ်ပြီး destination CRS အဖြစ် EPSG:23029 ကိုရွေးချယ်ပါ။ Algorithm ကို run လိုက်ပါက layer အသစ်တစ်ခုရရှိပါလိမ့်မည်၊ layer အသစ်သည် input layer နှင့် ထပ်တူဖြစ်နေသော်လည်း CRS တူညီမည်မဟုတ်ပါ။ QGIS သည် on the fly projection ပြောင်းလဲပေးသောကြောင့် မြေပုံ canvas ပေါ်တွင် နေရာတစ်နေရာထဲ၌ ပေါ်နေမည်ဖြစ်သော်လည်း ၎င်းတို့၏မူရင်းကိုဩဒိနိတ်များသည် မတူညီကြပါ။ ထို layer အသစ်ကို input အနေဖြင့် အသုံးပြုပြီး <em>Export/Add geometry
+columns</em> algorithm ကို run ကြည့်ပါက အသစ်ထည့်သွင်းထားသော ကိုဩဒိနိတ်များသည် ယခင်ကတွက်ချက်ထားခဲ့သော layer နှစ်ခုစလုံး၏ attribute ဇယားများထဲမှ ကိုဩဒိနိတ်များနှင့် ကွဲပြားနေသည်ကို တွေ့မြင်နိုင်ပါသည်၊</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="second_alg.html" class="btn btn-neutral float-left" title="17.5. More algorithms and data types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="selection.html" class="btn btn-neutral float-right" title="17.7. Selection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="second_alg.html" class="btn btn-neutral float-left" title="17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="selection.html" class="btn btn-neutral float-right" title="17.7. ရွေးချယ်ခြင်း (Selection)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 

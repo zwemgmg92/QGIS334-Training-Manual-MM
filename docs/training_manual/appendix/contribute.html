@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>19. Appendix: Contributing To This Manual &mdash; QGIS Documentation  documentation</title>
+  <title>19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="20. Preparing Exercise Data" href="preparing_data.html" />
-    <link rel="prev" title="18.3. Lesson: Working with SpatiaLite databases in QGIS" href="../databases/spatialite.html" />
-  <meta name="description" content="QGIS testing documentation: 19. Appendix: Contributing To This Manual">
+    <link rel="next" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" href="preparing_data.html" />
+    <link rel="prev" title="18.3. သင်ခန်းစာ - QGIS ထဲတွင် SpatiaLite database များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with SpatiaLite databases in QGIS)" href="../databases/spatialite.html" />
+  <meta name="description" content="QGIS testing documentation: 19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -104,38 +104,40 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">19. Appendix: Contributing To This Manual</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#downloading-resources">19.1. Downloading Resources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-format">19.2. Manual Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-a-module">19.3. Adding a Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-a-lesson">19.4. Adding a Lesson</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-a-section">19.5. Adding a Section</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#adding-a-follow-along-section">19.5.1. Adding a “follow along” section</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-a-try-yourself-section">19.5.2. Adding a “try yourself” section</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-resources">19.1. အရင်းအမြစ်များဒေါင်းလုဒ်ပြုလုပ်ခြင်း (Downloading Resources)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-format">19.2. လက်စွဲပုံစံ (Manual Format)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-module">19.3. မော်ဂျူးတစ်ခုထည့်သွင်းခြင်း (Adding a Module)</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#add-a-conclusion">19.6. Add a Conclusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-a-further-reading-section">19.7. Add a Further Reading Section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-a-what-s-next-section">19.8. Add a What’s Next Section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-markup">19.9. Using Markup</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#new-concepts">19.9.1. New concepts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#emphasis">19.9.2. Emphasis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#images">19.9.3. Images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#internal-links">19.9.4. Internal links</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#external-links">19.9.5. External links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-lesson">19.4. သင်ခန်းစာတစ်ခုထည့်သွင်းခြင်း (Adding a Lesson)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-section">19.5. အပိုင်းတစ်ခု ထည့်သွင်းခြင်း (Adding a Section)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#follow-along-section-adding-a-follow-along-section">19.5.1. “follow along” section တစ်ခုထည့်သွင်းခြင်း (Adding a “follow along” section)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#try-yourself-section-adding-a-try-yourself-section">19.5.2. “try yourself” section တစ်ခုထည့်သွင်းခြင်း (Adding a “try yourself” section)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-conclusion">19.6. အနှစ်ချုပ်တစ်ခုထည့်သွင်းခြင်း (Add a Conclusion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#section-add-a-further-reading-section">19.7. နောက်ထပ်ဖတ်ရှုရမည့်အရာအတွက် section တစ်ခုထည့်သွင်းခြင်း (Add a Further Reading Section)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#section-add-a-what-s-next-section">19.8. နောက်လာမည့်အကြောင်းအရာအတွက် section တစ်ခုထည့်သွင်းခြင်း (Add a What’s Next Section)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#markup-using-markup">19.9. Markup အသုံးပြုခြင်း (Using Markup)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-concepts">19.9.1. သဘောတရားအသစ်များ (New concepts)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emphasis">19.9.2. လေးနက်ထင်ရှားစေခြင်း (Emphasis)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#images">19.9.3. ဓာတ်ပုံများ (Images)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-links">19.9.4. အတွင်းပိုင်း ချိတ်ဆက်လင့်ခ်များ (Internal links)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#external-links">19.9.5. ပြင်ပ ချိတ်ဆက်လင့်ခ်များ (External links)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-monospaced-text">19.9.6. Using monospaced text</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#labeling-gui-items">19.9.7. Labeling GUI items</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#menu-selections">19.9.8. Menu selections</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-notes">19.9.9. Adding notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-a-sponsorship-authorship-note">19.9.10. Adding a sponsorship/authorship note</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui-item-labeling-gui-items">19.9.7. GUI item များကို အညွှန်းတပ်ခြင်း (Labeling GUI items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menu-menu-selections">19.9.8. Menu ရွေးချယ်ခြင်းများ (Menu selections)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-notes">19.9.9. မှတ်ချက်များ ထည့်သွင်းခြင်း (Adding notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-sponsorship-authorship-note">19.9.10. ငွေကြေးအထောက်အပံ့/ရေးသားပြုစုမှုဆိုင်ရာ မှတ်စုတစ်ခုထည့်သွင်းခြင်း (Adding a sponsorship/authorship note)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#thank-you">19.10. Thank You!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thank-you">19.10. ကျေးဇူးတင်ရှိပါသည် (Thank You!)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="preparing_data.html">20. Preparing Exercise Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
 </ul>
 </li>
 </ul>
@@ -155,13 +157,13 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">19. </span>Appendix: Contributing To This Manual</li>
+      <li class="breadcrumb-item active"><span class="section-number">19. </span>နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/appendix/contribute.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../databases/spatialite.html" class="btn btn-neutral float-left" title="18.3. Lesson: Working with SpatiaLite databases in QGIS" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="preparing_data.html" class="btn btn-neutral float-right" title="20. Preparing Exercise Data" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../databases/spatialite.html" class="btn btn-neutral float-left" title="18.3. သင်ခန်းစာ - QGIS ထဲတွင် SpatiaLite database များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with SpatiaLite databases in QGIS)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preparing_data.html" class="btn btn-neutral float-right" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -171,30 +173,23 @@
   <blockquote>
 <div></div></blockquote>
 <section id="appendix-contributing-to-this-manual">
-<h1><span class="section-number">19. </span>Appendix: Contributing To This Manual<a class="headerlink" href="#appendix-contributing-to-this-manual" title="Link to this heading"></a></h1>
-<p>To add materials to this course, you must follow the guidelines in this Appendix.
-You are not allowed to alter the conditions in this Appendix except for clarification.
-This is to ensure that the quality and consistency of this manual can be maintained.</p>
+<h1><span class="section-number">19. </span>နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)<a class="headerlink" href="#appendix-contributing-to-this-manual" title="Link to this heading"></a></h1>
+<p>ဤသင်တန်းတွင် သင်တန်းအကြောင်းအရာများ ထည့်သွင်းရာတွင် ယခုနောက်ဆက်တွဲတွင်ပါသော ညွှန်ကြားချက်များကို လိုက်နာရပါမည်။ ရှင်းလင်းစေခြင်းအတွက်မှလွဲ၍ ဤနောက်ဆက်တွဲရှိ အခြေအနေများကို ပြောင်းလဲခွင့်မရှိပါ။ ဤလက်စွဲ၏ အရည်အသွေးနှင့် တသမတ်တည်းဖြစ်စေမှုကို ဆက်လက်ထိန်းထားစေရန်အတွက် ဖြစ်ပါသည်။</p>
 <section id="downloading-resources">
-<h2><span class="section-number">19.1. </span>Downloading Resources<a class="headerlink" href="#downloading-resources" title="Link to this heading"></a></h2>
-<p>The source of this document is available at <a class="reference external" href="https://github.com/qgis/QGIS-Documentation">GitHub</a>. Consult <a class="reference external" href="https://github.com/">GitHub.com</a> for instructions on how to use the git version control system.</p>
+<h2><span class="section-number">19.1. </span>အရင်းအမြစ်များဒေါင်းလုဒ်ပြုလုပ်ခြင်း (Downloading Resources)<a class="headerlink" href="#downloading-resources" title="Link to this heading"></a></h2>
+<p>ဤလက်စွဲ၏ အရင်းအမြစ်ကို <a class="reference external" href="https://github.com/qgis/QGIS-Documentation">GitHub</a> တွင်ရရှိနိုင်ပါသည်။ Git ဗားရှင်းထိန်းချုပ်စနစ် အသုံးပြုနည်းအတွက် ညွှန်ကြားချက်များကို <a class="reference external" href="https://github.com/">GitHub.com</a> တွင်ကြည့်နိုင်ပါသည်။</p>
 </section>
 <section id="manual-format">
-<h2><span class="section-number">19.2. </span>Manual Format<a class="headerlink" href="#manual-format" title="Link to this heading"></a></h2>
-<p>This manual is written using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>,
-a Python document generator using the <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> markup language.
-Instructions on how to use these tools are available on their respective sites.</p>
+<h2><span class="section-number">19.2. </span>လက်စွဲပုံစံ (Manual Format)<a class="headerlink" href="#manual-format" title="Link to this heading"></a></h2>
+<p>Python document generator တစ်ခုဖြစ်သည့် <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> ဖြင့်  <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> markup language အသုံးပြုကာ ဤလက်စွဲကို ရေးသားထားပါသည်။ အဆိုပါ tool များအသုံးပြုနည်းကို သက်ဆိုင်ရာဆိုဒ်များတွင် ကြည့်နိုင်ပါသည်။</p>
 </section>
 <section id="adding-a-module">
-<h2><span class="section-number">19.3. </span>Adding a Module<a class="headerlink" href="#adding-a-module" title="Link to this heading"></a></h2>
-<p>To add a new module:</p>
+<h2><span class="section-number">19.3. </span>မော်ဂျူးတစ်ခုထည့်သွင်းခြင်း (Adding a Module)<a class="headerlink" href="#adding-a-module" title="Link to this heading"></a></h2>
+<p>မော်ဂျူးအသစ်တစ်ခုထည့်သွင်းရန်-</p>
 <ol class="arabic">
-<li><p>First create a new directory (directly under the  top-level
-of the <code class="file docutils literal notranslate"><span class="pre">qgis-training-manual</span></code> directory) with the name of the new module.</p></li>
-<li><p>Under this new directory, create a file called <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code>.
-Leave this file blank for now.</p></li>
-<li><p>Open the <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> file under the top-level directory.
-Its first lines are:</p>
+<li><p>မော်ဂျူးအသစ်၏နာမည်ဖြင့် ဖိုင်လမ်းကြောင်းအသစ်တစ်ခုကို ဦးစွာဖန်တီးပါ (<code class="file docutils literal notranslate"><span class="pre">qgis-training-manual</span></code> ဖိုင်လမ်းကြောင်းအောက် top-level (ထိပ်ပိုင်းအဆင့်) တွင် တိုက်ရိုက်ဖန်တီးပါ)။</p></li>
+<li><p>ဤဖိုင်လမ်းကြောင်းအသစ်အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ဟုခေါ်သော ဖိုင်တစ်ခုဖန်တီးပါ။ ယခုအချိန်တွင် ဖိုင်ကို မည်သည်မျှမထည့်သွင်းပဲ အလွတ်သာ ထားရှိပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ဖိုင်ကိုဖွင့်ပါ။ ပထမဆုံး တွေ့ရသော စာကြောင်းများမှာ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
    <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
 
@@ -205,43 +200,34 @@ Its first lines are:</p>
 </li>
 </ol>
 <blockquote>
-<div><p>You will note that this is a list of directory names, followed by the name <code class="docutils literal notranslate"><span class="pre">index</span></code>.
-This directs the top-level index file to the index files in each directory.
-The order in which they are listed determines the order they will have in the document.</p>
+<div><p><code class="docutils literal notranslate"><span class="pre">index</span></code> နာမည်ကို နောက်တွင်ရေးထားသော ဖိုင်လမ်းကြောင်းနာမည်များစာရင်းကို တွေ့ရပါလိမ့်မည်။ ၎င်းသည် top-level index ဖိုင်ကို ဖိုင်လမ်းကြောင်းတစ်ခုချင်းစီထဲရှိ index ဖိုင်များသို့ ညွှန်ပေးပါသည်။ ဖိုင်လမ်းကြောင်းနာမည်များ၏ order (အစီအစဉ်) အတိုင်း document ထဲတွင် တွေ့ရပါလိမ့်မည်။</p>
 </div></blockquote>
 <ol class="arabic">
-<li><p>Add the name of your new module (i.e., the name you gave the new directory),
-followed by <code class="docutils literal notranslate"><span class="pre">/index</span></code>, to this list, wherever you want your module to appear.</p></li>
-<li><p>Remember to keep the order of the modules logical, such that later modules build
-on the knowledge presented in earlier modules.</p></li>
-<li><p>Open your new module’s own index file (<code class="file docutils literal notranslate"><em><span class="pre">module_name</span></em><span class="pre">/index.rst</span></code>).</p></li>
-<li><p>Along the top of the page, create the module heading:</p>
+<li><p>မော်ဂျူးအသစ်၏နာမည် (ဖိုင်လမ်းကြောင်းအသစ်တွင် သင်ပေးထားသော နာမည်) ကို ဤစာရင်းထဲတွင် ထည့်သွင်းပြီး နာမည်နောက်တွင် <code class="docutils literal notranslate"><span class="pre">/index</span></code> ကိုထည့်ပေးပါ၊</p></li>
+<li><p>မော်ဂျူးများ၏ order ကို ယုတ္တိရှိအောင် ထားရှိပါ၊ အစောပိုင်း မော်ဂျူးများပေါ်မူတည်ပြီး နောက်ပိုင်း မော်ဂျူးများကို ဖွဲ့စည်းသောကြောင့်ဖြစ်သည်။</p></li>
+<li><p>သင့်မော်ဂျူးအသစ်၏ ကိုယ်ပိုင် index ဖိုင် (<code class="file docutils literal notranslate"><em><span class="pre">module_name</span></em><span class="pre">/index.rst</span></code>) ကိုဖွင့်ပါ။</p></li>
+<li><p>စာမျက်နှာ၏ ထိပ်ပိုင်းတွင် မော်ဂျူး ခေါင်းစီးကို ဖန်တီးပါ-</p>
 <ol class="arabic simple">
-<li><p>write a first line of asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>).</p></li>
-<li><p>Follow this with a line containing the markup phrase <code class="docutils literal notranslate"><span class="pre">Module:</span></code>,
-followed by the name of your module.</p></li>
-<li><p>End this off with another line of same number of asterisks.</p></li>
+<li><p>ပထမစာကြောင်းတွင် Asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>) များရေးသားပါ။</p></li>
+<li><p>ထိုစာကြောင်းအောက်တွင် <code class="docutils literal notranslate"><span class="pre">Module:</span></code> markup phrase နောက်၌ သင့်မော်ဂျူး၏နာမည်ရေးသားထားသော စာကြောင်းတစ်ကြောင်းကို ရေးသားပါ။</p></li>
+<li><p>ပထမရေးသားထားသော asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>) အရေအတွက်အတိုင်း နောက်ထပ်စာကြောင်းတစ်ကြောင်းကို အောက်တွင်ရေးသားပါ။</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The underline and the overline should not be shorter than the
-line containing the module title.</p>
+<p>အပေါ်ဘက်စာကြောင်း နှင့် အောက်ဘက်စာကြောင်းများသည် မော်ဂျူးခေါင်းစဉ်စာကြောင်း ထက် စာလုံးအရေအတွက် နည်းမနေသင့်ပါ။</p>
 </div>
 </li>
-<li><p>Leave a line open beneath this.</p></li>
-<li><p>Write a short paragraph explaining the purpose and content of the module.</p></li>
-<li><p>Leave one line open, then add the following text:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
-   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
-
-   <span class="n">lesson1</span>
-   <span class="n">lesson2</span>
-</pre></div>
+<li><p>ထိုခေါင်းစီး အောက်တွင် စာကြောင်းအလွတ်တစ်ခု ထားရှိပါ။</p></li>
+<li><p>မော်ဂျူး၏ ရည်ရွယ်ချက်နှင့် အကြောင်းအရာအကြောင်း ရှင်းပြထားသော စာပိုဒ်အတို တစ်ခုရေးသားပါ။</p></li>
+<li><p>စာကြောင်းအလွတ်တစ်ခုထားရှိပြီး အောက်ပါစာသားကို ထည့်သွင်းပါ-</p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
 </div>
-<p>… where <code class="docutils literal notranslate"><span class="pre">lesson1</span></code>, <code class="docutils literal notranslate"><span class="pre">lesson2</span></code>, etc., are the names of your planned lessons.</p>
+</div></blockquote>
+<p>… <code class="docutils literal notranslate"><span class="pre">lesson1</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">lesson2</span></code> အစရှိသည်တို့သည် သင်ထည့်သွင်းမည့် သင်ခန်းစာများ၏ နာမည်များဖြစ်ပါသည်။</p>
 </li>
 </ol>
-<p>The module-level index file will look like this:</p>
+<p>မော်ဂျူးအဆင့် index ဖိုင်သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်-</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 <span class="n">Module</span><span class="p">:</span> <span class="n">Module</span> <span class="n">Name</span>
 <span class="o">*******************************************************************************</span>
@@ -257,179 +243,145 @@ line containing the module title.</p>
 </div>
 </section>
 <section id="adding-a-lesson">
-<h2><span class="section-number">19.4. </span>Adding a Lesson<a class="headerlink" href="#adding-a-lesson" title="Link to this heading"></a></h2>
-<p>To add a lesson to a new or existing module:</p>
+<h2><span class="section-number">19.4. </span>သင်ခန်းစာတစ်ခုထည့်သွင်းခြင်း (Adding a Lesson)<a class="headerlink" href="#adding-a-lesson" title="Link to this heading"></a></h2>
+<p>မော်ဂျူးအသစ် သို့မဟုတ် ရှိပြီးသားမော်ဂျူးတစ်ခုထဲသို့ သင်ခန်းစာတစ်ခုထည့်သွင်းရန်-</p>
 <ol class="arabic simple">
-<li><p>Open the module directory.</p></li>
-<li><p>Open the <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> file (created above in the case of new modules).</p></li>
-<li><p>Ensure that the name of the planned lesson is listed underneath the
-<code class="file docutils literal notranslate"><span class="pre">toctree</span></code> directive, as shown above.</p></li>
-<li><p>Create a new file under the module directory.</p></li>
-<li><p>Name this file exactly the same as the name you provided in the module’s
-<code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> file, and add the extension <code class="file docutils literal notranslate"><span class="pre">.rst</span></code>.</p></li>
+<li><p>မော်ဂျူးဖိုင်လမ်းကြောင်းကို ဖွင့်ပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ဖိုင်ကို ဖွင့်ပါ (မော်ဂျူးအသစ်များအတွက် အထက်တွင်ဖန်တီးထားခဲ့သော index ဖိုင်)။</p></li>
+<li><p>အထက်တွင်ပြသထားသည့်အတိုင်း <code class="file docutils literal notranslate"><span class="pre">toctree</span></code> လမ်းကြောင်းအောက်တွင် သင်ခန်းစာများ၏နာမည်ကို စာရင်းပြုလုပ်ပါ။</p></li>
+<li><p>မော်ဂျူးဖိုင်လမ်းကြောင်းအောက်တွင် ဖိုင်အသစ်တစ်ခုကို ဖန်တီးပါ။</p></li>
+<li><p>မော်ဂျူး၏ <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ဖိုင်ထဲတွင် ပေးထားသော နာမည်အတိအကျအတိုင်း ထိုဖိုင်ကို နာမည်ပေးပြီး နောက်တွင် <code class="file docutils literal notranslate"><span class="pre">.rst</span></code> extension ထည့်သွင်းပါ။</p></li>
 </ol>
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For editing purposes, a <code class="file docutils literal notranslate"><span class="pre">.rst</span></code> file works exactly like a normal
-text file (<code class="file docutils literal notranslate"><span class="pre">.txt</span></code>).</p>
+<p><code class="file docutils literal notranslate"><span class="pre">.rst</span></code> ဖိုင်ကို သာမန် text ဖိုင် (<code class="file docutils literal notranslate"><span class="pre">.txt</span></code>) တစ်ခုကဲ့သို့ edit ပြုလုပ်နိုင်ပါသည်။</p>
 </div>
 </div></blockquote>
 <ol class="arabic">
-<li><p>To begin writing the lesson, write the markup phrase <code class="docutils literal notranslate"><span class="pre">Lesson</span></code>,
-followed by the lesson name.</p></li>
-<li><p>In the next line, write a line of equal signs (<code class="docutils literal notranslate"><span class="pre">=</span></code>), not shorter than the lesson title.</p></li>
-<li><p>Leave a line open after this.</p></li>
-<li><p>Write a short description of the lesson’s intended purpose.</p></li>
-<li><p>Include a general introduction to the subject matter.
-See the existing lessons in this manual for examples.</p></li>
-<li><p>Beneath this, start a new paragraph, beginning with this phrase:</p>
+<li><p>သင်ခန်းစာကို စတင်ရေးသားရန် markup phrase <code class="docutils literal notranslate"><span class="pre">Lesson</span></code> နောက်တွင် သင်ခန်းစာနာမည်ကို ရေးသားပါ။</p></li>
+<li><p>နောက်ထပ်စာကြောင်းတွင် ညီမျှခြင်းသင်္ကေတ (<code class="docutils literal notranslate"><span class="pre">=</span></code>) စာကြောင်းတစ်ခုကို သင်ခန်းစာခေါင်းစဉ် ထက်ရှည်အောင် ရေးသားပါ။</p></li>
+<li><p>၎င်းအောက်တွင် စာကြောင်းအလွတ်တစ်ခု ထားရှိပါ။</p></li>
+<li><p>သင်ခန်းစာ၏ ရည်ရွယ်ချက်အကြောင်း ဖော်ပြချက်အတို တစ်ခုရေးသားပါ။</p></li>
+<li><p>သင်ခန်းစာဘာသာရပ်အကြောင်း အထွေထွေမိတ်ဆက် တစ်ခုရေးသားပါ။ ဤလက်စွဲရှိ ရှိနေပြီးသား သင်ခန်းစာများကို ဥပမာအနေဖြင့် ကြည့်ရှုပါ။</p></li>
+<li><p>ထိုအောက်တွင် အောက်ပါစာသားဖြင့် အစပြုပြီး စာပိုဒ်အသစ်တစ်ခုရေးသားပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">The</span> <span class="n">goal</span> <span class="k">for</span> <span class="n">this</span> <span class="n">lesson</span><span class="p">:</span><span class="o">**</span>
 </pre></div>
 </div>
 </li>
-<li><p>Briefly explain the intended outcome of completing this lesson.</p></li>
-<li><p>If you can’t describe the goal of the lesson in one or two sentences,
-consider breaking the subject matter up into multiple lessons.</p></li>
+<li><p>ဤသင်ခန်းစာပြီးဆုံးပါက ရရှိမည့် မျှော်မှန်းရလာဒ်အကြောင်း အကျဉ်းချုံး ရှင်းပြပါ။</p></li>
+<li><p>သင်ခန်းစာအတွက်ရည်မှန်းချက်ကို စာကြောင်း တစ်ကြောင်း သို့မဟုတ် နှစ်ကြောင်းဖြင့် မဖော်ပြနိုင်ပါက ဘာသာရပ်ကို သင်ခန်းစာများစွာအဖြစ် ခွဲထုတ်ရန် စဉ်းစားနိုင်ပါသည်။</p></li>
 </ol>
-<p>Each lesson will be subdivided into multiple sections, which will be addressed next.</p>
+<p>သင်ခန်းစာတစ်ခုချင်းစီကို အပိုင်း (section) များစွာအဖြစ် ထပ်မံခွဲခြားပါမည်၊ ထိုအကြောင်းကို နောက်ပိုင်းတွင် ဖော်ပြပေးပါမည်။</p>
 </section>
 <section id="adding-a-section">
-<h2><span class="section-number">19.5. </span>Adding a Section<a class="headerlink" href="#adding-a-section" title="Link to this heading"></a></h2>
-<p>There are two types of sections: “follow along” and “try yourself”.</p>
+<h2><span class="section-number">19.5. </span>အပိုင်းတစ်ခု ထည့်သွင်းခြင်း (Adding a Section)<a class="headerlink" href="#adding-a-section" title="Link to this heading"></a></h2>
+<p>Section အမျိုးအစား နှစ်ခုရှိပါသည်- “follow along” နှင့် “try yourself” တို့ဖြစ်ပါသည်။</p>
 <ul class="simple">
-<li><p>A “follow along” section is a detailed set of directions intended to teach
-the reader how to use a given aspect of QGIS. This is typically done by
-giving click-by-click directions as clearly as possible, interspersed with
-screenshots.</p></li>
-<li><p>A “try yourself” section gives the reader a short assignment to try by
-themselves. It is usually associated with an entry in the answer box beneath,
-which will show or explain how to complete the assignment,
-and will show the expected outcome if possible.</p></li>
+<li><p>“follow along” section တွင် QGIS အသုံးပြုနည်းကို ဖတ်ရှုသူများအားသင်ကြားပေးရန် အသေးစိတ်ရေးသားထားပါသည်။ ရှင်းရှင်းလင်းလင်းဖြစ်နိုင်သမျှဖြစ်စေရန် screenshot များဖြင့်ပူးတွဲဖော်ပြထားပြီး click-by-click (အဆင့်ဆင့် click နှိပ်ခြင်း) နည်းဖြင့် ရေးသားထားပါသည်။</p></li>
+<li><p>“try yourself” section တွင် ဖတ်ရှုသူများ ကိုယ်တိုင်ကြိုးစားနိုင်စေရန်အတွက် အိမ်စာ (assignment) ငယ် တစ်ခုကို ရေးသားထားပါသည်။ ထို assignment အောက်တွင် အဖြေကိုပါ ပူးတွဲဖော်ပြပေးထားပြီး assignment ပြီးဆုံးအောင်မည်သို့လုပ်ဆောင်ရမည်ကို ရှင်းပြပေးထားပါသည်၊ အချို့ assignment များတွင် မျှော်မှန်းရလာဒ်ကိုပါ ဖော်ပြပေးထားပါသည်။</p></li>
 </ul>
-<p>Every section comes with a difficulty level. An easy section is denoted by
-<code class="docutils literal notranslate"><span class="pre">★☆☆</span></code>, moderate by <code class="docutils literal notranslate"><span class="pre">★★☆</span></code>, and advanced by <code class="docutils literal notranslate"><span class="pre">★★★</span></code>.</p>
-<section id="adding-a-follow-along-section">
-<h3><span class="section-number">19.5.1. </span>Adding a “follow along” section<a class="headerlink" href="#adding-a-follow-along-section" title="Link to this heading"></a></h3>
+<p>Section တိုင်းတွင် ခက်ခဲမှုအဆင့်တစ်ခုစီ ရှိပါသည်။ လွယ်ကူသော section ကို <code class="docutils literal notranslate"><span class="pre">★☆☆</span></code> ဖြင့်၊ အလယ်အလတ်ဖြစ်သော section ကို <code class="docutils literal notranslate"><span class="pre">★★☆</span></code> ဖြင့်၊ အဆင့်မြင့် section ကို <code class="docutils literal notranslate"><span class="pre">★★★</span></code> ဖြင့် ရည်ညွှန်းဖော်ပြထားပါသည်။</p>
+<section id="follow-along-section-adding-a-follow-along-section">
+<h3><span class="section-number">19.5.1. </span>“follow along” section တစ်ခုထည့်သွင်းခြင်း (Adding a “follow along” section)<a class="headerlink" href="#follow-along-section-adding-a-follow-along-section" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>To start this section, write the markup phrase of the intended difficulty
-level (as shown above).</p></li>
-<li><p>Leave a space and then write <code class="docutils literal notranslate"><span class="pre">Follow</span> <span class="pre">Along:</span></code>.</p></li>
-<li><p>Leave another space and write the name of the section (use only an initial
-capital letter, as well as capitals for proper nouns).</p></li>
-<li><p>In the next line, write a line of minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>), not shorter than the section title.</p></li>
-<li><p>Write a short introduction to the section, explaining its purpose.
-Then give detailed (click-by-click) instructions on the procedure to be demonstrated.</p></li>
-<li><p>In each section, include internal links, external links and screenshots as needed.</p></li>
-<li><p>Try to end each section with a short paragraph that concludes it
-and leads naturally to the next section, if possible.</p></li>
+<li><p>ဤ section ကိုစတင်ရန် ခက်ခဲမှုအဆင့်ကို ပြသသော markup phrase ကိုရေးသားပါ (အထက်တွင်ပြထားသည့်အတိုင်း)။</p></li>
+<li><p>Space တစ်နေရာခြားပြီး <code class="docutils literal notranslate"><span class="pre">Follow</span> <span class="pre">Along:</span></code> ဟုရေးပါ။</p></li>
+<li><p>နောက်ထပ် space တစ်နေရာထပ်ခြားပြီး section ၏နာမည်ကို ရေးပါ (အစစာလုံးတွင် စာလုံးအကြီးကိုသာအသုံးပြုပါ၊ တစ်ဦးဆိုင် နာမ်များ (proper nouns) အတွက်လည်း အစစာလုံးအကြီးကို အသုံးပြုပါ)။</p></li>
+<li><p>နောက်စာကြောင်းတွင် minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) စာကြောင်းတစ်ခုကို section ခေါင်းစဉ်ထက် ရှည်အောင် ရေးသားပါ။</p></li>
+<li><p>Section ၏ရည်ရွယ်ချက်ကိုရှင်းပြထားသော မိတ်ဆက်အတိုတစ်ခုကို ရေးသားပါ။ ထို့နောက် သရုပ်ဖော်ပြသမည့် လုပ်ငန်းစဉ်အကြောင်း အသေးစိတ် ညွှန်ကြားချက်များ (click-by-click) ကိုရေးသားပါ။</p></li>
+<li><p>Section တစ်ခုချင်းစီတွင် internal link (လက်စွဲအတွင်း ချိတ်ဆက်လင့်များ) များ၊ external link (ပြင်ပသို့ ချိတ်ဆက်လင့်များ) နှင့် screenshot များကို လိုအပ်သလို ထည့်သွင်းပါ။</p></li>
+<li><p>Section တစ်ခုချင်းစီ၏အဆုံးတွင် နောက်လာမည့်သင်ခန်းစာအတွက် အနှစ်ချုပ် စာပိုဒ်တိုတစ်ခုကို ထည့်သွင်းပေးပါ။</p></li>
 </ol>
 </section>
-<section id="adding-a-try-yourself-section">
-<h3><span class="section-number">19.5.2. </span>Adding a “try yourself” section<a class="headerlink" href="#adding-a-try-yourself-section" title="Link to this heading"></a></h3>
+<section id="try-yourself-section-adding-a-try-yourself-section">
+<h3><span class="section-number">19.5.2. </span>“try yourself” section တစ်ခုထည့်သွင်းခြင်း (Adding a “try yourself” section)<a class="headerlink" href="#try-yourself-section-adding-a-try-yourself-section" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>To start this section, write the markup phrase of the intended difficulty
-level (as shown above).</p></li>
-<li><p>Leave a space and then write <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">Yourself:</span></code>.</p></li>
-<li><p>In the next line, write a line of minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>), not shorter than the section title.</p></li>
-<li><p>Explain the exercise that you want the reader to complete.
-Refer to previous sections, lessons or modules if necessary.</p></li>
-<li><p>Include screenshots to clarify the requirements if a plain textual
-description is not clear.</p></li>
+<li><p>ဤ section ကိုစတင်ရန် ခက်ခဲမှုအဆင့်ကို ပြသသော markup phrase ကိုရေးသားပါ (အထက်တွင်ပြထားသည့်အတိုင်း)။</p></li>
+<li><p>Space တစ်နေရာခြားပြီး <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">Yourself:</span></code> ဟုရေးပါ။</p></li>
+<li><p>နောက်စာကြောင်းတွင် minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) စာကြောင်းတစ်ခုကို section ခေါင်းစဉ်ထက် ရှည်အောင် ရေးသားပါ။</p></li>
+<li><p>စာဖတ်သူမှ ပြီးဆုံးအောင်လုပ်ဆောင်ရမည့် လေ့ကျင့်ခန်းအကြောင်း ရှင်းပြပါ။ လိုအပ်ပါက ယခင် section များ၊ သင်ခန်းစာများ သို့မဟုတ် မော်ဂျူးများကို ညွှန်းပေးပါ။</p></li>
+<li><p>စာသားဖော်ပြချက်သည် မရှင်းလင်းပါက လိုအပ်ချက်များကိုရှင်းလင်းစေရန် screenshot များထည့်သွင်းပါ။</p></li>
 </ol>
-<p>In most cases, you will want to provide an answer regarding how to complete the
-assignment given in this section.
-To do so, you will need to create and feed an answer block beneath the instructions.</p>
+<p>Assignment ကို ပြီးဆုံးအောင်လုပ်ဆောင်နည်းနှင့်ပတ်သက်သော အဖြေကို ဤ section တွင် ထည့်သွင်းပေးလိုပါက ညွှန်ကြားချက်များအောက်တွင် answer block တစ်ခုဖန်တီးပြီး ထည့်ပေးရန်လိုအပ်ပါလိမ့်မည်။</p>
 <ol class="arabic">
-<li><p>First, create the custom collapsible widget that contains the answer:</p>
+<li><p>အဖြေပါဝင်သော ဖွင့်ထားပိတ်ထားနိုင်သည့် widget ကို ဦးစွာဖန်တီးပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">admonition</span><span class="p">::</span> <span class="n">Answer</span>
    <span class="p">:</span><span class="n">class</span><span class="p">:</span> <span class="n">dropdown</span>
 </pre></div>
 </div>
 </li>
-<li><p>Keeping an indentation with regard to the above block, write the instructions
-on how to complete the assignment, using links and images where needed.</p></li>
+<li><p>အထက်ဖော်ပြပါ Answer block အတိုင်း indentation (space သို့မဟုတ် tab နေရာ) တစ်ခုထားရှိပြီး assignment ပြီးဆုံးအောင်လုပ်ဆောင်နည်း ညွှန်ကြားချက်များကို ရေးသားပါ၊ လိုအပ်ပါက link များနှင့် ဓာတ်ပုံများကို အသုံးပြုပါ။</p></li>
 </ol>
 </section>
 </section>
 <section id="add-a-conclusion">
-<h2><span class="section-number">19.6. </span>Add a Conclusion<a class="headerlink" href="#add-a-conclusion" title="Link to this heading"></a></h2>
-<p>To end a lesson:</p>
+<h2><span class="section-number">19.6. </span>အနှစ်ချုပ်တစ်ခုထည့်သွင်းခြင်း (Add a Conclusion)<a class="headerlink" href="#add-a-conclusion" title="Link to this heading"></a></h2>
+<p>သင်ခန်းစာတစ်ခုကို အဆုံးသတ်ရန်-</p>
 <ol class="arabic simple">
-<li><p>Write the phrase <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">Conclusion</span></code>, followed by a new line of minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
-<li><p>Write a conclusion for the lesson, explaining which concepts have been covered in the lesson.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">Conclusion</span></code> ဟူသော စာသားကိုရေးသားပြီး အောက်တစ်ကြောင်းတွင် minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) စာကြောင်းအသစ်တစ်ကြောင်း ရေးသားပါ။</p></li>
+<li><p>သင်ခန်းစာထဲတွင်ပါဝင်သော သဘောတရားများကို ရှင်းပြပေးသော အနှစ်ချုပ်တစ်ခုရေးသားပါ။</p></li>
 </ol>
 </section>
-<section id="add-a-further-reading-section">
-<h2><span class="section-number">19.7. </span>Add a Further Reading Section<a class="headerlink" href="#add-a-further-reading-section" title="Link to this heading"></a></h2>
-<p>This section is optional.</p>
+<section id="section-add-a-further-reading-section">
+<h2><span class="section-number">19.7. </span>နောက်ထပ်ဖတ်ရှုရမည့်အရာအတွက် section တစ်ခုထည့်သွင်းခြင်း (Add a Further Reading Section)<a class="headerlink" href="#section-add-a-further-reading-section" title="Link to this heading"></a></h2>
+<p>ဤ section ကို မဖြစ်မနေထည့်သွင်းရန်မလိုပါ။</p>
 <ul class="simple">
-<li><p>Write the phrase <code class="docutils literal notranslate"><span class="pre">Further</span> <span class="pre">Reading</span></code>, followed by a new line
-of minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
-<li><p>Include links to appropriate external websites.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Further</span> <span class="pre">Reading</span></code> ဟူသော စာသားကိုရေးသားပြီး အောက်တစ်ကြောင်းတွင် minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) စာကြောင်းအသစ်တစ်ကြောင်း ရေးသားပါ။</p></li>
+<li><p>ဆီလျော်သော ပြင်ပ ဝက်ဘ်ဆိုဒ် link များကို ထည့်သွင်းပါ။</p></li>
 </ul>
 </section>
-<section id="add-a-what-s-next-section">
-<h2><span class="section-number">19.8. </span>Add a What’s Next Section<a class="headerlink" href="#add-a-what-s-next-section" title="Link to this heading"></a></h2>
+<section id="section-add-a-what-s-next-section">
+<h2><span class="section-number">19.8. </span>နောက်လာမည့်အကြောင်းအရာအတွက် section တစ်ခုထည့်သွင်းခြင်း (Add a What’s Next Section)<a class="headerlink" href="#section-add-a-what-s-next-section" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Write the phrase <code class="docutils literal notranslate"><span class="pre">What's</span> <span class="pre">Next?</span></code>, followed by a new line of minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
-<li><p>Explain how this lesson has prepared students for the next lesson or module.</p></li>
-<li><p>Remember to change the “what’s next” section of the previous lesson if necessary,
-so that it refers to your new lesson.
-This will be necessary if you have inserted a new lesson among existing lessons,
-or after an existing lesson.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">What's</span> <span class="pre">Next?</span></code> ဟူသော စာသားကိုရေးသားပြီး အောက်တစ်ကြောင်းတွင် minuses/dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) စာကြောင်းအသစ်တစ်ကြောင်း ရေးသားပါ။</p></li>
+<li><p>ယခုသင်ခန်းစာသည် နောက်လာမည့် သင်ခန်းစာ သို့မဟုတ် မော်ဂျူးအတွက် မည်ကဲ့သို့ အထောက်အပံ့ဖြစ်သည်ကို ရှင်းပြပေးပါ။</p></li>
+<li><p>လိုအပ်ပါက ယခင်သင်ခန်းစာ၏ “what’s next” section ကိုပြောင်းလဲရန်မမေ့ပါနှင့်၊ သို့မှသာ ၎င်းသည် သင်ခန်းစာအသစ်ကို ညွှန်းဆိုပေးမည်ဖြစ်သည်။ ရှိနေပြီးသားသင်ခန်းစာများအကြား သို့မဟုတ် ရှိနေပြီးသားသင်ခန်းစာတစ်ခု၏နောက်တွင် သင်ခန်းစာအသစ်တစ်ခုကို ထည့်သွင်းထားပါက ထိုသို့လုပ်ဆောင်ရန် လိုအပ်ပါလိမ့်သည်။</p></li>
 </ol>
 </section>
-<section id="using-markup">
-<h2><span class="section-number">19.9. </span>Using Markup<a class="headerlink" href="#using-markup" title="Link to this heading"></a></h2>
-<p>To adhere to the standards of this document, you will need to add standard
-markup to your text.</p>
+<section id="markup-using-markup">
+<h2><span class="section-number">19.9. </span>Markup အသုံးပြုခြင်း (Using Markup)<a class="headerlink" href="#markup-using-markup" title="Link to this heading"></a></h2>
+<p>ဤ document ၏ စံနှုန်းများအတိုင်း ဖြစ်စေရန် စာသားများတွင် စံ markup များထည့်သွင်းပေးရန် လိုအပ်ပါလိမ့်မည်။</p>
 <section id="new-concepts">
-<h3><span class="section-number">19.9.1. </span>New concepts<a class="headerlink" href="#new-concepts" title="Link to this heading"></a></h3>
-<p>If you are explaining a new concept, you will need to write the new concept’s
-name in italics by enclosing it in asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">sample</span> <span class="n">text</span> <span class="n">shows</span> <span class="n">how</span> <span class="n">to</span> <span class="n">introduce</span> <span class="n">a</span> <span class="o">*</span><span class="n">new</span> <span class="n">concept</span><span class="o">*.</span>
+<h3><span class="section-number">19.9.1. </span>သဘောတရားအသစ်များ (New concepts)<a class="headerlink" href="#new-concepts" title="Link to this heading"></a></h3>
+<p>သဘောတရားအသစ်တစ်ခုအကြောင်း ရှင်းပြနေပါက ထိုသဘောတရားအသစ်၏နာမည်ကို asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>) အဖွင့်အပိတ်ကြားထဲတွင် ထည့်ထားခြင်းဖြင့် italics (စာလုံးအစောင်း) ဖြင့်ရေးသားရန် လိုအပ်ပါသည်။</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ဤနမူနာစာသားသည် *သဘောတရားအသစ်* တစ်ခုကို မိတ်ဆက်မည့်နည်းကို ပြသပေးပါသည်။
 </pre></div>
 </div>
 </section>
 <section id="emphasis">
-<h3><span class="section-number">19.9.2. </span>Emphasis<a class="headerlink" href="#emphasis" title="Link to this heading"></a></h3>
+<h3><span class="section-number">19.9.2. </span>လေးနက်ထင်ရှားစေခြင်း (Emphasis)<a class="headerlink" href="#emphasis" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>To emphasize a crucial term which is not a new concept, write the term in
-bold by enclosing it in double asterisks (<code class="docutils literal notranslate"><span class="pre">**</span></code>).</p></li>
-<li><p>Use this sparingly! If used too much, it can seem to the reader that you are
-shouting or being condescending.</p></li>
+<li><p>သဘောတရားအသစ်တစ်ခုမဟုတ်သော အရေးပါသည့် ဝေါဟာရအသုံးအနှုန်းတစ်ခုကို အသားပေးဖော်ပြရန် ထိုဝေါဟာရကို asterisks (<code class="docutils literal notranslate"><span class="pre">**</span></code>) နှစ်ခုအဖွင့်အပိတ်ကြားထဲတွင် ထည့်ထားခြင်းဖြင့် စာလုံးအထင်း (bold) ဖြင့်ရေးသားပါ။</p></li>
+<li><p>၎င်းကို များများစားစားအသုံးမပြုပါနှင့်။ များစွာအသုံးပြုပါက စာဖတ်သူအား အော်နေသည့်ပုံစံ သို့မဟုတ် နှိမ့်ချပြောဆိုသည့် ပုံစံ ဖြစ်နေနိုင်ပါသည်။</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">sample</span> <span class="n">text</span> <span class="n">shows</span> <span class="n">how</span> <span class="n">to</span> <span class="n">use</span> <span class="o">**</span><span class="n">emphasis</span><span class="o">**</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">sentence</span><span class="o">.</span> <span class="n">Include</span> <span class="n">the</span>
-<span class="n">punctuation</span> <span class="n">mark</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">followed</span> <span class="n">by</span> <span class="n">a</span> <span class="o">**</span><span class="n">comma</span><span class="p">,</span><span class="o">**</span> <span class="ow">or</span> <span class="n">at</span> <span class="n">the</span> <span class="o">**</span><span class="n">end</span> <span class="n">of</span> <span class="n">the</span>
-<span class="n">sentence</span><span class="o">.**</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ဤနမူနာစာသားသည် စာကြောင်းတစ်ခုထဲတွင် **emphasis** အသုံးပြုနည်းကို ပြသပေးပါသည်။ ၎င်း၏နောက်တွင် **comma,** တစ်ခုရှိပါက သို့မဟုတ် **စာကြောင်း၏အဆုံးတွင်ဖြစ်ပါက** punctuation mark (ပုဒ်ဖြတ်ပုဒ်ရပ် သင်္ကေတ) ထည့်သွင်းပါ။
 </pre></div>
 </div>
 </section>
 <section id="images">
-<h3><span class="section-number">19.9.3. </span>Images<a class="headerlink" href="#images" title="Link to this heading"></a></h3>
+<h3><span class="section-number">19.9.3. </span>ဓာတ်ပုံများ (Images)<a class="headerlink" href="#images" title="Link to this heading"></a></h3>
 <ul>
-<li><p>When adding an image, save it to an <code class="file docutils literal notranslate"><span class="pre">img</span></code> folder next to the lesson file.</p></li>
-<li><p>Include it in the document like this:</p>
+<li><p>Image တစ်ခုထည့်သွင်းသောအခါ ၎င်း image ဖိုင်ကို သင်ခန်းစာဖိုင်ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">img</span></code> folder ထဲတွင်သိမ်းဆည်းပါ။</p></li>
+<li><p>Document ထဲတွင် image ကို အောက်ပါပုံစံအတိုင်း ထည့်သွင်းပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">figure</span><span class="p">::</span> <span class="n">img</span><span class="o">/</span><span class="n">image_file</span><span class="o">.</span><span class="n">extension</span>
    <span class="p">:</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span>
 </pre></div>
 </div>
 </li>
-<li><p>Remember to leave a line open above and below the image markup.</p></li>
+<li><p>Image markup ၏အပေါ်နှင့် အောက်တွင် စာကြောင်းအလွတ်တစ်ကြောင်းစီ ချန်ထားပါ။</p></li>
 </ul>
 </section>
 <section id="internal-links">
-<h3><span class="section-number">19.9.4. </span>Internal links<a class="headerlink" href="#internal-links" title="Link to this heading"></a></h3>
+<h3><span class="section-number">19.9.4. </span>အတွင်းပိုင်း ချိတ်ဆက်လင့်ခ်များ (Internal links)<a class="headerlink" href="#internal-links" title="Link to this heading"></a></h3>
 <ul>
-<li><p>To create an anchor for a link, write the following line above the place
-where you want the link to point to:</p>
+<li><p>Link တစ်ခုအတွက် anchor (အချိတ်အတွယ်) တစ်ခုကိုဖန်တီးရန် link မှညွှန်ပြပေးလိုသည့်နေရာ၏ အပေါ်ဘက်တွင် အောက်ပါစာကြောင်းကို ရေးသားပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_link</span><span class="o">-</span><span class="n">name</span><span class="p">:</span>
 </pre></div>
 </div>
 </li>
-<li><p>Remember to leave a line open above and below this line.</p></li>
-<li><p>To create a link, refer to it as below:</p>
+<li><p>ဤစာကြောင်း၏ အပေါ်နှင့်အောက်တွင် စာကြောင်းအလွတ်တစ်ကြောင်းစီ ချိန်ထားပါ။</p></li>
+<li><p>Link တစ်ခုကိုဖန်တီးရန် အောက်ပါအတိုင်း link ကို ညွှန်းပေးပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:ref:`Descriptive link text &lt;link-name&gt;`
 </pre></div>
 </div>
@@ -437,9 +389,9 @@ where you want the link to point to:</p>
 </ul>
 </section>
 <section id="external-links">
-<h3><span class="section-number">19.9.5. </span>External links<a class="headerlink" href="#external-links" title="Link to this heading"></a></h3>
+<h3><span class="section-number">19.9.5. </span>ပြင်ပ ချိတ်ဆက်လင့်ခ်များ (External links)<a class="headerlink" href="#external-links" title="Link to this heading"></a></h3>
 <ul>
-<li><p>To create an external link, write it out like this:</p>
+<li><p>ပြင်ပ link တစ်ခုကို ဖန်တီးရန် အောက်ပါအတိုင်း ရေးသားပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`Descriptive link text &lt;link-url&gt;`_
 </pre></div>
 </div>
@@ -449,79 +401,61 @@ where you want the link to point to:</p>
 <section id="using-monospaced-text">
 <h3><span class="section-number">19.9.6. </span>Using monospaced text<a class="headerlink" href="#using-monospaced-text" title="Link to this heading"></a></h3>
 <ul>
-<li><p>When you are writing text that the user needs to enter, a path name, or the
-name of a database element such as a table or column name, you must write it
-in <code class="docutils literal notranslate"><span class="pre">monospaced</span> <span class="pre">text</span></code>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter the following path in the text box: ``path/to/file``.
+<li><p>အသုံးပြုသူမှ ထည့်သွင်းပေးရန်လိုအပ်သော စာသား၊ ဖိုင်လမ်းကြောင်းနာမည်၊ သို့မဟုတ် table ၊ column နာမည်ကဲ့သို့သော database element တစ်ခု၏နာမည်ကို ရေးသားပါက <code class="docutils literal notranslate"><span class="pre">monospaced</span> <span class="pre">text</span></code> (စာလုံးတစ်လုံးချင်းစီ၏ အကျယ်ကို အတူတူဖြစ်စေသော) ပုံစံဖြင့် ရေးသားပေးရပါမည်။ ဥပမာ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Text box ထဲတွင် ဖော်ပြပါဖိုင်လမ်းကြောင်းကို ထည့်သွင်းပါ- ``path/to/file``
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
-<section id="labeling-gui-items">
-<h3><span class="section-number">19.9.7. </span>Labeling GUI items<a class="headerlink" href="#labeling-gui-items" title="Link to this heading"></a></h3>
+<section id="gui-item-labeling-gui-items">
+<h3><span class="section-number">19.9.7. </span>GUI item များကို အညွှန်းတပ်ခြင်း (Labeling GUI items)<a class="headerlink" href="#gui-item-labeling-gui-items" title="Link to this heading"></a></h3>
 <ul>
-<li><p>If you are referring to a GUI item, such as a button, you must write its name
-in <span class="guilabel">the GUI label format</span>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To access this tool, click on the :guilabel:`Tool Name` button.
+<li><p>GUI item တစ်ခု၊ ဥပမာ- ခလုတ်တစ်ခုကို ညွှန်းပေးပါက <span class="guilabel">GUI label format</span> ပုံစံဖြင့် ၎င်း၏နာမည်ကို ရေးသားပေးရပါမည်။ ဥပမာ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ဤ tool ကိုအသုံးပြုရန် :guilabel:`Tool Name` ခလုတ်ကို နှိပ်ပါ။
 </pre></div>
 </div>
 </li>
-<li><p>This also applies if you are mentioning the name of a tool without requiring
-the user to click a button.</p></li>
+<li><p>အသုံးပြုသူမှ ခလုတ်နှိပ်ရန် မလိုအပ်သော tool တစ်ခု၏နာမည်ကို ဖော်ပြပါကလည်း ၎င်းပုံစံကို အသုံးပြုနိုင်ပါသည်။</p></li>
 </ul>
 </section>
-<section id="menu-selections">
-<h3><span class="section-number">19.9.8. </span>Menu selections<a class="headerlink" href="#menu-selections" title="Link to this heading"></a></h3>
+<section id="menu-menu-selections">
+<h3><span class="section-number">19.9.8. </span>Menu ရွေးချယ်ခြင်းများ (Menu selections)<a class="headerlink" href="#menu-menu-selections" title="Link to this heading"></a></h3>
 <ul>
-<li><p>If you are guiding a user through menus, you must use the
-<span class="menuselection">menu ► selection ► format</span>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To use the :guilabel:`Tool Name` tool, go to :menuselection:`Plugins --&gt;
-Tool Type --&gt; Tool Name`.
+<li><p>Menu များကို ညွှန်ပြပေးပါက <span class="menuselection">menu ► selection ► format</span> ပုံစံ ကိုအသုံးပြုရပါမည်။ ဥပမာ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:guilabel:`Tool Name` tool ကိုအသုံးပြုရန် :menuselection:`Plugins --&gt;
+Tool Type --&gt; Tool Name` ကိုသွားပါ။
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="adding-notes">
-<h3><span class="section-number">19.9.9. </span>Adding notes<a class="headerlink" href="#adding-notes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">19.9.9. </span>မှတ်ချက်များ ထည့်သွင်းခြင်း (Adding notes)<a class="headerlink" href="#adding-notes" title="Link to this heading"></a></h3>
 <ul>
-<li><p>You might need to add a note in the text, which explains extra details that can’t
-easily be made part of the flow of the lesson. This is the markup:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Normal</span> <span class="n">paragraph</span><span class="o">.</span><span class="p">]</span>
+<li><p>သင်ခန်းစာ၏ လုပ်ငန်းစဉ်အစိတ်အပိုင်းအဖြစ် အလွယ်တကူမဖော်ပြပေးနိုင်သော ထပ်ဆောင်းအသေးစိတ်များကို ရှင်းပြပေးသည့် မှတ်ချက်တစ်ခုကို စာသားထဲတွင်ထည့်သွင်းရန်လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်။ Markup သည်အောက်ပါအတိုင်းဖြစ်ပါသည်:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[သာမန်စာပိုဒ်]
 
-<span class="o">..</span> <span class="n">note</span><span class="p">::</span> <span class="n">Note</span> <span class="n">text</span><span class="o">.</span>
-  <span class="n">New</span> <span class="n">line</span> <span class="n">within</span> <span class="n">note</span><span class="o">.</span>
+.. note:: မှတ်ချက်စာသား။
+  မှတ်ချက်အတွင်း စာကြောင်းအသစ်။
 
-  <span class="n">New</span> <span class="n">paragraph</span> <span class="n">within</span> <span class="n">note</span><span class="o">.</span>
+  မှတ်ချက်အတွင်း စာပိုဒ်အသစ်။
 
-<span class="p">[</span><span class="n">Unindented</span> <span class="n">text</span> <span class="n">resumes</span> <span class="n">normal</span> <span class="n">paragraph</span><span class="o">.</span><span class="p">]</span>
+[သာမန်စာပိုဒ်အကြောင်း ဆက်ရေးသော စာသား]
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="adding-a-sponsorship-authorship-note">
-<h3><span class="section-number">19.9.10. </span>Adding a sponsorship/authorship note<a class="headerlink" href="#adding-a-sponsorship-authorship-note" title="Link to this heading"></a></h3>
-<p>If you are writing a new module, lesson or section on behalf of a sponsor, you
-must include a short sponsor message of their choice. This must notify the
-reader of the name of the sponsor and must appear below the heading of the
-module, lesson or section that they sponsored. However, it may not be an
-advertisement for their company.</p>
-<p>If you have volunteered to write a module, lesson or section in your own
-capacity, and not on behalf of a sponsor, you may include an authorship note
-below the heading of the module, lesson or section that you authored. This must
-take the form <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">[module/lesson/section]</span> <span class="pre">contributed</span> <span class="pre">by</span> <span class="pre">[author</span> <span class="pre">name].</span></code>
-Do not add further text, contact details, etc. Such details are to be added in
-the “Contributors” section of the Foreword, along with the name(s) of the
-part(s) you added. If you only made enhancements, corrections and/or additions,
-list yourself as an editor.</p>
+<h3><span class="section-number">19.9.10. </span>ငွေကြေးအထောက်အပံ့/ရေးသားပြုစုမှုဆိုင်ရာ မှတ်စုတစ်ခုထည့်သွင်းခြင်း (Adding a sponsorship/authorship note)<a class="headerlink" href="#adding-a-sponsorship-authorship-note" title="Link to this heading"></a></h3>
+<p>ငွေကြေးအထောက်အပံ့ပေးသူတစ်ဦး၏ကိုယ်စား သင်သည် မော်ဂျူးအသစ်၊ သင်ခန်းစာအသစ် သို့မဟုတ် section အသစ်တစ်ခုကို ရေးသားပါက အဆိုပါ ထောက်ပံ့သူများစိတ်ကြိုက်ဖြစ်သော sponsor စာတိုတစ်ခုကို ရေးသားပေးရပါမည်။ ငွေကြေးထောက်ပံ့ပေးသူ၏နာမည်ကို စာဖတ်သူသည် ထိုစာတိုမှတဆင့် သိမြင်နိုင်ရမည်ဖြစ်ပြီး ၎င်းတို့ ငွေကြေးအထောက်အပံ့ပေးထားသော မော်ဂျူး၊ သင်ခန်းစာ သို့မဟုတ် section ၏ ခေါင်းစီးအောက်တွင် နာမည်ပေါ်နေရမည်ဖြစ်သည်။ သို့သော် ၎င်းသည် ငွေကြေးထောက်ပံ့သူ၏ကုမ္ပဏီ ကြော်ငြာ တစ်ခုတော့ မဟုတ်ပါ။</p>
+<p>ငွေကြေးအထောက်အပံ့တစ်ခုခုမရှိပဲ မော်ဂျူးတစ်ခု၊ သင်ခန်းစာတစ်ခု သို့မဟုတ် section တစ်ခုကို သင်ကိုယ်တိုင် စေတနာဖြင့်ရေးသားပါက သင်ရေးသားသော မော်ဂျူး၊ သင်ခန်းစာ သို့မဟုတ် section ၏ခေါင်းစီးအောက်တွင် authorship (ရေးသားပြုစုမှု) ဆိုင်ရာ မှတ်စုတစ်ခုကို ထည့်သွင်းပေးနိုင်ပါသည်။ ၎င်းကို <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">[module/lesson/section]</span> <span class="pre">contributed</span> <span class="pre">by</span> <span class="pre">[author</span> <span class="pre">name].</span></code> ပုံစံဖြင့် ရေးသားရပါမည်။ အခြားသော စာသား၊ ဆက်သွယ်မှုဆိုင်ရာအသေးစိတ်၊ အစရှိသည်တို့ကို မထည့်သွင်းပါနှင့်။ ထိုသို့သော အသေးစိတ်အချက်အလက်များကို သင်ရေးသားထားသော အပိုင်း(များ) ၏ နာမည်နှင့်အတူ Foreword (စကားချီး) ၏ “Contributors” section တွင် ထည့်သွင်းပေးမည်ဖြစ်ပါသည်။ သင်သည် မွမ်းမံပြင်ဆင်မှုများ၊ အမှားပြင်ဆင်မှုများ နှင့် ထပ်မံပေါင်းထည့်မှုများကိုသာ လုပ်ဆောင်ပါက သင့်နာမည်ကို editor အနေဖြင့် ထည့်သွင်းပါ။</p>
 </section>
 </section>
 <section id="thank-you">
-<h2><span class="section-number">19.10. </span>Thank You!<a class="headerlink" href="#thank-you" title="Link to this heading"></a></h2>
-<p>Thank you for contributing to this project! By so doing, you are making QGIS
-more accessible to users and adding value to the QGIS project as a whole.</p>
+<h2><span class="section-number">19.10. </span>ကျေးဇူးတင်ရှိပါသည် (Thank You!)<a class="headerlink" href="#thank-you" title="Link to this heading"></a></h2>
+<p>ဤ project တွင် ပါဝင်ကူညီသည့်အတွက် ကျေးဇူးတင်ရှိပါသည်။ ထိုသို့ပါဝင်ခြင်းဖြင့် အသုံးပြုသူများမှ QGIS ကို ပိုမိုအသုံးချနိုင်မည်ဖြစ်ပြီး QGIS project တစ်ခုလုံး၏တန်ဖိုးကို မြင့်တက်စေပါသည်။</p>
 </section>
 </section>
 
@@ -529,15 +463,15 @@ more accessible to users and adding value to the QGIS project as a whole.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../databases/spatialite.html" class="btn btn-neutral float-left" title="18.3. Lesson: Working with SpatiaLite databases in QGIS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="preparing_data.html" class="btn btn-neutral float-right" title="20. Preparing Exercise Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../databases/spatialite.html" class="btn btn-neutral float-left" title="18.3. သင်ခန်းစာ - QGIS ထဲတွင် SpatiaLite database များဖြင့် အလုပ်လုပ်ခြင်း (Lesson: Working with SpatiaLite databases in QGIS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preparing_data.html" class="btn btn-neutral float-right" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 

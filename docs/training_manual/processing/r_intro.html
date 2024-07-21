@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>17.33. Use R scripts in Processing &mdash; QGIS Documentation  documentation</title>
+  <title>17.33. Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,9 +33,9 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="17.34. Predicting landslides" href="geomorpho.html" />
-    <link rel="prev" title="17.32. Planning a solar farm" href="solar.html" />
-  <meta name="description" content="QGIS testing documentation: 17.33. Use R scripts in Processing">
+    <link rel="next" title="17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)" href="geomorpho.html" />
+    <link rel="prev" title="17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)" href="solar.html" />
+  <meta name="description" content="QGIS testing documentation: 17.33. Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -104,52 +104,52 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. The QGIS processing guide</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. An important warning before starting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Setting-up the processing framework</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. Running our first algorithm. The  toolbox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. More algorithms and data types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="crs.html">17.6. CRSs. Reprojecting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. Selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. Running an external algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log.html">17.9. The processing log</a></li>
-<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. The raster calculator. No-data values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector calculator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. Defining extents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. First analysis example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Clipping and merging raster layers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. Hydrological analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Starting with the model designer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. More complex models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Numeric calculations in the modeler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. A model within a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Using modeler-only tools for creating a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. Interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. More interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. More iterative execution of algorithms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. The batch processing interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Models in the batch processing interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="intro.html">17.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="warning.html">17.2. မစတင်မီ အရေးကြီးသော သတိပေးချက် (An important warning before starting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="set_up.html">17.3. Processing framework ပြင်ဆင်သတ်မှတ်ခြင်း (Setting-up the processing framework)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_alg.html">17.4. ပထမဦးဆုံး algorithm ကို Run ခြင်း (Running our first algorithm. The  toolbox)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="second_alg.html">17.5. အခြား algorithm များနှင့် ဒေတာအမျိုးအစားများ (More algorithms and data types)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crs.html">17.6. CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selection.html">17.7. ရွေးချယ်ခြင်း (Selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_saga_alg.html">17.8. ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">17.9. လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="no_data.html">17.10. Raster ဂဏန်းတွက်ချက်- No-data တန်ဖိုးများ (The raster calculator. No-data values)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vector_calculator.html">17.11. Vector ဂဏန်းတွက်စက် (Vector calculator)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extents.html">17.12. နယ်ပယ်အတိုင်းအတာများသတ်မှတ်ခြင်း (Defining extents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="html.html">17.13. HTML ရလာဒ်များ (HTML outputs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="john_snow.html">17.14. ပထမဆုံး ဆန်းစစ်လေ့လာခြင်းဥပမာ (First analysis example)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cutting_merging.html">17.15. Raster layer များဖြတ်တိခြင်းနှင့် ပေါင်းစည်းခြင်း (Clipping and merging raster layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hydro.html">17.16. ဇလဗေဒဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Hydrological analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_twi.html">17.17. Model designer စတင်အသုံးပြုခြင်း (Starting with the model designer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro.html">17.18. ပိုမိုရှုပ်ထွေးသော model များ (More complex models)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_calculator.html">17.19. Modeler ထဲတွင် ကိန်းဂဏန်းတွက်ချက်မှု ပြုလုပ်ခြင်း (Numeric calculations in the modeler)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_hydro_twi.html">17.20. Model တစ်ခုအတွင်းရှိ Model တစ်ခု (A model within a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeler_only.html">17.21. Model တစ်ခုဖန်တီးရန်အတွက် modeler ထဲတွင်သာရှိသော tool များအသုံးပြုခြင်း (Using modeler-only tools for creating a model)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">17.22. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation_cross.html">17.23. နောက်ထပ် သွယ်ဝိုက်တွက်ချက်ခြင်းနည်းများ (More interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative.html">17.24. Algorithm များ ထပ်ခါတလဲလဲ လုပ်ဆောင်ခြင်း (Iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterative_model.html">17.25. နောက်ထပ် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း (More iterative execution of algorithms)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_conversion.html">17.26. အစုအဖွဲ့လိုက် processing လုပ်ဆောင်ပေးသည့်အရာ၏ interface (The batch processing interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch_modeler.html">17.27. Batch processing interface ထဲရှိ Model များ (Models in the batch processing interface)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hooks.html">17.28. Pre- and post-execution script hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. Other programs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation and contouring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector simplification and smoothing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. Planning a solar farm</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">17.33. Use R scripts in Processing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#adding-scripts">17.33.1. Adding scripts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-plots">17.33.2. Creating plots</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-a-vector">17.33.3. Create a vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text-and-graph-output-from-r-syntax">17.33.4. Text and graph output from R - syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more_backends.html">17.29. အခြားပရိုဂရမ်များ (Other programs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interp_contour.html">17.30. Interpolation နှင့် ကွန်တိုရေးဆွဲခြင်း (Interpolation and contouring)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalize.html">17.31. Vector ကိုရိုးရှင်းအောင်လုပ်ခြင်းနှင့် ချောမွေ့အောင်လုပ်ခြင်း (Vector simplification and smoothing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solar.html">17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">17.33. Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#script-adding-scripts">17.33.1. Script များထည့်သွင်းခြင်း (Adding scripts)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-creating-plots">17.33.2. Plot များဖန်တီးခြင်း (Creating plots)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-create-a-vector">17.33.3. Vector တစ်ခုဖန်တီးခြင်း (Create a vector)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r-syntax-output-text-and-graph-output-from-r-syntax">17.33.4. R - syntax မှ စာသားနှင့်ဂရပ် output (Text and graph output from R - syntax)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. Predicting landslides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geomorpho.html">17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. Appendix: Contributing To This Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. Preparing Exercise Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/preparing_data.html">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a></li>
 </ul>
 </li>
 </ul>
@@ -169,14 +169,14 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>The QGIS processing guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">17.33. </span>Use R scripts in Processing</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17.33. </span>Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/processing/r_intro.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="solar.html" class="btn btn-neutral float-left" title="17.32. Planning a solar farm" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="geomorpho.html" class="btn btn-neutral float-right" title="17.34. Predicting landslides" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="solar.html" class="btn btn-neutral float-left" title="17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="geomorpho.html" class="btn btn-neutral float-right" title="17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -185,112 +185,86 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="use-r-scripts-in-processing">
-<span id="r-intro"></span><h1><span class="section-number">17.33. </span>Use R scripts in Processing<a class="headerlink" href="#use-r-scripts-in-processing" title="Link to this heading"></a></h1>
-<p>Module contributed by Matteo Ghetta - funded by
-<a class="reference external" href="https://www.santannapisa.it/it">Scuola Superiore Sant’Anna</a></p>
-<p>Processing (with the <code class="docutils literal notranslate"><span class="pre">Processing</span> <span class="pre">R</span> <span class="pre">Provider</span></code> plugin) makes it possible to write
-and run R scripts inside QGIS.</p>
+<section id="processing-r-script-use-r-scripts-in-processing">
+<span id="r-intro"></span><h1><span class="section-number">17.33. </span>Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)<a class="headerlink" href="#processing-r-script-use-r-scripts-in-processing" title="Link to this heading"></a></h1>
+<p>မော်ဂျူးကို Matteo Ghetta မှ ပါဝင်ကူညီထားပြီး <a class="reference external" href="https://www.santannapisa.it/it">Scuola Superiore Sant’Anna</a> မှ ငွေကြေးထောက်ပံ့ထားပါသည်။</p>
+<p>Processing (<code class="docutils literal notranslate"><span class="pre">Processing</span> <span class="pre">R</span> <span class="pre">Provider</span></code> plugin ဖြင့်) သည် QGIS အတွင်း R script များရေးသားပြီး run နိုင်ရန် လုပ်ဆောင်ပါသည်။</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>R has to be installed on your computer and the PATH has to be correctly
-set up. Moreover Processing just calls the external R packages, it is not able
-to install them. So be sure to install external packages directly in R.
-See the related <a class="reference internal" href="../../user_manual/processing/3rdParty.html#creating-r-scripts"><span class="std std-ref">chapter</span></a> in the user manual.</p>
+<p>သင့်ကွန်ပျူတာတွင် R ကို install ပြုလုပ်ထားရမည်ဖြစ်ပြီး PATH ကို မှန်ကန်စွာသတ်မှတ်ပေးထားရပါမည်။ ထို့အပြင် Processing သည် ပြင်ပ R package များသာ ခေါ်ယူသောကြောင့် ၎င်း package များကို install မပြုလုပ်နိုင်ပါ။ ထို့ကြောင့် ပြင်ပ package များကို R ထဲတွင် တိုက်ရိုက် install ပြုလုပ်ထားပေးပါ။ အသုံးပြုသူလမ်းညွှန်ထဲရှိ သက်ဆိုင်ရာ <a class="reference internal" href="../../user_manual/processing/3rdParty.html#creating-r-scripts"><span class="std std-ref">အခန်း</span></a> တွင်ကြည့်ရှုပါ။</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you have <em>package</em> problems, it may be related to missing
-<em>mandatory</em> packages required by Processing, like <code class="docutils literal notranslate"><span class="pre">sp</span></code>, <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> and <code class="docutils literal notranslate"><span class="pre">raster</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sp</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">raster</span></code> ကဲ့သို့သော Processing မှ <em>မဖြစ်မနေလိုအပ်သော</em> package များမရှိပါက <em>package</em> ပြဿနာများရှိနိုင်ပါသည်။</p>
 </div>
-<section id="adding-scripts">
-<h2><span class="section-number">17.33.1. </span>Adding scripts<a class="headerlink" href="#adding-scripts" title="Link to this heading"></a></h2>
-<p>Adding a script is simple.
-The easiest way is to open the Processing toolbox and choose
-<span class="menuselection">Create new R script…</span> from the R menu (labelled with an
-R icon) at the top of the Processing Toolbox.
-You can also create the script in for instance a text editor and save it in
-your R scripts folder (<code class="file docutils literal notranslate"><span class="pre">processing/rscripts</span></code>).
-When it has been saved there, it will be available for editing by
-right-clicking on the script name in the processing toolbox and then choose
-<span class="menuselection">Edit Script…</span>).</p>
+<section id="script-adding-scripts">
+<h2><span class="section-number">17.33.1. </span>Script များထည့်သွင်းခြင်း (Adding scripts)<a class="headerlink" href="#script-adding-scripts" title="Link to this heading"></a></h2>
+<p>Script တစ်ခုထည့်သွင်းခြင်းသည် ရိုးရှင်းပါသည်။ အလွယ်ကူဆုံးနည်းလမ်းမှာ Processing toolbox ကိုဖွင့်ပြီး toolbox ၏ထိပ်ရှိ R menu (R icon တွင် label တပ်ထားသော) မှ <span class="menuselection">Create new R script…</span> ကိုရွေးချယ်ပေးခြင်းဖြစ်သည်။ Text editor တစ်ခုထဲတွင်လည်း script ကိုဖန်တီးနိုင်ပြီး ၎င်းကို R script folder (<code class="file docutils literal notranslate"><span class="pre">processing/rscripts</span></code>) ထဲတွင် သိမ်းဆည်းနိုင်ပါသည်။ ထို folder ထဲတွင် သိမ်းဆည်းထားပြီးသောအခါ processing toolbox ထဲရှိ script နာမည်ပေါ်တွင် right click နှိပ်ပြီး <span class="menuselection">Edit Script…</span> ကိုရွေးကာ script ကို edit ပြုလုပ်နိုင်ပါသည်။</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_1.png" src="../../../_images/r_intro_1.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you cannot see R in Processing, you have to activate it in
-<span class="menuselection">Processing ► Options ► Providers</span></p>
+<p>Processing ထဲတွင် R ကိုမတွေ့ရပါက <span class="menuselection">Processing ► Options ► Providers</span> ထဲတွင် R ကို activate လုပ်ပေးရပါမည်။</p>
 </div>
-<p>It opens a <em>script editor window</em> in which you have to specify some parameters
-before you can add the script body.</p>
+<p><span class="menuselection">Create new R script…</span> ကိုနှိပ်ပါက <em>script editor window</em> တစ်ခုပွင့်လာမည်ဖြစ်ပြီး script စာကိုယ် မထည့်သွင်းမီ parameter အချို့ကို ထိုထဲတွင် သတ်မှတ်ပေးရပါမည်။</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/r_intro_2.png"><img alt="../../../_images/r_intro_2.png" src="../../../_images/r_intro_2.png" style="width: 385.0px; height: 159.6px;" /></a>
 </figure>
 </section>
-<section id="creating-plots">
-<h2><span class="section-number">17.33.2. </span>Creating plots<a class="headerlink" href="#creating-plots" title="Link to this heading"></a></h2>
-<p>In this tutorial we are going to create a <strong>boxplot</strong> of a vector layer field.</p>
-<p>Open the <code class="file docutils literal notranslate"><span class="pre">r_intro.qgs</span></code> QGIS project under the
-<code class="file docutils literal notranslate"><span class="pre">exercise_data/processing/r_intro/</span></code> folder.</p>
+<section id="plot-creating-plots">
+<h2><span class="section-number">17.33.2. </span>Plot များဖန်တီးခြင်း (Creating plots)<a class="headerlink" href="#plot-creating-plots" title="Link to this heading"></a></h2>
+<p>ဤလေ့ကျင့်ခန်းတွင် vector layer field တစ်ခု၏ <strong>boxplot</strong> တစ်ခုကိုဖန်တီးမည်ဖြစ်သည်။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">exercise_data/processing/r_intro/</span></code> folder ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">r_intro.qgs</span></code> QGIS project ကိုဖွင့်ပါ။</p>
 <section id="script-parameters">
 <h3>Script parameters<a class="headerlink" href="#script-parameters" title="Link to this heading"></a></h3>
-<p>Open the editor and start writing at the beginning of it.</p>
-<p>You <strong>must</strong> specify some parameters <strong>before</strong> the script body:</p>
+<p>Editor ကိုဖွင့်ပြီး စတင်ရေးသားပါ။</p>
+<p>Script စာကိုယ် <strong>မတိုင်မီ</strong> တွင် parameter အချို့ကို သတ်မှတ်ပေးရပါမည်-</p>
 <ol class="arabic">
-<li><p>The name of the group (<cite>plots</cite> in this case) in which you want to put your
-script (if the group does not exist, it will be created):</p>
+<li><p>Script ကိုထားရှိလိုသော အုပ်စု၏နာမည် (ဤဥပမာတွင် <cite>plots</cite> ဖြစ်သည်) (အုပ်စုသည် ရှိနေပြီးသားမဟုတ်ပါက ဖန်တီးပေးမည်ဖြစ်သည်):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##plots=group</span>
 </pre></div>
 </div>
-<p>You will find your script in the <strong>plots</strong> R group in the Processing toolbox.</p>
+<p>Processing toolbox ထဲရှိ <strong>plots</strong> R အုပ်စုထဲတွင် script ကိုရှာတွေ့နိုင်ပါသည်။</p>
 </li>
-<li><p>You have to tell Processing that you want to display a plot (in this example):</p>
+<li><p>Plot တစ်ခုကို ပြသလိုကြောင်း Processing ကိုပြောပေးရပါမည် (ဤဥပမာတွင်):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##showplots</span>
 </pre></div>
 </div>
-<p>You will then find a link to the plot in the <strong>Result Viewer</strong> panel (can
-be turned on / off in <span class="menuselection">View ► Panels</span> and with
-<span class="menuselection">Processing ► Results Viewer</span>).</p>
+<p><strong>Result Viewer</strong> panel ထဲတွင် plot ဖွင့်ရန် link တစ်ခုကို တွေ့ရပါလိမ့်မည် (<span class="menuselection">View ► Panels</span> ထဲနှင့် <span class="menuselection">Processing ► Results Viewer</span> ဖြင့် Panel ကို အဖွင့်/အပိတ်လုပ်နိုင်ပါသည်)။</p>
 </li>
-<li><p>You also need to tell Processing about your input data.
-In this example we want to create a plot from a field of a vector layer:</p>
+<li><p>Input data အကြောင်းကိုလည်း Processing ကိုပြောပြပေးရန် လိုအပ်ပါသည်။ ဤဥပမာတွင် vector layer ၏ field တစ်ခုမှ plot တစ်ခုကိုဖန်တီးလိုပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Layer=vector</span>
 </pre></div>
 </div>
-<p>Processing now knows that the input is a vector. The name <em>Layer</em> is not
-important, what matters is the <strong>vector</strong> parameter.</p>
+<p>ယခုအခါ Input သည် vector တစ်ခုဖြစ်ကြောင်း Processing မှသိရှိပြီဖြစ်ပါသည်။ နာမည် <em>Layer</em> သည် အရေးမကြီးပါ၊ အရေးကြီးသည်မှာ <strong>vector</strong> parameter ဖြစ်ပါသည်။</p>
 </li>
-<li><p>Finally, you have to specify the input field of the vector layer (using the
-name you have provided above - <em>Layer</em>):</p>
+<li><p>နောက်ဆုံးတွင် vector layer ၏ input field ကိုသတ်မှတ်ပေးရပါမည် (အထက်တွင်ပေးထားသော နာမည် <em>Layer</em> ကိုအသုံးပြုပြီး):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##X=Field Layer</span>
 </pre></div>
 </div>
-<p>Processing now knows that you need a field of <em>Layer</em>, and that you will
-call it <strong>X</strong>.</p>
+<p><em>Layer</em> ၏ field တစ်ခုကိုလိုအပ်ကြောင်းနှင့် ၎င်းကို <strong>X</strong> ဟုခေါ်ဆိုမည်ဖြစ်ကြောင်း Processing မှသိရှိပြီဖြစ်ပါသည်။</p>
 </li>
-<li><p>It is also possible to define the name of your script using <code class="docutils literal notranslate"><span class="pre">name</span></code>:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> ကိုအသုံးပြုပြီး script ၏နာမည်ကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##My box plot script=name</span>
 </pre></div>
 </div>
-<p>If not defined, the file name will be used as the name of the script.</p>
+<p>သတ်မှတ်မပေးထားပါက ဖိုင်နာမည်သည် script ၏နာမည်အတိုင်း ဖြစ်ပါလိမ့်မည်။</p>
 </li>
 </ol>
 </section>
-<section id="script-body">
-<h3>Script body<a class="headerlink" href="#script-body" title="Link to this heading"></a></h3>
-<p>Now that you have set up the <em>heading</em> of the script you can add the function:</p>
+<section id="script-script-body">
+<h3>Script စာကိုယ် (Script body)<a class="headerlink" href="#script-script-body" title="Link to this heading"></a></h3>
+<p>ယခုအခါ script ၏ <em>heading</em> ကိုသတ်မှတ်ပြီးဖြစ်သောကြောင့် function ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boxplot</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">X</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p><strong>boxplot</strong> is the name of the R function, the parameter <strong>Layer</strong>
-is the name that you have defined for the input dataset and <strong>X</strong> is the
-name you have defined for the field of that dataset.</p>
+<p><strong>boxplot</strong> သည် R function ၏နာမည်ဖြစ်ပါသည်၊ parameter <strong>Layer</strong> သည် input dataset အတွက် သင်သတ်မှတ်ပေးထားသော နာမည်ဖြစ်ပြီး <strong>X</strong> သည် ထို dataset ၏ field အတွက် သင်သတ်မှတ်ပေးထားသော နာမည်ဖြစ်ပါသည်။</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The parameter <strong>X</strong> has to be within double square brackets (<code class="docutils literal notranslate"><span class="pre">[[]]</span></code>).</p>
+<p>parameter <strong>X</strong> သည် လေးထောင့်ကွင်းနှစ်ခု (<code class="docutils literal notranslate"><span class="pre">[[]]</span></code>) အတွင်း ရှိရပါမည်။</p>
 </div>
-<p>The final script looks like this:</p>
+<p>အပြီးသတ် script သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Vector processing=group</span>
 <span class="c1">##showplots</span>
 <span class="c1">##Layer=vector</span>
@@ -301,84 +275,68 @@ name you have defined for the field of that dataset.</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_3.png" src="../../../_images/r_intro_3.png" />
 </figure>
-<p>Save the script in the default path suggested by Processing (processing/rscripts).
-If you have not defined a <code class="docutils literal notranslate"><span class="pre">name</span></code> in the script heading, the file name you
-choose will become the name of the script in the Processing toolbox.</p>
+<p>Processing မှအကြံပြုထားသော default ဖိုင်လမ်းကြောင်း (processing/rscripts) ထဲတွင် script ကိုသိမ်းဆည်းပါ။ Script heading ထဲတွင် <code class="docutils literal notranslate"><span class="pre">name</span></code> တစ်ခုကို မသတ်မှတ်ထားပါက သင်ရွေးချယ်သော ဖိုင်နာမည်သည် Processing toolbox ထဲရှိ script ၏နာမည် ဖြစ်ပါလိမ့်မည်။</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can save the script wherever you like, but Processing will then not
-be able to include it in the processing toolbox automatically, so you have
-to upload it manually.</p>
+<p>Script ကို သင်ကြိုက်နှစ်သက်ရာနေရာတွင် သိမ်းဆည်းနိုင်ပါသည်၊ သို့သော် Processing toolbox ထဲတွင် script ကိုအလိုအလျောက်ထည့်သွင်းပေးလိမ့်မည်မဟုတ်ပါ၊ ထို့ကြောင့် script ကို manual upload လုပ်ပေးရပါမည်။</p>
 </div>
-<p>Now just run it using the button on the top of the editor window:</p>
+<p>Editor window ၏အပေါ်ဘက်ရှိ ခလုတ်ကိုနှိပ်ပြီး script ကို run လိုက်ပါ-</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_4.png" src="../../../_images/r_intro_4.png" />
 </figure>
-<p>Once the editor window has been closed, use the text box of Processing to find your
-script:</p>
+<p>Editor window ကိုပိတ်လိုက်ပြီး Processing ၏ text box ထဲတွင် သင်၏ script ကိုရှာဖွေပါ-</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_5.png" src="../../../_images/r_intro_5.png" />
 </figure>
-<p>You can now fill the parameters required in the Processing algorithm window:</p>
+<p>ယခုအခါ Processing algorithm window ထဲတွင် လိုအပ်သော parameter များကိုဖြည့်သွင်းနိုင်ပြီဖြစ်ပါသည်-</p>
 <ul class="simple">
-<li><p>for <strong>Layer</strong> choose <em>sample_points</em></p></li>
-<li><p>for the <strong>X</strong> field choose <em>value</em></p></li>
+<li><p><strong>Layer</strong> အတွက် <em>sample_points</em> ကိုရွေးပါ</p></li>
+<li><p><strong>X</strong> field အတွက် <em>value</em> ကိုရွေးပါ</p></li>
 </ul>
-<p>Click on <strong>Run</strong>.</p>
+<p><strong>Run</strong> ကိုနှိပ်ပါ။</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_6.png" src="../../../_images/r_intro_6.png" />
 </figure>
-<p>The <strong>Result window</strong> should be automatically opened, if not, just click on
-<span class="menuselection">Processing ► Result Viewer…</span>.</p>
-<p>Click on the link in the viewer and you will see:</p>
+<p><strong>Result window</strong> သည် အလိုအလျောက်ပွင့်လာသင့်ပါသည်၊ ထိုသို့မပွင့်လာပါက <span class="menuselection">Processing ► Result Viewer…</span> ကိုနှိပ်ပါ။</p>
+<p>Viewer ထဲရှိ link ကိုနှိပ်ပါက အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မည်-</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_7.png" src="../../../_images/r_intro_7.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can open, copy and save the image by right clicking on the plot.</p>
+<p>Plot ပေါ်တွင် right click နှိပ်ပြီး ပုံကို ဖွင့်နိုင်၊ ကူးယူနိုင်၊ သိမ်းဆည်းနိုင်ပါသည်။</p>
 </div>
 </section>
 </section>
-<section id="create-a-vector">
-<h2><span class="section-number">17.33.3. </span>Create a vector<a class="headerlink" href="#create-a-vector" title="Link to this heading"></a></h2>
-<p>You can also create a vector layer and have it automatically loaded
-into QGIS.</p>
-<p>The following example has been taken from the <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">sampling</span> <span class="pre">grid</span></code>
-script that can be found in the online collection of R scripts
-(the scripts in this online collection can be found in
-<a class="reference external" href="https://github.com/qgis/QGIS-Processing/tree/master/rscripts">https://github.com/qgis/QGIS-Processing/tree/master/rscripts</a>).</p>
-<p>The aim of this exercise is to create a random point vector layer
-using an input vector layer to restrict the extent using the <code class="docutils literal notranslate"><span class="pre">spsample</span></code>
-function of the <code class="docutils literal notranslate"><span class="pre">sp</span></code> package.</p>
+<section id="vector-create-a-vector">
+<h2><span class="section-number">17.33.3. </span>Vector တစ်ခုဖန်တီးခြင်း (Create a vector)<a class="headerlink" href="#vector-create-a-vector" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုကို ဖန်တီးပြီး ၎င်းကို QGIS ထဲသို့ အလိုအလျောက်ထည့်သွင်းပေးနိုင်ပါသည်။</p>
+<p>အောက်ပါဥပမာကို အွန်လိုင်း R script များစုစည်းမှုတွင် တွေ့ရနိုင်သော <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">sampling</span> <span class="pre">grid</span></code> script မှရယူထားပါသည် (အွန်လိုင်းစုစည်းမှုထဲရှိ script များကို <a class="reference external" href="https://github.com/qgis/QGIS-Processing/tree/master/rscripts">https://github.com/qgis/QGIS-Processing/tree/master/rscripts</a> တွင်တွေ့နိုင်ပါသည်)။</p>
+<p>ဤလေ့ကျင့်ခန်း၏ရည်ရွယ်ချက်မှာ input vector layer တစ်ခုကိုအသုံးပြုပြီး ကျပန်း point vector layer တစ်ခုကိုဖန်တီးရန်ဖြစ်ပြီး <code class="docutils literal notranslate"><span class="pre">sp</span></code> package မှ <code class="docutils literal notranslate"><span class="pre">spsample</span></code> function ကိုအသုံးပြုပြီး extent (နယ်ပယ်အကျယ်အဝန်း) ကို ကန့်သတ်ရန်ဖြစ်သည်။</p>
 <section id="id1">
 <h3>Script parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<p>As before we have to set some parameters before the script body:</p>
+<p>Script စာကိုယ် မတိုင်မီတွင် parameter အချို့ကို သတ်မှတ်ပေးရပါမည်-</p>
 <ol class="arabic">
-<li><p>Specify the name of the group in which you want to put your script, in
-this case <em>Point pattern analysis</em>:</p>
+<li><p>Script ကိုထားရှိလိုသော အုပ်စုနာမည်ကို သတ်မှတ်ပါ၊ ဤဥပမာတွင် <em>Point pattern analysis</em> ဖြစ်သည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Point pattern analysis=group</span>
 </pre></div>
 </div>
 </li>
-<li><p>Define an input parameter (a vector layer) that will constrain the
-placement of the random points:</p>
+<li><p>ကျပန်း point များ၏နေရာချထားမှုကို ကန့်သတ်ပေးမည့် input parameter (vector layer တစ်ခု) တစ်ခုကို သတ်မှတ်ပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Layer=vector</span>
 </pre></div>
 </div>
 </li>
-<li><p>Set an input parameter for the number of points that are going to be
-created (<code class="docutils literal notranslate"><span class="pre">Size</span></code>, with a default value of <code class="docutils literal notranslate"><span class="pre">10</span></code>):</p>
+<li><p>ဖန်တီးမည့် point အရေအတွက်အတွက် input parameter တစ်ခုကိုသတ်မှတ်ပါ (<code class="docutils literal notranslate"><span class="pre">Size</span></code> ဖြစ်ပြီး default တန်ဖိုးသည် <code class="docutils literal notranslate"><span class="pre">10</span></code> ဖြစ်ပါသည်):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Size=number 10</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Since a default value (<code class="docutils literal notranslate"><span class="pre">10</span></code>) is defined, the user can
-change this number or can leave the parameter without a number.</p>
+<p>Default တန်ဖိုး (<code class="docutils literal notranslate"><span class="pre">10</span></code>) သတ်မှတ်ပေးထားသောကြောင့် အသုံးပြုသူအနေဖြင့် ထိုဂဏန်းကိုပြောင်းလဲပေးနိုင်သလို parameter တွင်ဂဏန်းမထည့်ပဲ ချန်ထားနိုင်ပါသည်။</p>
 </div>
 </li>
-<li><p>Specify that there is an output vector layer (called <code class="docutils literal notranslate"><span class="pre">Output</span></code>):</p>
+<li><p>Output vector layer တစ်ခု (<code class="docutils literal notranslate"><span class="pre">Output</span></code> ဟုခေါ်ဆိုသော) ကိုသတ်မှတ်ပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Output=output vector</span>
 </pre></div>
 </div>
@@ -386,27 +344,22 @@ change this number or can leave the parameter without a number.</p>
 </ol>
 </section>
 <section id="id2">
-<h3>Script body<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
-<p>Now you can add the body of the function:</p>
+<h3>Script စာကိုယ် (Script body)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>ယခုအခါ function ကို ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်-</p>
 <ol class="arabic">
-<li><p>Use the <code class="docutils literal notranslate"><span class="pre">spsample</span></code> function:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">spsample</span></code> function ကိုအသုံးပြုပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pts</span><span class="o">=</span><span class="n">spsample</span><span class="p">(</span><span class="n">Layer</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The function uses the <em>Layer</em> to constrain the placement of the
-points (if it is a line layer, a points will have to be on one of
-the lines in the layer, if it is a polygon layer, a point will
-have to be within a polygon).
-The number of points is taken from the <em>Size</em> parameter.
-The sampling method is <em>random</em>.</p>
+<p>Point များ၏နေရာချထားမှုကိုကန့်သတ်ရန် function သည် <em>Layer</em> ကိုအသုံးပြုပါသည် (၎င်းသည် line layer တစ်ခုဖြစ်ပါက point သည် line တစ်ခုခုပေါ်တွင်ရှိရမည်ဖြစ်သည်၊ ၎င်းသည် polygon layer တစ်ခုဖြစ်ပါက point သည် polygon အတွင်းတွင် ရှိရပါမည်)။ Point အရေအတွက်ကို <em>Size</em> parameter မှရယူပါသည်။ Sampling နည်းလမ်းသည် <em>random</em> ဖြစ်ပါသည်။</p>
 </li>
-<li><p>Generate the output (the <code class="docutils literal notranslate"><span class="pre">Output</span></code> parameter):</p>
+<li><p>Output (<cite>Output`</cite> parameter) ကိုထုတ်ယူပါ:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="o">=</span><span class="n">SpatialPointsDataFrame</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">pts</span><span class="p">))</span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>The final script looks like this:</p>
+<p>အပြီးသတ် script သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Point pattern analysis=group</span>
 <span class="c1">##Layer=vector</span>
 <span class="c1">##Size=number 10</span>
@@ -418,27 +371,23 @@ The sampling method is <em>random</em>.</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_8.png" src="../../../_images/r_intro_8.png" />
 </figure>
-<p>Save it and run it, clicking on the run button.</p>
-<p>In the new window type in the right parameters:</p>
+<p>Script ကို သိမ်းဆည်းပြီး run ပါ။</p>
+<p>ပေါ်လာသော window အသစ်ထဲတွင် parameter ထည့်သွင်းပြီး run ကိုနှိပ်ပါ-</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_9.png" src="../../../_images/r_intro_9.png" />
 </figure>
-<p>and click on run.</p>
-<p>The result layer will be added to the table of contents and its
-points will be displayed on the map canvas:</p>
+<p>ရလာဒ် layer ကို table of contents ထဲသို့ ထည့်သွင်းပေးမည်ဖြစ်ပြီး point များကို မြေပုံ canvas ပေါ်တွင် ပြသပေးမည်ဖြစ်သည်-</p>
 <figure class="align-default">
 <img alt="../../../_images/r_intro_10.png" src="../../../_images/r_intro_10.png" />
 </figure>
 </section>
 </section>
-<section id="text-and-graph-output-from-r-syntax">
-<h2><span class="section-number">17.33.4. </span>Text and graph output from R - syntax<a class="headerlink" href="#text-and-graph-output-from-r-syntax" title="Link to this heading"></a></h2>
-<p>Processing (with the <code class="docutils literal notranslate"><span class="pre">Processing</span> <span class="pre">R</span> <span class="pre">Provider</span> <span class="pre">plugin</span></code>) uses special
-syntax to get the results out of R:</p>
+<section id="r-syntax-output-text-and-graph-output-from-r-syntax">
+<h2><span class="section-number">17.33.4. </span>R - syntax မှ စာသားနှင့်ဂရပ် output (Text and graph output from R - syntax)<a class="headerlink" href="#r-syntax-output-text-and-graph-output-from-r-syntax" title="Link to this heading"></a></h2>
+<p>Processing (<code class="docutils literal notranslate"><span class="pre">Processing</span> <span class="pre">R</span> <span class="pre">Provider</span> <span class="pre">plugin</span></code> ဖြင့်) သည် R မှ ရလာဒ်များကိုရရှိရန် အထူး syntax ကိုအသုံးပြုပါသည်-</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> before your command, as in <code class="docutils literal notranslate"><span class="pre">&gt;lillie.test(Layer[[Field]])</span></code> means
-the result should be sent to R output (Result viewer)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> after a plot enables overlay plots. For example <code class="docutils literal notranslate"><span class="pre">plot(Layer[[X]],</span>
+<li><p>Command မတိုင်မီတွင် <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ထည့်သွင်းခြင်း၊ <code class="docutils literal notranslate"><span class="pre">&gt;lillie.test(Layer[[Field]])</span></code> သည် ရလာဒ်ကို R output (Result viewer) သို့ပို့ပေးသင့်ကြောင်း ဆိုလိုပါသည်။</p></li>
+<li><p>Plot နောက်တွင် <code class="docutils literal notranslate"><span class="pre">+</span></code> ထည့်သွင်းခြင်းသည် plot များကို ထပ်ပေးနိုင်ပါသည်။ ဥပမာ <code class="docutils literal notranslate"><span class="pre">plot(Layer[[X]],</span>
 <span class="pre">Layer[[Y]])</span> <span class="pre">+</span> <span class="pre">abline(h=mean(Layer[[X]]))</span></code></p></li>
 </ul>
 </section>
@@ -448,15 +397,15 @@ the result should be sent to R output (Result viewer)</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="solar.html" class="btn btn-neutral float-left" title="17.32. Planning a solar farm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="geomorpho.html" class="btn btn-neutral float-right" title="17.34. Predicting landslides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="solar.html" class="btn btn-neutral float-left" title="17.32. ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="geomorpho.html" class="btn btn-neutral float-right" title="17.34. မြေပြိုမှုများခန့်မှန်းခြင်း (Predicting landslides)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 

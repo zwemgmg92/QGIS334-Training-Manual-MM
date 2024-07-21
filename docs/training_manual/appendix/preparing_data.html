@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>20. Preparing Exercise Data &mdash; QGIS Documentation  documentation</title>
+  <title>20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data) &mdash; QGIS Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -33,8 +33,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="prev" title="19. Appendix: Contributing To This Manual" href="contribute.html" />
-  <meta name="description" content="QGIS testing documentation: 20. Preparing Exercise Data">
+    <link rel="prev" title="19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)" href="contribute.html" />
+  <meta name="description" content="QGIS testing documentation: 20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)">
   <script>
     var _paq = window._paq = window._paq || [];
     _paq.push(["disableCookies"]);
@@ -103,14 +103,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../forestry/index.html">14. မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database_concepts/index.html">15. မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spatial_databases/index.html">16. မော်ဂျူး - PostGIS ဖြင့် Spatial Database သဘောတရားများ (Module: Spatial Database Concepts with PostGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. The QGIS processing guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">17. QGIS Processing လမ်းညွှန် (The QGIS processing guide)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../databases/index.html">18. မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contribute.html">19. Appendix: Contributing To This Manual</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">20. Preparing Exercise Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-osm-based-vector-files">20.1. Create OSM based vector files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-srtm-dem-tiff-files">20.2. Create SRTM DEM tiff files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-imagery-tiff-files">20.3. Create imagery tiff files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#replace-tokens">20.4. Replace tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vector-osm-create-osm-based-vector-files">20.1. Vector ဖိုင်များပေါ်အခြေခံသော OSM ဖန်တီးခြင်း (Create OSM based vector files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#srtm-dem-tiff-create-srtm-dem-tiff-files">20.2. SRTM DEM tiff ဖိုင်များဖန်တီးခြင်း (Create SRTM DEM tiff files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imagery-tiff-create-imagery-tiff-files">20.3. Imagery tiff ဖိုင်များဖန်တီးခြင်း (Create imagery tiff files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replace-tokens">20.4. တိုကင်များ အစားထိုးလဲလှယ်ခြင်း (Replace tokens)</a></li>
 </ul>
 </li>
 </ul>
@@ -132,12 +132,12 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">QGIS သင်တန်းလက်စွဲ (QGIS Training Manual)</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">20. </span>Preparing Exercise Data</li>
+      <li class="breadcrumb-item active"><span class="section-number">20. </span>လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/training_manual/appendix/preparing_data.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="contribute.html" class="btn btn-neutral float-left" title="19. Appendix: Contributing To This Manual" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contribute.html" class="btn btn-neutral float-left" title="19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
   </div>
   <hr/>
 </div>
@@ -146,225 +146,162 @@
              
   <blockquote>
 <div></div></blockquote>
-<section id="preparing-exercise-data">
-<span id="tm-preparing-data"></span><h1><span class="section-number">20. </span>Preparing Exercise Data<a class="headerlink" href="#preparing-exercise-data" title="Link to this heading"></a></h1>
+<section id="data-preparing-exercise-data">
+<span id="tm-preparing-data"></span><h1><span class="section-number">20. </span>လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)<a class="headerlink" href="#data-preparing-exercise-data" title="Link to this heading"></a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This process is intended for course conveners, or more experienced
-QGIS users who wish to create localised sample data sets for their course.
-Default data sets are provided with the Training Manual, but you may follow
-these instructions if you wish to replace the default data sets.</p>
+<p>ဤလုပ်ငန်းစဉ်ကို သင်တန်းအတွက် နမူနာ dataset များဖန်တီးလိုသော သင်တန်းအကြီးအမှူးများ၊ သို့မဟုတ် အတွေ့အကြုံပိုများသော QGIS အသုံးပြုသူများအတွက် ရည်ရွယ်ပါသည်။ Default dataset များသည် Training Manual နှင့်အတူပါရှိပါသည်၊ သို့သော် default dataset များအစား အခြား dataset များကိုအသုံးပြုလိုပါက ဤလမ်းညွှန်ချက်များအတိုင်း လိုက်နာလုပ်ဆောင်နိုင်ပါသည်။</p>
 </div>
-<p>The <a class="reference internal" href="../foreword/intro.html#data-downloadlink"><span class="std std-ref">sample data provided</span></a> with the Training Manual
-refers to the town of Swellendam and its surroundings. Swellendam is
-located about 2 hours’ east of Cape Town in the Western Cape of South Africa.
-The dataset contains feature names in both English and Afrikaans.</p>
-<p>Anyone can use this dataset without difficulty, but you may prefer to use data
-from your own country or home town. If you choose to do so, your localised
-data will be used in all lessons from Module 3 to Module 7.2. Later modules use
-more complex data sources which may or may not be available for your region.</p>
+<p>Training Manual နှင့်အတူပါရှိသော <a class="reference internal" href="../foreword/intro.html#data-downloadlink"><span class="std std-ref">နမူနာ data</span></a> သည် Swellendam မြို့နှင့် ပတ်ဝန်းကျင်နေရာများအတွက်ဖြစ်ပါသည်။ Swellendam သည် တောင်အာဖရိက၏ Western Cape ထဲရှိ Cape Town မှ ၂ နာရီခန့်သွားရသော နေရာတွင် တည်ရှိပါသည်။ Dataset ထဲတွင်ပါရှိသော feature နာမည်များသည် အင်္ဂလိပ် နှင့် အာဖရီကန်ဘာသာစကား နှစ်မျိုးလုံးဖြင့် ပါရှိပါသည်။</p>
+<p>ဤ dataset ကို လူတိုင်း အလွယ်တကူအသုံးပြုနိုင်ပါသည်၊ သို့သော် သင့်နိုင်ငံ သို့မဟုတ် သင့်မြို့မှ data ကိုအသုံးပြုလိုပါက မော်ဂျူး ၃ မှ မော်ဂျူး ၇.၂ အထိ သင်ခန်းစာများအားလုံးအတွက် သင့်ကိုယ်ပိုင် data များကို အသုံးပြုနိုင်ပါလိမ့်သည်။ နောက်ပိုင်း မော်ဂျူးများတွင် အသုံးပြုထားသော data များသည် ပိုမိုရှုပ်ထွေးသော data ရင်းမြစ်များဖြစ်ပြီး သင့်ဒေသအတွက် ရှိနိုင်မှ ရှိနိုင်ပါလိမ့်မည်။</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These instructions assume you have a good knowledge of QGIS and are
-not intended to be used as teaching material.</p>
+<p>ဤညွှန်ကြားချက်များသည် သင့်တွင် QGIS ဗဟုသုတကောင်းကောင်းရှိသည်ဟု ယူဆထားပြီး ၎င်းတို့ကို သင်ထောက်ကူအနေဖြင့် အသုံးပြုရန် မရည်ရွယ်ထားပါ။</p>
 </div>
-<section id="create-osm-based-vector-files">
-<h2><span class="section-number">20.1. </span>Create OSM based vector files<a class="headerlink" href="#create-osm-based-vector-files" title="Link to this heading"></a></h2>
-<p>If you wish to replace the default data set with localised data for your course,
-this can easily be done with tools built into QGIS. The region you choose to use
-should have a good mix of urban and rural areas, containing roads of differing
-significance, area boundaries (such as nature reserves or farms) and surface
-water, such as streams and rivers.</p>
+<section id="vector-osm-create-osm-based-vector-files">
+<h2><span class="section-number">20.1. </span>Vector ဖိုင်များပေါ်အခြေခံသော OSM ဖန်တီးခြင်း (Create OSM based vector files)<a class="headerlink" href="#vector-osm-create-osm-based-vector-files" title="Link to this heading"></a></h2>
+<p>Default dataset ကို သင့်ကိုယ်ပိုင် data ဖြင့်အစားထိုးအသုံးပြုလိုပါက QGIS တွင်ပါရှိသော tool များဖြင့် အလွယ်တကူလုပ်ဆောင်နိုင်ပါသည်။ အသုံးပြုရန် သင်ရွေးချယ်ထားသောဒေသတွင် မြို့ပြနှင့် ကျေးလက်ဧရိယာများရောနှောပါဝင်နေသင့်ပြီး အမျိုးအစားကွဲပြားသောလမ်းများ၊ ဧရိယာနယ်နိမိတ်များ (သဘာဝကာကွယ်တောများ သို့မဟုတ် စိုက်ပျိုးမြေများကဲ့သို့) နှင့် မြစ်ချောင်းများကဲ့သို့ ရေမျက်နှာပြင် များပါဝင်သင့်ပါသည်။</p>
 <ol class="arabic">
-<li><p>Open a new QGIS project</p></li>
-<li><p>Select <span class="menuselection">Layer ► Data Source Manager</span> to open the
-<span class="guilabel">Data Source Manager</span> dialog</p></li>
-<li><p>In the <span class="guilabel">Browser</span> tab, expand the <span class="guilabel">XYZ Tiles</span> drop-down menu
-and double-click the <span class="guilabel">OpenStreetMap</span> item.</p>
+<li><p>QGIS project အသစ်တစ်ခုကို ဖွင့်ပါ။</p></li>
+<li><p><span class="menuselection">Layer ► Data Source Manager</span> ကိုရွေးပါ၊ <span class="guilabel">Data Source Manager</span> dialog ပွင့်လာပါမည်။</p></li>
+<li><p><span class="guilabel">Browser</span> tab ထဲတွင် <span class="guilabel">XYZ Tiles</span> ကိုအကျယ်ဖြန့်ပြီး <span class="guilabel">OpenStreetMap</span> item ကို click နှစ်ချက်နှိပ်ပါ။</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/browser_xyztiles.png"><img alt="../../../_images/browser_xyztiles.png" src="../../../_images/browser_xyztiles.png" style="width: 397.2px; height: 378.59999999999997px;" /></a>
 </figure>
-<p>A map of the world is now visible on the map canvas.</p>
+<p>ကမ္ဘာ့မြေပုံတစ်ခုကို မြေပုံ canvas ပေါ်တွင် မြင်ရမည်ဖြစ်သည်။</p>
 </li>
-<li><p>Close the <span class="guilabel">Data Source Manager</span> dialog</p></li>
-<li><p>Move to the area you’d like to use as study area</p>
+<li><p><span class="guilabel">Data Source Manager</span> dialog ကိုပိတ်လိုက်ပါ။</p></li>
+<li><p>Study area အဖြစ် အသုံးပြုလိုသော ဧရိယာသို့ နေရာရွှေ့ပါ။</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/swellendam_neighborhood.png"><img alt="../../../_images/swellendam_neighborhood.png" src="../../../_images/swellendam_neighborhood.png" style="width: 818.4px; height: 396.59999999999997px;" /></a>
 </figure>
 </li>
 </ol>
-<p>Now that we have the area we’ll extract the data from, let’s enable the extraction
-tools.</p>
+<p>ယခုအခါ data ထုတ်ယူလိုသော ဧရိယာကို ရရှိပြီဖြစ်ပါသည်၊ data ထုတ်ယူခြင်း tool များကို ဖွင့်ပေးပါမည်။</p>
 <ol class="arabic">
-<li><p>Go to <span class="menuselection">Plugins ► Manage/Install Plugins…</span></p></li>
-<li><p>In the <span class="guilabel">All</span> tab, type <code class="docutils literal notranslate"><span class="pre">QuickOSM</span></code> in the search box</p></li>
-<li><p>Select the QuickOSM plugin, press <span class="guilabel">Install Plugin</span> and then <span class="guilabel">Close</span>
-the dialog.</p>
+<li><p><span class="menuselection">Plugins ► Manage/Install Plugins…</span> သို့သွားပါ</p></li>
+<li><p><span class="guilabel">All</span> tab ထဲရှိ search box တွင် <code class="docutils literal notranslate"><span class="pre">QuickOSM</span></code> ဟုရိုက်ထည့်ပါ</p></li>
+<li><p>QuickOSM plugin ကိုရွေးချယ်ပါ၊ <span class="guilabel">Install Plugin</span> ကိုနှိပ်ပါ၊ ထို့နောက်တွင် dialog ကိုပိတ်ရန် <span class="guilabel">Close</span> ကိုနှိပ်ပါ။</p>
 <figure class="align-center">
 <img alt="../../../_images/quickosm_plugin_download.png" src="../../../_images/quickosm_plugin_download.png" />
 </figure>
 </li>
-<li><p>Execute the new plugin from <span class="menuselection">Vector ► QuickOSM ► QuickOSM…</span> menu</p></li>
-<li><p>In the <span class="guilabel">Quick query</span> tab, select <code class="docutils literal notranslate"><span class="pre">building</span></code> in the <span class="guilabel">Key</span>
-drop-down menu</p></li>
-<li><p>Leave the <span class="guilabel">Value</span> field empty, meaning that you are querying all
-buildings.</p></li>
-<li><p>Select <span class="guilabel">Canvas Extent</span> in the next drop-down menu</p></li>
-<li><p>Expand the <span class="guilabel">Advanced</span> group below and uncheck all
-geometry types on the right except <span class="guilabel">Multipolygons</span>.</p></li>
-<li><p>Press <span class="guilabel">Run query</span></p>
+<li><p><span class="menuselection">Vector ► QuickOSM ► QuickOSM…</span> menu မှ plugin အသစ်ကို ဖွင့်ပါ</p></li>
+<li><p><span class="guilabel">Quick query</span> tab ထဲရှိ  <span class="guilabel">Key</span> drop-down menu ထဲတွင် <code class="docutils literal notranslate"><span class="pre">building</span></code> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Value</span> field ကို အလွတ်အတိုင်းထားရှိပါ၊ building များအားလုံးကို query လုပ်မည်ဟု ဆိုလိုပါသည်။</p></li>
+<li><p>အောက်ရှိ drop-down menu ထဲတွင် <span class="guilabel">Canvas Extent</span> ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">Advanced</span> အုပ်စုကို ဖြန့်ကြည့်ပြီး ညာဘက်ရှိ ဂျီဩမေတြီအမျိုးအစားများထဲတွင် <span class="guilabel">Multipolygons</span> မှလွဲ၍ ကျန်အမျိုးအစားများကို အမှန်ခြစ်ဖြုတ်ပါ။</p></li>
+<li><p><span class="guilabel">Run query</span> ကိုနှိပ်ပါ</p>
 <figure class="align-center">
 <img alt="../../../_images/building_query_builder.png" src="../../../_images/building_query_builder.png" />
 </figure>
-<p>A new <code class="docutils literal notranslate"><span class="pre">building</span></code> layer is added to the <span class="guilabel">Layers</span> panel, showing
-buildings in the selected extent.</p>
+<p><span class="guilabel">Layers</span> panel ထဲတွင် <code class="docutils literal notranslate"><span class="pre">building</span></code> layer အသစ်တစ်ခုကို ထည့်သွင်းပေးမည်ဖြစ်ပြီး ရွေးချယ်ထားသော extent အတွင်းရှိ building များအားလုံးကို ပြသပေးမည်ဖြစ်ပါသည်။</p>
 </li>
-<li><p>Proceed as above to extract other data:</p>
+<li><p>အခြားသော data များကိုထုတ်ယူရန် အထက်ဖော်ပြပါအတိုင်း လုပ်ဆောင်ပါ-</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">landuse</span></code> and <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code> geometry type.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">boundary</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">protected_area</span></code> and <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code>
-geometry type.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">natural</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">water</span></code> and <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code> geometry type.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">highway</span></code> and check <code class="docutils literal notranslate"><span class="pre">Lines</span></code> and <code class="docutils literal notranslate"><span class="pre">Multilines</span></code> geometry types.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">waterway</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">river</span></code> and check <code class="docutils literal notranslate"><span class="pre">Lines</span></code> and <code class="docutils literal notranslate"><span class="pre">Multilines</span></code>
-geometry types.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">place</span></code> and <code class="docutils literal notranslate"><span class="pre">Points</span></code> geometry type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">landuse</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code> ဂျီဩမေတြီအမျိုးအစား</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">boundary</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">protected_area</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code>
+ဂျီဩမေတြီအမျိုးအစား</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">natural</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">water</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Multipolygons</span></code> ဂျီဩမေတြီအမျိုးအစား</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">highway</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Lines</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Multilines</span></code> ဂျီဩမေတြီအမျိုးအစားကို အမှန်ခြစ်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">waterway</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">=</span> <span class="pre">river</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Lines</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Multilines</span></code>
+ဂျီဩမေတြီအမျိုးအစားကို အမှန်ခြစ်ပါ</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">=</span> <span class="pre">place</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Points</span></code> ဂျီဩမေတြီအမျိုးအစား</p></li>
 </ol>
 </li>
 </ol>
-<p>This process adds the layers as temporary files (indicated by the
-<a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon next to their name).</p>
+<p>ဤလုပ်ငန်းစဉ်သည် layer များကို ယာယီဖိုင်များအဖြစ် ထည့်သွင်းပေးပါသည် (layer နာမည်များဘေးတွင် <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon ဖြင့် ဖော်ပြထားပါသည်)။</p>
 <figure class="align-center">
 <img alt="../../../_images/osm_data_loaded.png" src="../../../_images/osm_data_loaded.png" />
 </figure>
-<p>You can sample the data your region contains in order to see what kind of
-results your region will yield.</p>
-<p>We now need to save the resulting data to use during your
-course. We’ll be using ESRI Shapefile, GeoPackage and SpatiaLite formats
-depending on the data.</p>
-<p>To convert the <span class="guilabel">place</span> temporary layer to another format:</p>
+<p>သင့်ဒေသသည် မည်သို့သော ရလာဒ်အမျိုးအစားများ ထုတ်ပေးမည်ကို ကြည့်ရှုနိုင်ရန် သင့်ဒေသတွင်ပါရှိသော data များကို နမူနာယူနိုင်ပါသည်။</p>
+<p>ရလာဒ် data များကို သင်၏သင်တန်းအတွင်း အသုံးပြုနိုင်ရန်အတွက် သိမ်းဆည်းထားရန်လိုအပ်ပါသည်။ Data ပေါ်မူတည်၍ ESRI Shapefile ၊ GeoPackage နှင့် SpatiaLite format များကို အသုံးပြုပါမည်။</p>
+<p><span class="guilabel">place</span> ယာယီ layer ကို အခြား format သို့ ပြောင်းလဲရန်-</p>
 <ol class="arabic">
-<li><p>Click the <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon next to the <span class="guilabel">place</span> layer
-to open the <span class="guilabel">Save Scratch Layer</span> dialog.</p>
+<li><p><span class="guilabel">place</span> layer ၏ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon ကိုနှိပ်ပါ၊ <span class="guilabel">Save Scratch Layer</span> dialog ပွင့်လာပါမည်။</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you need to change any of the temporary layer’s properties (CRS, extent,
-fields…), use the <span class="menuselection">Export
-► Save Features as…</span> contextual menu instead, and ensure the <span class="guilabel">Add
-saved file to map</span> option is checked. This adds a new layer.</p>
+<p>ယာယီ layer တစ်ခုခု၏ ဂုဏ်သတ္တိများ (CRS ၊ extent ၊ field အစရှိသည်တို့) ကိုပြောင်းလဲရန် လိုအပ်ပါက <span class="menuselection">Export
+► Save Features as…</span> ကိုအသုံးပြုပြီး <span class="guilabel">Add
+saved file to map</span> option ကိုအမှန်ခြစ်ထားပါ။ ထိုသို့လုပ်ခြင်းဖြင့် Layer အသစ်တစ်ခုကို ထည့်သွင်းပေးပါသည်။</p>
 </div>
 </li>
-<li><p>Select the <span class="guilabel">ESRI Shapefile</span> format</p></li>
-<li><p>Use the <span class="guilabel">…</span> button to browse to the <code class="file docutils literal notranslate"><span class="pre">exercise_data/shapefile/</span></code>
-folder and save the file as <code class="file docutils literal notranslate"><span class="pre">places.shp</span></code>.</p>
+<li><p><span class="guilabel">ESRI Shapefile</span> format ကိုရွေးချယ်ပါ</p></li>
+<li><p><span class="guilabel">…</span> ခလုတ်ကိုနှိပ်ပြီး <code class="file docutils literal notranslate"><span class="pre">exercise_data/shapefile/</span></code> folder ကိုဖွင့်ကာ ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">places.shp</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p>
 <figure class="align-center">
 <img alt="../../../_images/save_osm_place.png" src="../../../_images/save_osm_place.png" />
 </figure>
 </li>
-<li><p>Press <span class="guilabel">OK</span></p>
-<p>In the <span class="guilabel">Layers</span> panel, the temporary <span class="guilabel">place</span> layer is
-replaced with the saved <span class="guilabel">places</span> shapefile layer and
-the temporary icon next to it removed.</p>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p>
+<p><span class="guilabel">Layers</span> panel ထဲတွင် ယာယီ <span class="guilabel">place</span> layer ကို သိမ်းဆည်းထားသော <span class="guilabel">places</span> shapefile layer ဖြင့် အစားထိုးပေးမည်ဖြစ်ပြီး ယာယီ icon ကိုဖယ်ရှားပေးမည်ဖြစ်သည်။</p>
 </li>
-<li><p>Double-click the layer to open its <span class="menuselection">Layer Properties ►
-Source</span> tab and update the <span class="guilabel">Layer name</span> property to match the file
-name.</p></li>
-<li><p>Repeat the process for other layers, renaming them as follows:</p>
+<li><p>Layer ကို click နှစ်ချက်နှိပ်ပြီး <span class="menuselection">Layer Properties ►
+Source</span> tab ကိုဖွင့်ပြီး <span class="guilabel">Layer name</span> property ကို ဖိုင်နာမည်နှင့် ကိုက်ညီစေရန် update လုပ်ပါ။</p></li>
+<li><p>အခြားသော layer များအတွက် ထိုအတိုင်းလုပ်ဆောင်ပြီး ၎င်းတို့ကို အောက်ပါအတိုင်း နာမည်ပြောင်းပေးပါ-</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">natural_water</span></code> into <code class="docutils literal notranslate"><span class="pre">water</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">waterway_river</span></code> into <code class="docutils literal notranslate"><span class="pre">rivers</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">boundary_protected_area</span></code> into <code class="docutils literal notranslate"><span class="pre">protected_areas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">natural_water</span></code> ကို <code class="docutils literal notranslate"><span class="pre">water</span></code> သို့</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waterway_river</span></code> ကို <code class="docutils literal notranslate"><span class="pre">rivers</span></code> သို့</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boundary_protected_area</span></code> ကို <code class="docutils literal notranslate"><span class="pre">protected_areas</span></code> သို့</p></li>
 </ul>
-<p>Each resulting data set should be saved in the <code class="file docutils literal notranslate"><span class="pre">exercise_data/shapefile/</span></code>
-directory.</p>
+<p>ရလာဒ် dataset တစ်ခုချင်းစီကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/shapefile/</span></code> ဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းထားသင့်ပါသည်။</p>
 </li>
 </ol>
-<p>The next step is to create a GeoPackage file from the <span class="guilabel">building</span> layer
-to use during the course:</p>
+<p>နောက်တစ်ဆင့်အနေဖြင့် သင်တန်းအတွင်းအသုံးပြုရန် <span class="guilabel">building</span> layer မှ GeoPackage ဖိုင်တစ်ခုဖန်တီးရန် ဖြစ်ပါသည်-</p>
 <ol class="arabic">
-<li><p>Click the <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon next to the <span class="guilabel">building</span> layer</p></li>
-<li><p>Select the <span class="guilabel">GeoPackage</span> format</p></li>
-<li><p>Save the file as <code class="file docutils literal notranslate"><span class="pre">training_data.gpkg</span></code> under the <code class="file docutils literal notranslate"><span class="pre">exercise_data/</span></code>
-folder</p></li>
-<li><p>By default, the <span class="guilabel">Layer name</span> is filled as the file name.
-Replace it with <code class="docutils literal notranslate"><span class="pre">buildings</span></code>.</p>
+<li><p><span class="guilabel">building</span> layer ၏ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">GeoPackage</span> format ကိုရွေးချယ်ပါ</p></li>
+<li><p>ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/</span></code> folder အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">training_data.gpkg</span></code> အနေဖြင့် သိမ်းဆည်းပါ</p></li>
+<li><p>Default အားဖြင့် <span class="guilabel">Layer name</span> ကို ဖိုင်နာမည်အတိုင်း ဖြည့်ပေးပါသည်။ ၎င်း <span class="guilabel">Layer name</span> ကို <code class="docutils literal notranslate"><span class="pre">buildings</span></code> ဟုပြောင်းပါ။</p>
 <figure class="align-center">
 <img alt="../../../_images/save_osm_building.png" src="../../../_images/save_osm_building.png" />
 </figure>
 </li>
-<li><p>Press <span class="guilabel">OK</span></p></li>
-<li><p>Rename the layer in its properties dialog</p></li>
-<li><p>Repeat the process with the <span class="guilabel">highway</span> layer, saving it as <code class="docutils literal notranslate"><span class="pre">roads</span></code> in
-the same GeoPackage database.</p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ</p></li>
+<li><p>Layer ၏ property dialog ထဲတွင် layer ကို နာမည်ပြောင်းပါ</p></li>
+<li><p><span class="guilabel">highway</span> layer တွင်လည်း ထိုလုပ်ငန်းစဉ်အတိုင်းလုပ်ဆောင်ပြီး တူညီသော GeoPackage database ထဲတွင် <code class="docutils literal notranslate"><span class="pre">roads</span></code> အနေဖြင့် သိမ်းဆည်းပါ။</p></li>
 </ol>
-<p>The last step is to save the remaining temporary file as a SpatiaLite file.</p>
+<p>နောက်ဆုံးအဆင့်အနေဖြင့် ကျန်ရှိနေသော ယာယီဖိုင်ကို SpatiaLite ဖိုင်အဖြစ် သိမ်းဆည်းရန်ဖြစ်ပါသည်။</p>
 <ol class="arabic">
-<li><p>Click the <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon next to the <span class="guilabel">landuse</span> layer</p></li>
-<li><p>Select the <span class="guilabel">SpatiaLite</span> format</p></li>
-<li><p>Save the file as <code class="file docutils literal notranslate"><span class="pre">landuse.sqlite</span></code> under the <code class="file docutils literal notranslate"><span class="pre">exercise_data/</span></code>
-folder. By default, the <span class="guilabel">Layer name</span> is filled as the file name.
-Do not change it.</p>
+<li><p><span class="guilabel">landuse</span> layer ၏ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> icon ကိုနှိပ်ပါ</p></li>
+<li><p><span class="guilabel">SpatiaLite</span> format ကိုရွေးချယ်ပါ</p></li>
+<li><p>ဖိုင်ကို <code class="file docutils literal notranslate"><span class="pre">exercise_data/</span></code> folder အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">landuse.sqlite</span></code> အဖြစ် သိမ်းဆည်းပါ။ Default အားဖြင့် <span class="guilabel">Layer name</span> ကို ဖိုင်နာမည်အတိုင်း ဖြည့်ပေးပါသည်။ ၎င်းကို မပြောင်းလဲပါနှင့်။</p>
 <figure class="align-center">
 <img alt="../../../_images/save_osm_landuse.png" src="../../../_images/save_osm_landuse.png" />
 </figure>
 </li>
-<li><p>Press <span class="guilabel">OK</span></p></li>
+<li><p><span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
 </ol>
-<p>You should now have a map which looks something like this (the symbology will
-certainly be very different, because QGIS randomly assigns colors when layers
-are added to the map):</p>
+<p>ယခုအခါ အောက်ပါပုံစံအတိုင်း မြေပုံတစ်ခုကို ရရှိသင့်ပါသည် (Layer များကို မြေပုံထဲသို့ထည့်သွင်းသောအခါ QGIS သည် အရောင်များကျပန်းသတ်မှတ်သောကြောင့် သင်္ကေတသည် ကွဲပြားပါလိမ့်မည်)-</p>
 <figure class="align-center">
 <img alt="../../../_images/post_osm_import.png" src="../../../_images/post_osm_import.png" />
 </figure>
-<p>The important thing is that you have 7 vector layers matching those
-shown above and that all those layers have some data.</p>
+<p>အထက်တွင်ပြထားသော အဆိုပါ layer ၇ ခုရရှိမည်ဖြစ်ပြီး ထို layer များအားလုံးတွင် data အချို့ရှိရန် အရေးကြီပါသည်။</p>
 </section>
-<section id="create-srtm-dem-tiff-files">
-<h2><span class="section-number">20.2. </span>Create SRTM DEM tiff files<a class="headerlink" href="#create-srtm-dem-tiff-files" title="Link to this heading"></a></h2>
-<p>For modules <a class="reference internal" href="../create_vector_data/index.html#tm-create-vector-data"><span class="std std-ref">မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</span></a> and <a class="reference internal" href="../rasters/index.html#tm-rasters"><span class="std std-ref">မော်ဂျူး - Raster များ (Module: Rasters)</span></a>, you’ll also need
-raster images (SRTM DEM) which cover the region you have selected for your
-course.</p>
-<p>The <a class="reference external" href="https://srtm.csi.cgiar.org/">CGIAR-CGI</a> provides some SRTM DEM you can download
-from <a class="reference external" href="https://srtm.csi.cgiar.org/srtmdata/">https://srtm.csi.cgiar.org/srtmdata/</a>.</p>
-<p>You’ll need images which cover the entire region you have chosen to use.
-To find the extent coordinates, in QGIS , <a class="reference internal" href="../../../_images/mActionZoomToLayer.png"><img alt="zoomToLayer" src="../../../_images/mActionZoomToLayer.png" style="width: 1.5em;" /></a> zoom to the extent of
-the largest layer and pick the values in the <a class="reference internal" href="../../../_images/extents.png"><img alt="extents" src="../../../_images/extents.png" style="width: 1.5em;" /></a> <span class="guilabel">Extents</span>
-box of the status bar.
-Keep the <code class="file docutils literal notranslate"><span class="pre">GeoTiff</span></code> format. Once the form is filled, click on the
-<span class="guilabel">Click here to Begin Search &gt;&gt;</span> button and download the file(s).</p>
-<p>Once you have downloaded the required file(s), they should be saved in the
-<code class="file docutils literal notranslate"><span class="pre">exercise_data</span></code> directory, under <code class="file docutils literal notranslate"><span class="pre">raster/SRTM</span></code> subfolders.</p>
+<section id="srtm-dem-tiff-create-srtm-dem-tiff-files">
+<h2><span class="section-number">20.2. </span>SRTM DEM tiff ဖိုင်များဖန်တီးခြင်း (Create SRTM DEM tiff files)<a class="headerlink" href="#srtm-dem-tiff-create-srtm-dem-tiff-files" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../create_vector_data/index.html#tm-create-vector-data"><span class="std std-ref">မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</span></a> နှင့်  <a class="reference internal" href="../rasters/index.html#tm-rasters"><span class="std std-ref">မော်ဂျူး - Raster များ (Module: Rasters)</span></a> မော်ဂျူးများအတွက် သင်ရွေးချယ်ထားသောဒေသကို လွှမ်းခြုံသည့် raster image (SRTM DEM) ကိုလည်း လိုအပ်ပါလိမ့်မည်။</p>
+<p><a class="reference external" href="https://srtm.csi.cgiar.org/">CGIAR-CGI</a> သည် SRTM DEM အချို့ကို ထောက်ပံ့ပေးထားပြီး <a class="reference external" href="https://srtm.csi.cgiar.org/srtmdata/">https://srtm.csi.cgiar.org/srtmdata/</a> မှ ဒေါင်းလုဒ်ပြုလုပ်နိုင်ပါသည်။</p>
+<p>သင်ရွေးချယ်ထားသော ဒေသတစ်ခုလုံးကို လွှမ်းခြုံသော image များလိုအပ်ပါသည်။ Extent ကိုဩဒိနိတ်များကိုရှာဖွေရန်  QGIS ထဲတွင် အကြီးဆုံး layer ၏ extent ကို <a class="reference internal" href="../../../_images/mActionZoomToLayer.png"><img alt="zoomToLayer" src="../../../_images/mActionZoomToLayer.png" style="width: 1.5em;" /></a> zoom ပြုလုပ်ပြီး status bar ၏ <a class="reference internal" href="../../../_images/extents.png"><img alt="extents" src="../../../_images/extents.png" style="width: 1.5em;" /></a> <span class="guilabel">Extents</span> အကွက်ထဲရှိ တန်ဖိုးများကို ရယူပါ။ <code class="file docutils literal notranslate"><span class="pre">GeoTiff</span></code> format ဖြင့်ထားပါ။ Form ကိုဖြည့်သွင်းပြီးသည်နှင့် <span class="guilabel">Click here to Begin Search &gt;&gt;</span> ခလုတ်ကိုနှိပ်ပြီး ဖိုင်(များ)ကို ဒေါင်းလုပ်ပြုလုပ်ပါ။</p>
+<p>လိုအပ်သောဖိုင်(များ)ကို ဒေါင်းလုဒ်ပြုလုပ်ပြီးသည်နှင့် ဖိုင်များကို <code class="file docutils literal notranslate"><span class="pre">exercise_data</span></code> ဖိုင်လမ်းကြောင်းထဲရှိ <code class="file docutils literal notranslate"><span class="pre">raster/SRTM</span></code> folder အခွဲအောက်တွင် သိမ်းဆည်းသင့်ပါသည်။</p>
 </section>
-<section id="create-imagery-tiff-files">
-<h2><span class="section-number">20.3. </span>Create imagery tiff files<a class="headerlink" href="#create-imagery-tiff-files" title="Link to this heading"></a></h2>
-<p>In Module <a class="reference internal" href="../create_vector_data/index.html#tm-create-vector-data"><span class="std std-ref">မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</span></a>, <a class="reference internal" href="../create_vector_data/create_new_vector.html#tm-datasources"><span class="std std-ref">★☆☆ လိုက်လုပ်ကြည့်ပါ- Data အရင်းအမြစ်များ (Follow Along: Data Sources)</span></a> lesson shows
-close-up images of three school sports fields
-which students are asked to digitize. You’ll therefore need to reproduce these
-images using your new SRTM DEM tiff file(s). There is no obligation to use school
-sports fields: any three school land-use types can be used (e.g. different
-school buildings, playgrounds or car parks).</p>
-<p>For reference, the image in the example data is:</p>
+<section id="imagery-tiff-create-imagery-tiff-files">
+<h2><span class="section-number">20.3. </span>Imagery tiff ဖိုင်များဖန်တီးခြင်း (Create imagery tiff files)<a class="headerlink" href="#imagery-tiff-create-imagery-tiff-files" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../create_vector_data/index.html#tm-create-vector-data"><span class="std std-ref">မော်ဂျူး- Vector Data များဖန်တီးခြင်း (Module: Creating Vector Data)</span></a> မော်ဂျူးထဲတွင် <a class="reference internal" href="../create_vector_data/create_new_vector.html#tm-datasources"><span class="std std-ref">★☆☆ လိုက်လုပ်ကြည့်ပါ- Data အရင်းအမြစ်များ (Follow Along: Data Sources)</span></a> သင်ခန်းစာသည် ကျောင်းသားများကို digitize ပြုလုပ်ခိုင်းသော ကျောင်းအားကစားကွင်း ၃ ခု၏ အနီးကပ် image များကို ပြသပါသည်။ ထို့ကြောင့် သင်၏ SRTM DEM tiff ဖိုင်(များ) ကိုအသုံးပြုပြီး အဆိုပါ image များကို ပြန်လည်ထုတ်ယူရန် လိုအပ်ပါလိမ့်မည်။ ကျောင်းအားကစားကွင်းများကိုသာ အသုံးပြုရမည်ဟု မကန့်သတ်ထားပါ- မည်သည့် ကျောင်း land-use အမျိုးအစားများ (ဥပမာ- မတူညီသော ကျောင်းအဆောက်အဦများ၊ ကစားကွင်းများ သို့မဟုတ် ကားပါကင်များ) ၃ ခုကိုမဆို အသုံးပြုနိုင်ပါသည်။</p>
+<p>အကိုးအကားပြုရန်အတွက် ဥပမာ data ထဲရှိ image သည်-</p>
 <figure class="align-center">
 <img alt="../../../_images/field_outlines.png" src="../../../_images/field_outlines.png" />
 </figure>
 </section>
 <section id="replace-tokens">
-<h2><span class="section-number">20.4. </span>Replace tokens<a class="headerlink" href="#replace-tokens" title="Link to this heading"></a></h2>
-<p>Having created your localized dataset, the final step is to replace the tokens
-in the <code class="file docutils literal notranslate"><span class="pre">substitutions.txt</span></code> file so that the appropriate names will appear
-in your localized version of the Training Manual.</p>
-<p>The tokens you need to replace are as follows:</p>
+<h2><span class="section-number">20.4. </span>တိုကင်များ အစားထိုးလဲလှယ်ခြင်း (Replace tokens)<a class="headerlink" href="#replace-tokens" title="Link to this heading"></a></h2>
+<p>သင့်ဒေသအတွက် dataset ကိုဖန်တီးပြီးပါက နောက်ဆုံးအဆင့်အနေဖြင့် <code class="file docutils literal notranslate"><span class="pre">substitutions.txt</span></code> ဖိုင်ထဲတွင် တိုကင်များကို အစားထိုးလဲလှယ်ရန်ဖြစ်ပါသည်၊ သို့မှသာ သင့်ကိုယ်ပိုင် Training Manual ဗားရှင်းတွင် သင့်လျော်သောနာမည်များ ပေါ်နေပါလိမ့်မည်။</p>
+<p>အစားထိုးလဲလှယ်ရန် လိုအပ်သည့် တိုကင်များမှာ အောက်ပါအတိုင်းဖြစ်သည်-</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">majorUrbanName</span></code>: this defaults to “Swellendam”. Replace with the name of
-the major town in your region.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">schoolAreaType1</span></code>: this defaults to “athletics field”. Replace with the
-name of the largest school area type in your region.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">largeLandUseArea</span></code>: this defaults to “Bontebok National Park”. Replace
-with the name of a large landuse polygon in your region.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">srtmFileName</span></code>: this defaults to <code class="file docutils literal notranslate"><span class="pre">srtm_41_19.tif</span></code>. Replace this
-with the filename of your SRTM DEM file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">localCRS</span></code>: this defaults to <code class="docutils literal notranslate"><span class="pre">WGS</span> <span class="pre">84</span> <span class="pre">/</span> <span class="pre">UTM</span> <span class="pre">34S</span></code>. You should replace
-this with the correct CRS for your region.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">majorUrbanName</span></code> - Default အားဖြင့် “Swellendam” မြို့ ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသရှိ အဓိကမြို့နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">schoolAreaType1</span></code> - Default အားဖြင့် “athletics field” ဖြစ်ပါသည်။ ၎င်းးကို သင့်ဒေသရှိ အကြီးဆုံးကျောင်းဧရိယာအမျိုးအစား၏နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">largeLandUseArea</span></code> - Default အားဖြင့် “Bontebok National Park” ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသရှိ ကြီးမားသော landuse polygon တစ်ခု၏နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srtmFileName</span></code> - Default အားဖြင့် <code class="file docutils literal notranslate"><span class="pre">srtm_41_19.tif</span></code> ဖိုင်ဖြစ်ပါသည်။ ၎င်းကို သင်၏ SRTM DEM ဖိုင်နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">localCRS</span></code> - Default အားဖြင့် <code class="docutils literal notranslate"><span class="pre">WGS</span> <span class="pre">84</span> <span class="pre">/</span> <span class="pre">UTM</span> <span class="pre">34S</span></code> CRS ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသအတွက် မှန်ကန်သော CRS ဖြင့် အစားထိုးလဲလှယ်သင့်ပါသည်။</p></li>
 </ul>
 </section>
 </section>
@@ -373,14 +310,14 @@ this with the correct CRS for your region.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="contribute.html" class="btn btn-neutral float-left" title="19. Appendix: Contributing To This Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contribute.html" class="btn btn-neutral float-left" title="19. နောက်ဆက်တွဲ - ဤလက်စွဲတွင် ပါဝင်ကူညီခြင်း (Appendix: Contributing To This Manual)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 Jul 03, 13:37 +0630.
+      <span class="lastupdated">Last updated on 2024 Jul 21, 10:24 +0630.
       </span></p>
   </div>
 
