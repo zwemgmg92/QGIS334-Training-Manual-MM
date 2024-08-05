@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. ဒေတာရယူခြင်း (Data Capture) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/data_capture.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. Raster ဒေတာများ (Raster Data)" href="raster_data.html" />
+    <link rel="prev" title="4. Vector Attribute Data" href="vector_attribute_data.html" />
+  <meta name="description" content="QGIS testing documentation: 5. ဒေတာရယူခြင်း (Data Capture)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. ဒေတာရယူခြင်း (Data Capture)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">5.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gis-how-does-gis-digital-data-get-stored">5.2. GIS ဒစ်ဂျစ်တယ်ဒေတာများကို မည်သို့သိမ်းဆည်းထားသနည်း (How does GIS digital data get stored?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#planning-before-you-begin">5.3. မစတင်မီ ကြိုတင်စီစဉ်ခြင်း (Planning before you begin)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-creating-a-tourism-map">5.3.1. ဥပမာ ၁ - ခရီးသွားလုပ်ငန်း မြေပုံတစ်ခုဖန်တီးခြင်း (Example 1: Creating a tourism map)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-creating-a-map-of-pollution-levels-along-a-river">5.3.2. ဥပမာ ၂ - မြစ်တစ်ခု တစ်လျှောက် ညစ်ညမ်းမှုအဆင့်ပြ မြေပုံတစ်ခုဖန်တီးခြင်း (Example 2: Creating a map of pollution levels along a river)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shapefile-creating-an-empty-shapefile">5.4. Shapefile အလွတ်တစ်ခုဖန်တီးခြင်း (Creating an empty shapefile)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shapefile-data-adding-data-to-your-shapefile">5.5. Shapefile ထဲသို့ data ထည့်သွင်းခြင်း (Adding data to your shapefile)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-digitize-heads-up-digitising">5.6. မြင်ကွင်းတွင် မြင်ရသော feature များအပေါ် ခြေရာခံလိုက်ပြီး digitize ပြုလုပ်ခြင်း (Heads-up digitising)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digitising-table-digitize-digitising-using-a-digitising-table">5.7. Digitising table တစ်ခုကို အသုံးပြုပြီး Digitize ပြုလုပ်ခြင်း (Digitising using a digitising table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-digitize-after-your-features-are-digitised">5.8. Feature များကို digitize ပြုလုပ်ပြီးသောအခါ… (After your features are digitised…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-problems-things-to-be-aware-of">5.9. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">5.10. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">5.11. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">5.12. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">5.13. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">5.14. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>ဒေတာရယူခြင်း (Data Capture)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/data_capture.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="vector_attribute_data.html" class="btn btn-neutral float-left" title="4. Vector Attribute Data" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="raster_data.html" class="btn btn-neutral float-right" title="6. Raster ဒေတာများ (Raster Data)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="data-capture">
+<h1><span class="section-number">5. </span>ဒေတာရယူခြင်း (Data Capture)<a class="headerlink" href="#data-capture" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>Vector နှင့် attribute data များကို ဖန်တီးပုံနှင့် ပြင်ဆင်တည်းဖြတ်ပုံကို လေ့လာရန်။</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Editing ၊ data capture ၊ heads-up ၊ table ၊ database</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">5.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ယခင် ခေါင်းစဉ်နှစ်ခုတွင် vector data များအကြောင်း လေ့လာခဲ့ပါသည်။ Vector data တွင် <strong>geometry</strong> နှင့် <strong>attributes</strong> ဆိုသည့် အဓိကသဘောတရားနှစ်ခု ရှိသည်ကို တွေ့ခဲ့ရပါသည်။ Vector feature တစ်ခု၏ ဂျီဩမေတြီသည် ၎င်း၏ <strong>shape</strong> နှင့် <strong>position</strong> ကိုဖော်ပြပေးပါသည်၊ vector feature တစ်ခု၏ <strong>attributes</strong> များသည် ၎င်း၏ <strong>properties</strong> (အရောင်၊ အရွယ်အစား၊ အသက်၊ အစရှိသဖြင့်) ကိုဖော်ပြပေးပါသည်။</p>
+<p>ဤအခန်းတွင် vector feature များ၏ ဂျီဩမေတြီနှင့် attribute များနှစ်ခုစလုံးကို ဖန်တီးခြင်းနှင့် ပြင်ဆင်တည်းဖြတ်ခြင်းလုပ်ငန်းစဉ်များကို အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="gis-how-does-gis-digital-data-get-stored">
+<h2><span class="section-number">5.2. </span>GIS ဒစ်ဂျစ်တယ်ဒေတာများကို မည်သို့သိမ်းဆည်းထားသနည်း (How does GIS digital data get stored?)<a class="headerlink" href="#gis-how-does-gis-digital-data-get-stored" title="Link to this heading"></a></h2>
+<p>Word processor များ၊ spreadsheet များနှင့် ဂရပ်ဖစ် package များသည် Digital data များကို ဖန်တီးခြင်းနှင့် edit ပြုလုပ်ခြင်းကိုလုပ်ဆောင်နိုင်သော ပရိုဂရမ်များဖြစ်ပါသည်။ Application တစ်မျိုးချင်းစီသည် data ကို သီးသန့်ဖိုင် format ဖြင့်သိမ်းဆည်းပါသည်။ ဥပမာအားဖြင့် ဂရပ်ဖစ်ပရိုဂရမ်တစ်ခုသည် ရေးဆွဲထားသည့်အရာကို <code class="file docutils literal notranslate"><span class="pre">.jpg</span></code> JPEG တစ်ခုအဖြစ်၊ word processor များသည် document များကို <code class="file docutils literal notranslate"><span class="pre">.odt</span></code> OpenDocument သို့မဟုတ် <code class="file docutils literal notranslate"><span class="pre">.doc</span></code> Word Document တစ်ခုအဖြစ်၊ အစရှိသဖြင့် သိမ်းဆည်းပေးနိုင်ပါသည်။</p>
+<p>အခြားသော application များကဲ့သို့ပင် GIS application များသည် data များကို ကွန်ပျူတာ hard disk ပေါ်တွင် သိမ်းဆည်းပေးနိုင်ပါသည်။ GIS data များအတွက် မတူညီသောဖိုင် format များစွာရှိပါသည်၊ သို့သော် အသုံးအများဆုံးတစ်ခုသည် ‘shape file’ ဖြစ်ပါလိမ့်မည်။ ‘shape file’ တစ်ခုဟု အနည်း (singular) ဖြင့် နာမည်ခေါ်ဆိုသော်လည်း အမှန်တကယ် ၎င်းဖိုင်ထဲတွင် digital vector data များကို သိမ်းဆည်းရာတွင် အတူတကွလုပ်ဆောင်ပေးသော မတူညီသည့်ဖိုင် အနည်းဆုံး ၃ ခုပါဝင်ပါသည်၊ <a class="reference internal" href="#table-shapefile">table_shapefile</a> တွင်ပြသထားပါသည်။</p>
+<table class="docutils align-default" id="table-shapefile">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Extension</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="file docutils literal notranslate"><span class="pre">.shp</span></code></p></td>
+<td><p>Vector feature များ၏ ဂျီဩမေတြီများကို ဤဖိုင်ထဲတွင် သိမ်းဆည်းပါသည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="file docutils literal notranslate"><span class="pre">.dbf</span></code></p></td>
+<td><p>Vector feature များ၏ attribute များကို ဤဖိုင်ထဲတွင် သိမ်းဆည်းပါသည်</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="file docutils literal notranslate"><span class="pre">.shx</span></code></p></td>
+<td><p>ဤဖိုင်သည် index ဖိုင်တစ်ခုဖြစ်ပြီး feature များကို ပိုမိုလျှင်မြန်စွာရှာဖွေနိုင်ရန် GIS Application ကိုကူညီပေးပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table Shapefile 1: ‘shapefile’ တစ်ခုတွင် အတူတကွပါဝင်သော အခြေခံဖိုင်များ။</p>
+<p>Shapefile တစ်ခုတွင်ပါဝင်သော ဖိုင်များကို ကွန်ပျူတာ hard disk ပေါ်တွင် ကြည့်ပါက <a class="reference internal" href="#figure-shapefile"><span class="std std-numref">Fig. 5.8</span></a> ကဲ့သို့ မြင်တွေ့ရပါလိမ့်မည်။ Shapefile ထဲတွင် သိမ်းဆည်းထားသော vector data ကို အခြားသူများသို့ မျှဝေလိုပါက ထို layer အတွက် ဖိုင်များအားလုံးကို ပေးရန် အရေးကြီးပါသည်။ ထို့ကြောင့် <a class="reference internal" href="#figure-shapefile"><span class="std std-numref">Fig. 5.8</span></a> တွင် ပြထားသော trees layer ကိုမျှဝေလိုပါက <code class="file docutils literal notranslate"><span class="pre">trees.shp</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">trees.shx</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">trees.dbf</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">trees.prj</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">trees.qml</span></code> ဖိုင်များကိုပေးရန် လိုအပ်ပါသည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-shapefile"></span><a class="reference internal image-reference" href="../../_images/shapefile_on_disk.png"><img alt="../../_images/shapefile_on_disk.png" src="../../_images/shapefile_on_disk.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">’trees’ shapefile တွင်ပါဝင်သော ဖိုင်များကို ကွန်ပျူတာ၏ဖိုင် manager တွင် မြင်တွေ့ရပုံ</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>GIS application များစွာသည် digital data များကို <strong>database</strong> တစ်ခုထဲတွင်လည်း သိမ်းဆည်းပေးနိုင်ပါသည်။ ယေဘုယျအားဖြင့် database တစ်ခုထဲတွင် GIS data များသိမ်းဆည်းခြင်းသည် data <strong>ပမာဏများစွာ</strong> ကို <strong>ထိရောက်စွာ</strong> သိမ်းဆည်းပေးနိုင်ပြီး data များကို GIS Application မှ လျှင်မြန်စွာရယူသုံးစွဲနိုင်စေသောကြောင့် ကောင်းမွန်သောနည်းတစ်ခုဖြစ်ပါသည်။ Database တစ်ခုကို အသုံးပြုခြင်းသည် တူညီသော vector data layer များကို တစ်ချိန်တည်းတွင် လူများစွာမှ အသုံးပြုနိုင်ပါသည်။ GIS data များသိမ်းဆည်းရန် database တစ်ခုကို set up လုပ်ခြင်းသည် shapefile များအသုံးပြုခြင်းထက် ပိုမိုရှုပ်ထွေးပါသည်၊ ထို့ကြောင့် ဤခေါင်းစဉ်တွင် shapefile များဖန်တီးခြင်းနှင့် edit ပြုလုပ်ခြင်းကိုသာ အာရုံစိုက်ဦးမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="planning-before-you-begin">
+<h2><span class="section-number">5.3. </span>မစတင်မီ ကြိုတင်စီစဉ်ခြင်း (Planning before you begin)<a class="headerlink" href="#planning-before-you-begin" title="Link to this heading"></a></h2>
+<p>Vector layer အသစ်တစ်ခု (shapefile တစ်ခုထဲတွင် သိမ်းဆည်းမည့်) ကို မဖန်တီးခင်တွင် layer ၏ ဂျီဩမေတြီ (point ၊ polyline သို့မဟုတ် polygon) ကိုသိရန်လိုအပ်ပါသည်၊ ထို layer တွင် မည်သည့် attribute များပါဝင်မည်ကိုလည်း သိရှိရန် လိုအပ်ပါသည်။ ဤအရာနှင့်ပတ်သက်ပြီး ပိုမိုရှင်းလင်းစေရန် ဥပမာအနည်းငယ်ကို ကြည့်ကြပါစို့။</p>
+<section id="example-1-creating-a-tourism-map">
+<h3><span class="section-number">5.3.1. </span>ဥပမာ ၁ - ခရီးသွားလုပ်ငန်း မြေပုံတစ်ခုဖန်တီးခြင်း (Example 1: Creating a tourism map)<a class="headerlink" href="#example-1-creating-a-tourism-map" title="Link to this heading"></a></h3>
+<p>သင့်ဒေသအတွက် ခရီးသွားလုပ်ငန်းမြေပုံကောင်းကောင်းတစ်ပုံကို ဖန်တီးလိုသည်ဆိုပါစို့။ အချောသတ်မြေပုံသည် 1:50 000 toposheet တစ်ခုဖြစ်ပြီး ခရီးသွားများ စိတ်ဝင်စားစေမည့်နေရာများကို အမှတ်အသားပြုလုပ်ထားမည်ဖြစ်သည်။ ပထမဦးစွာ ဂျီဩမေတြီအကြောင်း စဉ်းစားကြည့်ကြပါစို့။ Point ၊ polyline သို့မဟုတ် polygon feature များအသုံးပြုထားသော vector layer တစ်ခုကို ပြသပေးနိုင်သည်ကို သိရှိပြီးဖြစ်ပါသည်။ ကျွန်ုပ်တို့၏ ခရီးသွားလုပ်ငန်းမြေပုံအတွက် မည်သည့်အရာသည် ပိုပြီး အဓိပ္ပါယ်ရှိမည်နည်း။ ရှုခင်းနေရာများ၊ အထိမ်းအမှတ်နေရာများ၊ တိုက်ပွဲနေရာများ အစရှိသည့် သီးသန့်တည်နေရာများကို အမှတ်အသားပြုလုပ်လိုပါက point များကို အသုံးပြုနိုင်ပါသည်။ တောင်ပေါ်လျှောက်လမ်းတစ်ခုကိုဖြတ်ပြီး ရှုခင်းကြည့်လမ်းကြောင်းတလျှောက် ခရီးသွားများကို ခေါ်ဆောင်သွားလိုပါက polyline များကိုအသုံးပြုခြင်းသည် ပိုအဓိပ္ပါယ်ရှိပါသည်။ သဘာဝကာကွယ်တောများ သို့မဟုတ် ရိုးရာကျေးရွာ ကဲ့သို့သော ခရီးသွားများ စိတ်ဝင်စားသည့် ဧရိယာတစ်ခုလုံးရှိပါက polygon ကိုရွေးချယ်သင့်ပါသည်။</p>
+<p>တစ်ခါတရံတွင် မည်သည့် ဂျီဩမေတြီအမျိုးအစား လိုအပ်သည်ကို သိရှိရန် မလွယ်ကူပါ။ ဤပြဿနာအတွက် အသုံးများသောနည်းလမ်းတစ်ခုသည် သင်လိုအပ်သော ဂျီဩမေတြီအမျိုးအစားတစ်ခုချင်းစီအတွက် layer တစ်ခုစီပြုလုပ်ရန်ဖြစ်ပါသည်။ ဥပမာအားဖြင့် Chief Directorate: Surveys and Mapping ၊ South Africa မှ digital data ကိုကြည့်ပါက river areas (polygon) layer တစ်ခုနှင့် rivers polyline layer တစ်ခုရှိပါသည်။ ကျယ်ပြန့်သော မြစ်ပြန့်ကားမှုကို ပြသရန် river areas (polygon) ကိုအသုံးပြုထားပြီး ကျဉ်းမြောင်းသောမြစ်များကို ပြသရန် river polyline များကိုအသုံးပြုထားပါသည်။ ဂျီဩမေတြီအမျိုးအစား ၃ ခုစလုံးကို အသုံးပြုပါက tourism layer များကို မြေပုံပေါ်တွင် မည်သို့မြင်တွေ့ရမည်ကို <a class="reference internal" href="#figure-tourism"><span class="std std-numref">Fig. 5.9</span></a> တွင်ကြည့်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-tourism"></span><a class="reference internal image-reference" href="../../_images/tourism_map.png"><img alt="../../_images/tourism_map.png" src="../../_images/tourism_map.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Tourism layer များပါဝင်သော မြေပုံတစ်ခု။ Tourism data အတွက် မတူညီသော ဂျီဩမေတြီအမျိုးအစား ၃ မျိုးကို အသုံးပြုထားပါသည်၊ ထို့ကြောင့် ခရီးသွားများအတွက် လိုအပ်သော မတူညီသည့် feature အမျိုးအစားများကို ပြသပေးနိုင်မည်ဖြစ်ပြီး ၎င်းတို့လိုအပ်သော အချက်အလက်များအားလုံးကို ပေးနိုင်မည်ဖြစ်သည်။</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="example-2-creating-a-map-of-pollution-levels-along-a-river">
+<h3><span class="section-number">5.3.2. </span>ဥပမာ ၂ - မြစ်တစ်ခု တစ်လျှောက် ညစ်ညမ်းမှုအဆင့်ပြ မြေပုံတစ်ခုဖန်တီးခြင်း (Example 2: Creating a map of pollution levels along a river)<a class="headerlink" href="#example-2-creating-a-map-of-pollution-levels-along-a-river" title="Link to this heading"></a></h3>
+<p>မြစ်ကမ်းပါးတစ်လျှောက် ညစ်ညမ်းမှုအဆင့်များကို တိုင်းတာလိုပါက မြစ်တစ်လျှောက် လှေဖြင့်သွားလာပြီး သို့မဟုတ် မြစ်ကမ်းတစ်လျှောက် လမ်းလျှောက်ပြီး တိုင်းတာပါမည်။ တူညီသောအကွာအဝေးတစ်ခုရောက်တိုင်း ရပ်ပြီး Dissolved Oxygen (DO) အဆင့်များ၊ Coliform Bacteria (CB) ပမာဏများ၊ Turbidity (ရေနောက်ကျိခြင်း) အဆင့်များနှင့် pH ကဲ့သို့သော အမျိုးမျိုးသောတိုင်းတာမှုများကို လုပ်ဆောင်ပါမည်။ သင်တိုင်းတာခဲ့သော တည်နေရာများကို GPS receiver တစ်ခုအသုံးပြုပြီးတည်နေရာရယူကာ မြေပုံတစ်ခုဖန်တီးရန်လည်း လိုအပ်ပါလိမ့်မည်။</p>
+<p>ထိုကဲ့သို့သော လေ့ကျင့်ခန်းတစ်ခုမှ စုဆောင်းထားသော data များကို GIS Application တစ်ခုထဲတွင် သိမ်းဆည်းရန် point ဂျီဩမေတြီဖြင့် GIS layer တစ်ခုဖန်တီးရပါမည်။ ဤဥပမာတွင် ကောက်ယူထားသော နမူနာတစ်ခုချင်းစီသည် သီးခြားနေရာတစ်ခုစီ၌ရှိသော အခြေအနေများကို ကိုယ်စားပြုသောကြောင့် point ဂျီဩမေတြီကို အသုံးပြုခြင်းသည် ပိုမိုအဓိပ္ပါယ်ရှိပါသည်။</p>
+<p>နမူနာနေရာအကြောင်း ဖော်ပြပေးသော အရာတစ်ခုချင်းစီအတွက် attribute တွင် <strong>field</strong> တစ်ခုစီလိုအပ်ပါမည်။ ထို့ကြောင့် <a class="reference internal" href="#table-river-attributes">table_river_attributes</a> ကဲ့သို့ attribute table တစ်ခုရှိရပါလိမ့်မည်။</p>
+<table class="docutils align-default" id="table-river-attributes">
+<thead>
+<tr class="row-odd"><th class="head"><p>SampleNo</p></th>
+<th class="head"><p>pH</p></th>
+<th class="head"><p>DO</p></th>
+<th class="head"><p>CB</p></th>
+<th class="head"><p>Turbidity</p></th>
+<th class="head"><p>Collector</p></th>
+<th class="head"><p>Date</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>6</p></td>
+<td><p>N</p></td>
+<td><p>Low</p></td>
+<td><p>Patience</p></td>
+<td><p>12/01/2009</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>6.8</p></td>
+<td><p>5</p></td>
+<td><p>Y</p></td>
+<td><p>Medium</p></td>
+<td><p>Thabo</p></td>
+<td><p>12/01/2009</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>6.9</p></td>
+<td><p>6</p></td>
+<td><p>Y</p></td>
+<td><p>High</p></td>
+<td><p>Victor</p></td>
+<td><p>12/01/2009</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table River Attributes 1 - Vector layer ကိုမဖန်တီးခင်တွင် ထိုကဲ့သို့သော table တစ်ခုကိုရေးဆွဲခြင်းသည် မည်သည့် attribute field (column) များကို လိုအပ်မည်ကို ဆုံးဖြတ်ပေးစေနိုင်ပါသည်။ ဂျီဩမေတြီ (နမူနာကောက်ယူထားသော တည်နေရာများ) ကို attribute table တွင် ပြသထားခြင်းမရှိသည်ကို သတိပြုပါ — ၎င်းကို GIS Application မှ သီးခြားသိမ်းဆည်းထားပါသည်။</p>
+</section>
+</section>
+<section id="shapefile-creating-an-empty-shapefile">
+<h2><span class="section-number">5.4. </span>Shapefile အလွတ်တစ်ခုဖန်တီးခြင်း (Creating an empty shapefile)<a class="headerlink" href="#shapefile-creating-an-empty-shapefile" title="Link to this heading"></a></h2>
+<p>GIS ထဲသို့ မည်သည့် feature များထည့်သွင်းလိုသည်နှင့် feature တစ်ခုချင်းစီတွင် ရှိသင့်သည့် ဂျီဩမေတြီအမျိုးအစားနှင့် attribute များကို စီစဉ်ပြီးပါက shapefile အလွတ်တစ်ခုဖန်တီးခြင်းအဆင့်ကို ပြုလုပ်နိုင်ပြီဖြစ်ပါသည်။</p>
+<p>GIS Application ထဲတွင် ‘new vector layer’ option ကိုရွေးချယ်ပြီး ဂျီဩမေတြီအမျိုးအစားတစ်ခုကို ရွေးပေးခြင်းဖြင့် လုပ်ငန်းစဉ်ကို စတင်လေ့ရှိပါသည် (<a class="reference internal" href="#figure-new-shapefile"><span class="std std-numref">Fig. 5.10</span></a> တွင်ကြည့်ပါ)။ အစောပိုင်းခေါင်းစဉ်တစ်ခုတွင် တွေ့ခဲ့ရသည့်အတိုင်း ဂျီဩမေတြီအတွက် point ၊ polyline သို့မဟုတ် polygon တစ်ခုခုရွေးချယ်ခြင်းဖြစ်သည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-new-shapefile"></span><a class="reference internal image-reference" href="../../_images/new_shapefile.png"><img alt="../../_images/new_shapefile.png" src="../../_images/new_shapefile.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Vector layer အသစ်တစ်ခုဖန်တီးခြင်းသည် form တစ်ခုထဲတွင် အသေးစိတ်အချက်အလက်အနည်းငယ်ဖြည့်သကဲ့သို့ ရိုးရှင်းပါသည်။ ပထမဦးစွာ ဂျီဩမေတြီအမျိုးအစားကို ရွေးချယ်ပါ၊ ထို့နောက် attribute field များကို ထည့်သွင်းပါ။</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>နောက်တစ်ဆင့်အနေဖြင့် attribute table ထဲတွင် field များထည့်သွင်းရပါမည်။ ပုံမှန်အားဖြင့် ထို field ထဲတွင် သိမ်းဆည်းထားသော အချက်အလက်အမျိုးအစားကို ညွှန်ပြပေးသည့် field နာမည်များကာ နာမည်တိုပြီး space များမပါဝင်ပါ။ ဥပမာ field နာမည်များမှာ  ‘pH’ ၊ ‘RoofColour’ ၊ ‘RoadType’ အစရှိသည်တို့ ဖြစ်ပါသည်။ Field တစ်ခုချင်းစီအတွက် နာမည်ရွေးချယ်ခြင်းအပြင် ထို field ထဲတွင် အချက်အလက်များကို မည်ကဲ့သို့သိမ်းဆည်းသင့်သည်ကိုလည်း ညွှန်ပြပေးရန်လိုအပ်ပါသည် — ဆိုလိုသည်မှာ ဂဏန်းတစ်ခုသိမ်းဆည်းမည်လား၊ စာလုံးတစ်လုံး သို့မဟုတ် စာကြောင်းတစ်ကြောင်း သိမ်းဆည်းမည်လား၊ ရက်စွဲတစ်ခု သိမ်းဆည်းမည်လား။</p>
+<p>ကွန်ပျူတာပရိုဂရမ်များသည် များသောအားဖြင့် <strong>strings</strong> ဖြစ်သော စာလုံး သို့မဟုတ် စာကြောင်း အချက်အလက်များကို ခေါ်ယူပေးပါသည်၊ ထို့ကြောင့် လမ်းနာမည် သို့မဟုတ် မြစ်နာမည်တစ်ခု ကဲ့သို့အရာများ သိမ်းဆည်းလိုပါက ထို field အမျိုးအစားအတွက် ‘String’ ကိုအသုံးပြုသင့်ပါသည်။</p>
+<p>Shapefile format သည် ကိန်းဂဏန်းအချက်အလက်များကို ကိန်းပြည့် (<strong>integer</strong>) သို့မဟုတ် ဒဿမကိန်း (<strong>floating point</strong>) တစ်ခုခုအနေဖြင့် သိမ်းဆည်းပေးနိုင်ပါသည် — ထို့ကြောင့် သင်ရယူမည့် ကိန်းဂဏန်း data သည် ဒဿမကိန်း ပါ/မပါ ကို ကြိုတင်စဉ်းစားထားရန် လိုအပ်ပါသည်။</p>
+<p>Shapefile တစ်ခုဖန်တီးရန်အတွက် နောက်ဆုံးအဆင့် (<a class="reference internal" href="#figure-save-shapefile"><span class="std std-numref">Fig. 5.11</span></a> တွင်ပြထားသည့်အတိုင်း) သည် shapefile ကိုနာမည်ပေးရန်နှင့် ၎င်းကို သိမ်းဆည်းမည့် ကွန်ပျူတာ hard disk ပေါ်ရှိ နေရာကို သတ်မှတ်ပေးရန်ဖြစ်သည်။ Shapefile ကို တိုတိုနှင့် အဓိပ္ပါယ်ရှိသော နာမည်ပေးလျှင် ပိုကောင်းပါသည်။ ဥပမာကောင်းများမှာ ‘rivers’ ၊ ‘watersamples’ စသည်တို့ဖြစ်သည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-save-shapefile"></span><a class="reference internal image-reference" href="../../_images/save_shapefile.png"><img alt="../../_images/save_shapefile.png" src="../../_images/save_shapefile.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Layer အသစ်၏ ဂျီဩမေတြီနှင့် attribute များကို သတ်မှတ်ပေးသောအခါ ၎င်းကို ကွန်ပျူတာထဲတွင် သိမ်းဆည်းရန် လိုအပ်ပါသည်။ Shapefile ကို တိုတိုနှင့် အဓိပ္ပါယ်ရှိသော နာမည်ပေးရန် အရေးကြီးပါသည်။</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>လုပ်ငန်းစဉ်ကို နောက်တစ်ကြိမ် အကျဉ်းချုပ်ကြည့်ပါမည်။ Shapefile တစ်ခုကိုဖန်တီးရာတွင် အသုံးပြုမည့် ဂျီဩမေတြီအမျိုးအစားကို ဦးစွာသတ်မှတ်ပေးပြီး attribute table အတွက် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော field များကို ဖန်တီးပေးပါ၊ ထို့နောက်တွင် shapefile ကို မှတ်မိလွယ်သော နာမည်တစ်ခုပေးပြီး ကွန်ပျူတာထဲတွင် သိမ်းဆည်းပါ။ အဆင့် ၁-၂-၃ အတိုင်း အလွယ်တကူလုပ်နိုင်ပါသည်။</p>
+</section>
+<section id="shapefile-data-adding-data-to-your-shapefile">
+<h2><span class="section-number">5.5. </span>Shapefile ထဲသို့ data ထည့်သွင်းခြင်း (Adding data to your shapefile)<a class="headerlink" href="#shapefile-data-adding-data-to-your-shapefile" title="Link to this heading"></a></h2>
+<p>ယခုအချိန်ထိ shapefile အလွတ်တစ်ခုကိုသာ ဖန်တီးရပါသေးသည်။ GIS Application ထဲရှိ ‘enable editing’ menu သို့မဟုတ် tool bar icon ကိုအသုံးပြုပြီး shapefile edit ပြုလုပ်ခြင်းကို ဖွင့်ပေးရန် လိုအပ်ပါသည်။ Shapefile များတွင် ပါဝင်သော data များကို မတော်တဆ ပြောင်းလဲခြင်း သို့မဟုတ် ဖျက်မိခြင်းမှ ကာကွယ်ပေးရန် shapefile များ edit ပြုလုပ်ခြင်းကို default အားဖြင့် ဖွင့်မပေးထားပါ။  နောက်တစ်ဆင့်အနေဖြင့် data များစတင်ထည့်သွင်းရန် လိုအပ်ပါသည်။ Shapefile ထဲသို့ထည့်သွင်းမည့် record တစ်ခုချင်းစီအတွက် လုပ်ဆောင်ရန် အဆင့် ၂ ဆင့်ရှိပါသည်-</p>
+<ol class="arabic simple">
+<li><p>ဂျီဩမေတြီ ရေးဆွဲခြင်း</p></li>
+<li><p>Eများဖြည့်သွင်းခြင်း</p></li>
+</ol>
+<p>ဂျီဩမေတြီရေးဆွဲခြင်းလုပ်ငန်းစဉ်သည် point ၊ polyline နှင့် polygon များအကြား ကွာခြားပါသည်။</p>
+<p><strong>Point တစ်ခုကို ရေးဆွဲရန်</strong>၊ ရေးဆွဲမည့် data ရှိသည့် ဧရိယာအမှန်သို့ရောက်ရှိရန် map pan နှင့် zoom tool များကို အသုံးပြုပါ။ ထို့နောက် point capture tool ကို ဖွင့်ပေးရန် လိုအပ်ပါမည်။ ဖွင့်ပေးပြီးပါက မြေပုံမြင်ကွင်းထဲတွင် point <strong>ဂျီဩမေတြီ</strong> အသစ်ပေါ်လိုသောနေရာ၌ <strong>ဘယ်ဘက်မောက်စ်ခလုတ်</strong> ကို click နှိပ်ပါ။ မြေပုံတွင် click နှိပ်ပြီးပါက window တစ်ခုပေါ်လာမည်ဖြစ်ပြီး ထို point အတွက် <strong>attribute data</strong> များအားလုံးကို ထည့်သွင်းပေးနိုင်ပါသည် (<a class="reference internal" href="#figure-attribute-dialog"><span class="std std-numref">Fig. 5.12</span></a> တွင်ကြည့်ပါ)၊။ Field တစ်ခုအတွက် data မသေချာပါက field ကို အလွတ်ထားခဲ့နိုင်ပါသည်၊ သို့သော် field အလွတ်များစွာချိန်ထားခဲ့ပါက သင့် data ကိုအသုံးပြုပြီး အသုံးဝင်သောမြေပုံတစ်ခု ဖန်တီးရန် ခက်ခဲပါလိမ့်မည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-attribute-dialog"></span><a class="reference internal image-reference" href="../../_images/attribute_dialog.png"><img alt="../../_images/attribute_dialog.png" src="../../_images/attribute_dialog.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Point ဂျီဩမေတြီကို ရေးဆွဲပြီးပါက point ၏ attribute များကို ထည့်သွင်းပေးရန် မေးမြန်းပါလိမ့်မည်။ Attribute form သည် သင် vector layer ဖန်တီးခဲ့စဉ်က သတ်မှတ်ပေးထားသော field များပေါ်တွင် အခြေခံထားပါသည်။</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Polyline တစ်ခုကိုရေးဆွဲရန်</strong> လုပ်ငန်းစဉ်သည် point ရေးဆွဲခြင်းနှင့် ဆင်တူပါသည်၊ ရေးဆွဲမည့် data ရှိသည့် ဧရိယာအမှန်သို့ရောက်ရှိရန် map pan နှင့် zoom tool များကို ဦးစွာအသုံးပြုပါ။ Vector polyline feature အသစ်တွင် သင့်လျော်သော စကေး တစ်ခုရှိနိုင်စေရန် မြေပုံကို လုံလောက်စွာ zoom ချဲ့ထားသင့်ပါသည် (စကေးနှင့်ပတ်သက်၍ <a class="reference internal" href="vector_data.html#gentle-gis-vector-data"><span class="std std-ref">Vector ဒေတာများ (Vector Data)</span></a> တွင် အသေးစိတ်ကြည့်ပါ)။ ရေးဆွဲရန် အသင့်ဖြစ်သောအခါ toolbar ထဲရှိ polyline capture icon ကိုနှိပ်ပြီး မြေပုံပေါ်တွင် click နှိပ်ကာ polyline ကိုစတင်ရေးဆွဲပါ။ ပထမဦးဆုံး click ကိုနှိပ်ပြီးသည်နှင့် လိုင်းသည် mouse coursor ရွှေ့သည့်အတိုင်း အချုံ့အဆန့်ပြုလုပ်သည်ကို တွေ့ရပါလိမ့်မည်။ <strong>ဘယ်ဘက် mouse ခလုတ်</strong> ကို တစ်ချက်နှိပ်တိုင်း မြေပုံထဲတွင် vertex အသစ်တစ်ခုကို ထည့်သွင်းပေးပါလိမ့်မည်။ လုပ်ငန်းစဉ်ကို <a class="reference internal" href="#figure-capture-polyline"><span class="std std-numref">Fig. 5.13</span></a> တွင် ပြသထားပါသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-capture-polyline"></span><a class="reference internal image-reference" href="../../_images/capture_polyline.png"><img alt="../../_images/capture_polyline.png" src="../../_images/capture_polyline.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.13 </span><span class="caption-text">ခရီးသွားလုပ်ငန်းမြေပုံတစ်ခုအတွက် line များရေးဆွဲခြင်း။ Line layer တစ်ခုကို edit ပြုလုပ်သောအခါ vertex များကို စက်ဝိုင်းအမှတ်အသားဖြင့်ပြသပေးမည်ဖြစ်ပြီး ၎င်းတို့ကို mouse ဖြင့်ရွှေ့ကာ line ၏ဂျီဩမေတြီကို ချိန်ညှိပြင်ဆင်နိုင်ပါသည်။ Line အသစ်တစ်ခုထည့်သွင်းသောအခါ (အနီရောင်ဖြင့်ပြထားသော) mouse click တစ်ချက်စီတိုင်းတွင် vertex အသစ်တစ်ခုကို ထည့်သွင်းပေးပါလိမ့်မည်။</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Line ကိုသတ်မှတ်ပြီးပါက <strong>ညာဘက် mouse ခလုတ်</strong> ကိုနှိပ်ပြီး edit ကိုအပြီးသတ်ပါ။ Point feature ရေးဆွဲခြင်းကဲ့သို့ပင် polyline feature အသစ်အတွက် attribute data ထဲတွင် ထည့်သွင်းရန် မေးမြန်းပါလိမ့်မည်။</p>
+<p><strong>Polygon တစ်ခုရေးဆွဲခြင်း</strong> လုပ်ငန်းစဉ်သည် toolbar ထဲတွင် polygon capture tool ကိုအသုံးပြုခြင်းမှလွဲ၍ polyline ရေးဆွဲခြင်းလုပ်ငန်းစဉ်နှင့် အတူတူနီးပါးဖြစ်ပါသည်။ မြေပုံပေါ်တွင် polygon ဂျီဩမေတြီကို ရေးဆွဲသောအခါ GIS Application သည် ဧရိယာအပိတ် တစ်ခုကို  အမြဲဖန်တီးပေးသည်ကို တွေ့ရပါလိမ့်မည်။</p>
+<p>ပထမ feature တစ်ခုကို ဖန်တီးပြီးနောက် feature အသစ်တစ်ခုကို ထပ်ထည့်သွင်းရန် point ၊ polyline သို့မဟုတ် polygon capture tool ဖြင့် မြေပုံပေါ်တွင် နောက်တစ်ကြိမ် click ထပ်နှိပ်ပြီး နောက်ထပ် feature များကို စတင်ရေးဆွဲပါ။</p>
+<p>နောက်ထပ် ထည့်သွင်းစရာ feature များမရှိတော့ပါက edit ကိုပိတ်ရန် ‘allow editing’ icon ကို click နှိပ်ပါ။ ထို့နောက်တွင် GIS Application သည် သင်ဖန်တီးထားသော layer အသစ်ကို ကွန်ပျူတာထဲတွင် သိမ်းဆည်းပေးပါလိမ့်မည်။</p>
+</section>
+<section id="feature-digitize-heads-up-digitising">
+<h2><span class="section-number">5.6. </span>မြင်ကွင်းတွင် မြင်ရသော feature များအပေါ် ခြေရာခံလိုက်ပြီး digitize ပြုလုပ်ခြင်း (Heads-up digitising)<a class="headerlink" href="#feature-digitize-heads-up-digitising" title="Link to this heading"></a></h2>
+<p>အထက်တွင်ဖော်ပြထားသော အဆင့်များအတိုင်းလိုက်လုပ်ပါက အကိုးအကားအဖြစ်အသုံးပြုနိုင်သော အခြား feature များမရှိလျှင် ရေးဆွဲမည့် feature များကို <strong>တည်နေရာအရမှန်ကန်မှု</strong> ရှိစေရန် အတော်အသင့်ခက်ခဲသည်ကို တွေ့ရပါလိမ့်မည်။ ဤပြဿနာအတွက် အသုံးများသောအဖြေတစ်ခုမှာ raster layer (ကောင်းကင်ဓာတ်ပုံ သို့မဟုတ် ဂြိုလ်တုဓာတ်ပုံ ကဲ့သို့သော) တစ်ခုကို နောက်ခံ (backdrop) layer အဖြစ်အသုံးပြုခြင်းဖြစ်သည်။ ဤ raster layer ကို အကိုးအကားမြေပုံတစ်ခုအဖြစ် အသုံးပြုနိုင်ပါသည်၊ သို့မဟုတ် raster layer ပေါ်ရှိ feature များကို မြင်ရပါက vector layer အဖြစ်သို့ပင် ခြေရာခံရေးဆွဲနိုင်ပါသည်။ ထိုလုပ်ငန်းစဉ်ကို ‘heads-up digitising’ ဟုခေါ်ဆိုပြီး <a class="reference internal" href="#figure-headsup-digitizing"><span class="std std-numref">Fig. 5.14</span></a> တွင် ပြထားပါသည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-headsup-digitizing"></span><a class="reference internal image-reference" href="../../_images/headsup_digitizing.png"><img alt="../../_images/headsup_digitizing.png" src="../../_images/headsup_digitizing.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.14 </span><span class="caption-text">ဂြိုလ်တုဓာတ်ပုံတစ်ခုအား backdrop အဖြစ်အသုံးပြုပြီး Heads-up digitising ပြုလုပ်ခြင်း။ Polyline feature များရေးဆွဲရန်အတွက် ဓာတ်ပုံကို အကိုးအကားအဖြစ် အသုံးပြုထားပါသည်။</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="digitising-table-digitize-digitising-using-a-digitising-table">
+<h2><span class="section-number">5.7. </span>Digitising table တစ်ခုကို အသုံးပြုပြီး Digitize ပြုလုပ်ခြင်း (Digitising using a digitising table)<a class="headerlink" href="#digitising-table-digitize-digitising-using-a-digitising-table" title="Link to this heading"></a></h2>
+<p>Vector data ရေးဆွဲရန် နောက်ထပ်နည်းလမ်းတစ်ခုမှာ digitizing table တစ်ခုကို အသုံးပြုခြင်းဖြစ်သည်။ ဤနည်းလမ်းသည် GIS professional များမှလွဲ၍ အခြားသူများ အသုံးနည်းပြီး ဈေးကြီးသောကိရိယာများ လိုအပ်ပါသည်။ Digitising table တစ်ခုအသုံးပြုခြင်းလုပ်ငန်းစဉ်မှာ စားပွဲပေါ်တွင် မြေပုံစာရွက်တစ်ခုကို တင်ထားပြီး မြေပုံစာရွက်ကို ကလစ်များဖြင့် မြဲမြံအောင်ထိန်းထားပါသည်။ ထို့နောက်တွင် ‘puck’ ဟုခေါ်သော အထူးကိရိယာတစ်ခုကို အသုံးပြုပြီး မြေပုံမှ feature များကို trace (ခြေရာခံ) လိုက်ပါသည်။ Line များနှင့် point များကိုတိတိကျကျရေးဆွဲနိုင်စေရန်အတွက် Puck ထဲရှိ သေးငယ်သော ကြက်ခြေခတ်များကို အသုံးပြုပါသည်။ Puck ကို ကွန်ပျူတာနှင့်ချိတ်ဆက်ထားပြီး puck မှရယူထားသော feature တစ်ခုချင်းစီကို ကွန်ပျူတာထဲတွင် သိမ်းဆည်းပေးပါသည်။ Digitising puck ၏ပုံစံကို <a class="reference internal" href="#figure-digitizing-table"><span class="std std-numref">Fig. 5.15</span></a> တွင်တွေ့နိုင်ပါသည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-digitizing-table"></span><a class="reference internal image-reference" href="../../_images/digitizing_table.jpg"><img alt="../../_images/digitizing_table.jpg" src="../../_images/digitizing_table.jpg" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.15 </span><span class="caption-text">ရှိနေပြီးသားမြေပုံများမှ feature များကို digitize ပြုလုပ်လိုသောအခါ GIS professional များမှ digitising table တစ်ခုနှင့် puck တစ်ခုကို အသုံးပြုပုံ။</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="feature-digitize-after-your-features-are-digitised">
+<h2><span class="section-number">5.8. </span>Feature များကို digitize ပြုလုပ်ပြီးသောအခါ… (After your features are digitised…)<a class="headerlink" href="#feature-digitize-after-your-features-are-digitised" title="Link to this heading"></a></h2>
+<p>Feature များကို digitize ပြုလုပ်ပြီးသည်နှင့် ယခင်သင်ခန်းစာတွင် လေ့လာခဲ့ပြီးသောနည်းလမ်းများကိုအသုံးပြုပြီး layer အတွက် သင်္ကေတဆိုင်ရာများ သတ်မှတ်ပေးနိုင်ပါသည်။ သင့်လျော်သော သင်္ကေတကို ရွေးချယ်ခြင်းဖြင့် သင်ရေးဆွဲထားသော data ကို မြေပုံပေါ်တွင် ကြည့်သောအခါ ပိုမိုနားလည်စေမည်ဖြစ်သည်။</p>
+</section>
+<section id="common-problems-things-to-be-aware-of">
+<h2><span class="section-number">5.9. </span>အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)<a class="headerlink" href="#common-problems-things-to-be-aware-of" title="Link to this heading"></a></h2>
+<p>ကောင်းကင်ဓာတ်ပုံ သို့မဟုတ် ဂြိုလ်တုဓာတ်ပုံတစ်ခု ကဲ့သို့သော backdrop raster layer တစ်ခုကိုအသုံးပြုပြီး digitize ပြုလုပ်ပါက raster layer ကို ကောင်းမွန်စွာ georeference ပြုလုပ်ထားရန် အရေးကြီးပါသည်။ GIS Application ၏ အတွင်းပိုင်း ကမ္ဘာ့မြေကြီး၏ model ပေါ်တွင် အခြေခံပြီး ကောင်းမွန်စွာ Georeference ပြုလုပ်ထားသော layer ကို တည်နေရာမှန်မှန်ကန်ကန်ဖြင့် မြေပုံပေါ်တွင် ပြသပေးမည်ဖြစ်သည်။ ကောင်းမွန်စွာ georeference မပြုလုပ်ထားသော image တစ်ခု၏ သက်ရောက်မှုကို <a class="reference internal" href="#figure-georeference-issue"><span class="std std-numref">Fig. 5.16</span></a> တွင် တွေ့မြင်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id9">
+<span id="figure-georeference-issue"></span><a class="reference internal image-reference" href="../../_images/georeferencing_issue.png"><img alt="../../_images/georeferencing_issue.png" src="../../_images/georeferencing_issue.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Heads-up digitising အတွက် ကောင်းမွန်စွာ georeference ပြုလုပ်ထားသော raster image များအသုံးပြုခြင်း၏ အရေးပါပုံ။ ဘယ်ဘက်ပုံသည် ကောင်းမွန်စွာ georeference ပြုလုပ်ထားပြီး လမ်း feature (အဝါရောင်ဖြင့်) များသည် အတိအကျထပ်နေသည်ကို တွေ့နိုင်ပါသည်။ ညာဘက်ပုံသည် ကောင်းမွန်စွာ georeference မလုပ်ထားသောကြောင့် feature များသည် ကောင်းစွာ ထပ်မနေပါ။ ပိုဆိုးသည်မှာ ညာဘက်ပုံကို အကိုးအကားအဖြစ် အသုံးပြုပြီး feature အသစ်များရေးဆွဲပါက ရေးဆွဲထားသော data အသစ်များသည် မှန်ကန်တိကျလိမ့်မည်မဟုတ်ပါ။</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>သင်ရေးဆွဲမည့် vector feature များသည် အသုံးဝင်နိုင်စေရန် သင့်လျော်သောစကေး တစ်ခုသို့ zoom ချဲ့ထားရန် အရေးကြီးသည်ကို မမေ့ပါနှင့်။ Vector ဂျီဩမေတြီနှင့်ပတ်သက်သော ယခင်သင်ခန်းစာတွင် မြင်တွေ့ခဲ့သည့်အတိုင်း ရေးဆွဲထားသော data ကို 1:50 000 စကေးတွင် အသုံးပြုလိုပါက data ကို 1:1000 000 စကေးအထိ zoom ချုံ့ပြီး digitise မပြုလုပ်သင့်ပါ။</p>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">5.10. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p><strong>Digitising</strong> သည် feature တစ်ခု၏ <strong>ဂျီဩမေတြီ</strong> နှင့် <strong>attributes</strong> များကို <strong>digital format</strong> တစ်ခုအဖြစ် ကွန်ပျူတာထဲတွင် သိမ်းဆည်းရန် ရေးဆွဲခြင်းလုပ်ငန်းစဉ်ဖြစ်ပါသည်။</p></li>
+<li><p>GIS Data များကို <strong>database</strong> တစ်ခုထဲတွင် သို့မဟုတ် <strong>files</strong> အဖြစ်သိမ်းဆည်းနိုင်ပါသည်။</p></li>
+<li><p>အသုံးများသောဖိုင် format တစ်ခုမှာ <strong>shapefile</strong> ဖြစ်ပြီး ၃ ခု သို့မဟုတ် ၃ ခုထက်ပိုများသောဖိုင်များ (<code class="file docutils literal notranslate"><span class="pre">.shp</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.dbf</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">.shx</span></code>) ပါရှိပါသည်။</p></li>
+<li><p>Vector layer အသစ်တစ်ခုကို မဖန်တီးခင်တွင် layer တွင်ပါရှိမည့် <strong>ဂျီဩမေတြီ</strong> အမျိုးအစားနှင့် <strong>attribute</strong> field များနှစ်ခုစလုံးကို စီစဉ်ထားရန် လိုအပ်ပါသည်။</p></li>
+<li><p>ဂျီဩမေတြီသည် point ၊ polyline သို့မဟုတ် polygon ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>Attribute များသည် <strong>integers</strong> (ကိန်းပြည့်)၊ <strong>floating points</strong> (ဒဿမကိန်း)၊ <strong>strings</strong> (စာလုံး) သို့မဟုတ် <strong>dates</strong> (ရက်စွဲများ) ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>Digitising လုပ်ငန်းစဉ်တွင် မြေပုံမြင်ကွင်းထဲရှိ ဂျီဩမေတြီကို <strong>ရေးဆွဲ</strong> ပြီး ၎င်း၏ attribute များကိုထည့်သွင်းခြင်းတို့ ပါဝင်ပါသည်။ Feature တစ်ခုချင်းစီအတွက် ထိုလုပ်ငန်းစဉ်ကို ထပ်ခါထပ်ခါလုပ်ဆောင်ပါ။</p></li>
+<li><p>Raster image တစ်ခုအားနောက်ခံအနေဖြင့်အသုံးပြုပြီး digitize ပြုလုပ်စဉ်တွင် orientation (ဦးတည်ရာ) ရရှိစေရန် <strong>Heads-up digitising</strong> ကိုအသုံးပြုလေ့ရှိပါသည်။</p></li>
+<li><p>Professional GIS user များသည် မြေပုံစာရွက်များမှ အချက်အလက်များကို ရေးဆွဲရန် တစ်ခါတရံတွင် <strong>digitising table</strong> ကိုအသုံးပြုပါသည်။</p></li>
+</ul>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">5.11. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>သင့်ကျောင်းတွင်းနှင့် ကျောင်းပတ်ဝန်းကျင်ရှိ သင်စိတ်ဝင်စားသော feature များကို ရေးဆွဲပါ။ ဥပမာအားဖြင့်- ကျောင်းနယ်နိမိတ်၊ မီးလောင်ပါက စုဝေးရမည့်လုံခြုံသောနေရာများ (fire assembly points)၊ စာသင်ခန်းတစ်ခုချင်းစီ၏ အခန်းဖွဲ့ပုံများ၊ စသည်တို့ဖြစ်သည်။ မတူညီသော ဂျီဩမေတြီအမျိုးအစားများကို ရေးဆွဲကြည့်ပါ။ သင်တန်းသားများကို အုပ်စုများခွဲ၍ အုပ်စုတစ်ခုချင်းစီကို feature အနည်းငယ်ရေးဆွဲခိုင်းပါ။ သင်တန်းသားများရေးဆွဲထားသော layer များကို ပိုမိုအဓိပ္ပါယ်ရှိစေရန် သင်္ကေတဆိုင်ရာများ ပြင်ဆင်ခိုင်းပါ။ အုပ်စုများအားလုံးမှ layer များကိုပေါင်းစည်းပြီး သင့်ကျောင်းနှင့် ကျောင်းပတ်ဝန်းကျင်ကို ပြသသော မြေပုံကောင်းတစ်ပုံ ဖန်တီးစေပါ။</p></li>
+<li><p>ဒေသတွင် မြစ်တစ်ခုကို ရှာဖွေပြီး ထိုမြစ်တစ်လျှောက် ရေနမူနာများကောက်ယူပါ။ နမူနာတစ်ခုချင်းစီ၏ တည်နေရာကို GPS အသုံးပြု၍ မှတ်သားပါ သို့မဟုတ် toposheet တစ်ခုပေါ်တွင် အမှတ်အသားပြုလုပ်ပါ။ နမူနာနေရာတစ်ခုချင်းစီအတွက် pH ၊ dissolved oxygen အစရှိသည့် တိုင်းတာမှုများလုပ်ဆောင်ပါ။ GIS application အသုံးပြု၍ data ကိုရယူပြီး နမူနာနေရာများကို ပြသသော မြေပုံများကို သင့်လျော်သောသင်္ကေတများဖြင့် ဖန်တီးပါ။ အာရုံစိုက်ရမည့် ဧရိယာတစ်ခုခုကို ဖော်ထုတ်နိုင်ပါသလား? ထိုဧရိယာများကို ဖော်ထုတ်ရာတွင် GIS application မှအကူအညီပေးပါသလား?</p></li>
+</ul>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">5.12. </span>စဉ်းစားရမည့်အချက် (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်တွင် ကွန်ပျူတာမရှိပါက ပလတ်စတစ်အကြည်နှင့် မှတ်စုစာအုပ်ကို အသုံးပြုပြီး ထိုလုပ်ငန်းစဉ်အတိုင်း လုပ်ဆောင်နိုင်ပါသည်။ ကောင်းကင်ဓာတ်ပုံ၊ orthosheet သို့မဟုတ် print ထုတ်ထားသောဂြိုလ်တုဓာတ်ပုံတစ်ခုကို နောက်ခံ layer အနေဖြင့် အသုံးပြုပါ။ မှတ်စုစာအုပ်ထဲတွင် ကော်လံများရေးဆွဲပြီး attribute field တစ်ခုချင်းစီအတွက် ကော်လံခေါင်းစီးတွင် သင်သိမ်းဆည်းလိုသောအချက်အလက်အကြောင်း ရေးသားပါ။ ပလတ်စတစ်အကြည်ပေါ်တွင် feature များ၏ ဂျီဩမေတြီကို ခြေရာခံရေးဆွဲပြီး feature တစ်ခုချင်းစီ၏ဘေးတွင် နံပါတ်တစ်ခုစီရေးပေးပါ။ ထို့နောက် မှတ်စုစာအုပ်ထဲရှိ ဇယား၏ ပထမဆုံးကော်လံတွင် ထိုနံပါတ်အတိုင်း ရေးသားပြီး မှတ်တမ်းပြုလိုသော အချက်အလက်များအားလုံးကို ဖြည့်သွင်းပါ။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">5.13. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p>QGIS ထဲတွင် <a class="reference internal" href="../user_manual/working_with_vector/editing_geometry_attributes.html#editingvector"><span class="std std-ref">vector data များ digitise ပြုလုပ်ခြင်း</span></a> နှင့်ပတ်သက်၍ QGIS အသုံးပြုသူလမ်းညွှန်တွင် ပိုမိုအသေးစိတ်ဖော်ပြထားပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">5.14. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်အခန်းတွင် GIS ထဲ၌ image data များကို မည်ကဲ့သို့အသုံးပြုနိုင်သည်ကိုသိရှိရန် <strong>raster data</strong> ကို အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vector_attribute_data.html" class="btn btn-neutral float-left" title="4. Vector Attribute Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="raster_data.html" class="btn btn-neutral float-right" title="6. Raster ဒေတာများ (Raster Data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/data_capture.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/data_capture.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/data_capture.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/data_capture.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/data_capture.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/data_capture.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/data_capture.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/data_capture.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/data_capture.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/data_capture.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/data_capture.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/3c94a1e9e4f4572b48b5a44923ecb836" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

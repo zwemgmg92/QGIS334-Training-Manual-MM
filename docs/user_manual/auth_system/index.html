@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/index.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="24. အထောက်အထားစိစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" href="auth_overview.html" />
+    <link rel="prev" title="23.2. အချိန်တစ်ပြေးညီ လမ်းကြောင်းဆွဲခြင်း (Live GPS tracking)" href="../working_with_gps/live_GPS_tracking.html" />
+  <meta name="description" content="QGIS testing documentation: &lt;no title&gt;">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gentle_gis_introduction/index.html">GIS မိတ်ဆက်</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS အသုံးပြုသူလမ်းညွှန် (QGIS User Guide)</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/auth_system/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../working_with_gps/live_GPS_tracking.html" class="btn btn-neutral float-left" title="23.2. အချိန်တစ်ပြေးညီ လမ်းကြောင်းဆွဲခြင်း (Live GPS tracking)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auth_overview.html" class="btn btn-neutral float-right" title="24. အထောက်အထားစိစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<p id="authentication-index">=
+အထောက်အထားစီစစ်ခြင်းစနစ် (Authentication System)
+=================================================</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auth_overview.html">24. အထောက်အထားစိစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#database-authentication-database">24.1. အထောက်အထားစိစစ်ခြင်းဆိုင်ရာ database (Authentication database)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#master-password">24.2. ပင်မစကားဝှက် (Master password)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#authentication-configurations">24.3. အထောက်အထားစိစစ်ရန်သတ်မှတ်ခြင်းများ (Authentication Configurations)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#authentication-methods">24.4. အထောက်အထားစိစစ်ခြင်းနည်းလမ်းများ (Authentication Methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#master-password-and-auth-config-utilities">24.5. ပင်မစကားဝှက် နှင့် အထောက်အထားစိစစ်ခြင်းလုပ်ငန်းများ (Master Password and Auth Config Utilities)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#authentication-configuration">24.6. Authentication configuration များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_overview.html#python-python-bindings">24.7. Python စည်းနှောင်ခြင်းများ (Python bindings)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#http-s-http-s-authentication">25.1. HTTP(S) စနစ်တွင် အထောက်အထား စစ်ဆေးမှု (HTTP(S) authentication )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#database-database-authentication">25.2. Database တွင် အထောက်အထားစစ်ဆေးခြင်း (Database authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#pki-pki-authentication">25.3. PKI စစ်ဆေးခြင်း (PKI authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#layer-handling-bad-layers">25.4. layerအညံ့များကိုကိုင်တွယ်ခြင်း (Handling bad layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#id-changing-authentication-config-id">25.5. အထောက်အထားစိစစ်မည့် ID အားပြောင်းလဲခြင်း (Changing authentication config ID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#qgis-qgis-server-support">25.6. QGIS ဆာဗာ အကူအညီ (QGIS Server support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_workflows.html#ssl-server-ssl-server-exceptions">25.7. SSL server ခြွင်းချက်များ (SSL server exceptions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_considerations.html#restrictions">26.1. ကန့်သတ်ချက်များ (Restrictions)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../working_with_gps/live_GPS_tracking.html" class="btn btn-neutral float-left" title="23.2. အချိန်တစ်ပြေးညီ လမ်းကြောင်းဆွဲခြင်း (Live GPS tracking)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auth_overview.html" class="btn btn-neutral float-right" title="24. အထောက်အထားစိစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/auth_system/index.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/auth_system/index.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/index.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/user_manual/auth_system/index.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/index.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/auth_system/index.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/auth_system/index.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/auth_system/index.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/auth_system/index.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/auth_system/index.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/auth_system/index.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/032f778fb02e7f9bc63f5fa0e2fb4d00" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

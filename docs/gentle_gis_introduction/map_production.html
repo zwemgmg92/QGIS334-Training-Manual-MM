@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. မြေပုံထုတ်လုပ်ခြင်း (Map Production) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/map_production.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))" href="vector_spatial_analysis_buffers.html" />
+    <link rel="prev" title="8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)" href="coordinate_reference_systems.html" />
+  <meta name="description" content="QGIS testing documentation: 9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">9.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#title-in-detail">9.2. မြေပုံခေါင်းစဉ်အကြောင်းအရာအသေးစိတ် (Title in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-border-in-detail">9.3. မြေပုံအနားသပ်ဘောင်အကြောင်း အသေးစိတ် (Map Border in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-legend-in-detail">9.4. မြေပုံရည်ညွှန်းချက်အကြောင်း အသေးစိတ် (Map Legend in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#north-arrow-in-detail">9.5. မြောက်အရပ်မျက်နှာပြမြား အကြောင်းအသေးစိတ် (North arrow in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale-in-detail">9.6. မြေပုံစကေးအကြောင်းအသေးစိတ် (Scale in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acknowledgment-in-detail">9.7. အသိအမှတ်ပြုမှုဆိုင်ရာအကြောင်းအသေးစိတ် (Acknowledgment in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graticule-in-detail">9.8. လတ္တီကျုနှင့်လောင်ဂျီကျု မျဉ်းကြောင်းများ အကြောင်းအသေးစိတ် (Graticule in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name-of-the-map-projection-in-detail">9.9. မြေပုံအရိပ်ချစနစ်အကြောင်းအသေးစိတ် (Name of the map projection in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-problems-things-to-be-aware-of">9.10. အဖြစ်များသော ပြဿနာများ / သတိပြုရန်အချက်များ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">9.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">9.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">9.13. စဉ်းစားရမည့်အချက်  (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">9.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">9.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>မြေပုံထုတ်လုပ်ခြင်း (Map Production)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/map_production.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="coordinate_reference_systems.html" class="btn btn-neutral float-left" title="8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_spatial_analysis_buffers.html" class="btn btn-neutral float-right" title="10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="map-production">
+<h1><span class="section-number">9. </span>မြေပုံထုတ်လုပ်ခြင်း (Map Production)<a class="headerlink" href="#map-production" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>Spatial data များအတွက် မြေပုံထုတ်လုပ်ခြင်းအကြောင်း နားလည်စေရန်</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Map production ၊ map layout ၊ scale bar ၊ north arrow ၊ legend ၊ map body ၊ map unit</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">9.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>မြေပုံထုတ်လုပ်ခြင်းဆိုသည်မှာ သာမာန်လူတစ်ဦးနားလည်နိုင်မည့်နည်းလမ်းဖြင့် မြေပုံအစိတ်အပိုင်းများကို စာသားများများမသုံးဘဲ စာရွက်ပေါ်တွင် စနစ်တကျစီစဉ်ရသည့် လုပ်ငန်းစဉ်ဖြစ်ပါသည်။ နားထောင်သူ သို့မဟုတ် ဖတ်ရှုသူသည် နိုင်ငံရေးသမား၊ ပြည်သူ သို့မဟုတ် GIS နှင့်ပတ်သက်၍ ကျွမ်းကျင်သူမဟုတ်လျှင် ၎င်းတို့ကို
+တင်ဆက်ပြသရန်နှင့် အစီရင်ခံစာများအတွက် မြေပုံများကို ထုတ်လုပ်လေ့ရှိသည်။ ထို့ကြောင့် မြေပြင်သတင်းအချက်အလက်ဆက်သွယ်ရေးတွင် မြေပုံများသည် များစွာအသုံးဝင်သည်။ ယေဘူယျ မြေပုံအစိတ်အပိုင်းများတွင် ခေါင်းစဉ်၊ မြေပုံကိုယ်ထည်၊ ရည်ညွှန်းချက်၊ မြောက်အရပ်မျက်နှာပြမြား၊ စကေးဘား၊ အသိအမှတ်ပြုမှုဆိုင်ရာအချက်အလက်နှင့် မြေပုံအနားသတ်နယ်နိမိတ်တို့ပါဝင်သည်။ (<a class="reference internal" href="#figure-map-elements"><span class="std std-numref">Fig. 9.45</span></a> တွင်ကြည့်ပါ)</p>
+<figure class="align-center" id="id1">
+<span id="figure-map-elements"></span><a class="reference internal image-reference" href="../../_images/map_elements.png"><img alt="../../_images/map_elements.png" src="../../_images/map_elements.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.45 </span><span class="caption-text">ယေဘူယျ မြေပုံအစိတ်အပိုင်းများတွင် (အနီရောင်ဖြင့်ပြထားသည့်)ခေါင်းစဉ်၊ မြေပုံကိုယ်ထည်၊ ရည်ညွှန်းချက်၊ မြောက်အရပ်ပြမြား၊ စကေးဘား၊ မြေပုံအချက်အလက်နှင့် မြေပုံအနားသတ်နယ်နိမိတ်တို့ပါဝင်သည်။</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ထပ်မံဖြည့်စွက်နိုင်သည့် အခြားအစိတ်အပိုင်းများမှာ ဥပမာ- <strong>လတ္တီကျု လောင်ဂျီကျုမျဉ်းများ (graticule)</strong> သို့မဟုတ်  <strong>မြေပုံ အရိပ်ချစနစ်အမည်</strong> (CRS) တို့ဖြစ်သည်။ အဆိုပါ အစိတ်အပိုင်းများသည် မြေပုံဖတ်ရှုသူအတွက် မြေပုံပေါ်တွင်ပါရှိသည့် အချက်အလက်များကို အဓိပ္ပါယ်ကောက်ရာ၌ တစ်ပါတည်း အထောက်အကူပြုပါသည်။ ဖြည့်စွက်ထားသည့် အစိတ်အပိုင်းများသည် သတင်းအချက်အလက်ဆက်သွယ်ရာတွင်သာမက မြေပုံဖတ်သူအား မြေပုံ၏အကြောင်းအရာကို နားလည်လွယ်စေရန်ကူညီပေးသည်။ ဥပမာ- ခေါင်းစဉ်သည် ပါဝင်သည့်အကြောင်းအရာကို ဖော်ပြပေးပြီး ရည်ညွှန်းချက်သည် မြေပုံအချက်အလက်များကို မြေပုံသင်္ကေတများနှင့်ချိတ်ဆက်ပေးသည်။</p>
+</section>
+<section id="title-in-detail">
+<h2><span class="section-number">9.2. </span>မြေပုံခေါင်းစဉ်အကြောင်းအရာအသေးစိတ် (Title in detail)<a class="headerlink" href="#title-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံအကြောင်းအရာခေါင်းစဉ်သည် ကြည့်ရှုသူက မြေပုံကိုဖတ်လျှင် ပထမဦးစွာမြင်ရမည့်အရာဖြစ်သည့်အတွက် လွန်စွာအရေးကြီးသည်။
+သတင်းစာတစ်ခုနှင့် နှိုင်းယှဉ်ကြည့်ပါ။ ၎င်းသည် ခပ်တိုတိုနှင့် ကြည့်ရှုသူအား မြေပုံအကြောင်းကို ချက်ချင်းပြောပြနိုင်သည့် ခေါင်းစဉ်မျိုးဖြစ်သင့်သည်။</p>
+</section>
+<section id="map-border-in-detail">
+<h2><span class="section-number">9.3. </span>မြေပုံအနားသပ်ဘောင်အကြောင်း အသေးစိတ် (Map Border in detail)<a class="headerlink" href="#map-border-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံအနားသပ်ဘောင်သည် မြေပုံတွင်ပြထားသည့် ဧရိယာအတိအကျကို သတ်မှတ်ပေးသည့် လိုင်းတစ်ခုဖြစ်သည်။ မြေပုံအား graticule များ (အောက်တွင်ဆက်လက်ဖော်ပြသွားပါမည်) ဖြင့်
+ထုတ်သည့်အခါ သင်သည် <a class="reference internal" href="#figure-map-legend"><span class="std std-numref">Fig. 9.46</span></a> တွင်မြင်ရသည့်အတိုင်း မြေပုံ၏နယ်နိမိတ်တစ်လျောက် graticule မျဉ်းများ၏ ကိုဩဒိနိတ်အချက်အလက်များကို မြင်တွေ့ရမည် ဖြစ်ပါသည်။</p>
+</section>
+<section id="map-legend-in-detail">
+<h2><span class="section-number">9.4. </span>မြေပုံရည်ညွှန်းချက်အကြောင်း အသေးစိတ် (Map Legend in detail)<a class="headerlink" href="#map-legend-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံတစ်ခုသည် ပြင်ပကမ္ဘာကို ရိုးရှင်းစွာဖော်ပြပေးသည့် တင်ဆက်ပုံတစ်ခုဖြစ်ပြီး <strong>မြေပုံ သင်္ကေတများ</strong> သည် လက်တွေ့ပြင်ပရှိအရာများကို ကိုယ်စားပြုသည်။
+သင်္ကေတများမပါလျှင် မြေပုံကိုမည်သို့မျှနားလည်နိုင်မည်မဟုတ်ပေ။ မြေပုံကိုမှန်ကန်စွာဖတ်တတ်ရန်မှာ  မြေပုံပေါ်ရှိ သင်္ကေတအားလုံးကို ဖော်ပြပေးရာတွင် မြေပုံရည်ညွှန်းချက်ကိုအသုံးပြုခြင်းက အဓိကကျသည်။
+၎င်းသည် မြေပုံကပေးလိုသည့်အဓိပ္ပါယ်ကို ကောင်းစွာနားလည်စေနိုင်သည့် အဘိဓာန်တစ်ခုနှင့်ဆင်တူသည်။ မြေပုံရည်ညွှန်းချက်ကို မြေပုံ၏ထောင့်တစ်ခုခုတွင် လေးထောင့်ကွက်ငယ်တစ်ခုဖြင့် တွေ့မြင်ရလေ့ရှိသည်။
+၎င်းတွင် feature အသီးသီးကိုဖော်ပြပေးသည့် သင်္ကေတများပါရှိသည်။ ဥပမာ- မြေပုံပေါ်တွင် အိမ်များကိုခွဲခြားသိရန် အိမ်ပုံသင်္ကေတဖြင့်ဖော်ပြသည် (<a class="reference internal" href="#figure-map-legend"><span class="std std-numref">Fig. 9.46</span></a> တွင် ကြည့်ပါ)။</p>
+<figure class="align-center" id="id2">
+<span id="figure-map-legend"></span><a class="reference internal image-reference" href="../../_images/map_legend.png"><img alt="../../_images/map_legend.png" src="../../_images/map_legend.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.46 </span><span class="caption-text">နေရာတစ်ခုတည်းမှ မြေပုံနှစ်ခုဖြစ်ပြီး၊ နှစ်ခုလုံးတွင် ရေထုဧရိယာကို နောက်ခံထားသောလည်း၊‌ မြေပုံအပြင်အဆင်၊ မြေပုံသင်္ကေတ နှင့် အရောင်များ မတူညီပုံဖြစ်သည်။</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မြေပုံရည်ညွှန်းချက်ကို ပုံစံအမျိုးမျိုးဖြင့်ပြသရန် ပုံသဏ္ဍာန် သင်္ကေတအမျိုးမျိုးကိုအသုံးပြုနိုင်သည်။ <a class="reference internal" href="#figure-map-legend"><span class="std std-numref">Fig. 9.46</span></a> တွင်  အပြာရောင်အဖျော့ဖြင့်ပြထားသည့် ရေကန်တစ်ခုပေါ်တွင် ကွန်တိုလိုင်းများထပ်ထားပြီး အဆိုပါဧရိယာ၏ မြေမျက်နှာသွင်ပြင်ကိုဖော်ပြသည့် အမြင့်တန်ဖိုးများကို ပြသသော မြေပုံကို မြင်တွေ့ရမည်ဖြစ်သည်။ လက်ယာဘက်ရှိပုံသည် ရေကန်နောက်ခံဖြင့် တစ်နေရာတည်းတွင်ဖြစ်သော်လည်း
+ခရီးသွားများအတွက် အားလပ်ရက်တွင် ငှားရမ်းနိုင်မည့် အိမ်များ၏ တည်နေရာကိုဖော်ပြသည့်မြေပုံအဖြစ် ရေးဆွဲထားခြင်းဖြစ်သည်။ မြေပုံရည်ညွှန်းချက်တွင် ပိုမိုတောက်ပသည့်အရောင်များ၊ အိမ်ပုံစံ သင်္ကေတများနှင့် ပိုမိုပြည့်စုံပြီး နှစ်လိုဖွယ်စာသားများဖြင့်ဖော်ပြထားသည်။</p>
+</section>
+<section id="north-arrow-in-detail">
+<h2><span class="section-number">9.5. </span>မြောက်အရပ်မျက်နှာပြမြား အကြောင်းအသေးစိတ် (North arrow in detail)<a class="headerlink" href="#north-arrow-in-detail" title="Link to this heading"></a></h2>
+<p>မြောက်အရပ်မျက်နှာပြမြား သည် (compass rose ဟုလည်း ရံဖန်ရံခါခေါ်ဆိုလေ့ရှိသည်) <strong>မြောက်အရပ်</strong> ၊ <strong>တောင်အရပ်</strong> ၊ <strong>အရှေ့အရပ်</strong> နှင့် <strong>အနောက်အရပ်</strong>
+စသည့် ဦးတည်ချက် လားရာကို ဖော်ပြသည့်ပုံတစ်ခုဖြစ်သည်။ မြေပုံပေါ်တွင် မြောက်အရပ်ကိုဖော်ပြရန် အသုံးပြုလေ့ရှိသည်။</p>
+<p>ဥပမာ- GIS သဘောတရားအရ အိမ်တစ်လုံးသည် ရေကန်၏မြောက်ဘက်တွင်ရှိလျှင် မြေပုံပေါ်၌ ရေကန်၏ အပေါ်ဘက်ထိပ်တွင် ရှိမည်ဟုဆိုလိုသည်။
+လမ်းသည် အရှေ့ဘက်တွင်ရှိလျှင် မြေပုံပေါ်၌ ရေထု၏ ညာယာဘက်တွင်ရှိပြီး၊ မြစ်သည် တောင်ဘက်တွင် ရှိသည့်အတွက် ရေထု၏ အောက်ဘက်တွင် မြင်ရမည်ဖြစ်သည်။
+ရေကန်အနောက်ဘက်ရှိ ဘူတာရုံကိုရှာဖွေလိုလျှင် မြေပုံ၏ ဘယ်ဘက်တွင်ရှာရမည်ဖြစ်သည်။</p>
+</section>
+<section id="scale-in-detail">
+<h2><span class="section-number">9.6. </span>မြေပုံစကေးအကြောင်းအသေးစိတ် (Scale in detail)<a class="headerlink" href="#scale-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံတစ်ခု၏ စကေးဆိုသည်မှာ ပြင်ပရှိအကွာအဝေးကို မြေပုံပေါ်တွင် သက်ဆိုင်ရာ အကွာအဝေးယူနစ်တစ်ခုဖြင့် ဖော်ပြသည့် တန်ဖိုးဖြစ်သည်။
+အဆိုပါတန်ဖိုးများကို မြေပုံယူနစ်များ (မီတာ၊ ပေ သို့မဟုတ် ဒီဂရီ) ဖြင့်ဖော်ပြလေ့ရှိသည်။ စကေးကို နည်းလမ်းအမျိုးမျိုးဖြင့်ဖော်ပြလေ့ရှိသည်။ ဥပမာ- စာသားများ၊ အချိုးများ သို့မဟုတ် ဂရပ်ဖစ်ပုံစံစကေးဘားများဖြင့် (<a class="reference internal" href="#figure-map-scale"><span class="std std-numref">Fig. 9.47</span></a> တွင် ကြည့်ပါ)။</p>
+<p><strong>မြေပုံစကေးကို စာသားဖြင့်ဖော်ပြခြင်း</strong> သည် အသုံးပြုသူများအတွက် နားလည်ရလွယ်ကူစေသဖြင့် အသုံးအများဆုံးနည်းလမ်းတစ်ခုဖြစ်သည်။
+<a class="reference internal" href="#figure-map-scale"><span class="std std-numref">Fig. 9.47</span></a> (a) တွင် စာသားဖြင့်ဖော်ပြထားသည့် မြေပုံစကေးတစ်ခုကိုတွေ့နိုင်သည်။ နောက်ထပ်တစ်နည်းမှာ  <strong>ကိုယ်စားပြုအချိုး (RF)</strong> ဖြင့်ဖော်ပြခြင်းဖြစ်ပြီး
+မြေပုံပေါ်ရှိအကွာအဝေးနှင့်မြေပြင်ပေါ်ရှိအကွာအဝေးကို တူညီသော ယူနစ်ဖြင့် အချိုးချထားခြင်းဖြစ်သည်။ ဥပမာ- ကိုယ်စားပြုအချိုး 1:25,000 ဆိုသည်မှာ  မြေပုံပေါ်ရှိယူနစ်တစ်ခုသည် မြေပြင်တွင် 25,000 ယူနစ်ဖြစ်ပါသည် (<a class="reference internal" href="#figure-map-scale"><span class="std std-numref">Fig. 9.47</span></a> (b)  တွင် ကြည့်ပါ)။ ဤနေရာတွင်  25,000  ကို  <strong>အချိုး၏ပိုင်းခြေတန်ဖိုး (scale denominator)</strong> ဟုခေါ်သည်။ ကိုယ်စားပြုအချိုးသည် ရှုပ်ထွေးမှုကို လျော့နည်းစေသည့်အတွက် အတွေ့အကြုံရှိသည့် အသုံးပြုသူအများစု ပိုမိုအသုံးပြုလေ့ရှိသည်။</p>
+<p>ကိုယ်စားပြုအချိုးသည် စကေးအသေးဖြစ်ပါက၊ ဥပမာ 1:1000
+000 ဖြစ်လျှင် ၎င်းကို <strong>စကေးသေး မြေပုံ (small scale map)</strong> ဟုခေါ်သည်။
+တစ်ဘက်တွင်လည်း ဥပမာ- 1:50 000 သည် အချိုးကြီးဖြစ်သည့်အတွက် ၎င်းအား <strong>စကေးကြီး မြေပုံ (large scale map)</strong> ဟုခေါ်သည်။ <strong>ဧရိယာအကြီး</strong> ကို
+စကေးအသေးဖြင့် ဖော်ပြပြီး <strong>ဧရိယာအသေး</strong> ကို စကေးအကြီးဖြင့်ဖော်ပြသည်ဟု အလွယ်မှတ်ထားနိုင်သည်။</p>
+<p><strong>ဂရပ်ဖစ်ပုံစံစကေးဘားများဖြင့်ဖော်ပြခြင်း</strong> သည် စကေးကိုဖော်ပြသည့်အခြားနည်းလမ်းတစ်ခုဖြစ်သည်။ စကေးဘားများသည် မြေပုံအကွာအဝေးကိုဖော်ပြသည်။ အဆိုပါစကေးနှင့်ညီမျှသည့် မြေပြင်အကွာအဝေးကိုမူ <a class="reference internal" href="#figure-map-scale"><span class="std std-numref">Fig. 9.47</span></a> (c) တွင်ပြထားသည့်အတိုင်း မြင်ရမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-map-scale"></span><a class="reference internal image-reference" href="../../_images/map_scale.png"><img alt="../../_images/map_scale.png" src="../../_images/map_scale.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.47 </span><span class="caption-text">စာသား (a) ၊ အချိုး (b) သို့မဟုတ် ဂရပ်ဖစ်ပုံစံစကေးဘား (c) တို့ဖြင့်ဖော်ပြထားသည့် မြေပုံစကေးများ</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မြေပုံများကို  1:10 000 ၊ 1:25 000 ၊ 1:50 000 ၊ 1:100 000 ၊  1:250 000 ၊  1:500 000 အစရှိသည့် စံ စကေးများဖြင့်ထုတ်လုပ်လေ့ရှိသည်။
+မြေပုံဖတ်သူအတွက် ၎င်းသည် မည်သည်ကို ဆိုလိုသနည်း။ ဆိုလိုသည်မှာ <strong>မြေပုံ</strong>  တွင် တိုင်းတာ၍ ရရှိသည့်အကွာအဝေးကို <strong>အချိုး၏ပိုင်းခြေတန်ဖိုး (scale denominator)</strong>
+ဖြင့်မြှောက်လျှင် <strong>လက်တွေ့ပြင်ပ</strong> ရှိ အကွာအဝေးကို ရရှိမည်ဖြစ်သည်။</p>
+<p>ဥပမာ- 1:25 000 စကေးရှိ မြေပုံပေါ်တွင် မီတာ 100 အကွာအဝေးကိုတိုင်းတာလိုလျှင် မြေပြင်အကွာအဝေးကို အောက်ပါအတိုင်းတွက်ချက်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">100</span> <span class="n">မီလီမီတာ</span> <span class="n">x</span> <span class="mi">25</span><span class="p">,</span><span class="mi">000</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">000</span> <span class="n">မီလီမီတာ</span>
+</pre></div>
+</div>
+<p>ဆိုလိုသည်မှာ မြေပုံအကွာအဝေး မီလီမီတာ 100 ရှိလျှင် မြေပြင်၌ 2,500,000 မီလီမီတာ (2500 မီတာ) ရှိမည်ဖြစ်သည်။</p>
+<p>မြေပုံစကေးတွင် နောက်ထပ်စိတ်ဝင်စားစရာအချက်မှာ မြေပုံပေါ်ရှိအချက်အလက်များကို အသေးစိတ်ပိုမြင်နိုင်ရန် စကေးကိုချုံ့နိုင်ခြင်းဖြစ်သည်။
+<a class="reference internal" href="#figure-map-scale-compare"><span class="std std-numref">Fig. 9.48</span></a> တွင် ဥပမာအဖြစ်ကြည့်နိုင်သည်။ မြေပုံနှစ်ခုလုံးသည် အရွယ်အစားတူညီသော်လည်း စကေးမတူပေ။ လက်ဝဲဘက်ပုံတွင် ရေထု၏ အနောက်တောင်ဘက်ရှိအိမ်များကို
+သီးခြား လေးထောင့်ကွက်ငယ်များအဖြစ်အသေးစိတ်မြင်ရသည်။ လက်ယာဘက်ပုံတွင်မူ လေးထောင့်ကွက်အစုအဝေး ခပ်မည်းမည်းလေးများသာမြင်ရပြီး အိမ်တစ်အိမ်ချင်းစီကို သေချာမမြင်ရပေ။</p>
+<figure class="align-center" id="id4">
+<span id="figure-map-scale-compare"></span><a class="reference internal image-reference" href="../../_images/map_scale_compare.png"><img alt="../../_images/map_scale_compare.png" src="../../_images/map_scale_compare.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.48 </span><span class="caption-text">စကေးနှစ်မျိုးဖြင့်ဖော်ပြထားသောမြေပုံများ။ ဘယ်ဘက်ရှိမြေပုံစကေးသည် 1:25,000 ဖြစ်ပြီး ညာဘက်ပုံ၏ မြေပုံစကေးသည် 1:50,000 ဖြစ်သည်။</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="acknowledgment-in-detail">
+<h2><span class="section-number">9.7. </span>အသိအမှတ်ပြုမှုဆိုင်ရာအကြောင်းအသေးစိတ် (Acknowledgment in detail)<a class="headerlink" href="#acknowledgment-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံတစ်ခု၏ အသိအမှတ်ပြုမှုဆိုင်ရာအချက်အလက်ဖော်ပြချက်တွင် အရေးကြီးအကြောင်းအရာများကို စာသားဖြင့်ဖော်ပြနိုင်သည်။ ဥပမာ- အသုံးပြုသည့်ဒေတာ၏အရည်အသွေးကိုဖော်ပြသည့်အချက်အလက်များသည်
+ဖတ်ရှုသူကို မည်သို့၊ မည်သူမှ နှင့် မည်သည့်အချိန်တွင် မြေပုံကိုရေးဆွဲခဲ့သည်ဟူသော အသေးစိတ်အချက်အလက်ကိုပေးသည်။ သင့်မြို့၏ မြေမျက်နှာသွင်ပြင်ပြမြေပုံကိုကြည့်လျှင် အဆိုပါ မြေပုံကိုရေးဆွဲခဲ့သည့်အချိန်နှင့်ရေးဆွဲသူကို သိရပါက များစွာအသုံးဝင်ပါလိမ့်သည်။ မြေပုံသည် နှစ်ပေါင်း ၅၀ ကြာမြေပုံဖြစ်လျှင် အိမ်အများစုနှင့်လမ်းများကို ရှာတွေ့နိုင်ရန်မလွယ်ကူတော့ပေ။ မြေပုံကို တရားဝင်အဖွဲ့အစည်းတစ်ခုက ရေးဆွဲခဲ့ကြောင်း သိရလျှင် ထပ်မံဖြည့်စွက်ထားသည့် အချက်အလက်အသစ်များပါဝင်သော လတ်တလောရေးဆွဲထားသည့်
+မြေပုံကို ၎င်းတို့ထံ ဆက်သွယ်မေးမြန်း၍ တောင်းယူရရှိနိုင်မည်ဖြစ်သည်။</p>
+</section>
+<section id="graticule-in-detail">
+<h2><span class="section-number">9.8. </span>လတ္တီကျုနှင့်လောင်ဂျီကျု မျဉ်းကြောင်းများ အကြောင်းအသေးစိတ် (Graticule in detail)<a class="headerlink" href="#graticule-in-detail" title="Link to this heading"></a></h2>
+<p>Graticule များသည် မြေပုံပေါ်တွင်ထပ်ကြည့်နိုင်ပြီး မြေပြင်အနေအထားလားရာကို ဖတ်ရှုသူအားလွယ်ကူစွာမြင်နိုင်စေပါသည်။ ထိုမျဉ်းများကို အကိုးအကားများအဖြစ် အသုံးပြုနိုင်ပါသည်။ ဥပမာအားဖြင့် graticule တစ်ခု၏ လိုင်းများသည် ကမ္ဘာ့ လတ္တီကျုနှင့်လောင်ဂျီကျုမျဉ်းများကို ကိုယ်စားပြုဖော်ပြသည်။
+တင်ပြချက်တစ်ခု သို့မဟုတ် အစီရင်ခံစာတစ်ခုတွင် နေရာတစ်ခုကို မြေပုံပေါ်၌ ပြလိုပါက ‘လတ္တီကျု ၂၆.၀၄ /
+လောင်ဂျီကျု - ၃၂.၁၁ အနီးရှိ အိမ်များသည် ဇန်နဝါရီနှင့်ဖေဖော်ဝါရီလများတွင် ရေကြီးရေလျှံမှုကို မကြာခဏတွေ့ကြုံရသည်’ စသဖြင့် ပြောနိုင်မည်ဖြစ်သည်။
+(<a class="reference internal" href="#figure-map-graticule"><span class="std std-numref">Fig. 9.49</span></a> တွင် ကြည့်ပါ)</p>
+<figure class="align-center" id="id5">
+<span id="figure-map-graticule"></span><a class="reference internal image-reference" href="../../_images/map_graticule.png"><img alt="../../_images/map_graticule.png" src="../../_images/map_graticule.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.49 </span><span class="caption-text">Graticule များ (အနီရောင်လိုင်းများ) သည် ကမ္ဘာ့ လတ္တီကျုနှင့်လောင်ဂျီကျုမျဉ်းများကို ကိုယ်စားပြုဖော်ပြသည်။
+မြေပုံဘောင်ပေါ်ရှိ လတ္တီကျုနှင့်လောင်ဂျီကျုတန်ဖိုးများကို ကြည့်ရလွယ်ကူသည့်အနေအထားကို ပြောင်းလဲအသုံးပြုနိုင်သည်။</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="name-of-the-map-projection-in-detail">
+<h2><span class="section-number">9.9. </span>မြေပုံအရိပ်ချစနစ်အကြောင်းအသေးစိတ် (Name of the map projection in detail)<a class="headerlink" href="#name-of-the-map-projection-in-detail" title="Link to this heading"></a></h2>
+<p>မြေပုံအရိပ်ချစနစ်သည် အိမ်များ၊ လမ်းများ သို့မဟုတ် ရေကန်များ အစရှိသည့် feature များပါရှိသည့် သုံးဘက်မြင် ကမ္ဘာ့မျက်နှာပြင်ကို စာရွက်တစ်ခုပေါ်တွင် ကိုယ်စားပြုဖော်ပြသည့်
+နည်းလမ်းဖြစ်သည်။ ၎င်းသည် သင်ထင်သည်ထက်ပိုမိုခက်ခဲပြီး နှစ်ရာပေါင်းများစွာကြာပြီးသည့်နောက်တွင်ပင် ကမ္ဘာ့နေရာအားလုံးကို တိကျပြည့်စုံစွာဖော်ပြနိုင်သည့် မြေပုံအရိပ်ချစနစ်မရှိသေးပေ။
+အရိပ်ချစနစ်တိုင်းတွင် အားသာချက်နှင့်အားနည်းချက်များရှိကြသည်။</p>
+<p>မြေပုံကိုတိကျနိုင်သမျှတိကျစွာရေးဆွဲလိုသောကြောင့် မြေပုံအရိပ်ချစနစ်အမျိုးမျိုးကို ‌လေ့လာပြင်ဆင် မွမ်းမံထုတ်လုပ်ကြသည်။ နောက်ဆုံးတွင် နိုင်ငံအားလုံးနီးပါးတွင် ၎င်းတို့၏ တည်နေရာနယ်နိမိတ်ကို တိကျစွာ
+ဖော်ပြပေးနိုင်သည့် အရိပ်ချစနစ် အသီးသီးရရှိလာသည်။ (<a class="reference internal" href="#figure-map-projection"><span class="std std-numref">Fig. 9.50</span></a> တွင် ကြည့်ပါ)</p>
+<figure class="align-center" id="id6">
+<span id="figure-map-projection"></span><a class="reference internal image-reference" href="../../_images/map_projection.png"><img alt="../../_images/map_projection.png" src="../../_images/map_projection.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9.50 </span><span class="caption-text">မြေပုံအရိပ်ချစနစ်အမျိုးမျိုးတွင်တွေ့မြင်ရသည့် ကမ္ဘာ့မြေပုံ။ လက်ဝဲဘက်ပုံမှာ Mollweide Equal Area projection ဖြစ်ပြီး လက်ယာဘက်ပုံမှာ Plate Carree Equidistant Cylindrical projection ဖြစ်ပါသည်။</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အထက်ပါအချက်များကြောင့် မြေပုံတွင် အရိပ်ချစနစ်၏အမည် ထည့်သွင်းခြင်းသည် မည်မျှအဓိပ္ပါယ်ရှိသည်ကို နားလည်နိုင်ကြမည်ဖြစ်သည်။
+ကြည့်ရှုသူသည် အဆိုပါအချက်ကြောင့် မြေပုံတစ်ခုကို အခြားတစ်ခုနှင့်နှိုင်းယှဉ်ကြည့်လျှင် လျင်မြန်စွာသတိပြုမိနိုင်သည်။
+ဥပမာ- Equal Area projection ရှိသည့် မြေပုံတစ်ခု၏ feature များသည် Cylindrical Equidistant projection ရှိသည့် feature များနှင့်များစွာကွဲပြားခြားနားနေမည်ဖြစ်သည်။
+(<a class="reference internal" href="#figure-map-projection"><span class="std std-numref">Fig. 9.50</span></a> တွင်ကြည့်ပါ)</p>
+<p>မြေပုံအရိပ်ချစနစ်သည် အလွန်ရှုပ်ထွေးသည့် အကြောင်းအရာတစ်ခုဖြစ်သည့်အတွက် ဤနေရာတွင် အားလုံးအား ခြုံငုံဖော်ပြရန်မဖြစ်နိုင်ပေ။ ပိုမိုသိရှိလိုပါက ယခင်လေ့လာခဲ့သည့်ခေါင်းစဉ်ဖြစ်သော ရည်ညွှန်းကိုဩဒိနိတ်စနစ် (Coordinate Reference Systems) အကြောင်း တွင် ပြန်ကြည့်နိုင်ပါသည်။</p>
+</section>
+<section id="common-problems-things-to-be-aware-of">
+<h2><span class="section-number">9.10. </span>အဖြစ်များသော ပြဿနာများ / သတိပြုရန်အချက်များ (Common problems / things to be aware of)<a class="headerlink" href="#common-problems-things-to-be-aware-of" title="Link to this heading"></a></h2>
+<p>တစ်ခါတစ်ရံတွင် ဖတ်ရှုသူများသိရန်လိုအပ်သော အချက်အလက်အားလုံးကို
+ရှင်းလင်းပြသပေးနိုင်သည့် နားလည်ရလွယ်ကူပြီး ကောင်းမွန်စွာစီစဉ်ရေးဆွဲထားသော မြေပုံတစ်ခုကိုရေးဆွဲရန်မှာ ခက်ခဲနိုင်သည်။ ထိုသို့ဖန်တီးရန်မှာ မြေပုံအစိတ်အပိုင်းများကို ပြည့်စုံသည့်အစီအစဉ်နှင့် နေရာချထားရန်လိုအပ်သည်။
+သင်ပြောလိုသည့် အကြောင်းအရာပေါ် အာရုံစိုက်၍ မြေပုံရည်ညွှန်းချက်များ၊ စကေးဘားများ၊ မြေပုံအချက်အလက်များကို စနစ်တကျနေရာချရမည်ဖြစ်သည်။
+ထိုသို့ပြုလုပ်ခြင်းဖြင့် လူအများကြည့်ရှုနားလည်နိုင်သည့် ကောင်းစွာစီစဉ်ထားပြီး အချက်အလက်ပြည့်စုံသော မြေပုံတစ်ခုကိုရရှိလာမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">9.11. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p><strong>မြေပုံထုတ်လုပ်ခြင်း (Map production)</strong> သည် <strong>မြေပုံအစိတ်အပိုင်းများ (map elements)</strong> ကို စာရွက်ပေါ်တွင်စီစဉ်နေရာချထားခြင်းဖြစ်သည်။</p></li>
+<li><p><strong>မြေပုံအစိတ်အပိုင်းများ (map elements)</strong> မှာ ခေါင်းစဉ်၊ မြေပုံကိုယ်ထည်၊ မြေပုံအနားသတ်နယ်နိမိတ်၊ ရည်ညွှန်းချက်၊ စကေး၊ မြောက်အရပ်မျက်နှာပြမြားနှင့် မြေပုံအချက်အလက် တို့ပါဝင်သည်။</p></li>
+<li><p><strong>စကေး (Scale)</strong> သည် မြေပုံအကွာအဝေးနှင့် မြေပြင်ရှိ အမှန်တကယ်အကွာအဝေးကို အချိုးချထားခြင်းဖြစ်သည်။</p></li>
+<li><p>စကေးကို <strong>မြေပုံယူနစ် (map units)</strong> (မီတာ၊ ပေ၊ ဒီဂရီ) များဖြင့် ဖော်ပြသည်။</p></li>
+<li><p><strong>မြေပုံရည်ညွှန်းချက် (legend)</strong> သည် မြေပုံပေါ်ရှိ သင်္ကေတအားလုံးကို ရှင်းလင်းပြသပေးသည်။</p></li>
+<li><p>မြေပုံသည် <strong>သတင်းအချက်အလက်များကို တတ်နိုင်သမျှ အရှင်းလင်းဆုံးဖော်ပြပေးသင့်သည်</strong>။</p></li>
+<li><p>မြေပုံများတွင် မြောက်အရပ်ကို အမြဲတမ်း အထက်တွင်ဖော်ပြထားသည်။</p></li>
+</ul>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">9.12. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်</p>
+<ul class="simple">
+<li><p>GIS တွင် သင့်ဒေသရှိ vector layer များကို ဖွင့်ပါ။ သင်တန်းသားများမှ လမ်းအမျိုးအစားများ သို့မဟုတ် အဆောက်အအုံများ အစရှိသည့် မြေပုံအစိတ်အပိုင်းများကို ခွဲခြားနိုင်ခြင်းရှိမရှိကို စစ်ဆေးပါ။ မြေပုံရည်ညွှန်းချက် အစိတ်အပိုင်းများကိုစာရင်းပြုစု၍ မည်သည့် သင်္ကေတသည် မည်သို့ပုံသဏ္ဍာန်ရှိသည်ကို ဆုံးဖြတ်ပါ။ ဤနည်းအားဖြင့် ဖတ်ရှုသူသည် မြေပုံပေါ်ရှိ ၎င်းတို့၏ အဓိပ္ပါယ်ကို လွယ်ကူစွာသိနိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p>စာရွက်ပေါ်တွင် မြေပုံအပြင်အဆင်တစ်ခုကို သင်တန်းသားများနှင့်အတူဖန်တီးပါ။ မြေပုံ၏ခေါင်းစဉ်၊ မြေပုံပေါ်တွင်ဖော်ပြမည့် GIS layer နှင့် မည်သည့်သင်္ကေတ အရောင်သုံးမည်ကိုဆုံးဖြတ်ပါ။ <a class="reference internal" href="vector_data.html#gentle-gis-vector-data"><span class="std std-ref">Vector ဒေတာများ (Vector Data)</span></a>  နှင့်  <a class="reference internal" href="vector_attribute_data.html#gentle-gis-attributes"><span class="std std-ref">Vector Attribute Data</span></a> တို့တွင် လေ့လာခဲ့သည့်နည်းလမ်းများအတိုင်း သင်္ကေတဆိုင်ရာများကို လိုအပ်သလိုပြင်ဆင်ပါ။ နမူနာပုံစံတစ်ခုရရှိလာလျှင် QGIS print layout ကိုဖွင့်၍ စာရွက်ပေါ်တွင် သင်ဖန်တီးထားသည့်အတိုင်း စီစဉ်နေရာချပါ။</p></li>
+</ul>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">9.13. </span>စဉ်းစားရမည့်အချက်  (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်၌ ကွန်ပျူတာမရှိလျှင် မြေမျက်နှာသွင်ပြင်ပြမြေပုံတစ်ခုကိုသုံး၍ မြေပုံ၏ ဒီဇိုင်းကို သင်တန်းသားများနှင့်ဆွေးနွေးပါ။
+မြေပုံကပေးချင်သည့်အချက်အလက်ကို သင်တန်းသားများမှ နားလည်နိုင်မှုရှိမရှိ စစ်ဆေးပါ။ မည်သို့ ပြုပြင်မွမ်းမံမည်နည်း။ မြေပုံသည် ဧရိယာ၏သမိုင်းကြောင်းကို မည်မျှတိကျအောင်ဖော်ပြနိုင်သနည်း။
+နှစ်ပေါင်း ၁၀၀ အကြာက မြေပုံသည် လက်ရှိမြေပုံတစ်ခုနှင့် မည်သို့ကွဲပြားခြားနားသနည်း ။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">9.14. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p><strong>စာအုပ်များ</strong>:</p>
+<ul class="simple">
+<li><p>Chang, Kang-Tsung (2006). Introduction to Geographic Information Systems. 3rd
+Edition. McGraw Hill. ISBN: 0070658986</p></li>
+<li><p>DeMers, Michael N. (2005). Fundamentals of Geographic Information Systems. 3rd
+Edition. Wiley. ISBN: 9814126195</p></li>
+</ul>
+<p><strong>Website</strong>: <a class="reference external" href="https://en.wikipedia.org/wiki/Scale_(map)">Scale (map)</a></p>
+<p>QGIS အသုံးပြုသူလက်စွဲတွင် မြေပုံထုတ်လုပ်ခြင်းနှင့်သက်ဆိုင်သည့် အချက်အလက်များကို အသေးစိတ်ဖော်ပြထားသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">9.15. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်တစ်ခန်းတွင် GIS ကို ကောင်းမွန်သောမြေပုံများထုတ်ရန်အတွက်သာမက အခြားမည်သို့အသုံးချနိုင်သည်ကို သိရှိနိုင်ရန် <strong>vector များအားခွဲခြမ်းစိတ်ဖြာလေ့လာခြင်း (vector analysis)</strong> အား ပိုမိုအသေးစိတ် လေ့လာသွားကြပါမည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coordinate_reference_systems.html" class="btn btn-neutral float-left" title="8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_spatial_analysis_buffers.html" class="btn btn-neutral float-right" title="10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/map_production.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/map_production.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/map_production.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/map_production.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/map_production.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/map_production.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/map_production.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/map_production.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/map_production.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/map_production.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/map_production.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/1ed05120d3d36fc2a51364e28863cbe9" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Raster ဒေတာများ (Raster Data) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/raster_data.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)" href="topology.html" />
+    <link rel="prev" title="5. ဒေတာရယူခြင်း (Data Capture)" href="data_capture.html" />
+  <meta name="description" content="QGIS testing documentation: 6. Raster ဒေတာများ (Raster Data)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Raster ဒေတာများ (Raster Data)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">6.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raster-data-raster-data-in-detail">6.2. Raster data အကြောင်း အသေးစိတ် (Raster data in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#georeferencing">6.3. Georeferencing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raster-data-sources-of-raster-data">6.4. Raster data များ၏ အရင်းအမြစ်များ (Sources of raster data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-resolution">6.5. တည်နေရာဆိုင်ရာ ကြည်လင်ပြတ်သားမှု (Spatial Resolution)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spectral-resolution">6.6. ရောင်စဉ်လှိုင်း ပါဝင်မှုအရေအတွက်/ကြည်လင်ပြတ်သားမှု (Spectral resolution)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raster-vector-raster-to-vector-conversion">6.7. Raster မှ Vector သို့ပြောင်းလဲခြင်း (Raster to vector conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-raster-vector-to-raster-conversion">6.8. Vector မှ Raster သို့ ပြောင်းလဲခြင်း (Vector to raster conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raster-raster-analysis">6.9. Raster ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-problems-things-to-be-aware-of">6.10. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">6.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">6.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">6.13. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">6.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">6.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Raster ဒေတာများ (Raster Data)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/raster_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="data_capture.html" class="btn btn-neutral float-left" title="5. ဒေတာရယူခြင်း (Data Capture)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topology.html" class="btn btn-neutral float-right" title="7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="raster-raster-data">
+<h1><span class="section-number">6. </span>Raster ဒေတာများ (Raster Data)<a class="headerlink" href="#raster-raster-data" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>Raster data အကြောင်းနှင့် GIS ထဲတွင် raster data ကို မည်ကဲ့သို့အသုံးပြုနိုင်သည်ကို နားလည်စေရန်။</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Raster ၊ Pixel ၊ Remote Sensing ၊ Satellite ၊ Image ၊ Georeference</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">6.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ယခင်ခေါင်းစဉ်တွင် vector data အကြောင်းကို အသေးစိတ်လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ Vector feature များသည် လက်ရှိမြေပြင်ရှိအရာများကိုကိုယ်စားပြုရန် ဂျီဩမေတြီ (point ၊ polyline နှင့် polygon များ) များအသုံးပြုပြီး raster data များနှင့် မတူညီပါ။ Raster များကို pixel အကွက်များ (cell များဟုလည်းခေါ်ဆိုသည်) ဖြင့်ဖွဲ့စည်းထားပြီး pixel တစ်ခုချင်းစီတွင် ထို cell မှလွှမ်းခြုံသောဧရိယာ၏ အခြေအနေကိုဖော်ပြသည့် တန်ဖိုးတစ်ခုစီပါဝင်ပါသည် (<a class="reference internal" href="#figure-raster"><span class="std std-numref">Fig. 6.2</span></a> ကိုကြည့်ပါ)။ ဤခေါင်းစဉ်တွင် raster data များအကြောင်း အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပြီး၊ မည်သည့်အချိန်တွင် raster data များသည် အသုံးဝင်ကာ မည်သည့်အချိန်တွင် vector data သုံးခြင်းက ပိုအဓိပ္ပါယ်ရှိမည်ကို လေ့လာသွားမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-raster"></span><a class="reference internal image-reference" href="../../_images/raster_dataset.png"><img alt="../../_images/raster_dataset.png" src="../../_images/raster_dataset.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Raster dataset တစ်ခုကို pixel များ (cell များဟုလည်းခေါ်ဆိုသည်) ၏ Row (အတန်း) နှင့် column (အတိုင်) များဖြင့်ဖွဲ့စည်းထားပါသည်။ Pixel တစ်ခုချင်းစီသည် မြေမျက်နှာသွင်ပြင်နေရာတစ်ခုကို ကိုယ်စားပြုပြီး ထို pixel ထဲရှိတန်ဖိုးသည် အဆိုပါ မြေမျက်နှာသွင်ပြင်နေရာ၏ ဝိသေသလက္ခဏာအချို့ကို ဖော်ပြပေးပါသည်။</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="raster-data-raster-data-in-detail">
+<h2><span class="section-number">6.2. </span>Raster data အကြောင်း အသေးစိတ် (Raster data in detail)<a class="headerlink" href="#raster-data-raster-data-in-detail" title="Link to this heading"></a></h2>
+<p>ဧရိယာတစ်ခုအတွင်း တစ်ဆက်တည်းဖြစ်နေသောအချက်အလက်များကို ပြသလိုပြီး vector feature များအဖြစ်သို့ အလွယ်တကူပိုင်းခြား၍ မရနိုင်သောအခါ GIS application ထဲတွင် raster data ကိုအသုံးပြုကြပါသည်။ Vector data အကြောင်းမိတ်ဆက်ခဲ့စဉ်က <a class="reference internal" href="#figure-landscape"><span class="std std-numref">Fig. 6.3</span></a> ရှိ ပုံကို ပြသခဲ့ပါသည်။ ဤ မြင်ကွင်းဧရိယာပေါ်ရှိ feature အချို့ကို ဖော်ပြရန်အတွက် trees ၊ roads နှင့် building footprints များကဲ့သို့ point ၊ polyline နှင့် polygon feature များအသုံးပြုခဲ့ပါသည်။ Landscape တစ်ခုပေါ်ရှိ အခြား feature များကို vector feature များအသုံးပြု၍ ဖော်ပြရန် ပိုမိုခက်ခဲနိုင်ပါသည်။ ဥပမာအားဖြင့် ပုံတွင်ပြထားသော grassland များသည် အရောင်နှင့် ဖုံးလွှမ်းမှုပမာဏ များစွာကွဲပြားပါသည်။ Grassland ဧရိယာတစ်ခုချင်းစီကို polygon တစ်ခုချင်းစီ ဖန်တီးလျှင် လွယ်ကူနိုင်ပါသည်၊ သို့သော် feature များကို polygon တစ်ခုချင်းစီအဖြစ်သို့ simplify ပြုလုပ်သည့်အခါ grassland အကြောင်းအချက်အလက်များစွာ ဆုံးရှုံးပါလိမ့်မည်။ ထိုသို့ဖြစ်ရခြင်းမှာ vector feature တစ်ခုကို attribute တန်ဖိုးများသတ်မှတ်သောအခါ ၎င်းတန်ဖိုးများကို feature တစ်ခုလုံးအတွက်အသုံးပြုပါသည်၊ ထို့ကြောင့် homogeneous (မျိုးတူဖြစ်သော) မဟုတ်သော feature များကို ကိုယ်စားပြုဖော်ပြရာတွင် vector များသည် ကောင်းမည်မဟုတ်ပါ။ အခြားနည်းလမ်းတစ်ခုမှာ grass အရောင်ကွဲပြားမှုတိုင်းကို သီးသန့် polygon တစ်ခုစီအဖြစ် digitise ပြုလုပ်နိုင်ပါသည်။ ထိုနည်းလမ်း၏ ပြဿနာမှာ vector dataset ကောင်းကောင်းတစ်ခုကိုဖန်တီးရန် များစွာအချိန်ကုန်လူပန်း ဖြစ်ပါလိမ့်မည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-landscape"></span><a class="reference internal image-reference" href="../../_images/landscape.jpg"><img alt="../../_images/landscape.jpg" src="../../_images/landscape.jpg" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Landscape တစ်ခုပေါ်ရှိ အချို့ feature များကို point ၊ polyline နှင့် polygon များ (ဥပမာ- သစ်ပင်များ ၊ လမ်းများ ၊ လူနေအိမ်များ) ဖြင့် အလွယ်တကူဖော်ပြနိုင်ပါသည်။ အခြားသောကိစ္စများတွင် ထိုသို့ဖော်ပြရန် ခက်ခဲနိုင်ပါသည်။ ဥပမာအားဖြင့် grassland များကို မည်သို့ဖော်ပြမည်နည်း? Polygon များအဖြစ် ဖော်ပြမည်လား? Grass ၏အရောင်ကွဲပြားမှုများကို မည်သို့ဖော်ပြမည်နည်း?  ဆက်တိုက်ပြောင်းလဲနေသော တန်ဖိုးများပါရှိသည့် ဧရိယာအကြီးများကို ဖော်ပြရာတွင် raster data များအသုံးပြုခြင်းသည် ကောင်းမွန်သောရွေးချယ်မှုဖြစ်နိုင်ပါသည်။</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အဆိုပါ ပြဿနာများအတွက် ဖြေရှင်းနည်းမှာ raster data ကိုအသုံးပြုခြင်းဖြစ်သည်။ လူများစွာသည် vector အချက်အလက်များကို ပိုမိုအဓိပ္ပါယ်ပေါ်လွင်စေရန် vector layer များ၏နောက်တွင် raster data ကို <strong>backdrop</strong> တစ်ခုအနေဖြင့် အသုံးပြုကြပါသည်။ လူ့မျက်လုံးသည် image များကို အလွန်ကောင်းမွန်စွာ အဓိပ္ပါယ်ကောက်ယူနိုင်ပါသည်၊ ထို့ကြောင့် vector layer များနောက်တွင် image တစ်ခုကို အသုံးပြုပါက‌ မြေပုံထဲရှိ ရလာဒ်များသည် ပိုမိုအဓိပ္ပါယ်ပေါ်လာမည်ဖြစ်သည်။ Raster data သည် လက်တွေ့မြေမျက်နှာပြင်ကို ဖော်ပြသော image များ (ဥပမာ- ဂြိုလ်တုဓာတ်ပုံများနှင့် ကောင်းကင်ဓာတ်ပုံများ) အတွက် ကောင်းမွန်ရုံသာမက အနှစ်ချုပ်အကြံဉာဏ်များကို ဖော်ပြရန်အတွက်လည်း ကောင်းမွန်ပါသည်။ ဥပမာ- ဧရိယာတစ်ခုရှိ rainfall trend (မိုးရွာသွန်းမှုပုံစံ) ကိုပြသရန် သို့မဟုတ် landscape တစ်ခုပေါ်ရှိ မီးဘေးအန္တရာယ် ကိုဖော်ပြရန် raster များကိုအသုံးပြုနိုင်ပါသည်။ အဆိုပါအသုံးချမှုများတွင် raster ထဲရှိ cell တစ်ခုချင်းစီသည် မတူညီသောတန်ဖိုးကိုကိုယ်စားပြုပါသည်၊ ဥပမာ- တစ် မှ တစ်ဆယ် စကေးအတွင်း မီးလောင်မှုအန္တရာယ်။</p>
+<p>ဂြိုလ်တုတစ်ခုမှ ရယူထားသော image တစ်ခုနှင့် တွက်ချက်ထားသောတန်ဖိုးကိုပြသထားသော image တစ်ခုကြား ကွာခြားချက်ကို <a class="reference internal" href="#figure-raster-types"><span class="std std-numref">Fig. 6.4</span></a> တွင်တွေ့နိုင်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-raster-types"></span><a class="reference internal image-reference" href="../../_images/raster_types.png"><img alt="../../_images/raster_types.png" src="../../_images/raster_types.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">True colour raster image (ဘယ်ဘက်) သည် vector feature များအဖြစ်သို့ ရေးဆွဲရန်ခက်ခဲသော အသေးစိတ်များစွာကိုမြင်ရနိုင်သောကြောင့် အသုံးဝင်ပါသည်။ Raster data များသည် ညာဘက်တွင် ပြထားသော raster layer ကဲ့သို့ non-photographic (ဓာတ်ပုံမဟုတ်သည့်) data အဖြစ်လည်း ဖြစ်နိုင်ပါသည်။ ညာဘက်ရှိ raster layer သည် မတ်လအတွက် တွက်ချက်ထားသော Western Cape ဒေသရှိ ပျမ်းမျှအနည်းဆုံးအပူချိန်ကို ပြသထားပါသည်။</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="georeferencing">
+<h2><span class="section-number">6.3. </span>Georeferencing<a class="headerlink" href="#georeferencing" title="Link to this heading"></a></h2>
+<p>Georeferencing ဆိုသည်မှာ image တစ်ခု သို့မဟုတ် raster dataset တစ်ခုသည် ကမ္ဘာ့မြေမျက်နှာပြင်၏ မည်သည့်နေရာတွင် တည်ရှိသည်ကို အတိအကျသတ်မှတ်ပေးသည့် လုပ်ငန်းစဉ်ဖြစ်ပါသည်။ ဤတည်နေရာဆိုင်ရာ အချက်အလက်များကို ကောင်းကင်ဓာတ်ပုံ၏ ဒစ်ဂျစ်တယ်ဗားရှင်းတွင် သိမ်းဆည်းထားပါသည်။ GIS application တွင် ဓာတ်ပုံကိုဖွင့်သောအခါ ဓာတ်ပုံသည် မြေပုံပေါ်တွင် နေရာမှန်မှန်ကန်ကန် ပေါ်စေရန် ထိုတည်နေရာဆိုင်ရာအချက်အလက်များကို အသုံးပြုပါသည်။ ပုံမှန်အားဖြင့် ဤတည်နေရာဆိုင်ရာအချက်အလက်များတွင် image ထဲရှိ ဘယ်ဘက်အပေါ်ဆုံး pixel အတွက် ကိုဩဒိနိတ်တစ်ခု၊ X လားရာရှိ pixel တစ်ခုချင်းစီ၏အရွယ်အစား၊ Y လားရာရှိ pixel တစ်ခုချင်းစီ၏ အရွယ်အစားနှင့် image ကိုလှည့်ထားသော ပမာဏ (ရှိခဲ့ပါက) တို့ပါဝင်ပါသည်။ အဆိုပါ အချက်အလက်အနည်းငယ်ဖြင့် GIS application သည် raster data ကို မှန်ကန်သောနေရာတွင် ပြသပေးမည်ဖြစ်ပါသည်။ Raster တစ်ခု၏ georeferencing အချက်အလက်များကို raster ဖိုင်နှင့်အတူပါရှိသော text ဖိုင်တစ်ခုထဲတွင် ထည့်သွင်းပေးထားပါသည်။</p>
+</section>
+<section id="raster-data-sources-of-raster-data">
+<h2><span class="section-number">6.4. </span>Raster data များ၏ အရင်းအမြစ်များ (Sources of raster data)<a class="headerlink" href="#raster-data-sources-of-raster-data" title="Link to this heading"></a></h2>
+<p>Raster data များကို နည်းလမ်းများစွာဖြင့် ရယူနိုင်ပါသည်။ အသုံးအများဆုံးနည်းလမ်း ၂ ခုမှာ ကောင်းကင်ဓာတ်ပုံရိုက်ကူးခြင်းနှင့် ဂြိုလ်တုဓာတ်ပုံများဖြစ်သည်။ ကောင်းကင်ဓာတ်ပုံရိုက်ကူးခြင်းသည် လေယာဉ်တစ်စင်းအောက်တွင် ကင်မရာတပ်ဆင်ထားပြီး ဧရိယာတစ်ခုပေါ်တွင် ပျံသန်းကာ ဓာတ်ပုံရိုက်ယူခြင်းဖြစ်သည်။ ထို့ကြောင့် ဓာတ်ပုံများကို ကွန်ပျူတာထဲသို့ ထည့်သွင်းပြီး georeference ပြုလုပ်ပါသည်။ ကမ္ဘာကြီးကိုလှည့်ပတ်နေသော ဂြိုလ်တုများသည် အထူးဒစ်ဂျစ်တယ်ကင်မရာများဖြင့် ၎င်းတို့အောက်ရှိ ကမ္ဘာပေါ်မှ ဧရိယာတစ်ခုကို ဓာတ်ပုံရိုက်ယူပြီး ဂြိုလ်တုဓာတ်ပုံများကိုဖန်တီးပါသည်။ ဓာတ်ပုံရိုက်ယူပြီးသည်နှင့် ရေဒီယို signal များအသုံးပြုပြီး <a class="reference internal" href="#figure-csir-station"><span class="std std-numref">Fig. 6.5</span></a> တွင်ပြထားသော အထူး station များဆီသို့ ဓာတ်ပုံကိုပြန်ပို့ပေးပါသည်။ လေယာဉ် သို့မဟုတ် ဂြိုလ်တုတစ်ခုမှ raster data ရယူခြင်းလုပ်ငန်းစဉ်ကို <strong>remote sensing</strong> (အဝေးမှစူးစမ်းလေ့လာခြင်း) ဟုခေါ်ဆိုပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-csir-station"></span><a class="reference internal image-reference" href="../../_images/csir_station.jpg"><img alt="../../_images/csir_station.jpg" src="../../_images/csir_station.jpg" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Johannesburg အနီး Hartebeeshoek တွင်ရှိသော CSIR Satellite Applications Center ။ အထူးဖမ်းစက်သည် ၎င်းပေါ်မှဖြတ်သွားသော ဂြိုလ်တုများကို ခြေရာခံပြီး ရေဒီယိုလှိုင်းများကိုအသုံးပြုကာ ဓာတ်ပုံများကို ဒေါင်းလုဒ်လုပ်ပေးပါသည်။</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အခြားသောကိစ္စများတွင် raster data များကို တွက်ချက်နိုင်ပါသည်။ ဥပမာ- အာမခံကုမ္ပဏီတစ်ခုသည် ရဲမှုခင်းဖြစ်ပွားမှုအစီရင်ခံစာများရယူပြီး ဧရိယာတစ်ခုချင်းစီတွင် မှုခင်းဖြစ်ပွားမှုမည်မျှမြင့်မားသည်ကို ပြသသော နိုင်ငံအဆင့် raster မြေပုံတစ်ခုကို ဖန်တီးခြင်း၊ မိုးလေဝသပညာရှင်များ (ရာသီဥတု pattern များကို လေ့လာသူများ) သည် မိုးလေဝသ station များမှ စုဆောင်းထားသော data များအသုံးပြုပြီး ပျမ်းမျှအပူချိန်၊ မိုးရေချိန်နှင့် လေလမ်းကြောင်းများကို ပြသသော ပြည်နယ်အဆင့် raster တစ်ခုထုတ်ယူခြင်းမျိုးဖြစ်သည် (<a class="reference internal" href="#figure-csir-station"><span class="std std-numref">Fig. 6.5</span></a> တွင်ကြည့်ပါ)။ အဆိုပါကိစ္စရပ်များတွင် interpolation (<a class="reference internal" href="spatial_analysis_interpolation.html#spatial-analysys"><span class="std std-ref">တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</span></a> ခေါင်းစဉ်တွင် ဖော်ပြထားသော) ကဲ့သို့သော raster analysis နည်းလမ်းများကို အသုံးပြုကြပါလိမ့်မည်။</p>
+<p>တစ်ခါတရံတွင် raster data များကို vector data များမှ ဖန်တီးကြပါသည်၊ အကြောင်းမှာ data ပိုင်ရှင်များသည် အသုံးပြုရလွယ်သော format ဖြင့် data ကို မျှဝေလိုသောကြောင့်ဖြစ်သည်။ ဥပမာ- လမ်းများ၊ မီးရထားလမ်းများ၊ မြေပိုင်ဆိုင်မှုပြ data များနှင့် အခြား vector dataset များပိုင်ဆိုင်သော ကုမ္ပဏီတစ်ခုသည် အဆိုပါ dataset များကို ဝန်ထမ်းများမှ web browser တစ်ခုတွင်ကြည့်ရှုနိုင်ရန်အတွက် raster ဗားရှင်းဖြင့် ထုတ်ပေးခြင်းဖြစ်သည်။ အသုံးပြုသူများမှ သတိထားရန်လိုအပ်သော attribute များကို မြေပုံပေါ်တွင် သင်္ကေတများ၊ အညွှန်းများဖြင့် ဖော်ပြနိုင်မှသာ ၎င်းသည် အသုံးဝင်မည်ဖြစ်သည်။ အသုံးပြုသူသည် data အတွက် attribute ဇယားကို ကြည့်ရန်လိုအပ်ပါက raster format ဖြင့်မျှဝေခြင်းသည် ကောင်းသောရွေးချယ်မှုတစ်ခုမဟုတ်ပါ၊ အဘယ့်ကြောင့်ဆိုသော် raster layer များတွင် သက်ဆိုင်ရာ attribute data များ ပါလေ့မရှိသောကြောင့်ဖြစ်သည်။</p>
+</section>
+<section id="spatial-resolution">
+<h2><span class="section-number">6.5. </span>တည်နေရာဆိုင်ရာ ကြည်လင်ပြတ်သားမှု (Spatial Resolution)<a class="headerlink" href="#spatial-resolution" title="Link to this heading"></a></h2>
+<p>GIS ထဲရှိ raster layer တိုင်းတွင် spatial resolution ကို သတ်မှတ်ပေးသော ပုံသေအရွယ်အစား pixel (cell) များရှိပါသည်။ Image တစ်ခုကို စကေးအသေး (<a class="reference internal" href="#figure-raster-small-scale"><span class="std std-numref">Fig. 6.6</span></a> တွင်ကြည့်ပါ) ၌ ကြည့်ပြီးနောက် စကေးအကြီး (<a class="reference internal" href="#figure-raster-large-scale"><span class="std std-numref">Fig. 6.7</span></a> တွင်ကြည့်ပါ) သို့ zoom ချဲ့ကြည့်သောအခါ ထို pixel များကို သိသာထင်ရှားစွာ မြင်နိုင်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-raster-small-scale"></span><a class="reference internal image-reference" href="../../_images/raster_small_scale.png"><img alt="../../_images/raster_small_scale.png" src="../../_images/raster_small_scale.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">စကေးအသေးဖြင့် ဂြိုလ်တုဓာတ်ပုံကို မြင်ရပုံ..</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<span id="figure-raster-large-scale"></span><a class="reference internal image-reference" href="../../_images/raster_large_scale.png"><img alt="../../_images/raster_large_scale.png" src="../../_images/raster_large_scale.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">စကေးအကြီးဖြင့် ကြည့်သောအခါ image ကိုဖွဲ့စည်းထားသည့် pixel တစ်ခုချင်းစီအား မြင်ရပုံ..</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Image တစ်ခု၏ spatial resolution ကိုဆုံးဖြတ်ပေးသော အရာများစွာရှိပါသည်။ Remote sensing data များအတွက် spatial resolution ကို ဓာတ်ပုံရိုက်ယူသော sensor ၏စွမ်းဆောင်ရည်ဖြင့် ဆုံးဖြတ်လေ့ရှိပါသည်။ ဥပမာ- SPOT5 ဂြိုလ်တုသည် 10 မီတာ x 10 မီတာ pixel ရှိသော image များကို ရိုက်ယူပေးနိုင်ပါသည်။ အခြားသော ဂြိုလ်တုများ၊ ဥပမာ MODIS သည် 500 မီတာ x 500 မီတာ pixel ရှိသော image များကိုသာ ရိုက်ယူပေးနိုင်ပါသည်။ ကောင်းကင်ဓာတ်ပုံရိုက်ကူးခြင်းတွင် 50 စင်တီမီတာ x 50 စင်တီမီတာ pixel အရွယ်အစားများ အတွေ့များပါသည်။ သေးငယ်သောဧရိယာတစ်ခုကို လွှမ်းခြုံသော pixel အရွယ်အစားရှိသည့် image များကို ‘<strong>high
+resolution</strong>’ image များဟုခေါ်ဆိုပါသည်၊ အဘယ့်ကြောင့်ဆိုသော် image ထဲတွင် အသေးစိတ်များကို မြင်တွေ့ရနိုင်သောကြောင့်ဖြစ်သည်။ ကြီးမားသောဧရိယာတစ်ခုကို လွှမ်းခြုံသော pixel အရွယ်အစားရှိသည့် image များကို ‘<strong>low
+resolution</strong>’ image များဟုခေါ်ဆိုပါသည်၊ image များတွင် အသေးစိတ်များကို မမြင်ရနိုင်ပါ။</p>
+<p>Spatial analysis မှတွက်ချက်ထားသော raster data (အစောပိုင်းတွင် ဖော်ပြခဲ့သော rainfall မြေပုံကဲ့သို့) များတွင် raster ကိုဖန်တီးရာတွင်အသုံးပြုခဲ့သော spatial အချက်အလက်ပမာဏသည် spatial resolution ကိုဆုံးဖြတ်ပေးလေ့ရှိပါသည်။ ဥပမာအားဖြင့် resolution ကောင်းမွန်သော ပျှမ်းမျှမိုးရေချိန်မြေပုံတစ်ခုကို ဖန်တီးလိုပါက တစ်ခုနှင့်တစ်ခုအကွာအဝေးနီးကပ်သော weather station များစွာကို လိုအပ်ပါလိမ့်မည်။</p>
+<p>Spatial resolution ကောင်းမွန်သော raster များရယူရာတွင် သတိပြုရမည့်အရာများထဲမှတစ်ခုမှာ သိမ်းဆည်းသိုလှောင်မှု လိုအပ်ချက်ဖြစ်သည်။ Pixel တစ်ခုချင်းစီတွင် ပျမ်းမျှမိုးရေချိန်ကို ကိုယ်စားပြုသော ဂဏန်းတစ်ခုစီပါဝင်သည့် 3 x 3 pixel ရှိသော raster တစ်ခုထဲရှိ အချက်အလက်များအားလုံးကို သိမ်းဆည်းရန် ကွန်ပျူတာ memory ထဲတွင် ဂဏန်း ၉ လုံးသိမ်းဆည်းရန် လိုအပ်ပါလိမ့်မည်။ တောင်အာဖရိကတစ်ခုလုံးအတွက် 1 ကီလိုမီတာ x 1 ကီလိုမီတာ pixel များရှိသော raster layer တစ်ခုကို ရရှိလိုသည်ဆိုပါစို့။ တောင်အာဖရိကသည် 1,219,090 စတုရန်းကီလိုမီတာခန့် ကျယ်ဝန်းပါသည်။ ဆိုလိုသည်မှာ ၎င်းအချက်အလက်များအားလုံးကို သိမ်းဆည်းရန် သင့်ကွန်ပျူတာသည် သန်းကျော်သော ဂဏန်းများကို hard disk ပေါ်တွင် သိုလှောင်ရန် လိုအပ်ပါလိမ့်မည်။ Pixel အရွယ်အစားသေးလေလေ သိုလှောင်ရန်လိုအပ်သော ပမာဏ များလေလေဖြစ်ပါသည်။</p>
+<p>တစ်ခါတရံတွင် ဧရိယာအကြီးကြီးတစ်ခုတွင် လုပ်ဆောင်လိုပြီး အသေးစိတ်ကြည့်ရှုရန် စိတ်မဝင်စားပါက spatial resolution နိမ့်သော image များသည် အသုံးဝင်ပါသည်။ ဥပမာအနေဖြင့် ရာသီဥတုအစီရင်ခံစာတွင် တွေ့ရသော တိမ်တိုက်မြေပုံများဖြစ်သည် — တစ်နိုင်ငံလုံးရှိ တိမ်တိုက်များကို ကြည့်ရှုရာတွင် အသုံးဝင်ပါသည်။ Resolution ကောင်းမွန်သော တိမ်တစ်ခုကို zoom ချဲ့ကြည့်လျှင်လည်း နောက်ဖြစ်ပေါ်လာမည့်ရာသီဥတုအကြောင်းကို များစွာ ပြောပြပေးနိုင်မည်မဟုတ်ပါ။</p>
+<p>တစ်နည်းအားဖြင့်ဆိုရသော် သေးငယ်သောဧရိယာတစ်ခုအတွက် resolution နိမ့်သော raster data ကိုအသုံးပြုခြင်းသည် ပြဿနာရှိနိုင်ပါသည်၊ အဘယ့်ကြောင့်ဆိုသော် image ထဲမှ တစ်ခုတည်းရှိသော feature များကို ရယူရန် မဖြစ်နိုင်သောကြောင့်ဖြစ်သည်။</p>
+</section>
+<section id="spectral-resolution">
+<h2><span class="section-number">6.6. </span>ရောင်စဉ်လှိုင်း ပါဝင်မှုအရေအတွက်/ကြည်လင်ပြတ်သားမှု (Spectral resolution)<a class="headerlink" href="#spectral-resolution" title="Link to this heading"></a></h2>
+<p>ဒီဂျစ်တယ်ကင်မရာတစ်လုံး သို့မဟုတ် ဖုန်းကင်မရာတစ်လုံးဖြင့် အရောင်ဓာတ်ပုံတစ်ခုရိုက်ကူးပါက ကင်မရာသည် အနီရောင်၊ အစိမ်းရောင် နှင့် အပြာရောင်အလင်းများကို ဖမ်းယူရန် electronic sensor များကိုအသုံးပြုပါသည်။ ဓာတ်ပုံကို မျက်နှာပြင်တစ်ခုပေါ်တွင် ပြသသောအခါ လူ့မျက်လုံးဖြင့် အဓိပ္ပါယ်ကောက်ယူနိုင်သော ဓာတ်ပုံကိုပြသရန် အနီရောင် ၊ အစိမ်းရောင် နှင့် အပြာရောင် (RGB) အချက်အလက်များကို ပေါင်းစည်းပေးပါသည်။ အချက်အလက်သည် ဒီဂျစ်တယ်ပုံစံဖြင့်ပင်ရှိနေသော်လည်း RGB အချက်အလက်များကို သီးခြားအရောင် <strong>bands</strong> များထဲတွင် သိမ်းဆည်းထားပါသည်။</p>
+<p>ကျွန်ုပ်တို့၏မျက်လုံးများသည် RGB လှိုင်းအလျားများကိုသာ မြင်ရနိုင်ပါသည်၊ ကင်မရာထဲရှိ electronic sensor များသည် လူ့မျက်လုံးမှ မမြင်နိုင်သော လှိုင်းအလျားများကို ဖမ်းယူနိုင်ပါသည်။ လူအများစုသည် သာမာန်ကင်မရာတစ်လုံးဖြင့် သူတို့ခွေးများ သို့မဟုတ် အခြားအရာများကိုသာ ရိုက်ယူလိုကြသောကြောင့် ၎င်းကင်မရာဖြင့် ရောင်စဉ်၏ <strong>မမြင်ရနိုင်သော</strong> အပိုင်းများမှ အချက်အလက်များကို ဖမ်းယူနိုင်လိမ့်မည်မဟုတ်ပါ။ အလင်းရောင်စဉ်တန်း၏ မမြင်ရသောအပိုင်းများအတွက် data များပါဝင်သော raster image များကို multi-spectral image များဟုခေါ်ဆိုပါသည်။ GIS တွင် ရောင်စဉ်၏ မမြင်ရနိုင်သော အပိုင်းများကို ဖမ်းယူခြင်းသည် အလွန်အသုံးဝင်နိုင်ပါသည်။ ဥပမာ- အနီအောက်ရောင်ခြည် (infra-red light) သည် ရေမျက်နှာပြင်ထုများ ဖော်ထုတ်ရာတွင် အသုံးဝင်နိုင်ပါသည်။</p>
+<p>Band များစွာပါဝင်သော image များသည် GIS တွင် အလွန်အသုံးဝင်သောကြောင့် raster data များကို multi-band image များအဖြစ်ပံ့ပိုးပေးလေ့ရှိပါသည်။ Image ထဲရှိ band တစ်ခုချင်းစီသည် သီးခြား layer တစ်ခုနှင့်တူပါသည်။ GIS သည် band ၃ ခုကိုပေါင်းစပ်ပြီး လူ့မျက်လုံးဖြင့်မြင်နိုင်စေရန် အနီရောင်၊ အစိမ်းရောင် နှင့် အပြာရောင် အဖြစ် ပြသပေးပါသည်။ Raster image တစ်ခုထဲရှိ band အရေအတွက်ကို image ၏ <strong>spectral resolution</strong> ဟုခေါ်ဆိုပါသည်။</p>
+<p>Image တွင် band တစ်ခုတည်းသာပါရှိပါက ၎င်းကို <strong>grayscale</strong> image တစ်ခုဟု ခေါ်ဆိုပါသည်။ Grayscale image များဖြင့် pixel များထဲရှိ တန်ဖိုးကွာခြားမှုများအား ပိုမိုသိသာထင်ရှားစေရန် false colouring (အရောင်တုခြယ်သခြင်း) ကို အသုံးပြုနိုင်ပါသည်။ False colouring သုံးထားသော image များကို <strong>pseudocolour images</strong> များဟုခေါ်ဆိုလေ့ရှိပါသည်။</p>
+</section>
+<section id="raster-vector-raster-to-vector-conversion">
+<h2><span class="section-number">6.7. </span>Raster မှ Vector သို့ပြောင်းလဲခြင်း (Raster to vector conversion)<a class="headerlink" href="#raster-vector-raster-to-vector-conversion" title="Link to this heading"></a></h2>
+<p>Raster data များကို backdrop layer အဖြစ်အသုံးပြုပြီး ထို layer ပေါ်မှ feature များကို vector အဖြစ်သို့ digitise ပြုလုပ်နိုင်ကြောင်း Vector data အပိုင်းတွင် ရှင်းပြခဲ့ပါသည်။</p>
+<p>Image များမှ vector feature များ အလိုအလျောက်ထုတ်ယူပေးသည့် အခြားနည်းလမ်းတစ်ခုမှာ အဆင့်မြင့်ကွန်ပျူတာပရိုဂရမ်များ အသုံးပြုခြင်းဖြစ်သည်။ လမ်းများကဲ့သို့သော အချို့ feature များသည် image ထဲတွင် အနီးအနားရှိ pixel များနှင့်မတူသော အရောင်အဖြစ် ပြောင်းလဲပြီး ပြသပေးပါသည်။ ကွန်ပျူတာပရိုဂရမ်သည် ထိုကဲ့သို့သော အရောင်ပြောင်းလဲမှုများကို ရှာဖွေပြီး ရလာဒ်အဖြစ် vector feature များဖန်တီးပေးပါသည်။ ဤကဲ့သို့သော လုပ်ဆောင်နိုင်စွမ်းများကို ပုံမှန်အားဖြင့် အထူး (ဈေးကြီးသော) GIS software များတွင်သာ လုပ်ဆောင်နိုင်ပါသည်။</p>
+</section>
+<section id="vector-raster-vector-to-raster-conversion">
+<h2><span class="section-number">6.8. </span>Vector မှ Raster သို့ ပြောင်းလဲခြင်း (Vector to raster conversion)<a class="headerlink" href="#vector-raster-vector-to-raster-conversion" title="Link to this heading"></a></h2>
+<p>တစ်ခါတရံတွင် vector data များကို raster data များသို့ ပြောင်းလဲပါက အသုံးဝင်ပါသည်။ ဆိုးသည့်အချက်တစ်ခုမှာ ပြောင်းလဲမှုလုပ်ဆောင်သောအခါ attribute data (မူလ vector data နှင့်ဆက်စပ်နေသော attribute များ) များ ဆုံးရှုံးပါလိမ့်မည်။ GIS အသုံးမပြုသူများထံသို့ GIS data များပေးလိုသောအခါ vector မှ raster သို့ပြောင်းလဲထားသော format သည် အသုံးဝင်နိုင်ပါသည်။ ၎င်းတို့၏ ကွန်ပျူတာထဲတွင် raster format ကို ဓာတ်ပုံတစ်ပုံအနေဖြင့် ရိုးရိုးကြည့်ရှုနိုင်ပြီး အထူး GIS software တစ်ခုခုအသုံးပြုရန်မလိုအပ်ပါ။</p>
+</section>
+<section id="raster-raster-analysis">
+<h2><span class="section-number">6.9. </span>Raster ဆန်းစစ်လေ့လာခြင်း (Raster analysis)<a class="headerlink" href="#raster-raster-analysis" title="Link to this heading"></a></h2>
+<p>Vector data များဖြင့် အသုံးမပြုနိုင်ပဲ raster data ပေါ်တွင် run နိုင်သော analytical tool များစွာရှိပါသည်။ ဥပမာ- မြေမျက်နှာပြင်ပေါ်ရှိ ရေစီးဆင်းမှုကို model ပြုလုပ်ရာတွင် raster များကိုအသုံးပြုနိုင်ပါသည်။ မြေမျက်နှာသွင်ပြင်ပေါ်မူတည်၍ watershed များနှင့် ချောင်းလမ်းကြောင်းများ မည်သည့်နေရာတွင် တည်ရှိသည်ကို တွက်ချက်ရာတွင် ဤအချက်အလက်များကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>စိုက်ပျိုးရေးနှင့် သစ်တောကဏ္ဍများတွင် စိုက်ပျိုးသီးနှံများထုတ်လုပ်မှုကို စီမံခန့်ခွဲရန် raster data များကိုလည်း အသုံးပြုလေ့ရှိပါသည်။ ဥပမာ- စိုက်ပျိုးမြေတစ်ခု၏ ဂြိုလ်တုဓာတ်ပုံတစ်ပုံကိုအသုံးပြုပြီး မည်သည့်နေရာတွင် အပင်များ ကြီးထွားမှုအားနည်းနေသည်ကို ဖော်ထုတ်ပြီး ထိုအားနည်းသောနေရာများတွင်သာ ဓာတ်မြေဩဇာ ပိုမိုအသုံးပြုပေးခြင်းဖြစ်သည်။ သစ်တောသမားများသည် ဧရိယာတစ်ခုမှ သစ်ပမာဏ မည်မျှထုတ်ယူနိုင်မည်ကို ခန့်မှန်းရန် raster data များကို အသုံးပြုကြပါသည်။</p>
+<p>Raster data သည် ဘေးအန္တရာယ်စီမံခန့်မှုအတွက်လည်း အလွန်အရေးကြီးပါသည်။ Digital
+Elevation Model (ပင်လယ်ရေမျက်နှာပြင်အထက် အမြင့်တန်ဖိုး pixel များပါဝင်သော raster တစ်မျိုး) များ ဆန်းစစ်လေ့လာခြင်းကို ရေကြီးရေလျှံသည့် ဧရိယာများ ဖော်ထုတ်ရာတွင် အသုံးပြုနိုင်ပါသည်။ ဤအချက်အလက်များကို အသုံးပြုပြီး အလိုအပ်ဆုံးဧရိယာများတွင် ကယ်ဆယ်ရေးလုပ်ငန်းများ ဦးစားပေးလုပ်ဆောင်နိုင်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="common-problems-things-to-be-aware-of">
+<h2><span class="section-number">6.10. </span>အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)<a class="headerlink" href="#common-problems-things-to-be-aware-of" title="Link to this heading"></a></h2>
+<p>အထက်တွင် ဖော်ပြခဲ့ပြီးသည့်အတိုင်း resolution မြင့်သော raster data များသည် သိုလှောင်မှုပမာဏများများ လိုအပ်နိုင်ပါသည်။</p>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">6.11. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p>Raster data များကို အရွယ်အစားတူညီသော <strong>pixels</strong> များဖြင့် ဖွဲ့စည်းထားပါသည်။</p></li>
+<li><p>Raster data များသည် <strong>ဆက်တိုက်ပြောင်းလဲနေသောအချက်အလက်များ</strong> ကိုပြသရန်အတွက် ကောင်းမွန်ပါသည်။</p></li>
+<li><p>Raster တစ်ခုထဲရှိ pixel အရွယ်အစားသည် ၎င်း၏ <strong>spatial resolution</strong> ကိုဆုံးဖြတ်ပေးပါသည်။</p></li>
+<li><p>Raster image များတွင် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော <strong>bands</strong> များပါဝင်နိုင်ပြီး၊ band တစ်ခုချင်းစီသည် တူညီသောဧရိယာကို လွှမ်းခြုံသော်လည်း မတူညီသောအချက်အလက်များပါဝင်ပါသည်။</p></li>
+<li><p>Electromagnetic spectrum ၏ မတူညီသောအစိတ်အပိုင်းများမှ band များပါဝင်သော raster data များကို <strong>multi-spectral image</strong> များဟုခေါ်ဆိုပါသည်။</p></li>
+<li><p>Multi-spectral image တစ်ခု၏ band ၃ ခုကို မြင်ရနိုင်စေရန်အတွက် အနီရောင်၊ အစိမ်းရောင် နှင့် အပြာရောင် ဖြင့်ပြသပေးနိုင်ပါသည်။</p></li>
+<li><p>Band တစ်ခုတည်းပါဝင်သော image များကို grayscale image များဟုခေါ်ဆိုပါသည်။</p></li>
+<li><p>Band တစ်ခုတည်းပါသော grayscale image များကို GIS ထဲတွင် pseudocolour (အရောင်တု) ဖြင့် ပြသပေးနိုင်ပါသည်။</p></li>
+<li><p>Raster image များသည် သိုလှောင်မှုပမာဏများများ လိုအပ်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">6.12. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Raster data များနှင့် vector data များကို မည်သည့်အခြေအနေများတွင် အသုံးပြုရမည်ကို သင်တန်းသားများနှင့် ဆွေးနွေးပါ။</p></li>
+<li><p>A4 စာရွက်အကြည်ပေါ်တွင် grid line များရေးဆွဲပြီး ကျောင်း၏ raster မြေပုံတစ်ခုကို သင်တန်းသားများအား ဖန်တီးစေပါ။ ကျောင်းနေရာရှိသော toposheet သို့မဟုတ် ကောင်းကင်ဓာတ်ပုံတစ်ခုပေါ်တွင် စာရွက်အကြည်ကို အပေါ်မှ ထပ်ပါ။ သင်တန်းသားတစ်ဦးချင်းစီ သို့မဟုတ် အုပ်စုများကို feature (ဥပမာ- အဆောက်အဦ၊ ကစားကွင်း၊ အားကစားကွင်း၊ သစ်ပင်များ၊ လူသွားလမ်းများ အစရှိသဖြင့်) အမျိုးအစားအလိုက် cell များတွင် အရောင်ခြယ်သစေပါ။ အားလုံးပြီးဆုံးပါက စာရွက်များအားလုံးကို အတူတကွ ထပ်လိုက်ပြီး သင့်ကျောင်းကို ဖော်ပြပေးနိုင်သည့် raster ကောင်းတစ်ခု ဟုတ်/မဟုတ် ကြည့်ပါ။ Raster များအနေဖြင့် ပြသသောအခါ မည်သည့် feature အမျိုးအစားများသည် ကောင်းကောင်းမွန်မွန် ဖြစ်သနည်း? Cell အရွယ်အစားရွေးချယ်မှုသည် မတူညီသော feature အမျိုးအစားများကို ပြသရာတွင် မည်သို့သက်ရောက်မှုရှိသနည်း?</p></li>
+</ul>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">6.13. </span>စဉ်းစားရမည့်အချက် (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်တွင် ကွန်ပျူတာမရှိပါက ဘောပင်နှင့်စာရွက်ကို အသုံးပြုပြီး raster data များကို နားလည်စေနိုင်ပါသည်။ စာရွက်ပေါ်တွင် စတုရန်းအကွက်များရေးဆွဲပြီး သင်၏ဘောလုံးကွင်းကို ပြသပါ။ ဘောလုံးကွင်းထဲရှိ မြက်ဖုံးအုပ်မှု တန်ဖိုးများကို ကိုယ်စားပြုသော ဂဏန်းများကို grid ထဲတွင် ဖြည့်သွင်းပါ။ အကွက်တစ်ခုသည် ပြောင်နေပါက cell ၏ တန်ဖိုးကို 0 ဟုပေးပါ။ အကွက်တစ်ခုသည် မြက်နှင့်မြေသား ရောနေပါက တန်ဖိုးကို 1 ဟုပေးပါ။ ဧရိယာတစ်ခုသည် မြက်များအပြည့်ဖုံးအုပ်နေပါက တန်ဖိုး 2 ဟုပေးပါ။ ၎င်းတို့၏ တန်ဖိုးများပေါ်မူတည်ပြီး cell များကို ရောင်စုံခဲတံဖြင့် အရောင်ခြယ်သပါ။ တန်ဖိုး 2 ရှိသော cell များကို အစိမ်းရင့်ရောင်ဖြင့် ခြယ်သပါ။ တန်ဖိုး 1 ရှိသော cell များကို အစိမ်းနုရောင်ခြယ်သပြီး တန်ဖိုး 0 ရှိသော cell များကို အညိုရောင်ဖြင့် ခြယ်သပါ။ ပြီးဆုံးပါက သင့်ဘောလုံးကွင်း၏ raster မြေပုံတစ်ခုကို ရရှိပြီဖြစ်ပါသည်။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">6.14. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p><strong>စာအုပ်</strong>:</p>
+<ul class="simple">
+<li><p>Chang, Kang-Tsung (2006). Introduction to Geographic Information Systems. 3rd
+Edition. McGraw Hill. ISBN: 0070658986</p></li>
+<li><p>DeMers, Michael N. (2005). Fundamentals of Geographic Information Systems. 3rd
+Edition. Wiley. ISBN: 9814126195</p></li>
+</ul>
+<p><strong>Website:</strong> <a class="reference external" href="https://en.wikipedia.org/wiki/GIS_file_formats#Raster">https://en.wikipedia.org/wiki/GIS_file_formats#Raster</a></p>
+<p>QGIS ထဲတွင် raster data များဖြင့် အလုပ်လုပ်ခြင်းနှင့်ပတ်သက်၍ QGIS အသုံးပြုသူလမ်းညွှန်တွင် ပိုမိုအသေးစိတ်ဖော်ပြထားပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">6.15. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Data အရည်အသွေးအကောင်းဆုံးဖြစ်စေရန် vector feature များအကြားဆက်နွယ်မှုကို မည်ကဲ့သို့အသုံးပြုနိုင်သည်ကို နောက်လာမည့် <strong>topology</strong> အပိုင်းတွင် အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_capture.html" class="btn btn-neutral float-left" title="5. ဒေတာရယူခြင်း (Data Capture)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topology.html" class="btn btn-neutral float-right" title="7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/raster_data.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/raster_data.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/raster_data.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/raster_data.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/raster_data.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/raster_data.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/raster_data.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/raster_data.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/raster_data.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/raster_data.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/raster_data.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/f33457b596770b089b797faf65831de3" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

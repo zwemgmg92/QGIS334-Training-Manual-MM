@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. စကားချီး (Preamble) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/preamble.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. GIS မိတ်ဆက် (Introducing GIS)" href="introducing_gis.html" />
+    <link rel="prev" title="GIS မိတ်ဆက် (A Gentle Introduction to GIS)" href="index.html" />
+  <meta name="description" content="QGIS testing documentation: 1. စကားချီး (Preamble)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. စကားချီး (Preamble)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-word-from-the-editor">1.1. အယ်ဒီတာ့ အာဘော် (A word from the editor)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>စကားချီး (Preamble)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/preamble.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="GIS မိတ်ဆက် (A Gentle Introduction to GIS)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="introducing_gis.html" class="btn btn-neutral float-right" title="2. GIS မိတ်ဆက် (Introducing GIS)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="preamble">
+<span id="a-gentle-introduction-to-gis-reference"></span><h1><span class="section-number">1. </span>စကားချီး (Preamble)<a class="headerlink" href="#preamble" title="Link to this heading"></a></h1>
+<p>GIS မိတ်ဆက် (A Gentle Introduction to GIS)</p>
+<p>လူတိုင်း အခမဲ့လွတ်လပ်စွာ ရယူအသုံးပြုနိုင်သော ပထဝီဝင်ဆိုင်ရာသတင်းအချက်အလက်စနစ် (GIS) application software တစ်ခုဖြစ်သည့် QGIS အား မိတ်ဆက်ပေးသွားမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/logo.png"><img alt="../../_images/logo.png" src="../../_images/logo.png" style="width: 8em;" /></a>
+</figure>
+<ol class="upperalpha simple" start="20">
+<li><p>Sutton, O. Dassau, M. Sutton</p></li>
+</ol>
+<p>Chief Directorate: Spatial Planning &amp; Information ၊ Department of
+Land Affairs ၊ Eastern Cape ၊ South Africa မှ ပံ့ပိုးထားခြင်းဖြစ်ပါသည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/dla_logo.png"><img alt="../../_images/dla_logo.png" src="../../_images/dla_logo.png" style="width: 6em;" /></a>
+</figure>
+<p>Spatial Information Management Unit ၊ Office of the Premier ၊
+Eastern Cape ၊ South Africa နှင့် ပူးပေါင်း စီစဉ်တင်ဆက်မှုဖြစ်ပါသည်။</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/eastern_cape_logo.jpg"><img alt="../../_images/eastern_cape_logo.jpg" src="../../_images/eastern_cape_logo.jpg" style="width: 25em;" /></a>
+</figure>
+<p>Copyright (c) 2009 Chief Directorate: Spatial Planning &amp; Information, Department
+of Land Affairs, Eastern Cape.</p>
+<p>Free Software Foundation မှ ဖြန့်ချိထားသော Version 1.2  နှင့် နောက်ပိုင်း version များ အတွက် GNU Free Documentation License ၏ စည်းမျဉ်းများနှင့်အညီ ဤလမ်းညွှန်အား မိတ္တူကူးခွင့်၊ ဖြန့်ဝေခွင့်နှင့် ပြင်ဆင်ခွင့်ပြုထားပါသည်။ မပြောင်းလဲ မပြင်ဆင်နိုင်သောအပိုင်းများ (Invariant Sections) ၊ မျက်နှာဖုံးစာသားနှင့်နောက်ကျောဖုံးစာသားများကို မပြောင်းလဲရပါ။</p>
+<p>လိုင်စင်၏ မိတ္တူကို <a class="reference internal" href="gnu_free_documentation_license.html#gnu-fdl"><span class="std std-ref">GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</span></a> အပိုင်းတွင်ထည့်သွင်းဖော်ပြထားပါသည်။</p>
+<p>အထက်ပါ လိုင်စင်အသိပေးချက်၌ ဤစာတမ်းတွင် ဆက်တွဲပါဝင်လာနိုင်သည့် QGIS အသုံးပြုသူလမ်းညွှန်မပါဝင်ပါ။ ထပ်မံဖြည့်စွက်လိုသည့် မူပိုင်ခွင့်နှင့် လိုင်စင်အချက်အလက်များအတွက် QGIS လက်စွဲများတွင်အကြံပြုဆွေးနွေးနိုင်ပါသည်။</p>
+<section id="a-word-from-the-editor">
+<h2><span class="section-number">1.1. </span>အယ်ဒီတာ့ အာဘော် (A word from the editor)<a class="headerlink" href="#a-word-from-the-editor" title="Link to this heading"></a></h2>
+<p>ဤ project အား Chief Directorate - Spatial Planning &amp; Information ၊
+Department of Land Affairs (DLA) ၊ Eastern Cape နှင့် Spatial Information Management Unit ၊ Office of the Premier ၊ Eastern Cape ၊ South Africa တို့၏ ပူးပေါင်းပံ့ပိုးမှုဖြင့် ဆောင်ရွက်ခဲ့ပါသည်။</p>
+<p>ပထဝီဝင်ဆိုင်ရာသတင်းအချက်အလက်စနစ် (GIS) သည် သဘာဝပတ်ဝန်းကျင်စီမံခန့်ခွဲမှု၊ ကုန်သွယ်ရေး၊ စစ်ရေး၊ နိုင်ငံရေး၊ ခရီးသွားလုပ်ငန်းနှင့် ကျွန်ုပ်တို့နေ့စဉ်ဘဝ၏ နယ်ပယ်အသီးသီးတွင် ကျယ်ပြန့်စွာအရေးပါလာလျက်ရှိသည်။ သင်သည် ကွန်ပျူတာ သို့မဟုတ် မိုဘိုင်းဖုန်းအသုံးပြုရာတွင်ပင် GIS အား သင်သတိမထားမိစဉ်တွင်ပင် အသွင်တစ်မျိုးနှင့် အသုံးပြုမိလျက်သား ဖြစ်နေနိုင်သည်။ ၎င်းသည် ဝဘ်ဆိုဒ်တစ်ခုပေါ်ရှိမြေပုံတစ်ခု၊ Google Earth ၊ သတင်းအချက်အလက်ကောင်တာတစ်ခု သို့မဟုတ် သင့်မိုဘိုင်းဖုန်းမှ သင်ရောက်ရှိနေသည့်နေရာအား ဖော်ပြသည့်ဖော်ပြချက်တစ်ခုဖြစ်နိုင်သည်။ ဤစာမျက်နှာများတွင်ဖော်ပြထားသကဲ့သို့ နှင့် ထိုထက်ပိုသော အရာများကိုလုပ်ဆောင်နိုင်သည့်
+ပုဂ္ဂလိကပိုင် (လွတ်လပ်စွာမျှဝေခြင်း သို့မဟုတ် ပြုပြင်မွမ်းမံခြင်းမပြုလုပ်နိုင်သော) GIS ဆော့ဖ်ဝဲကို သင့်အနေဖြင့် ရရှိနိုင်သော်လည်း ၎င်းဆော့ဖ်ဝဲသည် အများအားဖြင့် လွန်စွာ‌ဈေးကြီးပြီး ကူးယူရန်၊ မျှဝေရန် နှင့် ပြုပြင်မွမ်းမံရန် အကန့်အသတ်များစွာရှိနိုင်ပါသည်။ GIS ကုမ္ပဏီများမှ တစ်ခါတစ်ရံတွင် ပညာရေးဆိုင်ရာလုပ်ငန်းများအတွက် ခြွင်းချက်အနေဖြင့် ၎င်းတို့၏ ဆော့ဖ်ဝဲအား ပိုမိုဈေးသက်သာပြီး အခမဲ့ကူးယူနိုင်သည့် မိတ္တူများအဖြစ်ထုတ်လုပ်လေ့ရှိသည်။ ၎င်းတို့အနေဖြင့် ဆရာများနှင့်ကျောင်းသားများက ၎င်းတို့၏ ဆော့ဖ်ဝဲအားသိရှိပြီးနောက် အခြား package များ အားလေ့လာရန် ဝန်လေးနေသည့်အချက်ကို သဘောပေါက်နားလည်သည့်အတွက် ထိုကဲ့သို့ဆောင်ရွက်ခြင်းဖြစ်သည်။ ကျောင်းသားများသည် ကျောင်းပြီး၍ လုပ်ငန်းခွင်ဝင်ရောက်ပြီး စီးပွားဖြစ်ဆော့ဖ်ဝဲများဝယ်ယူသည့်အခါ ၎င်းတို့အသုံးပြုနိုင်မည့် အခမဲ့ အခြားဆော့ဖ်ဝဲများ ရှိကြောင်းကို ဘယ်သောအခါမှ သိရှိလိုက်ကြမည်မဟုတ်ပါ။</p>
+<p>QGIS သည် ကုန်ကျစရိတ်အခမဲ့ဖြစ်ပြီး ပုဂ္ဂလိကစွဲ ကင်းလွတ်သော အခြားရွေးချယ်စရာတစ်ခုဖြစ်ပါသည်။ သင့်အနေဖြင့် ကြိုက်နှစ်သက်သလို မိတ္တူကူးနိုင်မည်ဖြစ်ပါသည်။ ကျောင်းသားများ ကျောင်းပြီးသွားသည့်အခါ ဤဆော့ဖ်ဝဲကိုအသုံးပြု၍ ၎င်းတို့၏ ကျွမ်းကျင်မှုများကိုတည်ဆောက်နိုင်ပြီး လုပ်ငန်းခွင်ပြဿနာများအားဖြေရှင်းနိုင်ကာ ပိုမိုကောင်းမွန်သော လောကအား ဖန်တီးနိုင်ကြမည်ဖြစ်ပါသည်။</p>
+<p>စီးပွားဖြစ်ဆော့ဖ်ဝဲများဝယ်ယူသည့်အခါ အနာဂတ်အတွက် သင်ရွေးချယ်ခွင့်အား သင်ကိုယ်တိုင်ကန့်သတ်မိသကဲ့သို့ဖြစ်သွားနိုင်ပါသည်။ အခမဲ့လွတ်လပ်စွာရယူနိုင်သည့်ဆော့ဖ်ဝဲများအသုံးပြု လေ့လာမျှဝေခြင်းဖြင့် သင့်ကိုယ်ပိုင် ကျွမ်းကျင်မှုများကိုတည်ဆောက်နိုင်ပြီး စားဝတ်နေရေးအတွက် ငွေကြေးပိုမိုအသုံးပြုနိုင်သည့်အတွက် သင့်ငွေကြေးစီမံခန့်ခွဲမှုကိုလည်း မြှင့်တင်ပေးနိုင်မည်ဖြစ်ပါသည်။</p>
+<p>DLA သည် ဤ အရင်းအမြစ်ကို ဖန်တီးရာတွင်ပံ့ပိုးကူညီခြင်းဖြင့် လူငယ်စွမ်းအားရင်းမြစ်များ ဖော်ထုတ်ရာတွင် အခြေခံအုတ်မြစ်တစ်ခုတည်ဆောက်ခဲ့ပြီး ဖြစ်ပါသည်။ ဗဟုသုတများနှင့်အချက်အလက်များလွတ်လပ်စွာမျှဝေခြင်းဆိုင်ရာ အခြေခံစည်းမျဉ်းများအား လက်ခံကျင့်သုံးလာနိုင်ပါလျှင် စိတ်လှုပ်ရှားဖွယ်အလားအလာများရှိလာနိုင်မည်ဖြစ်ပါသည်။ ထို့အတွက် DLA အား ကျွန်ုပ်တို့မှ လှိုက်လှိုက်လှဲလှဲကျေးဇူးတင်ရှိပါသည်။</p>
+<p>စာနာထောက်ထားဝေမျှသောစိတ်ဓာတ်ဖြင့် QGIS အသုံးပြုခြင်းနှင့်လေ့လာခြင်းကို နှစ်သက်ကျေနပ်ကြစေရန် ကျွန်ုပ်တို့မှ မျှော်လင့်ပါသည်။</p>
+<figure class="align-default">
+<img alt="../../_images/tims_sign.png" src="../../_images/tims_sign.png" />
+</figure>
+<p>Tim Sutton, April 2009</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="GIS မိတ်ဆက် (A Gentle Introduction to GIS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="introducing_gis.html" class="btn btn-neutral float-right" title="2. GIS မိတ်ဆက် (Introducing GIS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/preamble.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/preamble.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/preamble.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/preamble.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/preamble.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/preamble.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/preamble.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/preamble.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/preamble.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/preamble.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/preamble.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b1f6b65db0f270f9400916366525f2b8" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers)) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))" href="spatial_analysis_interpolation.html" />
+    <link rel="prev" title="9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)" href="map_production.html" />
+  <meta name="description" content="QGIS testing documentation: 10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">10.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffering-buffering-in-detail">10.2. Buffering အကြောင်းအသေးစိတ် (Buffering in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffering-variations-in-buffering">10.3. Buffering မူကွဲများ (Variations in buffering)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#multiple-buffer-zones">10.3.1. ကြားခံဇုန်အများအပြား (Multiple buffer zones)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dissolve-buffer-buffering-with-intact-or-dissolved-boundaries">10.3.2. ပကတိအတိုင်းရှိသော နယ်နိမိတ်များ သို့မဟုတ် Dissolve လုပ်ထားသောနယ်နိမိတ်များဖြင့် Buffer ပြုလုပ်ခြင်း (Buffering with intact or dissolved boundaries)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buffer-buffering-outward-and-inward">10.3.3. အပြင်ဘက်နှင့် အတွင်းဘက်သို့ Buffer ပြုလုပ်ခြင်း (Buffering outward and inward)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-problems-things-to-be-aware-of">10.4. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-analysis-tool-more-spatial-analysis-tools">10.5. နောက်ထပ် spatial analysis tool များ (More spatial analysis tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">10.6. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">10.7. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">10.8. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">10.9. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">10.10. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10. </span>Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="map_production.html" class="btn btn-neutral float-left" title="9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spatial_analysis_interpolation.html" class="btn btn-neutral float-right" title="11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-spatial-analysis-buffers">
+<h1><span class="section-number">10. </span>Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))<a class="headerlink" href="#vector-spatial-analysis-buffers" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>Vector spatial analysis တွင် buffer (ကြားခံဇုန်) အသုံးပြုနည်းကို နားလည်စေရန်။</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Vector ၊ buffer zone ၊ spatial analysis ၊ buffer distance ၊ dissolve boundary ၊ outward and inward buffer ၊ multiple buffer</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">10.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>GIS data များမှ အဓိပ္ပါယ်အသစ်များနှင့် ထပ်ဆောင်းအဓိပ္ပါယ်များကို ထုတ်ယူရန် <strong>Spatial analysis</strong> သည် တည်နေရာဆိုင်ရာအချက်အလက်များ (spatial information) ကိုအသုံးပြုပါသည်။ များသောအားဖြင့် spatial analysis ကို GIS Application တစ်ခုအသုံးပြုပြီး လုပ်ဆောင်ပါသည်။ GIS Application များတွင် ပုံမှန်အားဖြင့် feature statistics (ဥပမာ- polyline တစ်ခုတွင် vertex မည်မျှပါဝင်သနည်း) အတွက် သို့မဟုတ် feature buffering ကဲ့သို့သော geoprocessing များအတွက် spatial analysis tool များပါရှိပါသည်။ အသုံးပြုမည့် spatial analysis အမျိုးအစားသည် လုပ်ဆောင်မည့်ဧရိယာပေါ်မူတည်ပြီး ကွဲပြားပါသည်။ ရေအရင်းအမြစ်စီမံခြင်းနှင့် သုတေသန (hydrology) ကဏ္ဍတွင် လုပ်ဆောင်နေသူများသည် terrain (မြေမျက်နှာသွင်ပြင်) ခွဲခြမ်းစိတ်ဖြာခြင်းနှင့် water modelling များတွင် ပိုမိုစိတ်ဝင်စားပေလိမ့်မည်။ သားငှက်တိရစ္ဆာန်စီမံအုပ်ချုပ်မှုကဏ္ဍ လုပ်ဆောင်သူများသည် သားငှက်တိရစ္ဆာန်များနှင့် ပတ်ဝန်းကျင် ဆက်နွယ်မှုများနှင့်ဆိုင်သော ဆန်းစစ်လေ့လာမှုများကို စိတ်ဝင်စားပေလိမ့်မည်။ ဤခေါင်းစဉ်တွင် vector data များဖြင့်လုပ်ဆောင်နိုင်သည့် အသုံးဝင်သော spatial analysis ဥပမာတစ်ခုအနေဖြင့် buffering (ကြားခံဇုန်ဖန်တီးခြင်း) အကြောင်းကို ဆွေးနွေးသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="buffering-buffering-in-detail">
+<h2><span class="section-number">10.2. </span>Buffering အကြောင်းအသေးစိတ် (Buffering in detail)<a class="headerlink" href="#buffering-buffering-in-detail" title="Link to this heading"></a></h2>
+<p><strong>Buffering</strong> သည် များသောအားဖြင့် ဧရိယာ နှစ်ခုကို ဖန်တီးပေးပါသည်- ပထမဧရိယာသည် လက်တွေ့မြေပြင်ရှိ feature များသို့ သတ်မှတ်ထားသော အကွာအဝေး <strong>အတွင်း</strong> ရှိသောဧရိယာဖြစ်ပြီး၊ နောက်တစ်ခုသည် သတ်မှတ်အကွာအဝေးကို <strong>ကျော်လွန်</strong> သည့်ဧရိယာဖြစ်သည်။ သတ်မှတ်အကွာအဝေးအတွင်းရှိသော ဧရိယာများကို <strong>buffer zone</strong> ဟုခေါ်ဆိုပါသည်။</p>
+<p><strong>Buffer zone</strong> တစ်ခုဆိုသည်မှာ လက်တွေ့မြေပြင်ရှိ feature များကို အခြားသော feature များမှအကွာအဝေးတစ်ခုတွင် ထားရှိပေးသော ဧရိယာဖြစ်သည်။ ပတ်ဝန်းကျင်ကို ကာကွယ်ရန်၊ လူနေဧရိယာများနှင့် စီးပွားရေးဇုန်များကို စက်မှုဆိုင်ရာမတော်တဆမှုများ သို့မဟုတ် သဘာဝဘေးအန္တရာယ်များမှ ကာကွယ်ရန်၊ အကြမ်းဖက်မှုများမှ ကာကွယ်ရန်အတွက် Buffer zone များကို သတ်မှတ်လေ့ရှိပါသည်။ အသုံးများသော buffer zone အမျိုးအစားများမှာ လူနေဧရိယာများနှင့် စီးပွားရေးဧရိယာများအကြားရှိ greenbelt (စိုက်ပျိုးမြေများ သို့မဟုတ် ကျယ်ဝန်းသောကွင်းပြင်များ) များ၊ နိုင်ငံများအကြားရှိ နယ်နိမိတ်ဇုန်များ (<a class="reference internal" href="#figure-buffer-zone"><span class="std std-numref">Fig. 10.7</span></a> တွင်ကြည့်ပါ)၊ လေဆိပ်များပတ်လည်ရှိ ဆူညံသံကာကွယ်မှုဇုန်များ၊ သို့မဟုတ် မြစ်တစ်လျှောက် ညစ်ညမ်းမှုကာကွယ်ရေးဇုန်များ တို့ဖြစ်ကြပါသည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-buffer-zone"></span><a class="reference internal image-reference" href="../../_images/buffer_zone.png"><img alt="../../_images/buffer_zone.png" src="../../_images/buffer_zone.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.7 </span><span class="caption-text">အမေရိကန်ပြည်ထောင်စုနှင့် မက္ကစီကို နိုင်ငံအကြား နယ်နိမိတ်ကို buffer zone တစ်ခုဖြင့် ပိုင်းခြားထားပါသည်။ (SGT Jim Greenhill မှ ၂၀၀၆ ခုနှစ်တွင် ရိုက်ကူးထားသော ဓာတ်ပုံဖြစ်ပါသည်)</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>GIS Application တစ်ခုတွင် <strong>buffer zone</strong> များကို အခြား polygon ၊ line သို့မဟုတ် point feature များကိုဝန်းရံကာထားသော <strong>vector polygon</strong> များအဖြစ်အမြဲတမ်း ကိုယ်စားပြုဖော်ပြပါသည် (<a class="reference internal" href="#figure-point-buffer"><span class="std std-numref">Fig. 10.8</span></a> ၊ <a class="reference internal" href="#figure-line-buffer"><span class="std std-numref">Fig. 10.9</span></a> ၊ <a class="reference internal" href="#figure-polygon-buffer"><span class="std std-numref">Fig. 10.10</span></a> တွင်ကြည့်ပါ)</p>
+<figure class="align-center" id="id2">
+<span id="figure-point-buffer"></span><a class="reference internal image-reference" href="../../_images/point_buffer.png"><img alt="../../_images/point_buffer.png" src="../../_images/point_buffer.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">Vector point များပတ်လည်ရှိ buffer zone တစ်ခု</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<span id="figure-line-buffer"></span><a class="reference internal image-reference" href="../../_images/line_buffer.png"><img alt="../../_images/line_buffer.png" src="../../_images/line_buffer.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.9 </span><span class="caption-text">Vector polyline များပတ်လည်ရှိ buffer zone တစ်ခု</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<span id="figure-polygon-buffer"></span><a class="reference internal image-reference" href="../../_images/polygon_buffer.png"><img alt="../../_images/polygon_buffer.png" src="../../_images/polygon_buffer.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.10 </span><span class="caption-text">Vector polygon များပတ်လည်ရှိ buffer zone တစ်ခု</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="buffering-variations-in-buffering">
+<h2><span class="section-number">10.3. </span>Buffering မူကွဲများ (Variations in buffering)<a class="headerlink" href="#buffering-variations-in-buffering" title="Link to this heading"></a></h2>
+<p>Buffering တွင် မူကွဲများစွာရှိပါသည်။ <strong>Buffer အကွာအဝေး</strong> သို့မဟုတ် <strong>buffer အရွယ်အစား</strong> သည် feature တစ်ခုချင်းစီအတွက် attribute table ထဲတွင်ပေးထားသော ကိန်းဂဏန်းတန်ဖိုးများအရ ပြောင်းလဲနိုင်ပါသည်။ ကိန်းဂဏန်းတန်ဖိုးများကို data တွင် သုံးထားသော Coordinate Reference System (CRS) အရ မြေပုံယူနစ်များဖြင့်သတ်မှတ်ပေးရပါမည်။ ဥပမာ- မြစ်ကမ်းပါးတစ်လျှောက်ရှိ buffer zone တစ်ခု၏အကျယ်သည် အနီးကပ်လျှက်ရှိ မြေအသုံးချမှု ပမာဏပေါ်မူတည်ပြီး ပြောင်းလဲနိုင်ပါသည်။ အချိန်တိုအတွင်းမြန်မြန်ဆန်ဆန်လုပ်ဆောင်ရသော စိုက်ပျိုးရေးလုပ်ငန်းအတွက် buffer အကွာအဝေးသည် ဇီဝအခြေခံသောစိုက်ပျိုးရေးလုပ်ငန်းအတွက် buffer အကွာအဝေးထက် ပိုမိုကြီးမားနိုင်ပါသည် (ပုံ <a class="reference internal" href="#figure-variable-buffer"><span class="std std-numref">Fig. 10.11</span></a> နှင့် ဇယား <a class="reference internal" href="#table-buffer-attributes">table_buffer_attributes</a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id5">
+<span id="figure-variable-buffer"></span><a class="reference internal image-reference" href="../../_images/variable_buffer.png"><img alt="../../_images/variable_buffer.png" src="../../_images/variable_buffer.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.11 </span><span class="caption-text">အမျိုးမျိုးသော buffer အကွာအဝေးများဖြင့် မြစ်များတွင် Buffering ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="table-buffer-attributes">
+<thead>
+<tr class="row-odd"><th class="head"><p>River</p></th>
+<th class="head"><p>Adjacent land use</p></th>
+<th class="head"><p>Buffer distance (meters)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Breede River</p></td>
+<td><p>Intensive vegetable cultivation</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Komati</p></td>
+<td><p>Intensive cotton cultivation</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-even"><td><p>Oranje</p></td>
+<td><p>Organic farming</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Telle river</p></td>
+<td><p>Organic farming</p></td>
+<td><p>50</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table Buffer Attributes 1 - အနီးကပ်လျှက်ရှိ မြေအသုံးချမှုအကြောင်းအချက်အလက်များပေါ်အခြေခံထားပြီး မြစ်များတွင် အမျိုးမျိုးသော buffer အကွာအဝေးများပါရှိသည့် Attribute table။</p>
+<p>မြစ်များ သို့မဟုတ် လမ်းများကဲ့သို့သော polyline feature များပတ်လည်ရှိ buffer များသည် line ၏ နှစ်ဘက်လုံးတွင်ရှိနေစရာမလိုပါ။ Buffer များသည် line feature ၏ဘယ်ဘက် သို့မဟုတ် ညာဘက် တစ်ဘက်ဘက်တွင် ရှိနေနိုင်ပါသည်။ Digitise ပြုလုပ်စဉ်အတွင်း line ၏ စမှတ်မှ ဆုံးမှတ်သို့ လားရာဖြင့် ဘယ်ဘက် သို့မဟုတ် ညာဘက် ကို ဆုံးဖြတ်ပေးပါသည်။</p>
+<section id="multiple-buffer-zones">
+<h3><span class="section-number">10.3.1. </span>ကြားခံဇုန်အများအပြား (Multiple buffer zones)<a class="headerlink" href="#multiple-buffer-zones" title="Link to this heading"></a></h3>
+<p>Feature တစ်ခုတွင် buffer zone တစ်ခုထက်ပိုပြီးလည်း ရှိနိုင်ပါသည်။ နြူကလီးယားဓာတ်အားပေးစက်ရုံတစ်ခုကို 10 ၊ 15 ၊ 25 နှင့် 30 ကီလိုမီတာ အကွာအဝေးများဖြင့် buffer ပြုလုပ်ထားနိုင်ပါသည်၊ ထို့ကြောင့် ဘေးကင်းရာသို့ပြောင်းရွှေ့ပေးခြင်းအစီအစဉ်တစ်ခုအနေဖြင့် စက်ရုံ၏ပတ်လည်တွင် ကွင်းများစွာ ပေါ်နေမည်ဖြစ်ပါသည် (<a class="reference internal" href="#figure-multiple-buffers"><span class="std std-numref">Fig. 10.12</span></a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id6">
+<span id="figure-multiple-buffers"></span><a class="reference internal image-reference" href="../../_images/multiple_buffers.png"><img alt="../../_images/multiple_buffers.png" src="../../_images/multiple_buffers.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.12 </span><span class="caption-text">Point feature တစ်ခုအား 10 ၊ 15 ၊ 25 နှင့် 30 ကီလိုမီတာ အကွာအဝေးများဖြင့် Buffer ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dissolve-buffer-buffering-with-intact-or-dissolved-boundaries">
+<h3><span class="section-number">10.3.2. </span>ပကတိအတိုင်းရှိသော နယ်နိမိတ်များ သို့မဟုတ် Dissolve လုပ်ထားသောနယ်နိမိတ်များဖြင့် Buffer ပြုလုပ်ခြင်း (Buffering with intact or dissolved boundaries)<a class="headerlink" href="#dissolve-buffer-buffering-with-intact-or-dissolved-boundaries" title="Link to this heading"></a></h3>
+<p>Buffer zone များအကြား ထပ်နေသော ဧရိယာများမရှိစေရန်အတွက် buffer zone နယ်နိမိတ်များကို dissolve ပြုလုပ်လေ့ရှိပါသည်။ အချို့ကိစ္စများတွင် buffer zone နယ်နိမိတ်များ ပကတိအတိုင်းရှိနေခြင်းသည်လည်း အသုံးဝင်နိုင်ပါသည်၊ ထို့အတွက်ကြောင့် buffer zone တစ်ခုချင်းစီသည် သီးခြား polygon တစ်ခုစီအဖြစ်ရှိနေပြီး ထပ်နေသော ဧရိယာများကို ဖော်ထုတ်နိုင်မည်ဖြစ်သည် (<a class="reference internal" href="#figure-buffer-dissolve"><span class="std std-numref">Fig. 10.13</span></a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id7">
+<span id="figure-buffer-dissolve"></span><a class="reference internal image-reference" href="../../_images/buffer_dissolve.png"><img alt="../../_images/buffer_dissolve.png" src="../../_images/buffer_dissolve.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.13 </span><span class="caption-text">Dissolve ပြုလုပ်ထားသော Buffer zone များ (ဘယ်ဘက်) နှင့် ထပ်နေသည့်ဧရိယာများကိုပြသပေးသော ပကတိအတိုင်းရှိသည့်နယ်နိမိတ်များဖြင့် Buffer zone များ (ညာဘက်)</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="buffer-buffering-outward-and-inward">
+<h3><span class="section-number">10.3.3. </span>အပြင်ဘက်နှင့် အတွင်းဘက်သို့ Buffer ပြုလုပ်ခြင်း (Buffering outward and inward)<a class="headerlink" href="#buffer-buffering-outward-and-inward" title="Link to this heading"></a></h3>
+<p>Polygon feature များပတ်လည်ရှိ buffer zone များသည် များသောအားဖြင့် polygon နယ်နိမိတ်၏အပြင်ဘက်သို့ ချဲ့သွားပါသည်၊ သို့သော် polygon နယ်နိမိတ်၏ အတွင်းဘက်သို့လည်း buffer zone တစ်ခုဖန်တီးနိုင်ပါသည်။ ဥပမာဆိုလျှင် ခရီးသွားလုပ်ငန်းဦးစီးဌာနသည် Robben Island ပတ်လည်တွင် လမ်းအသစ်တစ်ခုဆောက်လုပ်ရန် အစီအစဉ်ချမှတ်လိုပြီး ပတ်ဝန်းကျင်ဆိုင်ရာဥပဒေများအရ လမ်းသည် ပင်လယ်ကမ်းရိုးတန်းမှ အတွင်းဘက် ၂၀၀ မီတာအနည်းဆုံးရှိရန် လိုအပ်ပါသည်။ အတွင်းဘက် ၂၀၀ မီတာလိုင်းကိုရှာဖွေရန် inward (အတွင်းဘက်) buffer ကိုအသုံးပြုနိုင်ပြီး လမ်းဆောက်လုပ်ရာတွင် ထိုလိုင်းကို မကျော်လွန်စေရန် အစီအစဉ်ချမှတ်နိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="common-problems-things-to-be-aware-of">
+<h2><span class="section-number">10.4. </span>အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)<a class="headerlink" href="#common-problems-things-to-be-aware-of" title="Link to this heading"></a></h2>
+<p>GIS Application အများစုတွင် buffer ဖန်တီးခြင်းကို analysis tool တစ်ခုအနေဖြင့် လုပ်ဆောင်နိုင်ပါသည်၊ သို့သော် Buffer ဖန်တီးခြင်းအတွက် option များ ကွဲပြားနိုင်ပါသည်။ ဥပမာ- line feature တစ်ခု၏ ဘယ်ဘက် သို့မဟုတ် ညာဘက် တစ်ဘက်ဘက်သို့ buffer ပြုလုပ်ခြင်း၊ buffer zone များ၏နယ်နိမိတ်များကို dissolve ပြုလုပ်ခြင်း သို့မဟုတ် polygon နယ်နိမိတ်တစ်ခုမှ အတွင်းဘက်သို့ buffer ပြုလုပ်ခြင်းများကို GIS Application များအားလုံးတွင် လုပ်ဆောင်နိုင်မည်မဟုတ်ပါ။</p>
+<p>Buffer အကွာအဝေးကို အမြဲတမ်း ကိန်းပြည့် (integer) သို့မဟုတ် ဒဿမကိန်း (folating point တန်ဖိုး) ဖြင့် သတ်မှတ်ပေးရပါမည်။ ထိုတန်ဖိုးကို vector layer ၏ Coordinate Reference System (CRS) အတိုင်း မြေပုံယူနစ်များ (မီတာ၊ ပေ၊ ဒဿမဒီဂရီ) ဖြင့် သတ်မှတ်ပေးပါသည်။</p>
+</section>
+<section id="spatial-analysis-tool-more-spatial-analysis-tools">
+<h2><span class="section-number">10.5. </span>နောက်ထပ် spatial analysis tool များ (More spatial analysis tools)<a class="headerlink" href="#spatial-analysis-tool-more-spatial-analysis-tools" title="Link to this heading"></a></h2>
+<p>Buffering သည် အရေးကြီးပြီး အသုံးများသော spatial analysis tool တစ်ခုဖြစ်ပါသည်၊ သို့သော် GIS ထဲတွင်အသုံးပြုနိုင်သော အခြားသောအရာများစွာရှိပါသေးသည်။</p>
+<p><strong>Spatial overlay</strong> (တည်နေရာအရ ထပ်နေမှု) သည် တူညီသောဧရိယာ၏ အားလုံး သို့မဟုတ် တစ်စိတ်တစ်ပိုင်းကို မျှဝေသုံးစွဲနေသော polygon feature နှစ်ခုအကြား ဆက်နွယ်မှုကို ဖော်ထုတ်ပေးသည့် လုပ်ငန်းစဉ်တစ်ခုဖြစ်ပါသည်။ Output vector layer တွင် input feature များ၏အချက်အလက်များကို ပေါင်းစည်းထားမည်ဖြစ်ပါသည် (<a class="reference internal" href="#figure-overlay-operations"><span class="std std-numref">Fig. 10.14</span></a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id8">
+<span id="figure-overlay-operations"></span><a class="reference internal image-reference" href="../../_images/overlay_operations.png"><img alt="../../_images/overlay_operations.png" src="../../_images/overlay_operations.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.14 </span><span class="caption-text">Input vector နှစ်ခုအသုံးပြုထားသော Spatial overlay (a_input = ထောင့်မှန်စတုဂံ ၊ b_input =
+စက်ဝိုင်း)။ ရလာဒ် vector layer အား အစိမ်းရောင်ဖြင့်ပြသထားပါသည်။</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>စံနမူနာဖြစ်သော spatial overlay ဥပမာများမှာ-</p>
+<ul class="simple">
+<li><p><strong>Intersection</strong> - Layer နှစ်ခုလုံးထပ်နေသော (intersect) ဧရိယာများအားလုံးသည် Output layer တွင် ပါရှိမည်ဖြစ်သည်။</p></li>
+<li><p><strong>Union</strong> - Input layer နှစ်ခုလုံး၏ ဧရိယာများအားလုံးသည် Output layer တွင် ပါရှိမည်ဖြစ်သည်။</p></li>
+<li><p><strong>Symmetrical difference</strong> - Input layer နှစ်ခုထပ်နေသောဧရိယာများမှလွဲ၍ input layer များထဲရှိ ဧရိယာများအားလုံးသည် Output layer တွင် ပါရှိမည်ဖြစ်သည်။</p></li>
+<li><p><strong>Difference</strong> - ဒုတိယ input layer နှင့်ထပ်မနေသော (intersect ဖြစ်မနေသော) ပထမ input layer ၏ဧရိယာများအားလုံးသည် Output layer တွင် ပါရှိမည်ဖြစ်သည်။</p></li>
+</ul>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">10.6. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p><strong>Buffer zone</strong> များသည် လက်တွေ့မြေပြင် feature များပတ်လည်ရှိ ဧရိယာများကို ဖော်ပြပေးသည်။</p></li>
+<li><p>Buffer zone များသည် အမြဲတမ်း <strong>vector polygon</strong> များဖြစ်ပါသည်။</p></li>
+<li><p>Feature တစ်ခုတွင် <strong>များစွာသော</strong> buffer zone များပါရှိနိုင်ပါသည်။</p></li>
+<li><p>Buffer zone တစ်ခု၏အရွယ်အစားကို <strong>buffer အကွာအဝေး</strong> တစ်ခုဖြင့် သတ်မှတ်ပါသည်။</p></li>
+<li><p>Buffer အကွာအဝေးသည် <strong>integer (ကိန်းပြည့်)</strong> သို့မဟုတ် <strong>floating point (ဒဿမကိန်း)</strong> တန်ဖိုးတစ်ခုဖြစ်ရပါမည်။</p></li>
+<li><p>Buffer အကွာအဝေးသည် vector layer တစ်ခုအတွင်းရှိ feature တစ်ခုချင်းစီအတွက် ကွာခြားနိုင်ပါသည်။</p></li>
+<li><p>Polygon နယ်နိမိတ်မှ <strong>အတွင်းဘက်</strong> သို့မဟုတ် <strong>အပြင်ဘက်</strong> သို့ buffer ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p>Buffer zone များကို <strong>intact</strong> သို့မဟုတ် <strong>dissolve</strong> ပြုလုပ်ထားသော နယ်နိမိတ်များဖြင့် ဖန်တီးနိုင်ပါသည်။</p></li>
+<li><p>GIS တွင် spatial ဆိုင်ရာလုပ်ငန်းများကိုဖြေရှင်းရန် Buffering အပြင် အခြားသော vector analysis tool အများအစားများစွာပါရှိပါသည်။</p></li>
+</ul>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">10.7. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာဉ်ကြောပိတ်ဆို့မှုများ သိသာစွာများပြားလာသောကြောင့် မြို့ပြစီမံသူများသည် အဓိကလမ်းမကြီးကို ထပ်ချဲ့ပြီး ဒုတိယလမ်းတစ်ခု ထည့်သွင်းလိုပါသည်။ Buffer zone အတွင်းကျရောက်သော ဝိသေသလက္ခဏာများကိုရှာဖွေရန် လမ်း၏ပတ်လည်တွင် buffer တစ်ခုဖန်တီးပါ (<a class="reference internal" href="#figure-buffer-road"><span class="std std-numref">Fig. 10.15</span></a> ကိုကြည့်ပါ)။</p></li>
+<li><p>ဆန္ဒပြအုပ်စုများကို ထိန်းချုပ်ရန်အတွက် ရဲများသည် ဆန္ဒပြသူများအား အဆောက်အဦတစ်ခုမှ အနည်းဆုံး မီတာ ၁၀၀ အကွာတွင်ထားရှိရန် neutral zone (ကြားဇုန်) တစ်ခုကို ပြုလုပ်လိုပါသည်။ အဆောက်အဦတစ်ခုပတ်လည်တွင် buffer တစ်ခုဖန်တီးပြီး ၎င်းဧရိယာကို ပွဲစီမံသူများမှ မြင်ရနိုင်စေရန် အရောင်ခြယ်ပါ။</p></li>
+<li><p>ကုန်တင်ကားစက်ရုံတစ်ခုသည် တိုးချဲ့ရန် စီစဉ်နေပါသည်။ စည်းကမ်းသတ်မှတ်ချက်အရ အလားအလာရှိသောနေရာသည် အကြမ်းခံသောလမ်း (heavy-duty road) တစ်ခု၏ ၁ ကီလိုမီတာအတွင်းတွင် ရှိရပါမည်။ အလားအလာရှိသောနေရာများကို မြင်ရနိုင်ရန် အဓိကလမ်းမကြီးတစ်လျှောက် buffer တစ်ခုကို ဖန်တီးပါ။</p></li>
+<li><p>ကျောင်း သို့မဟုတ် ဘုရားကျောင်းများ၏ ၁၀၀၀ မီတာအတွင်း မည်သည့်ယမကာပုလင်းရောင်းသည့်ဆိုင်မှ မရှိစေရန် မြို့တွင် ဥပဒေတစ်ခုကိုစတင်ထုတ်ပြန်မည်ဟု ယူဆကြည့်ပါ။ ကျောင်းပတ်လည် ၁ ကီလိုမီတာ buffer တစ်ခုဖန်တီးပြီးနောက် ကျောင်းနှင့်နီးသည့်နေရာတွင် ယမကာပုလင်းရောင်းသည့်ဆိုင် ရှိမရှိကို သွားရောက်ကြည့်ရှုပါ။</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<span id="figure-buffer-road"></span><a class="reference internal image-reference" href="../../_images/buffer_road.png"><img alt="../../_images/buffer_road.png" src="../../_images/buffer_road.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.15 </span><span class="caption-text">လမ်းမြေပုံ (အညိုရောင်) ပတ်လည်ရှိ Buffer zone (အစိမ်းရောင်)။ မည်သည့်အိမ်များသည် buffer zone အတွင်းကျရောက်နေသည်ကို မြင်တွေ့နိုင်ပါသည်၊ ထို့ကြောင့် အိမ်ပိုင်ရှင်ကို ဆက်သွယ်ပြီး အခြေအနေကို ‌ပြောပြပေးနိုင်မည်ဖြစ်ပါသည်။</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">10.8. </span>စဉ်းစားရမည့်အချက် (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်တွင် ကွန်ပျူတာမရှိပါက topo မြေပုံတစ်ခုနှင့် သံလိုက်အိမ်မြှောင်တစ်ခုကို အသုံးပြုပြီး အဆောက်အဦများပတ်လည်တွင် buffer zone များကို ဖန်တီးနိုင်ပါသည်။ သံလိုက်အိမ်မြှောင်အသုံးပြုပြီး feature အားလုံးတစ်လျှောက်တွင် အကွာအဝေးတူညီသည့်နေရာတိုင်း၌ ခဲတံအမှတ်ငယ်များ ပြုလုပ်ပါ၊ ထို့နောက် ပေတံဖြင့် ထိုအမှတ်များကို ဆက်ပါ။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">10.9. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p><strong>စာအုပ်များ</strong>:</p>
+<ul class="simple">
+<li><p>Galati, Stephen R. (2006). Geographic Information Systems Demystified. Artech
+House Inc. ISBN: 158053533X</p></li>
+<li><p>Chang, Kang-Tsung (2006). Introduction to Geographic Information Systems. 3rd
+Edition. McGraw Hill. ISBN: 0070658986</p></li>
+<li><p>DeMers, Michael N. (2005). Fundamentals of Geographic Information Systems. 3rd
+Edition. Wiley. ISBN: 9814126195</p></li>
+</ul>
+<p>QGIS ထဲတွင် vector data များ ဆန်းစစ်လေ့လာခြင်းနှင့်ပတ်သက်၍ QGIS အသုံးပြုသူလက်စွဲတွင် ပိုမိုအသေးစိတ်ဖော်ပြထားပါသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">10.10. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်လာမည့်အခန်းတွင် raster data ဖြင့်လုပ်ဆောင်နိုင်သော spatial analysis ဥပမာတစ်ခုအဖြစ်  <strong>interpolation</strong> (သွယ်ဝိုက်တွက်ချက်ခြင်း) အကြောင်းကို အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="map_production.html" class="btn btn-neutral float-left" title="9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spatial_analysis_interpolation.html" class="btn btn-neutral float-right" title="11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/f69592846d80c6e9beb62d390808ef5b" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

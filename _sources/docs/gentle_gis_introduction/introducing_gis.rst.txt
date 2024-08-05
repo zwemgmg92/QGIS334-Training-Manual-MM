@@ -78,7 +78,7 @@ GIS Application များ လွယ်ကူစွာအသုံးပြု
 GIS software/GIS Application  ဆိုသည်မှာ အဘယ်နည်း (What is GIS Software / a GIS Application?)
 =================================================================================================
 
-**GIS Application** တစ်ခု မည်သည့်ပုံစံ ရှိသည်ကို ဥပမာတွင်ကြည့်နိုင်သည်။ :numref:`figure_gis_application`  
+**GIS Application** တစ်ခု မည်သည့်ပုံစံ ရှိသည်ကို :numref:`figure_gis_application` တွင်ကြည့်နိုင်သည်။
 GIS Application များသည်ပုံမှန်အားဖြင့် mouse နှင့် keyboard ကို အသုံးပြု၍ကိုင်တွယ်အသုံးပြုနိုင်သော ဂရပ်ဖစ်ပုံစံ အသုံးပြုသူမျက်နှာပြင် (interface) တစ်ခုဖြစ်သည်။ Application တွင် window ၏ အထက်နား၌ mouse ဖြင့် click ပြုလုပ်နိုင်သည့် **menus**  (:guilabel:`Project` ၊ :guilabel:`Edit` အစရှိသဖြင့်) 
 ရှိပြီး  **actions** ဟူသည့် panel တစ်ခုကို ပြထားသည်။ အဆိုပါ လုပ်ဆောင်ချက်များသည် GIS Application အား သင်လိုအပ်သလို ခိုင်းစေနိုင်ရန်ဆောင်ရွက်ပေးသည်။
 ဥပမာ- menus ကို အသုံးပြု၍ layer အသစ်တစ်ခုကိုထည့်သွင်းပြသစေနိုင်ပါသည်။ 

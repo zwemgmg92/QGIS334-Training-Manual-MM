@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIS မိတ်ဆက် (A Gentle Introduction to GIS) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/index.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. စကားချီး (Preamble)" href="preamble.html" />
+    <link rel="prev" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" href="../training_manual/appendix/preparing_data.html" />
+  <meta name="description" content="QGIS testing documentation: GIS မိတ်ဆက် (A Gentle Introduction to GIS)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GIS မိတ်ဆက်</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../training_manual/appendix/preparing_data.html" class="btn btn-neutral float-left" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preamble.html" class="btn btn-neutral float-right" title="1. စကားချီး (Preamble)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="gis-a-gentle-introduction-to-gis">
+<span id="gentle-introduction-gis"></span><h1>GIS မိတ်ဆက် (A Gentle Introduction to GIS)<a class="headerlink" href="#gis-a-gentle-introduction-to-gis" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble.html#a-word-from-the-editor">1.1. အယ်ဒီတာ့ အာဘော် (A word from the editor)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#overview">2.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#gis-more-about-gis">2.2. GIS နှင့်ပတ်သက်သည့် နောက်ထပ်အကြောင်းအရာများ (More about GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#gis-software-gis-application-what-is-gis-software-a-gis-application">2.3. GIS software/GIS Application  ဆိုသည်မှာ အဘယ်နည်း (What is GIS Software / a GIS Application?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#gis-application-getting-a-gis-application-for-your-own-computer-s">2.4. ကိုယ်ပိုင်ကွန်ပျူတာ (များ) တွင်အသုံးပြုရန် GIS Application တစ်ခုအား ရယူခြင်း (Getting a GIS Application for your own computer(s))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#gis-gis-data">2.5. GIS ဒေတာ (GIS Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#what-have-we-learned">2.6. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#now-you-try">2.7. ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#something-to-think-about">2.8. စဉ်းစားရန်အချက်တစ်ချို့  (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#further-reading">2.9. ထပ်မံဖတ်ရှုရန် (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html#what-s-next">2.10. နောက်ထပ်ဘာအကြောင်းအရာလဲ  (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#overview">3.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#point-features-point-features-in-detail">3.2. Point features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Point features in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#polyline-features-polyline-features-in-detail">3.3. Polyline features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polyline features in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#polygon-features-polygon-features-in-detail">3.4. Polygon features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polygon features in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#layer-vector-data-vector-data-in-layers">3.5. Layer များထဲရှိ Vector data (Vector data in layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#vector-data-editing-vector-data">3.6. Vector data များအား တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing vector data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#vector-data-scale-and-vector-data">3.7. စကေးနှင့် vector data များ (Scale and vector data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#symbology">3.8. သင်္ကေတဆိုင်ရာများ (Symbology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#gis-vector-data-what-can-we-do-with-vector-data-in-a-gis">3.9. GIS တွင် vector data များဖြင့် မည်သည့်အရာများလုပ်ဆောင်နိုင်သနည်း (What can we do with vector data in a GIS?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#vector-data-common-problems-with-vector-data">3.10. Vector data များတွင် အဖြစ်များသောပြဿနာများ (Common problems with vector data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#what-have-we-learned">3.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#now-you-try">3.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#something-to-think-about">3.13. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#further-reading">3.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html#what-s-next">3.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#overview">4.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#attribute-attributes-in-detail">4.2. Attribute များအကြောင်း အသေးစိတ် (Attributes in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#single-symbols">4.3. တစ်မျိုးတည်းဖြစ်သောသင်္ကေတများ (Single Symbols)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#graduated-symbols">4.4. အဆင့်လိုက်ခွဲခြားဖော်ပြသော သင်္ကေတများ (Graduated Symbols)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#continuous-colour-symbols">4.5. တဆက်တစပ်တည်းဖြစ်သောအရောင်များဖြင့်ဖော်ပြသည့် သင်္ကေတများ (Continuous Colour Symbols)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#unique-value-symbols">4.6. သီးသန့်တန်ဖိုးများအတွက် သင်္ကေတများ (Unique Value Symbols)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#things-to-be-aware-of">4.7. သတိထားရမည့်အရာများ (Things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#what-have-we-learned">4.8. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#now-you-try">4.9. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#something-to-think-about">4.10. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#further-reading">4.11. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html#what-s-next">4.12. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#overview">5.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#gis-how-does-gis-digital-data-get-stored">5.2. GIS ဒစ်ဂျစ်တယ်ဒေတာများကို မည်သို့သိမ်းဆည်းထားသနည်း (How does GIS digital data get stored?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#planning-before-you-begin">5.3. မစတင်မီ ကြိုတင်စီစဉ်ခြင်း (Planning before you begin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#shapefile-creating-an-empty-shapefile">5.4. Shapefile အလွတ်တစ်ခုဖန်တီးခြင်း (Creating an empty shapefile)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#shapefile-data-adding-data-to-your-shapefile">5.5. Shapefile ထဲသို့ data ထည့်သွင်းခြင်း (Adding data to your shapefile)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#feature-digitize-heads-up-digitising">5.6. မြင်ကွင်းတွင် မြင်ရသော feature များအပေါ် ခြေရာခံလိုက်ပြီး digitize ပြုလုပ်ခြင်း (Heads-up digitising)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#digitising-table-digitize-digitising-using-a-digitising-table">5.7. Digitising table တစ်ခုကို အသုံးပြုပြီး Digitize ပြုလုပ်ခြင်း (Digitising using a digitising table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#feature-digitize-after-your-features-are-digitised">5.8. Feature များကို digitize ပြုလုပ်ပြီးသောအခါ… (After your features are digitised…)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#common-problems-things-to-be-aware-of">5.9. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#what-have-we-learned">5.10. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#now-you-try">5.11. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#something-to-think-about">5.12. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#further-reading">5.13. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html#what-s-next">5.14. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#overview">6.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#raster-data-raster-data-in-detail">6.2. Raster data အကြောင်း အသေးစိတ် (Raster data in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#georeferencing">6.3. Georeferencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#raster-data-sources-of-raster-data">6.4. Raster data များ၏ အရင်းအမြစ်များ (Sources of raster data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#spatial-resolution">6.5. တည်နေရာဆိုင်ရာ ကြည်လင်ပြတ်သားမှု (Spatial Resolution)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#spectral-resolution">6.6. ရောင်စဉ်လှိုင်း ပါဝင်မှုအရေအတွက်/ကြည်လင်ပြတ်သားမှု (Spectral resolution)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#raster-vector-raster-to-vector-conversion">6.7. Raster မှ Vector သို့ပြောင်းလဲခြင်း (Raster to vector conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#vector-raster-vector-to-raster-conversion">6.8. Vector မှ Raster သို့ ပြောင်းလဲခြင်း (Vector to raster conversion)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#raster-raster-analysis">6.9. Raster ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#common-problems-things-to-be-aware-of">6.10. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#what-have-we-learned">6.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#now-you-try">6.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#something-to-think-about">6.13. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#further-reading">6.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html#what-s-next">6.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#overview">7.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#topology-topology-errors">7.2. Topology ဆိုင်ရာအမှားများ (Topology errors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#topology-topology-rules">7.3. Topology ဆိုင်ရာ စည်းမျဉ်းများ (Topology rules)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#topology-tool-topological-tools">7.4. Topology ဆိုင်ရာ tool များ (Topological tools)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#vertex-snapping-distance">7.5. Vertex တစ်ခုနှင့်တစ်ခုတစ်ထပ်တည်းကျစေသော/ဆွဲကပ်ပေးသော အကွာအဝေး (Snapping distance)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#search-radius">7.6. ရှာဖွေမှုအချင်းဝက် (Search Radius)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#common-problems-things-to-be-aware-of">7.7. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#what-have-we-learned">7.8. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#now-you-try">7.9. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#something-to-think-about">7.10. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#further-reading">7.11. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html#what-s-next">7.12. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#overview">8.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#map-projection-in-detail">8.2. မြေပုံအရိပ်ချစနစ်အကြောင်း အသေးစိတ် (Map Projection in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#the-three-families-of-map-projections">8.3. မြေပုံအရိပ်ချစနစ် အုပ်စု ၃ မျိုး (The three families of map projections)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#accuracy-of-map-projections">8.4. မြေပုံအရိပ်ချစနစ်များ၏ တိကျမှု (Accuracy of map projections)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#crs-coordinate-reference-system-crs-in-detail">8.5. ရည်ညွှန်းကိုဩဒိနိတ်စနစ် (CRS) အကြောင်းအသေးစိတ် (Coordinate Reference System (CRS) in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#universal-transverse-mercator-utm-crs-universal-transverse-mercator-utm-crs-in-detail">8.6. Universal Transverse Mercator (UTM) CRS အကြောင်း အသေးစိတ် (Universal Transverse Mercator (UTM) CRS in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#on-the-fly-projection">8.7. On-The-Fly Projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#common-problems-things-to-be-aware-of">8.8. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#what-have-we-learned">8.9. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#now-you-try">8.10. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#something-to-think-about">8.11. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#further-reading">8.12. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html#what-s-next">8.13. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#overview">9.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#title-in-detail">9.2. မြေပုံခေါင်းစဉ်အကြောင်းအရာအသေးစိတ် (Title in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#map-border-in-detail">9.3. မြေပုံအနားသပ်ဘောင်အကြောင်း အသေးစိတ် (Map Border in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#map-legend-in-detail">9.4. မြေပုံရည်ညွှန်းချက်အကြောင်း အသေးစိတ် (Map Legend in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#north-arrow-in-detail">9.5. မြောက်အရပ်မျက်နှာပြမြား အကြောင်းအသေးစိတ် (North arrow in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#scale-in-detail">9.6. မြေပုံစကေးအကြောင်းအသေးစိတ် (Scale in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#acknowledgment-in-detail">9.7. အသိအမှတ်ပြုမှုဆိုင်ရာအကြောင်းအသေးစိတ် (Acknowledgment in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#graticule-in-detail">9.8. လတ္တီကျုနှင့်လောင်ဂျီကျု မျဉ်းကြောင်းများ အကြောင်းအသေးစိတ် (Graticule in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#name-of-the-map-projection-in-detail">9.9. မြေပုံအရိပ်ချစနစ်အကြောင်းအသေးစိတ် (Name of the map projection in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#common-problems-things-to-be-aware-of">9.10. အဖြစ်များသော ပြဿနာများ / သတိပြုရန်အချက်များ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#what-have-we-learned">9.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#now-you-try">9.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#something-to-think-about">9.13. စဉ်းစားရမည့်အချက်  (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#further-reading">9.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html#what-s-next">9.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#overview">10.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#buffering-buffering-in-detail">10.2. Buffering အကြောင်းအသေးစိတ် (Buffering in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#buffering-variations-in-buffering">10.3. Buffering မူကွဲများ (Variations in buffering)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#common-problems-things-to-be-aware-of">10.4. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#spatial-analysis-tool-more-spatial-analysis-tools">10.5. နောက်ထပ် spatial analysis tool များ (More spatial analysis tools)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#what-have-we-learned">10.6. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#now-you-try">10.7. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#something-to-think-about">10.8. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#further-reading">10.9. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html#what-s-next">10.10. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#overview">11.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#spatial-interpolation-spatial-interpolation-in-detail">11.2. Spatial interpolation အကြောင်းအသေးစိတ် (Spatial interpolation in detail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#inverse-distance-weighted-idw">11.3. Inverse Distance Weighted (IDW)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#triangulated-irregular-network-tin">11.4. Triangulated Irregular Network (TIN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#common-problems-things-to-be-aware-of">11.5. အဖြစ်များသောပြဿနာများ/သတိထားရမည့်အရာများ (Common problems / things to be aware of)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#interpolation-other-interpolation-methods">11.6. အခြားသော interpolation နည်းလမ်းများ (Other interpolation methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#what-have-we-learned">11.7. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#now-you-try">11.8. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#something-to-think-about">11.9. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#further-reading">11.10. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html#what-s-next">11.11. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../training_manual/appendix/preparing_data.html" class="btn btn-neutral float-left" title="20. လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preamble.html" class="btn btn-neutral float-right" title="1. စကားချီး (Preamble)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/index.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/index.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/index.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/index.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/index.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/index.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/index.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/index.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/index.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/index.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/index.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/df84b9a2e9ae4656482967ed889f0a89" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

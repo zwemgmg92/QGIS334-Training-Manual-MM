@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Vector ဒေတာများ (Vector Data) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_data.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Vector Attribute Data" href="vector_attribute_data.html" />
+    <link rel="prev" title="2. GIS မိတ်ဆက် (Introducing GIS)" href="introducing_gis.html" />
+  <meta name="description" content="QGIS testing documentation: 3. Vector ဒေတာများ (Vector Data)">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Vector ဒေတာများ (Vector Data)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">3.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point-features-point-features-in-detail">3.2. Point features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Point features in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polyline-features-polyline-features-in-detail">3.3. Polyline features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polyline features in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polygon-features-polygon-features-in-detail">3.4. Polygon features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polygon features in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-vector-data-vector-data-in-layers">3.5. Layer များထဲရှိ Vector data (Vector data in layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-data-editing-vector-data">3.6. Vector data များအား တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing vector data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-data-scale-and-vector-data">3.7. စကေးနှင့် vector data များ (Scale and vector data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbology">3.8. သင်္ကေတဆိုင်ရာများ (Symbology)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gis-vector-data-what-can-we-do-with-vector-data-in-a-gis">3.9. GIS တွင် vector data များဖြင့် မည်သည့်အရာများလုပ်ဆောင်နိုင်သနည်း (What can we do with vector data in a GIS?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-data-common-problems-with-vector-data">3.10. Vector data များတွင် အဖြစ်များသောပြဿနာများ (Common problems with vector data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">3.11. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">3.12. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">3.13. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">3.14. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">3.15. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vector_attribute_data.html">4. Vector Attribute Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Vector ဒေတာများ (Vector Data)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/vector_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="introducing_gis.html" class="btn btn-neutral float-left" title="2. GIS မိတ်ဆက် (Introducing GIS)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_attribute_data.html" class="btn btn-neutral float-right" title="4. Vector Attribute Data" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-vector-data">
+<span id="gentle-gis-vector-data"></span><h1><span class="section-number">3. </span>Vector ဒေတာများ (Vector Data)<a class="headerlink" href="#vector-vector-data" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>GIS ထဲတွင် အသုံးပြုသော vector data model များအကြောင်း နားလည်စေရန်။</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Vector ၊ Point ၊ Polyline ၊ Polygon ၊ Vertex ၊ Geometry ၊ Scale ၊ Data Quality ၊ Symbology ၊ Data Sources</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">3.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><strong>Vector</strong>  ဒေတာများသည် GIS တွင်အသုံးပြုရန် လက်တွေ့ပြင်ပရှိအရာဝတ္တု <strong>features</strong> များကို ကိုယ်စားပြုသည့်နည်းလမ်းတစ်ခုဖြစ်သည်။
+feature သည် မြေပြင်တွင် သင်မြင်ရသည့် မည်သည့်အရာမဆို ဖြစ်နိုင်သည်။ သင်သည် တောင်ထိပ်တစ်ခုတွင်ရပ်နေသည်ဟုတွေးကြည့်ပါ။ အောက်သို့ ငုံ့ကြည့်လျှင် အိမ်များ၊ လမ်းများ၊ သစ်ပင်များ၊ မြစ်ကြောင်းများ အစရှိသဖြင့်မြင်ရမည်ဖြစ်သည် (<a class="reference internal" href="#figure-vector-landscape"><span class="std std-numref">Fig. 3.1</span></a> တွင်ကြည့်ပါ)။ GIS Application တွင် ကိုယ်စားပြုဖော်ပြသည့်အခါ အဆိုပါအရာဝတ္တုတစ်ခုချင်းစီသည်  <strong>feature</strong> ဖြစ်လာမည်ဖြစ်သည်။ Vector features များတွင် သက်ဆိုင်ရာ <strong>attributes</strong> များရှိပြီး features များကို ဖော်ပြသည့် စာသားများ သို့မဟုတ် ကိန်းဂဏန်းအချက်အလက်များပါဝင်သည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-vector-landscape"></span><a class="reference internal image-reference" href="../../_images/landscape.jpg"><img alt="../../_images/landscape.jpg" src="../../_images/landscape.jpg" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">မြေမျက်နှာသွင်ပြင်တစ်ခုကို အပေါ်စီးမှ ကြည့်လျှင် အဓိက သွင်ပြင်လက္ခဏာများဖြစ်သည့် လမ်းများ၊ အိမ်များနှင့်သစ်ပင်များကိုမြင်ရမည်။</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Vector တစ်ခုတွင် ၎င်း၏ပုံသဏ္ဍာန်ကို ဂျီဩမေတြီ <strong>geometry</strong> ဖြင့်ကိုယ်စားပြုပြီး တစ်ခုထပ်ပိုသော <strong>vertices</strong> (မျဉ်းအဆစ်) များကို
+ဆက်လိုက်ခြင်းဖြင့် ဂျီဩမေတြီတစ်ခုကိုဖန်တီးထားသည်။ Vertex တစ်ခုသည် တည်နေရာတစ်ခုကို <strong>X</strong> နှင့် <strong>Y</strong> နှင့် တစ်ခါတရံ <strong>Z</strong> ဝင်ရိုးများအသုံးပြု၍ဖော်ပြသည်။ <code class="docutils literal notranslate"><span class="pre">Z</span></code>  ဝင်ရိုးပါရှိသည့် vertex များဖြင့်ဖန်တီးထားသော ဂျီဩမေတြီများကို များသောအားဖြင့် <strong>2.5D</strong> (2.5 Dimension) ဟုခေါ်သည်။ အဘယ့်ကြောင့်ဆိုသော် ၎င်းတို့သည် vertex တစ်ခုစီတွင် အမြင့် သို့မဟုတ် အနက်ကိုဖော်ပြသော်လည်း နှစ်ခုလုံးတစ်ပြိုင်နက်ဖော်ပြလေ့မရှိပါ။</p>
+<p>ဂျီဩမေတြီတစ်ခု၏ feature တွင် vertex တစ်ခုတည်းသာပါဝင်လျှင် ၎င်းကို <strong>point</strong> feature ဟုခေါ်သည် (<a class="reference internal" href="#figure-geometry-point"><span class="std std-numref">Fig. 3.2</span></a> တွင်ကြည့်ပါ)။ ဂျီဩမေတြီတစ်ခုတွင် နှစ်ခု သို့မဟုတ် နှစ်ခုထက်ပိုသော vertex များပါရှိပြီး ပထမဆုံးနှင့် နောက်ဆုံး vertex များမတူညီလျှင် ၎င်းကို <strong>polyline</strong>  ဟုခေါ်သည် (<a class="reference internal" href="#figure-geometry-polyline"><span class="std std-numref">Fig. 3.3</span></a> တွင်ကြည့်ပါ)။ သုံးခုနှင့် သုံးခုအထက်ပိုသော vertex များပါရှိပြီး ပထမ vertex နှင့် နောက်ဆုံး vertex တူညီလျှင် <strong>polygon</strong> အပိတ်တစ်ခုဖြစ်ပေါ်လာသည် (<a class="reference internal" href="#figure-geometry-polygon"><span class="std std-numref">Fig. 3.4</span></a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id2">
+<span id="figure-geometry-point"></span><a class="reference internal image-reference" href="../../_images/point_feature.png"><img alt="../../_images/point_feature.png" src="../../_images/point_feature.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Point feature တစ်ခုကို၎င်း၏ X ၊ Y နှင့် Z ကိုဩဒိနိတ် များဖြင့်ဖော်ပြထားပါသည်။ Point attributes သည် ထို point အကြောင်းကိုဖော်ပြပါသည်၊ ဥပမာ- ၎င်းသည် သစ်ပင်တစ်ပင်ဖြစ်သည် သို့မဟုတ် ဓာတ်တိုင်တစ်ခုဖြစ်သည်။</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<span id="figure-geometry-polyline"></span><a class="reference internal image-reference" href="../../_images/polyline_feature.png"><img alt="../../_images/polyline_feature.png" src="../../_images/polyline_feature.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Polyline တစ်ခုသည် vertex များ အစဉ်လိုက် ဆက်ထားခြင်းဖြစ်သည်။ Vertex တစ်ခုချင်းစီတွင် X Y နှင့် Z ကိုဩဒိနိတ်များပါရှိသည်။ Attribute များသည် polyline အကြောင်းကိုဖော်ပြသည်။</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<span id="figure-geometry-polygon"></span><a class="reference internal image-reference" href="../../_images/polygon_feature.png"><img alt="../../_images/polygon_feature.png" src="../../_images/polygon_feature.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Polyline ကဲ့သို့ပင် polygon တစ်ခုသည် ဆက်ထားသော vertex များဖြစ်သည်။ သို့သော် polygon တွင် ပထမဆုံးနှင့် နောက်ဆုံး vertex များသည် အမြဲတမ်းတစ်နေရာတည်းတွင်ထပ်တူကျသည်။</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အထက်တွင်ဖော်ပြခဲ့သည့် မြေမျက်နှာသွင်ပြင်ပုံကိုပြန်ကြည့်လျှင် အမျိုးမျိုးသော feature များကို GIS တွင်မည်သို့ကိုယ်စားပြုသည်ကို မြင်ရမည်ဖြစ်သည်။ (<a class="reference internal" href="#figure-geometry-landscape"><span class="std std-numref">Fig. 3.5</span></a> တွင် ကြည့်ပါ။)</p>
+<figure class="align-center" id="id5">
+<span id="figure-geometry-landscape"></span><a class="reference internal image-reference" href="../../_images/landscape_geometry.jpg"><img alt="../../_images/landscape_geometry.jpg" src="../../_images/landscape_geometry.jpg" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">GIS တွင် ဖော်ပြမည့် မြေမျက်နှာသွင်ပြင်အနေအထားများ၊ မြစ်ကြောင်းများ(အပြာရောင်) နှင့် လမ်းများ (အစိမ်းရောင်) ကို လိုင်းများဖြင့်ကိုယ်စားပြုဖော်ပြသည်။ သစ်ပင်များအား ပွိုင့်များ (အနီရောင်) နှင့် အိမ်များကို polygon (အဖြူရောင်) ဖြင့်ဖော်ပြထားသည်။</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="point-features-point-features-in-detail">
+<h2><span class="section-number">3.2. </span>Point features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Point features in detail)<a class="headerlink" href="#point-features-point-features-in-detail" title="Link to this heading"></a></h2>
+<p>ပထမဦးစွာသိရန်မှာ point feature များအား GIS တွင်ဖော်ပြရာတွင် အယူအဆပေါ်တွင်အခြေခံပြီး အများအားဖြင့် scale ပေါ်တွင်မူတည်သည်။
+ဥပမာ မြို့တည်နေရာပြ point များကိုကြည့်ပါ။ စကေးအသေးဖြင့်မြေပုံတစ်ခု (ဧရိယာခပ်ကြီးကြီး တစ်ခုကိုပြသော) တွင် မြို့များကို point feature ဖြင့် ဖော်ပြနိုင်သည်။
+သို့သော် မြေပုံအားချဲ့ကြည့်ပြီး၊ စကေးအကြီးတစ်ခုသို့ဆွဲကြည့်လျှင် မြို့များကို polygon ဖြင့်ဖော်ပြခြင်းက ပို၍အဓိပ္ပါယ်ရှိနိုင်သည်။</p>
+<p>Feature တစ်ခုကို ကိုယ်စားပြုရန် point ကိုရွေးချယ်ခြင်းသည် များသောအားဖြင့် စကေး (သင်သည် ဖော်ပြလိုသည့် feature နှင့်မည်မျှကွာဝေးသည်)၊ လွယ်ကူအဆင်ပြေမှု
+(point feature သည် polygon ထက် ဖန်တီးရသည့် အချိန်နှင့် အားထုတ်မှု ပိုနည်းသည်)၊ နှင့် feature အမျိုးအစား(တယ်လီဖုန်းတိုင်ကဲ့သို့သော အရာဝတ္တုများကို polygon ဖြင့်ဖော်ပြခြင်းသည် အဓိပ္ပါယ်မရှိ) စသည်တို့နှင့်သက်ဆိုင်သည်။</p>
+<p>ပုံ <a class="reference internal" href="#figure-geometry-point"><span class="std std-numref">Fig. 3.2</span></a> တွင် ဖော်ပြသကဲ့သို့ point feature တစ်ခုတွင် X Y နှင့် တစ်ခါတစ်ရံ Z တန်ဖိုးတို့ပါရှိသည်။
+X Y တန်ဖိုးများသည် အသုံးပြုသည့် ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်  <strong>Coordinate Reference System</strong> (CRS) ပေါ်တွင်မူတည်သည်။
+နောက်ပိုင်းသင်ခန်းစာများတွင် ကိုဩဒိနိတ်ရည်ညွှန်းစနစ် အကြောင်းအသေးစိတ်လေ့လာသွားပါမည်။ လက်ရှိတွင် နားလည်ရလွယ်ကူစေရန်  ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်ဆိုသည်မှာ
+နေရာတစ်နေရာကို ကမ္ဘာ့မျက်နှာပြင်ပေါ်တွင် တိကျစွာဖော်ပြနိုင်သည့်စနစ်ဟု ခေါ်ဆိုမည်ဖြစ်ပါသည်။ အသုံးအများဆုံး ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များထဲမှ တစ်ခုမှာ <strong>Longitude and Latitude</strong> ဖြစ်သည်။
+လောင်ဂျီကျုမျဉ်းများသည် ကမ္ဘာ့မြောက်ဝင်ရိုးစွန်းမှ တောင်ဝင်ရိုးစွန်းသို့ ဖြတ်သန်းသောမျဉ်းများဖြစ်သည်။ လတ္တီကျုမျဉ်းများသည် ကမ္ဘာ့အရှေ့ဘက်မှ အနောက်ဘက်သို့ဖြတ်သန်းသည်။
+ကမ္ဘာပေါ်ရှိ မည်သည့်နေရာတွင် သင်ရောက်ရှိနေကြောင်းကို သင့် Longitude (X)  နှင့် Latitude (Y) ကို ပေးလိုက်ခြင်းဖြင့် တိကျစွာဖော်ပြနိုင်သည်။
+မြေပုံပေါ်တွင်မှတ်သားထားသည့် သစ်ပင်တစ်ပင် သို့မဟုတ် တယ်လီဖုန်းတိုင်တစ်ခုကို ထိုနည်းတူ တိုင်းတာလိုလျှင် point feature တစ်ခုကိုဖန်တီးရမည်ဖြစ်သည်။</p>
+<p>ကျွန်ုပ်တို့ကမ္ဘာကြီးသည် အပြား မဟုတ်သည့်အတွက် point feature တစ်ခုတွင် Z တန်ဖိုးရှိခြင်းသည် အများအားဖြင့်အသုံးဝင်သည်။ ၎င်းသည် ပင်လယ်ရေမျက်နှာပြင်အထက် မည်မျှအမြင့်တွင် သင်ရောက်ရှိနေသည်ကိုဖော်ပြသည်။</p>
+</section>
+<section id="polyline-features-polyline-features-in-detail">
+<h2><span class="section-number">3.3. </span>Polyline features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polyline features in detail)<a class="headerlink" href="#polyline-features-polyline-features-in-detail" title="Link to this heading"></a></h2>
+<p>Point feature တစ်ခုတွင် vertex တစ်ခုသာရှိပြီး <strong>polyline တစ်ခုတွင် နှစ်ခု သို့မဟုတ် နှစ်ခုထက်ပိုသော vertex များရှိသည်</strong>။
+Polyline တစ်ခုသည် <a class="reference internal" href="#figure-geometry-polyline"><span class="std std-numref">Fig. 3.3</span></a> တွင်ပြထားသကဲ့သို့ vertex တစ်ခုချင်းစီကို ဆက်၍ဆွဲထားခြင်းဖြစ်သည်။ Vertex နှစ်ခုဆက်လိုက်လျှင် line တစ်ခုဖြစ်လာမည်ဖြစ်သည်။
+နှစ်ခုထက်ပိုသော vertex များဆက်လိုက်လျှင် ‘line of lines’ (လိုင်းများဆက်ထားသောလိုင်းတစ်ခု) သို့မဟုတ် <strong>polyline</strong> တစ်ခုဖြစ်လာသည်။</p>
+<p>Polyline ကို <strong>linear features</strong> များဖြစ်သည့် လမ်းများ၊ မြစ်ကြောင်းများ၊ ကွန်တိုမျဉ်းများ၊ လူသွားလမ်းများ၊ လေယာဉ်ပြေးလမ်းများ အစရှိသည်တို့၏ ပုံသဏ္ဍာန်ကိုဖော်ပြရာတွင်အသုံးပြူသည်။
+တစ်ခါတစ်ရံတွင် polyline များကို ၎င်းတို့၏ အခြေခံပုံသဏ္ဍာန်အပြင် ထူးခြားသော နည်းလမ်းများဖြင့်လည်း အသုံးပြုလေ့ရှိသည်။ ဥပမာ- ကွန်တိုလိုင်းများသည် (ကမ်းပါးစွန်းတစ်ခုတွင်) တစ်ခုနှင့်တစ်ခုထိကောင်းထိနေနိုင်သော်လည်း တစ်ခုနှင့်တစ်ခုဖြတ်မသွားချေ။
+ထိုနည်းတူ လမ်းကွန်ယက်များကို ဖော်ပြရန်အသုံးပြုသည့် polyline များသည် တစ်ခုနှင့်တစ်ခုဖြတ်သွားချိန်တွင် ထိကောင်းထိနိုင်သည်။ အချို့ GIS application များတွင် အဆိုပါ လမ်းကွန်ယက်များကဲ့သို့ feature များအတွက် အထူးစည်းမျဉ်းများကို သတ်မှတ်ပေးနိုင်ပြီး GIS သည် polyline များနှင့်ပတ်သက်သည့် ထိုစည်းမျဉ်းများကို လိုက်နာဆောင်ရွက်ပေးမည်ဖြစ်သည်။</p>
+<p>Polyline မျဉ်းကွေးတစ်ခုတွင် vertex များကြား အလွန်ဝေးကွာနေလျှင် မည်သည့် စကေးတွင် ကြည့်သည်ကိုမူတည်၍ <strong>angular</strong> (ထောင့်စွန်းများ) သို့မဟုတ် အချွန်များဖြစ်နေတတ်သည်။
+(<a class="reference internal" href="#figure-polyline-jagged"><span class="std std-numref">Fig. 3.6</span></a> တွင်ကြည့်ပါ) ထို့အတွက်ကြောင့် polyline များကို digitise (ဂျီဩမေတြီရေးဆွဲခြင်း) ပြုလုပ်ရာတွင် vertex များအကြားအကွာအဝေးကို အသုံးပြုမည့် စကေးပေါ်မူတည်၍ ခပ်သေးသေးဆွဲရန်အရေးကြီးသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-polyline-jagged"></span><a class="reference internal image-reference" href="../../_images/jagged_polyline.png"><img alt="../../_images/jagged_polyline.png" src="../../_images/jagged_polyline.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Polyline များကို စကေးအသေး (1:20 000 ၊ လက်ဝဲပုံ)တွင် ပိုမို ချောမွေ့ပြီး မျဉ်းကွေးပုံစံမြင်ရပုံ၊ စကေးအကြီး (1:500 ၊ လက်ယာပုံ) ချဲ့ကြည့်သည့်အခါ polyline များအား ထောင့်စွန်းများဖြစ်နေသည်ကိုမြင်ရပုံ။</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Polyline များ၏ <strong>attributes</strong> သည် ၎င်းတို့၏ ဂုဏ်သတ္တိနှင့် သွင်ပြင်လက္ခဏာကိုဖော်ပြသည်။ ဥပမာ လမ်းတစ်ခုကို ကိုယ်စားပြုသော polyline ၏ attribute တွင်
+မျက်နှာပြင်သည် ကျောက်စရစ် သို့မဟုတ် ကတ္တရာဖြစ်သည်၊ လမ်းသွယ်မည်မျှရှိသည်၊ တစ်လမ်းမောင်းဖြစ်သည် စသဖြင့်ဖော်ပြထားသည်။ GIS က အဆိုပါ attribute များကိုသုံး၍ သင့်တော်သည့်အရောင်၊ လိုင်းစတိုင်ကို အသုံးပြု၍ ပုံဖော်သည်။</p>
+</section>
+<section id="polygon-features-polygon-features-in-detail">
+<h2><span class="section-number">3.4. </span>Polygon features များအကြောင်း အသေးစိတ်လေ့လာခြင်း (Polygon features in detail)<a class="headerlink" href="#polygon-features-polygon-features-in-detail" title="Link to this heading"></a></h2>
+<p>Polygon features များသည် ဆည်များ၊ ကျွန်းများ၊ နိုင်ငံနယ်နိမိတ်များကဲ့သို့ အပိတ်ဧရိယာများဖြစ်ပြီး polyline feature များနည်းတူ vertex များကိုအစဉ်လိုက်ဆက်ထားခြင်းဖြစ်သည်။
+သို့သော် polygon တစ်ခုသည် အမြဲတမ်း အပိတ်ဧရိယာဖြစ်သည့်အတွက် အစမှတ်နှင့်အဆုံးမှတ်သည် တစ်နေရာတည်းတွင်ရှိရမည်ဖြစ်သည်။ polygon များသည် အနီးဝန်းကျင်ရှိ polygon များနှင့်
+<strong>shared geometry</strong> –– boundaries (တူညီသောနယ်နိမိတ်ရှိသည့်)နယ်နိမိတ်ချင်း ထိစပ်နေတတ်သည်။ GIS application အများစုတွင် အချင်းချင်းထိစပ်နေသော polygon များ၏
+နယ်နိမိတ်များကို တစ်ထပ်ထည်းကျစေရန်လုပ်ဆောင်ပေးနိုင်သည့် လုပ်ဆောင်ချက်များပါရှိသည်။ <a class="reference internal" href="topology.html#gentle-gis-topology"><span class="std std-ref">ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</span></a> အကြောင်းကို နောက်ထပ်လေ့ကျင့်ခန်းများတွင် လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+<p>Point နှင့် polyline များကဲ့သို့ပင် polygon များတွင်လည်း <strong>attributes</strong> များရှိပြီး polygon တစ်ခုချင်းစီကိုဖော်ပြပေးထားခြင်းဖြစ်သည်။
+ဥပမာ- ဆည်တစ်ခု၏ attribute တွင် ရေအနက်နှင့် ရေအရည်အသွေး ဆိုင်ရာ attribute များပါရှိမည်ဖြစ်သည်။</p>
+</section>
+<section id="layer-vector-data-vector-data-in-layers">
+<h2><span class="section-number">3.5. </span>Layer များထဲရှိ Vector data (Vector data in layers)<a class="headerlink" href="#layer-vector-data-vector-data-in-layers" title="Link to this heading"></a></h2>
+<p>Vector data များအကြောင်းကို ဖော်ပြခဲ့ပြီးနောက် ၎င်းတို့ကို GIS တွင်မည်သို့ အသုံးပြုသည်ကို ဆက်လက်လေ့လာကြပါမည်။
+GIS application အများစုတွင် vector data များအား <strong>layers</strong> များအဖြစ် အုပ်စုဖွဲ့ထားလေ့ရှိသည်။ Layer တစ်ခုတွင်းရှိ feature များသည် တူညီသော ပုံသဏ္ဍာန် (ဥပမာ-အားလုံးသည် point များချည်းဖြစ်ရန်) နှင့် တူညီသော attribute (ဥပမာ- tree layer တစ်ခုတွင် သစ်ပင်မျိုးစိတ်တစ်ခု၏ အချက်အလက်ပါရှိရန်) ရှိရမည်ဖြစ်သည်။
+ဥပမာ- သင့်ကျောင်းအတွင်းရှိ လူသွားလမ်းအားလုံး၏တည်နေရာကို မှတ်တမ်းတင်ထားလျှင် အဆိုပါအချက်အလက်များသည် ကွန်ပျူတာ hard disk တွင် အတူတကွသိမ်းဆည်းထားပြီး layer တစ်ခုတည်းတွင်ရှိမည်ဖြစ်သည်။
+ဤနည်းအားဖြင့် features များအားလုံးကို GIS application တွင် mouse တစ်ချက်နှိပ်ရုံဖြင့် လွယ်ကူစွာ ဖျောက်ထားခြင်း၊ ပြန်ဖွင့်ကြည့်ခြင်းတို့ပြုလုပ်နိုင်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="vector-data-editing-vector-data">
+<h2><span class="section-number">3.6. </span>Vector data များအား တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing vector data)<a class="headerlink" href="#vector-data-editing-vector-data" title="Link to this heading"></a></h2>
+<p>GIS application တစ်ခုတွင် layer တစ်ခုတွင်းရှိ data များအား ဖန်တီးခြင်း ပြုပြင်ခြင်းတို့ကိုပြုလုပ်နိုင်သည်။ ၎င်းကို <strong>digitising</strong> –– (နောက်ထပ်သင်ခန်းစာများတွင်အသေးစိတ်လေ့လာကြပါမည်)
+ဟုခေါ်သည်။ Layer တစ်ခု၌ polygon (ဥပမာ- စိုက်ပျိုးရေး ရေသွင်းဆည်) များပါရှိလျှင် GIS application တစ်ခုသည် ၎င်း layer ပေါ်တွင် polygon အသစ်များကိုသာဖန်တီးခွင့်ပြုမည်ဖြစ်သည်။
+အလားတူ feature တစ်ခု၏ ပုံစံကိုပြောင်းလဲလိုလျှင် ပြောင်းလဲလိုက်သည့် ပုံစံမှန်ကန်မှသာ application က ပြောင်းလဲရန် ခွင့်ပြုမည်ဖြစ်သည်။ ဥပမာ- vertex တစ်ခုတည်းသာရှိလျှင် ၎င်းကို line တစ်ခုအဖြစ် ပြုပြင်ခွင့်မပြုပေ။
+အထက်တွင်ဆွေးနွေးခဲ့သည့်အတိုင်း line များတွင် အနည်းဆုံး vertices နှစ်ခုရှိရန်လိုအပ်သည်ကို သတိချပ်ပါ။</p>
+<p>Vector data များဖန်တီးခြင်းနှင့် တည်းဖြတ်ပြင်ဆင်ခြင်းသည် GIS တွင်အရေးကြီးလုပ်ငန်းစဉ်တစ်ခုဖြစ်ပါသည်။ အဘယ်ကြောင့်ဆိုသော်
+၎င်းသည် ကျွန်ုပ်တို့စိတ်ဝင်စားသည့်အရာဝတ္ထုများကို ကိုယ်ပိုင်ဒေတာများအဖြစ် ဖန်တီးပေးသည့် အဓိကနည်းလမ်းများထဲမှတစ်ခုဖြစ်ပါသည်။ ဥပမာတစ်ခုဆိုရသော် သင်သည် မြစ်တစ်ခု၏ ညစ်ညမ်းမှုကိုတိုင်းတာသည်ဆိုပါစို့။ သင်သည် GIS ကိုအသုံးပြု၍ မုန်တိုင်း ရေစီးကြောင်းများ၏ရေထွက် (point features များ) အဖြစ်လည်းကောင်း၊ မြစ်ကြောင်းကိုမူ (polyline feature) အဖြစ်လည်းကောင်း digitse ပြုလုပ်နိုင်သည်။ ထို့နောက် မြစ်ကြောင်းတစ်လျှောက် pH တန်ဖိုးများကိုဖတ်၍ အဆိုပါတန်ဖိုးများကို (point layer) အဖြစ်ဖန်တီးပြီး နေရာချနိုင်မည်ဖြစ်သည်။</p>
+<p>မိမိကိုယ်ပိုင်ဒေတာကို ဖန်တီးနိုင်သကဲ့သို့ အခမဲ့ရယူအသုံးပြုနိုင်သော vector data များလည်း များစွာရှိပါသည်။
+ဥပမာ- Chief Directorate: Surveys and Mapping(ညွှန်ကြားရေးမှူးချုပ်ရုံး၊ မြေတိုင်းနှင့် မြေပုံရေးဆွဲရေးဌာန) မှ 1:50 000 စကေးမြေပုံများပေါ်တွင်ရှိသော vector data များကိုရရှိနိုင်ပါသည်။</p>
+</section>
+<section id="vector-data-scale-and-vector-data">
+<h2><span class="section-number">3.7. </span>စကေးနှင့် vector data များ (Scale and vector data)<a class="headerlink" href="#vector-data-scale-and-vector-data" title="Link to this heading"></a></h2>
+<p>GIS တွင် vector data များဖြင့် အလုပ်လုပ်သည့်အခါ မြေပုံစကေး <strong>scale</strong> သည် အရေးကြီးသော အကြောင်းအရာတစ်ခုဖြစ်ပါသည်။ များသောအားဖြင့် ရှိပြီးသားမြေပုံများမှ digitise လုပ်ပြီးလည်းကောင်း၊ မြေတိုင်းမှတ်တမ်းများ နှင့် ကမ္ဘာ့နေရာပြစနစ်သုံးကိရိယာများ (GPS) မှ အချက်အလက်များကိုယူခြင်းဖြင့်လည်းကောင်း data များကို ရယူလေ့ရှိကြသည်။ မြေပုံများသည် စကေးအမျိုးမျိုးရှိသည့်အတွက် ၎င်းမှ vector data ကို GIS တွင် ထည့်သွင်းအသုံးပြုလျှင် (ဥပမာ- မြေပုံစာရွက်များကို digitise လုပ်ခြင်း) digital vector data များသည် မူရင်းမြေပုံ၏ စကေးအတိုင်းရရှိမည်ဖြစ်သည်။ <a class="reference internal" href="#figure-vector-small-scale"><span class="std std-numref">Fig. 3.7</span></a> နှင့် <a class="reference internal" href="#figure-vector-large-scale"><span class="std std-numref">Fig. 3.8</span></a> တို့တွင် အဆိုပါအချက်ကိုမြင်နိုင်သည်။ မြေပုံစကေးရွေးချယ်မှုမှားယွင်းမှုကြောင့် ပြဿနာများစွာရှိနိုင်သည်။
+ဥပမာ- <a class="reference internal" href="#figure-vector-small-scale"><span class="std std-numref">Fig. 3.7</span></a> မှ vector data ကို အသုံးပြု၍ ရေဝပ်ဒေသကာကွယ်ထိန်းသိမ်းရေးဧရိယာတစ်ခုကို သတ်မှတ်လျှင် အဆိုပါ ကာကွယ်ရေးနယ်မြေ၏ အရေးကြီးသည့်အစိတ်အပိုင်းများ ကျန်ခဲ့နိုင်သည်။ ဒေသဆိုင်ရာမြေပုံတစ်ခုဖန်တီးရန်ကြိုးစားပါက 1:1000 000 စကေးဖြင့် ရယူထားသော data များကို အသုံးပြုခြင်းသည် data ရယူရာတွင် အချိန်ကုန် လူပင်ပန်းသက်သာစေမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-vector-small-scale"></span><a class="reference internal image-reference" href="../../_images/small_scale.png"><img alt="../../_images/small_scale.png" src="../../_images/small_scale.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">စကေးအသေး (1:1000 000) ရှိ မြေပုံမှ digitise လုပ်ထားသည့် vector data များ (အနီရောင်လိုင်းများ)</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<span id="figure-vector-large-scale"></span><a class="reference internal image-reference" href="../../_images/large_scale.png"><img alt="../../_images/large_scale.png" src="../../_images/large_scale.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">စကေးအကြီး (1:50 000) ရှိ မြေပုံမှ digitise လုပ်ထားသည့် vector data များ (အစိမ်းရောင်လိုင်းများ)</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="symbology">
+<h2><span class="section-number">3.8. </span>သင်္ကေတဆိုင်ရာများ (Symbology)<a class="headerlink" href="#symbology" title="Link to this heading"></a></h2>
+<p>GIS application ၌ vector layer တစ်ခုကိုမြေပုံမြင်ကွင်းထဲသို့ ထည့်လိုက်လျှင် ကျပန်းအရောင်များ၊ သင်္ကေတများဖြင့်ပေါ်လာမည်ဖြစ်သည်။ GIS ကိုအသုံးပြုရခြင်း၏ အကျိုးကျေးဇူးတစ်ခုမှာ မိမိစိတ်ကြိုက်မြေပုံတစ်ခုကို လွယ်ကူစွာဖန်တီးနိုင်ခြင်းဖြစ်သည်။ GIS program တစ်ခုကိုသုံး၍ feature အမျိုးအစားနှင့်သင့်တော်သည့် အရောင်ကိုရွေးချယ်နိုင်သည်။ (ဥပမာ- vector layer ကို အပြာရောင်ရွေးချယ်ထားခြင်းဖြင့် အဆိုပါအလွှာသည် ရေထုကိုရေးဆွဲမည်ကို သိနိုင်သည်) ထို့အပြင် GIS တွင် အသုံးပြုလိုသည့် သင်္ကေတကိုလည်း ရွေးချယ်နိုင်သည်။
+ထို့ကြောင့် သင့်တွင် tree point layer ရှိလျှင် သစ်ပင်များ၏ တည်နေရာကို GIS က layer တစ်ခုတင်လိုက်လျှင်အသုံးပြုလေ့ရှိသည့် စက်ဝိုင်းပုံရိုးရိုးသင်္ကေတများအစား သစ်ပင်ပုံလေးများအသုံးပြု၍ ပြနိုင်သည်။
+(<a class="reference internal" href="#figure-vector-symbology"><span class="std std-numref">Fig. 3.9</span></a> ၊ <a class="reference internal" href="#figure-generic-symbology"><span class="std std-numref">Fig. 3.10</span></a> နှင့်  <a class="reference internal" href="#figure-custom-symbology"><span class="std std-numref">Fig. 3.11</span></a> တို့တွင်ကြည့်ပါ။)</p>
+<figure class="align-center" id="id9">
+<span id="figure-vector-symbology"></span><a class="reference internal image-reference" href="../../_images/symbology_settings.png"><img alt="../../_images/symbology_settings.png" src="../../_images/symbology_settings.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">GIS တွင် သင့် layer ရှိ feature များကို မည်သို့ရေးဆွဲသင့်သည်ကို ချိန်ညှိနိုင်သည့် (အထက်ဖော်ပြပါ) panel တစ်ခုပါရှိသည်။</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<span id="figure-generic-symbology"></span><a class="reference internal image-reference" href="../../_images/symbology_generic.png"><img alt="../../_images/symbology_generic.png" src="../../_images/symbology_generic.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Layer တစ်ခု (ဥပမာ- အထက်တွင် ဖော်ပြထားသော tree layer) ကို ပထမဆုံးဖွင့်လိုက်ချိန်မြင်ရပုံဖြစ်ပြီး GIS application သည် ယေဘုယျ သင်္ကေတတစ်ခုဖြင့်ဖော်ပြပေးသည်။</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id11">
+<span id="figure-custom-symbology"></span><a class="reference internal image-reference" href="../../_images/symbology_custom.png"><img alt="../../_images/symbology_custom.png" src="../../_images/symbology_custom.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">ချိန်ညှိမှုများလုပ်ပြီးနောက် သစ်ပင်များကိုကိုယ်စားပြုသည့် point များကို လွယ်ကူစွာမြင်နိုင်သည်။</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Symbology သည် မြေပုံများအားပိုမိုအသက်ဝင်လာစေပြီး သင့် data အား GIS တွင် နားလည်ရပိုမိုလွယ်ကူစေနိုင်ပါသည်။ နောက်ထပ်ခေါင်းစဉ် (<a class="reference internal" href="vector_attribute_data.html#gentle-gis-attributes"><span class="std std-ref">Vector Attribute Data</span></a>) တွင် symbology သည် vector data များကို နားလည်ရလွယ်ကူစေရန် မည်သို့အထောက်အပံ့ဖြစ်ကြောင်းနှင့်ပတ်သက်၍ ပိုမိုနက်နဲစွာလေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="gis-vector-data-what-can-we-do-with-vector-data-in-a-gis">
+<h2><span class="section-number">3.9. </span>GIS တွင် vector data များဖြင့် မည်သည့်အရာများလုပ်ဆောင်နိုင်သနည်း (What can we do with vector data in a GIS?)<a class="headerlink" href="#gis-vector-data-what-can-we-do-with-vector-data-in-a-gis" title="Link to this heading"></a></h2>
+<p>အရိုးရှင်းဆုံးအဆင့်တွင် vector data များကို GIS application ၌ သာမာန် မြေမျက်နှာသွင်ပြင်မြေပုံများအသုံးပြုသကဲ့သို့ အသုံးပြုနိုင်သည်။ မည်သည့်အိမ်များသည် မြစ်တစ်ခု၏ နှစ်တစ်ရာအတွင်း ရေလွှမ်းမိုးခြင်းခံချေရှိသနည်း၊ လူအများစုလွယ်ကူစွာလာရောက်နိုင်ရန် ဆေးရုံတစ်ခုအား
+မည်သည့်နေရာတွင်ထားခြင်းသည် အကောင်းဆုံးဖြစ်သနည်း၊ မည်သည့်သင်တန်းသားများသည် ဆင်ခြေဖုံးရပ်ကွက်တွင်နေထိုင်သနည်း အစရှိသောမေးခွန်းများကို ဖြေရန်အတွက်မူ
+GIS ၏ စွမ်းဆောင်ရည်ကို စတင်လိုအပ်လာသည်။ GIS သည် vector data များကို အသုံးပြု၍ အဆိုပါမေးခွန်းများကိုဖြေရန် အရေးပါသော tool တစ်ခုဖြစ်သည်။
+ယေဘုယျအားဖြင့် အဆိုပါမေးခွန်းများကိုဖြေဆိုခြင်းလုပ်ငန်းစဉ်ကို <strong>spatial analysis</strong> (မြေပြင်သတင်းအချက်အလက်ခွဲခြမ်းစိတ်ဖြာလေ့လာခြင်း) ဟုခေါ်သည်။ ဤသင်ခန်းစာ၏ နောက်အပိုင်းတွင် spatial analysis အကြောင်း အသေးစိတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="vector-data-common-problems-with-vector-data">
+<h2><span class="section-number">3.10. </span>Vector data များတွင် အဖြစ်များသောပြဿနာများ (Common problems with vector data)<a class="headerlink" href="#vector-data-common-problems-with-vector-data" title="Link to this heading"></a></h2>
+<p>Vector data များနှင့်အလုပ်လုပ်ရာတွင် ပြဿနာအချို့ရှိသည်။ စကေးအမျိုးမျိုးတွင် ယူထားသည့် vector data များတွင်ဖြစ်နိုင်သည့် ပြဿနာများကိုဖော်ပြခဲ့ပြီးဖြစ်ပါသည်။
+Vector data များသည် တိကျသေချာရန်နှင့် စိတ်ချမှုရှိရန်အတွက် အားထုတ်မှုနှင့် ထိန်းချုပ်စစ်ဆေးမှုများစွာလိုအပ်သည်။ Data ကောက်ယူစဉ်တွင်အသုံးပြုသည့် ကိရိယာတန်ဆာပလာများအား သေချာစွာ တပ်ဆင်မထားသည့်အခါတွင်ဖြစ်စေ၊ data ကောက်ယူသူများ၏ ဂရုမစိုက်မှုကြောင့်ဖြစ်စေ၊ data ကောက်ယူမှုအတွက်
+အချိန်နှင့်ငွေလုံလောက်စွာမထောက်ပံ့ပေးသည့်အခါတွင်ဖြစ်စေ မတိကျသော vector များရရှိလာနိုင်သည်။</p>
+<p>အရည်အသွေးမပြည့်ဝသော vector data များရှိလျှင် ၎င်းတို့ကို GIS တွင်ကြည့်ပါက သတိပြုမိနိုင်သည်။ ဥပမာ- polygon ၏အစွန်းနှစ်ခု ကောင်းစွာမထိလျှင် ငွေရောင်အစွန်းထွက်များကိုမြင်ရမည်ဖြစ်သည် (<a class="reference internal" href="#figure-vector-slivers"><span class="std std-numref">Fig. 3.12</span></a> တွင်ကြည့်ပါ)။</p>
+<figure class="align-center" id="id12">
+<span id="figure-vector-slivers"></span><a class="reference internal image-reference" href="../../_images/vector_slivers.png"><img alt="../../_images/vector_slivers.png" src="../../_images/vector_slivers.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Polygon နှစ်ခု၏ vertex များ နယ်နိမိတ်နှင့်ကောင်းစွာမထိလျှင် ငွေရောင်အစွန်းထွက်များပေါ်လာသည်။ စကေးအသေး (ဥပမာ- ပုံ ၁၊ လက်ဝဲပုံ)တွင် ထို error များကို မမြင်ရသော်လည်း စကေးအကြီး
+(ဥပမာ- ပုံ ၂၊ လက်ယာပုံ)တွင် polygon နှစ်ခုကြားရှိ အစင်းကြောင်းကို မြင်ရမည်ဖြစ်သည်။</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>လမ်းတစ်ခု၏ line feature နှစ်ခုသည် ဆုံမှတ်၌ အတိအကျမဆုံလျှင် <strong>Overshoots</strong> (လိုအပ်သည်ထက်ပို၍ရေးဆွဲမိခြင်း) ဖြစ်သည်ဟုခေါ်သည်။ Line feature (ဥပမာ- မြစ်ကြောင်းတစ်ခု) တစ်ခုသည် နောက်ထပ် feature တစ်ခုနှင့်ဆုံရမည့်နေရာတွင် မဆုံသည့်အခါ <strong>Undershoots</strong> (လိုအပ်သည်ထက်လျော့၍ရေးဆွဲမိခြင်း) ဟုခေါ်သည်။
+<a class="reference internal" href="#figure-vector-shoots"><span class="std std-numref">Fig. 3.13</span></a> တွင် undershoots နှင့် overshoots ကို ဖော်ပြထားသည်။</p>
+<figure class="align-center" id="id13">
+<span id="figure-vector-shoots"></span><a class="reference internal image-reference" href="../../_images/vector_overshoots.png"><img alt="../../_images/vector_overshoots.png" src="../../_images/vector_overshoots.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Undershoot (ပုံ ၁) သည် vector line များကို digitise လုပ်စဉ်တွင် သေချာထိအောင်မဆက်မိသည့်အခါဖြစ်ပေါ်လာသည်။
+Overshoots (ပုံ ၂) သည် vector line များ ဆုံသင့်သည့်နေရာထက်ကျော်လွန်၍ ဆွဲမိသည့်အခါတွင်ဖြစ်ပေါ်လာသည်။</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ထိုသို့သော error များကြောင့် digitise လုပ်ခြင်းကို ဂရုတစိုက်နှင့်တိကျစွာပြုလုပ်ရန်အရေးကြီးသည်။ ဆက်လက်ဖော်ပြမည့် <strong>topology</strong> ခေါင်းစဉ်အောက်တွင် ထိုကဲ့သို့သော error အမျိုးအစားများကို အသေးစိတ်ဆန်းစစ်လေ့လာသွားပါမည်။</p>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">3.11. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p><strong>Vector data</strong> သည် လက်တွေ့ပြင်ပရှိ အရာဝတ္ထု <strong>features</strong> များကို GIS တွင် အသုံးပြုရန်ကိုယ်စားပြုသည်။</p></li>
+<li><p>Vector feature တစ်ခုတွင် <strong>point</strong> ၊  <strong>line</strong> သို့မဟုတ် <strong>polygon</strong> ဟုခေါ်သည့် <strong>geometry</strong> အမျိုးအစားတစ်ခု ရှိနိုင်သည်။</p></li>
+<li><p>Vector feature တစ်ခုချင်းစီတွင် ၎င်းကို ဖော်ပြသည့် <strong>attribute data</strong> ရှိသည်။</p></li>
+<li><p>Feature တစ်ခု၏ ပုံပန်းသဏ္ဍာန်ကို <strong>vertices.</strong> များဖြင့်ဖော်ပြသည်။</p></li>
+<li><p>Point ဂျီဩမေတြီများကို (X  Y နှင့် တစ်ခါတစ်ရံ Z တန်ဖိုးပါရှိသည့်) <strong>single vertex</strong> တစ်ခုဖြင့်ဖွဲ့စည်းထားသည်။</p></li>
+<li><p>Polyline ဂျီဩမေတြီများကို <strong>နှစ်ခု သို့မဟုတ် နှစ်ခုထက်ပိုသော</strong> vertex များကို လိုင်းတစ်ခုအဖြစ်ဆက်ဆွဲထားခြင်းဖြင့် ဖွဲ့စည်းထားသည်။</p></li>
+<li><p>Polygon ဂျီဩမေတြီများတွင် <strong>အနည်းဆုံး vertex လေးခု</strong> ပါရှိပြီး ဧရိယာအပိတ်တစ်ခုအဖြစ်ဆွဲထားခြင်းဖြစ်သည်။ ပထမဆုံးနှင့်နောက်ဆုံး vertex များသည် တစ်နေရာတည်းတွင်ထပ်တူကျရမည်။</p></li>
+<li><p>မည်သည့် ဂျီဩမေတြီအမျိုးအစားကို အသုံးပြုရမည်ဆုံးဖြတ်ရန်မှာ စကေး၊ လွယ်ကူသက်သာမှုနှင့် ဒေတာကို GIS အသုံးပြုချင်သည့် ရည်ရွယ်ချက်ပေါ်မူတည်သည်။</p></li>
+<li><p>GIS applications အများစုတွင် layer တစ်ခုအတွင်း တစ်ခုထက်ပိုသော ဂျီဩမေတြီအမျိုးအစားများကို ရောနှောအသုံးပြုခွင့်မပြုပါ။</p></li>
+<li><p>Digitising သည် vector data များအား digital သို့ ဖန်တီးရန် GIS application တွင် ရေးဆွဲခြင်းဖြစ်သည်။</p></li>
+<li><p>Vector data များတွင်ဖြစ်တတ်သည့် အရည်အသွေးဆိုင်ရာပြဿနာများဖြစ်သော <strong>undershoots</strong> ၊  <strong>overshoots</strong> နှင့် <strong>slivers</strong>  တို့ကိုသတိပြုရမည်။</p></li>
+<li><p>Vector data  များကို GIS application တွင် <strong>spatial analysis</strong> (မြေပြင်သတင်းအချက်အလက်ခွဲခြမ်းစိတ်ဖြာလေ့လာခြင်း) လုပ်ဆောင်ရန်အသုံးပြုသည်။ ဥပမာ- ကျောင်းနှင့်အနီးဆုံးဆေးရုံရှာဖွေရန်။</p></li>
+</ul>
+<p>GIS Vector Data ဆိုင်ရာ သဘောတရားကို <a class="reference internal" href="#figure-vector-summary"><span class="std std-numref">Fig. 3.14</span></a> တွင် အကျဉ်းချုပ်ဖော်ပြခဲ့ပြီးဖြစ်သည်။</p>
+<figure class="align-center" id="id14">
+<span id="figure-vector-summary"></span><a class="reference internal image-reference" href="../../_images/vector_summary.png"><img alt="../../_images/vector_summary.png" src="../../_images/vector_summary.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.14 </span><span class="caption-text">ဤပုံသည် GIS applications များသည် vector data များဖြင့် အလုပ်လုပ်ပုံကို ဖော်ပြသည်။</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">3.12. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>သင့်ဒေသ၏မြေပုံမိတ္တူတစ်ခုကိုအသုံးပြု၍ (<a class="reference internal" href="#figure-sample-map"><span class="std std-numref">Fig. 3.15</span></a> တွင်ဖော်ပြထားသည့်အတိုင်း) သင်တန်းသားများအနေဖြင့် vector data အမျိုးမျိုးကို ခွဲခြားနိုင်စွမ်းရှိမရှိကို သိရှိရန် မြေပုံ ပေါ်တွင် highlight ပြုလုပ်စေပါ။</p></li>
+<li><p>သင့်ကျောင်းနယ်နိမိတ်ဝန်းကျင်ရှိ အမှန်တကယ်ရှိသော အရာဝတ္တုများကို ကိုယ်စားပြုနိုင်သည့် vector data များအား GIS ထဲတွင် မည်သို့ ဖန်တီးမည်ကို စဉ်းစားကြည့်ပါ။ သင့်ကျောင်းနယ်နိမိတ် အတွင်းနှင့် အနီးဝန်းကျင်ရှိ အရာဝတ္တုများကို ဇယားပြုလုပ်၍ သင်တန်းသားများအား GIS တွင် point ၊ line ၊ polygon မည်သို့ရွေးချယ်မည်ကို ဆောင်ရွက်စေပါ၊ ဥပမာအနေဖြင့် <a class="reference internal" href="#table-vector-1">table_vector_1</a> တွင်ကြည့်ပါ။</p></li>
+</ul>
+<figure class="align-center" id="id15">
+<span id="figure-sample-map"></span><a class="reference internal image-reference" href="../../_images/sample_map.png"><img alt="../../_images/sample_map.png" src="../../_images/sample_map.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.15 </span><span class="caption-text">မြေပုံပေါ်တွင် point feature နှစ်ခုနှင့် polygon feature တစ်ခု ကို ခွဲခြားနိုင်ပါသလား။</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="table-vector-1">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>လက်တွေ့မြေပြင်ရှိ feature</p></th>
+<th class="head"><p>သင့်လျော်သော ဂျီဩမေတြီအမျိုးအစား</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ကျောင်းအလံတိုင်</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ဘောလုံးကွင်း</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ကျောင်းထဲနှင့် ကျောင်းပတ်ဝန်းကျင် လူသွားလမ်းများ</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ရေဘုံပိုင် များတည်ရှိရာ နေရာများ</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>အစရှိသဖြင့်</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Vector 1: အထက်ပါအတိုင်း ဇယားတစ်ခုဖန်တီးပါ (ဂျီဩမေတြီ အမျိုးအစား ကော်လံကို ချန်လှပ်ထားခဲ့ပါ) ထို့နောက် သင်တန်းသားများအား သင့်တော်သည့် ဂျီဩမေတြီ အမျိုးအစားကိုရွေးချယ်စေပါ။</p>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">3.13. </span>စဉ်းစားရမည့်အချက် (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်တွင် ကွန်ပျူတာမရှိလျှင် မြေပုံချပ်နှင့်ပလတ်စတစ်အကြည်ကိုသုံး၍ သင်တန်းသားများအား vector data များအကြောင်း ပြသပေးနိုင်ပါသည်။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">3.14. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p>QGIS အသုံးပြုသူလမ်းညွှန်တွင် QGIS ၌ vector data များဖြင့်အလုပ်လုပ်ပုံကို အသေးစိတ်ဖော်ပြထားသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">3.15. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Vector feature များကိုဖော်ပြရာ၌ <strong>attribute data</strong> များကို မည်သို့အသုံးပြုနိုင်သည်ကို နောက်လာမည့်အခန်းတွင် ပိုမိုအသေးစိတ်လေ့လာသွားကြပါမည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introducing_gis.html" class="btn btn-neutral float-left" title="2. GIS မိတ်ဆက် (Introducing GIS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_attribute_data.html" class="btn btn-neutral float-right" title="4. Vector Attribute Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 19:03 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_data.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_data.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_data.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/vector_data.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/vector_data.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/vector_data.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/vector_data.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/vector_data.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_data.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/vector_data.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/vector_data.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/5dfe108914b911ca9be35321d8fa0245" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
