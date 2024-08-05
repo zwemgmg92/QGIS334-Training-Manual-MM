@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Vector Attribute Data &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_attribute_data.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. ဒေတာရယူခြင်း (Data Capture)" href="data_capture.html" />
+    <link rel="prev" title="3. Vector ဒေတာများ (Vector Data)" href="vector_data.html" />
+  <meta name="description" content="QGIS testing documentation: 4. Vector Attribute Data">
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.qgis.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                testing
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_manual/index.html">သင်တန်းလက်စွဲ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GIS မိတ်ဆက်</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introducing_gis.html">2. GIS မိတ်ဆက် (Introducing GIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_data.html">3. Vector ဒေတာများ (Vector Data)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Vector Attribute Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">4.1. အကျဉ်းချုပ် (Overview)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attribute-attributes-in-detail">4.2. Attribute များအကြောင်း အသေးစိတ် (Attributes in detail)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-symbols">4.3. တစ်မျိုးတည်းဖြစ်သောသင်္ကေတများ (Single Symbols)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graduated-symbols">4.4. အဆင့်လိုက်ခွဲခြားဖော်ပြသော သင်္ကေတများ (Graduated Symbols)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-colour-symbols">4.5. တဆက်တစပ်တည်းဖြစ်သောအရောင်များဖြင့်ဖော်ပြသည့် သင်္ကေတများ (Continuous Colour Symbols)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unique-value-symbols">4.6. သီးသန့်တန်ဖိုးများအတွက် သင်္ကေတများ (Unique Value Symbols)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#things-to-be-aware-of">4.7. သတိထားရမည့်အရာများ (Things to be aware of)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned">4.8. လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-you-try">4.9. ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-to-think-about">4.10. စဉ်းစားရမည့်အချက် (Something to think about)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">4.11. နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">4.12. နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_capture.html">5. ဒေတာရယူခြင်း (Data Capture)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_data.html">6. Raster ဒေတာများ (Raster Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">7. ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ (Topology)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coordinate_reference_systems.html">8. ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်များ (Coordinate Reference Systems)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_production.html">9. မြေပုံထုတ်လုပ်ခြင်း (Map Production)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_spatial_analysis_buffers.html">10. Vector တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (ကြားခံဇုန်များ) (Spatial Analysis (Buffers))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_analysis_interpolation.html">11. တည်နေရာဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (သွယ်ဝိုက်တွက်ချက်ခြင်း) (Spatial Analysis (Interpolation))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors_and_contributors.html">12. ရေးသားပြုစုသူများနှင့် ပါဝင်ကူညီသူများအကြောင်း (About the authors &amp; contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu_free_documentation_license.html">13. GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (GNU Free Documentation License)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GIS မိတ်ဆက် (A Gentle Introduction to GIS)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Vector Attribute Data</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/gentle_gis_introduction/vector_attribute_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="vector_data.html" class="btn btn-neutral float-left" title="3. Vector ဒေတာများ (Vector Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_capture.html" class="btn btn-neutral float-right" title="5. ဒေတာရယူခြင်း (Data Capture)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-attribute-data">
+<span id="gentle-gis-attributes"></span><h1><span class="section-number">4. </span>Vector Attribute Data<a class="headerlink" href="#vector-attribute-data" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../_images/gentlelogo.png"><img alt="gentleLogo" src="../../_images/gentlelogo.png" style="width: 3em;" /></a></p></td>
+<td><p>ရည်ရွယ်ချက်များ</p></td>
+<td><p>ဤခေါင်းစဉ်တွင် attribute data များသည် vector feature များနှင့် မည်သို့ဆက်စပ်သည်ကို ဖော်ပြမည်ဖြစ်ပြီး data များကို သင်္ကေတဖန်တီးရာတွင် attribue data များကို မည်သို့အသုံးပြုနိုင်သည်ကို ဖော်ပြသွားမည်ဖြစ်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Keyword များ</p></td>
+<td><p>Attribute ၊ database ၊ fields ၊ data ၊ vector ၊ symbology</p></td>
+</tr>
+</tbody>
+</table>
+<section id="overview">
+<h2><span class="section-number">4.1. </span>အကျဉ်းချုပ် (Overview)<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>မြေပုံပေါ်ရှိ လိုင်းအားလုံးသည် အရောင်တူ၊ အကျယ်တူ၊ အထူအပါးတူပြီး အမည်တူနေပါက အဆိုပါမြေပုံတွင် မည်သို့ဖြစ်ပေါ်နေသည်ကို မြင်သာစေရန် ခက်ခဲနိုင်သည်။ မြေပုံသည်လည်း သတင်းအချက်အလက်အနည်းငယ်ကိုသာ ပေးနိုင်မည်ဖြစ်သည်။ ဥပမာအနေဖြင့် <a class="reference internal" href="#figure-map-attributes"><span class="std std-numref">Fig. 4.1</span></a> ကိုကြည့်ပါ။</p>
+<figure class="align-center" id="id1">
+<span id="figure-map-attributes"></span><a class="reference internal image-reference" href="../../_images/map_attributes.png"><img alt="../../_images/map_attributes.png" src="../../_images/map_attributes.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">မတူညီသော သင်္ကေတနှင့်အရောင်ကိုသုံးမှသာ feature တစ်ခုနှင့်တစ်ခုခွဲခြားသိနိုင်ပြီး မြေပုံကို ပို၍ အသက်ဝင်လာစေနိုင်မည်ဖြစ်ပါသည်။ ဘယ်ဘက်မြေပုံတွင် မြစ်ကြောင်းများ၊ လမ်းများနှင့် ကွန်တိုလိုင်းများအကြား ခြားနားချက်ကို သင်ပြောနိုင်ပါသလား။ ညာဘက်ရှိမြေပုံကိုအသုံးပြုခြင်းသည် feature အမျိုးမျိုးကို ခွဲခြားရန်ပိုမိုလွယ်ကူစေသည်။</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ဤခေါင်းစဉ်တွင် attribute data များသည် စိတ်ဝင်စားဖွယ်ကောင်းပြီး သတင်းအချက်အလက်စုံလင်သည့် မြေပုံများပြုလုပ်ရန် မည်မျှအထောက်အပံ့ဖြစ်သည်ကို ကြည့်ကြပါမည်။ Vector data များနှင့်ပတ်သက်၍ ပြီးခဲ့သည့်အခန်းတွင် <strong>attribute data</strong> များကို <strong>Vector features များဖော်ပြရာတွင်</strong> အသုံးပြုကြောင်း အကျဉ်းချုပ်ရှင်းလင်းခဲ့ပြီးဖြစ်ပါသည်။ <a class="reference internal" href="#figure-house"><span class="std std-numref">Fig. 4.2</span></a> ရှိ အိမ်ပုံများကိုကြည့်ပါ။</p>
+<figure class="align-center" id="id2">
+<span id="figure-house"></span><a class="reference internal image-reference" href="../../_images/house_picture.png"><img alt="../../_images/house_picture.png" src="../../_images/house_picture.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Feature တစ်ခုချင်းစီတွင် ကျွန်ုပ်တို့ ပုံဖော်ကြည့်နိုင်သည့် ဝိသေသလက္ခဏာ (characterisitcs) များရှိကြပြီး မြင်သာသော သို့မဟုတ် သိပြီးသားဖြစ်သော အရာများဖြစ်လေ့ရှိသည် (ဥပမာ- တည်ဆောက်သည့်ခုနှစ်)</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အိမ်ပုံများ၏ ဂျီဩမေတြီသည် polygon (အိမ်၏ကြမ်းခင်းဖွဲ့စည်းပုံကိုအခြေခံထားသဖြင့်) ဖြစ်ပြီး attribute တွင်ထည့်သွင်းထားသည့် data မှာ ခေါင်မိုးအရောင်၊ လသာဆောင်ရှိမရှိ နှင့် တည်ဆောက်သည့်ခုနှစ်တို့ဖြစ်သည်။ Attribute များသည် မြင်သာသောအရာများဖြစ်ရန်မလိုအပ်ပေ။ ဥပမာ တည်ဆောက်သည့်ခုနှစ်ကဲ့သို့  feature များ၏ သိပြီးသား အရာများကိုဖော်ပြရန်ဖြစ်သည်။ GIS application တွင် ဤ feature များကို house polygon layer အဖြစ် ကိုယ်စားပြုဖော်ပြနိုင်ပြီး attribute များသည် attribute table ထဲတွင်ရှိမည်ဖြစ်သည် (<a class="reference internal" href="#figure-house-gis"><span class="std std-numref">Fig. 4.3</span></a> တွင်ကြည့်ပါ)</p>
+<figure class="align-center" id="id3">
+<span id="figure-house-gis"></span><a class="reference internal image-reference" href="../../_images/houses_in_gis.png"><img alt="../../_images/houses_in_gis.png" src="../../_images/houses_in_gis.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">House layer တစ်ခု။ House feature များတွင် အိမ်များ၏ ခေါင်မိုးအရောင်နှင့် အခြားအရည်အသွေးများကို ကိုယ်စားပြုသည့်
+attribute များပါရှိသည်။ Attribute table (အောက်ပုံ) သည် မြေပုံပေါ်တွင်ဖော်ပြထားသည့် အိမ်များ၏ attribute များကို စာရင်းပြုစုထားခြင်းဖြစ်သည်။ feature တစ်ခုကို highlight လုပ်လိုက်လျှင် မြေပုံပေါ်တွင် အဝါရောင် polygon အဖြစ်ဖော်ပြမည်ဖြစ်သည်။</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Feature များသည် attribute နှင့် ဂျီဩမေတြီများရှိသည့်အတွက် GIS applicaton တစ်ခုတွင် ဖြစ်နိုင်ချေအလားအလာများစွာရှိနိုင်သည်။ ဥပမာ feature များကိုရေးဆွဲရန် မည်သည့်အရောင်၊ စတိုင်ကို သုံးမည်ဆိုသည်ကို attribute တန်ဖိုးများကိုသုံး၍ GIS တွင်  သတ်မှတ်နိုင်သည် (<a class="reference internal" href="#figure-style-by-attribute"><span class="std std-numref">Fig. 4.4</span></a> တွင်ကြည့်ပါ)။ အရောင်နှင့်စတိုင်ရွေးချယ်ခြင်းလုပ်ငန်းစဉ်ကို feature များအား <strong>သင်္ကေတအဆင်အသွေးများလိုအပ်သလိုပြင်ဆင်ခြင်း (symbology)</strong> ဟု ခေါ်သည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-style-by-attribute"></span><a class="reference internal image-reference" href="../../_images/style_by_attribute.png"><img alt="../../_images/style_by_attribute.png" src="../../_images/style_by_attribute.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">GIS Application တစ်ခုတွင် attribute ပေါ်မူတည်၍ feature များကို ကွဲပြားခြားနားစွာရေးဆွဲနိုင်သည်။
+လက်ဝဲဘက်ပုံတွင် house polygon များကို ခေါင်မိုးအရောင် attribute အတိုင်း တစ်ရောင်တည်းဖြင့်ရေးဆွဲထားပြီး လက်ယာဘက်ပုံတွင် အိမ်များအား ၎င်းတို့၌ လသာဆောင်ရှိမရှိပေါ်မူတည်၍ အရောင်ခြယ်ထားသည်။</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Attribute data များသည် <strong>မြေပုံအညွှန်း (map labels)</strong> ပြုလုပ်ရန်အတွက်လည်း အသုံးဝင်သည်။
+Application များတွင် feature တစ်ခုချင်းကို အညွှန်းတပ်ရန် မည်သည့် attirbute ကို အသုံးပြုသင့်သည်ဆိုသည့် လုပ်ဆောင်မှုတစ်ခုပါရှိသည်။</p>
+<p>သင်သည် နေရာတစ်ခု၏အမည် သို့ feature တစ်ခု <strong>မြေပုံပေါ်တွင်ရှာဖွေ</strong> လိုပါက မည်မျှအချိန်ကုန်သည်ကို ခန့်မှန်းကြည့်နိုင်ပါသည်။
+Attribute data များရှိခြင်းကြောင့် ရှာဖွေလိုသည့် feature ကို လျင်မြင်လွယ်ကူစွာရှာဖွေတွေ့ရှိနိုင်သည်။ <a class="reference internal" href="#figure-search-by-attribute"><span class="std std-numref">Fig. 4.5</span></a> တွင် GIS ၌ attribute ကိုအသုံးပြု၍ရှာဖွေပုံကို ဥပမာအနေဖြင့်ကြည့်နိုင်သည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-search-by-attribute"></span><a class="reference internal image-reference" href="../../_images/search_by_attribute.png"><img alt="../../_images/search_by_attribute.png" src="../../_images/search_by_attribute.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">GIS application တစ်ခုတွင် feature များကို ၎င်းတို့၏ attribute များကိုသုံး၍ ရှာဖွေနိုင်သည်။ ပုံသည် ခေါင်မိုးအမဲရောင်ရှိသည့် အိမ်များကိုရှာဖွေထားပုံဖြစ်သည်။ ရှာဖွေထားသည့် ရလာဒ်များကို မြေပုံပေါ်တွင် အဝါရောင် polygon များအဖြစ်လည်းကောင်း၊ table တွင် စိမ်းပြာရောင်များအဖြစ်လည်းကောင်းတွေ့နိုင်သည်။</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>နောက်ဆုံးအနေဖြင့် attribute data များသည် <strong>မြေပြင်သတင်းအချက်အလက်ခွဲခြမ်းစိတ်ဖြာလေ့လာခြင်း (spatial analysis)</strong> လုပ်ဆောင်ရန်များစွာအသုံးဝင်သည်။ Feature များ၏ ဂျီဩမေတြီတွင် သိမ်းဆည်းထားသည့် မြေပြင်သတင်းအချက်အလက်များနှင့် attribute ရှိ အချက်အလက်များပေါင်းစပ်၍ spatial analysis ကို ဆောင်ရွက်သည်။ ဤနည်းအားဖြင့် feature များနှင့် ၎င်းတို့အချင်းချင်းမည်သို့ဆက်စပ်သည်ကို လေ့လာနိုင်သည်။
+Spatial analysis အမျိုးမျိုးရှိသည်။ ဥပမာ- သင်သည် GIS ကိုသုံး၍ နေရာတစ်ခုတွင် ခေါင်မိုးအနီရောင်ရှိသည့်အိမ်မည်မျှရှိသည်ကို ရှာနိုင်သည်။ သစ်ပင်နှင့်သက်ဆိုင်သည့် feature များရှိလျှင် မြေနေရာတစ်ခု၌ ဖွံ့ဖြိုးရေးလုပ်ငန်းများဆောင်ရွက်လျှင်မည်သည့် မျိုးစိတ်သည် သက်ရောက်မှုအခံရဆုံးဖြစ်သည်ကို GIS ကိုသုံး၍ဖော်ထုတ်နိုင်သည်။ မြစ်ကြောင်းတစ်လျှောက်ကောက်ယူထားသည့်ရေနမူနာများ၏ attribute ကို အသုံးပြု၍ မည်သည့်နေရာမှစ၍ မြစ်ချောင်းအတွင်း၌ ညစ်ညမ်းမှုဖြစ်ပေါ်သည်ကို သိရှိနိုင်သည်။ လုပ်ဆောင်နိုင်သည့် အလားအလာများမှာ ပြော၍ကုန်နိုင်ဖွယ်မရှိပါ။ နောက်ထပ်ခေါင်းစဉ်တစ်ခုတွင် spatial analysis နှင့် ပတ်သက်၍ အသေးစိတ်လေ့လာကြပါမည်။</p>
+<p>Attribute data များနှင့်ပတ်သက်၍ နောက်ထပ်အသေးစိတ်မသွားကြမီ ပြန်လည်သုံးသပ်ကြည့်ကြပါစို့။</p>
+<p>Features များသည် လက်တွေ့ပြင်ပရှိအရာဝတ္ထုများဖြစ်သည့် လမ်းများ၊ ပိုင်ဆိုင်မှုနယ်နိမိတ်များ၊ လျှပ်စစ်ဓာတ်အားခွဲရုံများ အစရှိသည်တို့ဖြစ်သည်။ <strong>Feature</strong> တစ်ခုတွင် <strong>geometry</strong> (<strong>point</strong> ၊ <strong>polyline</strong> သို့မဟုတ်  <strong>polygon</strong> ဟု ခွဲခြားသတ်မှတ်ပေးသည့်) နှင့် <strong>attributes</strong> (feature များအကြောင်းဖော်ပြပေးသည့်) များပါရှိသည်။  <a class="reference internal" href="#figure-features-at-glance"><span class="std std-numref">Fig. 4.6</span></a> တွင်ဖော်ပြထားသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-features-at-glance"></span><a class="reference internal image-reference" href="../../_images/feature_at_glance.png"><img alt="../../_images/feature_at_glance.png" src="../../_images/feature_at_glance.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Vector features at a glance.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="attribute-attributes-in-detail">
+<h2><span class="section-number">4.2. </span>Attribute များအကြောင်း အသေးစိတ် (Attributes in detail)<a class="headerlink" href="#attribute-attributes-in-detail" title="Link to this heading"></a></h2>
+<p>Vector feature တစ်ခု၏ attribute များကို  <strong>ဇယား (table)</strong> ထဲတွင်သိမ်းဆည်းထားသည်။
+Table သည် spreadsheet တစ်ခုဖြစ်ပါသည်။ Table ၏ column တစ်ခုချင်းစီကို <strong>field</strong> ဟုခေါ်ပြီး row တစ်ခုချင်းစီကို <strong>မှတ်တမ်း (record)</strong> ဟုခေါ်သည်။
+<a class="reference internal" href="#table-house-attributes">table_house_attributes</a> table သည် GIS တွင်ရှိသော attribute table တစ်ခု၏ပုံသဏ္ဍာန်ကိုပြသည့် ဥပမာတစ်ခုဖြစ်သည်။
+Attribute table ရှိ မှတ်တမ်း (record) များသည် feature တစ်ခုချင်းစီနှင့်ဆက်နွယ်နေသည်။ Attribute table ရှိ သတင်းအချက်အလက်များကို database ပုံစံတစ်မျိုးဖြင့်
+သိမ်းဆည်းထားခြင်းဖြစ်သည်။ Attribute records များနှင့် feature ဂျီဩမေတြီကို GIS application က ချိတ်ဆက်ပေးပြီး မြေပုံပေါ်ရှိ feature များကို ရွေးချယ်လိုက်လျှင် table ရှိ record
+များကို ရှာဖွေနိုင်ပြီး၊ table ရှိ feature ကို ရွေးချယ်လိုက်လျှင် မြေပုံပေါ်၌ အဆိုပါ feature ကို ရှာဖွေနိုင်မည်ဖြစ်ပါသည်။</p>
+<table class="docutils align-default" id="table-house-attributes">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute Table</p></th>
+<th class="head"><p>Field 1 : YearBuilt</p></th>
+<th class="head"><p>Field 2: RoofColour</p></th>
+<th class="head"><p>Field 3: Balcony</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Record 1</p></td>
+<td><p>1998</p></td>
+<td><p>Red</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Record 2</p></td>
+<td><p>2000</p></td>
+<td><p>Black</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Record 3</p></td>
+<td><p>2001</p></td>
+<td><p>Silver</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table House Attributes- Attribute table တစ်ခုတွင် field (column) များနှင့် record (row များတွင်) များရှိပါသည်။</p>
+<p>Attribute table ရှိ field တစ်ခုချင်းစီတွင် စာသား၊ ကိန်းဂဏန်း သို့မဟုတ် ရက်စွဲ အစရှိသည့် သီးခြား data အမျိုးအစားတစ်ခုစီပါရှိလေ့ရှိသည်။ Feature တစ်ခုအတွက်မည်သည့် attribute ကို အသုံးပြုမည်ဆိုသည်ကိုဆုံးဖြတ်ရန်မှာ ထင်မြင်ယူဆချက်နှင့် စီမံချက်တစ်ချို့လိုအပ်သည်။
+ရှေ့တွင်ဖော်ပြခဲ့သည့် အိမ် ဥပမာတွင် ခေါင်မိုးအရောင်၊ လသာဆောင်ရှိ/မရှိနှင့် ဆောက်လုပ်သည့် လ တို့ကို ကျွန်ုပ်တို့စိတ်ဝင်စားသည့် attribute များအဖြစ်ရွေးချယ်ခဲ့သည်။ အိမ်တစ်လုံး၏ အခြား ရှုထောင့်များဖြစ်သည့်-</p>
+<ul class="simple">
+<li><p>အထပ်အရေအတွက်</p></li>
+<li><p>အခန်းအရေအတွက်</p></li>
+<li><p>နေထိုင်သူဦးရေ</p></li>
+<li><p>အဆောက်အအုံအမျိုးအစား (RDP house ၊ တိုက်ခန်းတွဲများ ၊ တဲအိမ် ၊ တိုက်အိမ် ၊ အစရှိသဖြင့်)</p></li>
+<li><p>အိမ်ဆောက်သည့်ခုနှစ်</p></li>
+<li><p>အိမ်တွင်း ကြမ်းခင်းအကျယ်</p></li>
+<li><p>အစရှိသဖြင့် ….တို့ကိုလည်း လွယ်ကူစွာရွေးချယ်နိုင်ပါသည်။</p></li>
+</ul>
+<p>များစွာသောရွေးချယ်မှုများရှိနေသဖြင့် feature တစ်ခုအတွက် attribute များကို မည်သို့ အကောင်းဆုံး ရွေးချယ်ကြပါမည်နည်း။
+များသောအားဖြင့် data ကို အသုံးပြု၌ မည်သို့သောစီမံကိန်းများဆောင်ရွက်မည်ကိုမူတည်၍ ကျစ်လျစ်အောင်ရွေးချယ်လေ့ရှိသည်။
+အိမ်သက်တမ်းကို အရောင်များဖြင့်ဖော်ပြသည့် မြေပုံတစ်ခုထုတ်ချင်လျှင် feature အတွက် ဆောက်လုပ်သည့်ခုနှစ် (‘Year Built’) attribute ကို အသုံးပြုသည်က အဓိပ္ပါယ်ရှိမည်ဖြစ်သည်။ အဆိုပါမြေပုံမျိုးကိုမည်သည့်အခါမျှ အသုံးမပြုတော့ရန်သေချာလျှင် အဆိုပါ အချက်အလက်မျိုးကို သိမ်းမထားသည်က ပိုကောင်းမည်ဖြစ်သည်။ သုတေသနပြုလုပ်ရန်နှင့် သတင်းအချက်အလက်စုဆောင်းရန် ငွေနှင့်အချိန်ပေးရသည့်အတွက် မလိုအပ်သည့် အချက်အလက်များကို ကောက်ယူခြင်း၊ သိမ်းဆည်းခြင်းများ မလုပ်ဆောင်သင့်ပါ။ ကုမ္ပဏီများ၊ မိတ်ဆွေများ သို့မဟုတ် အစိုးရထံမှ vector data များ ကျွန်ုပ်တို့ ရံဖန်ရံခါရလေ့ရှိတတ်သည်။ ထိုအခါ လိုချင်သည့်သီးခြား attributes များကို တောင်းဆိုရန် များသောအားဖြင့်မဖြစ်နိုင်သည့်အတွက် ရသည့် data နှင့်အလုပ်လုပ်ရသည်များလည်းရှိတတ်သည်။</p>
+</section>
+<section id="single-symbols">
+<h2><span class="section-number">4.3. </span>တစ်မျိုးတည်းဖြစ်သောသင်္ကေတများ (Single Symbols)<a class="headerlink" href="#single-symbols" title="Link to this heading"></a></h2>
+<p>Feature တစ်ခုအား attribute table မှ data များမသုံးဘဲ သင်္ကေတဖြင့်ပြချင်လျှင် ရိုးရိုးပုံစံဖြင့်သာရေးဆွဲနိုင်သည်။
+ဥပမာ- point feature များကို အရောင်သတ်မှတ်ပြီး <strong>အမှတ်အသား (marker)</strong> (စက်ဝိုင်း ၊ စတုရန်း ၊ ကြယ်ပုံ၊ အစရှိသဖြင့်) ပြုလုပ်နိုင်သည်၊ သို့သော် feature အားလုံးအတွက် သတ်မှတ်မည်ဖြစ်သည်။
+GIS တွင် ၎င်း၏ attribute table ရှိ ဂုဏ်သတ္တိများထဲမှ တစ်ခုကို အခြေခံ၍ ရေးဆွဲရန်မဖြစ်နိုင်ပေ။ ထိုသို့ရေးဆွဲရန် <strong>graduated (အဆင့်လိုက်ခွဲခြားဖော်ပြသော)</strong> ၊ <strong>continuous (တဆက်တစပ်တည်းဖြစ်သောအရောင်များဖြင့်ဖော်ပြသည့်)</strong> သို့မဟုတ် <strong>unique value (သီးသန့်တန်ဖိုး)</strong> သင်္ကေတတစ်မျိုးမျိုးကို အသုံးပြုရန်လိုအပ်သည်။ ၎င်းတို့အကြောင်းအသေးစိတ်ကို နောက်လာမည့် အခန်းတွင်ဖော်ပြထားသည်။</p>
+<p>GIS application တွင် layer တစ်ခု၏ သင်္ကေတများသတ်မှတ်ရန်အတွက် <a class="reference internal" href="#figure-single-symbol"><span class="std std-numref">Fig. 4.7</span></a> တွင် ဖော်ပြထားသကဲ့သို့ သီးခြား <strong>dialog box</strong> တစ်ခုဖြင့် ပြသသည်။
+Dialog box တွင် အရောင်နှင့်သင်္ကေတများကိုရွေးချယ်နိုင်ပြီး layer ၏ ဂျီဩမေတြီ ပေါ်မူတည်၍ ရွေးချယ်စရာအမျိုးမျိုးကိုဖော်ပြပေးမည်ဖြစ်သည်။ ဥပမာ point layer များအတွက် <strong>အမှတ်အသားစတိုင် (marker style)</strong> ကို ရွေးချယ်နိုင်ပြီး line နှင့် polygon layer များအတွက်မူ marker style option မပါရှိပေ။ ၎င်းအစား
+(<a class="reference internal" href="#figure-single-symbol-poly"><span class="std std-numref">Fig. 4.8</span></a> တွင်ပြထားသကဲ့သို့) အမာခံမြေသားလမ်းများအတွက် လိမ္မော်ရောင် dashed လိုင်း၊ ပုံမှန်လမ်းများအတွက် လိမ္မော်ရောင်လိုင်းအပြည့်အစရှိသည့် <strong>လိုင်းစတိုင် (line style)</strong> နှင့် <strong>အရောင် (colour)</strong> များကိုရွေးချယ်နိုင်သည်။ Polygon layer များတွင်မူ <strong>fill style</strong> နှင့် အရောင် ကိုရွေးချယ်နိုင်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-single-symbol"></span><a class="reference internal image-reference" href="../../_images/single_symbol_point.png"><img alt="../../_images/single_symbol_point.png" src="../../_images/single_symbol_point.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">ရိုးရိုးသင်္ကေတများကိုအသုံးပြုသောအခါ feature ၏ပုံသဏ္ဍာန်မည်သို့ရှိရမည်ကို ထိန်းချုပ်သည့် attribute တစ်ခုကိုအသုံးမပြုပဲ feature ကိုရေးဆွဲပေးပါသည်။ ပုံတွင်တွေ့ရသည်မှာ အဆိုပါ point feature များအတွက် dialog box ဖြစ်သည်။</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<span id="figure-single-symbol-poly"></span><a class="reference internal image-reference" href="../../_images/single_symbol_poly.png"><img alt="../../_images/single_symbol_poly.png" src="../../_images/single_symbol_poly.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Polyline  နှင့် polygon များအတွက် ရိုးရိုးသင်္ကေတများသတ်မှတ်သောအခါ မတူညီသောရွေးချယ်စရာများရှိပါသည်။</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="graduated-symbols">
+<h2><span class="section-number">4.4. </span>အဆင့်လိုက်ခွဲခြားဖော်ပြသော သင်္ကေတများ (Graduated Symbols)<a class="headerlink" href="#graduated-symbols" title="Link to this heading"></a></h2>
+<p>တခါတရံတွင် vector features များကို ပြောင်းလဲနေသော ကိန်းဂဏန်းတန်ဖိုးများအား ကိုယ်စားပြုရန်အသုံးပြုလေ့ရှိသည်။ ကွန်တိုမျဉ်းများသည် အကောင်းဆုံးဥပမာဖြစ်သည်။
+ကွန်တိုလိုင်းတစ်ခုချင်းစီတွင် ၎င်းကွန်တို၏အမြင့်ကို ကိုယ်စားပြုသည့် အချက်အလက်များပါဝင်သည့် height ဟုခေါ်သည့် attribute များပါရှိသည်။ အစောပိုင်းတွင် ကွန်တိုလိုင်းများအား အရောင်တစ်ရောင်တည်းဖြင့် ရေးဆွဲကာ ပြသခဲ့သည်။ ကွန်တိုလိုင်းများကို အရောင်များဖြည့်စွက်ဖော်ပြခြင်းဖြင့် ၎င်းတို့၏ အဓိပ္ပါယ်ကို ဖော်ပြရာတွင်များစွာအထောက်အကူဖြစ်သည်။
+ဥပမာ အနိမ့်ပိုင်းလိုင်းများကိုတစ်ရောင်၊ အလယ်အလတ်ဧရိယာများကို တစ်ရောင်နှင့် အမြင့်ပိုင်းများကို အခြားတစ်ရောင် စသည်ဖြင့်ဖော်ပြနိုင်သည်။</p>
+<figure class="align-center" id="id9">
+<span id="figure-graduated-symbol"></span><a class="reference internal image-reference" href="../../_images/graduated_symbol_settings.png"><img alt="../../_images/graduated_symbol_settings.png" src="../../_images/graduated_symbol_settings.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.9 </span><span class="caption-text">ကွန်တိုများ၏ height attribute များကို အတန်းအစားသုံးခုခွဲရန်အသုံးပြုနိုင်သည်။ မီတာ ၉၈၀  နှင့် မီတာ ၁၁၂၀ အတွင်းရှိ ကွန်တိုများကို အညိုရောင်ဖြင့်လည်းကောင်း၊
+မီတာ ၁၁၂၀ နှင့် မီတာ ၁၂၄၀ အတွင်းရှိ ကွန်တိုများကို အစိမ်းရောင်ဖြင့်လည်းကောင်း၊ မီတာ ၁၂၄၀ နှင့် မီတာ ၁၅၀၀ အတွင်းကို ခရမ်းရောင်လိုင်းများဖြင့်လည်းကောင်း ကိုယ်စားပြုဖော်ပြနိုင်သည်။</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<span id="figure-graduated-symbol-map"></span><a class="reference internal image-reference" href="../../_images/graduated_symbol_map.png"><img alt="../../_images/graduated_symbol_map.png" src="../../_images/graduated_symbol_map.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.10 </span><span class="caption-text">ကွန်တိုလိုင်းများအား တစ်ဆင့်ချင်းစီ အရောင်များဖြင့်ကိုယ်စားပြုဖော်ပြထားသည့် မြေပုံဖြစ်သည်။</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>တန်ဖိုးအတိအကျခွဲထားသော attribute တန်ဖိုးများကိုအခြေခံ၍ အရောင်များသတ်မှတ်ခြင်းကို QGIS တွင် Graduated Symbology ဟုခေါ်သည်။ လုပ်ဆောင်နည်းအဆင့်ဆင့်ကို <a class="reference internal" href="#figure-graduated-symbol"><span class="std std-numref">Fig. 4.9</span></a> နှင့် <a class="reference internal" href="#figure-graduated-symbol-map"><span class="std std-numref">Fig. 4.10</span></a> တွင်ဖော်ပြထားသည်။ တန်ဖိုးအမျိုးမျိုးရှိသည့် attribute တန်ဖိုးများကို ကွဲပြားစွာဖော်ပြလိုလျှင် <strong>Graduated symbols</strong> များသည် များစွာအသုံးဝင်သည်။
+GIS Application သည် သင်တောင်းဆိုသည့် အတန်းအစားအရေအတွက်ပေါ် မူတည်၍ ဥပမာ- အမြင့် ကဲ့သို့သော attribute data များကို
+ခွဲခြမ်းစိတ်ဖြာပြီး အုပ်စုများဖန်တီးပေးသည်။ <a class="reference internal" href="#table-graduated">table_graduated</a> တွင်လုပ်ဆောင်ပုံအဆင့်ဆင့်ကိုဖော်ပြထားသည်။</p>
+<table class="docutils align-default" id="table-graduated">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute Value</p></th>
+<th class="head"><p>Class and Colour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Class 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Class 1</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Class 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Class 2</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Class 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Class 2</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Class 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Class 3</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Class 3</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table Graduated- Graduated colour သည် attribute တန်ဖိုးများအား သင်ရွေးချယ်လိုက်သည့် အတန်းအစားအရေအတွက်အလိုက် ပိုင်းခြားဖော်ပြသည်။
+အတန်းအစားတစ်ခုချင်းစီကို အရောင်တစ်ရောင်စီဖြင့်ဖော်ပြသည်။</p>
+</section>
+<section id="continuous-colour-symbols">
+<h2><span class="section-number">4.5. </span>တဆက်တစပ်တည်းဖြစ်သောအရောင်များဖြင့်ဖော်ပြသည့် သင်္ကေတများ (Continuous Colour Symbols)<a class="headerlink" href="#continuous-colour-symbols" title="Link to this heading"></a></h2>
+<p>ပြီးခဲ့သည့်အခန်းတွင် Graduated Colour symbols များဖြင့် feature များအား တန်ဖိုးအတိအကျခွဲထားသောအုပ်စုများ သို့မဟုတ်
+အတန်းအစားများခွဲခြားဖော်ပြနိုင်ကြောင်း တွေ့မြင်ခဲ့ရပြီးဖြစ်သည်။ တခါတရံတွင် feature များအား အရောင်တစ်ရောင်မှ နောက်ထပ်တစ်ရောင်သို့ <strong>colour range (အရောင်အပိုင်းအခြား)</strong> တစ်ခုဖြင့် ဖော်ပြရန်လိုအပ်သည်။ GIS Application သည် feature တစ်ခု၏ ကိန်းဂဏန်းတန်ဖိုးများ (ဥပမာ- ကွန်တိုအမြင့် သို့မဟုတ် ချောင်းတစ်ခု၏ လေထုညစ်ညမ်းမှုအဆင့်အတန်း)
+ကို အသုံးပြု၍ မည်သည့်အရောင်ဖြင့်ဖော်ပြမည်ကို ဆုံးဖြတ်သည်။ <a class="reference internal" href="#table-continuous">table_continuous</a>  သည် တဆက်တစပ်တည်း ဖြစ်သောအရောင်များကိုဖော်ပြရန် attribute တန်ဖိုးများကို မည်သို့အသုံးပြုထားပုံကို ပြသခြင်းဖြစ်သည်။</p>
+<table class="docutils align-default" id="table-continuous">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute Value</p></th>
+<th class="head"><p>Colour (no classes or grouping)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Continuous- တဆက်တစပ်တည်း ဖြစ်သောအရောင် သင်္ကေတများ သည် အစပြု အရောင်တစ်ခု (ဥပမာ- ဤတွင်ပြထားသကဲ့သို့ လိမ္မော်ရောင်အဖျော့) နှင့်
+အဆုံးသတ် အရောင်တစ်ခု (ဥပမာ- ဤတွင်ပြထားသကဲ့သို့ အညိုရောင်အရင့်) ကို အသုံးပြုပြီး အဆိုပါအရောင်များအတွင်း အရောင်အနုအရင့် အစဉ်လိုက်ဖြင့် ဖော်ပြသည်။</p>
+<p>ပြီးခဲ့သည့်အခန်းရှိ ကွန်တို ဥပမာကိုအသုံးပြု၍ တဆက်တစပ်တည်း ဖြစ်သောအရောင် သင်္ကေတများပါရှိသည့် မြေပုံတစ်ခုကို ကြည့်ကြပါစို့။
+လုပ်ဆောင်ပုံမှာ <a class="reference internal" href="#figure-continuous-symbol"><span class="std std-numref">Fig. 4.11</span></a> တွင်ပြထားသည့် dialog ကိုအသုံးပြု၍ layer များကို တစ်စပ်တည်းဖြစ်သောအရောင်များအဖြစ်သတ်မှတ်ရန်ဖြစ်သည်။</p>
+<figure class="align-center" id="id11">
+<span id="figure-continuous-symbol"></span><a class="reference internal image-reference" href="../../_images/continuous_symbol_settings.png"><img alt="../../_images/continuous_symbol_settings.png" src="../../_images/continuous_symbol_settings.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.11 </span><span class="caption-text">တစ်စပ်တည်း ဖြစ်သောအရောင် သင်္ကေတများကိုသတ်မှတ်ခြင်း။ ကွန်တိုအမြင့် attribute ကို သုံး၍ အရောင်တန်ဖိုးများကို သတ်မှတ်သည်။ အရောင်များကို အနိမ့်ဆုံးနှင့်အမြင့်ဆုံးအရောင်များအတွက် သတ်မှတ်ထားပြီး GIS Application က feature များ၏ အရောင်ကို ၎င်းတို့၏ အမြင့်ပေါ်မူတည်၍ အရောင်အနုအရင့်ဖြင့်ဖော်ပြပေးသွားမည်ဖြစ်သည်။</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အနိမ့်ဆုံးနှင့်အမြင့်ဆုံးအရောင်များ သတ်မှတ်ပြီးလျှင် အနိမ့်ဆုံးနှင့်အမြင့်ဆုံးကြား attribute တန်ဖိုးများတည်ရှိသည့်နေရာပေါ်မူတည်၍ အရောင်များကိုဖော်ပြပေးမည်ဖြစ်သည်။ ဥပမာ သင့်၌ မီတာ ၁၀၀၀ မှ စပြီး မီတာ ၁၄၀၀ တွင်ဆုံးသည့် ကွန်တို feature များရှိလျှင် တန်ဖိုးအကွာအဝေးသည် ၁၀၀၀ မှ ၁၄၀၀ ထိဖြစ်သည်။ အနိမ့်ဆုံးတန်ဖိုးအတွက် လိမ္မော်ရောင် နှင့် အမြင့်ဆုံးတန်ဖိုးအတွက် အနက်ရောင်သတ်မှတ်ထားလျှင် မီတာ ၁၄၀၀ နှင့်နီးသည့် ကွန်တိုတန်ဖိုးများကို အနက်ရောင်နှင့်အနီးစပ်ဆုံးဖြစ်သည့်အရောင်များအဖြစ်မြင်ရမည် ဖြစ်သည်။ တစ်ဘက်တွင်လည်း မီတာ ၁၀၀၀ နှင့် နီးသော ကွန်တိုတန်ဖိုးများသည် လိမ္မော်ရောင်နှင့် အနီးစပ်ဆုံးသောအရောင်များအဖြစ်မြင်ရမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id12">
+<span id="figure-continuous-symbol-map"></span><a class="reference internal image-reference" href="../../_images/continuous_symbol_map.png"><img alt="../../_images/continuous_symbol_map.png" src="../../_images/continuous_symbol_map.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.12 </span><span class="caption-text">တဆက်တစပ်တည်း ဖြစ်သောအရောင် သင်္ကေတများကို အသုံးပြုထားသည့်ကွန်တိုမြေပုံ</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="unique-value-symbols">
+<h2><span class="section-number">4.6. </span>သီးသန့်တန်ဖိုးများအတွက် သင်္ကေတများ (Unique Value Symbols)<a class="headerlink" href="#unique-value-symbols" title="Link to this heading"></a></h2>
+<p>တခါတရံ feature များ၏ attribute များသည် ကိန်းဂဏန်းများမဟုတ်ဘဲ <strong>စာသား (strings)</strong> ဖြစ်လေ့ရှိသည်။
+‘String’ သည် ကွန်ပျူတာတွင်အသုံးပြုသည့် စာလုံးစုများ၊ အရေအတွက်တန်ဖိုးများနှင့် အခြားသောလက်ရေးသင်္ကေတများကိုခေါ်သည်။
+အရာဝတ္တုများကို နာမည်ဖြင့် အမျိုးအစားခွဲလိုလျှင် Strings attribute များကို အသုံးပြုသည်။ GIS Application တွင် သီးသန့်စာသားများ သို့မဟုတ်
+တန်ဖိုးများအတွက် အရောင်နှင့် သင်္ကေတကို သီးခြားသတ်မှတ်နိုင်သည်။ လမ်း feature များတွင် (ဥပမာ- ‘လမ်း’၊ ‘မြို့တွင်းလမ်း’၊ ‘အဓိကလမ်းမကြီး’ စသည်ဖြင့်) အမျိုးအစားအမျိုးမျိုးရှိရာ
+GIS ၏ map view တွင် အရောင်အမျိုးမျိုး သို့မဟုတ် သင်္ကေတအမျိုးမျိုးဖြင့် ရေးဆွဲနိုင်မည်ဖြစ်သည်။ <a class="reference internal" href="#table-unique">table_unique</a> တွင် ကြည့်ပါ။</p>
+<table class="docutils align-default" id="table-unique">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute Value</p></th>
+<th class="head"><p>Colour class and symbol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Arterial route</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Main road</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Secondary road</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Street</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Unique- feature အမျိုးအစား (ဥပမာ-လမ်းများ) တစ်ခုအတွက် သီးသန့် attribute တန်ဖိုးများတွင် ၎င်းတို့နှင့်သက်ဆိုင်သည့် သင်္ကေတများရှိနိုင်သည်။</p>
+<p>GIS application တွင် layer တစ်ခုအတွက် သီးသန့်တန်ဖိုးများကိုရွေးချယ် အသုံးပြုနိုင်သည်။ GIS တွင် attribute field ထဲရှိ စာသားများ (string values)
+ကို စစ်ဆေးကြည့်ရှုပြီး စာသားများ သို့မဟုတ် ကိန်းဂဏန်းများ ကို စာရင်းပြုစုပေးမည်ဖြစ်သည်။ ထို့နောက် သီးသန့်တန်ဖိုးတစ်ခုချင်းစီအတွက် အရောင်နှင့်စတိုင်ကိုရွေးချယ်သတ်မှတ်ပေးမည်ဖြစ်သည်။
+<a class="reference internal" href="#figure-unique-symbol"><span class="std std-numref">Fig. 4.13</span></a> တွင် ကြည့်ပါ။</p>
+<figure class="align-center" id="id13">
+<span id="figure-unique-symbol"></span><a class="reference internal image-reference" href="../../_images/unique_symbol_settings.png"><img alt="../../_images/unique_symbol_settings.png" src="../../_images/unique_symbol_settings.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.13 </span><span class="caption-text">လမ်းအမျိုးအစားပေါ်မူတည်၍ သီးသန့်တန်ဖိုးများအတွက် သင်္ကေတများကို မည်သို့သတ်မှတ်ရမည်ကိုဖော်ပြထားပုံဖြစ်သည်။</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>GIS တွင် layer တစ်ခုရေးဆွဲသည့်အခါ screen ပေါ်၌ မပေါ်လာမီ feature တစ်ခုချင်းစီ၏ attribute များကို ဦးစွာကြည့်ရှုမည်ဖြစ်ပြီး ထို့နောက်တွင် attribute table
+မှ ရွေးချယ်လိုက်သည့် field ရှိ တန်ဖိုးများပေါ်မူတည်၍ လမ်းများကို သင့်လျော်သည့် အရောင်နှင့် လိုင်းစတိုင် ရွေးချယ်ကာဖော်ပြပေးမည်ဖြစ်သည်။
+(polygon feature ဖြစ်လျှင် ဖြည့်ရမည့် fill style ကို ရွေးချယ်ပေးမည်) <a class="reference internal" href="#figure-unique-symbol-map"><span class="std std-numref">Fig. 4.14</span></a> တွင် ကြည့်ပါ။</p>
+<figure class="align-center" id="id14">
+<span id="figure-unique-symbol-map"></span><a class="reference internal image-reference" href="../../_images/unique_symbol_map.png"><img alt="../../_images/unique_symbol_map.png" src="../../_images/unique_symbol_map.png" style="width: 30em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.14 </span><span class="caption-text">လမ်း vector layer တစ်ခုအား လမ်းအမျိုးအစားအလိုက် သီးသန့်တန်ဖိုးတစ်ခုအသုံးပြုပြီး သင်္ကေတများဖြင့်ဖော်ပြထားပုံဖြစ်သည်။</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="things-to-be-aware-of">
+<h2><span class="section-number">4.7. </span>သတိထားရမည့်အရာများ (Things to be aware of)<a class="headerlink" href="#things-to-be-aware-of" title="Link to this heading"></a></h2>
+<p>မည်သည့် attribute နှင့် သင်္ကေတကိုအသုံးပြုမည်ကို ဆုံးဖြတ်ရန်မှာ အစီအစဉ်တကျရှိရန်လိုအပ်သည်။ မြေပုံသတင်းအချက်အလက် (<strong>GeoSpatial</strong> data ) များမကောက်ယူမီ မည်သည့် attribute တန်ဖိုးများလိုအပ်သည်နှင့် မည်သို့သော သင်္ကေတဖြင့်ဖော်ပြမည်ကို သေချာစွာသိရန်လိုအပ်သည်။ ပထမအကြိမ်တွင် ကောင်းစွာအစီအစဉ်မချခဲ့ပါက ပြန်သွား၍ ဒေတာကောက်ယူရန်မှာ အလွန်ခက်ခဲသည်။ အချက်အလက်ကောက်ယူခြင်း၏ အဓိကရည်ရွယ်ချက်မှာ ၎င်းတို့အားခွဲခြမ်းစိတ်ဖြာလေ့လာ၍ မြေပြင်သတင်းအချက်အလက်များကို ကိုယ်စားပြုဖော်ပြရန်ကို သတိထားရန်လိုအပ်သည်။ မည်သို့ဆောင်ရွက်ရမည်ကို ဆုံးဖြတ်ရန်မှာ မည်သည့် မေးခွန်းများကို ဖြေရှင်းလိုသနည်းဆိုသည့် အပေါ်မူတည်သည်။ သင်္ကေတ အဆင်အသွေးများလိုအပ်သလိုပြင်ဆင်ခြင်း (Symbology) သည် သင်အသုံးပြုသည့် အရောင်နှင့် သင်္ကေတများပေါ်မူတည်၍ သင့် attribute data ကို လူအများနားလည်စေရန် မြင်သာအောင် ဖန်တီးပြုလုပ်ပေးသည့် ဘာသာစကားတစ်ခုဖြစ်သည်။ ထို့ကြောင့် အများနားလည်ရလွယ်ကူစေရန် သင့်မြေပုံအား သင်္ကေတအဆင်အသွေးများပြင်ဆင်ဖန်တီးရာတွင် ပိုမိုအားစိုက်ထုတ်သင့်ခြင်းဖြစ်ပါသည်။</p>
+</section>
+<section id="what-have-we-learned">
+<h2><span class="section-number">4.8. </span>လေ့လာခဲ့ပြီးသည့်အရာများ (What have we learned?)<a class="headerlink" href="#what-have-we-learned" title="Link to this heading"></a></h2>
+<p>ဤစာမျက်နှာတွင် ဖော်ပြခဲ့သည်တို့ကို အကျဉ်းချုပ်ဆိုရသော်-</p>
+<ul class="simple">
+<li><p>Vector feature များတွင် <strong>attributes</strong> များပါရှိသည်။</p></li>
+<li><p>Attribute များသည် feature တစ်ခု၏  <strong>ဂုဏ်သတ္တိတန်ဖိုးများ (properties)</strong> ကို <strong>ဖော်ပြ</strong> ပေးသည်။</p></li>
+<li><p>Attribute များကို <strong>table</strong> တစ်ခုထဲ၌ သိမ်းဆည်းထားသည်။</p></li>
+<li><p>Table ထဲရှိ row များကို <strong>မှတ်တမ်း (records)</strong> ဟုခေါ်သည်။</p></li>
+<li><p>Vector layer ထဲရှိ <strong>feature တစ်ခုချင်းစီတွင် record တစ်ခု</strong> စီရှိသည်။</p></li>
+<li><p>Table ထဲရှိ column များကို <strong>fields</strong> ဟုခေါ်သည်။</p></li>
+<li><p>Field များသည် feature တစ်ခု၏ ဂုဏ်သတ္တိတန်ဖိုးများကို ကိုယ်စားပြုသည်။ ဥပမာ- အမြင့်၊ ခေါင်မိုးအရောင် စသည်ဖြင့်။</p></li>
+<li><p>Field များတွင် <strong>ကိန်းဂဏန်း (numerical)</strong> ၊  <strong>စာသား (string)</strong> (မည်သည့်စာသားမဆို) နှင့် <strong>ရက်စွဲ (date)</strong> များ ပါရှိသည်။</p></li>
+<li><p>Feature တစ်ခု၏ attribute data များကို သင်္ကေတများဖြင့် ဖော်ပြရန်အတွက် အသုံးပြုသည်။</p></li>
+<li><p><strong>Graduated colour</strong> သင်္ကေတများသည် data များကို တန်ဖိုးအတိအကျခွဲထားသော အတန်းအစားများ အဖြစ်အုပ်စုဖွဲ့ပေးသည်။</p></li>
+<li><p><strong>Continuous colour</strong> သင်္ကေတများသည် feature များအား ၎င်းတို့၏ attribute ပေါ်မူတည်၍ အရောင်အပိုင်းအခြားတစ်ခုအတွင်းမှ အရောင်များသတ်မှတ်ပေးသည်။</p></li>
+<li><p><strong>Unique value</strong> သည်  ရွေးချယ်ထားသည့် attribute column ရှိ တန်ဖိုးအသီးသီးကို သီးခြားသင်္ကေတတစ်ခုစီ (အရောင်နှင့် စတိုင်) ဖြင့် ချိတ်ဆက်ဖော်ပြပေးသည်။</p></li>
+<li><p>Vector layer ရှိ attribute ကို သင်္ကေတများသတ်မှတ်ရာ၌ အသုံးပြုထားခြင်းမရှိလျှင် ၎င်းသည် <strong>single symbol</strong>  ကိုအသုံးပြု၍ရေးဆွဲထားခြင်းဖြင်သည်။</p></li>
+</ul>
+</section>
+<section id="now-you-try">
+<h2><span class="section-number">4.9. </span>ယခု သင်တို့ ကြိုးစားကြည့်ပါ! (Now you try!)<a class="headerlink" href="#now-you-try" title="Link to this heading"></a></h2>
+<p>အောက်ပါတို့မှာ သင်တန်းသားများအား ကြိုးစားကြည့်စေရန် အချက်တစ်ချို့ဖြစ်ပါသည်</p>
+<ul class="simple">
+<li><p>ပြီးခဲ့သည့်ခေါင်းစဉ်အောက်တွင် သင်ပြုလုပ်ထားသည့် table တစ်ခုကို သင်အသုံးပြုလိုသည့် feature အတွက်  သင်္ကေတသတ်မှတ်ပေးမည့် column တစ်ခုထပ်ထည့်လိုက်ပါ။ ထို့နောက်သင်တန်းသားများအား မည်သည့် သင်္ကေတကိုအသုံးပြုမည်ကို ဆုံးဖြတ်စေပါ (ဥပမာအဖြစ် <a class="reference internal" href="#table-example-symbols">table_example_symbols</a> ကိုကြည့်ပါ)</p></li>
+<li><p>အောက်ဖော်ပြပါ vector feature များအတွက် သင်မည်သည့် သင်္ကေတကိုအသုံးပြုမည်ကို သင်တန်းသားများအား ကြိုးစားဖော်ထုတ်စေပါ-</p>
+<ul>
+<li><p>ကျောင်းပတ်ဝန်းကျင်ရှိမြေဆီလွှာနမူနာများ၏ pH level ကိုဖော်ပြသည့် point များ</p></li>
+<li><p>မြို့တစ်ခု၏ လမ်းကွန်ယက်ကို ဖော်ပြသည့် line များ</p></li>
+<li><p>အုတ်ဖြင့်ဆောက်ထားသော၊ သစ်သားဖြင့်ဆောက်ထားသော သို့မဟုတ် အခြား ကုန်ကြမ်းပစ္စည်းများဖြင့်ဆောက်ထားသည်ကို ဖော်ပြသည့် attirbute ပါရှိသော အိမ်များအတွက် polygon များ</p></li>
+</ul>
+</li>
+</ul>
+<table class="docutils align-default" id="table-example-symbols">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>လက်ရှိမြေပြင်ရှိ feature များ</p></th>
+<th class="head"><p>ဂျီဩမေတြီအမျိုးအစား</p></th>
+<th class="head"><p>သင်္ကေတအမျိုးအစား</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ကျောင်းအလံတိုင်</p></td>
+<td><p>Point</p></td>
+<td><p>သင်္ကေတတစ်ခုတည်းဖြင့်</p></td>
+</tr>
+<tr class="row-odd"><td><p>ဘောလုံးကွင်း</p></td>
+<td><p>Polygon</p></td>
+<td><p>သင်္ကေတတစ်ခုတည်းဖြင့်</p></td>
+</tr>
+<tr class="row-even"><td><p>ကျောင်းအတွင်းနှင့် ကျောင်းအနီးပတ်ဝန်းကျင်ရှိ လူသွားလမ်းများ</p></td>
+<td><p>Polyline</p></td>
+<td><p>ကျောင်းမလာမီတွင် လူသွားလမ်းတစ်ခုချင်းစီကို အသုံးပြုသော ကျောင်းသားများအရေအတွက်ကို ရေတွက်စေပါ၊ ထို့နောက် လူသွားလမ်းအသုံးများမှုကို ပြသရန် <strong>graduated symbol</strong> ကို အသုံးပြုပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p>ရေဘုံဘိုင်များတည်ရှိရာနေရာများ</p></td>
+<td><p>Point</p></td>
+<td><p>သင်္ကေတတစ်ခုတည်းဖြင့်</p></td>
+</tr>
+<tr class="row-even"><td><p>စာသင်ခန်းများ</p></td>
+<td><p>Polygon</p></td>
+<td><p>စာသင်ခန်းထဲရှိ ကျောင်းသားများ၏အဆင့် ပေါ်အခြေခံထားသော <strong>unique value</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>ခြံစည်းရိုးများ</p></td>
+<td><p>Polyline</p></td>
+<td><p>ကျောင်းပတ်ဝန်းကျင်ရှိ ခြံစည်းရိုးများ အခြေအနေကို အဆင့်သတ်မှတ်စေပြီး အပိုင်းလိုက်ခွဲခြားစေပါ၊ အပိုင်းတစ်ခုချင်းစီကို အခြေအနေပေါ်မူတည်ပြီး 1-9 စကေးဖြင့် အဆင့်သတ်မှတ်စေပါ။ အခြေအနေကိုပြသော attribute ကို အတန်းအစားခွဲခြားရန် <strong>graduated symbol</strong> ကိုအသုံးပြုပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p>စာသင်ခန်းများ</p></td>
+<td><p>Polygon</p></td>
+<td><p>စာသင်ခန်းတစ်ခုချင်းစီရှိ ကျောင်းသားများအရေအတွက်ကို ရေတွက်ပြီး အနီရောင်မှ အပြာရောင်အကြား အရောင်အပိုင်းအခြားတစ်ခုကိုသတ်မှတ်ရန် <strong>continuous color symbol</strong> ကိုအသုံးပြုပါ။</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table Example Symbols- သင်အသုံးပြုမည့် feature အမျိုးအစားနှင့် သင်္ကေတအမျိုးအစားကို ဖော်ပြထားသည့် နမူနာ table</p>
+</section>
+<section id="something-to-think-about">
+<h2><span class="section-number">4.10. </span>စဉ်းစားရမည့်အချက် (Something to think about)<a class="headerlink" href="#something-to-think-about" title="Link to this heading"></a></h2>
+<p>သင့်၌ကွန်ပျူတာမရှိလျှင် ပလတ်စတစ်အကြည် နှင့် 1:50000 မြေပုံကိုအသုံးပြု၍ သင်္ကေတအမျိုးမျိုးသတ်မှတ်ပုံကိုလေ့ကျင့်နိုင်သည်။ ဥပမာ- မြေပုံပေါ်တွင်
+ပလတ်စတစ်အကြည်ကိုထပ်၍ ရောင်စုံဘောပင်များအသုံးပြုကာ မီတာ ၉၀၀ အောက် (သို့မဟုတ် အနီးစပ်ဆုံး) ကွန်တိုမျဉ်းများကို အနီရောင်၊ မီတာ ၉၀၀ အထက်ကို အစိမ်းရောင်မျဉ်းများဆွဲပါ။ အခြားသင်္ကေတအမျိုးအစားများကိုလည်း ထိုနည်းတူ လေ့ကျင့်နိုင်မည်ဟု ထင်ပါသလား။</p>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">4.11. </span>နောက်ထပ်ဖတ်ရှုရမည်များ (Further reading)<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<p><strong>Website:</strong> <a class="reference external" href="https://en.wikipedia.org/wiki/Cartography">https://en.wikipedia.org/wiki/Cartography</a></p>
+<p>QGIS အသုံးပြုသူလက်စွဲတွင် attribute data များနှင့် သင်္ကေတအဆင်အသွေးများ လိုအပ်သလိုပြင်ဆင်ခြင်း တို့နှင့်သက်ဆိုင်သည့် အချက်အလက်များကိုအသေးစိတ်ဖော်ပြထားသည်။</p>
+</section>
+<section id="what-s-next">
+<h2><span class="section-number">4.12. </span>နောက်ထပ်ဘာအကြောင်းအရာလဲ (What’s next?)<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>နောက်တစ်ခန်းတွင် <strong>အချက်အလက်များ ရယူခြင်း (data capture.)</strong> အား ပိုမိုအသေးစိတ်လေ့လာသွားကြပါမည်။ Vector data များနှင့် attribute များအကြောင်း လေ့လာခဲ့သည်များကို ဒေတာအသစ်များဖန်တီးခြင်းတွင် လက်တွေ့အသုံးချသွားမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vector_data.html" class="btn btn-neutral float-left" title="3. Vector ဒေတာများ (Vector Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_capture.html" class="btn btn-neutral float-right" title="5. ဒေတာရယူခြင်း (Data Capture)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 Aug 05, 15:14 +0630.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: testing
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_attribute_data.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_attribute_data.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/gentle_gis_introduction/vector_attribute_data.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.34</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/vector_attribute_data.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/gentle_gis_introduction/vector_attribute_data.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/testing/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/gentle_gis_introduction/vector_attribute_data.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/61d1f60df809f055116b7bcfaa60b715" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/master" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/master" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
