@@ -1,11 +1,8 @@
 *******************************************************************************
-Module: GRASS
+မော်ဂျူး - GRASS (Module: GRASS)
 *******************************************************************************
 
-GRASS (Geographic Resources Analysis Support System) is a well-known open
-source GIS with a wide array of useful GIS functions. It was first released in
-1984, and has seen much improvement and additional functionality since then.
-QGIS allows you to make use of GRASS' powerful GIS tools directly.
+GRASS (Geographic Resources Analysis Support System) သည် လူသိများသော အခမဲ့ GIS တစ်ခုဖြစ်ပြီး အသုံးဝင်သော GIS function များ ကျယ်ပြန့်စွာပါဝင်ပါသည်။ ၎င်းကို 1984 ခုနှစ်တွင် စတင် ဖြန့်ဝေခဲ့ပြီး ထိုအချိန်မှစ၍ တိုးတက်လာခဲ့ပြီး လုပ်ဆောင်ချက်များ ပိုများလာခဲ့ပါသည်။ GRASS ၏အသုံးဝင်သော GIS tool များကို QGIS တွင် တိုက်ရိုက်အသုံးပြုနိုင်ပါသည်။
 
 .. toctree::
    :maxdepth: 2

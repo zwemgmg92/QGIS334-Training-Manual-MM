@@ -1,27 +1,19 @@
-Lesson: Serving WMS
+သင်ခန်းစာ - WMS ဝန်ဆောင်မှုပေးခြင်း (Lesson: Serving WMS)
 ===============================================================================
 
-The data used for this exercise are available in the :file:`qgis-server-tutorial-data`
-subdirectory of the :ref:`training data <data_downloadlink>` you downloaded.
-For convenience and to avoid possible permissions problems, we will assume
-that these files are stored in :file:`/home/qgis/projects` directory.
-Hence, adapt the following instructions to your path.
+ဤလေ့ကျင့်ခန်းအတွက် အသုံးပြုမည့် data များသည် သင်ဒေါင်းလုဒ်ပြုလုပ်ထားသော :ref:`training data <data_downloadlink>` ထဲရှိ :file:`qgis-server-tutorial-data` ထဲတွင် ရှိပါသည်။ အဆင်ပြေပြေဖြစ်စေရန်နှင့် သုံးစွဲခွင့်ပြဿနာများမရှိစေရန် ထိုဖိုင်များကို :file:`/home/qgis/projects` ထဲတွင် သိမ်းဆည်းထားသည်ဟု ယူဆပါမည်။ ထို့ကြောင့် အောက်ပါညွှန်ကြားချက်များအတိုင်း လုပ်ဆောင်ပါ။
 
-The demo data contains a QGIS project named :file:`world.qgs` that is already
-prepared to be served with QGIS Server.
-If you want to use your own project or you want to learn how a project
-is prepared see the :ref:`Creatingwmsfromproject` section.
+နမူနာ data တွင် :file:`world.qgs` ဆိုသည့် QGIS project တစ်ခုပါဝင်ပြီး ထို project သည် QGIS Server ဖြင့် serve လုပ်ရန် ပြင်ဆင်ထားပြီးသားဖြစ်ပါသည်။ သင့်ကိုယ်ပိုင် project အားအသုံးပြုလိုလျှင် သို့မဟုတ် project တစ်ခုအားမည်သို့ ပြင်ဆင်ရမည်ကို လေ့လာရန် :ref:`Creatingwmsfromproject` တွင် ကြည့်ရှုပါ။
 
 .. note::
 
- This module presents the URLs so that the audience can easily distinguish
- the parameters and parameters values. While the normal format is:
+ ဤမော်ဂျူးတွင် parameter များနှင့် parameter တန်ဖိုးများကို အလွယ်တကူခွဲခြားနိုင်စေရန် URL များကို တင်ပြထားပါသည်။ ပုံမှန် format သည်အောက်ပါအတိုင်းဖြစ်ပြီး-
 
  ::
 
    ...&field1=value1&field2=value2&field3=value3
 
- this tutorial uses:
+ ယခု tutorial တွင်အသုံးပြုထားသည်မှာ-
 
  ::
 
@@ -29,12 +21,9 @@ is prepared see the :ref:`Creatingwmsfromproject` section.
    &field2=value2
    &field3=value3
 
- Pasting them into Mozilla Firefox works properly but other web browsers
- like Chrome may add unwanted spaces between the ``field:parameter`` pairs.
- So, if you encounter this issue you can either use Firefox or modify
- the URLs so that they're in one line format.
+ ၎င်းတို့ကို Mozilla Firefox ထဲတွင် ကူးထည့်ပါက ကောင်းမွန်စွာအလုပ်ဖြစ်သော်လည်း Chrome ကဲ့သို့ အခြား web browser များထဲတွင် ``field:parameter`` အတွဲများအကြား space အပိုများ ပါနိုင်ပါသည်။ ထို့ကြောင့် အဆိုပါပြဿနာမျိုးနှင့်ကြုံတွေ့ရပါက Firefox ကိုအသုံးပြုနိုင်သလို URL ကို line တစ်ခုတည်းဖြစ်အောင် မွမ်းမံပြင်ဆင်ပြီး အသုံးပြုနိုင်ပါသည်။
 
-Let's make a WMS GetCapabilities request in the web browser or with curl:
+Web browser ထဲတွင် WMS GetCapabilities request တစ်ခုပြုလုပ်ကြည့်ပါမည်-
 
 .. code-block:: bash
 
@@ -44,77 +33,54 @@ Let's make a WMS GetCapabilities request in the web browser or with curl:
  &REQUEST=GetCapabilities
  &map=/home/qgis/projects/world.qgs
 
-In the Apache config from the previous lesson the ``QGIS_PROJECT_FILE`` variable
-sets the default project to :file:`/home/qgis/projects/world.qgs`. However, in
-the above request we made use of the **map** parameter to be explicit and to
-show it can be used to point at any project. If you delete the **map** parameter
-from the above request QGIS Server will output the same response.
+ယခင်သင်ခန်းစာထဲမှ Apache config ထဲတွင် ``QGIS_PROJECT_FILE`` variable သည် default project အား :file:`/home/qgis/projects/world.qgs` အဖြစ်သတ်မှတ်ပါသည်။ သို့သော် အထက်ဖော်ပြပါ request ထဲတွင် ရှင်းရှင်းလင်းလင်းဖြစ်စေရန်နှင့် ၎င်းအား မည်သည့် project မဆိုသို့ညွှန်းပေးရန်အသုံးပြုနိုင်ကြောင်း ပြသရန် **map** parameter ကိုအသုံးပြုထားပါသည်။ Request ထဲတွင် **map** parameter အားဖျက်လိုက်လျှင်လည်း QGIS Server သည် အတူတူပင် တုံ့ပြန်ပါလိမ့်မည်။
 
-By pointing any WMS client to the ``GetCapabilities`` URL, the client gets in
-response an XML document with metadata of the Web Map Server’s information,
-e.g. what layers does it serve, the geographical coverage, in
-what format, what version of WMS etc.
+WMS client တစ်ခုခုအား ``GetCapabilities`` URL သို့ညွှန်ပေးခြင်းအားဖြင့် Web Map Server ၏အချက်အလက် meta များပါဝင်သော XML document တစ်ခုကိုရရှိမည်ဖြစ်သည်၊ ဥပမာ- serve လုပ်ထားသည့် layer များ၊ လွှမ်းခြုံသောနယ်နိမိတ်အတိုင်းအတာ၊ အသုံးပြုထားသည့် format ၊ WMS ဗားရှင်း ၊ အစရှိသည်တို့ ပါဝင်ပါသည်။
 
-As QGIS is also a :ref:`ogc-wms` you can create a new WMS server connection
-with the help of the above GetCapabilities url. See the :ref:`wms-services`
-or the  :ref:`ogc-wms-servers` section on how to do it.
+QGIS သည်လည်း :ref:`ogc-wms` တစ်ခုဖြစ်သောကြောင့် GetCapabilities url ဖြင့် WMS server connection တစ်ခုကိုဖန်တီးနိုင်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် :ref:`wms-services` သို့မဟုတ် :ref:`ogc-wms-servers` တွင် ကြည့်ပါ။
 
-By adding the ``countries`` WMS layer to your QGIS project you should get an image
-like the one below:
+သင့် QGIS project ထဲသို့ ``countries`` WMS layer ကိုထည့်သွင်းသောအခါ အောက်ပါပုံအတိုင်း ရရှိပါလိမ့်မည်-
 
 .. figure:: img/qgis_getmap_request.png
    :align: center
 
-   QGIS Desktop consuming the QGIS Server countries layer WMS service
+   QGIS Desktop တွင် QGIS Server countries layer WMS service ကိုအသုံးပြုထားပုံ
 
 .. note::
 
- QGIS Server serves layers that are defined in the :file:`world.qgs` project.
- By opening the project with QGIS you can see there are multiple styles for
- the countries layer. QGIS Server is also aware of this and you can choose
- the style you want in your request.  The ``classified_by_population`` style
- was chosen in the above image.
+ QGIS Server သည် :file:`world.qgs` project ထဲတွင် သတ်မှတ်ထားသော layer များကို serve လုပ်ပေးပါသည်။ QGIS တွင် project ကိုဖွင့်ခြင်းအားဖြင့် countries layer အတွက် style များစွာကို မြင်တွေ့နိုင်ပါသည်။ QGIS Server သည် ထိုကိစ္စကိုလည်း ဂရုပြုလုပ်ဆောင်ပေးပြီး request ထဲတွင် လိုချင်သည့် style ကို ရွေးချယ်ပေးနိုင်ပါသည်။ အထက်ဖော်ပြပါပုံတွင် ``classified_by_population`` style ကိုရွေးချယ်ထားပါသည်။
 
-Logging
--------
+မှတ်တမ်း (Logging)
+-------------------
 
-When you're setting up a server, the logs are always important as they show
-you what's going on. We have setup in the :file:`*.conf` file the following logs:
+Server တစ်ခုကို set up လုပ်သောအခါ မည်သည့်အရာများဖြစ်ပျက်နေသည်ကို ပြသရန် log (မှတ်တမ်း) များသည် အမြဲတမ်းအရေးကြီးပါသည်။ :file:`*.conf` ဖိုင်ထဲတွင် အောက်ပါ log များကို set up လုပ်ထားပါသည်-
 
-* QGIS Server log at :file:`/logs/qgisserver.log`
-* ``qgisplatform.demo`` Apache access log at :file:`qgisplatform.demo.access.log`
-* ``qgisplatform.demo`` Apache error log at :file:`qgisplatform.demo.error.log`
+* QGIS Server log အား :file:`/logs/qgisserver.log` တွင်
+* ``qgisplatform.demo`` Apache access log အား :file:`qgisplatform.demo.access.log` တွင်
+* ``qgisplatform.demo`` Apache error log အား :file:`qgisplatform.demo.error.log` တွင်
 
-The log files are simply text files so you can use a text editor to check them
-out. You can also use the ``tail`` command in a terminal:
-``sudo tail -f /logs/qgisserver.log``.
+Log ဖိုင်များသည် ရိုးရိုးစာသားဖိုင်များသာဖြစ်ပြီး ၎င်းတို့ကို text editor အသုံးပြုပြီး စစ်ဆေးကြည့်နိုင်ပါသည်။ Terminal ထဲတွင်လည်း ``tail`` command ကိုအသုံးပြုနိုင်ပါသည်- ``sudo tail -f /logs/qgisserver.log``
 
-This will continuously output in the terminal what's written in that log file.
-You can also have three terminals opened for each of the log files like so:
+ထိုသို့လုပ်ခြင်းဖြင့် log ဖိုင်ထဲတွင် ရေးသားသည်များကို terminal ထဲတွင် output ထုတ်ပေးပါလိမ့်မည်။ Log ဖိုင် တစ်ခုချင်းစီအတွက် အောက်ပါအတိုင်း terminal ၃ ခုကိုလည်း ဖွင့်ထားနိုင်ပါသည်-
 
 .. figure:: img/terminal_tail_log.jpg
    :align: center
 
-   Using the ``tail`` command to visualise QGIS Server logs output
+   QGIS Server logs output များကို မြင်ရနိုင်စေရန် ``tail`` command အားအသုံးပြုခြင်း
 
-When you use QGIS Desktop to consume the QGIS Server WMS services you will
-see all the requests QGIS sends to the Server in the access log, the errors
-of QGIS Server in the QGIS Server log etc.
+QGIS Server WMS service များအား QGIS Desktop တွင် အသုံးပြုသောအခါ QGIS မှ Server သို့ပေးပို့သော request များအားလုံးကို access log ထဲတွင်လည်းကောင်း၊ QGIS Server ၏ error များကို QGIS Server log ထဲတွင်လည်းကောင်း အစရှိသဖြင့် တွေ့နိုင်ပါသည်။
 
 .. note::
 
- * If you look at the logs in the following sections you should get a better
-   understanding on what's happening.
- * By restarting Apache while looking in the QGIS Server log you can find
-   some extra pointers on how things work.
+ * အောက်ပါအပိုင်းများထဲမှ log များကို ကြည့်ပါက ပိုမိုနားလည်သဘောပေါက်မည်ဖြစ်သည်။
+ * QGIS Server log ကိုကြည့်နေစဉ်တွင် Apache ကို ပြန်လည်စတင်ပါက မည်သို့အလုပ်လုပ်ဆောင်နေသည်ကို မြင်တွေ့ရနိုင်ပါသည်။
 
 GetMap requests
 -------------------------------------------------------------------------------
 
-In order to display the ``countries`` layer, QGIS Desktop, like any other WMS
-client, is using ``GetMap`` requests.
+QGIS Desktop တွင် ``countries`` layer ကိုပြသရန် အခြား WMS client များကဲ့သို့ ``GetMap`` request ကိုအသုံးပြုပါသည်။
 
-A simple request looks like:
+ရိုးရှင်းသော request တစ်ခု၏ပုံစံမှာ-
 
 .. code-block:: bash
 
@@ -130,45 +96,34 @@ A simple request looks like:
  &LAYERS=countries
  &FORMAT=image/jpeg
 
-The above request should output the following image:
+အထက်ဖော်ပြပါ request သည် အောက်ပါပုံကို ထုတ်ပေးပါလိမ့်မည်-
 
 **Figure: simple GetMap request to QGIS Server**
 
 .. figure:: img/getmap_simple_request.jpg
    :align: center
 
-   Qgis Server response after a simple GetMap request
+   ရိုးရှင်းသော GetMap request တစ်ခုအား QGIS Server မှ တုံ့ပြန်ပုံ
 
-:abbr:`★★☆ (Moderate level)` Try Yourself: Change the Image and Layers parameters
-------------------------------------------------------------------------------------
+:abbr:`★★☆ (Moderate level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - Image နှင့် Layer parameter များပြောင်းလဲခြင်း (Try Yourself: Change the Image and Layers parameters)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Based on the request above, let's replace the ``countries`` layer with another.
+အထက်ဖော်ပြပါ request ကိုအခြေခံ၍  ``countries`` layer အား နောက်ထပ် layer တစ်ခုဖြင့် အစားထိုးကြည့်ပါမည်။
 
-In order to see what other layers are available you could open up the
-:file:`world.qgs` project in QGIS and look at its contents. Keep in mind
-though that the WMS clients don't have access to the QGIS project, they just
-look at the capabilities document contents.
+အခြား ရရှိနိုင်သည့် layer များကိုကြည့်ရန် QGIS ထဲတွင် :file:`world.qgs` project ကိုဖွင့်ပြီး ၎င်းတွင်ပါဝင်သည်များကို ကြည့်နိုင်ပါသည်။ စိတ်ထဲမှတ်သားထားရမည်မှာ WMS client များသည် QGIS project ထဲသို့ဝင်ရောက်သုံးစွဲခွင့်မရှိပါ၊ ၎င်းတို့သည် အကြောင်းအရာများကိုသာ ကြည့်ရှုခြင်းဖြစ်သည်။
 
-Also, there's a configuration option so that some of the layers existing in the
-QGIS project are ignored by QGIS when serving the WMS service.
+ထို့အပြင် WMS service လုပ်ဆောင်နေစဉ်တွင် QGIS project ထဲရှိ layer အချို့ကို QGIS မှလျစ်လျူရှုစေရန်အတွက် configuration option တစ်ခုလည်းရှိပါသည်။
 
-So, you could look at the layer list when you point QGIS Desktop to the
-``GetCapabilities`` URL or you could try yourself finding other layer names
-in the ``GetCapabilities`` XML response.
+ထို့ကြောင့် QGIS Desktop ကို ``GetCapabilities`` URL သို့ညွှန်းပေးသောအခါ layer စာရင်းတွင်ကြည့်နိုင်သလို ``GetCapabilities`` XML ထဲတွင် အခြား layer အမည်များကို ကိုယ်တိုင်ရှာဖွေနိုင်ပါသည်။
 
-One of the layer names that you could find and works is ``countries_shapeburst``.
-You may find others but keep in mind some may not be visible at such a small
-scale so you could get a blank image as response.
+Layer အမည်များထဲမှ တစ်ခုသည် ``countries_shapeburst`` ဖြစ်ပါသည်။ အခြား layer များကိုရှာဖွေနိုင်သော်လည်း အချို့ layer များသည် စကေးငယ်သောအခြေအနေတွင် မြင်ရနိုင်မည်မဟုတ်ပဲ ဗလာ image တစ်ခုကိုသာ ပြန်ထုတ်ပေးပါလိမ့်မည်။
 
-You can also play around with others parameters from above, like changing the
-returned image type to ``image/png``.
+အထက်တွင်ဖော်ပြထားသော အခြား parameter များကိုလည်း ပြောင်းလဲကြည့်နိုင်ပါသည်၊ ဥပမာ- ပြန်ထုတ်ပေးမည့် image အမျိုးအစားကို ``image/png`` သို့ပြောင်းလဲပေးခြင်းဖြစ်သည်။
 
-:abbr:`★★☆ (Moderate level)` Follow Along: Use Filter, Opacities and Styles parameters
------------------------------------------------------------------------------------------
+:abbr:`★★☆ (Moderate level)` လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ခြင်း ၊ အလင်းပိတ်နှုန်းနှင့် Style သတ်မှတ်ချက်များ အသုံးပြုခြင်း (Follow Along: Use Filter, Opacities and Styles parameters)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Let's do another request that adds another layer, some
-:ref:`basic parameters <services_basics>`, **FILTER** and **OPACITIES**, but also
-uses the standard STYLES parameter.
+နောက်ထပ် layer တစ်ခု ၊ :ref:`အခြေခံ parameter များ <services_basics>` ၊ **FILTER** နှင့် **OPACITIES** များထည့်သွင်းရန် နောက်ထပ် request တစ်ခုလုပ်ကြည့်ပါမည်။ စံ STYLE parameter ကိုလည်း အသုံးပြုမည်ဖြစ်ပါသည်။
 
 .. code-block:: bash
 
@@ -187,22 +142,19 @@ uses the standard STYLES parameter.
  &OPACITIES=255,30
  &FILTER=countries:"name" IN ( 'Germany' , 'Italy' )
 
-The above request should output the following image:
+အောက်ပါ image အတိုင်း output ရပါလိမ့်မည်-
 
 .. figure:: img/getmap_filter_opacities.jpg
    :align: center
 
-   Response to a GetMap request with FILTER and OPACITIES parameters
+   FILTER နှင့် OPACITIES parameter များပါဝင်သော GetMap request တစ်ခု၏ တုံ့ပြန်ပုံ
 
-As you can see from the above image, among other things, we told QGIS Server
-to render only **Germany** and **Italy** from the countries layer.
+အထက်ပါပုံတွင် မြင်တွေ့ရသည့်အတိုင်း countries layer မှ **Germany** နှင့် **Italy** ကိုသာ ပုံဖော်ပြသရန် QGIS Server အား ပြောလိုက်ခြင်းဖြစ်သည်။ 
 
-:abbr:`★★☆ (Moderate level)` Follow Along: Use Redlining
--------------------------------------------------------------------------------
+:abbr:`★★☆ (Moderate level)` လိုက်လုပ်ကြည့်ပါ - Redlining အသုံးပြုခြင်း (Follow Along: Use Redlining)
+------------------------------------------------------------------------------------------------------
 
-Let's do another GetMap request that makes use of the :ref:`redlining
-<wms_redlining>` feature and of the **SELECTION** parameter detailed in the
-:ref:`Basics <services_basics>` section:
+:ref:`အခြေခံများ <services_basics>` အပိုင်းတွင် အသေးစိတ်ဖော်ပြထားသော :ref:`redlining <wms_redlining>` feature နှင့် **SELECTION** parameter အသုံးပြုရန် နောက်ထပ် GetMap request တစ်ခုလုပ်ကြည့်ပါမည်-
 
 .. code-block:: bash
 
@@ -226,27 +178,22 @@ Let's do another GetMap request that makes use of the :ref:`redlining
  &HIGHLIGHT_LABELBUFFERSIZE=3
  &SELECTION=countries:171,65
 
-Pasting the above request in your web browser should output the following image:
+အထက်ပါ request အား web browser ထဲတွင် ကူးထည့်ပါက အောက်ပါပုံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်-
 
 .. figure:: img/getmap_redlining_selection.jpg
    :align: center
 
-   Response to a request with the REDLINING feature and SELECTION parameter
+   REDLINING feature နှင့် SELECTION parameter ပါဝင်သော request တစ်ခုမှ တုံ့ပြန်ပုံ
 
-You can see from the above image that the countries with the 171 and 65 ids were
-highlighted in yellow (Romania and France) by using the **SELECTION** parameter
-and we used the **REDLINING** feature to overlay a rectangle with the
-**QGIS Tutorial** label.
+အထက်ပါပုံတွင် မြင်ရသည့်အတိုင်း id 171 နှင့် id 65 ရှိသော နိုင်ငံများ (Romania နှင့် France) ကို အဝါရောင်ဖြင့် highlight ပြရန် **SELECTION** parameter ကိုအသုံးပြုခြင်းဖြစ်ပြီး **QGIS Tutorial** ဆိုသည့် label ပါရှိသော ထောင့်မှန်စတုဂံအကွက်အတွက် **REDLINING** feature ကိုအသုံးပြုခဲ့ပါသည်။
 
 GetPrint requests
 -------------------
 
-One very nice feature of QGIS Server is that it makes use of the QGIS Desktop
-print layouts. You can learn about it in the :ref:`wms_getprint` section.
+QGIS Server ၏အလွန်ကောင်းမွန်သောအရာတစ်ခုသည် QGIS Desktop print layout များကို ပြုလုပ်နိုင်ခြင်းဖြစ်သည်။ ထိုအကြောင်းကို :ref:`wms_getprint` အပိုင်းတွင် လေ့လာနိုင်ပါသည်။
 
-If you open the :file:`world.qgs` project with QGIS Desktop you will find a
-print layout named ``Population distribution``. A simplified ``GetPrint``
-request that exemplifies this amazing feature is:
+:file:`world.qgs` project အား QGIS Desktop ဖြင့်ဖွင့်လျှင် ``Population distribution`` ဟုအမည်ပေးထားသော print layout တစ်ခုကို တွေ့ရပါလိမ့်မည်။ ရိုးရှင်းသော ``GetPrint``
+request တစ်ခုမှာ-
 
 .. code-block:: bash
 
@@ -266,43 +213,34 @@ request that exemplifies this amazing feature is:
 .. figure:: img/getprint.jpg
    :align: center
 
-   Shows the pdf resulted from the above GetPrint request
+   အထက်ပါ GetPrint request မှရရှိလာသော Pdf ရလာဒ်ကို ပြသပုံ 
 
-Naturally, it's hard to write your ``GetMap``, ``GetPrint`` etc. requests.
+ပုံမှန်အားဖြင့် ``GetMap`` ၊ ``GetPrint`` အစရှိသည့် request များကို ရေးသားရန် ခက်ခဲပါသည်။
 
-`QGIS Web Client <https://github.com/qgis/qgis-web-client>`_ or QWC is a Web
-client project that can work alongside QGIS Server so that you can publish
-your projects on the Web or help you create QGIS Server requests for a better
-understanding about the possibilities.
+`QGIS Web Client <https://github.com/qgis/qgis-web-client>`_ သို့မဟုတ် QWC သည် Web client project တစ်ခုဖြစ်ပြီး QGIS Server နှင့်တွဲဖက်အလုပ်လုပ်နိုင်သည့်အတွက် သင်၏ project များကို Web ပေါ်တွင် ဖြန့်ချိနိုင်မည်ဖြစ်ပါသည်၊ သို့မဟုတ် ပိုမိုနားလည်သဘောပေါက်စေရန်အတွက် QGIS Server request များဖန်တီးရာတွင် ကူညီပေးနိုင်ပါသည်။
 
-You can install it like this:
+၎င်းကို အောက်ပါအတိုင်း install ပြုလုပ်နိုင်ပါသည်-
 
-* As user ``qgis`` go to the home directory with ``cd /home/qgis``.
-* Download the QWC project from `here <https://github.com/qgis/QGIS-Web-Client/archive/master.zip>`_ and unzip it.
-* Make a symbolic link to the ``/var/www/html`` directory as it's the ``DocumentRoot`` that
-  we've setup in the virtual host configuration. If you unzipped the archive under
-  :file:`/home/qgis/Downloads/QGIS-Web-Client-master` we can do that with
-  ``sudo ln -s /home/qgis/Downloads/QGIS-Web-Client-master /var/www/html/``.
-* Access http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs
-  from your Web browser.
+* ``qgis`` ဆိုသည့် user အနေဖြင့် ``cd /home/qgis`` ဖိုင်လမ်းကြောင်းသို့သွားပါ။
+* `ဤနေရာ <https://github.com/qgis/QGIS-Web-Client/archive/master.zip>`_ မှ QWC project ကို ဒေါင်းလုဒ်ရယူပြီး zip ဖြည်ပါ။
+* ``/var/www/html`` ဖိုင်ကြောင်းသို့ညွှန်းသော ကိုယ်စားပြုလင့်ခ် တစ်ခုပြုလုပ်ပါ၊ အဘယ်ကြောင့်ဆိုသော် ၎င်းသည် virtual host configuration ထဲတွင် setup ပြုလုပ်ထားသော ``DocumentRoot`` ဖြစ်သောကြောင့်ဖြစ်သည်။ Archive အား :file:`/home/qgis/Downloads/QGIS-Web-Client-master` အောက်တွင် zip ဖြည်လျှင် ``sudo ln -s /home/qgis/Downloads/QGIS-Web-Client-master /var/www/html/`` ကိုအသုံးပြုပြီးပြုလုပ်နိုင်ပါသည်။
+* Web browser တွင် http://qgisplatform.demo/QGIS-Web-Client-master/site/qgiswebclient.html?map=/home/qgis/projects/world.qgs ကိုဖွင့်ပါ။
 
-Now you should be able to see the Map as in the following figure:
+ယခုအခါ အောက်ပါပုံအတိုင်း မြေပုံကို မြင်ရပါလိမ့်မည်-
 
 .. figure:: img/qwc.jpg
    :align: center
 
-   QGIS Web Client consuming the world.qgs project
+   world.qgs project ကိုအသုံးပြုထားသော QGIS Web Client
 
-If you click the Print button in QWC you can interactively create ``GetPrint``
-requests. You can also click the ``?`` icon in the QWC to access the available
-help so that you can better discover the QWC possibilities.
+QWC ထဲတွင် Print ခလုတ်ကိုနှိပ်လျှင် ``GetPrint`` request ကိုဖန်တီးနိုင်မည်ဖြစ်ပါသည်။ QWC ထဲတွင် ``?`` icon ကိုနှိပ်ပြီးလည်း အကူအညီများကို ရယူနိုင်ပါသည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You learned how use QGIS Server to provide WMS Services.
+WMS Service များရယူရန် QGIS Server အားမည်သို့အသုံးပြုရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Next, you'll see how to use QGIS as a frontend for the famous GRASS GIS.
+နောက်လာမည့်သင်ခန်းစာတွင် လူသိများသော GRASS GIS အတွက် frontend တစ်ခုအဖြစ် QGIS အားမည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။ 

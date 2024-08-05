@@ -1,100 +1,79 @@
-Lesson: Map Presentation
+သင်ခန်စာ - မြေပုံရေးဆွဲပြသခြင်း (Lesson: Map Presentation)
 ===============================================================================
 
-In the previous lessons you have imported an old forest inventor as a GIS project,
-updated it to the current situation, designed a forest inventory, created maps
-for the field work and calculated forest parameters from the field measurements.
+ယခင်သင်ခန်းစာများတွင် forest inventory အဟောင်းတစ်ခုကို GIS project အနေဖြင့် ထည့်သွင်းခြင်း၊ ၎င်းကို လက်ရှိအခြေအနေနှင့်အညီ update လုပ်ခြင်း၊ forest inventory တစ်ခုကို design ရေးဆွဲခြင်း၊ ကွင်းလုပ်ငန်းများအတွက် မြေပုံများဖန်တီးခြင်းနှင့် ကွင်းဆင်းတိုင်းတာမှုများမှ forest parameter များတွက်ချက်ခြင်း တို့ကို လုပ်ဆောင်ခဲ့ပြီးဖြစ်ပါသည်။
 
-It is often important to create maps with the results of a GIS project. A map
-presenting the results of the forest inventory will make it easier for anyone
-to have a good idea of what the results are in a quick glance, without looking
-at the specific numbers.
+GIS project တစ်ခုမှ ရလာဒ်များဖြင့် မြေပုံများဖန်တီးခြင်းသည်လည်း အရေးကြီးပါသည်။ Forest inventory ရလာဒ်များကို ဖော်ပြသော မြေပုံတစ်ခုကို ကြည့်ခြင်းဖြင့် ရလာဒ်များကိုအလွယ်တကူသိမြင်နိုင်ပါသည်။
 
-**The goal for this lesson:** Create a map to present the inventory results
-using a hillshade raster as background.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** Hillshade raster တစ်ခုကို နောက်ခံအနေဖြင့်အသုံးပြုပြီး inventory ရလာဒ်များကိုပြသရန်အတွက် မြေပုံတစ်ခုဖန်တီးနိုင်စေရန်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Preparing the Map Data
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - မြေပုံ Data များ ပြင်ဆင်ခြင်း (Follow Along: Preparing the Map Data)
+------------------------------------------------------------------------------------------------------------------
 
-Open the QGIS project from the parameters calculations lesson, :kbd:`forest_inventory.qgs`.
-Keep at least the following layers:
+Parameter များတွက်ချက်ခြင်းသင်ခန်းစာမှ :kbd:`forest_inventory.qgs` QGIS project ကိုဖွင့်ပါ။ အောက်ပါ layer များပါအောင် ထည့်သွင်းထားပါ-
 
-* :kbd:`forest_stands_2012_results`.
-* :kbd:`basic_map`.
-* :kbd:`rautjarvi_aerial`.
-* :kbd:`lakes` (if you don't have it, add it from the :kbd:`exercise_data\\forestry\\` folder).
+* :kbd:`forest_stands_2012_results`
+* :kbd:`basic_map`
+* :kbd:`rautjarvi_aerial`
+* :kbd:`lakes` (မရှိသေးပါက :kbd:`exercise_data\\forestry\\` folder မှ ထည့်သွင်းပါ)
 
-You are going to present the average volumes of your forest stands in a map.
-If you open the :guilabel:`Attribute table` for the :kbd:`forest_stands_2012_results`
-layer, you can see the :kbd:`NULL` values for the stands without information.
-To be able to get also those stands into your symbology you should change the
-:kbd:`NULL` values to, for example, :kbd:`-999`, knowing that those negative
-numbers mean there is no data for those polygons.
+Forest stand များ၏ ပျမ်းမျှထုထည်များကို မြေပုံတစ်ခုထဲတွင် ပြသပေးမည်ဖြစ်သည်။  :kbd:`forest_stands_2012_results`
+layer ၏ :guilabel:`Attribute table` ကိုဖွင့်ကြည့်ပါက stand များအတွက် အချက်အလက်မပါဝင်သော :kbd:`NULL` တန်ဖိုးများကို တွေ့မြင်နိုင်ပါသည်။ အဆိုပါ stand များကိုလည်း သင်္ကေတထဲတွင် ပြသရန်အတွက် :kbd:`NULL` တန်ဖိုးများကို ပြောင်းလဲပေးရပါမည်၊ ဥပမာ- :kbd:`-999` ၊ ထို အနှုတ်ဂဏန်းများသည် polygon များအတွက် data မရှိကြောင်း ဆိုလိုခြင်းဖြစ်သည်။
 
-For the :kbd:`forest_stands_2012_results` layer:
+:kbd:`forest_stands_2012_results` layer အတွက်-
 
-* Open the :guilabel:`Attribute table` and enable editing.
-* Select the polygons with :kbd:`NULL` values.
-* Use the calculator to update the values of the :kbd:`MEANVol` field to
-  :kbd:`-999` only for the selected features.
-* Disable editing and save the changes.
+* :guilabel:`Attribute table` ကိုဖွင့်ပြီး editing ကိုဖွင့်ပါ။
+* :kbd:`NULL` တန်ဖိုးများရှိသော polygon များကို select လုပ်ပါ။
+* Select လုပ်ထားသော feature များကိုသာ :kbd:`-999` အဖြစ်ပြောင်းပြီး :kbd:`MEANVol` field ၏တန်ဖိုးများကို update လုပ်ရန် calculator ကိုအသုံးပြုပါ။
+* Editing ကိုပိတ်ပြီး ပြောင်းလဲထားမှုများအားသိမ်းဆည်းပါ။
 
-Now you can use a saved style for this layer:
+ယခုအခါ ဤ layer အတွက် သိမ်းဆည်းထားသော style တစ်ခုကို အသုံးပြုနိုင်ပါသည်-
 
-* Go to the :guilabel:`Symbology` tab.
-* Click on :menuselection:`Style --> Load Style...`.
-* Select the :kbd:`forest_stands_2012_results.qml` from the :kbd:`exercise_data\\forestry\\results\\` folder.
-* Click :guilabel:`OK`.
+* :guilabel:`Symbology` tab သို့သွားပါ။
+* :menuselection:`Style --> Load Style...` ကိုနှိပ်ပါ။
+* :kbd:`exercise_data\\forestry\\results\\` folder မှ :kbd:`forest_stands_2012_results.qml` ကိုရွေးချယ်ပါ။
+* Click :guilabel:`OK` ကိုနှိပ်ပါ။
 
 .. figure:: img/styling_forest_results.png
    :align: center
 
-Your map will look something like this:
+မြေပုံသည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-
 
 .. figure:: img/results_styles_applied.png
    :align: center
 
 
-:abbr:`★☆☆ (Basic level)` Try Yourself: Try Different Blending Modes
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - အမျိုးမျိုးသော Blending Mode များကို စမ်းကြည့်ပါ (Try Yourself: Try Different Blending Modes)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The style you loaded:
 
 .. figure:: img/styling_forest_results.png
    :align: center
 
-is using the :kbd:`Hard light` mode for the :guilabel:`Layer blending mode`.
-Note that the different modes apply different filters combining the underlying
-and overlying layers, in this case the hillshade raster and your forest stands
-are used. You can read about these modes in the :ref:`User Guide <blend-modes>`.
+သင်ထည့်သွင်းလိုက်သော style သည် :guilabel:`Layer blending mode` အတွက် :kbd:`Hard light` mode ကိုအသုံးပြုထားပါသည်။ Mode အမျိုးမျိုးသည် အပေါ်နှင့်အောက်တွင် ရှိသော layer များကိုပေါင်းစပ်ရာတွင် မတူညီသော filter များကို အသုံးပြုပါသည်၊ ဤလေ့ကျင့်ခန်းတွင် hillshade raster နှင့် forest stand layer များဖြစ်ပါသည်။ အဆိုပါ mode များအကြောင်းကို :ref:`User Guide <blend-modes>` ထဲတွင် ဖတ်ရှုနိုင်ပါသည်။
 
-Try with different modes and see the differences in your map. Then choose the
-one you like better for your final map.
+အမျိုးမျိုးသော mode များကို စမ်းသပ်ကြည့်ပြီး မြေပုံတွင် မည်သို့ကွဲပြားသွားသည်ကို ကြည့်ပါ။ ထို့နောက် သင့်နောက်ဆုံးမြေပုံအတွက် နှစ်သက်ရာ mode တစ်ခုကို ရွေးချယ်ပါ။
 
 
-:abbr:`★☆☆ (Basic level)` Try Yourself: Using a Layout Template to Create the Map result
-------------------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - မြေပုံရလာဒ်ဖန်တီးရန် Layout Template တစ်ခုအသုံးပြုခြင်း (Try Yourself: Using a Layout Template to Create the Map result)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Use a template prepared in advanced to present the results. The template
-:kbd:`forest_map.qpt` is located in the :kbd:`exercise_data\\forestry\\results\\`
-folder. Load it using the :menuselection:`Project --> Layout Manager...` dialog.
+ရလာဒ်များကို တင်ပြရန်အတွက် ကြိုတင်ပြင်ဆင်ထားသော template တစ်ခုကိုအသုံးပြုပါ။ :kbd:`forest_map.qpt` template သည် :kbd:`exercise_data\\forestry\\results\\`
+folder ထဲတွင် ရှိပါသည်။ ၎င်း template ကို :menuselection:`Project --> Layout Manager...` dialog ကိုအသုံးပြုပြီး ထည့်သွင်းပါ။
 
 .. figure:: img/final_map_template.png
    :align: center
 
-Open the print layout and edit the final map to get a result you are happy with.
+Print layout ကိုဖွင့်ပြီး သင်ကြိုက်နှစ်သက်သည်အထိ အပြီးသတ်မြေပုံကို edit ပြုလုပ်ပါ။
 
-The map template you are using will give a map similar to this one:
+သင်အသုံးပြုနေသော မြေပုံ template သည် အောက်ပါပုံစံနှင့်ဆင်တူသော မြေပုံတစ်ခုကို ရရှိပါလိမ့်မည်-
 
 .. figure:: img/final_map.png
    :align: center
 
-Save your QGIS project for future references.
+နောက်ပိုင်းတွင်အသုံးပြုနိုင်ရန် QGIS project ကိုသိမ်းဆည်းပါ။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Through this module you have seen how a basic forest inventory can be planned
-and presented with QGIS. Many more forest analysis are possible with the variety
-of tools that you can access, but hopefully this manual has given you a good
-starting point to explore how you could achieve the specific results you need.
+ဤမော်ဂျူးတွင် အခြေခံ forest inventory တစ်ခုကို မည်သို့စီစဉ်ဆောင်ရွက်ပြီး QGIS အသုံးပြုကာ မည်သို့တင်ပြရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ အမျိုးအစားစုံလင်သော tool များကိုအသုံးပြုပြီး အခြား forest analysis များစွာကိုလည်း လုပ်ဆောင်နိုင်ပါသေးသည်၊ ဤလက်စွဲသည် သင်လိုချင်သောရလာဒ်များကို မည်သို့ရရှိအောင် ဆောင်ရွက်ရမည်ကိုပြသပေးသည့် ကောင်းမွန်သောအစပျိုးမှုတစ်ခုဖြစ်ပါသည်။ 

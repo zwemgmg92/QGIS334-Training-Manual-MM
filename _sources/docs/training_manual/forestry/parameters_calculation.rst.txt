@@ -1,187 +1,130 @@
-Lesson: Calculating the Forest Parameters
-===============================================================================
+သင်ခန်းစာ - Forest Parameter များတွက်ချက်ခြင်း (Lesson: Calculating the Forest Parameters)
+===========================================================================================
 
-Estimating the parameters of the forest is the goal of the forest inventory.
-Continuing the example from previous lesson, you will use the inventory
-information gathered in the field to calculate the forest parameters, for the
-whole forest first, and then for the stands you digitized before.
+Forest inventory ၏ ရည်ရွယ်ချက်မှာ သစ်တော၏ parameter များကို ခန့်မှန်းရန်ဖြစ်ပါသည်။ ယခင်သင်ခန်းစာမှ ဥပမာကို ဆက်လက်လုပ်ဆောင်မည်ဖြစ်ပြီး ကွင်းထဲတွင် ကောက်ယူထားသော inventory အချက်အလက်များကို သစ်တော parameter များတွက်ချက်ရာတွင် အသုံးပြုပါမည်၊ သစ်တောတစ်ခုလုံးအတွက် ဦးစွာတွက်ချက်မည်ဖြစ်ပြီး ထို့နောက် digitize ပြုလုပ်ခဲ့သော stand များအတွက် တွက်ချက်မည်ဖြစ်သည်။
 
-**The goal for this lesson:** Calculate forest parameters at general and stand level.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** ယေဘုယျအဆင့် နှင့် stand အဆင့်များ၌ သစ်တော parameter များတွက်ချက်ရန်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Adding the Inventory Results
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - Inventory ရလာဒ်များ ထည့်သွင်းခြင်း (Follow Along: Adding the Inventory Results)
+-----------------------------------------------------------------------------------------------------------------------------
 
-The field teams visited the forest and with the help of the information you
-provided, gathered information about the forest at every sample plot.
+ကွင်းဆင်းအဖွဲ့များသည် သင်ထောက်ပံ့ပေးလိုက်သောအချက်အလက်များ၏အကူအညီဖြင့် နမူနာကွက်တိုင်းတွင် ရှိသော သစ်တောဆိုင်ရာအချက်အလက်များကို ကောက်ယူစုဆောင်းခဲ့ပါသည်။
 
-Most often the information will be collected into paper forms in the field,
-then typed to a spreadsheet. The sample plots information has been condensed
-into a :file:`.csv` file that can be easily open in QGIS.
+ကွင်းထဲတွင် အချက်အလက်များကို စာရွက် form များဖြင့် ကောက်ယူမည်ဖြစ်ပြီး နောက်မှ spreadsheet တစ်ခုထဲသို့ ဖြည့်သွင်းမည်ဖြစ်သည်။ နမူနာကွက်အချက်အလက်များကို :file:`.csv` file တစ်ခုထဲတွင် ထည့်သွင်းထားပြီး QGIS ထဲတွင် အလွယ်တကူဖွင့်နိုင်ပါသည်။
 
-Continue with the QGIS project from the lesson about designing the inventory,
-you probably named it :file:`forest_inventory.qgs`.
+ယခင်သင်ခန်းစာမှ :file:`forest_inventory.qgs` အမည်ရှိသော QGIS project ကို ဆက်လက်လုပ်ဆောင်ပါမည်။
 
-First, add the sample plots measurements to your QGIS project:
+ဦးစွာ QGIS project ထဲသို့ နမူနာကွက် တိုင်းတာမှုများကို ထည့်သွင်းပါ-
 
-#. Go to :menuselection:`Layer --> Add Layer --> Add Delimited Text Layer...`.
-#. Browse to the file :file:`systematic_inventory_results.csv` located in
-   :file:`exercise_data/forestry/results/`.
-#. Make sure that the :guilabel:`Point coordinates` option is checked.
-#. Set the fields for the coordinates to the :guilabel:`X` and :guilabel:`Y` fields.
-#. Click :guilabel:`OK`.
-#. When prompted, select :guilabel:`ETRS89 / ETRS-TM35FIN` as the CRS.
-#. Open the new layer's :guilabel:`Attribute table` and have a look at the data.
+#. :menuselection:`Layer --> Add Layer --> Add Delimited Text Layer...` သို့သွားပါ။
+#. :file:`exercise_data/forestry/results/` ထဲတွင် ရှိသော :file:`systematic_inventory_results.csv` ဖိုင်ကို ရွေးချယ်ဖွင့်ပေးပါ။
+#. :guilabel:`Point coordinates` option ကို အမှန်ခြစ်ခြစ်ထားပါ။
+#. ကိုဩဒိနိတ်များအတွက် :guilabel:`X` နှင့် :guilabel:`Y` field များကို သတ်မှတ်ပါ။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
+#. CRS မေးမြန်းလာသောအခါ :guilabel:`ETRS89 / ETRS-TM35FIN` CRS ကိုရွေးချယ်ပါ။
+#. Layer အသစ်၏ :guilabel:`Attribute table` ကိုဖွင့်ပြီး data ကိုကြည့်ပါ။
 
-You can read the type of data that is contained in the sample plots measurements
-in the text file :file:`legend_2012_inventorydata.txt` located in the
-:file:`exercise_data/forestry/results/` folder.
+:file:`exercise_data/forestry/results/` folder ထဲရှိ :file:`legend_2012_inventorydata.txt` text ဖိုင်ထဲတွင် နမူနာကွက်တိုင်းတာမှုများ၌ပါဝင်သော data များ၏အမျိုးအစားကို ဖတ်ရှုနိုင်ပါသည်။
 
-The :file:`systematic_inventory_results` layer you just added is actually just
-a virtual representation of the text information in the :file:`.csv` file.
-Before you continue, convert the inventory results to a real spatial dataset:
+ထည့်သွင်းလိုက်သော :file:`systematic_inventory_results` layer သည် :file:`.csv` ဖိုင်ထဲရှိ စာသားအချက်အလက်များကို ကိုယ်စားပြုဖော်ပြရုံသာဖြစ်ပါသည်။ ဆက်လက်မလုပ်ဆောင်မီတွင် inventory ရလာဒ်များကို spatial dataset အစစ်အမှန်သို့ ပြောင်းလဲပေးပါ-
 
-#. Right click on the :file:`systematic_inventory_results` layer.
-#. Browse to :file:`exercise_data/forestry/results/` folder.
-#. Name the file :file:`sample_plots_results.shp`.
-#. Check :guilabel:`Add saved file to map`.
-#. Remove the :file:`systematic_inventory_results` layer from your project.
+#. :file:`systematic_inventory_results` layer ပေါ်တွင် right-click နှိပ်ပါ။
+#. :file:`exercise_data/forestry/results/` folder သို့သွားပါ။
+#. :file:`sample_plots_results.shp` ဟုအမည်ပေးပါ။
+#. :guilabel:`Add saved file to map` ကိုအမှန်ခြစ်ပါ။
+#. Project မှ :file:`systematic_inventory_results` layer ကိုဖယ်ရှားပါ။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Whole Forest Parameters Estimation
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - သစ်တောတစ်ခုလုံးအတွက် Parameter များခန့်မှန်းခြင်း (Follow Along: Whole Forest Parameters Estimation)
+----------------------------------------------------------------------------------------------------------------------------------------------
 
-You can calculate the averages for this whole forest area from the inventory
-results for the some interesting parameters, like the volume and the number
-of stems per hectare. Since the systematic sample plots represent equal areas,
-you can directly calculate the averages of the volumes and number of stems per
-hectare from the :file:`sample_plots_results` layer.
+Inventory ရလာဒ်များမှ သစ်တောဧရိယာတစ်ခုလုံးအတွက် ပျမ်းမျှတန်ဖိုးများကို တွက်ချက်ပေးနိုင်ပါသည်၊ ဥပမာ- ထုထည် နှင့် တစ်ဟက်တာရှိ အပင်အရေအတွက် အစရှိသည့် မိမိစိတ်ဝင်စားသော parameter များအတွက်။ Systematic နမူနာကွက်များသည် တူညီသောဧရိယာများကို ကိုယ်စားပြုသောကြောင့် ထုထည်ပျမ်းမျှနှင့် တစ်ဟက်တာရှိ ပျမ်းမျှအပင်အရေအတွက် များကို :file:`sample_plots_results` layer မှ တိုက်ရိုက်တွက်ချက်နိုင်ပါသည်။
 
-You can calculate the average of a field in a vector layer using the
-:guilabel:`Basic statistics` tool:
+:guilabel:`Basic statistics` tool ကိုအသုံးပြု၍ vector layer တစ်ခုထဲရှိ field တစ်ခု၏ပျမ်းမျှကို တွက်ချက်နိုင်ပါသည်-
 
-#. Open :menuselection:`Vector --> Analysis Tools --> Basic statistics for Fields`.
-#. Select ``sample_plots_results`` as the :guilabel:`Input Vector Layer`.
-#. Select ``Vol`` as :guilabel:`Target field`.
-#. Click :guilabel:`OK`.
+#. :menuselection:`Vector --> Analysis Tools --> Basic statistics for Fields` ကိုဖွင့်ပါ။
+#. :guilabel:`Input Vector Layer` အနေဖြင့် ``sample_plots_results`` ကိုရွေးချယ်ပါ။
+#. :guilabel:`Target field` တွင် ``Vol`` ကိုရွေးချယ်ပါ။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-The average volume in the forest is ``135.2 m3/ha``.
+သစ်တောထဲရှိ ပျမ်းမျှထုထည်သည် ``135.2 m3/ha`` ဖြစ်ပါသည်။
 
-You can calculate the average for the number of stems in the same way, ``2745 stems/ha``.
+ပျမ်းမျှအပင်အရေအတွက်ကိုလည်း ထိုနည်းအတိုင်း တွက်ချက်နိုင်ပါသည်၊ ``2745 stems/ha`` ဖြစ်ပါသည်။
 
 .. figure:: img/statistics_pvol-pstem.png
    :align: center
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Estimating Stand Parameters
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - Stand Parameter များခန့်မှန်းခြင်း (Follow Along: Estimating Stand Parameters)
+----------------------------------------------------------------------------------------------------------------------------
 
-You can make use of those same systematic sample plots to calculate estimates
-for the different forest stands you digitized previously. Some of the forest
-stands did not get any sample plot and for those you will not get information.
-You could have planned some extra sample plots when you planned the systematic
-inventory, so that the field teams would have measured a few extra sample plots
-for this purpose. Or you could send a field team later to get estimates of the
-missing forest stands to complete the stand inventory. Nevertheless, you will
-get information for a good number of stands just using the planned plots.
+သင် digitize ပြုလုပ်ခဲ့သော forest stand အမျိုးမျိုးအတွက် ခန့်မှန်းတွက်ချက်ရာတွင် ထို systematic နမူနာကွက်များကို အသုံးပြုနိုင်ပါသည်။ အချို့သော forest stand များတွင် နမူနာကွက်များကျရောက်ခြင်းမရှိသောကြောင့် ထိုနေရာများအတွက် အချက်အလက်များရရှိမည်မဟုတ်ပါ။ ထိုကိစ္စအတွက် systematic inventory စတင်အစီအစဉ်ချခဲ့စဉ်က နမူနာကွက်အပိုများကို ချမှတ်ထားရှိပြီးဖြစ်ကာ ကွင်းဆင်းအဖွဲ့အနေဖြင့် ထို နမူနာကွက်အပို အနည်းငယ်တွင် တိုင်းတာမှုလုပ်နိုင်မည်ဖြစ်သည်။ သို့မဟုတ် inventory ကိုပြီးပြည့်စုံစေရန် ကျန်ရှိနေသော forest stand များ၏ ခန့်မှန်းချက်များကို ရရှိရန် နောက်ပိုင်းမှ ကွင်းဆင်းအဖွဲ့တစ်ဖွဲ့ကို စေလွှတ်နိုင်ပါသည်။ မည်သို့ပင်ဆိုစေကာမူ အစီအစဉ်ချမှတ်ထားသော နမူနာကွက်များကို အသုံးပြု၍ stand များ၏အချက်အလက်များကို ရရှိမည်ဖြစ်ပါသည်။
 
-What you need is to get the averages of the sample plots that are falling
-within each of the forest stands. When you want to combine information based
-on their relative locations, you perform a spatial join:
+Forest stand တစ်ခုချင်းစီအတွင်းကျရောက်နေသော နမူနာကွက်များ၏ ပျမ်းမျှများကို ရယူလိုခြင်းဖြစ်သည်။ ၎င်းတို့၏ သက်ဆိုင်ရာတည်နေရာများပေါ်မူတည်ပြီး အချက်အလက်များကို ပေါင်းစည်းလိုသောအခါ spatial join တစ်ခုကို လုပ်ဆောင်ရပါမည်- 
 
-#. Open the  :menuselection:`Vector --> Data Management --> Join attributes
-   by location` tool.
-#. Set ``forest_stands_2012`` as the :guilabel:`Target vector layer`.
-   The layer you want the results for.
-#. Set ``sample_plots_results`` as the :guilabel:`Join vector layer`.
-   The layer you want to calculate estimates from.
-#. Check :guilabel:`Take summary of intersecting features`.
-#. Check to calculate only the :guilabel:`Mean`.
-#. Name the result as :file:`forest_stands_2012_results.shp` and save it
-   in the :file:`exercise_data/forestry/results/` folder.
-#. Finally select :guilabel:`Keep all records...`, so you can check later
-   what stands did not get information.
-#. Click :guilabel:`OK`.
-#. Accept adding the new layer to your project when prompted.
-#. Close the :guilabel:`Join attributes by location` tool.
+#. :menuselection:`Vector --> Data Management --> Join attributes by location` tool ကိုဖွင့်ပါ။
+#. :guilabel:`Target vector layer` အနေဖြင့် ``forest_stands_2012`` ကိုသတ်မှတ်ပါ။ ရလာဒ်တွက်ထုတ်လိုသည့် layer ဖြစ်သည်။
+#. :guilabel:`Join vector layer` အနေဖြင့် ``sample_plots_results`` ကိုသတ်မှတ်ပါ။ ထို layer မှ ခန့်မှန်းချက်များကို တွက်ချက်လိုခြင်းဖြစ်သည်။
+#. :guilabel:`Take summary of intersecting features` ကိုအမှန်ခြစ်ပါ။
+#. :guilabel:`Mean` ကိုသာ တွက်ချက်ရန် အမှန်ခြစ်ပါ။
+#. ရလာဒ်ကို :file:`forest_stands_2012_results.shp` ဟုအမည်ပေးပြီး :file:`exercise_data/forestry/results/` folder ထဲတွင် သိမ်းဆည်းပါ။
+#. နောက်ဆုံးတွင် :guilabel:`Keep all records...` ကို select လုပ်ပါ၊ ထိုမှသာ အချက်အလက်မရရှိသော stand များကို နောက်ပိုင်းတွင် စစ်ဆေးနိုင်မည်ဖြစ်ပါသည်။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
+#. Project ထဲသို့ layer အသစ်ထည့်သွင်းမည်လား မေးမြန်းလာပါက accept လုပ်ပါ။
+#. :guilabel:`Join attributes by location` tool ကိုပိတ်လိုက်ပါ။
 
-Open the :guilabel:`Attribute table` for :guilabel:`forest_stands_2012_results`
-and review the results you got. Note that a number of forest stands have
-``NULL`` as the value for the calculations, those are the ones having no
-sample plots. Select them all and view them in the map, they are some of the
-smaller stands:
+:guilabel:`forest_stands_2012_results` အတွက် :guilabel:`Attribute table` ကိုဖွင့်ပြီး ရရှိလာသော ရလာဒ်များကို စစ်ဆေးကြည့်ပါ။ Forest stand အရေအတွက်တွင် တန်ဖိုး ``NULL`` ဖြစ်နေသည်များကို တွေ့ရပါလိမ့်မည်၊ ၎င်းတို့သည် နမူနာကွက်မရှိသောနေရာများဖြစ်ပါသည်။ ၎င်းတို့အားလုံးကို select လုပ်ပြီး မြေပုံထဲတွင် ကြည့်လိုက်ပါက သေးငယ်သော stand များဖြစ်နေကြသည်ကို တွေ့ရပါလိမ့်မည်-
 
 .. figure:: img/stands_no_info.png
    :align: center
 
-Let's calculate now the same averages for the whole forest as you did before,
-only this time you will use the averages you got for the stands as the bases
-for the calculation. Remember that in the previous situation, each sample plot
-represented a theoretical stand of ``80x80 m``. Now you have to consider the
-area of each of the stands individually instead. That way, again, the average
-values of the parameters that are in, for example, m3/ha for the volumes are
-converted to total volumes for the stands.
+ယခင်တွက်ချက်ခဲ့သောနည်းအတိုင်း သစ်တောတစ်ခုလုံးအတွက် ပျမ်းမျှတန်ဖိုးများကို တွက်ချက်ကြည့်ပါမည်၊ ဒီတစ်ကြိမ်တွင် stand များအတွက်တွက်ချက်ခဲ့သော ပျမ်းမျှတန်ဖိုးများကို ယခုတွက်ချက်မှုအတွက် အခြေခံများအနေဖြင့် အသုံးပြုမည်ဖြစ်သည်။ ယခင်အခြေအနေတွင် နမူနာကွက်တစ်ခုချင်းစီသည် ``80x80 m`` stand တစ်ခုကို ကိုယ်စားပြုပါသည်။ ယခုအခါ stand တစ်ခုချင်းစီ၏ ဧရိယာကို သီးခြားအနေဖြင့် မှတ်ယူရပါမည်။ ဥပမာအားဖြင့် ထုထည်များအတွက် m3/ha ဖြင့်ရှိနေသော ပျမ်းမျှတန်ဖိုးများကို stand များအတွက် စုစုပေါင်းထုထည်များသို့ ပြောင်းလဲလိုက်ခြင်းဖြစ်သည်။
 
-You need to first calculate the areas for the stands and then calculate total
-volumes and stem numbers for each of them:
+Stand များအတွက် ဧရိယာများကို ဦးစွာ တွက်ချက်ရန်လိုအပ်ပါသည်၊ ထို့နောက် စုစုပေါင်းထုထည်များနှင့် stand တစ်ခုချင်းစီအတွက် အပင်အရေအတွက်များကို တွက်ချက်ရန် လိုအပ်ပါသည်-
 
-#. In the :guilabel:`Attribute table` enable editing.
-#. Open the :guilabel:`Field calculator`.
-#. Create a new field called ``area``.
-#. Set the :guilabel:`Output field type` to ``Decimal number (real)``.
-#. Set the :guilabel:`Precision` to ``2``.
-#. In the :guilabel:`Expression` box, write ``$area / 10000``.
-   This will calculate the area of the forest stands in ha.
-#. Click :guilabel:`OK`.
+#. :guilabel:`Attribute table` ထဲတွင် editing ကိုဖွင့်ပါ။
+#. :guilabel:`Field calculator` ကိုဖွင့်ပါ။
+#. ``area`` ဆိုသည့် field အသစ်တစ်ခုကို ဖန်တီးပါ။
+#. :guilabel:`Output field type` တွင် ``Decimal number (real)`` ဟုသတ်မှတ်ပါ။
+#. :guilabel:`Precision` တွင် ``2`` ဟုသတ်မှတ်ပါ။
+#. :guilabel:`Expression` box ထဲတွင် ``$area / 10000`` ဟုရေးသားပါ။ Forest stand များ၏ဧရိယာကို ဟက်တာ ဖြင့်တွက်ချက်ပေးပါလိမ့်မည်။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-Now calculate a field with the total volumes and number of stems estimated for every stand:
+Stand တိုင်းအတွက် ခန့်မှန်းထားသော စုစုပေါင်းထုထည်များနှင့် အပင်အရေအတွက်များပါရှိသော field တစ်ခုကို တွက်ချက်ပါမည်-
 
-#. Name the fields ``s_vol`` and ``s_stem``.
-#. The fields can be integer numbers or you can use real numbers also.
-#. Use the expressions ``"area"  *  "MEANVol"`` and ``"area"  *  "MEANStems"``
-   for total volumes and total stems respectively.
-#. Save the edits when you are finished.
-#. Disable editing.
+#. Field များကို ``s_vol`` နှင့် ``s_stem`` ဟုအမည်ပေးပါ။
+#. Field များသည် integer (ကိန်းပြည့်) များဖြစ်နိုင်သလို real (ကိန်းစစ်) များလည်း ဖြစ်နိုင်ပါသည်။
+#. စုစုပေါင်းထုထည်များအတွက် ``"area"  *  "MEANVol"`` ဆိုသည့် expression နှင့် အပင်အရေအတွက်များအတွက် ``"area"  *  "MEANStems"`` ဆိုသည့် expression ကိုအသုံးပြုပါ။
+#. ပြီးဆုံးပါက edit လုပ်ထားသည်များကို သိမ်းဆည်းပါ။
+#. Editing ကိုပိတ်လိုက်ပါ။
 
-In the previous situation, the areas represented by every sample plot were the same,
-so it was enough to calculate the average of the sample plots. Now to calculate the
-estimates, you need to divide the sum of the stands volumes or number of stems by
-the sum of the areas of the stands containing information.
+ယခင်အခြေအနေတွင် နမူနာကွက်တိုင်း၏ ကိုယ်စားပြုဧရိယာများသည် အတူတူပင်ဖြစ်ပါသည်၊ ထို့ကြောင့် နမူနာကွက်များ၏ ပျမ်းမျှကိုတွက်ချက်ရန် လုံလောက်ပါသည်။ ယခု တွက်ချက်ရာတွင် stand ထုထည်များစုစုပေါင်း သို့မဟုတ် အပင်အရေအတွက်များကို stand များ၏ဧရိယာစုစုပေါင်းနှင့် စားရန် လိုအပ်ပါသည်။
 
-#. In the :guilabel:`Attribute table` for the :file:`forest_stands_2012_results`
-   layer, select all the stands containing information.
-#. Open :menuselection:`Vector --> Analysis Tools --> Basic statistics for fields`.
-#. Select the :file:`forest_stands_2012_results` as the :guilabel:`Input layer`.
-#. Select ``area`` as :guilabel:`Field to calculate statistics on`.
-#. Check the :guilabel:`Selected features only`
-#. Click :guilabel:`OK`.
+#. :file:`forest_stands_2012_results` layer အတွက် :guilabel:`Attribute table` ထဲတွင် အချက်အလက်များပါဝင်သော stand များအားလုံးကို select လုပ်ပါ။
+#. :menuselection:`Vector --> Analysis Tools --> Basic statistics for fields` ကိုဖွင့်ပါ။
+#. :guilabel:`Input layer` အနေဖြင့် :file:`forest_stands_2012_results` ကိုရွေးပါ။
+#. :guilabel:`Field to calculate statistics on` တွင် ``area`` ကိုရွေးပါ။
+#. :guilabel:`Selected features only` ကိုအမှန်ခြစ်ပါ။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
 .. figure:: img/stands_area_stats.png
    :align: center
 
-As you can see, the total sum of the stands' areas is ``66.04 ha``.
-Note that the area of the missing forest stands is only about ``7 ha``.
+မြင်တွေ့ရသည့်အတိုင်း stand များ၏ ဧရိယာစုစုပေါင်းသည် ``66.04 ha`` ဖြစ်ပါသည်။ ကျန်ရှိနေသော forest stand များ၏ဧရိယာသည် ``7 ha`` ခန့်သာ ရှိပါသည်။
 
-In the same way, you can calculate that the total volume for these stands is
-``8908 m3/ha`` and the total number of stems is ``179594 stems``.
+အဆိုပါ stand များအတွက် စုစုပေါင်းထုထည်ကို တွက်ချက်နိုင်ပါသည်၊ စုစုပေါင်းထုထည်သည် ``8908 m3/ha`` ဖြစ်ပြီး စုစုပေါင်းအပင်အရေအတွက်သည် ``179594 stems`` ဖြစ်ပါသည်။
 
-Using the information from the forest stands, instead of directly using that
-from the sample plots, gives the following average estimates:
+နမူနာကွက်များမှ အချက်အလက်များကို တိုက်ရိုက်အသုံးမပြုပဲ forest stand များမှ အချက်အလက်များကို အသုံးပြုသောအခါ အောက်ပါ ပျမ်းမျှခန့်မှန်းချက်များကို ရရှိပါသည်-
 
-* ``184.9 m3/ha`` and
-* ``2719 stems/ha``.
+* ``184.9 m3/ha`` နှင့်
+* ``2719 stems/ha``
 
-Save your QGIS project, :file:`forest_inventory.qgs`.
+:file:`forest_inventory.qgs` QGIS project ဖိုင်ကို သိမ်းဆည်းပါ။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You managed to calculate forest estimates for the whole forest using the information
-from your systematic sample plots, first without considering the forest
-characteristics and also using the interpretation of the aerial image into forest
-stands. And you also got some valuable information about the particular stands,
-which could be used to plan the management of the forest in the coming years.
+သစ်တောတစ်ခုလုံးအတွက် ခန့်မှန်းချက်များကို systematic နမူနာကွက်များမှအချက်အလက်များကိုအသုံးပြု၍ တွက်ချက်ခဲ့ခြင်းဖြစ်ပြီး၊ သစ်တောဝိသေသလက္ခဏာများကို ထည့်သွင်းမစဉ်းစားပဲ ကောင်းကင်ဓာတ်ပုံမှ interpret လုပ်ထားသော forest stand များကိုအသုံးပြုခဲ့ခြင်းဖြစ်ပါသည်။ သီးခြား stand များအတွက် အဖိုးတန်သောအချက်အလက်များကိုလည်း ရရှိခဲ့ပြီး ထိုအချက်အလက်များကို နောက်လာမည့်နှစ်များ၌ သစ်တောစီမံအုပ်ချုပ်မှု အစီအစဉ်များရေးဆွဲရာတွင် အသုံးပြုနိုင်မည်ဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-In the following lesson, you will first create a hillshade background from a
-LiDAR dataset which you will use to prepare a map presentation with the forest
-results you just calculated.
+နောက်လာမည့်သင်ခန်းစာတွင် LiDAR dataset တစ်ခုမှ hillshade နောက်ခံတစ်ခုကို ဖန်တီးမည်ဖြစ်ပါသည်၊ ယခုသင်ခန်းစာတွင် တွက်ချက်ခဲ့သော သစ်တောရလာဒ်များကို မြေပုံပေါ်တွင် ပြသရာတွင် ထို hillshade ကို အသုံးပြုမည်ဖြစ်ပါသည်။

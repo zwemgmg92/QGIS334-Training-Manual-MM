@@ -1,203 +1,117 @@
-Lesson: Systematic Sampling Design
-===============================================================================
+သင်ခန်းစာ - စနစ်တကျနမူနာကောက်ယူခြင်းဒီဇိုင်း (Lesson: Systematic Sampling Design)
+=========================================================================================
 
-You have already digitized a set of polygons that represent the forest stands,
-but you don't have information about the forest just yet. For that purpose you
-can design a survey to inventory the whole forest area and then estimate its
-parameters. In this lesson you will create a systematic set of sampling plots.
+Forest stand များကိုကိုယ်စားပြုသော polygon များကို digitize ပြုလုပ်ခဲ့ပြီးဖြစ်ပါသည်၊ သို့သော် သစ်တောနှင့်ပတ်သက်သော အချက်အလက်များမပါရှိသေးပါ။ သစ်တောဧရိယာတစ်ခုလုံးကို inventory (သယံဇာတစာရင်းကောက်ယူခြင်း) ပြုလုပ်ပြီး သစ်တော parameter များကို ခန့်မှန်းရန်အတွက် survey တစ်ခုကို ဒီဇိုင်းရေးဆွဲနိုင်ပါသည်။ ဤသင်ခန်းစာတွင် စနစ်တကျဖြစ်သော နမူနာကွက်များကို ဖန်တီးမည်ဖြစ်ပါသည်။
 
-When you start planning your forest inventory it is important to clearly define
-the objectives, the types of sample plots that will be used, and the data that
-will be collected to achieve the objectives. For each individual case, those will
-depend on the type of forest and the management purpose; and should be carefully
-planned by someone with forestry knowledge. In this lesson, you will implement
-a theoretical inventory based on a systematic sampling plot design.
+သစ်တော inventory ကို စတင်အစီအစဉ်ချမှတ်သောအခါ ရည်ရွယ်ချက်များ၊ အသုံးပြုမည့် နမူနာကွက်အမျိုးအစားနှင့် ကောက်ယူမည့် data များကို ရှင်းရှင်းလင်းလင်းသတ်မှတ်ပေးရန် အရေးကြီးပါသည်။ ထိုအရာများသည် သစ်တောအမျိုးအစားနှင့် စီမံခန့်ခွဲမှု ရည်ရွယ်ချက်များအပေါ်တွင် မူတည်ပြီး သစ်တောဗဟုသုတရှိသူတစ်ဦးဦးမှ ဂရုတစိုက် အစီအစဉ်ရေးဆွဲသင့်ပါသည်။ ဤသင်ခန်းစာတွင် systematic sampling plot ဒီဇိုင်းတစ်ခုပေါ်တွင် အခြေခံသော inventory သဘောတရားတစ်ခုကို အကောင်အထည်ဖော်မည်ဖြစ်ပါသည်။
 
-**The goal for this lesson:** To create a systematic sampling plot design to
-survey the forest area.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** သစ်တောဧရိယာတွင် စာရင်းကောက်ယူရန် systematic sampling plot ဒီဇိုင်းတစ်ခုကို ဖန်တီးရန်။
 
-Inventorying the Forest
+သစ်တောသယံဇာတစာရင်းကောက်ယူခြင်း (Inventorying the Forest)
 -------------------------------------------------------------------------------
 
-There are several methods to inventory forests, each of them suiting different
-purposes and conditions. For example, one very accurate way to inventory a
-forest (if you consider only tree species) would be to visit the forest and
-make a list of every tree and their characteristics. As you can imagine this is
-not commonly applicable except for some small areas or some special situations.
+အမျိုးမျိုးသော ရည်ရွယ်ချက်များနှင့်အခြေအနေများပေါ်မူတည်ပြီး သစ်တောများကို inventory ကောက်ယူရန် နည်းလမ်းများစွာရှိပါသည်။ ဥပမာ- သစ်တောတစ်ခုကို အလွန်တိကျစွာ inventory ကောက်ယူရန် နည်းလမ်းတစ်ခုမှာ (အပင်မျိုးစိတ်များကိုသာ ထည့်သွင်းစဉ်းစားလျှင်) တောထဲသို့သွားပြီး အပင်တိုင်းကို စာရင်းကောက်ပြီး ၎င်းတို့၏ ဝိသေသလက္ခဏာများကို စာရင်းပြုစုခြင်းဖြစ်သည်။ ထိုနည်းကို အချို့သေးငယ်သောဧရိယာအချို့ သို့မဟုတ် အထူးအခြေအနေအချို့တွင်မှ လွဲ၍ တွင်ကျယ်စွာအသုံးမချနိုင်ပါ။
 
-The most common way to find out about a forest is by sampling it, that is,
-taking measurements in different locations at the forest and generalizing that
-information to the whole forest. These measurements are often made in *sample
-plots* that are smaller forest areas that can be easily measured. The sample
-plots can be of any size (for ex. 50 m2, 0.5 ha) and form (for ex. circular,
-rectangular, variable size), and can be located in the forest in different ways
-(for ex. randomly, systematically, along lines). The size, form and location of
-the sample plots are usually decided following statistical, economical and
-practical considerations. If you have no forestry knowledge, you might be
-interested in reading `this Wikipedia article <https://en.wikipedia.org/wiki/Forest_inventory>`_.
+သစ်တောတစ်ခုအကြောင်း သိရှိရန် အသုံးအများဆုံးနည်းလမ်းမှာ ထိုသစ်တောတွင် နမူနာကောက်ယူခြင်းဖြစ်သည်၊ ဆိုလိုသည်မှာ သစ်တောအတွင်း မတူညီသောတည်နေရာများ၌ တိုင်းတာမှုများလုပ်ဆောင်ပြီး ထိုအချက်အလက်များကို သစ်တောတစ်ခုလုံးအတွက် ယေဘုယျယူခြင်းဖြစ်ပါသည်။ တိုင်းတာမှုများကို *နမူနာကွက်များ* ထဲတွင် လုပ်ဆောင်ပါသည်။ နမူနာကွက်များသည် မည်သည့်အရွယ်အစားမဆို (ဥပမာ- 50 စတုရန်းမီတာ ၊ 0.5 ဟက်တာ) ဖြစ်နိုင်ပြီး မည်သည့်ပုံသဏ္ဍာန်မဆို (ဥပမာ- စက်ဝိုင်း၊ ထောင့်မှန်စတုဂံ၊ ပြောင်းလဲနိုင်သောအရွယ်အစား) ဖြစ်နိုင်ပါသည်၊ ၎င်းတို့သည် သစ်တောထဲတွင် နည်းမျိုးစုံဖြင့် တည်ရှိနေနိုင်ပါသည် (ဥပမာ- ကျပန်း၊ စနစ်တကျ၊ လိုင်းများတလျှောက်)။ နမူနာကွက်များ၏ အရွယ်အစား၊ ပုံသဏ္ဍာန်နှင့် တည်နေရာများကို အောက်ပါ စာရင်းအင်းဆိုင်ရာ၊ စီးပွားရေးဆိုင်ရာနှင့် လက်တွေ့ဆန်မှုများအတိုင်း ဆုံးဖြတ်လေ့ရှိပါသည်။ သင့်တွင် သစ်တောဆိုင်ရာဗဟုသုတမရှိပါက `ဤ Wikipedia article <https://en.wikipedia.org/wiki/Forest_inventory>`_ ကိုဖတ်ရှုနိုင်ပါသည်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Implementing a Systematic Sampling Plot Design
----------------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - Systematic Sampling Plot Design တစ်ခုဖော်ဆောင်ခြင်း (Follow Along: Implementing a Systematic Sampling Plot Design)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-For the forest you are working with, the manager has decided that a systematic
-sampling design is the most appropriate for this forest and has decided that a
-fixed distance of 80 meters between the sample plots and sampling lines will
-yield reliable results (for this case, +- 5% average error at a probability
-of 68%). Variable size plots has been decided to be the most effective method
-for this inventory, for growing and mature stands, but a 4 meters fixed radius
-plots will be used for seedling stands.
+သင်အလုပ်လုပ်မည့် သစ်တောအတွက် systematic sampling design သည် အသင့်တော်ဆုံးဖြစ်ပြီး နမူနာကွက်များနှင့်နမူနာလိုင်းများအကြား 80 မီတာပုံသေအကွာအဝေးသည် ယုတ္တိရှိသော ရလာဒ်များ ထုတ်ပေးလိမ့်မည်ဟု သစ်တောမန်နေဂျာမှ ဆုံးဖြတ်ပြီးဖြစ်ပါသည် (ယခုကိစ္စတွင် 68% probability တွင် +- 5% average error ရှိပါမည်)။ Variable size (ပြောင်းလဲနိုင်သောအရွယ်အစား) အကွက်များသည် ဤ inventory အတွက် နှင့် ကြီးထွားနေသော သက်တမ်းရင့်အပင်များအတွက် ထိရောက်မှုအရှိဆုံးနည်းလမ်းဖြစ်သည်ဟု ဆုံးဖြတ်ပြီးဖြစ်ပါသည်။ သို့သော် သက်တမ်းနု အပင်ပေါက်များအတွက် ပုံသေသတ်မှတ်ထားသော 4 မီတာ အချင်းဝက် နမူနာကွက်များကို အသုံးပြုပါမည်။
 
-In practice, you simply need to represented the sample plots as points that
-will be used by the field teams later:
+လက်တွေ့တွင် နမူနာကွက်များကို point များအဖြစ်သာ ပြသပေးရန်လိုအပ်ပြီး ၎င်းတို့ကို နောက်ပိုင်းတွင် ကွင်းဆင်းအဖွဲ့များမှ အသုံးပြုမည်ဖြစ်ပါသည်-
 
-#. Open your :file:`digitizing_2012.qgs` project from the previous lesson.
-#. Remove all the layers except for :guilabel:`forest_stands_2012`.
-#. Save your project now as :file:`forest_inventory.qgs`
+#. ယခင်သင်ခန်းစာမှ :file:`digitizing_2012.qgs` project ကိုဖွင့်ပါ။
+#. :guilabel:`forest_stands_2012` layer မှလွဲ၍ ကျန် layer များအားလုံးကို ဖယ်ရှားပါ။
+#. Project ကို :file:`forest_inventory.qgs` အဖြစ်သိမ်းဆည်းပါ
 
-Now you need to create a rectangular grid of points separated 80 meters from each other:
+တစ်ခုနှင့်တစ်ခု 80 မီတာစီကွာခြားသော point များကို ဖန်တီးရန်လိုအပ်ပါသည်-
 
-#. Open :menuselection:`Vector --> Research Tools` |regularPoints| :guilabel:`Regular points`.
-#. Press the drop-down button next to the :guilabel:`Input extent` field
-   and from the :guilabel:`Calculate from Layer` menu, select :guilabel:`forest_stands_2012`.
-#. In the :guilabel:`Point spacing/count` settings, enter ``80`` ``meters``.
-#. Check the :guilabel:`Use point spacing` box to indicate that the value
-   represents the distance between the points.
-#. Under :guilabel:`Regular points`, save the output as :file:`systematic_plots.shp`
-   in the :file:`forestry\\sampling\\` folder.
-#. Check :guilabel:`Open output file after running algorithm`.
-#. Press :guilabel:`Run`.
+#. :menuselection:`Vector --> Research Tools` |regularPoints| :guilabel:`Regular points` ကိုဖွင့်ပါ။
+#. :guilabel:`Input extent` field ဘေးရှိ drop-down ခလုတ်ကို နှိပ်ပါ၊ :guilabel:`Calculate from Layer` menu မှ :guilabel:`forest_stands_2012` ကို ရွေးချယ်ပါ။
+#. :guilabel:`Point spacing/count` setting ထဲတွင် ``80`` ``meters`` ထည့်သွင်းပါ။
+#. တန်ဖိုးသည် point များအကြား အကွာအဝေးကို ကိုယ်စားပြုကြောင်း ညွှန်းပေးရန် :guilabel:`Use point spacing` box တွင်အမှန်ခြစ်ပါ။ 
+#. :guilabel:`Regular points` အောက်တွင် output ကို :file:`systematic_plots.shp` အမည်ဖြင့် :file:`forestry\\sampling\\` folder ထဲတွင် သိမ်းဆည်းပါ။
+#. :guilabel:`Open output file after running algorithm` ကိုအမှန်ခြစ်ပါ။
+#. :guilabel:`Run` ကိုနှိပ်ပါ။
 
-.. note:: The suggested :guilabel:`Regular points` creates the systematic
-  points starting in the upper-left corner of the extent of the selected
-  polygon layer. If you want to add some randomness to this regular points, you
-  could use a randomly calculated number between 0 and 80 (80 is the distance
-  between our points), and then write it as the :guilabel:`Initial inset from
-  corner (LH side)` parameter in the tool's dialog.
+.. note:: :guilabel:`Regular points` သည် ရွေးချယ်ထားသော polygon layer extent ၏ ဘယ်ဘက်အပေါ်ထောင့်မှ အစပြုပြီး systematic point များကို ဖန်တီးပေးပါသည်။ ဤ regular point များတွင် ကျပန်းအချို့ထည့်သွင်းလိုပါက 0 နှင့် 80 (80 သည် point များအကြား အကွာအဝေးဖြစ်သည်) အကြား ကျပန်းတွက်ချက်ထားသော ဂဏန်းတစ်ခုကိုအသုံးပြုနိုင်ပြီး၊ tool dialog ထဲတွင် ၎င်းဂဏန်းကို :guilabel:`Initial inset from corner (LH side)` parameter အနေဖြင့် ရေးသားပေးနိုင်ပါသည်။
 
-You notice that the tool has used the whole extent of your stands layer to
-generate a rectangular grid of points. But you are only interested on those
-points that are actually inside your forest area (see the images below):
+Tool သည် point များကို ထုတ်ပေးရန် stand layer ၏ extent တစ်ခုလုံးကို အသုံးပြုသွားသည်ကို သတိထားမိပါလိမ့်မည်။ သို့သော် သစ်တောဧရိယာထဲတွင် အမှန်တကယ်ကျရောက်သော point များကိုသာ စိတ်ဝင်စားပါသည် (အောက်ပါ ဓာတ်ပုံများကိုကြည့်ပါ)-
 
 .. figure:: img/grid_full_and_clip.png
    :align: center	
 
-#. From the Processing toolbox, open |gdal| :menuselection:`GDAL --> Vector
-   geoprocessing --> Clip vector by mask layer`.
-#. Select :guilabel:`systematic_plots` as the :guilabel:`Input layer`.
-#. Set :guilabel:`forest_stands_2012` as the :guilabel:`Mask layer`.
-#. Save the :guilabel:`Clipped (mask)` result as :file:`systematic_plots_clip.shp`
-   in the :file:`forestry\\sampling\\` folder.
-#. Check :guilabel:`Open output file after running algorithm`.
-#. Press :guilabel:`Run`.
+#. Processing toolbox မှ |gdal| :menuselection:`GDAL --> Vector geoprocessing --> Clip vector by mask layer` ကိုဖွင့်ပါ။
+#. :guilabel:`Input layer` အဖြစ် :guilabel:`systematic_plots` ကိုရွေးချယ်ပါ။
+#. :guilabel:`Mask layer` အဖြစ် :guilabel:`forest_stands_2012` ကိုသတ်မှတ်ပါ။
+#. :guilabel:`Clipped (mask)` ရလာဒ်ကို :file:`systematic_plots_clip.shp` အမည်ဖြင့် :file:`forestry\\sampling\\` folder ထဲတွင် သိမ်းဆည်းပါ။
+#. :guilabel:`Open output file after running algorithm` ကိုအမှန်ခြစ်ပါ။
+#. :guilabel:`Run` ကိုနှိပ်ပါ။
 
-You have now the points that the field teams will use to navigate to the designed
-sample plots locations. You can still prepare these points so that they are more
-useful for the field work. At the least you will have to add meaningful names
-for the points and export them to a format that can be used in their GPS devices.
+နမူနာကွက်တည်နေရာများသို့ ညွှန်ပြပေးသည့် point များကို ရရှိပြီဖြစ်ပါသည်။ ကွင်းလုပ်ငန်းများအတွက် ပိုမိုအသုံးဝင်စေရန် အဆိုပါ point များကို ပြင်ဆင်ပေးနိုင်ပါသေးသည်။ Point များအတွက် အဓိပ္ပါယ်ရှိသော အမည်များထည့်သွင်းပေးပြီး ထို point များကို GPS များထဲတွင် အသုံးပြုနိုင်မည့် format တစ်ခုသို့ export ထုတ်ပေးရပါလိမ့်မည်။
 
-Let's start with the naming of the sample plots. If you check the
-:guilabel:`Attribute table` for the plots inside the forest area, you can see
-that you have the default :guilabel:`id` field automatically generated by the
-:guilabel:`Regular points` tool. Label the points to see them in the map and
-consider if you could use those numbers as part of your sample plot naming:
+နမူနာကွက်များ အမည်ပေးခြင်းကို စတင်ကြည့်ပါမည်။ သစ်တောဧရိယာအတွင်းရှိ နမူနာကွက်များ၏ :guilabel:`Attribute table` ကိုဖွင့်ကြည့်ပါက :guilabel:`Regular points` tool မှ အလိုအလျောက်ထုတ်ပေးထားသော default :guilabel:`id` field ကိုမြင်တွေ့ရမည်ဖြစ်သည်။ ၎င်းဂဏန်းများကို မြေပုံထဲတွင်မြင်ရရန် point များကို label တပ်ကြည့်ပြီး၊ အဆိုပါ ဂဏန်းများကို နမူနာကွက်များအမည်ပေးရာတွင် တစ်စိတ်တစ်ပိုင်းအဖြစ် အသုံးပြုနိုင်/မပြုနိုင်ကို စဉ်းစားပါ-
 
-#. Open the :menuselection:`Layer Properties -->` |labelingSingle| :guilabel:`Labels`
-   for the ``systematic_plots_clip`` layer.
-#. Turn the top menu into |labelingSingle| :guilabel:`Single Labels`.
-#. For the :guilabel:`Value` entry, select the field ``id``.
-#. Go to the |labelbuffer| :guilabel:`Buffer` tab, check the
-   :guilabel:`Draw text buffer` and set the buffer :guilabel:`Size` to ``1``.
-#. Click :guilabel:`OK`.
+#. ``systematic_plots_clip`` layer အတွက် :menuselection:`Layer Properties -->` |labelingSingle| :guilabel:`Labels` ကိုဖွင့်ပါ။
+#. အပေါ်ဘက် menu တွင် |labelingSingle| :guilabel:`Single Labels` သို့ပြောင်းပါ။
+#. :guilabel:`Value` entry တွင် ``id`` field ကိုရွေးချယ်ပါ။
+#. |labelbuffer| :guilabel:`Buffer` tab သို့သွားပြီး :guilabel:`Draw text buffer` တွင်အမှန်ခြစ်ကာ buffer :guilabel:`Size` တွင် ``1`` ဟုသတ်မှတ်ပါ။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-Now look at the labels on your map. You can see that the points have been
-created and numbered first West to East and then North to South. If you look
-at the attribute table again, you will notice that the order in the table is
-following also that pattern. Unless you would have a reason to name the sample
-plots in a different way, naming them in a West-East/North-South fashion follows
-a logical order and is a good option. 
+မြေပုံပေါ်ရှိ label များကို ကြည့်ပါ။ Point များသည် အနောက်ဘက်မှအရှေ့ဘက်သို့ဦးစွာ နံပါတ်စဉ်တပ်ပြီးနောက် မြောက်ဘက်မှတောင်ဘက်သို့ နံပါတ်စဉ်တပ်ထားသည်ကို မြင်တွေ့ရနိုင်ပါသည်။ Attribute ဇယားကို နောက်တစ်ကြိမ် ထပ်ကြည့်ပါက ဇယားထဲရှိ order (အစဉ်) သည် ထိုပုံစံအတိုင်းဖြစ်နေသည်ကို တွေ့ရပါလိမ့်မည်။ နမူနာကွက်များကို အခြားနည်းလမ်းတစ်ခုဖြင့် အမည်ပေးရန်မရှိပါက West-East/North-South ပုံစံဖြင့်အမည်ပေးခြင်းသည် ယုတ္တိရှိသော order တစ်ခုဖြစ်ပြီး ကောင်းမွန်သော option တစ်ခုဖြစ်ပါသည်။
 
-Nevertheless, the number values in the ``id`` field are not so good.
-It would be better if the naming would be something like ``p_1, p_2...``.
-You can create a new column for the ``systematic_plots_clip`` layer:
+သို့သော်လည်း ``id`` field ထဲရှိ ဂဏန်းတန်ဖိုးများသည် များစွာကောင်းမွန်ခြင်းမရှိပါ။ ``p_1, p_2...`` ကဲ့သို့ပုံစံမျိုးဖြင့် အမည်ပေးပါက ပိုကောင်းမည်ဖြစ်သည်။ ``systematic_plots_clip`` layer အတွက် column အသစ်တစ်ခုကို ဖန်တီးပေးနိုင်ပါသည်-
 
-#. Go to the :guilabel:`Attribute table` for ``systematic_plots_clip``.
-#. Enable the |toggleEditing| edit mode.
-#. Open the |calculateField| :sup:`Field calculator`:
+#. ``systematic_plots_clip`` အတွက် :guilabel:`Attribute table` ကိုဖွင့်ပါ။
+#. |toggleEditing| edit mode ကိုဖွင့်ပါ။
+#. |calculateField| :sup:`Field calculator` ကိုဖွင့်ပါ-
 
-   #. Check :guilabel:`Create a new field`
-   #. Enter ``Plot_id`` as :guilabel:`Output field name`
-   #. Set the :guilabel:`Output field type` to :guilabel:`Text (string)`.
-   #. In the :guilabel:`Expression` field, write, copy or construct this formula
-      ``concat('P_', @rownum )``. Remember that you can also double click on the
-      elements inside the :guilabel:`Function list`. The ``concat`` function can
-      be found under :guilabel:`String` and ``@rownum`` is under the :guilabel:`Variables
-      and values` group.
-#. Click :guilabel:`OK`.
-#. Disable the edit mode and save your changes.
+   #. :guilabel:`Create a new field` တွင်အမှန်ခြစ်ပါ
+   #. :guilabel:`Output field name` တွင် ``Plot_id`` ဟုရိုက်ထည့်ပါ
+   #. :guilabel:`Output field type` တွင် :guilabel:`Text (string)` ဟုသတ်မှတ်ပါ
+   #. :guilabel:`Expression` field ထဲတွင် ``concat('P_', @rownum )`` ဟူသော formula ကို ရိုက်ထည့်ပါ သို့မဟုတ် ကူးထည့်ပါ။ :guilabel:`Function list` ထဲရှိ element များပေါ်တွင်လည်း click နှစ်ချက်နှိပ်ပြီးထည့်သွင်းနိုင်ပါသည်။ ``concat`` function ကို :guilabel:`String` အောက်တွင် တွေ့နိုင်မည်ဖြစ်ပြီး ``@rownum`` သည် :guilabel:`Variables and values` အုပ်စုအောက်တွင် ရှိပါသည်။
+#. :guilabel:`OK` ကိုနှိပ်ပါ
+#. Edit mode ကိုပိတ်ပြီး ပြောင်းလဲမှုများကို သိမ်းဆည်းပါ။
 
-Now you have a new column with plot names that are meaningful to you. For the
-``systematic_plots_clip`` layer, change the field used for labeling to your
-new ``Plot_id`` field.
+နမူနာကွက်အမည်များပါရှိသော column အသစ်တစ်ခုကိုရရှိပြီဖြစ်ပါသည်။ ``systematic_plots_clip`` layer အတွက် label တပ်မည့် field တွင် ``Plot_id`` field အသစ်ကို ပြောင်းလဲပါ။
 
 .. figure:: img/labelled_plots.png
    :align: center
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Exporting Sample Plots as GPX format
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - နမူနာကွက်များအား GPX format အဖြစ်ထုတ်ယူခြင်း (Follow Along: Exporting Sample Plots as GPX format)
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
-The field teams will be probably using a GPS device to locate the sample plots
-you planned. The next step is to export the points you created to a format that
-your GPS can read. QGIS allows you to save your point and line vector data in
-`GPS eXchange Format (GPX) <https://en.wikipedia.org/wiki/GPS_Exchange_Format>`_,
-which is an standard GPS data format that can be read by most of the
-specialized software. You need to be careful with selecting the CRS when you
-save your data:
+သင်ချမှတ်ထားသော နမူနာကွက်များသို့သွားရောက်ရန် ကွင်းဆင်းအဖွဲ့များသည် GPS ကိုအသုံးရပါလိမ့်မည်။ နောက်တစ်ဆင့်အနေဖြင့် သင်ဖန်တီးထားသော point များကို GPS မှဖတ်နိုင်သော format တစ်ခုအဖြစ်သို့ export ထုတ်ရန်ဖြစ်သည်။ QGIS တွင် point နှင့် line vector data များကို `GPS eXchange Format (GPX) <https://en.wikipedia.org/wiki/GPS_Exchange_Format>`_ ဖြင့်သိမ်းဆည်းနိုင်ပါသည်၊ GPX သည် စံ GPS data format တစ်ခုဖြစ်ပြီး အထူးပြုလုပ်ထားသော software အများစုမှ ဖတ်ရှုနိုင်မည်ဖြစ်ပါသည်။ Data ကိုသိမ်းဆည်းသောအခါ CRS ရွေးချယ်သည့်နေရာတွင် ဂရုပြုရန် လိုအပ်ပါသည်-
 
-#. Right-click ``systematic_plots_clip`` layer and select :menuselection:`Export -->
-   Save features as...`.
+#. ``systematic_plots_clip`` layer တွင် right-click နှိပ်ပြီး :menuselection:`Export --> Save features as...` ကိုရွေးချယ်ပါ။
 
    .. figure:: img/gpx_creation.png
       :align: center
 
-#. In :guilabel:`Format` select :guilabel:`GPS eXchange Format [GPX]`.
-#. Save the output :guilabel:`File name` as :file:`plots_wgs84.gpx` in the
-   :file:`forestry\\sampling\\` folder.
-#. In :guilabel:`CRS` select :guilabel:`Selected CRS`.
-#. Browse for :guilabel:`EPSG:4326 - WGS 84`.
+#. :guilabel:`Format` ထဲတွင် :guilabel:`GPS eXchange Format [GPX]` ကိုရွေးချယ်ပါ။
+#. Output ကို :file:`plots_wgs84.gpx` ဖိုင်အမည်ဖြင့် :file:`forestry\\sampling\\` folder ထဲတွင် သိမ်းဆည်းပါ။
+#. :guilabel:`CRS` တွင် :guilabel:`Selected CRS` ကိုရွေးချယ်ပါ။
+#. :guilabel:`EPSG:4326 - WGS 84` ကိုရှာဖွေပါ။
 
-   .. note:: The `GPX <https://gdal.org/drivers/vector/gpx.html>`_ format
-    accepts only this CRS, if you select
-    a different one, QGIS will give no error but you will get an empty file.
+   .. note:: `GPX <https://gdal.org/drivers/vector/gpx.html>`_ format သည် :guilabel:`EPSG:4326 - WGS 84` CRS ကိုသာ လက်ခံပါသည်၊ အခြား CRS တစ်ခုကို ရွေးချယ်ပါက QGIS သည် error တော့ပြသမည်မဟုတ်ပဲ ဖိုင်အလွတ်တစ်ခုကို သာထုတ်ပေးပါလိမ့်မည်။
 
-#. Click :guilabel:`OK`.
-#. In the dialog that opens, select only the ``waypoints`` layer (the rest of
-   the layers are empty).
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
+#. ပွင့်လာသော dialog ထဲတွင် ``waypoints`` layer ကိုသာ select လုပ်ပါ (ကျန်ရှိသော layer များသည် empty ဖြစ်နေပါသည်)။
 
-The inventory sample plots are now in a standard format that can be managed by
-most of the GPS software. The field teams can now upload the locations of the
-sample plots to their devices. That would be done by using the specific devices
-own software and the :file:`plots_wgs84.gpx` file you just saved. Other option
-would be to use the :guilabel:`GPS Tools` plugin but it would most likely
-involve setting the tool to work with your specific GPS device. If you are
-working with your own data and want to see how the tool works you can find out
-information about it in the section :ref:`working_gps` in the **QGIS User Manual**.
+Inventory နမူနာကွက်များသည် GPS software အများစုဖြင့်အသုံးပြုနိုင်သော စံ format တစ်ခုဖြင့်ရှိနေပြီဖြစ်ပါသည်။ ကွင်းဆင်းအဖွဲ့များသည် နမူနာကွက်များ၏တည်နေရာများကို GPS device များထဲသို့ ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်။ သက်ဆိုင်ရာ GPS ၏ software နှင့် :file:`plots_wgs84.gpx` ကိုအသုံးပြုပြီး ထည့်သွင်းနိုင်မည်ဖြစ်ပါသည်။ အခြားထည့်သွင်းသည့်နည်းလမ်းတစ်ခုမှာ :guilabel:`GPS Tools` plugin ကိုအသုံးပြုခြင်းဖြစ်ပါသည်၊ သို့သော် သင့် GPS နှင့်အလုပ်လုပ်နိုင်စေရန် tool တွင် setting များလုပ်ဆောင်ပေးရပါလိမ့်မည်။ သင်၏ ကိုယ်ပိုင် data ကိုအသုံးပြုပြီး tool ၏အလုပ်လုပ်ပုံကို သိရှိလိုပါက **QGIS User Manual** ထဲရှိ :ref:`working_gps` အပိုင်းတွင် ကြည့်ရှုနိုင်ပါသည်။
 
-Save your QGIS project now.
+QGIS project ကိုသိမ်းဆည်းပါ။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You just saw how easily you can create a systematic sampling design to be used
-in a forest inventory. Creating other types of sampling designs will involve
-the use of different tools within QGIS, spreadsheets or scripting to calculate
-the coordinates of the sample plots, but the general idea remains the same.
+Forest inventory တစ်ခုတွင် အသုံးပြုမည့် systematic sampling design တစ်ခုကို မည်ကဲ့သို့အလွယ်တကူ ဖန်တီးနိုင်သည်ကို မြင်တွေ့ခဲ့ပြီးဖြစ်ပါသည်။ အခြား sampling design အမျိုးအစားများကို ဖန်တီးရာတွင် QGIS အတွင်းရှိ tool အမျိုးမျိုးကို အသုံးပြုခြင်း၊ spreadsheet များအသုံးပြုခြင်း သို့မဟုတ် နမူနာကွက်များ၏ ကိုဩဒိနိတ်များကို တွက်ချက်ရန် script ရေးသားရခြင်းများ ပါဝင်ပါလိမ့်မည်၊ သို့သော် ယေဘုယျသဘောတရားကတော့ အတူတူပင်ဖြစ်ပါသည်။ 
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-In the next lesson you will see how to use the Atlas capabilities in QGIS to
-automatically generate detailed maps that the field teams will be using to
-navigate to the sample plots assigned to them.
+နမူနာကွက်များသို့ ညွှန်ပြရာတွင် ကွင်းဆင်းအဖွဲ့များမှ အသုံးပြုမည့် အသေးစိတ်ကျသောမြေပုံများ အလိုအလျောက်ထုတ်လုပ်ပေးရန် QGIS ထဲရှိ Atlas (မြေပုံစီးရီး) လုပ်ဆောင်နိုင်စွမ်းများကို မည်သို့အသုံးပြုရမည်ကို နောက်လာမည့်သင်ခန်းစာတွင် လေ့လာရမည်ဖြစ်ပါသည်။
 
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE

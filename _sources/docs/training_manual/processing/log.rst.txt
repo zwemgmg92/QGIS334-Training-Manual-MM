@@ -1,67 +1,47 @@
-The processing log
-====================
+လုပ်ဆောင်မှုမှတ်တမ်း (The processing log)
+==========================================
 
-.. note:: This lesson describes the processing log.
+.. note:: ဤသင်ခန်းစာတွင် processing log အကြောင်းဖော်ပြထားပါသည်။
 
-All the analysis performed with the processing framework is logged in QGIS logging system.
-This allows you to know more about what has been done with the processing tools,
-to solve problems when they happen, and also to re--run previous operations,
-since the logging system also implements some interactivity.
+Processing framework ဖြင့်လုပ်ဆောင်သော analysis များအားလုံးကို QGIS logging စနစ်ထဲတွင် မှတ်တမ်းထားရှိပါသည်။ Logging စနစ်သည် အချို့သောအပြန်အလှန်တုန့်ပြန် လုပ်ဆောင်နိုင်မှုများကြောင့် processing tool များဖြင့် လုပ်ဆောင်ခဲ့သည်များအကြောင်းပိုမိုသိရှိစေနိုင်ခြင်း၊ ပြဿနာများဖြစ်လာသောအခါ ဖြေရှင်းရန် ပိုမိုသိရှိစေနိုင်ခြင်းနှင့် ယခင်လုပ်ဆောင်ခဲ့သော operation များကို နောက်တစ်ကြိမ် ပြန် run နိုင်စေခြင်းများ လုပ်ဆောင်နိုင်စေပါသည်။ 
 
-To open the log, click on the balloon at the bottom right, on the QGIS status bar.
-Some algorithms might leave here information about their execution.
-For instance, those algorithms that call an external application
-usually log the console output of that application to this entry.
-If you have a look at it, you will see that the output of the SAGA algorithm that we just run
-(and that fails to execute because input data was not correct) is stored here.
+Log ကိုဖွင့်ရန် QGIS status bar ညာဘက်အောက်ခြေရှိ balloon (ပူပေါင်းပုံစံ message) ကို click နှိပ်ပါ။ အချို့သော algorithm များသည် ၎င်းတို့၏လုပ်ဆောင်မှုများအကြောင်း အချက်အလက်များကို ထိုနေရာတွင် ချန်ထားကောင်းချန်ထားနိုင်ပါသည်။ ဥပမာအားဖြင့် ပြင်ပ application တစ်ခုကို ခေါ်ယူအသုံးပြုသော algorithm များသည် console output ကို ထိုနေရာတွင် မှတ်တမ်းထား (log) လေ့ရှိပါသည်။ ၎င်းကို ဖွင့်ကြည့်ပါက ကျွန်ုပ်တို့ run ခဲ့ပြီးသော SAGA algorithm ၏ output (နှင့် input data မှားယွင်းသောကြောင့် လုပ်ဆောင်မှု မအောင်မြင်ခြင်း) ကို ထိုနေရာတွင် သိမ်းဆည်းထားသည်ကို မြင်တွေ့ရပါလိမ့်မည်။
 
-This is helpful to understand what is going on.
-Advanced users will be able to analyze that output to find out why the algorithm failed.
-If you are not an advanced user, this will be useful for others to help you diagnose the problem you are having,
-which might be a problem in the installation of the external software or an issue with the data you provided.
+ထိုနေရာကို ကြည့်ခြင်းဖြင့် ဖြစ်ပျက်နေသည်များကို နားလည်စေနိုင်ပါသည်။ အဆင့်မြင့် အသုံးပြုသူများအနေဖြင့် algorithm လုပ်ဆောင်မှုမအောင်မြင်ရခြင်းအကြောင်းရင်းကို ရှာဖွေရန် ထို output ကိုကြည့်ပြီး လေ့လာဆန်းစစ်နိုင်ပါလိမ့်မည်။ သင်သည် အဆင့်မြင့်အသုံးပြုသူတစ်ဦးမဟုတ်ပါက သင်ကြုံတွေ့နေရသည့် ပြင်ပ software install ပြုလုပ်ရာတွင်ဖြစ်သောပြဿနာ သို့မဟုတ် ထည့်သွင်းသော data နှင့်ပတ်သက်သော ပြဿနာများကို ကူညီဖြေရှင်းပေးမည့် အခြားသောသူများအတွက် log ကိုကြည့်ခြင်းဖြင့် အသုံးဝင်ပါလိမ့်မည်။
 
-Even if the algorithm could be executed, some algorithms might leave warnings in case the result might not be right.
-For instance, when executing an interpolation algorithm with a very small amount of points,
-the algorithm can run and will produce a result, but it is likely that it will not be correct, since more points should be used.
-It's a good idea to regularly check for this type of warnings if you are not sure about some aspect of a given algorithm.
+အချို့သော Algorithm များသည် လုပ်ဆောင်မှုပြီးသွားလျှင်ပင် ရလာဒ်မှန်ကန်မှုမရှိနိုင်သည့်အတွက် သတိပေးချက် (warning) များ ပြသကောင်းပြသနိုင်ပါသည်။  ဥပမာအားဖြင့် point အရေအတွက်အလွန်နည်းနည်းဖြင့် interpolation algorithm တစ်ခုကို လုပ်ဆောင်သောအခါ algorithm သည် run နိုင်ပြီး ရလာဒ်တစ်ခုကို ထုတ်ပေးပါလိမ့်မည်၊ သို့သော် point များစွာကို အသုံးပြုသင့်သောကြောင့် ရလာဒ်သည် မှန်ကန်နိုင်လိမ့်မည်မဟုတ်ပါ။ Algorithm တစ်ခု၏ အချို့သော ရှုထောင့်များအကြောင်း မသိရှိပါက ထိုကဲ့သို့ သတိပေးချက်မျိုးကို ပုံမှန်စစ်ဆေးပေးလျှင် ပိုမိုကောင်းမွန်ပါသည်။
 
-From the :menuselection:`Processing --> History...` menu, you'll find *algorithms* that are executed,
-regardless of they are executed from the GUI or from the console (which will be explained later in this manual).
-The execution is stored in this dialog as a console call.
-That means that everytime you run an algorithm, a console command is added to the log,
-and you have the full history of your working session.
-Here is how that history looks like:
+
+:menuselection:`Processing --> History...` menu ထဲတွင် GUI မှဖြစ်စေ console မှဖြစ်စေ (နောက်ပိုင်းသင်ခန်းစာတွင် ရှင်းပြပါမည်) run ထားသော *algorithms* များကို တွေ့နိုင်ပါသည်။ လုပ်ဆောင်မှုကို console call တစ်ခုအနေဖြင့် ဤ dialog ထဲတွင် သိမ်းဆည်းထားပါသည်။ ဆိုလိုသည်မှာ algorithm တစ်ခုကို run သည့်အချိန်တိုင်း log ထဲတွင် console command တစ်ခုကို ထည့်သွင်းပေးပြီး အလုပ်လုပ်ဆောင်နေသော session ၏ history အပြည့်အစုံ ပါရှိမည်ဖြစ်သည်။ History ၏ပုံစံသည် အောက်ပါအတိုင်းဖြစ်ပါသည်-
 
 .. figure:: img/log/history.png
 
-This can be very useful when starting working with the console, to learn about the syntax of algorithms.
-We will use it when we discuss how to run analysis commands from the console.
+၎င်းသည် Console ဖြင့် စတင်အလုပ်လုပ်သောအခါ algorithm များ၏ syntax အကြောင်းလေ့လာရာတွင် အလွန်အသုံးဝင်ပါသည်။ ၎င်းကို console မှ analysis command များကို မည်ကဲ့သို့ run ရမည်ကိုလေ့လာရာတွင် အသုံးပြုပါမည်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along
----------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ (Follow Along)
+----------------------------------------------------------
 
-The history is also interactive, and you can run any previous algorithm just by double-clicking on its entry.
-This is an easy way of replicating the work we already did before.
+History သည် interactive (အပြန်အလှန်တုံ့ပြန်လုပ်ဆောင်နိုင်) လည်းဖြစ်ပါသည်၊ ယခင် လုပ်ဆောင်ခဲ့ပြီးသော မည်သည့် algorithm ကိုမဆို click နှစ်ချက်နှိပ်ပြီး run နိုင်ပါသည်။ ယခင်က လုပ်ဆောင်ခဲ့ပြီးသောအလုပ်များကို ပုံတူပွားလုပ်ဆောင်ရာတွင် လွယ်ကူစေပါသည်။
 
-For instance, try the following:
+ဥပမာအားဖြင့် အောက်ပါအတိုင်း ကြိုးစားလုပ်ကြည့်ပါ-
 
-#. Open the data corresponding to the first chapter of this manual and run the algorithm explained there.
-#. Now go to the log dialog and locate the last algorithm in the list, which corresponds to the algorithm you have just run.
-#. Double-click on it and a new result should be produced, just like when you run it using the normal dialog and calling it from the toolbox.
+#. ဤလက်စွဲ၏ ပထမဆုံးအခန်းနှင့် သက်ဆိုင်သော data ကိုဖွင့်ပြီး ထိုအခန်းတွင်ရှင်းပြခဲ့သော algorithm ကို run ပါ။
+#. Log dialog သို့သွားပြီး စာရင်းထဲရှိ သင် run ခဲ့ပြီးသော နောက်ဆုံး algorithm ကို ရွေးချယ်ပါ။
+#. ၎င်း algorithm ကို click နှစ်ချက်နှိပ်ပြီး ရလာဒ်အသစ်တစ်ခုကို ထုတ်ပါ၊ toolbox မှခေါ်ယူပြီး ပုံမှန် dialog ကိုအသုံးပြုကာ run သကဲ့သို့ ဖြစ်သည်။
 
-:abbr:`★★★ (Advanced level)` Advanced
--------------------------------------
+:abbr:`★★★ (Advanced level)` အဆင့်မြင့် (Advanced)
+---------------------------------------------------
 
-You can also modify the algorithm.
+Algorithm ကိုလည်း မွမ်းမံပြင်ဆင်နိုင်ပါသည်။
 
-#. Copy the algorithm call
-#. Open the :menuselection:`Plugins --> Python console`
-#. Paste your copy to run the analysis; change the text at will.
-#. To display the resulting file, type::
+#. Algorithm call ကို copy ကူးပါ
+#. :menuselection:`Plugins --> Python console` ကိုဖွင့်ပါ
+#. Analysis ကို run ရန် copy ကူးထားသည်ကို paste လုပ်ပါ၊ စာသားများကို ပြောင်းလဲပါ။
+#. ရလာဒ်ဖိုင်ကို ပြသရန် အောက်ပါကို ရိုက်ထည့်ပါ::
 
     iface.addVectorLayer('/path/filename.shp', 'Layer name in legend', 'ogr')
 
-   Otherwise, you can use::
+   သို့မဟုတ်၊ အောက်ပါကို အသုံးပြုနိုင်ပါသည်::
 
     processing.runAndloadResults
 

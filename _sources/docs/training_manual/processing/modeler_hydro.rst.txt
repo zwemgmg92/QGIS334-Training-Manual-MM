@@ -1,52 +1,53 @@
-More complex models
+ပိုမိုရှုပ်ထွေးသော model များ (More complex models)
 ============================================================
 
-.. note:: In this lesson we will work with a more complex model in the model designer.
+.. note:: ဤသင်ခန်းစာတွင် ပိုမိုရှုပ်ထွေးသော model တစ်ခုဖြင့် model designer ထဲတွင် လုပ်ဆောင်မည်ဖြစ်ပါသည်။
 
-The first model that we created in the previous chapter was a very simple one, with just one input and three algorithms. More complex models can be created, with different types of inputs and containing more steps. For this chapter we will work with a model that creates a vector layer with watersheds, based on a DEM and a threshold value. That will be very useful for calculating several vector layers corresponding to different thresholds, without having to repeat each single step each time.
+ပြီးခဲ့သည့်သင်ခန်းစာတွင် ဖန်တီးသော ပထမ model သည် အလွန်ရိုးရှင်းပြီး input တစ်ခုနှင့် algorithm ၃ ခုသာပါဝင်ပါသည်။ အမျိုးအစားကွဲပြားသော input များနှင့် အဆင့်များစွာ ပါဝင်သော ပိုမိုရှုပ်ထွေးသည့် model များကို ဖန်တီးနိုင်ပါသည်။ ဤသင်ခန်းစာအတွက် DEM တစ်ခုနှင့် threshold တန်ဖိုးတစ်ခုကို အခြေခံပြီး watershed (ရေဝေရေလဲ) ဧရိယာ vector layer တစ်ခုကိုဖန်တီးမည့် model တစ်ခုကို လုပ်ဆောင်ပါမည်။ ဤ model သည် အမျိုးမျိုးသော threshold တန်ဖိုးများဖြင့် vector layer များစွာကို တွက်ချက်ရာတွင် အဆင့်တစ်ဆင့်ချင်းစီကို တစ်ကြိမ်စီ ထပ်ခါထပ်ခါလုပ်ဆောင်ရန်မလိုသည့်အတွက် အလွန်အသုံးဝင်ပါလိမ့်မည်။
 
-This lesson does not contain instructions about how to create your model. You already know the necessary steps (we saw them in a :ref:`previous lesson <tm_start_modeler>`) and you have already seen the basic ideas about the modeler, so you should try it yourself. Spend a few minutes trying to create your model, and don't worry about making mistakes. Remember: first add the inputs and then add the algorithms that use them to create the workflow.
+ဤသင်ခန်းစာတွင် model ဖန်တီးပုံအဆင့်များအကြောင်း ပါဝင်မည်မဟုတ်ပါ။ Modeler နှင့်ပတ်သက်သောအခြေခံများနှင့် လိုအပ်သော အဆင့်များကို :ref:`ယခင်သင်ခန်းစာ <tm_start_modeler>` တွင် သိရှိခဲ့ပြီးဖြစ်သည့်အတွက် မိမိကိုယ်တိုင်ကြိုးစားကြည့်သင့်ပါသည်။ အချိန်အနည်းငယ်ပေးပြီး သင့် model ကိုကြိုးစားဖန်တီးကြည့်ပါ၊ အမှားလုပ်မိမှာကိုလည်း မစိုးရိမ်ပါနှင့်။ မှတ်ထားရမည်မှာ- input များကို ဦးစွာ ထည့်သွင်းပါ၊ ထို့နောက် workflow ဖန်တီးရာတွင် အသုံးပြုမည့် algorithm များကိုထည့်သွင်းပါ။
 
-.. note:: In case you could not create the full model yourself and you need some extra help, the data folder corresponding to this lesson contains an 'almost' finished version of it. Open the modeler and then open the model file that you will find in the data folder. You should see something like this.
+.. note:: မိမိကိုယ်တိုင် model အပြည့်အစုံကို မဖန်တီးနိုင်ပဲ အကူအညီအချို့လိုအပ်ပါက ဤသင်ခန်းစာနှင့်ပတ်သက်သော data folder ထဲတွင် 'ပြီးလုနီးပါးဖြစ်နေသော' model တစ်ခုပါရှိပါသည်။ ထို data folder ထဲရှိ model ဖိုင်ကို modeler ထဲတွင် ဖွင့်ကြည့်ပါ။ အောက်ပါအတိုင်းမြင်တွေ့ရပါမည်။
 
   .. figure:: img/modeler_hydro/model.png
 
-This model contains all the steps needed to complete the calculation, but it just has one input: the DEM. That means that the threshold for channel definition uses a fixed value, which makes the model not as useful as it could be. That is not a problem, since we can edit the model, and that is exactly what we will do.
 
-#. First, let's add a numerical input. That will ask the user for a numerical input that we can use when such a value is needed in any of the algorithms included in our model.
-#. Click on the :guilabel:`Number` entry in the :guilabel:`Inputs` tree, and you will see the corresponding dialog.
-#. Fill it with the following values.
+ဤ model ထဲတွင် တွက်ချက်မှုပြီးဆုံးရန်အတွက် လိုအပ်သောအဆင့်များအားလုံးပါဝင်ပါသည်၊ သို့သော် input- DEM တစ်ခုသာ ပါရှိပါသည်။ ဆိုလိုသည်မှာ channel အဓိပ္ပါယ်အတွက် ပုံသေ threshold တန်ဖိုးတစ်ခုကို အသုံးပြုထားသည့်အတွက် model ကိုများစွာ အသုံးမဝင်စေတော့ပါ။ သို့သော် Model ကို edit ပြုလုပ်နိုင်သောကြောင့် ပြဿနာမရှိပါ။ Model edit ပြုလုပ်ခြင်းကို လုပ်ဆောင်ကြည့်ပါမည်။
+
+#. ကိန်းဂဏန်း input တစ်ခုကို ဦးစွာ ထည့်သွင်းပါမည်။ Model ထဲမှ algorithm တစ်ခုခုတွင် တန်ဖိုးထည့်သွင်းရန် လိုအပ်သည့်အခါ အသုံးပြုသူအား ကိန်းဂဏန်းတန်ဖိုးကို  ထည့်သွင်းခိုင်းမည်ဖြစ်ပါသည်။
+#. :guilabel:`Inputs` ထဲတွင် :guilabel:`Number` ကို click နှိပ်ပါ၊ သက်ဆိုင်ရာ dialog ကိုမြင်တွေ့ရပါမည်။
+#. Dialog တွင် အောက်ပါတန်ဖိုးများကို ဖြည့်သွင်းပါ။
 
    * :guilabel:`Parameter name`: ``Threshold for channel definition``
    * :guilabel:`Default value`: ``1,000,000``
 
    .. figure:: img/modeler_hydro/threshold.png
 
-   Now your model should look like this.
+   Model သည် အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည်။
 
    .. figure:: img/modeler_hydro/model_with_threshold.png
 
-   The input that we have just added is not used, so the model hasn't actually changed. We have to link that input to the algorithm that uses it, in this case the *Channel network* one. To edit an algorithm that already exists in the modeler, just click on the pen icon on the corresponding box in the canvas.
+   ထည့်သွင်းလိုက်သော input ကို အသုံးမပြုရသေးသည့်အတွက် model တွင် ပြောင်းလဲမှုမရှိသေးပါ။ ထို input ကိုအသုံးပြုမည့် algorithm နှင့် ၎င်း input ကိုချိတ်ဆက်ပေးရပါမည်၊ ဤဥပမာတွင် *Channel network* ဖြစ်ပါသည်။ Modeler ထဲတွင် ရှိနေပြီးသား algorithm တစ်ခုကို edit ပြုလုပ်ရန် canvas ထဲရှိ သက်ဆိုင်ရာ box အပေါ်တွင်ရှိသော pen (ဘောပင်) icon ကိုနှိပ်ပါ။
 
-#. Click on the :guilabel:`Channel network` algorithm and you will see something like this.
+#. :guilabel:`Channel network` algorithm ကိုနှိပ်ပါက အောက်ပါအတိုင်းမြင်တွေ့ရပါလိမ့်မည်။
 
    .. figure:: img/modeler_hydro/channel_network.png
 
-   The dialog is filled with the current values used by the algorithm. You can see that the :guilabel:`Initiation threshold` parameter has a fixed value of 1,000,000 (this is also the default value of the algorithm, but any other value could be put in there). However, you might notice that the parameter is not entered in a common text box, but in a drop-down menu.
-#. Unfold the threshold parameter menu and you will see something like this.
+   Algorithm မှ အသုံးပြုထားသော လက်ရှိတန်ဖိုးများဖြင့် dialog တွင်ဖြည့်ထားပါသည်။ :guilabel:`Initiation threshold` parameter တွင် ပုံသေတန်ဖိုး 1,000,000 ရှိသည်ကို မြင်တွေ့နိုင်ပါသည် (၎င်းသည် algorithm ၏ default တန်ဖိုးဖြစ်ပါသည်၊ သို့သော် အခြားတန်ဖိုးတစ်ခုခုကိုလည်း ထည့်သွင်းပေးနိုင်ပါသည်)။ သို့သော် parameter ကို စာသား box ထဲတွင် မထည့်သွင်းပဲ drop-down menu မှထည့်သွင်းသည်ကို သတိပြုမိပါလိမ့်မည်။
+#. Threshold parameter menu ကို ဖွင့်ကြည့်ပါက အောက်ပါအတိုင်းတွေ့ရပါလိမ့်မည်။
 
    .. figure:: img/modeler_hydro/unfolded.png
 
-   The input that we added is there and we can select it. Whenever an algorithm in a model requires a numerical value, you can hardcode it and directly type it, or you can use any of the available inputs and values (remember that some algorithms generate single numerical values. We will see more about this soon). In the case of a string parameter, you will also see string inputs and you will be able to select one of them or type the desired fixed value.
+   ကျွန်ုပ်တို့ထည့်သွင်းထားခဲ့သော input ကို ထိုနေရာတွင်တွေ့ရမည်ဖြစ်ပြီး ၎င်းကိုရွေးချယ်ပေးနိုင်ပါသည်။ Model တစ်ခုထဲရှိ algorithm တစ်ခုသည် ကိန်းဂဏန်းတန်ဖိုးတစ်ခု လိုအပ်သည့်အချိန်တိုင်း တန်ဖိုးကို တိုက်ရိုက် ရိုက်ထည့်ပေးနိုင်ပါသည်၊ သို့မဟုတ် ရရှိနိုင်သော input များနှင့် တန်ဖိုးများကို အသုံးပြုနိုင်ပါသည် (အချို့သော algorithm များသည် ကိန်းဂဏန်းတန်ဖိုးတစ်ခုတည်းကိုသာ ထုတ်ပေးပါသည်၊ ထိုအကြောင်းကို မကြာမီတွင် မြင်တွေ့ရပါမည်)။ String (စာသား) parameter တစ်ခုဖြစ်ပါက string input များကိုလည်း တွေ့ရမည်ဖြစ်ပြီး ၎င်းတို့ထဲမှတစ်ခုကို ရွေးချယ်ပေးနိုင်ပါသည် သို့မဟုတ် လိုချင်သောပုံသေတန်ဖိုးကို ရိုက်ထည့်ပေးနိုင်ပါသည်။
 
-#. Select the ``Threshold for channel definition`` input in the :guilabel:`Initiation threshold` parameter.
-#. Click on :guilabel:`OK` to apply the changes to your model. Now the design of the model should look like this.
+#. :guilabel:`Initiation threshold` parameter ထဲတွင် ``Threshold for channel definition`` input ကိုရွေးချယ်ပါ။
+#. Model တွင်ပြောင်းလဲမှုများ လုပ်ဆောင်ရန် :guilabel:`OK` ကိုနှိပ်ပါ။ ယခုအခါ model ၏ဒီဇိုင်းသည် အောက်ပါအတိုင်းဖြစ်သင့်ပါသည်။
 
    .. figure:: img/modeler_hydro/model_linked_parameter.png
 
-#. The model is now complete. Run it using the DEM that we have used in previous lessons, and with different threshold values.
+#. ယခုအခါ model သည် ပြီးပြည့်စုံသွားပြီဖြစ်ပါသည်။ ယခင်သင်ခန်းစာထဲတွင် အသုံးပြုခဲ့သော DEM ကိုသုံး၍ အမျိုးမျိုးသော threshold တန်ဖိုးများဖြင့် model ကို run ပါ။
 
-   Below you have a sample of the result obtained for different values. You can compare with the result for the default value, which is the one we obtained in the :ref:`hydrological analysis lesson <tm_hydro_analysis>`.
+   မတူညီသော threshold တန်ဖိုးများမှ ရရှိလာသော ရလာဒ်နမူနာကို အောက်တွင်တွေ့ရပါမည်။ Default တန်ဖိုးအသုံးပြုထားသည့် :ref:`hydrological analysis lesson <tm_hydro_analysis>` မှရလာဒ်နှင့်နှိုင်းယှဉ်ကြည့်နိုင်ပါသည်။
 
    .. figure:: img/modeler_hydro/result_1.png
 

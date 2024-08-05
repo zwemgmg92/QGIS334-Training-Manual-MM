@@ -1,89 +1,45 @@
-The batch processing interface
-================================
+အစုအဖွဲ့လိုက် processing လုပ်ဆောင်ပေးသည့်အရာ၏ interface (The batch processing interface)
+=========================================================================================
 
-.. note:: This lesson introduces the batch processing interface, which allows
- to execute a single algorithm with a set of different input values.
+.. note:: ဤသင်ခန်းစာတွင် မတူညီသော input တန်ဖိုးများဖြင့် algorithm တစ်ခုကို လုပ်ဆောင်နိုင်စေသည့် batch processing interface ကို မိတ်ဆက်ပေးသွားပါမည်။
 
-Sometimes a given algorithm has to be executed repeatedly with different inputs.
-This is, for instance, the case when a set of input files have to be converted
-from one format to another, or when several layers in a given projection must
-be converted into another projection.
+တစ်ခါတရံတွင် algorithm တစ်ခုကို အမျိုးမျိုးသော input များဖြင့် ထပ်ခါတလဲလဲ လုပ်ဆောင်ရသည်များရှိပါသည်။ ဥပမာအားဖြင့် input ဖိုင်များကို format တစ်ခုမှ အခြား format တစ်ခုသို့ ပြောင်းလဲပေးခြင်း သို့မဟုတ် layer များစွာကို projection တစ်ခုမှ အခြား projection တစ်ခုသို့ ပြောင်းလဲပေးခြင်းမျိုး ဖြစ်ပါသည်။
 
-In that case, calling the algorithm repeatedly on the toolbox is not the best
-option. Instead, the batch processing interface should be used, which greatly
-simplifies performing a multiple execution of a given algorithm. To run an
-algorithm as a batch process, find it in the toolbox, and instead of
-double--clicking on it, right--click on it and select *Run as batch process*.
+ထိုသို့သောကိစ္စမျိုးတွင် algorithm ကို ထပ်ခါတလဲလဲ toolbox မှခေါ်ယူလုပ်ဆောင်နေရခြင်းသည် အကောင်းဆုံး option မဟုတ်ပါ။ ထိုအစား algorithm တစ်ခုကို အကြိမ်များစွာ လုပ်ဆောင်ပေးနိုင်သော batch processing interface ကိုအသုံးပြုသင့်ပါသည်။ Algorithm တစ်ခုကို batch process တစ်ခုအနေဖြင့် run ရန် toolbox ထဲတွင် algorithm ကိုရှာဖွေပြီး right--click နှိပ်ကာ  *Run as batch process* ကိုရွေးချယ်ပေးပါ။
 
 .. figure:: img/batch_conversion/batch_menu.png
 
-For this example, we will use the *Reproject algorithm*, so find it and do
-as described above. You will get to the following dialog.
+ဤဥပမာတွင် *Reproject algorithm* ကိုအသုံးပြုပါမည်၊ ထို့ကြောင့် algorithm ကိုရှာဖွေပြီး အထက်တွင်ဖော်ပြထားသည့်အတိုင်း လုပ်ဆောင်ပါ။ အောက်ပါ dialog ကို ရရှိပါလိမ့်မည်။
 
 .. figure:: img/batch_conversion/batch_dialog.png
 
-If you have a look at the data for this lesson, you will see that it contains
-a set of three shapefiles, but no QGIS project file. This is because, when an
-algorithm is run as a batch process, layer inputs can be selected either from
-the current QGIS project or from files. That makes it easier to process large
-amounts of layers, such as, for instance, all the layers in a given folder.
+ဤသင်ခန်းစာအတွက် data ကိုကြည့်ပါက shapefiles ၃ ခုပါဝင်ပြီး QGIS project ဖိုင်မပါဝင်သည်ကို တွေ့ရပါမည်။ ထိုသို့ဖြစ်ရခြင်းမှာ algorithm ကို batch process တစ်ခုအနေဖြင့် run သောအခါ input layer များကို လက်ရှိ QGIS project မှ သို့မဟုတ် ဖိုင်များမှ ရွေးချယ်ပေးနိုင်သောကြောင့်ဖြစ်သည်။ ပမာဏများပြားသော layer များ၊ ဥပမာ- Folder တစ်ခုထဲရှိ layer များအားလုံးကို process လုပ်ဆောင်ရာတွင် လွယ်ကူစေမည်ဖြစ်ပါသည်။
 
-Each row in the table of the batch processing dialog represents a single
-execution of the algorithm. Cells in a row correspond to the parameter
-needed by the algorithm, which are not arranged one above the other, as
-in the normal single--execution dialog, but horizontally in that row.
+Batch processing dialog ၏ ဇယားထဲရှိ row တစ်ခုချင်းစီသည် algorithm တစ်ကြိမ်လုပ်ဆောင်ခြင်းကို ကိုယ်စားပြုပါသည်။ Row တစ်ခုထဲရှိ cell များသည် algorithm မှ လိုအပ်သော parameter နှင့်သက်ဆိုင်ပြီး၊ သာမန် single--execution dialog ထဲတွင်ကဲ့သို့ တစ်ခုအပေါ်တွင်တစ်ခု စီစဉ်ထားရှိခြင်းမရှိပဲ အဆိုပါ row ထဲတွင် ရေပြင်ညီ စီစဉ်ထားရှိပါသည်။
 
-Defining the batch process to run is done by filling the table with the
-corresponding values, and the dialog itself contains several tools to
-make this task easier.
+Batch process ကိုလုပ်ဆောင်ရန် ဇယားထဲတွင် သက်ဆိုင်ရာတန်ဖိုးများဖြင့်ဖြည့်သွင်းပြီး သတ်မှတ်ပေးပါသည်၊ လုပ်ဆောင်ရလွယ်ကူစေရန် dialog ထဲတွင် tool များစွာ ပါရှိပါသည်။
 
-Let's start filling the fields one by one. The first column to fill is
-the *Input layer* one. Instead of entering the names of each one of the layers
-we want to process, you can select all of them and let the dialog put one in
-each row. Click on the button in the upper-left cell, and in the file selection
-dialog that will popup, select the three files to reproject. Since only one of
-them is needed for each row, the remaining ones will be used to fill the rows
-underneath.
+Field တစ်ခုချင်းစီ စတင်ဖြည့်သွင်းပါမည်။ ပထမဦးဆုံးဖြည့်သွင်းရမည့် column သည် *Input layer* column ဖြစ်ပါသည်။ Process လုပ်ဆောင်လိုသော layer တစ်ခုချင်းစီ၏ နာမည်များကို ရိုက်ထည့်မည့်အစား layer များအားလုံးကိုရွေးချယ်နိုင်ပြီး row တစ်ခုလျှင် layer တစ်ခုစီ ထားရှိနိုင်ပါသည်။ ဘယ်ဘက်အပေါ် cell ထဲရှိ ခလုတ်ကို နှိပ်ပါက ဖိုင်ရွေးချယ်ခြင်း dialog ပေါ်လာမည်ဖြစ်ပြီး projection ပြောင်းလဲမည့် ဖိုင် ၃ ဖိုင်ကို ရွေးချယ်ပါ။ Row တစ်ခုချင်းစီအတွက် ဖိုင်တစ်ခုစီသာ လိုအပ်သောကြောင့် ကျန်ရှိသောဖိုင်များကို အောက် row များတွင် ဖြည့်သွင်းသွားမည်ဖြစ်ပါသည်။
 
 .. figure:: img/batch_conversion/first_column_filled.png
 
-The default number of rows is 3, which is exactly the number of layers we have
-to convert, but if you select more layers, new rows will be added automatically.
-If you want to fill the entries manually, you can add more rows using the *Add row* button.
+Default row အရေအတွက်သည် ၃ ခုဖြစ်ပြီး ယခု projection ပြောင်းလဲမည့် layer အရေအတွက်သည်လည်း ၃ ခုဖြစ်ပါသည်၊ သို့သော် layer များစွာကိုရွေးချယ်ပါက row အသစ်များကို အလိုအလျောက်ထည့်သွင်ပေးမည်ဖြစ်ပါသည်။ Row များကို ကိုယ်တိုင် ဖြည့်သွင်းလိုပါက  *Add row* ခလုတ်ကို အသုံးပြုပြီး နောက်ထပ် row များထည့်သွင်းနိုင်ပါသည်။
 
-We are going to convert all those layers to the EPSG:23029 CRS, so we have to
-select that CRS in the second field. We want the same on for all rows, but we
-do not have to do it for every single row. Instead, set that CRS for the first
-row (the one at the top) using the button in the corresponding cell, and then
-double click on the column header. That causes all the cells in the column to
-be filled using the value of the top cell.
+ထို layer များအားလုံးကို EPSG:23029 CRS သို့ projection ပြောင်းလဲမည်ဖြစ်သောကြောင့် ဒုတိယ field ထဲတွင် ထို CRS ကို ရွေးချယ်ပေးရပါမည်။ Row များအားလုံးအတွက် အတူတူလုပ်ဆောင်လိုပါသည်၊ သို့သော် row တစ်ခုချင်းစီအတွက် ရွေးချယ်ပေးရန်မလိုအပ်ပါ။ ထိုအစား ပထမ row (ထပ်ဆုံးတွင်ရှိသော row) အတွက် CRS ကိုသတ်မှတ်ပေးပြီး column ခေါင်းစီးပေါ်တွင် click နှစ်ချက်နှိပ်ပါက ထိပ်ဆုံး cell ၏တန်ဖိုးကို column ထဲရှိ cell များအားလုံးတွင် ဖြည့်သွင်းပေးမည်ဖြစ်သည်။
 
 .. figure:: img/batch_conversion/second_column_filled.png
 
-Finally, we have to select an output file for each execution, which will contain
-the corresponding reprojected layer. Once again, let's do it just for the first row.
-Click on the button in the upper cell and, in a folder where you want to put
-your output files, enter a filename (for instance, ``reprojected.shp``).
 
-Now, when you click *OK* on the file selection dialog, the file does not
-automatically gets written to the cell, but an input box like the following
-one is shown instead.
+နောက်ဆုံးတွင် လုပ်ဆောင်မှုတစ်ခုချင်းစီအတွက် သက်ဆိုင်ရာ projection ပြောင်းလဲထားသော layer ပါဝင်သည့် output ဖိုင်ရွေးချယ်ပေးရပါမည်။ ဒီတစ်ကြိမ်တွင်လည်း ပထမဆုံး row အတွက်သာ လုပ်ဆောင်ပါမည်။ အပေါ်ဆုံး cell ထဲရှိ ခလုတ်ကိုနှိပ်ပြီး output ဖိုင်များကိုထားရှိလိုသော folder ကိုရွေးချယ်ပြီး ဖိုင်နာမည်တစ်ခုပေးပါ (ဥပမာ- ``reprojected.shp``)။
+
+ဖိုင်ရွေးချယ်ခြင်း dialog တွင် *OK* နှိပ်သောအခါ cell ထဲတွင် ဖိုင်ကို အလိုအလျောက် ရေးသွင်းပေးမည်မဟုတ်ပါ၊ သို့သော် အောက်ပါပုံစံကဲ့သို့ input box တစ်ခုပေါ်လာပါမည်။
 
 .. figure:: img/batch_conversion/autofill.png
 
-If you select the first option, only the current cell will be filled. If you
-select any of the other ones, all the rows below will be filled with a given
-pattern. In this case, we are going to select the *Fill with parameter value*
-option, and then the *Input Layer* value in the drop down menu below.
-That will cause the value in the *Input Layer* (that is, the layer name) to
-be added to the filename we have added, making each output filename different.
-The batch processing table should now look like this.
+ပထမဆုံး option ကိုရွေးချယ်ပါက လက်ရှိ cell တွင်သာ ဖြည့်သွင်းပါလိမ့်မည်။ အခြားသော option ကိုရွေးချယ်ပါက အောက်တွင်ရှိသော rows များအားလုံးတွင် သတ်မှတ်ထားသောပုံစံအတိုင်း ဖြည့်သွင်းပေးပါလိမ့်မည်။ ဤဥပမာတွင် *Fill with parameter value* ကိုရွေးချယ်မည်ဖြစ်ပြီး အောက်ရှိ drop down menu တွင် *Input Layer* တန်ဖိုးကို ရွေးချယ်မည်ဖြစ်သည်။ ထိုသို့လုပ်ခြင်းဖြင့် *Input Layer* ထဲရှိတန်ဖိုး (layer နာမည်) ကို output ဖိုင်နာမည်တွင် ထည့်သွင်းပေးမည်ဖြစ်ပြီး output ဖိုင်နာမည်တစ်ခုစီကို ကွဲပြားစေပါသည်။ ယခုအခါ Batch processing ဇယားသည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်။ 
 
 .. figure:: img/batch_conversion/complete.png
 
-The last column sets whether or not to add the resulting layers to the
-current QGIS project. Leave the default *Yes* option, so you can see your
-results in this case.
+နောက်ဆုံး column သည် ရလာဒ် layer များကို လက်ရှိ QGIS project ထဲသို့ ထည့်သွင်း/မသွင်းကို သတ်မှတ်ပေးပါသည်။ ရလာဒ်ကို မြင်တွေ့နိုင်စေရန်အတွက် default option ဖြစ်သော *Yes* ကိုရွေးချယ်ထားပေးပါ။
 
-Click on *OK* and the batch process will be run. If everything went fine,
-all your layers will have been processed, and 3 new layers would have been created.
+*OK* ကိုနှိပ်ပါက batch process စတင် run ပါလိမ့်မည်။ အရာအားလုံးအဆင်ပြေပါက layer အသစ် ၃ ခုကို ဖန်တီးပေးပါလိမ့်မည်။

@@ -1,115 +1,117 @@
 .. _tm_start_modeler:
 
-Starting with the model designer
-============================================================
+Model designer စတင်အသုံးပြုခြင်း (Starting with the model designer)
+========================================================================
 
-.. note:: In this lesson we will use the model designer, a powerful component that we can use to define a workflow and run a chain of algorithms.
+.. note:: Workflow တစ်ခုကိုသတ်မှတ်ရန်နှင့် algorithm များကိုတစ်ခုနှင့်တစ်ခုချိတ်ဆက် run ရာတွင်အသုံးပြုနိုင်သည့် model designer ကို ဤသင်ခန်းစာတွင် အသုံးပြုသွားပါမည်။
 
-A normal session with the processing tools includes more than running a single algorithm. Usually several of them are run to obtain a result, and the outputs of some of those algorithms are used as input for some of the other ones.
+Processing tool များဖြင့်လုပ်ဆောင်သော သာမန်အပိုင်းများတွင် algorithm တစ်ခုထက်ပိုပြီး run ရခြင်းများ ပါဝင်ပါသည်။ ရလာဒ်တစ်ခုကိုရရှိရန် algorithm များစွာကို run ပေးရပြီး ထို algorithm များမှရရှိသော output များကို အခြားသော algorithm များတွင် input အနေဖြင့် အသုံးပြုကြပါသည်။
 
-Using the model designer, that workflow can be put into a model, which will run all the necessary algorithms in a single run, thus simplifying the whole process and automating it.
+Model designer ကိုအသုံးပြုပါက model တစ်ခုထဲတွင် လုပ်ဆောင်ရမည့် workflow ကိုထည့်သွင်းပေးနိုင်ပြီး လိုအပ်သော algorithm များအားလုံးကို တစ်ကြိမ်တည်း run နိုင်မည်ဖြစ်ပါသည်။ ထို့ကြောင့် လုပ်ငန်းစဉ်တစ်ခုလုံးကို ရိုးရှင်းစေပြီး အလိုအလျောက်လုပ်ဆောင်စေနိုင်ပါသည်။
 
-To start this lesson, we are going to calculate a parameter named Topographic Wetness Index. The algorithm that computes it is called :guilabel:`Topographic wetness index (twi)`.
+ဤသင်ခန်းစာအစတွင် Topographic Wetness Index ဟုခေါ်သော parameter တစ်ခုကို တွက်ချက်ပါမည်။ ထို parameter ကိုတွက်ချက်မည့် algorithm ကို :guilabel:`Topographic wetness index (twi)` ဟုခေါ်ပါသည်။
 
 .. figure:: img/modeler_twi/twi.png
 
-As you can see, there are two mandatory inputs: *Slope* and *Catchment area*. There is also an optional input, but we will not be using it, so we can ignore it. 
+မြင်တွေ့ရသည့်အတိုင်း မဖြစ်မနေထည့်သွင်းပေးရမည့် input နှစ်ခုရှိပါသည်- *Slope* နှင့် *Catchment area* တို့ဖြစ်ပါသည်။ Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုသော) input တစ်ခုလည်း ရှိပါသေးသည်၊ သို့သော် ၎င်းကို အသုံးပြုမည်မဟုတ်သည့်အတွက် ချန်ထားခဲ့နိုင်ပါသည်။
 
-The data for this lesson contains just a DEM, so we do not have any of the required inputs. However, we know how to calculate both of them from that DEM, since we have already seen the algorithms to compute slope and catchment area. So we can first compute those layers and then use them for the TWI algorithm.
+ဤသင်ခန်းစာအတွက် DEM data တစ်ခုသာပါဝင်ပါသည်၊ ထို့ကြောင့် ကျွန်ုပ်တို့တွင် လိုအပ်သော input များမရှိသေးပါ။ သို့သော် slope နှင့် catchment area ကိုတွက်ချက်ရန် algorithm များကို လေ့လာခဲ့ပြီးဖြစ်သောကြောင့် DEM မှ ၎င်းတို့နှစ်ခုကို တွက်ချက်သည့်နည်းကို သိရှိပြီးဖြစ်ပါသည်။ ထို့ကြောင့် ထို layer နှစ်ခုကို ဦးစွာတွက်ချက်ပြီး TWI algorithm ထဲတွင် ထည့်သွင်းအသုံးပြုမည်ဖြစ်ပါသည်။
 
-Here are the parameter dialogs that you should use to calculate the 2 intermediate layers.
+ထို လိုအပ်သည့် input layer နှစ်ခုကို တွက်ချက်ရန် အသုံးပြုသင့်သည့် parameter များမှ အောက်ပါအတိုင်းဖြစ်ပါသည်။
 
-.. note:: Slope must be calculated in radians, not in degrees.
+.. note:: Slope ကို radians ဖြင့် တွက်ချက်ရမည်ဖြစ်ပါသည်၊ degrees ဖြင့်မတွက်ချက်ရပါ။
 
 .. figure:: img/modeler_twi/slope.png
 
 .. figure:: img/modeler_twi/area.png
 
-And this is how you have to set the parameters dialog of the TWI algorithm.
+TWI algorithm တွင်သတ်မှတ်ပေးရမည့် parameter များမှာ အောက်ပါအတိုင်းဖြစ်ပါသည်။
 
 .. figure:: img/modeler_twi/twi_filled.png
 
-This is the result that you will obtain (the default singleband pseudocolor inverted palette has been used for rendering). You can use the :file:`twi.qml` style provided.
+
+ရရှိလာမည့် ရလာဒ်သည် အောက်ပါအတိုင်းဖြစ်ပါသည် (ပုံဖော်ပြသရန်အတွက် default ဖြစ်သော singleband pseudocolor inverted palette ကိုအသုံးပြုထားပါသည်)။ ပေးထားသော :file:`twi.qml` style ကိုအသုံးပြုနိုင်ပါသည်။
 
 .. figure:: img/modeler_twi/twi_layer.png
 
 What we will try to do now is to create an algorithm that calculates the TWI from a DEM in just one single step. That will save us work in case we later have to compute a TWI layer from another DEM, since we will need just one single step to do it instead of the three above. All the processes that we need are found in the  toolbox, so what we have to do is to define the workflow to wrap them. This is where the model designer comes in.
+ယခုအခါ DEM တစ်ခုမှ TWI ကို အဆင့်တစ်ဆင့်တည်းဖြင့် တွက်ချက်ရန် algorithm တစ်ခုကိုဖန်တီးမည်ဖြစ်ပါသည်။ အဆင့် ၃ ဆင့်လုပ်ဆောင်ရမည့်အစား အဆင့်တစ်ဆင့်တည်းဖြင့်လုပ်ဆောင်နိုင်သောကြောင့် နောက်ပိုင်းတွင် အခြားသော DEM တစ်ခုမှ TWI တွက်ချက်ရန်ရှိပါက လွယ်ကူစေမည်ဖြစ်ပါသည်။ လိုအပ်သော လုပ်ငန်းစဉ်များအားလုံးကို toolbox ထဲတွင်တွေ့နိုင်ပြီး ၎င်းတို့ကိုစုစည်းပြီး workflow ကိုသတ်မှတ်ရပါမည်။ Model designer ကိုဖွင့်ရန်-
 
-#. Open the modeler by selecting its menu entry in the processing menu.
+#. Processing menu ထဲမှ modeler ကိုဖွင့်ပါ။
 
    .. figure:: img/modeler_twi/modeler.png
 
-   Two things are needed to create a model: setting the inputs that it will need, and defining the algorithm that it contains. Both of them are done by adding elements from the two tabs in the left-hand side of the modeler window: :guilabel:`Inputs` and :guilabel:`Algorithms`.
+   Model တစ်ခုဖန်တီးရန် အချက်နှစ်ချက် လိုအပ်ပါသည်- လိုအပ်သော input များကို သတ်မှတ်ခြင်းနှင့် algorithm ကိုသတ်မှတ်ခြင်းဖြစ်ပါသည်။ Model window ၏ ဘယ်ဘက်ခြမ်းရှိ :guilabel:`Inputs` နှင့် :guilabel:`Algorithms` tab နှစ်ခုမှ ထို element နှစ်ခုကို ထည့်သွင်းနိုင်ပါသည်။
 
-#. Let's start with the inputs. In this case we do not have much to add. We just need a raster layer with the DEM, and that will be our only input data.
+#. Input ကိုအရင်ထည့်သွင်းပါမည်။ ဤဥပမာတွင် input များစွာ ထည့်သွင်းရန်မလိုပါ။ တစ်ခုတည်းသော Input data အဖြစ် DEM raster layer ကိုသာ လိုအပ်ပါသည်။
 
-#. Double click on the :guilabel:`Raster layer` input and you will see the following dialog.
+#. :guilabel:`Raster layer` input ကို click နှစ်ချက်နှိပ်ပါက အောက်ပါ dialog ကိုတွေ့ရပါမည်။
 
    .. figure:: img/modeler_twi/raster_input.png
 
-#. Here we will have to define the input we want:
+#. ဤနေရာတွင် လိုချင်သော input ကို သတ်မှတ်ပေးရပါမည်-
 
-   #. Since we expect this raster layer to be a DEM, we will call it ``DEM``. That's the name that the user of the model will see when running it.
-   #. Since we need that layer to work, we will define it as a mandatory layer.
+   #. DEM raster layer ကိုထည့်သွင်းလိုသောကြောင့် ``DEM`` ဟုနာမည်ပေးပါမည်။ ၎င်းနာမည်သည် model တွင်မြင်တွေ့ရမည့်နာမည်ဖြစ်ပါသည်။
+   #. ထို layer ဖြင့်အလုပ်လုပ်ဆောင်ရန် လိုအပ်သောကြောင့် ၎င်းကို mandatory (မဖြစ်မနေလိုအပ်သော) layer အဖြစ်သတ်မှတ်ပါမည်။
 
-   Here is how the dialog should be configured.
+   အောက်ပါအတိုင်း dialog တွင် သတ်မှတ်သင့်ပါသည်။
 
    .. figure:: img/modeler_twi/raster_input_filled.png
 
-#. Click on :guilabel:`OK` and the input will appear in the modeler canvas.
+#. :guilabel:`OK` ကိုနှိပ်ပါက input သည် modeler canvas ထဲတွင် ပေါ်လာပါလိမ့်မည်။
 
    .. figure:: img/modeler_twi/canvas_1.png
 
-#. Now let's move to the :guilabel:`Algorithms` tab.
-#. The first algorithm we have to run is the :guilabel:`Slope, aspect, curvature` algorithm.
-   Locate it in the algorithm list, double-click on it and you will see the dialog shown below.
+#. :guilabel:`Algorithms` tab ကိုနှိပ်ပါ။
+#. ပထမဦးဆုံး run ရမည့် algorithm သည် :guilabel:`Slope, aspect, curvature` algorithm ဖြစ်ပါသည်။ Algorithm စာရင်းထဲတွင် ၎င်းကိုရှာဖွေပြီး click နှစ်ချက်နှိပ်ပါ၊ အောက်ပါ dialog ကိုမြင်တွေ့ရပါမည်။
 
    .. figure:: img/modeler_twi/slope_modeler.png
 
-   This dialog is very similar to the one that you can find when running the algorithm from the toolbox, but the element that you can use as parameter values are not taken from the current QGIS project, but from the model itself. That means that, in this case, we will not have all the raster layers of our project available for the *Elevation* field, but just the ones defined in our model. Since we have added just one single raster input named ``DEM``, that will be the only raster layer that we will see in the list corresponding to the :guilabel:`Elevation` parameter. 
+   ဤ dialog သည် toolbox မှ algorithm ကို run သောအခါတွေ့ရသည့် dialog နှင့် များစွာဆင်တူပါသည်၊ သို့သော် parameter တန်ဖိုးများအဖြစ် အသုံးပြုနိုင်သည့် element များသည် လက်ရှိ QGIS project မှ ယူထားခြင်းမဟုတ်ပါ၊ model ထဲမှ ယူထားခြင်းဖြစ်ပါသည်။ ဆိုလိုသည်မှာ *Elevation* field အတွက်ထည့်သွင်းရာတွင် project ထဲတွင်ရှိသော raster layer များအားလုံးကိုအသုံးပြုနိုင်မည်မဟုတ်ပဲ model ထဲတွင်သတ်မှတ်ပေးထားသော raster layer များကိုသာ အသုံးပြုနိုင်ပါမည်။ Model ထဲတွင် ``DEM`` ဟုနာမည်ပေးထားသော raster input တစ်ခုတည်းသာရှိသည့်အတွက် :guilabel:`Elevation` parameter ထဲတွင် ထို DEM raster layer ကိုသာ မြင်တွေ့ရမည်ဖြစ်သည်။
 
-   Output generated by an algorithm are handled a bit differently when the algorithm is used as a part of a model. Instead of selecting the filepath where you want to save each output, you just have to specify if that output is an intermediate layer (and you do not want it to be preserved after the model has been executed), or it is a final one. In this case, all layers produced by this algorithm are intermediate. We will only use one of them (the slope layer), but we do not want to keep it, since we just need it to calculate the TWI layer, which is the final result that we want to obtain.
+   Algorithm ကို model တစ်ခု၏ အစိတ်အပိုင်းတစ်ခုအဖြစ်အသုံးပြုသောအခါ algorithm မှထွက်လာသော output ကို ကိုင်တွယ်ပုံသည် အနည်းငယ်ကွဲပြားပါသည်။ Output တစ်ခုချင်းစီကိုသိမ်းဆည်းရန် ဖိုင်လမ်းကြောင်းရွေးချယ်ပေးရမည့်အစား ထို output သည် intermediate layer တစ်ခု (ကြားအဆင့်တွင် လိုအပ်သော layer) ဟုတ်/မဟုတ် သို့မဟုတ် နောက်ဆုံး output တစ်ခု ဟုတ်/မဟုတ်ကိုသာ သတ်မှတ်ပေးရမည်ဖြစ်သည်။ ဤဥပမာတွင် ယခု algorithm မှထွက်လာသော layer များအားလုံးသည် intermediate layer များဖြစ်ပါသည်။ ၎င်း layer များထဲမှ တစ်ခု (slope layer) ကိုသာ အသုံးပြုမည်ဖြစ်ပြီး ထို layer ကို သိမ်းဆည်းမထားလိုပါ၊ ထို layer သည် နောက်ဆုံးရလာဒ်ဖြစ်သည့် TWI layer ကိုတွက်ချက်ရန်အတွက်သာ လိုအပ်သောကြောင့်ဖြစ်သည်။
 
-   When layers are not a final result, you should just leave the corresponding field. Otherwise, you have to enter a name that will be used to identify the layer in the parameters dialog that will be shown when you run the model later.
+   Layer များသည် နောက်ဆုံးရလာဒ်တစ်ခုမဟုတ်သောအခါ သက်ဆိုင်ရာ field များကို ဒီအတိုင်းသာ ချန်ထားခဲ့သင့်ပါသည်။ ထိုသို့မဟုတ်ပါက နောက်ပိုင်း model ကို run သောအခါပြသပေးမည့် parameter dialog ထဲတွင် layer ကိုသတ်မှတ်ပေးရန် နာမည်တစ်ခုကို ထည့်သွင်းပေးနေရပါမည်။
 
-#. There is not much to select in this first dialog, since we do not have but just one layer in our model (The DEM input that we created). Actually, the default configuration of the dialog is the correct one in this case, so you just have to press :guilabel:`OK`. This is what you will now have in the modeler canvas.
+#. Model ထဲတွင် layer (DEM input) တစ်ခုသာရှိသောကြောင့် ပထမဆုံး dialog ထဲတွင် ရွေးချယ်ပေးရန် များစွာ မရှိပါ။ ဤဥပမာတွင် Dialog ၏ default configuration သည်မှန်ကန်သောကြောင့် :guilabel:`OK` ကိုသာနှိပ်ပါ။ Modeler canvas ထဲတွင် အောက်ပါအတိုင်းရရှိပါလိမ့်မည်။
 
    .. figure:: img/modeler_twi/canvas_2.png
 
-#. The second algorithm we have to add to our model is the catchment area algorithm. We will use the algorithm named *Catchment area (Paralell)*. We will use the DEM layer again as input, and none of the ouputs it produces are final, so here is how you have to fill the corresponding dialog.
+#. Model ထဲသို့ ထည့်သွင်းရမည့် ဒုတိယ algorithm သည် catchment area algorithm ဖြစ်ပါသည်။ *Catchment area (Paralell)* ဟုခေါ်သော algorithm ကိုအသုံးပြုပါမည်။ Input အနေဖြင့် DEM layer ကိုထပ်မံအသုံးပြုမည်ဖြစ်ပြီး ထွက်ရှိလာမည့် output များသည် နောက်ဆုံးရလာဒ်မဟုတ်သေးပါ၊ ထို့ကြောင့် သက်ဆိုင်ရာ dialog ထဲတွင် အောက်ပါအတိုင်း ဖြည့်ပေးရပါမည်။
 
    .. figure:: img/modeler_twi/area_modeler.png
 
-   Now your model should look like this.
+   Model သည်အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည်။
 
    .. figure:: img/modeler_twi/canvas_3.png
 
-#. The last step is to add the :guilabel:`Topographic wetness index` algorithm, with the following configuration.
+#. နောက်ဆုံးအဆင့်အနေဖြင့် :guilabel:`Topographic wetness index` algorithm ကို အောက်ပါ configuration များဖြင့် ထည့်သွင်းရပါမည်။
 
    .. figure:: img/modeler_twi/twi_modeler.png
 
-   In this case, we will not be using the DEM as input, but instead, we will use the slope and catchment area layers that are calculated by the algorithms that we previously added. As you add new algorithms, the outputs they produce become available for other algorithms, and using them you link the algorithms, creating the workflow.
+   ဤအဆင့်တွင် DEM ကို input အနေဖြင့် အသုံးပြုမည်မဟုတ်ပဲ slope နှင့် catchment area layer များကို input အဖြစ်အသုံးပြုမည်ဖြစ်ပါသည်။ Algorithm အသစ်များကို ထည့်သွင်းထားသောကြောင့် ၎င်းတို့မှ ထွက်လာသော output များကို အခြားသော algorithm များအတွက် အချိတ်အဆက်အဖြစ် အသုံးပြုနိုင်ပြီး workflow ကိုဖန်တီးပေးမည်ဖြစ်ပါသည်။
 
-#. In this case, the output ``TWI`` layer is a final layer, so we have to indicate so. In the corresponding textbox, enter the name that you want to be shown for this output.
+#. Output ``TWI`` layer သည် နောက်ဆုံးရလာဒ် layer ဖြစ်ပါသည်၊ ထို့ကြောင့် သက်ဆိုင်ရာ စာသား box ထဲတွင် output အတွက် ပြသပေးလိုသည့် နာမည်ကို ထည့်သွင်းပေးရပါမည်။
 
-   Now our model is finished and it should look like this.
+   ယခုအခါ model သည် ပြီးဆုံးပြီဖြစ်ကာ အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်။
 
    .. figure:: img/modeler_twi/canvas_4.png
 
-#. Enter a name and a group name in the upper part of the model window. 
+
+#. Model window ၏ အပေါ်ပိုင်းတွင် နာမည်တစ်ခုနှင့် အုပ်စုနာမည်တစ်ခုကို ထည့်ပေးပါ။
 
    .. figure:: img/modeler_twi/model_name.png
 
-#. Save it clicking on the :guilabel:`Save` button. You can save it anywhere you want and open it later, but if you save it in the models folder (which is the folder that you will see when the save file dialog appears), your model will also be available in the toolbox as well. So stay on that folder and save the model with the filename that you prefer.
+#. :guilabel:`Save` ခလုတ်ကိုနှိပ်၍ model ကိုသိမ်းဆည်းပါ။ ကြိုက်နှစ်သက်သည့်နေရာတွင် သိမ်းဆည်းနိုင်ပြီး နောက်ပိုင်းတွင် ပြန်ဖွင့်နိုင်ပါသည်၊ သို့သော် ၎င်းကို models folder (ဖိုင်သိမ်းဆည်းခြင်း dialog ပေါ်လာသောအခါ မြင်ရမည့် folder လမ်းကြောင်း) ထဲတွင်သိမ်းဆည်းပါက model ကို toolbox ထဲတွင်လည်း တွေ့ရမည်ဖြစ်ပါသည်။ ထို့ကြောင့် model ကို ထို folder ထဲတွင် သိမ်းဆည်းပြီး ကြိုက်နှစ်သက်ရာနာမည်ပေးပါ။
 
-#. Now close the modeler dialog and go to the toolbox. In the :guilabel:`Models` entry you will find your model.
+#. Modeler dialog ကိုပိတ်ပြီး toolbox ကိုဖွင့်ကြည့်ပါ။ :guilabel:`Models` ထဲတွင် သင်သိမ်းဆည်းထားသော model ကိုတွေ့ရမည်ဖြစ်ပါသည်။
 
    .. figure:: img/modeler_twi/toolbox.png
 
-#. You can run it just like any normal algorithm, double-clicking on it.
+#. သာမာန် algorithm များကဲ့သို့ပင် model ကို click နှစ်ချက်နှိပ်ပြီး run နိုင်ပါသည်။
 
    .. figure:: img/modeler_twi/model_dialog.png
 
-   As you can see, the parameters dialog, contain the input that you added to the model, along with the outputs that you set as final when adding the corresponding algorithms.
+   မြင်တွေ့ရသည့်အတိုင်း parameter dialog တွင် model ထဲသို့ထည့်သွင်းထားသော input နှင့်အတူ နောက်ဆုံးရလာဒ်အဖြစ်သတ်မှတ်ထားသော output ပါဝင်မည်ဖြစ်သည်။ 
 
-#. Run it using the DEM as input and you will get the TWI layer in just one single step.
+#. DEM ကို input အဖြစ်ထည့်သွင်းပြီး algorithm ကို run ပါက အဆင့်တစ်ဆင့်တည်းဖြင့် TWI layer ကို ရရှိမည်ဖြစ်ပါသည်။

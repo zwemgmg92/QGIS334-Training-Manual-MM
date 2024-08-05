@@ -1,36 +1,29 @@
-More iterative execution of algorithms
-=======================================
+နောက်ထပ် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း (More iterative execution of algorithms)
+=========================================================================================
 
-.. note:: This lesson shows how to combine the iterative execution of algorithms with the modeler to get more automation.
+.. note:: ဤသင်ခန်းစာတွင် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်းကို modeler ဖြင့် မည်ကဲ့သို့ ပေါင်းစပ်ရမည်ကို လေ့လာရမည်ဖြစ်သည်။
+
+Algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်းသည် built-in algorithm များသာ အသုံးပြုနိုင်သည်မဟုတ်ပဲ model များကဲ့သို့ မိမိကိုယ်တိုင်ဖန်တီးထားသော algorithm များအတွက်လည်း အသုံးပြုနိုင်ပါသည်။ ပိုမိုရှုပ်ထွေးသော ရလာဒ်များကို အလွယ်တကူရရှိစေနိုင်ရန် Model တစ်ခုနှင့် algorithm များထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်းကို မည်ကဲ့သို့ပေါင်းစပ်ရမည်ကို မြင်တွေ့ရပါမည်။
 
 
-The iterative execution of algorithms is available not just for built-in algorithms, but also for the algorithms that you can create yourself, such as models. We are going to see how to combine a model and the iterative execution of algorithms, so we can obtain more complex results with ease.
+ဤသင်ခန်းစာအတွက် အသုံးပြုမည့် data များသည် ပြီးခဲ့သည့်သင်ခန်းစာတွင်အသုံးပြုခဲ့ပြီးသော data များနှင့် အတူတူဖြစ်ပါသည်။ ဤသင်ခန်းစာတွင် DEM ကို watershed polygon တစ်ခုချင်းစီဖြင့် clip သာပြုလုပ်မည့်အစား အဆင့်အပို အချို့ကို ထည့်သွင်းမည်ဖြစ်ပြီး watershed အတွင်း elevation ပြန့်နှံ့မှုကို လေ့လာရန် watershed တစ်ခုချင်းစီအတွက် hypsometric curve ကိုတွက်ချက်မည်ဖြစ်သည်။
 
+အဆင့်များစွာ (clip ပြုလုပ်ခြင်း + hypsometric curve တွက်ချက်ခြင်း) ပါဝင်သော workflow တစ်ခုဖြစ်သောကြောင့် ထို workflow အတွက် သက်ဆိုင်ရာ model ကို modeler ထဲတွင် ဖန်တီးပါ။ 
 
-The data the we are going to use for this lesson is the same one that we already used for the last one. In this case, instead of just clipping the DEM with each watershed polygon, we will add some extra steps and calculate a hypsometric curve for each of them, to study how elevation is distributed within the watershed.
+ဤသင်ခန်းစာအတွက် data folder ထဲတွင် ဖန်တီးထားပြီးသားဖြစ်သော model ကိုတွေ့နိုင်ပါသည်၊ သို့သော် ပထမဆုံး ကိုယ်တိုင်ကြိုးစားဖန်တီးလျှင် ပိုကောင်းပါသည်။ Curve များကိုသာ စိတ်ဝင်စားသောကြောင့် clip ပြုလုပ်ထားသော layer သည် နောက်ဆုံးရလာဒ်မဟုတ်ပါ၊ ထိုကြောင့် model သည် မည်သည့် layer ကိုမှ ထုတ်ပေးမည်မဟုတ်ပဲ curve data ပါဝင်သော ဇယားတစ်ခုကိုသာ ထုတ်ပေးမည်ဖြစ်သည်။  
 
-Since we have a workflow that involves several steps (clipping + computing the hypsometric curve), we should go to the modeler and create the corresponding model for that workflow.
-
-You can find the model already created in the data folder for this lesson, but it would be good if you first try to create it yourself. The clipped layer is not a final result in this case, since we are just interested in the curves, so this model will not generated any layers, but just a table with the curve data.
-
-The model should look like this:
+Model သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-
 
 .. figure:: img/iterative_model/model.png
 
-Add the model to you models folder, so it is available in the toolbox, and execute it.
+Toolbox ထဲတွင်ပေါ်နေစေရန် model ကို models folder ထဲတွင်သိမ်းဆည်းပါ၊ ထို့နောက် model ကို run ပါ။
 
-Select the DEM and watersheds basins.
+DEM နှင့် watershed basin များကို ရွေးချယ်ပါ။
 
-The algorithm will generate tables for all the basins and place them in the output
-directory.
+Algorithm သည် basin များအားလုံးအတွက် ဇယားများကိုထုတ်ပေးမည်ဖြစ်ပြီး output ဖိုင်လမ်းကြောင်းထဲတွင် ထားရှိပေးပါလိမ့်မည်။
 
-We can make this example more complex by extending the model and computing some slope
-statistics.
-Add the *Slope* algorithm to the model, and then the *Raster statistics* algorithm,
-which should use the slope output as its only input.
+ဤဥပမာကို ပိုမိုရှုပ်ထွေးစေရန် slope စာရင်းအင်းအချက်အလက်အချို့ တွက်ချက်ခြင်းကို ထည့်သွင်းပြီး model ကို ချဲ့ထွင်နိုင်ပါသည်။ Model ထဲသို့ *Slope* algorithm ကိုထည့်သွင်းပါ၊ ထို့နောက် *Raster statistics* algorithm ကိုထည့်သွင်းပြီး ၎င်း၏ တစ်ခုတည်းသော input အနေဖြင့် slope မှ output ကိုအသုံးပြုပါ။
 
 .. figure:: img/iterative_model/model2.png
 
-If you now run the model, apart from the tables you will get a set of pages with
-statistics.
-These pages will be available in the results dialog.
+Model ကို run လိုက်ပါက စာရင်းအင်းအချက်အလက်များပါဝင်သော စာမျက်နှာများကို ရရှိပါလိမ့်မည်။ ထိုစာမျက်နှာများကို results dialog ထဲတွင် တွေ့နိုင်ပါသည်။

@@ -1,33 +1,16 @@
-Introduction
-============
+မိတ်ဆက် (Introduction)
+=======================
 
-This guide describes how to use the QGIS processing framework. It assumes no
-previous knowledge of the Processing framework or any of the applications that
-it rely on. It assumes basic knowledge of QGIS. The chapters about scripting
-assume you have some basic knowledge of Python and maybe the QGIS Python API.
+ဤလမ်းညွှန်တွင် QGIS processing framework အသုံးပြုနည်းများကို ဖော်ပြထားပါသည်။ ယခင်က Processing framework နှင့်ပတ်သက်သော အတွေ့အကြုံ သို့မဟုတ် အသုံးချမှုတစ်ခုခု မရှိခဲ့ပဲ QGIS အခြေခံဗဟုသုတ ရှိသည်ဟုသာ ယူဆထားပါသည်။ Script ရေးသားခြင်းအပိုင်းများ၌ သင့်တွင် Python အခြေခံအချို့နှင့် QGIS Python API အခြေခံအချို့ ရှိသည်ဟု ယူဆထားပါသည်။
 
-This guide is designed for self-study or to be used for running a processing
-workshop.
+မိမိကိုယ်တိုင်လေ့လာရန်အတွက် သို့မဟုတ် processing workshop တစ်ခုလုပ်ဆောင်ရာတွင် အသုံးပြုနိုင်စေရန် ဤလမ်းညွှန်ကို ဒီဇိုင်းရေးဆွဲထားပါသည်။
 
-Examples in this guide use QGIS 3.4. They might not work or not be available in
-versions other than that one.
+ဤလမ်းညွှန်ထဲရှိ ဥပမာများသည် QGIS 3.4 ကိုအသုံးပြုထားပါသည်။ QGIS 3.4 မဟုတ်သည့် အခြား QGIS ဗားရှင်းများတွင် အလုပ်မလုပ်သည်များ သို့မဟုတ် အသုံးမပြုနိုင်သည်များ ရှိနိုင်ပါသည်။
 
-This guide is comprised of a set of small exercises of progressive complexity.
-If you have never used the processing framework, you should start from the very
-beginning. If you have some previous experience, feel free to skip lessons. They
-are more or less independent of each other, and each one introduces some new
-concept or some new element, as indicated in the chapter title and the short
-introduction at the beginning of each chapter. That should make it easy to
-locate lessons dealing with a particular topic.
+ဤလမ်းညွှန်တွင် တစ်ဆင့်ချင်းစီ တိုးပြီး ရှုပ်ထွေးလာသော လေ့ကျင့်ခန်းငယ်လေးများ ပါဝင်ပါသည်။ Processing framework ကိုတစ်ခါမှ အသုံးမပြုဖူးပါက အစ မှ စတင်သင့်ပါသည်။ ယခင်က အတွေ့အကြုံရှိခဲ့ပါက သင်ခန်းစာများကို ကျော်နိုင်ပါသည်။ သင်ခန်းစာများသည် တစ်ခုနှင့်တစ်ခု ချိတ်ဆက်မှု ရှိမနေပဲ သင်ခန်းစာတစ်ခုချင်းစီသည် သဘောတရားအသစ် သို့မဟုတ် အကြောင်းအရာအသစ်ကို မိတ်ဆက်ပေးခြင်းဖြစ်ပါသည်၊ ခေါင်းစဉ်နှင့်အတူ သင်ခန်းစာ၏အစတွင် အကျဉ်းချုံးမိတ်ဆက်ဖြင့် ဖော်ပြထားပါသည်။ ထို့ကြောင့် နှစ်သက်ရာခေါင်းစဉ်ကို အလွယ်တကူ ရွေးချယ်နိုင်ပါသည်။
 
-For a more systematic description of all the framework components and their
-usage, it is recommended to check the corresponding chapter in the user manual.
-Use it as a support text along with this guide.
+Framework အစိတ်အပိုင်းများအားလုံးအကြောင်းနှင့် ၎င်းတို့၏အသုံးပြုပုံများအကြောင်း ပိုမိုသိရှိလိုပါက အသုံးပြုသူလမ်းညွှန်ထဲရှိ သက်ဆိုင်ရာသင်ခန်းစာတွင် သွားရောက်ကြည့်ရှုရန် အကြံပြုပါသည်။ ထိုအသုံးပြုသူလမ်းညွှန်ကို ဤလမ်းညွှန်နှင့်အတူ အကူအဖြစ် တွဲဖက်၍ အသုံးပြုပါ။
 
-All the exercises in this guide use the same free dataset used throughout the
-training manual and referenced at section :ref:`data_downloadlink`. The zip
-file to download contains several folders corresponding to each one of the
-lessons in this guide. In each of them you will find a QGIS project file. Just
-open it and you will be ready to start the lesson.
+ဤလမ်းညွှန်ထဲရှိ လေ့ကျင့်ခန်းများအားလုံးသည် သင်တန်းလက်စွဲတစ်ခုလုံးတွင် အသုံးပြုခဲ့သော အခမဲ့ dataset များကိုပင်အသုံးပြုထားပြီး :ref:`data_downloadlink` အပိုင်းတွင် တွေ့နိုင်ပါသည်။ ဒေါင်းလုဒ်ပြုလုပ်ရမည့် zip ဖိုင်ထဲတွင် ဤလမ်းညွှန်ထဲရှိ သင်ခန်းစာတစ်ခုချင်းစီနှင့်သက်ဆိုင်သော folder များပါရှိပါသည်။ ၎င်းတို့တစ်ခုချင်းစီတွင် QGIS project ဖိုင်တစ်ခုစီ တွေ့ရပါမည်။ ထို project ဖိုင်ကိုသာဖွင့်ပြီး သင်ခန်းစာကို စတင်လုပ်ဆောင်နိုင်ပြီဖြစ်ပါသည်။
 
-Enjoy!
+

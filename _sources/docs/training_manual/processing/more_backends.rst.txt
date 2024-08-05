@@ -1,79 +1,78 @@
-Other programs
-===================
+အခြားပရိုဂရမ်များ (Other programs)
+===================================
 
-Module contributed by Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_
+မော်ဂျူးကို Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_ မှ ပါဝင်ကူညီထားပါသည်။
 
-.. note:: This chapter shows how to use additional programs from inside Processing. To complete it, you must have installed, with the tools of your operating system, the relevant packages.
+.. note:: ဤသင်ခန်းစာတွင် အတွင်းပိုင်း Processing မှ အခြားထပ်ဆောင်းပရိုဂရမ်များကို မည်သို့အသုံးပြုရမည်ကို ပြသပေးမည်ဖြစ်ပါသည်။ သင့်တော်သော package များကို install ပြုလုပ်ထားရပါမည်။
 
 GRASS
 ------
 
-GRASS_ is a free and open source GIS software suite for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization.
+GRASS_ သည် geospatial data စီမံခန့်ခွဲမှုနှင့် analysis ၊ image processing ၊ ဂရပ်ဖစ်များနှင့် မြေပုံထုတ်လုပ်ခြင်း၊ spatial modeling ၊ နှင့် ပုံဖော်ပြသခြင်းတို့အတွက် အခမဲ့အသုံးပြုနိုင်သော GIS software suite တစ်ခုဖြစ်ပါသည်။ 
 
-It is installed by default on Windows through the OSGeo4W standalone installer (32 and 64 bit), and it is packaged for all major Linux distributions.
+Windows များတွင် OSGeo4W standalone installer (32 and 64 bit) မှတဆင့် default အနေဖြင့် GRASS ကို install ပြုလုပ်ပေးပါသည်၊ ၎င်းတွင် အဓိက Linux distribution များအားလုံးအတွက် ပါဝင်ပါသည်။
 
 R
 --
 
-R_ is a free and open source software environment for statistical computing and graphics.
+R_ သည် စာရင်းအင်းအချက်အလက်ဆိုင်ရာတွက်ချက်ခြင်းနှင့် ဂရပ်ဖစ်များအတွက် အခမဲ့အသုံးပြုနိုင်သော software environment တစ်ခုဖြစ်ပါသည်။
 
-It has to be installed separately, together with a few necessary libraries (**LIST**).
-To enable the use of R in QGIS, the *Processing R Provider* plugin must also be installed.
+လိုအပ်သော library (**LIST**) အနည်းငယ်နှင့်အတူ R ကို သီးခြား install ပြုလုပ်ပေးရပါမည်။ QGIS ထဲတွင် R ကိုအသုံးပြုနိုင်စေရန် *Processing R Provider* plugin ကိုလည်း install ပြုလုပ်ပေးရပါမည်။
 
-The beauty of Processing implementation is that you can add your own scripts, simple or complex ones, and they may then be used as any other module, piped into more complex workflows, etc.
+Processing implementation ၏ အဓိကအချက်သည် ရိုးရှင်းသော သို့မဟုတ် ရှုပ်ထွေးသော သင့်ကိုယ်ပိုင် script များကိုထည့်သွင်းပေးနိုင်ပြီး ၎င်းတို့ကို အခြားသောမော်ဂျူးတစ်ခုခုအဖြစ် အသုံးပြုနိုင်ခြင်းဖြစ်ပါသည်။
 
-Test some of the preinstalled examples, if you have R_ already installed (remember to activate R modules from the General configuration of Processing).
+R_ ကို install ပြုလုပ်ထားပြီးသားဖြစ်ပါက (Processing ၏ General configuration မှ R မော်ဂျူးကို activate လုပ်ရန် မမေ့ပါနှင့်) ကြိုပေးထားသော ဥပမာအချို့ကို စမ်းသပ်ကြည့်ပါ။
 
-Others
--------
+အခြားသောအရာများ (Others)
+-------------------------
 
-LASTools_ is a set of mixed, free and proprietary commands to process and analyze LiDAR data. Availability in various operating system varies.
+LASTools_  သည် LiDAR data များကို process လုပ်ရန်နှင့် ဆန်းစစ်လေ့လာရန် အခမဲ့ နှင့် စီးပွားဖြစ် command များကို ရောထားသောအစုတစ်ခုဖြစ်ပါသည်။ Operating system အမျိုးမျိုးပေါ်မူတည်ပြီး ရရှိနိုင်မှု ကွဲပြားပါသည်။
 
-More tools are available through additional plugins, e.g.:
+ထပ်ဆောင်း plugin များမှတဆင့် နောက်ထပ် tool များအသုံးပြုနိုင်ပါသည်၊ ဥပမာ-
 
-* LecoS_:  a suite for land cover statistics and landscape ecology
-* lwgeom_: formerly part of PostGIS, this library brings a few useful tools for geometry cleanup
-* Animove_: tools to analyse the home range of animals.
+* LecoS_:  မြေယာဖုံးလွှမ်းမှု စာရင်းအင်းအချက်အလက်များနှင့် တောတောင်ရေမြေ ဂေဟဗေဒ အတွက် suite တစ်ခုဖြစ်ပါသည်။
+* lwgeom_: PostGIS ၏အစိတ်အပိုင်းဟောင်းဖြစ်ပြီး၊ ဤ library တွင် ဂျီဩမေတြီ သန့်စင်ခြင်းအတွက် အသုံးဝင်သော tool အချို့ပါဝင်ပါသည်။
+* Animove_: တိရစ္ဆာန်များ၏ နေထိုင်ရာ အကွာအဝေးအပိုင်းအခြားကို ဆန်းစစ်လေ့လာရန် tool များဖြစ်ပါသည်။
 
-More will come.
+နောက်ထပ် tool များလာပါဦးမည်။
 
-Comparison among backends
----------------------------
+Backends များအကြား နှိုင်းယှဉ်ချက် (Comparison among backends)
+---------------------------------------------------------------
 
-Buffers and distances
-.......................
+ကြားခံဇုန်များနှင့် အကွာအဝေးများ (Buffers and distances)
+.........................................................
 
-Let's load ``points.shp`` and type ``buf`` in the filter of the Toolbox, then double click on:
+``points.shp`` ကိုထည့်သွင်းပြီး Toolbox ၏ filter ထဲတွင် ``buf`` ဟုရိုက်ပြီး ၎င်းပေါ်တွင် click နှစ်ချက်နှိပ်ပါ-
 
 - :menuselection:`Fixed distance buffer`: Distance 10000
 - :menuselection:`Variable distance buffer`: Distance field SIZE
 - :menuselection:`v.buffer.distance`: distance 10000
 - :menuselection:`v.buffer.column`: bufcolumn SIZE
-- :menuselection:`Shapes Buffer`: fixed value 10000 (dissolve and not), attribute field (with scaling)
+- :menuselection:`Shapes Buffer`: ပုံသေတန်ဖိုး 10000 (dissolve လုပ်ခြင်းနှင့် dissolve မလုပ်ခြင်း)၊ attribute field (scaling ဖြင့်)
 
-See how speed is quite different, and different options are available.
+လုပ်ဆောင်မှုမြန်နှုန်း မည်မျှကွာခြားသည်ကို ကြည့်ပါ၊ မတူညီသော option များလည်းရရှိနိုင်ပါသည်။
 
-**Exercise for the reader**: find the differences in geometry output between different methods.
+**ဖတ်ရှုသူများအတွက် လေ့ကျင့်ခန်း** - မတူညီသော နည်းလမ်းများအကြား ဂျီဩမေတြီ output များထဲရှိ ကွာခြားချက်ကိုရှာပါ။
 
-Now, raster buffers and distances:
+ယခုအခါ raster buffer များနှင့် အကွာအဝေးများဖြစ်ပါသည်-
 
-- first, load and rasterize the vector ``rivers.shp`` with :menuselection:`GRASS --> v.to.rast.value`; **beware:** cell size must be set to 100 m, otherwise the computation time will be enormous; resulting map will have 1 and NULLs
-- same, with :menuselection:`SAGA --> Shapes to Grid --> COUNT` (resulting map: 6 to 60)
-- then, :menuselection:`proximity` (value= 1 for GRASS, a list of rivers ID for SAGA), :menuselection:`r.buffer` with parameters 1000,2000,3000, :menuselection:`r.grow.distance` (the first of the two maps; the second will show the areas pertaining to each river, if done on the SAGA raster). 
+- ဦးစွာ ``rivers.shp`` vector ကို ထည့်သွင်းပြီး :menuselection:`GRASS --> v.to.rast.value` ဖြင့် vector ကို raster အဖြစ်သို့ပြောင်းလဲပါ၊ **သတိထားရန်**- cell size ကို 100 မီတာ သတ်မှတ်ထားရပါမည်၊ ထိုသို့မဟုတ်ပါက တွက်ချက်ချိန်များစွာ ကြာမြင့်ပါလိမ့်မည်၊ ရလာဒ်မြေပုံတွင် 1 နှင့် NULLs တန်ဖိုးများရှိပါလိမ့်မည်။
+- :menuselection:`SAGA --> Shapes to Grid --> COUNT` အသုံးပြုပြီး ထိုအတိုင်း လုပ်ဆောင်ပါ (ရလာဒ်မြေပုံ- 6 မှ 60 အထိ)
+- ထို့နောက် :menuselection:`proximity` (GRASS အတွက် value=1 ၊ SAGA အတွက် rivers ID list) ကိုလုပ်ဆောင်ပါ၊ :menuselection:`r.buffer` ကို 1000 ၊ 2000 ၊ 3000 parameter များဖြင့်လုပ်ဆောင်ပါ၊ :menuselection:`r.grow.distance` (မြေပုံနှစ်ခုမှ ပထမမြေပုံ၊ SAGA raster တွင်လုပ်ဆောင်ပါက ဒုတိယမြေပုံသည် river တစ်ခုချင်းစီနှင့်သက်ဆိုင်သော ဧရီယာများကိုပြသပါလိမ့်မည်) ကိုလုပ်ဆောင်ပါ။
 
 Dissolve
 ..........
 
-Dissolve features based on a common attribute:
+ဘုံဖြစ်သော Attribute တစ်ခုပေါ်အခြေခံ၍ feature များကို ပေါင်းစပ်ပေးပါသည်- 
 
 - :menuselection:`GRASS --> v.dissolve` ``municipalities.shp`` on PROVINCIA
 - :menuselection:`QGIS --> Dissolve` ``municipalities.shp`` on PROVINCIA
 - :menuselection:`OGR --> Dissolve` ``municipalities.shp`` on PROVINCIA
-- :menuselection:`SAGA --> Polygon Dissolve` ``municipalities.shp`` on PROVINCIA (**NB:** `Keep inner boundaries` must be unselected)
+- :menuselection:`SAGA --> Polygon Dissolve` ``municipalities.shp`` on PROVINCIA (**NB:** `Keep inner boundaries` ကို select မလုပ်ထားရပါ)
 
-.. note:: The last one is broken in SAGA <=2.10
+.. note:: နောက်ဆုံးတစ်ခုသည် SAGA <=2.10 နှင့်အောက် ဗားရှင်းများတွင် ပျက်နေပါသည်။
 
-**Exercise for the reader**: find the differences (geometry and attributes) between different methods.
+**ဖတ်ရှုသူများအတွက် လေ့ကျင့်ခန်း** - မတူညီသောနည်းလမ်းများအကြား ကွာခြားချက် (ဂျီဩမေတြီနှင့် attribute များ) ကိုရှာပါ။
 
 .. _GRASS: https://grass.osgeo.org/
 .. _R: https://www.r-project.org/

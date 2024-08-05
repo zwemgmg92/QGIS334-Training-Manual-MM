@@ -1,88 +1,60 @@
-Lesson: Working with Databases in the QGIS Browser
-===============================================================================
+သင်ခန်းစာ - QGIS Browser ထဲတွင် Database များဖြင့်အလုပ်လုပ်ခြင်း (Lesson: Working with Databases in the QGIS Browser)
+======================================================================================================================
 
-In the previous 2 modules we looked at the basic concepts, features and 
-functions of relational databases as well as extensions that let us store, 
-manage, query and manipulate spatial data in a relational database. This
-section will dive deeper into how to effectively use spatial databases in QGIS. 
+ပြီးခဲ့သည့် မော်ဂျူး ၂ ခုတွင် relational database များ၏ သဘောတရားများ၊ အသွင်အပြင်များနှင့် function များအကြောင်းအပြင် relational database တစ်ခုထဲတွင် spatial data များသိမ်းဆည်းခြင်း၊ စီမံခန့်ခွဲခြင်း၊ query လုပ်ခြင်းနှင့် ကိုင်တွယ်ခြင်းများ လုပ်ဆောင်နိုင်သော extension များအကြောင်းကိုလည်း လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ ဤအပိုင်းတွင် QGIS ထဲ၌ spatial database များကို မည်သို့ ထိရောက်စွာအသုံးပြုရမည်ကို ထဲထဲဝင်ဝင် လေ့လာသွားပါမည်။
 
-**The goal for this lesson:** To learn how to interact with spatial databases 
-using the QGIS Browser interface. 
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** QGIS Browser ဖြင့် spatial database များ အပြန်အလှန်လုပ်ဆောင်ပုံကို လေ့လာရန်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Adding Database Tables to QGIS using the Browser
------------------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - Browser အသုံးပြု၍ QGIS ထဲသို့ Database Table များထည့်သွင်းခြင်း (Follow Along: Adding Database Tables to QGIS using the Browser)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-We have already briefly looked at how to add tables from a database as QGIS 
-layers, now lets look at this in a bit more detail and look at the different 
-ways this can be done in QGIS. Lets start by looking at the new Browser
-interface.
+Database တစ်ခုထဲရှိ table များကို QGIS layer များအဖြစ် ထည့်သွင်းနည်းကို အကြမ်းဖျဉ်း လေ့လာခဲ့ပြီးဖြစ်ပါသည်၊ ယခုအခါ ပိုမိုအသေးစိတ်လုပ်ဆောင်ကြည့်မည်ဖြစ်ပြီး QGIS ထဲတွင် လုပ်ဆောင်နိုင်မည့် မတူညီသောနည်းလမ်းများကို လေ့လာမည်ဖြစ်သည်။ Browser interface ဖြင့် စတင်ပါမည်။
 
-* Start a new empty map in QGIS.
-* Open the Browser by clicking the :guilabel:`Browser` tab at the bottom of the
-  *Layer Panel*
-* Open the PostGIS portion of the tree and you should find your previously
-  configured connection available (you may need to click the Refresh button at
-  the top of the browser window).
+* QGIS ထဲတွင် မြေပုံအလွတ်အသစ်တစ်ခု စဖွင့်ပါ။ျ
+* *Layer Panel* ၏အောက်ခြေရှိ :guilabel:`Browser` tab ကိုနှိပ်ပြီး Browser ကိုဖွင့်ပါ
+* PostGIS အပိုင်းကို ဖွင့်ပါက ယခင်က configure ပြုလုပ်ခဲ့သော connection ကိုတွေ့သင့်ပါသည် (Browser window ၏ အပေါ်ရှိ Refresh ခလုတ်ကိုနှိပ်ရန် လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်)။
 
 .. figure:: img/browser_panel.png
    :align: center
 
-* Double clicking on any of the table/layers listed here will add it to the Map
-  Canvas.
+* စာရင်းထဲရှိ table/layer တစ်ခုခုကို click နှစ်ချက်နှိပ်လိုက်ပါက ၎င်းကို မြေပုံမြင်ကွင်းထဲသို့ ထည့်သွင်းပေးမည်ဖြစ်သည်။
 
-* Right Clicking on a table/layer in this view will give you a few options.
-  Click on the :guilabel:`Properties` item to look at the properties of the 
-  layer.
+* Table/layer တစ်ခုပေါ်တွင် right click နှိပ်ပါက option အနည်းငယ်ကို တွေ့ရပါမည်။ Layer ၏ ဂုဏ်သတ္တိများကို ကြည့်ရန် :guilabel:`Properties` ကိုနှိပ်ပါ။
 
 .. figure:: img/postgis_layer_properties.png
    :align: center
 
-.. note:: Of course you can also use this interface to connect to PostGIS 
-   databases hosted on a server external to your workstation. Right clicking
-   on the PostGIS entry in the tree will allow you to specify connection
-   parameters for a new connection.
+.. note:: သင့်ကွန်ပျူတာပြင်ပရှိ server တစ်ခုပေါ်တွင် host လုပ်ထားသော PostGIS database ကို ချိတ်ဆက်ရန်လည်း ဤ interface ကိုအသုံးပြုနိုင်ပါသည်။ PostGIS ပေါ်တွင် right click နှိပ်ပြီး connection အသစ်တစ်ခုအတွက် connection parameter များကို သတ်မှတ်ပေးနိုင်မည်ဖြစ်သည်။
 
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Adding a filtered set of records as a Layer
-------------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - စစ်ထုတ်ထားသော record အစုတစ်ခုကို Layer တစ်ခုအနေဖြင့် ထည့်သွင်းခြင်း (Follow Along: Adding a filtered set of records as a Layer)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Now that we have seen how to add an entire table as a QGIS layer it might be
-nice to learn how to add a filtered set of records from a table as a layer 
-by using queries that we learned about in previous sections.
+Table တစ်ခုလုံးကို QGIS layer အဖြစ် ထည့်သွင်းနည်းကို သိရှိခဲ့ပြီးဖြစ်ပါသည်၊ table တစ်ခုမှ filter လုပ်ထားသော record များအစုတစ်ခုကို query များအသုံးပြုပြီး layer တစ်ခုအနေဖြင့် ထည့်သွင်းနည်းကို လေ့လာသင့်ပါသည်။
 
-* Start a new empty map with no layers
-* Click the :guilabel:`Add PostGIS Layers` button or select :menuselection:`Layer
-  --> Add PostGIS Layers` from the menu.
-* In the :guilabel:`Add PostGIS Table(s)` dialog that comes up, connect to the
-  :kbd:`postgis_demo` connection.
-* Expand the :kbd:`public schema` and you should find the three tables we were
-  working with previously.
-* Click the :kbd:`lines` layer to select it, but instead of adding it, click
-  the :guilabel:`Set Filter` button to bring up the :guilabel:`Query Builder`
-  dialog. 
-* Construct the following expression using the buttons or by entering it
-  directly::
+* မည်သည့် layer မှမပါဝင်သော မြေပုံအလွတ် အသစ်တစ်ခုကို ဖွင့်ပါ
+* :guilabel:`Add PostGIS Layers` ခလုတ်ကိုနှိပ်ပါ သို့မဟုတ် menu မှ :menuselection:`Layer --> Add PostGIS Layers` ကိုရွေးပါ။
+* ပေါ်လာသော :guilabel:`Add PostGIS Table(s)` dialog တွင် :kbd:`postgis_demo` connection သို့ချိတ်ဆက်ပါ။
+* :kbd:`public schema` ကိုဖြန့်ကြည့်ပါက ယခင်ကအလုပ်လုပ်ခဲ့သော table ၃ ခုကို တွေ့ရမည်ဖြစ်သည်။
+* :kbd:`lines` layer ကို click နှိပ်ပြီး :guilabel:`Set Filter` ခလုတ်ကိုနှိပ်ပါ၊ :guilabel:`Query Builder` dialog ပွင့်လာပါမည်။
+* အောက်ပါ expression ကို ခလုတ်များအသုံးပြု၍ဖြစ်စေ တိုက်ရိုက် ရိုက်ထည့်၍ဖြစ်စေ တည်ဆောက်ပါ::
 
   "roadtype" = 'major'
 
 .. figure:: img/pg_table_filter.png
    :align: center
 
-* Click :guilabel:`OK` to complete editing the filter and click :guilabel:`Add`
-  to add the filtered layer to your map.
-* Rename the :kbd:`lines` layer in the tree to :kbd:`roads_primary`.
+* Edit ပြုလုပ်ခြင်းနှင့် filter လုပ်ခြင်းကို အပြီးသတ်ရန် :guilabel:`OK` ကိုနှိပ်ပါ၊ filter လုပ်ထားသော layer ကို မြေပုံထဲသို့ ထည့်သွင်းရန် :guilabel:`Add` ကိုနှိပ်ပါ။
+* :kbd:`lines` layer ကို :kbd:`roads_primary` ဟုနာမည်ပြောင်းပေးပါ။
 
-You will notice that only the Primary Roads have been added to your map rather
-than the entire layer.
+မြေပုံထဲတွင် layer တစ်ခုလုံးမဟုတ်ပဲ Primary Roads များကိုသာ ထည့်သွင်းပေးသည်ကို တွေ့ရပါမည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You have seen how to interact with spatial databases using the QGIS Browser and 
-how to add layers to your map based on a query filter.
+QGIS Browser အသုံးပြုပြီး spatial database များဖြင့် အပြန်အလှန်လုပ်ကိုင်ပုံ နှင့် query filter တစ်ခုပေါ်မူတည်ပြီး မြေပုံထဲသို့ layer များထည့်သွင်းနည်းကို တွေ့မြင်ခဲ့ပြီးဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Next you'll see how to work with the DB Manager interface in QGIS for a more
-complete set of database management tasks.
+နောက်လာမည့်သင်ခန်းစာတွင် ပိုမိုပြီးပြည့်စုံသော database စီမံခန့်ခွဲမှုလုပ်ငန်းများအတွက် QGIS ထဲတွင် DB Manager ကို မည်ကဲ့သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်သည်။

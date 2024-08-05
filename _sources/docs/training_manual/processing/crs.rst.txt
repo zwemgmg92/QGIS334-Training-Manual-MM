@@ -1,108 +1,56 @@
-CRSs. Reprojecting
+CRSs- Projection ပြောင်းလဲခြင်း (CRSs. Reprojecting)
 ============================================================
 
 
-.. note:: In this lesson we will discuss how Processing uses CRSs.
- We will also see a very useful algorithm: reprojecting.
+.. note:: ဤသင်ခန်းတွင် Processing သည် မည်ကဲ့သို့ CRS များကိုအသုံးပြုသည်ကို လေ့လာရမည်ဖြစ်ပါသည်။ Reprojecting ဟုခေါ်သည့် အလွန်အသုံးဝင်သော algorithm ကိုလည်း လေ့လာရမည်ဖြစ်ပါသည်။
 
+CRS များသည် QGIS Processing အသုံးပြုသူများအတွက် လွန်စွာရှုပ်ထွေးပါသည်၊ ထို့ကြောင့် layer အသစ်တစ်ခုဖန်တီးသောအခါ geoalgorithm များမှ CRS များကို ကိုင်တွယ်ပုံအကြောင်း ယေဘုယျစည်းမျဉ်းအချို့ကို အောက်တွင် ဖော်ပြထားပါသည်။
 
-CRS's are a great source of confusion for QGIS Processing users, so here are
-some general rules about how they are handled by geoalgorithms when creating a new layer.
-
-* If there are input layers, it will use the CRS of the first layer. This is
-  assumed to be the CRS of all input layers, since they should have the same one.
-  If you use layers with unmatching CRS's, QGIS will warn you about it. Notice that
-  the CRS of input layers is shown along with its name in the parameters dialog.
+* Input layer များစွာရှိလျှင် ပထမဦးဆုံး layer ၏ CRS ကိုအသုံးပြုပါလိမ့်မည်။ Layer များအားလုံးတွင် CRS အတူတူရှိသင့်သောကြောင့် ထို CRS ကို input layer များအားလုံး၏ CRS အဖြစ်မှတ်ယူပါသည်။ CRS မတူညီသော layer များကို အသုံးပြုလျှင် QGIS မှ သတိပေးပါလိမ့်မည်။ Input layer များ၏ CRS ကို parameter dialog ထဲတွင် နာမည်နှင့်အတူ ပြသပေးပါသည်။
 
 .. figure:: img/crs/crs_layer.png
 
-* If there are no input layer, it will use the project CRS, unless the algorithm
-  contains a specific CRS field (as it happened in the last lesson with the
-  graticule algorithm)
+* Input layer တစ်ခုမျှ မရှိပဲ algorithm တွင် သီးသန့် CRS field တစ်ခုမပါရှိပါက project ၏ CRS ကိုအသုံးပြုပါလိမ့်မည် (ပြီးခဲ့သည့် သင်ခန်းစာထဲရှိ graticule algorithm ကဲ့သို့ ဖြစ်သည်)
 
-Open the project corresponding to this lesson and you will see two layers named
-23030 and 4326. They both contain the same points, but in different CRSs
-(EPSG:23030 and EPSG:4326). They appear in the same place because QGIS is
-reprojecting on the fly to the project CRS (EPSG:4326), but they are not
-actually the same layer.
+ဤသင်ခန်းစာနှင့်သက်ဆိုင်သော project ကိုဖွင့်ပါ၊ 23030 နှင့် 4326 ဟုအမည်ပေးထားသော layer နှစ်ခုကို တွေ့ရပါမည်။ ၎င်းတို့ နှစ်ခုလုံးတွင် တူညီသော point များပါရှိပါသည်၊ သို့သော် CRS တော့မတူညီပါ (EPSG:23030 နှင့် EPSG:4326)။ ထို point များသည် တစ်နေရာထဲတွင် ကျရောက်နေပါမည်၊ အဘယ်ကြောင့်ဆိုသော် ၎င်းတို့သည် layer အတူတူမဟုတ်သော်လည်း QGIS သည် project CRS (EPSG:4326) သို့ projection ပြောင်းလဲပေးထားသောကြောင့်ဖြစ်သည်။ 
 
-Open the *Export/Add geometry columns* algorithm.
+*Export/Add geometry columns* algorithm ကိုဖွင့်ပါ။
 
 .. figure:: img/crs/add_geom.png
 
-This algorithm add new columns to the attributes table of a vector layer.
-The content of the columns depend on the type of geometry of the layer.
-In the case of points, it adds new columns with the X and Y coordinates
-of each point.
 
-In the list of available layers that you will find in the input layer field,
-you will see each one with its corresponding CRS. That means that, although
-they appear in the same place in your canvas, they will be treated differently.
-Select the 4326 layer.
+ဤ algorithm သည် vector layer တစ်ခု၏ attribute ဇယားထဲသို့ column အသစ်များကို ထည့်သွင်းပေးပါသည်။ Column များ၏ အကြောင်းအရာသည် layer ၏ ဂျီဩမေတြီအမျိုးအစားပေါ်မူတည်ပါသည်။ Point များအတွက်မူ point တစ်ခုချင်းစီ၏ X နှင့် Y ကိုဩဒိနိတ်များပါဝင်သော column အသစ်များကို ထည့်သွင်းပေးပါသည်။
 
-The other parameter of the algorithm allows to set how the algorithm uses
-coordinates to calculate the new value that it will add to the resulting
-layers. Most algorithms do not have an option like that, and just use the
-coordinates directly. Select the *Layer CRS* option to just use coordinates
-as they are. This is how almost all geoalgorithms work.
+Input layer field ထဲရှိ အသုံးပြုနိုင်သော layer များစာရင်းထဲတွင် layer တစ်ခုချင်းစီကို ၎င်းတို့၏သက်ဆိုင်ရာ CRS တစ်ခုစီဖြင့် တွေ့ရပါလိမ့်မည်။ ဆိုလိုသည်မှာ ၎င်း layer များသည် မြေပုံ canvas ထဲတွင် တစ်နေရာထဲတွင် ပေါ်နေသော်လည်း ၎င်းတို့သည် သီးခြား CRS တစ်ခုစီရှိနေခြင်းဖြစ်သည်။ 4326 layer ကိုရွေးချယ်ပါ။
 
-You should get a new layer with exactly the same points as the other two layers.
-If you right click on the name of the layer and open its properties, you will
-see that it shares the same CRS of the input layer, that is, EPSG:4326.
-When the layer is loaded into QGIS, you will not be asked to enter the CRS
-of the layer, since QGIS already knows about it.
+Algorithm ၏ အခြားသော parameter သည် ရလာဒ် layer များတွင်ထည့်သွင်းပေးမည့် တန်ဖိုးအသစ်ကိုတွက်ချက်ရန် ကိုဩဒိနိတ်များကို algorithm မှ မည်ကဲ့သို့အသုံးပြုမည်ကို သတ်မှတ်ပေးပါသည်။ Algorithm အများစုတွင် ထိုကဲ့သို့သော option မျိုးမပါရှိပဲ ကိုဩဒိနိတ်များကို တိုက်ရိုက်သာအသုံးပြုခြင်းဖြစ်ပါသည်။ ကိုဩဒိနိတ်များကို သူ့အတိုင်းသာ အသုံးပြုရန် *Layer CRS* option ကို ရွေးချယ်ပါ။ ၎င်းသည် geoalgorithm အားလုံးနီးပါး၏ အလုပ်လုပ်ဆောင်သည့် ပုံစံဖြစ်သည်။
 
-If you open the attributes table of the new layer you will see that it
-contains two new fields with the X and Y coordinates of each point.
+အခြား layer နှစ်ခုနှင့် တစ်ထပ်ထဲတူညီသော point များပါရှိသည့် layer အသစ်တစ်ခုကို ရရှိပါမည်။ Layer ၏ နာမည်ပေါ်တွင် right click နှိပ်ပြီး property ကိုဖွင့်ကြည့်ပါက ၎င်းသည် input layer ၏ CRS အတိုင်းအသုံးပြုထားသည်ကို တွေ့ရပါမည်၊ EPSG:4326 ဖြစ်ပါသည်။ Layer ကို QGIS ထဲသို့ ထည့်သွင်းလိုက်သောအခါ QGIS မှသိရှိပြီးသားဖြစ်သောကြောင့် layer ၏ CRS ကို ထည့်သွင်းပေးရန် မေးမြန်းတော့မည်မဟုတ်ပါ။
+
+Layer အသစ်၏ attribute ဇယားကို ဖွင့်ကြည့်ပါက point တစ်ခုချင်းစီ၏ X နှင့် Y ကိုဩဒိနိတ်များပါရှိသော field အသစ်နှစ်ခုကို ရှိနေသည်ကို တွေ့ရပါမည်။
 
 .. figure:: img/crs/attribs2.png
 
-Those coordinate values are given in the layer CRS, since we chose that option.
-However, even if you choose another option, the output CRS of the layer would
-have been the same, since the input CRS is used to set the CRS of the output layer.
-Choosing another option will cause the values to be different, but not the
-resulting point to change or the CRS of the output layer to be different to
-the CRS of the input one.
+၎င်း option ကိုရွေးချယ်ထားခဲ့သောကြောင့် အဆိုပါ ကိုဩဒိနိတ်တန်ဖိုးများကို layer CRS ထဲတွင် ပေးထားပြီးသားဖြစ်ပါသည်။ သို့သော် အခြား option ကို ရွေးချယ်ခဲ့ပါက output layer ၏ CRS တွင်သတ်မှတ်ရန် input CRS ကိုအသုံးပြုသောကြောင့် CRS အတူတူဖြစ်နေပါမည်။ အခြား option ကိုရွေးချယ်ခြင်းဖြင့် တန်ဖိုးများ ကွဲပြားသွားနိုင်သော်လည်း ရလာဒ် point ကို မပြောင်းလဲစေနိုင်ပါ၊ သို့မဟုတ် input layer ၏ CRS နှင့် output layer ၏ CRS အတူတူပင်ဖြစ်နေပါမည်။ 
 
 
-Now do the same calculation using the other layer. You should find the resulting
-layer rendered exactly in the same place as the other ones, and it will have the
-EPSG:23030 CRS, since that was the one of the input layer.
+အခြား layer ကို အသုံးပြုပြီး ထိုအတိုင်း တွက်ချက်မှုလုပ်ဆောင်ပါ။ ရလာဒ် layer သည် အခြားသော layer များကဲ့သို့ နေရာတစ်ခုထဲတွင် အတိအကျဖြစ်နေသည်ကို တွေ့ရပါလိမ့်မည်၊ CRS သည် input layer ၏ CRS အတိုင်း EPSG:23030 ဖြစ်နေပါလိမ့်မည်။ 
 
-If you go to its attribute table, you will see values that are different to
-the ones in the first layer that we created.
+ယခု ဖန်တီးထားသော layer ၏ attribute ဇယားကို ဖွင့်ကြည့်ပါက ပထမတစ်ကြိမ် ဖန်တီးထားခဲ့သော layer နှင့် တန်ဖိုးများမတူညီသည်ကို တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/crs/attribs.png
 
-This is because the original data is different (it uses a different CRS),
-and those coordinates are taken from it.
+ထိုသို့ဖြစ်ရခြင်းမှာ မူရင်း data မတူညီသောကြောင့်ဖြစ်ပြီး (၎င်းသည် မတူညီသော CRS ကို အသုံးပြုထားပါသည်) ကိုဩဒိနိတ်များကို မူရင်း data ယူထားသောကြောင့်ဖြစ်သည်။
 
-What should you learn from this? The main idea behind these examples is that
-geoalgorithms use the layer as it is in its original data source, and completely
-ignore the reprojections that QGIS might be doing before rendering.
-In other words, do not trust what you see in the canvas, but always have in mind
-that the original data will be used. That is not so important in this case,
-since we are just using one single layer at a time, but in an algorithm that
-needs several of them (such as a clip algorithm), layers that appear to match
-or overlay might be very far one from each other, since they might have different CRSs. 
+ဤဥပမာများ၏ အဓိကအချက်မှာ geoalgorithm များသည် ၎င်းတို့၏ မူရင်း data source အတိုင်း layer ကို အသုံးပြုပြီး ပုံဖော်ပြသခြင်းမလုပ်မီတွင် QGIS မှ ပြုလုပ်မည့် projection ပြောင်းလဲခြင်းများကို လုံးဝ လုပ်ဆောင်ခြင်းမရှိပါ။ တစ်နည်းအားဖြင့် ဆိုရသော် မူရင်း data ကိုအမြဲတမ်းအသုံးပြုသည်ကို မှတ်သားထားပါ။ ဤဥပမာ၌ တစ်ကြိမ်တွင် layer တစ်ခုကိုသာ အသုံးပြုသည့်အတွက် ထိုကိစ္စသည် အလွန်အရေးမကြီးပါ။ သို့သော် layer များစွာလိုအပ်သော algorithm တစ်ခုတွင် (clip algorithm ကဲ့သို့) layer များသည် CRS များ မတူညီသောကြောင့် ကိုက်ညီမှုရှိရမည့် သို့မဟုတ် ထပ်နေရမည့် layer များသည် တစ်ခုနှင့်တစ်ခုလွန်စွာ ကွာဝေးနိုင်ပါသည်၊
 
-Algorithms performs no reprojection (except in the reprojection algorithm
-that we will see next), so it is up to you to make sure that layers have
-matching CRS's.
+Algorithm များသည် projection ပြောင်းလဲခြင်းများကို မလုပ်ဆောင်ပါ (reprojection algorithm မှလွဲ၍)၊ ထို့ကြောင့် layer များသည် CRS များကိုက်ညီမှုရှိရန် လိုအပ်ပါသည်။
 
-An interesting module that deals with CRS's is the reprojection one.
-It represents a particular case, since it has an input layer (the one to reproject),
-but it will not use its CRS for the output one.
+CRS များနှင့်ပတ်သက်သော စိတ်ဝင်စားစရာကောင်းသည့်မော်ဂျူးသည် reprojection မော်ဂျူးဖြစ်ပါသည်။ ၎င်းသည် သီးသန့်လုပ်ဆောင်မှုတစ်ခုဖြစ်ပြီး input layer တစ်ခု (projection ပြောင်းလဲမည့် layer) ထည့်သွင်းပေးရမည်ဖြစ်သည်၊ သို့သော် output layer အတွက် input layer ၏ CRS ကို အသုံးပြုမည်မဟုတ်ပါ။
 
-Open the *Reproject layer* algorithm.
+*Reproject layer* algorithm ကိုဖွင့်ပါ။
 
 .. figure:: img/crs/reprojection.png
 
-Select any of the layers as input, and select EPSG:23029 as the destination CRS.
-Run the algorithm and you will get a new layer, identical to the input one,
-but with a different CRS. It will appear on the same region of the canvas,
-like the other ones, since QGIS will reproject it on the fly, but its original
-coordinates are different. You can see that by running the *Export/Add geometry
-columns* algorithm using this new layer as input, and veryfing that the added
-coordinates are different to the ones in the attribute tables of both of the
-two layers that we had computed before.
+Layer များထဲမှ တစ်ခုခုကို input အဖြစ်ရွေးချယ်ပြီး destination CRS အဖြစ် EPSG:23029 ကိုရွေးချယ်ပါ။ Algorithm ကို run လိုက်ပါက layer အသစ်တစ်ခုရရှိပါလိမ့်မည်၊ layer အသစ်သည် input layer နှင့် ထပ်တူဖြစ်နေသော်လည်း CRS တူညီမည်မဟုတ်ပါ။ QGIS သည် on the fly projection ပြောင်းလဲပေးသောကြောင့် မြေပုံ canvas ပေါ်တွင် နေရာတစ်နေရာထဲ၌ ပေါ်နေမည်ဖြစ်သော်လည်း ၎င်းတို့၏မူရင်းကိုဩဒိနိတ်များသည် မတူညီကြပါ။ ထို layer အသစ်ကို input အနေဖြင့် အသုံးပြုပြီး *Export/Add geometry
+columns* algorithm ကို run ကြည့်ပါက အသစ်ထည့်သွင်းထားသော ကိုဩဒိနိတ်များသည် ယခင်ကတွက်ချက်ထားခဲ့သော layer နှစ်ခုစလုံး၏ attribute ဇယားများထဲမှ ကိုဩဒိနိတ်များနှင့် ကွဲပြားနေသည်ကို တွေ့မြင်နိုင်ပါသည်၊ 

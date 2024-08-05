@@ -1,93 +1,57 @@
-Defining extents
+နယ်ပယ်အတိုင်းအတာများသတ်မှတ်ခြင်း (Defining extents)
 ============================================================
 
-.. note:: In this lesson we will see how to define extents, which are needed
- by some algorithms, especially raster ones.
+.. note:: ဤသင်ခန်းစာတွင် အချို့ algorithm များ (အထူးသဖြင့် raster algorithm များ) တွင် လိုအပ်သော extent များကို မည်သို့သတ်မှတ်ရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။
 
-Some algorithms require an extent to define the area to be covered by the
-analysis they perform, and usually to define the extent of the resulting layer.
+အချို့သော algorithm များသည် လုပ်ဆောင်မည့် analysis ဧရိယာကို သတ်မှတ်ရန် extent တစ်ခုလိုအပ်ပြီး၊ ရလာဒ် layer ၏ extent ကိုသတ်မှတ်ပေးရန် အမြဲတမ်း လိုအပ်ပါသည်။
 
-When an extent is required, it can be defined manually by entering the four
-values that define it (min X, min Y, max X, max Y), but there are other more
-practical and more interesting ways of doing it as well. We will see all of
-them in this lesson.
+Extent တစ်ခုလိုအပ်သောအခါ min X ၊ min Y ၊ max X ၊ max Y တန်ဖိုး ၄ ခုကို ကိုယ်တိုင် ထည့်သွင်းပေးခြင်းဖြင့် သတ်မှတ်ပေးနိုင်ပါသည်၊ သို့သော် ထိုသို့လုပ်ဆောင်ရာတွင် အခြားသော လက်တွေ့ဆန်ပြီး ပိုမိုစိတ်ဝင်စားစရာကောင်းသော နည်းလမ်းများရှိပါသည်။ ထိုနည်းလမ်းများအားလုံးကို ဤသင်ခန်းစာတွင် မြင်တွေ့ရမည်ဖြစ်သည်။
 
-First, let's open an algorithm that requires an extent to be defined.
-Open the *Rasterize* algorithm, which creates a raster layer from a vector layer.
+ပထမဦးစွာ extent တစ်ခုသတ်မှတ်ပေးရန်လိုအပ်သော algorithm တစ်ခုကို ဖွင့်ကြည့်ပါမည်။ Vector layer တစ်ခုမှ raster layer တစ်ခုဖန်တီးပေးမည့် *Rasterize* algorithm ကိုဖွင့်ပါ။
 
 .. figure:: img/extents/rasterize.png
 
-All the parameters, except for the last two ones, are used to define which layer
-is to be rasterized, and configure how the rasterization process should work.
-The two last parameters, on the other hand, define the characteristics of the
-output layer. That means that they define the area that is covered
-(which is not necessarily the same area covered by the input vector layer),
-and the resolution/cellsize (which cannot be inferred from the vector layer,
-since vector layers do not have a cellsize).
 
-The first thing you can do is to type the 4 defining values explained before,
-separated by commas.
+နောက်ဆုံး parameter နှစ်ခုမှလွဲ၍ parameter များအားလုံးကို raster အဖြစ်သို့ပြောင်းလဲပေးရမည့် layer ကိုသတ်မှတ်ရာတွင် အသုံးပြုပြီး raster ပြောင်းလဲခြင်းလုပ်ငန်းစဉ်အလုပ်လုပ်ပုံကို သတ်မှတ်ရာတွင် အသုံးပြုပါသည်။ နောက်ဆုံး parameter နှစ်ခုသည် output layer အတွက်သတ်မှတ်ပေးပါသည်။ လွှမ်းခြုံမည့်ဧရိယာ (input vector layer မှလွှမ်းခြုံသောဧရိယာနှင့် မဖြစ်မနေတူရန်မလိုပါ) နှင့် resolution/cell အရွယ်အစား (vector layer တွင် cell အရွယ်အစားမရှိသောကြောင့် vector layer မှမရယူနိုင်ပါ) ကိုသတ်မှတ်ပေးခြင်းဖြစ်ပါသည်။
+
+ပထမဦးဆုံး အထက်တွင်ရှင်းပြခဲ့သော min X ၊ min Y ၊ max X ၊ max Y တန်ဖိုး ၄ ခုကို comma (,) များဖြင့် ခြားပြီး ရိုက်ထည့်ပါ။
 
 .. figure:: img/extents/type.png
 
-That doesn't need any extra explanation. While this is the most flexible option,
-it is also the less practical in some cases, and that's why other options are
-implemented. To access them, you have to click on the button on the right--hand
-side of the extent text box.
+
+၎င်းသည် လိုက်လျောညီထွေအဖြစ်ဆုံး option ဖြစ်သော်လည်း အချို့ကိစ္စများတွင် လက်တွေ့သိပ်မဆန်ပါ၊ ထို့ကြောင့် အခြားသော option များကိုပါ ထည့်သွင်းထားခြင်းဖြစ်ပါသည်။ အခြားသော option များကို အသုံးပြုရန် extent စာသား box ၏ ညာဘက်ရှိ ခလုတ်ကိုနှိပ်ပါ။ 
 
 .. figure:: img/extents/menu.png
 
-Let's see what each one of them does.
+၎င်းတို့ တစ်ခုချင်းစီ၏အလုပ်လုပ်ပုံကို ကြည့်ပါမည်။
 
-The first option is *Use layer/canvas extent*, which will show the selection
-dialog shown below.
+ပထမဆုံး option သည် *Use layer/canvas extent* ဖြစ်ပြီး အောက်ပါပြထားသော selection dialog ကို ပြသပေးပါမည်။
 
 .. figure:: img/extents/layer.png
 
-Here you can select the extent of the canvas (the extent covered by the current zoom),
-or the extension any of the available layers. Select it and click on *OK*,
-and the text box will be automatically filled with the corresponding values.
 
-The second option is *Select extent on canvas*. In this case, the algorithm
-dialog disappears and you can click and drag on the QGIS canvas to define
-the desired extent. 
+ဤ option ဖြင့် မြေပုံ canvas ၏ extent (လက်ရှိ zoom မှလွှမ်းခြုံသော extent) ကိုရွေးချယ်နိုင်ပါသည် သို့မဟုတ် layer တစ်ခုခု၏ extent ကိုရွေးချယ်နိုင်ပါသည်။ တစ်ခုခုကို ရွေးချယ်ပြီး *OK* နှိပ်ပါ၊ စာသား box ထဲတွင် သက်ဆိုင်ရာတန်ဖိုးများဖြင့် အလိုအလျောက်ဖြည့်သွင်းပေးမည်ဖြစ်ပါသည်။
+
+ဒုတိယ option သည် *Select extent on canvas* ဖြစ်ပါသည်။ ဤ option ကိုရွေးပါက algorithm dialog သည် ပျောက်သွားမည်ဖြစ်ပြီး QGIS canvas ပေါ်တွင် click နှိပ်ဖိဆွဲပြီး လိုချင်သော extent ကိုသတ်မှတ်ပေးနိုင်ပါသည်။
 
 .. figure:: img/extents/extent_drag.png
 
-Once you release the mouse button, the dialog will reappear and the text box
-will already have the values corresponding to the defined extent.
+မောက်စ်ခလုတ်ကို လွှတ်လိုက်သည်နှင့် dialog ပြန်ပေါ်လာမည်ဖြစ်ပြီး စာသား box ထဲတွင် သတ်မှတ်ပေးလိုက်သော extent ၏တန်ဖိုးများ ထည့်သွင်းပြီးသားဖြစ်နေပါမည်။
 
-The last option is *Use min covering extent from input layers*, which is the
-default option. This will compute the min covering extent of all layers used
-to run the algorithm, and there is no need to enter any value in the text box.
-In the case of a single input layer, as in the algorithm we are running,
-the same extent can be obtained by selecting that same input layer in the
-*Use layer/canvas extent* that we already saw. However, when there are several
-input layers, the min covering extent does not correspond to any of the input
-layer extent, since it is computed from all of them together.
+နောက်ဆုံး option သည် *Use min covering extent from input layers* ဖြစ်ပြီး ၎င်းသည် default option ဖြစ်ပါသည်။ ၎င်း option သည် algorithm ကို run ရန် အသုံးပြုသော layer များအားလုံး၏ အနည်းဆုံးလွှမ်းခြုံသော extent (min covering extent) ကိုတွက်ချက်ပေးပြီး စာသား box ထဲတွင် မည်သည့်တန်ဖိုးမျှ ထည့်သွင်းပေးရန် မလိုအပ်ပါ။ Input layer တစ်ခုထဲရှိလျှင် *Use layer/canvas extent* ထဲတွင် input layer ကိုရွေးချယ်ပြီး ထို input layer ၏ extent အတိုင်းရရှိနိုင်ပါသည်။ သို့သော် input layer များစွာရှိလျှင် အနည်းဆုံးလွှမ်းခြုံသော extent ကို ထို input layer များအားလုံးမှတွက်ချက်သောကြောင့် မည်သည့် input layer တစ်ခုခု၏ extent နှင့်မျှ သက်ဆိုင်ခြင်းမရှိတော့ပါ။
 
-We will use this last method to execute our rasterization algorithm.
+Rasterization algorithm ကိုလုပ်ဆောင်ရာတွင် နောက်ဆုံး option ကို အသုံးပြုပါမည်။
 
-Fill the parameters dialog as shown next, and press *OK*.
+Parameter dialog ထဲတွင် အောက်ပါအတိုင်းဖြည့်သွင်းပြီး *OK* ကိုနှိပ်ပါ။
 
 .. figure:: img/extents/parameters.png
 
-.. note:: In this case, better use an *Integer (1 byte)* instead of a
- *Floating point (4 byte)*, since the *NAME* is an integer with maximum
- value=64. This will result in a smaller file size and faster computations.
+.. note:: ဤဥပမာတွင် *NAME* သည် အများဆုံးတန်ဖိုး 64 ရှိသော integer ဖြစ်သည့်အတွက် *Floating point (4 byte)* အစား *Integer (1 byte)* ကိုအသုံးပြုလျှင် ပိုကောင်းပါသည်။ ထိုသို့လုပ်ခြင်းဖြင့် ဖိုင်အရွယ်အစားသေးငယ်စေပြီး တွက်ချက်မှုမြန်ဆန်စေပါသည်။
 
-You will get a rasterized layer that covers exactly the area covered by the
-original vector layer.
+မူရင်း vector layer ၏ extent အတိုင်း အတိအကျလွှမ်းခြုံသော raster layer တစ်ခုကို ရရှိပါလိမ့်မည်။
 
 .. figure:: img/extents/result.png
 
-In some cases, the last option, *Use min covering extent from input layers*,
-might not be available. This will happen in those algorithm that do not have
-input layers, but just parameters of other types. In that case, you will have
-to enter the value manually or use any of the other options.
+အချို့သောကိစ္စများတွင် နောက်ဆုံး option ဖြစ်သော *Use min covering extent from input layers* ကိုအသုံးပြု၍ မရနိုင်ပါ။ Input layer များမပါရှိပဲ အခြား parameter များသာပါရှိသော algorithm များတွင် အသုံးပြု၍မရနိုင်ပါ။ ထိုသို့သော ကိစ္စများတွင် တန်ဖိုးများကို ကိုယ်တိုင်ရိုက်ထည့်ပေးရပါလိမ့်မည် သို့မဟုတ် အခြား option တစ်ခုခုကို အသုံးပြုရပါလိမ့်မည်။
 
-Notice that, when a selection exist, the extent of the layer is that of the
-whole set of features, and the selection is not used to compute the extent,
-even though the rasterization is executed on the selected items only.
-In that case, you might want to actually create a new layer from the
-selection, and then use it as input.
+Selection တစ်ခုလုပ်ထားပြီး ထို selection လုပ်ထားသောအရာများတွင်သာ raster ပြောင်းလဲခြင်းလုပ်ဆောင်သော်လည်း extent တွက်ချက်ရာတွင် ထို selection ကိုအသုံးပြုမည်မဟုတ်ပါ။ ထိုသို့သော ကိစ္စမျိုးတွင် selection မှ layer အသစ်တစ်ခုဖန်တီးပြီး ထို layer အသစ်ကို input အနေဖြင့် အသုံးပြုနိုင်ပါသည်။

@@ -1,35 +1,24 @@
-Lesson: Geometry Construction
+သင်ခန်းစာ - ဂျီဩမေတြီ တည်ဆောက်ခြင်း (Lesson: Geometry Construction)
 ===============================================================================
 
-In this section we are going to delve a little deeper into how simple
-geometries are constructed in SQL. In reality, you will probably use a GIS like
-QGIS to create complex geometries using their digitising tools; however,
-understanding how they are formulated can be handy for writing queries and
-understanding how the database is assembled.
+ရိုးရှင်းသောဂျီဩမေတြီများကို SQL ထဲတွင် မည်သို့တည်ဆောက်ရမည်ကို ဤအပိုင်းတွင် ထဲထဲဝင်ဝင်လေ့လာသွားမည်ဖြစ်ပါသည်။ လက်တွေ့တွင် ရှုပ်ထွေးသောဂျီဩမေတြီများကို ဖန်တီးရန် QGIS ကဲ့သို့သော GIS software တစ်ခုကိုအသုံးပြုကောင်းပြုပါလိမ့်မည်- သို့ရာတွင် ဂျီဩမေတြီများ၏ တည်ဆောက်ပုံကိုနားလည်ခြင်းနှင့် database ၏ဖွဲ့စည်းပုံကိုနားလည်ခြင်းသည် query များရေးသားရာ၌ အသုံးဝင်စေနိုင်ပါသည်။
 
-**The goal of this lesson:** To better understand how to create spatial
-entities directly in PostgreSQL/PostGIS.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** Spatial entity များကို PostgreSQL/PostGIS ထဲတွင် တိုက်ရိုက်ဖန်တီးနည်းကို ပိုမိုနားလည်စေရန်။
 
-
-Creating Linestrings
+Linestrings ဖန်တီးခြင်း (Creating Linestrings)
 -------------------------------------------------------------------------------
 
-Going back to our :kbd:`address` database, let's get our streets table matching
-the others; i.e., having a constraint on the geometry, an index and an entry in
-the geometry_columns table.
+:kbd:`address` database ကိုပြန်သွားပြီး streets table ကို အခြားအရာများနှင့်ကိုက်ညီအောင် လုပ်ကြည့်ပါမည်- ဆိုလိုသည်မှာ ဂျီဩမေတြီတွင် constraint တစ်ခုရှိပြီး geometry_columns table ထဲတွင် index တစ်ခုနှင့် entry တစ်ခုရှိခြင်းဖြစ်ပါသည်။
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 -------------------------------------------------------------------------------
 
-* Modify the :kbd:`streets` table so that it has a geometry column of type
-  ST_LineString.
-* Don't forget to do the accompanying update to the geometry columns
-  table!
-* Also add a constraint to prevent any geometries being added that are
-  not LINESTRINGS or null.
-* Create a spatial index on the new geometry column
+* :kbd:`streets` table တွင် ST_LineString အမျိုးအစား ဂျီဩမေတြီ column တစ်ခုပါရှိအောင် မွမ်းမံပြင်ဆင်ပါ။
+* ဂျီဩမေတြီ columns table တွင် ပူးတွဲ update လုပ်ပေးရန် မမေ့ပါနှင့်။
+* LINESTRING မဟုတ်သော သို့မဟုတ် null ဖြစ်နေသော ဂျီဩမေတြီများကို ထည့်သွင်းခြင်းမပြုရန် constraint တစ်ခုကိုလည်း ထည့်သွင်းပါ။ 
+* ဂျီဩမေတြီ column အသစ်တွင် spatial index တစ်ခုဖန်တီးပါ
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
   ::
@@ -45,8 +34,7 @@ Try Yourself: :abbr:`★★☆ (Moderate level)`
       (the_geom);
 
 
-Now let's insert a linestring into our streets table. In this case we will
-update an existing street record:
+ယခုအခါ streets table ထဲသို့ linestring တစ်ခုကို ထည့်သွင်းကြည့်ပါမည်။ ဤဥပမာတွင် ရှိနေပြီးသား street record တစ်ခုကို update လုပ်မည်ဖြစ်ပါသည်-
 
 .. code-block:: sql
 
@@ -54,27 +42,22 @@ update an existing street record:
   set the_geom = 'SRID=4326;LINESTRING(20 -33, 21 -34, 24 -33)'
   where streets.id=2;
 
-Take a look at the results in QGIS. (You may need to right-click on the streets
-layer in the 'Layers' panel, and choose 'Zoom to layer extent'.)
+QGIS ထဲတွင် ရလာဒ်များကို ကြည့်ပါ။ ('Layers' panel ထဲရှိ streets layer ပေါ်တွင် right-click နှိပ်ပြီး 'Zoom to layer extent' ကိုနှိပ်ရန် လိုအပ်ကောင်းလိုအပ်နိုင်ပါသည်။)
 
-Now create some more streets entries - some in QGIS and some from the command
-line.
+ယခုအခါ နောက်ထပ် streets entry များကိုဖန်တီးပါမည် - အချို့ကို QGIS ထဲတွင် ဖန်တီးပြီး အချို့ကို command line မှ ဖန်တီးမည်ဖြစ်ပါသည်။
 
 
-Creating Polygons
+Polygon များဖန်တီးခြင်း (Creating Polygons)
 -------------------------------------------------------------------------------
 
-Creating polygons is just as easy. One thing to remember is that by definition,
-polygons have at least four vertices, with the last and first being co-located:
+Polygon များဖန်တီးခြင်းသည် လွယ်ကူပါသည်။ အဓိပ္ပါယ်သတ်မှတ်ချက်အရ Polygon များတွင် အနည်းဆုံး vertex (မျဉ်းအဆစ်) ၄ ခုပါရှိရမည်ဖြစ်ပြီး ပထမဦးဆုံးနှင့် နောက်ဆုံး vertex သည် တစ်နေရာထဲတွင် ရှိနေရမည်ဖြစ်သည်-
 
 .. code-block:: sql
 
     insert into cities (name, the_geom)
     values ('Tokyo', 'SRID=4326;POLYGON((10 -10, 5 -32, 30 -27, 10 -10))');
 
-.. note::  A polygon requires double brackets around its coordinate list; this
-   is to allow you to add complex polygons with multiple unconnected areas. For
-   instance
+.. note:: Polygon တစ်ခုတွင် ၎င်း၏ကိုဩဒိနိတ် list ကို ကွင်း ( ) နှစ်ခုဖြင့် ရေးသားရန်လိုအပ်ပါသည်၊ ထိုမှသာ ချိတ်ဆက်မှုမရှိသောဧရိယာ များစွာပါဝင်သည့် ရှုပ်ထွေးသော Polygon များကို ထည့်သွင်းနိုင်စေမည်ဖြစ်သည်။ ဥပမာအားဖြင့်-
 
 .. code-block:: sql
 
@@ -84,24 +67,20 @@ polygons have at least four vertices, with the last and first being co-located:
                                (-10 -30, -5 0, -15 -15, -10 -30))'
             );
 
-If you followed this step, you can check what it did by loading the cities
-dataset into QGIS, opening its attribute table, and selecting the new entry.
-Note how the two new polygons behave like one polygon.
+ဤဥပမာအဆင့်အတိုင်း လုပ်ဆောင်ခဲ့ပါက cities dataset ကို QGIS ထဲသို့ ထည့်သွင်းပြီး attribute table ကိုဖွင့်ကာ အသစ်ထည့်သွင်းထားသော entry ကို select လုပ်ခြင်းအားဖြင့် စစ်ဆေးကြည့်နိုင်ပါသည်။ Polygon အသစ်နှစ်ခုသည် polygon တစ်ခုတည်းကဲ့သို့ လုပ်ဆောင်သည်ကို တွေ့ရပါမည်။
 
 
-Exercise: Linking Cities to People
--------------------------------------------------------------------------------
+လေ့ကျင့်ခန်း - Cities နှင့် People ကိုချိတ်ဆက်ခြင်း (Exercise: Linking Cities to People)
+-----------------------------------------------------------------------------------------
 
-For this exercise you should do the following:
+ဤလေ့ကျင့်ခန်းအတွက် အောက်ပါတို့ကို လုပ်ဆောင်သင့်ပါသည်-
 
-* Delete all data from your people table.
-* Add a foreign key column to people that references the primary key of
-  the cities table.
-* Use QGIS to capture some cities.
-* Use SQL to insert some new people records, ensuring that each has
-  an associated street and city.
+* People table မှ data များအားလုံးကို ဖျက်ပစ်ပါ။
+* Cities table ၏ primary key နှင့် ချိတ်ဆက်မည့် foreign key column တစ်ခုကို People table တွင် ထည့်သွင်းပါ။ 
+* အချို့ cities များကို ရယူရန် QGIS ကိုအသုံးပြုပါ။
+* People record အသစ်များကို ထည့်သွင်းရန် SQL ကိုအသုံးပြုပါ၊ record တစ်ခုချင်းစီတွင် သက်ဆိုင်ရာ street နှင့် city တစ်ခုစီပါရှိအောင် ထည့်သွင်းပါ။
 
-Your updated people schema should look something like this:
+Update ပြုလုပ်ထားသော People schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-
 
 .. code-block:: none
 
@@ -129,7 +108,7 @@ Your updated people schema should look something like this:
     "people_street_id_fkey" FOREIGN KEY (street_id) REFERENCES streets(id)
 
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
   ::
@@ -137,7 +116,7 @@ Your updated people schema should look something like this:
     delete from people;
     alter table people add column city_id int not null references cities(id);
 
-  (capture cities in QGIS)
+  (QGIS ထဲတွင် cities များရယူခြင်း)
 
   ::
 
@@ -165,7 +144,7 @@ Your updated people schema should look something like this:
                1,
                'SRID=4326;POINT(34 -34)');
 
-  If you're getting the following error message:
+  အောက်ပါ error message ကိုရရှိပါက-
 
   ::
 
@@ -173,44 +152,38 @@ Your updated people schema should look something like this:
             "people_city_id_fkey"
     DETAIL: Key (city_id)=(1) is not present in table "cities".
 
-  then it means that while experimenting with creating polygons for the
-  cities table, you must have deleted some of them and started over. Just
-  check the entries in your cities table and use any :guilabel:`id` which exists.
+  ၎င်း error message ၏ဆိုလိုရင်းမှာ cities table အတွက် polygon များဖန်တီးစဉ်တွင် polygon အချို့ကို ဖျက်ပစ်ရမည်ဖြစ်ပြီး ပြန်လည်စတင်ရမည်ဟု ဆိုလိုပါသည်။ Cities table ထဲရှိ entry များကို စစ်ဆေးပြီး ရှိနေပြီးသား  :guilabel:`id` တစ်ခုခုကို အသုံးပြုပါ။
 
 
 
-Looking at Our Schema
+Schema ကို ကြည့်ခြင်း (Looking at Our Schema)
 -------------------------------------------------------------------------------
 
-By now our schema should be looking like this:
+ယခုအခါ schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-
 
 .. figure:: img/final_schema.png
    :align: center
 
 
-Try Yourself: :abbr:`★★★ (Advanced level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★★ (Advanced level)`
 -------------------------------------------------------------------------------
 
-Create city boundaries by computing the minimum convex hull of all addresses
-for that city and computing a buffer around that area.
+City တစ်ခုအတွက် address များအားလုံး၏ minimum convex hull ကိုတွက်ချက်ပြီး အဆိုပါဧရိယာပတ်လည်တွင် buffer တစ်ခုတွက်ချက်ခြင်းအားဖြင့် city နယ်နိမိတ်များကို ဖန်တီးပါ။
 
 
-Access Sub-Objects
+Object အခွဲများကို ရယူသုံးစွဲခြင်း (Access Sub-Objects)
 -------------------------------------------------------------------------------
 
-With the SFS-Model functions, you have a wide variety of options to access
-sub-objects of SFS Geometries. When you want to select the first vertex point of
-every polygon geometry in the table myPolygonTable, you have to do this in this
-way:
+SFS-Model function များတွင် SFS ဂျီဩမေတြီများ၏ object အခွဲများကို ရယူသုံးစွဲရန် option မျိုးစုံရှိပါသည်။ myPolygonTable ထဲရှိ polygon ဂျီဩမေတြီအတိုင်း၏ ပထမဆုံး vertex point ကို select ပြုလုပ်လိုပါက အောက်ပါနည်းအတိုင်း လုပ်ဆောင်ရပါမည်-
 
-* Transform the polygon boundary to a linestring:
+* Polygon နယ်နိမိတ်ကို linestring တစ်ခုအဖြစ်သို့ ပြောင်းလဲပါ-
 
   .. code-block:: sql
 
     select st_boundary(geometry) from myPolygonTable;
 
 
-* Select the first vertex point of the resultant linestring:
+* ရရှိလာသော linestring ၏ ပထမဆုံး vertex point ကို select လုပ်ပါ-
 
   .. code-block:: sql
 
@@ -223,14 +196,12 @@ way:
 Data Processing
 -------------------------------------------------------------------------------
 
-PostGIS supports all OGC SFS/MM standard conform functions. All these functions
-start with ``ST_``.
+PostGIS သည် OGC SFS/MM စံနှုန်းနှင့်ကိုက်ညီသော function များအားလုံးကို ပံ့ပိုးပေးထားပါသည်။ အဆိုပါ function များအားလုံးသည် ``ST_`` ဟူသောစာလုံးဖြင့် စတင်ပါသည်။
 
-Clipping
+ဖြတ်တောက်ခြင်း (Clipping)
 -------------------------------------------------------------------------------
 
-To clip a subpart of your data you can use the ``ST_INTERSECT()`` function.
-To avoid empty geometries, use:
+Data ၏ အပိုင်းခွဲတစ်ခုကို clip ပြုလုပ်ရန် ``ST_INTERSECT()`` function ကိုအသုံးပြုနိုင်ပါသည်။ ဗလာဖြစ်နေသော ဂျီဩမေတြီများ မဖြစ်စေရန် အောက်ပါကို အသုံးပြုပါ-
 
 .. code-block:: sql
 
@@ -249,19 +220,15 @@ To avoid empty geometries, use:
 .. figure:: img/qgis_002.png
    :align: center
 
-Building Geometries from Other Geometries
--------------------------------------------------------------------------------
+အခြား ဂျီဩမေတြီများကိုအသုံးပြုပြီး ဂျီဩမေတြီများတည်ဆောက်ခြင်း (Building Geometries from Other Geometries)
+----------------------------------------------------------------------------------------------------------
 
-From a given point table, you want to generate a linestring. The order of the
-points is defined by their :kbd:`id`. Another ordering method could be a
-timestamp, such as the one you get when you capture waypoints with a GPS
-receiver.
+Point table တစ်ခုမှ linestring တစ်ခုထုတ်ယူလိုပါသည်။ Point များ၏ order ကို :kbd:`id` ဖြင့်သတ်မှတ်ထားပါသည်။ အခြား order စဉ်သည့်နည်းလမ်းသည် GPS ဖြင့် waypoint များကို ရယူသည့် timestamp (အချိန်) ဖြင့် စီခြင်းဖြစ်သည်။
 
 .. figure:: img/qgis_006.png
    :align: center
 
-To create a linestring from a new point layer called 'points', you can run the
-following command:
+'points' ဟုခေါ်သော point layer အသစ်တစ်ခုမှ linestring တစ်ခုကို ဖန်တီးရန် အောက်ပါ command ကို run နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -272,24 +239,21 @@ following command:
     order by id
   ) as foo;
 
-To see how it works without creating a new layer, you could also run this
-command on the 'people' layer, although of course it would make little
-real-world sense to do this.
+
+Layer အသစ်တစ်ခုမဖန်တီးပဲ ၎င်း၏အလုပ်လုပ်ပုံကို ကြည့်ရှုရန် 'people' layer ပေါ်တွင်လည်း ထို command ကို run ကြည့်နိုင်ပါသည်။
 
 .. figure:: img/qgis_007.png
    :align: center
 
-Geometry Cleaning
+ဂျီဩမေတြီ သန့်ခြင်း (Geometry Cleaning)
 -------------------------------------------------------------------------------
 
-You can get more information for this topic in `this blog entry
-<https://gisforthought.com/projects/postgis_tutorial/validity.html>`_.
+ဤခေါင်းစဉ်အတွက် အချက်အလက်များကို `ဤ blog တွင် <https://gisforthought.com/projects/postgis_tutorial/validity.html>`_ ဖတ်ရှုနိုင်ပါသည်။
 
-Differences between tables
+Table များအကြား ကွာခြားချက် (Differences between tables)
 -------------------------------------------------------------------------------
 
-To detect the difference between two tables with the same structure, you can
-use the PostgreSQL keyword ``EXCEPT``:
+တည်ဆောက်ပုံတူညီသော table နှစ်ခုအကြား ကွာခြားချက်ကို သိရှိနိုင်စေရန် PostgreSQL keyword ဖြစ်သော ``EXCEPT`` ကိုအသုံးပြုနိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -297,29 +261,22 @@ use the PostgreSQL keyword ``EXCEPT``:
   except
   select * from table_b;
 
-As the result, you will get all records from table_a which are not stored in
-table_b.
+ရလာဒ်အနေဖြင့် table_b တွင်မသိမ်းဆည်းထားသော table_a မှ record များအားလုံးကို ရရှိမည်ဖြစ်သည်။
 
 Tablespaces
 -------------------------------------------------------------------------------
 
-You can define where postgres should store its data on disk by creating
-tablespaces:
+Postgres သည် ၎င်း၏ data များကို ကွန်ပျူတာရှိ မည်သည့်နေရာတွင် သိမ်းဆည်းသင့်သည်ကို Tablespace များဖန်တီးခြင်းဖြင့် သတ်မှတ်ပေးနိုင်ပါသည်-
 
 .. code-block:: sql
 
   CREATE TABLESPACE homespace LOCATION '/home/pg';
 
-When you create a database, you can then specify which tablespace to use e.g.::
+Database တစ်ခုကိုဖန်တီးသောအခါ အသုံးပြုမည့် tablespace ကို သတ်မှတ်ပေးနိုင်ပါသည်၊ ဥပမာ-::
 
   createdb --tablespace=homespace t4a
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You've learned how to create more complex geometries using PostGIS statements.
-Keep in mind that this is mostly to improve your tacit knowledge when working
-with geo-enabled databases through a GIS frontend. You usually won't need to
-actually enter these statements manually, but having a general idea of their
-structure will help you when using a GIS, especially if you encounter errors
-that would otherwise seem cryptic.
+PostGIS statement များကိုအသုံးပြုပြီး ပိုမိုရှုပ်ထွေးသော ဂျီဩမေတြီများကို မည်ကဲ့သို့ဖန်တီးရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ GIS ကိုအသုံးပြုပြီး ပထဝီဝင်ဆိုင်ရာ database များဖြင့် အလုပ်လုပ်သောအခါ သင့်တွင်ရှိသော ဗဟုသုတကို တိုးတက်စေရန်ဖြစ်ပါသည်။ အဆိုပါ statement များကို အမြဲတမ်း လက်ဖြင့် ရိုက်ထည့်ရန်မလိုအပ်ပါ။ သို့သော် ၎င်းတို့၏တည်ဆောက်ပုံကို ယေဘုယျနားလည်ခြင်းသည် GIS အသုံးပြုသောအခါ၊ အထူးသဖြင့် error များကြုံတွေ့ရပါက အကူအညီဖြစ်စေပါသည်၊ ထိုသို့မဟုတ်ပါက error များကိုနားလည်ရခက်နေပေလိမ့်မည်။

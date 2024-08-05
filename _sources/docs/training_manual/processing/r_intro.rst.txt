@@ -1,119 +1,93 @@
 .. _r-intro:
 
-****************************
-Use R scripts in Processing
-****************************
+*************************************************************************
+Processing တွင် R script များအသုံးပြုခြင်း (Use R scripts in Processing)
+*************************************************************************
 
-Module contributed by Matteo Ghetta - funded by
-`Scuola Superiore Sant'Anna <https://www.santannapisa.it/it>`_
+မော်ဂျူးကို Matteo Ghetta မှ ပါဝင်ကူညီထားပြီး `Scuola Superiore Sant'Anna <https://www.santannapisa.it/it>`_ မှ ငွေကြေးထောက်ပံ့ထားပါသည်။
 
-Processing (with the ``Processing R Provider`` plugin) makes it possible to write
-and run R scripts inside QGIS.
+Processing (``Processing R Provider`` plugin ဖြင့်) သည် QGIS အတွင်း R script များရေးသားပြီး run နိုင်ရန် လုပ်ဆောင်ပါသည်။
 
 .. warning::
-   R has to be installed on your computer and the PATH has to be correctly
-   set up. Moreover Processing just calls the external R packages, it is not able
-   to install them. So be sure to install external packages directly in R.
-   See the related :ref:`chapter <creating_r_scripts>` in the user manual.
+   သင့်ကွန်ပျူတာတွင် R ကို install ပြုလုပ်ထားရမည်ဖြစ်ပြီး PATH ကို မှန်ကန်စွာသတ်မှတ်ပေးထားရပါမည်။ ထို့အပြင် Processing သည် ပြင်ပ R package များသာ ခေါ်ယူသောကြောင့် ၎င်း package များကို install မပြုလုပ်နိုင်ပါ။ ထို့ကြောင့် ပြင်ပ package များကို R ထဲတွင် တိုက်ရိုက် install ပြုလုပ်ထားပေးပါ။ အသုံးပြုသူလမ်းညွှန်ထဲရှိ သက်ဆိုင်ရာ :ref:`အခန်း <creating_r_scripts>` တွင်ကြည့်ရှုပါ။
 
 .. note::
-   If you have *package* problems, it may be related to missing
-   *mandatory* packages required by Processing, like ``sp``, ``rgdal`` and ``raster``.
+   ``sp`` ၊ ``rgdal`` နှင့် ``raster`` ကဲ့သို့သော Processing မှ *မဖြစ်မနေလိုအပ်သော* package များမရှိပါက *package* ပြဿနာများရှိနိုင်ပါသည်။
 
-Adding scripts
-==============
+Script များထည့်သွင်းခြင်း (Adding scripts)
+===========================================
 
-Adding a script is simple.
-The easiest way is to open the Processing toolbox and choose
-:menuselection:`Create new R script...` from the R menu (labelled with an
-R icon) at the top of the Processing Toolbox.
-You can also create the script in for instance a text editor and save it in
-your R scripts folder (:file:`processing/rscripts`).
-When it has been saved there, it will be available for editing by
-right-clicking on the script name in the processing toolbox and then choose
-:menuselection:`Edit Script...`).
+Script တစ်ခုထည့်သွင်းခြင်းသည် ရိုးရှင်းပါသည်။ အလွယ်ကူဆုံးနည်းလမ်းမှာ Processing toolbox ကိုဖွင့်ပြီး toolbox ၏ထိပ်ရှိ R menu (R icon တွင် label တပ်ထားသော) မှ :menuselection:`Create new R script...` ကိုရွေးချယ်ပေးခြင်းဖြစ်သည်။ Text editor တစ်ခုထဲတွင်လည်း script ကိုဖန်တီးနိုင်ပြီး ၎င်းကို R script folder (:file:`processing/rscripts`) ထဲတွင် သိမ်းဆည်းနိုင်ပါသည်။ ထို folder ထဲတွင် သိမ်းဆည်းထားပြီးသောအခါ processing toolbox ထဲရှိ script နာမည်ပေါ်တွင် right click နှိပ်ပြီး :menuselection:`Edit Script...` ကိုရွေးကာ script ကို edit ပြုလုပ်နိုင်ပါသည်။ 
 
 .. figure:: img/r_intro/r_intro_1.png
 
 .. note::
-   If you cannot see R in Processing, you have to activate it in
-   :menuselection:`Processing --> Options --> Providers`
+   Processing ထဲတွင် R ကိုမတွေ့ရပါက :menuselection:`Processing --> Options --> Providers` ထဲတွင် R ကို activate လုပ်ပေးရပါမည်။
 
-It opens a *script editor window* in which you have to specify some parameters
-before you can add the script body.
+:menuselection:`Create new R script...` ကိုနှိပ်ပါက *script editor window* တစ်ခုပွင့်လာမည်ဖြစ်ပြီး script စာကိုယ် မထည့်သွင်းမီ parameter အချို့ကို ထိုထဲတွင် သတ်မှတ်ပေးရပါမည်။
 
 .. figure:: img/r_intro/r_intro_2.png
    :scale: 70%
    :align: center
 
-Creating plots
-==============
+Plot များဖန်တီးခြင်း (Creating plots)
+======================================
 
-In this tutorial we are going to create a **boxplot** of a vector layer field.
+ဤလေ့ကျင့်ခန်းတွင် vector layer field တစ်ခု၏ **boxplot** တစ်ခုကိုဖန်တီးမည်ဖြစ်သည်။
 
-Open the :file:`r_intro.qgs` QGIS project under the
-:file:`exercise_data/processing/r_intro/` folder.
+:file:`exercise_data/processing/r_intro/` folder ထဲရှိ :file:`r_intro.qgs` QGIS project ကိုဖွင့်ပါ။
 
 
 Script parameters
 -----------------
 
-Open the editor and start writing at the beginning of it.
+Editor ကိုဖွင့်ပြီး စတင်ရေးသားပါ။
 
-You **must** specify some parameters **before** the script body:
+Script စာကိုယ် **မတိုင်မီ** တွင် parameter အချို့ကို သတ်မှတ်ပေးရပါမည်-
 
-#. The name of the group (`plots` in this case) in which you want to put your
-   script (if the group does not exist, it will be created)::
+#. Script ကိုထားရှိလိုသော အုပ်စု၏နာမည် (ဤဥပမာတွင် `plots` ဖြစ်သည်) (အုပ်စုသည် ရှိနေပြီးသားမဟုတ်ပါက ဖန်တီးပေးမည်ဖြစ်သည်)::
 
     ##plots=group
 
-   You will find your script in the **plots** R group in the Processing toolbox.
+   Processing toolbox ထဲရှိ **plots** R အုပ်စုထဲတွင် script ကိုရှာတွေ့နိုင်ပါသည်။
 
-#. You have to tell Processing that you want to display a plot (in this example)::
+#. Plot တစ်ခုကို ပြသလိုကြောင်း Processing ကိုပြောပေးရပါမည် (ဤဥပမာတွင်)::
 
     ##showplots
 
-   You will then find a link to the plot in the **Result Viewer** panel (can
-   be turned on / off in :menuselection:`View --> Panels` and with
-   :menuselection:`Processing --> Results Viewer`).
+   **Result Viewer** panel ထဲတွင် plot ဖွင့်ရန် link တစ်ခုကို တွေ့ရပါလိမ့်မည် (:menuselection:`View --> Panels` ထဲနှင့် :menuselection:`Processing --> Results Viewer` ဖြင့် Panel ကို အဖွင့်/အပိတ်လုပ်နိုင်ပါသည်)။
 
-#. You also need to tell Processing about your input data.
-   In this example we want to create a plot from a field of a vector layer::
+#. Input data အကြောင်းကိုလည်း Processing ကိုပြောပြပေးရန် လိုအပ်ပါသည်။ ဤဥပမာတွင် vector layer ၏ field တစ်ခုမှ plot တစ်ခုကိုဖန်တီးလိုပါသည်::
 
     ##Layer=vector
 
-   Processing now knows that the input is a vector. The name *Layer* is not
-   important, what matters is the **vector** parameter.
+   ယခုအခါ Input သည် vector တစ်ခုဖြစ်ကြောင်း Processing မှသိရှိပြီဖြစ်ပါသည်။ နာမည် *Layer* သည် အရေးမကြီးပါ၊ အရေးကြီးသည်မှာ **vector** parameter ဖြစ်ပါသည်။
 
-#. Finally, you have to specify the input field of the vector layer (using the
-   name you have provided above - *Layer*)::
+#. နောက်ဆုံးတွင် vector layer ၏ input field ကိုသတ်မှတ်ပေးရပါမည် (အထက်တွင်ပေးထားသော နာမည် *Layer* ကိုအသုံးပြုပြီး)::
 
     ##X=Field Layer
 
-   Processing now knows that you need a field of *Layer*, and that you will
-   call it **X**.
+   *Layer* ၏ field တစ်ခုကိုလိုအပ်ကြောင်းနှင့် ၎င်းကို **X** ဟုခေါ်ဆိုမည်ဖြစ်ကြောင်း Processing မှသိရှိပြီဖြစ်ပါသည်။
 
-#. It is also possible to define the name of your script using ``name``::
+#. ``name`` ကိုအသုံးပြုပြီး script ၏နာမည်ကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်::
 
     ##My box plot script=name
     
-   If not defined, the file name will be used as the name of the script.
+   သတ်မှတ်မပေးထားပါက ဖိုင်နာမည်သည် script ၏နာမည်အတိုင်း ဖြစ်ပါလိမ့်မည်။
 
-Script body
------------
+Script စာကိုယ် (Script body)
+-----------------------------
 
-Now that you have set up the *heading* of the script you can add the function::
+ယခုအခါ script ၏ *heading* ကိုသတ်မှတ်ပြီးဖြစ်သောကြောင့် function ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်::
 
     boxplot(Layer[[X]])
 
-**boxplot** is the name of the R function, the parameter **Layer**
-is the name that you have defined for the input dataset and **X** is the
-name you have defined for the field of that dataset.
+**boxplot** သည် R function ၏နာမည်ဖြစ်ပါသည်၊ parameter **Layer** သည် input dataset အတွက် သင်သတ်မှတ်ပေးထားသော နာမည်ဖြစ်ပြီး **X** သည် ထို dataset ၏ field အတွက် သင်သတ်မှတ်ပေးထားသော နာမည်ဖြစ်ပါသည်။
 
 .. warning::
-   The parameter **X** has to be within double square brackets (``[[]]``).
+   parameter **X** သည် လေးထောင့်ကွင်းနှစ်ခု (``[[]]``) အတွင်း ရှိရပါမည်။
 
-The final script looks like this::
+အပြီးသတ် script သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်::
 
     ##Vector processing=group
     ##showplots
@@ -123,106 +97,85 @@ The final script looks like this::
 
 .. figure:: img/r_intro/r_intro_3.png
 
-Save the script in the default path suggested by Processing (processing/rscripts).
-If you have not defined a ``name`` in the script heading, the file name you
-choose will become the name of the script in the Processing toolbox.
+Processing မှအကြံပြုထားသော default ဖိုင်လမ်းကြောင်း (processing/rscripts) ထဲတွင် script ကိုသိမ်းဆည်းပါ။ Script heading ထဲတွင် ``name`` တစ်ခုကို မသတ်မှတ်ထားပါက သင်ရွေးချယ်သော ဖိုင်နာမည်သည် Processing toolbox ထဲရှိ script ၏နာမည် ဖြစ်ပါလိမ့်မည်။
 
 .. note::
-   You can save the script wherever you like, but Processing will then not
-   be able to include it in the processing toolbox automatically, so you have
-   to upload it manually.
+   Script ကို သင်ကြိုက်နှစ်သက်ရာနေရာတွင် သိမ်းဆည်းနိုင်ပါသည်၊ သို့သော် Processing toolbox ထဲတွင် script ကိုအလိုအလျောက်ထည့်သွင်းပေးလိမ့်မည်မဟုတ်ပါ၊ ထို့ကြောင့် script ကို manual upload လုပ်ပေးရပါမည်။
 
-Now just run it using the button on the top of the editor window:
+Editor window ၏အပေါ်ဘက်ရှိ ခလုတ်ကိုနှိပ်ပြီး script ကို run လိုက်ပါ-
 
 .. figure:: img/r_intro/r_intro_4.png
 
-Once the editor window has been closed, use the text box of Processing to find your
-script:
+Editor window ကိုပိတ်လိုက်ပြီး Processing ၏ text box ထဲတွင် သင်၏ script ကိုရှာဖွေပါ-
 
 .. figure:: img/r_intro/r_intro_5.png
 
-You can now fill the parameters required in the Processing algorithm window:
+ယခုအခါ Processing algorithm window ထဲတွင် လိုအပ်သော parameter များကိုဖြည့်သွင်းနိုင်ပြီဖြစ်ပါသည်-
 
-* for **Layer** choose *sample_points*
-* for the **X** field choose *value*
+* **Layer** အတွက် *sample_points* ကိုရွေးပါ
+* **X** field အတွက် *value* ကိုရွေးပါ
 
-Click on **Run**.
+**Run** ကိုနှိပ်ပါ။
 
 .. figure:: img/r_intro/r_intro_6.png
 
-The **Result window** should be automatically opened, if not, just click on
-:menuselection:`Processing --> Result Viewer...`.
+**Result window** သည် အလိုအလျောက်ပွင့်လာသင့်ပါသည်၊ ထိုသို့မပွင့်လာပါက :menuselection:`Processing --> Result Viewer...` ကိုနှိပ်ပါ။
 
-Click on the link in the viewer and you will see:
+Viewer ထဲရှိ link ကိုနှိပ်ပါက အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မည်-
 
 .. figure:: img/r_intro/r_intro_7.png
 
 .. note::
-   You can open, copy and save the image by right clicking on the plot.
+   Plot ပေါ်တွင် right click နှိပ်ပြီး ပုံကို ဖွင့်နိုင်၊ ကူးယူနိုင်၊ သိမ်းဆည်းနိုင်ပါသည်။
 
-Create a vector
-===============
+Vector တစ်ခုဖန်တီးခြင်း (Create a vector)
+==========================================
 
-You can also create a vector layer and have it automatically loaded
-into QGIS.
+Vector layer တစ်ခုကို ဖန်တီးပြီး ၎င်းကို QGIS ထဲသို့ အလိုအလျောက်ထည့်သွင်းပေးနိုင်ပါသည်။
 
-The following example has been taken from the ``Random sampling grid``
-script that can be found in the online collection of R scripts
-(the scripts in this online collection can be found in
-https://github.com/qgis/QGIS-Processing/tree/master/rscripts).
+အောက်ပါဥပမာကို အွန်လိုင်း R script များစုစည်းမှုတွင် တွေ့ရနိုင်သော ``Random sampling grid`` script မှရယူထားပါသည် (အွန်လိုင်းစုစည်းမှုထဲရှိ script များကို https://github.com/qgis/QGIS-Processing/tree/master/rscripts တွင်တွေ့နိုင်ပါသည်)။
 
-The aim of this exercise is to create a random point vector layer
-using an input vector layer to restrict the extent using the ``spsample``
-function of the ``sp`` package.
+ဤလေ့ကျင့်ခန်း၏ရည်ရွယ်ချက်မှာ input vector layer တစ်ခုကိုအသုံးပြုပြီး ကျပန်း point vector layer တစ်ခုကိုဖန်တီးရန်ဖြစ်ပြီး ``sp`` package မှ ``spsample`` function ကိုအသုံးပြုပြီး extent (နယ်ပယ်အကျယ်အဝန်း) ကို ကန့်သတ်ရန်ဖြစ်သည်။
 
 
 Script parameters
 ------------------
 
-As before we have to set some parameters before the script body:
+Script စာကိုယ် မတိုင်မီတွင် parameter အချို့ကို သတ်မှတ်ပေးရပါမည်-
 
-#. Specify the name of the group in which you want to put your script, in
-   this case *Point pattern analysis*::
+#. Script ကိုထားရှိလိုသော အုပ်စုနာမည်ကို သတ်မှတ်ပါ၊ ဤဥပမာတွင် *Point pattern analysis* ဖြစ်သည်::
 
     ##Point pattern analysis=group
-#. Define an input parameter (a vector layer) that will constrain the
-   placement of the random points::
+#. ကျပန်း point များ၏နေရာချထားမှုကို ကန့်သတ်ပေးမည့် input parameter (vector layer တစ်ခု) တစ်ခုကို သတ်မှတ်ပါ::
 
     ##Layer=vector
 
-#. Set an input parameter for the number of points that are going to be
-   created (``Size``, with a default value of ``10``)::
+#. ဖန်တီးမည့် point အရေအတွက်အတွက် input parameter တစ်ခုကိုသတ်မှတ်ပါ (``Size`` ဖြစ်ပြီး default တန်ဖိုးသည် ``10`` ဖြစ်ပါသည်)::
 
     ##Size=number 10
 
-   .. note:: Since a default value (``10``) is defined, the user can
-      change this number or can leave the parameter without a number.
+   .. note:: Default တန်ဖိုး (``10``) သတ်မှတ်ပေးထားသောကြောင့် အသုံးပြုသူအနေဖြင့် ထိုဂဏန်းကိုပြောင်းလဲပေးနိုင်သလို parameter တွင်ဂဏန်းမထည့်ပဲ ချန်ထားနိုင်ပါသည်။
 
-#. Specify that there is an output vector layer (called ``Output``)::
+#. Output vector layer တစ်ခု (``Output`` ဟုခေါ်ဆိုသော) ကိုသတ်မှတ်ပါ::
 
     ##Output=output vector
 
-Script body
------------
+Script စာကိုယ် (Script body)
+-----------------------------
 
-Now you can add the body of the function:
+ယခုအခါ function ကို ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်-
 
-#. Use the ``spsample`` function::
+#. ``spsample`` function ကိုအသုံးပြုပါ::
 
     pts=spsample(Layer, Size, type="random")
 
-   The function uses the *Layer* to constrain the placement of the
-   points (if it is a line layer, a points will have to be on one of
-   the lines in the layer, if it is a polygon layer, a point will
-   have to be within a polygon).
-   The number of points is taken from the *Size* parameter.
-   The sampling method is *random*.
+   Point များ၏နေရာချထားမှုကိုကန့်သတ်ရန် function သည် *Layer* ကိုအသုံးပြုပါသည် (၎င်းသည် line layer တစ်ခုဖြစ်ပါက point သည် line တစ်ခုခုပေါ်တွင်ရှိရမည်ဖြစ်သည်၊ ၎င်းသည် polygon layer တစ်ခုဖြစ်ပါက point သည် polygon အတွင်းတွင် ရှိရပါမည်)။ Point အရေအတွက်ကို *Size* parameter မှရယူပါသည်။ Sampling နည်းလမ်းသည် *random* ဖြစ်ပါသည်။
 
-#. Generate the output (the ``Output`` parameter)::
+#. Output (`Output`` parameter) ကိုထုတ်ယူပါ::
 
     Output=SpatialPointsDataFrame(pts, as.data.frame(pts))
 
-The final script looks like this::
+အပြီးသတ် script သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်::
 
     ##Point pattern analysis=group
     ##Layer=vector
@@ -233,27 +186,23 @@ The final script looks like this::
 
 .. figure:: img/r_intro/r_intro_8.png
 
-Save it and run it, clicking on the run button.
+Script ကို သိမ်းဆည်းပြီး run ပါ။
 
-In the new window type in the right parameters:
+ပေါ်လာသော window အသစ်ထဲတွင် parameter ထည့်သွင်းပြီး run ကိုနှိပ်ပါ- 
 
 .. figure:: img/r_intro/r_intro_9.png
 
-and click on run.
 
-The result layer will be added to the table of contents and its
-points will be displayed on the map canvas:
+ရလာဒ် layer ကို table of contents ထဲသို့ ထည့်သွင်းပေးမည်ဖြစ်ပြီး point များကို မြေပုံ canvas ပေါ်တွင် ပြသပေးမည်ဖြစ်သည်-
 
 .. figure:: img/r_intro/r_intro_10.png
 
 
-Text and graph output from R - syntax
-=====================================
+R - syntax မှ စာသားနှင့်ဂရပ် output (Text and graph output from R - syntax)
+============================================================================
 
-Processing (with the ``Processing R Provider plugin``) uses special
-syntax to get the results out of R:
+Processing (``Processing R Provider plugin`` ဖြင့်) သည် R မှ ရလာဒ်များကိုရရှိရန် အထူး syntax ကိုအသုံးပြုပါသည်-
 
-* ``>`` before your command, as in ``>lillie.test(Layer[[Field]])`` means
-  the result should be sent to R output (Result viewer)
-* ``+`` after a plot enables overlay plots. For example ``plot(Layer[[X]],
+* Command မတိုင်မီတွင် ``>`` ထည့်သွင်းခြင်း၊ ``>lillie.test(Layer[[Field]])`` သည် ရလာဒ်ကို R output (Result viewer) သို့ပို့ပေးသင့်ကြောင်း ဆိုလိုပါသည်။
+* Plot နောက်တွင် ``+`` ထည့်သွင်းခြင်းသည် plot များကို ထပ်ပေးနိုင်ပါသည်။ ဥပမာ ``plot(Layer[[X]],
   Layer[[Y]]) + abline(h=mean(Layer[[X]]))``

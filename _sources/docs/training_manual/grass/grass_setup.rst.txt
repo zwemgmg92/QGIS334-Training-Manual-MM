@@ -1,30 +1,25 @@
-Lesson: GRASS Setup
+သင်ခန်းစာ - GRASS Setup (Lesson: GRASS Setup)
 ===============================================================================
 
-Using GRASS in QGIS requires you to think of the interface in a slightly
-different way. Remember that you're not working in QGIS directly, but working
-in GRASS *via* QGIS. Hence, make sure you have installed QGIS Desktop with
-Grass support.
+QGIS ထဲတွင် GRASS အသုံးပြုသောအခါ interface သည် အနည်းငယ်ကွဲပြားနေပါလိမ့်မည်။ QGIS ထဲတွင်တိုက်ရိုက်အလုပ်လုပ်နေခြင်းမဟုတ်ပဲ QGIS *မှတဆင့်* GRASS ထဲတွင် အလုပ်လုပ်နေခြင်းဖြစ်သည်ကို မှတ်သားထားပါ။ ထို့ကြောင့် GRASS အသုံးပြုနိုင်သော QGIS Desktop ကို install ပြုလုပ်ထားပါ။
 
-|win| To open a QGIS session with GRASS available on Windows you have to click
-on the ``QGIS Desktop with GRASS`` icon.
+|win| Window တွင် GRASS ဖြင့် QGIS ကိုဖွင့်ရန် ``QGIS Desktop with GRASS`` icon ကိုနှိပ်ပါ။
 
-**The goal for this lesson:** To begin a GRASS project in QGIS.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** QGIS ထဲတွင် GRASS project တစ်ခုအစပြုရန်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Start a New GRASS Session
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS Session အသစ်တစ်ခုစတင်ခြင်း (Follow Along: Start a New GRASS Session)
+------------------------------------------------------------------------------------------------------------------------
 
-To launch GRASS from within QGIS, you need to activate it as with any other
-plugin:
+QGIS အတွင်းမှ GRASS ကိုစတင်အသုံးပြုရန် အခြား plugin များကဲ့သို့ activate လုပ်ပေးရန်လိုအပ်ပါသည်-
 
-#. First, open a new QGIS project.
-#. In the :guilabel:`Plugin Manager`, enable :guilabel:`GRASS` in the list:
+#. ဦးစွာ QGIS project အသစ်တစ်ခုကိုဖွင့်ပါ။
+#. :guilabel:`Plugin Manager` ထဲတွင် :guilabel:`GRASS` ကိုဖွင့်ပေးပါ-
 
    .. figure:: img/enable_grass.png
       :align: center
 
 
-   The GRASS toolbar and the GRASS panel will appear:
+   GRASS toolbar နှင့် GRASS panel ပေါ်လာပါလိမ့်မည်-
 
    .. figure:: img/grass_toolbar.png
       :align: center
@@ -36,289 +31,227 @@ plugin:
 
       GRASS Panel
 
-The GRASS panel is not active because, before you can use GRASS, you need to
-create a ``Mapset``. GRASS always works in a database environment, which means
-that you need to import all the data you want to use into a GRASS database.
+GRASS ကိုအသုံးမပြုမီတွင် ``Mapset`` တစ်ခုကိုဖန်တီးထားရန် လိုအပ်ပါသည်။ GRASS သည် database environment တစ်ခုထဲတွင် အလုပ်လုပ်ဆောင်ခြင်းဖြစ်ပြီး သင်အသုံးပြုလိုသည့် data များအားလုံးကို GRASS database တစ်ခုထဲသို့ ထည့်သွင်းထားရန်လိုအပ်ပါသည်။
 
-The GRASS database has a straightforward structure, even if at a first look it
-seems very complicated. The most important thing you should know is that the
-upper level of the database is the ``Location``. Each ``Location`` can contain
-different ``Mapset``: in **every** ``Mapset`` you will find the ``PERMANENT``
-Mapset because it is created by default by GRASS. Each ``Mapset`` contains the
-data (raster, vector, etc) in a particular structure, but don't worry, GRASS will
-take care of this for you.
+GRASS database တစ်ခုကို စစချင်းကြည့်ပါက အလွန်ရှုပ်ထွေးသည်ဟုထင်ရသော်လည်း ၎င်း၏ ဖွဲ့စည်းပုံသည် ရိုးရှင်းပါသည်။ သင်သိထားရမည့် အရေးအကြီးဆုံးအရာသည် database ၏ ထိပ်ပိုင်းအဆင့်သည် ``Location`` ဖြစ်ပါသည်။ ``Location`` တစ်ခုချင်းစီတွင် မတူညီသော ``Mapset`` များပါဝင်နိုင်ပါသည်၊ ``Mapset`` တိုင်းတွင် ``PERMANENT`` Mapset ကိုတွေ့ရမည်ဖြစ်ပြီး ၎င်းကို GRASS မှ default အနေဖြင့် ဖန်တီးပေးထားခြင်းဖြစ်သည်။ ``Mapset`` တစ်ခုချင်းစီတွင် သီးခြားဖွဲ့စည်းပုံဖြင့် data (raster ၊ vector အစရှိသဖြင့်) များပါဝင်ပြီး GRASS မှ ၎င်း data များကို ကိုင်တွယ်မည်ဖြစ်သည်။
 
-Just remember: ``Location`` contains ``Mapset`` that contains the data. For more
-information visit the `GRASS website <https://grass.osgeo.org/grass82/manuals/grass_database.html>`_.
+မှတ်သားထားရမည်မှာ ``Location`` တွင် data များပါရှိသော ``Mapset`` ပါဝင်ပါသည်။ နောက်ထပ်အချက်အလက်များအတွက် `GRASS website <https://grass.osgeo.org/grass82/manuals/grass_database.html>`_ တွင်ကြည့်ရှုပါ။
 
 .. figure:: img/grass_database.png
    :align: center
 
-   GRASS database structure (from GRASS docs)
+   GRASS database ဖွဲ့စည်းပုံ (GRASS docs မှ)
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Start a New GRASS Project
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS Project အသစ်တစ်ခုစတင်ခြင်း (Follow Along: Start a New GRASS Project)
+------------------------------------------------------------------------------------------------------------------------
 
-#. Click on the :menuselection:`Plugins --> GRASS --> New Mapset` menu:
+#. :menuselection:`Plugins --> GRASS --> New Mapset` menu ကိုနှိပ်ပါ-
 
    .. figure:: img/grass_menu.png
       :align: center
 
-   You'll be asked to choose the location of the GRASS database.
+   GRASS database ၏ တည်နေရာကိုရွေးချယ်ပေးရန် မေးမြန်းပါလိမ့်မည်။
 
-#. Set it as the directory that will be used by GRASS to set up its database:
+#. GRASS မှ ၎င်း၏ database ကို set up ပြုလုပ်ရာတွင် အသုံးပြုမည့် ဖိုင်လမ်းကြောင်းအနေဖြင့် သတ်မှတ်ပါ-
 
    .. figure:: img/grass_folder.png
       :align: center
 
-#. Click :guilabel:`Next`.
+#. :guilabel:`Next` ကိုနှိပ်ပါ။
 
-GRASS needs to create a ``Location``, which describes the maximum extent of the
-geographic area you'll be working in, also known as Grass ``Region``.
+GRASS သည် ``Location`` တစ်ခုကိုဖန်တီးရန်လိုအပ်ပါသည်၊ ၎င်း ``Location`` သည် အလုပ်လုပ်ဆောင်မည့် ပထဝီဝင်ဧရိယာ၏ အများဆုံးနယ်ပယ်အကျယ်အဝန်းကို ဖော်ပြပေးပြီး  Grass ``Region`` ဟုလည်း‌ ခေါ်ဆိုပါသည်။
 
-.. note:: the Region is extremely important for GRASS because it describes the
-  area in which all layers will be taken into account for GRASS. Everything
-  that is outside will not be considered. Don't worry, you can always change the
-  extent of the GRASS Region after the Location has been created
+.. note:: Region သည် GRASS အတွက် အလွန်အရေးကြီးပါသည်၊ အကြောင်းမှာ Region သည် ဧရိယာကိုဖော်ပြပေးပြီး ထိုဧရိယာထဲတွင် layer များအားလုံးကို GRASS အတွက်ထည့်သွင်းစဉ်းစားပေးမည်ဖြစ်သည်။ အပြင်ဘက်တွင်ရှိသော အရာများအားလုံးကို ထည့်သွင်းစဉ်းစားမည်မဟုတ်ပါ။ Location ကိုဖန်တီးပြီးနောက် GRASS Region ၏ နယ်ပယ်အကျယ်အဝန်းကို ပြောင်းလဲပေးနိုင်ပါသည်။
 
-#. Call the new location ``SouthAfrica``:
+#. Location အသစ် ``SouthAfrica`` ကိုခေါ်ပါ- 
 
    .. figure:: img/new_location.png
       :align: center
 
-#. Click :guilabel:`Next`.
-#. We'll be working with ``WGS 84``, so search for and select this CRS:
+#. :guilabel:`Next` ကိုနှိပ်ပါ။
+#. ``WGS 84`` ကိုအသုံးပြုမည်ဖြစ်သော်ကြောင့် ထို CRS ကိုရှာပြီး ရွေးချယ်ပေးပါ-
 
    .. figure:: img/wgs_84_selected.png
       :align: center
 
-#. Click :guilabel:`Next`.
-#. Now select the region :guilabel:`South Africa` from the dropdown and click
-   :guilabel:`Set`:
+#. :guilabel:`Next` ကိုနှိပ်ပါ။
+#. Dropdown မှ :guilabel:`South Africa` region ကိုရွေးချယ်ပေးပြီး :guilabel:`Set` ကိုနှိပ်ပါ-
 
    .. figure:: img/set_south_africa.png
       :align: center
 
-#. Click :guilabel:`Next`.
-#. Create a mapset, which is the map file that you'll be working with.
+#. :guilabel:`Next` ကိုနှိပ်ပါ။
+#. Mapset တစ်ခုကိုဖန်တီးပါ၊ ၎င်းသည် အလုပ်လုပ်ဆောင်ရမည့် map ဖိုင်ဖြစ်ပါသည်။
 
    .. figure:: img/grass_mapset.png
       :align: center
 
-   Once you're done, you'll see a dialog asking with a summary of all the
-   information entered.
+   ဖန်တီးပြီးသွားသောအခါ ထည့်သွင်းထားသည့် အချက်အလက်များအားလုံး၏အကျဉ်းချုပ်ပါဝင်သော မေးမြန်းသည့် dialog တစ်ခုကိုတွေ့ရပါလိမ့်မည်။
 
    .. figure:: img/grass_final.png
      :align: center
 
-#. Click :guilabel:`Finish`.
-#. Click :guilabel:`OK` on the success dialog.
+#. :guilabel:`Finish` ကိုနှိပ်ပါ။
+#. Success dialog ပေါ်လာလျှင် :guilabel:`OK` ကိုနှိပ်ပါ။
 
-You will see that the GRASS Panel will become active and you can start to use
-all GRASS tools.
+GRASS Panel သည် active ဖြစ်လာသည်ကို မြင်တွေ့ရမည်ဖြစ်ပြီး GRASS tool များအားလုံးကို အသုံးပြုနိုင်ပြီဖြစ်ပါသည်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Loading Vector Data into GRASS
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS ထဲသို့ Vector Data များထည့်သွင်းခြင်း (Follow Along: Loading Vector Data into GRASS)
+----------------------------------------------------------------------------------------------------------------------------------------
 
-You have now a blank map and before you can start to use all the GRASS tools
-you have to load data into the GRASS database, specifically into the ``Mapset``.
-You cannot use GRASS tools with layer that are not loaded into a GRASS ``Mapset``.
+ယခုဆိုလျှင် မြေပုံအလွတ်တစ်ခုရှိနေမည်ဖြစ်ပြီး GRASS tool များအားလုံးကို အသုံးမပြုမီတွင် GRASS database ထဲသို့ data များ ထည့်သွင်းရမည်ဖြစ်သည်၊ အထူးသဖြင့် ``Mapset`` ထဲသို့ထည့်သွင်းရမည်ဖြစ်သည်။ GRASS ``Mapset`` တစ်ခုထဲသို့ မထည့်သွင်းထားသော layer များကို GRASS tool များဖြင့် အသုံးပြုနိုင်မည်မဟုတ်ပါ။ 
 
-There are many different ways to load data in the GRASS database. Let's start
-with the first one.
+GRASS database ထဲသို့ data များထည့်သွင်းရန် နည်းလမ်းအမျိုးမျိုးရှိပါသည်။ ပထမဦးဆုံး တစ်ခုဖြင့် စတင်လုပ်ဆောင်ကြည့်ပါမည်။
 
 
 .. _grass_browser:
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Load data using the QGIS Browser
-...............................................................................
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - QGIS Browser အသုံးပြု၍ Data များထည့်သွင်းခြင်း (Follow Along: Load data using the QGIS Browser)
+.............................................................................................................................................
 
-In section :ref:`browser_panel_tm` we saw that the easiest and quickest way to
-load the data in QGIS is the Browser Panel.
+QGIS ထဲသို့ data များထည့်သွင်းရန် အလွယ်ကူဆုံးနှင့်အမြန်ဆုံးနည်းလမ်းသည် Browser Panel ဖြစ်သည်ကို :ref:`browser_panel_tm` အပိုင်းတွင် တွေ့မြင်ခဲ့ပြီးဖြစ်ပါသည်။ 
 
-GRASS data are recognized from the QGIS Browser as *real* GRASS data and you can
-notice it because you will see the GRASS icon next to the GRASS Mapset. Moreover
-you will see the |grassMapsetOpen| icon next to the Mapset that is opened.
+GRASS data များကို *real* GRASS data များအနေဖြင့် QGIS Browser မှ အသိအမှတ်ပြုပါသည်၊ GRASS Mapset ဘေးတွင် GRASS icon ကိုမြင်တွေ့နေရမည်ဖြစ်သည်။ ထို့အပြင် ဖွင့်ထားသော Mapset ဘေးတွင် |grassMapsetOpen| icon ကို မြင်တွေ့ရမည်ဖြစ်သည်။
 
 .. figure:: img/grass_browser.png
    :align: center
 
-.. note:: You will see a replication of the GRASS Location as normal folder:
-  GRASS ``Mapset`` data are those within the |grassLogo| folder
+.. note:: GRASS Location အပွားတစ်ခုကို သာမန် folder အနေဖြင့် မြင်တွေ့ရမည်ဖြစ်သည်- GRASS ``Mapset`` data များသည် |grassLogo| folder ထဲတွင် ရှိသော data များဖြစ်ပါသည်။
 
-You can easily **drag and drop** layers from a folder to the GRASS Mapset.
+Folder တစ်ခုထဲမှ layer များကို click နှိပ်ဖိဆွဲကာ GRASS Mapset ထဲသို့ ထည့်သွင်းနိုင်ပါသည်။
 
-Let's try to import the :file:`roads` layer into the ``grass_mapset`` Mapset
-of the ``SouthAfrica`` Location.
+``SouthAfrica`` Location ၏ ``grass_mapset`` Mapset ထဲသို့ :file:`roads` layer ကိုထည့်သွင်းကြည့်ပါမည်။
 
-Go to the Browser, and simply drag the :file:`roads` layer  from the
-:file:`training_data.gpkg` GeoPackage file into the ``grass_mapset`` Mapset.
+Browser သို့သွားပြီး :file:`training_data.gpkg` GeoPackage ဖိုင်မှ :file:`roads` layer ကို ဖိဆွဲကာ ``grass_mapset`` Mapset ထဲသို့ ထည့်သွင်းပါ။
 
 .. figure:: img/grass_browser_import.png
    :align: center
 
-That's it! If you expand the Mapset you will see the imported :file:`roads`
-layer. You can now load in QGIS the imported layer like all the other layers.
+Mapset ကိုဖြန့်ကြည့်ပါက ထည့်သွင်းထားသော :file:`roads` layer ကိုမြင်တွေ့ရပါမည်။ ထိုထည့်သွင်းထားသော layer ကို QGIS ထဲသို့ အခြား layer များကဲ့သို့ပင် ထည့်သွင်းနိုင်ပါသည်။ 
 
-.. tip:: You can also load layers from the Layer Legend Panel to Mapset in the
-  Browser Panel. This will speed up incredibly your workflow!
+.. tip:: Layer Legend Panel မှ layer များကို Browser Panel ထဲရှိ Mapset ထဲသို့ ထည့်သွင်းနိုင်ပါသည်။ ထိုသို့လုပ်ဆောင်ခြင်းဖြင့် အလုပ်လုပ်ရာတွင် မြန်ဆန်စေပါလိမ့်မည်။
 
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Load data using the GRASS Panel
-...............................................................................
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS Panel အသုံးပြု၍ Data ထည့်သွင်းခြင်း (Follow Along: Load data using the GRASS Panel)
+.......................................................................................................................................
 
-We will use now the *long* method to load the :file:`rivers.shp` layer into the
-same Mapset.
+:file:`rivers.shp` layer ကို ထိုတူညီသော Mapset ထဲသို့ထည့်သွင်းရန် *long* နည်းလမ်းကို အသုံးပြုပါမည်။
 
-#. Load data into QGIS as usual. Use the :file:`rivers.shp` dataset (found in the
-   :file:`exercise_data/shapefile/` folder)
-#. As soon as it is loaded, click on the :guilabel:`Filter` box of the ``GRASS Panel``
-   and find the vector import tool by entering the term ``v.in.ogr.qgis``:
+#. ခါတိုင်းလိုပင် QGIS ထဲသို့ data များထည့်သွင်းပါ။ :file:`rivers.shp` dataset (:file:`exercise_data/shapefile/` folder ထဲတွင် တွေ့ရပါမည်) ကိုအသုံးပြုပါ။
+#. ၎င်းကို ထည့်သွင်းပြီးသည်နှင့် ``GRASS Panel`` ၏ :guilabel:`Filter` box ကို click နှိပ်ပြီး ``v.in.ogr.qgis`` ဆိုသည့် စာသားကိုရိုက်ပေးပြီး vector import tool ကိုရှာဖွေပါ-
 
-   .. warning:: There are 2 similar tools: ``v.in.ogr.qgis`` and
-     ``v.in.ogr.qgis.loc``. We are looking for the **first** one.
+   .. warning:: ဆင်တူဖြစ်သော tool နှစ်ခုရှိပါသည်- ``v.in.ogr.qgis`` နှင့် ``v.in.ogr.qgis.loc`` တို့ဖြစ်ပါသည်။ **ပထမ** တစ်ခုကို ရှာဖွေမည်ဖြစ်ပါသည်။
 
    .. figure:: img/grass_panel_import.png
       :align: center
 
-   The ``v`` stands for *vector*, ``in`` means a function to import data into
-   the GRASS database, ``ogr`` is the software library used to read vector data,
-   and ``qgis`` means that the tool will look for a vector from among the vectors
-   already loaded into QGIS.
+   ``v`` သည် *vector* အတွက် ကိုယ်စားပြုပြီး ``in`` သည် GRASS database ထဲသို့ data ထည့်သွင်းမည့် function တစ်ခုဖြစ်ပါသည်၊ ``ogr`` သည် vector data ကိုဖတ်ရန်အသုံးပြုသည့် software library ဖြစ်ပြီး ``qgis`` သည် QGIS ထဲသို့ထည့်သွင်းထားပြီးသော vector များအနက်မှ vector တစ်ခုကို tool မှရှာဖွေလိမ့်မည်ဟု အဓိပ္ပါယ်ရပါသည်။
 
-#. Once you've found this tool, click on it to bring up the tool itself. Choose
-   the :guilabel:`rivers` layer in the :guilabel:`Loaded Layer` box and type and
-   name it :file:`g_rivers` to prevent confusion:
+#. အဆိုပါ tool ကိုရှာတွေ့ပါက ၎င်းပေါ်တွင် click နှိပ်ပြီးဖွင့်ပါ။ :guilabel:`Loaded Layer` box ထဲတွင် :guilabel:`rivers` layer ကိုရွေးချယ်ပြီး ၎င်းကို :file:`g_rivers` ဟုအမည်ပေးပါ-
 
    .. figure:: img/grass_tool_selected.png
       :align: center
 
-   .. note:: :abbr:`★★★ (Advanced level)` Note the extra import options provided under
-    :guilabel:`Advanced Options`. These include the ability to add a WHERE
-    clause for the SQL query used for importing the data.
+   .. note:: :abbr:`★★★ (Advanced level)` :guilabel:`Advanced Options` အောက်တွင် အပိုဆောင်းထည့်သွင်းမှုဆိုင်ရာ option များရှိပါသည်။ ထို option များထဲတွင် data များထည့်သွင်းရန်အတွက် အသုံးပြုသည့် SQL query အတွက် WHERE clause တစ်ခုကိုထည့်ပေးနိုင်သည့် လုပ်နိုင်စွမ်းပါရှိပါသည်။
 
-#. Click :guilabel:`Run` to begin the import.
-#. When it's done, click the :guilabel:`View output` button to see the newly
-   imported GRASS layer in the map.
-#. Close first the import tool (click the :guilabel:`Close` button to the
-   immediate right of :guilabel:`View output`), then close the :guilabel:`GRASS
-   Tools` window.
-#. Remove the original :guilabel:`rivers` layer.
+#. ထည့်သွင်းမှုကိုစတင်ရန် :guilabel:`Run` ကိုနှိပ်ပါ။
+#. လုပ်ဆောင်မှုပြီးသွားသောအခါ အသစ်ထည့်သွင်းထားသော GRASS layer ကို မြေပုံထဲတွင်မြင်တွေ့နိုင်ရန် :guilabel:`View output` ခလုတ်ကိုနှိပ်ပါ။
+#. Import tool ကို ဦးစွာ ပိတ်ပါ (:guilabel:`View output` ၏ ညာဘက်ရှိ :guilabel:`Close` ခလုတ်)၊ ထို့နောက် :guilabel:`GRASS
+   Tools` window ကိုပိတ်ပါ။
+#. မူလ :guilabel:`rivers` layer ကိုဖယ်ရှားပါ။
 
-Now you are left with only the imported GRASS layer as displayed in your QGIS
-map.
+QGIS မြေပုံထဲတွင် ထည့်သွင်းထားသော GRASS layer ကိုသာ ပြသနေပါလိမ့်မည်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Loading Raster Data into GRASS
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS ထဲသို့ Raster Data ထည့်သွင်းခြင်း (Follow Along: Loading Raster Data into GRASS)
+------------------------------------------------------------------------------------------------------------------------------------
 
-You can import a raster layer in the same ways we imported vector layers.
+Vector layer များထည့်သွင်းသည့်အတိုင်း raster layer တစ်ခုကို ထည့်သွင်းနိုင်ပါသည်။
 
-We are going to import in the GRASS Mapset the layer |srtmFileName|.
+|srtmFileName| layer ကို GRASS Mapset ထဲသို့ ထည့်သွင်းပါမည်။
 
-.. note:: the raster layer is already in the correct CRS, ``WGS 84``. If you
-  have layers in different CRS you must reproject them in the same CRS of the
-  GRASS Mapset
+.. note:: Raster layer သည် CRS အမှန် ``WGS 84`` တွင် ရှိနေပြီးသားဖြစ်ပါသည်။ CRS မတူညီသော layer များပါရှိလျှင် ၎င်းတို့ကို GRASS Mapset ၏ CRS နှင့်တူညီအောင် projection ပြောင်းပေးရပါမည်။
 
 
-#. Load the |srtmFileName| layer in QGIS
-#. Open the :guilabel:`GRASS Tools` dialog again.
-#. Click on the :guilabel:`Modules List` tab.
-#. Search for ``r.in.gdal.qgis`` and double click the tool to open the tool's
-   dialog.
-#. Set it up so that the input layer is |srtmFileName| and the output is :file:`g_dem`.
+#. QGIS ထဲသို့ |srtmFileName| layer ကိုထည့်သွင်းပါ
+#. :guilabel:`GRASS Tools` dialog ကို ထပ်ဖွင့်ပါ။
+#. :guilabel:`Modules List` tab ကို click နှိပ်ပါ။
+#. ``r.in.gdal.qgis`` ကိုရှာဖွေပြီး tool ကို click နှစ်ချက်နှိပ်ပါ။
+#. Input layer တွင် |srtmFileName| ဟုသတ်မှတ်ပြီး output တွင် :file:`g_dem` ဟုသတ်မှတ်ပါ။
 
    .. figure:: img/g_dem_settings.png
       :align: center
 
-#. Click :guilabel:`Run`.
-#. When the process is done, click :guilabel:`View output`.
-#. :guilabel:`Close` the current tab, and then :guilabel:`Close` the whole
-   dialog.
+#. :guilabel:`Run` ကိုနှိပ်ပါ။
+#. လုပ်ငန်းစဉ် ပြီးဆုံးသွားသောအခါ :guilabel:`View output` ကို click နှိပ်ပါ။
+#. လက်ရှိပွင့်နေသော tab ကိုပိတ်ပါ၊ ထို့နောက် dialog တစ်ခုလုံးကို ပိတ်ပါ။
 
    .. figure:: img/g_dem_result.png
       :align: center
 
-#. You may now remove the original |srtmFileName| layer.
+#. မူလ |srtmFileName| layer ကိုဖယ်ရှားပစ်နိုင်ပါသည်။
 
 
-:abbr:`★☆☆ (Basic level)` Try Yourself: Add Layers to Mapset
--------------------------------------------------------------------------------
-Try to import in the GRASS Mapset the vector layers :file:`water.shp` and
-:file:`places.shp` from the :file:`exercise_data/shapefile/` folder. As we did
-for :file:`rivers` rename the imported layer as :file:`g_water` and :file:`g_places`
-to avoid confusion
+:abbr:`★☆☆ (Basic level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - Mapset ထဲသို့ layer များထည့်သွင်းခြင်း (Try Yourself: Add Layers to Mapset)
+--------------------------------------------------------------------------------------------------------------------------------------
 
-.. admonition:: Answer
+:file:`exercise_data/shapefile/` folder ထဲမှ :file:`water.shp` နှင့် :file:`places.shp` vector layer များကို GRASS Mapset ထဲသို့ထည့်သွင်းကြည့်ပါ။ :file:`rivers` layer အတွက် ပြုလုပ်ခဲ့သလိုပင် ထည့်သွင်းလိုက်သော layer များကို :file:`g_water` နှင့်  :file:`g_places` အဖြစ် အမည်ပြောင်းလဲပေးပါ။
+
+.. admonition:: အဖြေ
    :class: dropdown
 
-   You can add layers (both vector and raster) into a GRASS Mapset by drag and
-   drop them in the Browser (see :ref:`grass_browser`) or by using the
-   ``v.in.gdal.qgis`` for vector and ``r.in.gdal.qgis`` for raster layers.
+   Layer များ (vector နှင့် raster နှစ်မျိုးလုံး) ကို Browser ထဲတွင် click နှိပ်ဖိဆွဲပြီး GRASS Mapset တစ်ခုထဲသို့ ထည့်သွင်းနိုင်ပါသည်၊ သို့မဟုတ် vector layer များအတွက် ``v.in.gdal.qgis`` နှင့် raster layer များအတွက် ``r.in.gdal.qgis`` ကိုအသုံးပြုပြီး ထည့်သွင်းနိုင်ပါသည်။
 
-:abbr:`★☆☆ (Basic level)` Open an existing GRASS Mapset
--------------------------------------------------------------------------------
-If you have an existing GRASS Mapset you can easily reopen it in another session
-of QGIS.
+:abbr:`★☆☆ (Basic level)` ရှိနေပြီးသား GRASS Mapset တစ်ခုကို ဖွင့်ခြင်း (Open an existing GRASS Mapset)
+--------------------------------------------------------------------------------------------------------
 
-You have several method to open a GRASS Mapset, let's explore some of them.
+GRASS Mapset တစ်ခုရှိနေပြီးသားဖြစ်လျှင် ၎င်းကို အခြား QGIS session တွင် အလွယ်တကူပြန်ဖွင့်နိုင်ပါသည်။
 
-Let's close the Mapset by clicking on the :guilabel:`Close Mapset` button of the
-:guilabel:`GRASS Tools` window.
+GRASS Mapset တစ်ခုကို ဖွင့်ရန် နည်းလမ်းများစွာရှိပါသည်၊ နည်းလမ်းအချို့ကို လေ့လာကြည့်ကြပါမည်။
+
+:guilabel:`GRASS Tools` window ၏ :guilabel:`Close Mapset` ခလုတ်ကိုနှိပ်ပြီး Mapset ကိုပိတ်ကြည့်ပါမည်။
 
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Using the GRASS plugin
-...............................................................................
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - GRASS plugin အသုံးပြုခြင်း (Follow Along: Using the GRASS plugin)
+...............................................................................................................
 
-#. Click on the :guilabel:`Plugins --> GRASS --> Open Mapset` menu next to the
-   :guilabel:`Plugins --> GRASS --> New Mapset` menu that we saw in the previous section.
+#. ယခင်သင်ခန်းစာထဲတွင် တွေ့ခဲ့ရသော :guilabel:`Plugins --> GRASS --> New Mapset` menu ဘေးရှိ :guilabel:`Plugins --> GRASS --> Open Mapset` menu ပေါ်တွင် click နှိပ်ပါ။
 
-#. Browse to the GRASS database folder: be careful! You must choose the parent folder,
-   not the GRASS Mapset one. Indeed GRASS will read all the ``Locations`` of the
-   database and all the ``Mapsets`` of each ``Location``:
+#. GRASS database folder ကိုဖွင့်ပါ- သတိထားရမည်မှာ GRASS Mapset တစ်ခုကိုရွေးချယ်ရမည်မဟုတ်ပဲ parent (ပင်မ) folder ကိုရွေးချယ်ရမည်ဖြစ်သည်။ GRASS သည် database ၏ ``Locations`` များအားလုံးနှင့် ``Locations`` တစ်ခုချင်းစီ၏ ``Mapsets`` များအားလုံးကို ဖတ်ရှုမည်ဖြစ်ပါသည်-
 
    .. figure:: img/grass_open_mapset.png
       :align: center
 
-#. Choose the ``Location`` :guilabel:`SouthAfrica` and the ``Mapset``
-   :guilabel:`grass_mapset` that we have created before.
+#. ``Location`` တွင် :guilabel:`SouthAfrica` ကိုရွေးချယ်ပြီး ``Mapset`` တွင် ယခင်ကဖန်တီးခဲ့သော :guilabel:`grass_mapset` ကိုရွေးချယ်ပါ။
 
-That's it! The GRASS Panel will become active meaning that the Mapset has been
-correctly opened.
+GRASS Panel သည် active ဖြစ်လာမည်ဖြစ်သည်၊ အဓိပ္ပါယ်မှာ Mapset ကိုမှန်ကန်စွာဖွင့်ပြီးကြောင်း ဆိုလိုခြင်းဖြစ်သည်။
 
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Using the QGIS Browser
-...............................................................................
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - QGIS Browser အသုံးပြုခြင်း (Follow Along: Using the QGIS Browser)
+...............................................................................................................
 
-Even faster and easier is opening a ``Mapset`` using the QGIS Browser:
+QGIS Browser အသုံးပြု၍ ``Mapset`` တစ်ခုကိုဖွင့်ခြင်းသည် မြန်ဆန်လွယ်ကူစေပါသည်-
 
-#. Close the Mapset (if it is open) by clicking on the :guilabel:`Close Mapset`
-   button of the :guilabel:`GRASS Tools` window.
-#. In the QGIS Browser, browse to the folder of the GRASS database.
-#. Right click on the Mapset (remember, the Mapset has the |grassLogo| GRASS icon
-   next to it). You will see some options.
-#. Click on :guilabel:`Open mapset`:
+#. :guilabel:`GRASS Tools` window ၏ :guilabel:`Close Mapset` ခလုတ်ကိုနှိပ်ပြီး Mapset ကိုပိတ်ပါ (အကယ်၍ Mapset သည်ပွင့်နေလျှင်)။
+#. QGIS Browser ထဲတွင် GRASS database ၏ folder ကိုဖွင့်ပါ။
+#. Mapset ပေါ်တွင် right-click နှိပ်ပါ (Mapset ဘေးတွင် |grassLogo| GRASS icon ပါရှိသည်)။ Option အချို့ကို မြင်တွေ့ရပါမည်။
+#. :guilabel:`Open mapset` ပေါ်တွင် click နှိပ်ပါ-
 
    .. figure:: img/grass_open_mapset_browser.png
       :align: center
 
-The Mapset is now open and ready to use!
+Mapset ပွင့်လာမည်ဖြစ်ပြီး ၎င်းကိုအသုံးပြုနိုင်ပြီဖြစ်ပါသည်။
 
-.. tip:: Right click on a GRASS Mapset offers you a lot of different settings.
-  Try to explore them and see all the useful options.
+.. tip:: GRASS Mapset တစ်ခုပေါ်တွင် right-click နှိပ်ပါက အမျိုးမျိုးသော setting များကို တွေ့ရပါမည်။ ၎င်းတို့ကို စူးစမ်းလေ့လာကြည့်ပြီး အသုံးဝင်သော option များအားလုံးကို ကြည့်ရှုပါ။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-The GRASS workflow for ingesting data is somewhat different from the QGIS
-method because GRASS loads its data into a spatial database structure.
-However, by using QGIS as a frontend, you can make the setup of a GRASS mapset
-easier by using existing layers in QGIS as data sources for GRASS.
+GRASS တွင် data ထည့်သွင်းခြင်းသည် QGIS နှင့် အနည်းငယ်ကွဲပြားပါသည်၊ အဘယ့်ကြောင့်ဆိုသော် GRASS သည် ၎င်း၏ data များကို spatial database ဖွဲ့စည်းပုံတစ်ခုထဲသို့ ထည့်သွင်းသောကြောင့်ဖြစ်ပါသည်။ သို့သော် QGIS ကို frontend (GUI) တစ်ခုအဖြစ်အသုံးပြုခြင်းအားဖြင့် QGIS ထဲရှိ ရှိနေပြီးသား layer များကို GRASS အတွက် data source များအဖြစ်အသုံးပြုနိုင်သောကြောင့် GRASS mapset တစ်ခုကို အလွယ်တကူ setup ပြုလုပ်နိုင်မည်ဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Now that the data is imported into GRASS, we can look at the advanced analysis
-operations that GRASS offers.
+ယခုဆိုလျှင် data ကို GRASS ထဲသို့ ထည့်သွင်းပြီးဖြစ်ပါသည်၊ GRASS တွင်လုပ်ဆောင်နိုင်သော အဆင့်မြင့် analysis လုပ်ဆောင်ချက်များကို ကြည့်ရှုနိုင်ပြီဖြစ်ပါသည်။
 
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE

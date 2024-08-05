@@ -1,86 +1,44 @@
-Running our first algorithm. The  toolbox
-============================================================
+ပထမဦးဆုံး algorithm ကို Run ခြင်း (Running our first algorithm. The  toolbox)
+==============================================================================
 
+.. note:: ဤသင်ခန်းစာတွင် ပထမဦးဆုံး algorithm ကို run ပြီး ပထမဦးဆုံး ရလာဒ်ကိုထုတ်ယူမည်ဖြစ်သည်။
 
-.. note:: In this lesson we will run our first algorithm, and get our first
-   result from it.
+Processing framework သည် အခြား application များမှ algorithm များကို run နိုင်ပါသည်၊ သို့သော် ၎င်းတွင် ပြင်ပ software များမလိုအပ်သော မူရင်း algorithm များလည်း ပါဝင်ပါသည်။ Processing framework ကိုစတင်ရန် အဆိုပါ မူရင်း algorithm များထဲမှ တစ်ခုကို run မည်ဖြစ်ပါသည်။ အတိအကျဆိုရလျှင် polygon များ၏ centroids (အလယ်ဗဟို) များကို တွက်ချက်မည်ဖြစ်ပါသည်။
 
-As we have already mentioned, the processing framework can run algorithms from
-other applications, but it also contains native algorithms that need no external
-software to be run. To start exploring the processing framework, we are going to
-run one of those native algorithms. In particular, we are going to calculate the
-centroids of set of polygons.
-
-First, open the QGIS project corresponding to this lesson. It contains just a
-single layer with two polygons
+ပထမဦးစွာ ဤသင်ခန်းစာနှင့်သက်ဆိုင်သော QGIS project ကိုဖွင့်ပါ။ Project ထဲတွင် polygon နှစ်ခုပါဝင်သော layer တစ်ခုသာ ပါရှိပါသည်။
 
 .. figure:: img/first_alg/canvas.png
 
-Now go to the text box at the top of the toolbox. That is the search box, and if
-you type text in it, it will filter the list of algorithms so just those ones
-containing the entered text are shown.
-If there are algorithms that match your search but belong to a provider that is
-not active, an additional label will be shown in the lower part of the toolbox.
+Toolbox ၏ထိပ်တွင်ရှိသော စာသား box သည် search box ဖြစ်ပြီး ထိုထဲတွင် စာရိုက်ထည့်ကာ algorithm များကို filter လုပ်နိုင်ပါသည်။ သင်ရှာဖွေသည့် algorithm သည် မူရင်း provider မဟုတ်လျှင် ထပ်ဆောင်းအညွှန်းစာသားကို toolbox ၏အောက်ဘက်အပိုင်းတွင် ပြသပေးမည်ဖြစ်ပါသည်။
 
-Type ``centroids`` and you should see something like this.
+``centroids`` ဟုရိုက်ထည့်ကြည့်ပါ အောက်ပါအတိုင်းမြင်တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/first_alg/toolbox.png
 
-The search box is a very practical way of finding the algorithm you are looking
-for. At the bottom of the dialog, an additional label shows that there are
-algorithms that match your search but belong to a provider that is not active.
-If you click on the link in that label, the list of algorithms will also
-include results from those inactive providers, which will be shown in light gray.
-A link to activate each inactive provider is also shown. We'll see later how to
-activate other providers.
+Search box သည် algorithm ရှာဖွေရာတွင် အလွန်လက်တွေ့ကျသော နည်းတစ်ခုဖြစ်ပါသည်။ Dialog ၏အောက်ခြေတွင် သင့်ရှာဖွေမှုနှင့်ကိုက်ညီသော algorithm များသည် မူရင်း provider မဟုတ်ကြောင်း ထပ်ဆောင်းအညွှန်းစာသားတစ်ခု ပြသပေးပါသည်။ ထိုအညွှန်းစာသားရှိ link ကို နှိပ်လိုက်ပါက inactive ဖြစ်နေသော provider များမှ algorithm များကိုလည်း မီးခိုးရောင်အဖျော့ဖြင့် ပြသပေးပါသည်။ Inactive ဖြစ်နေသော provider တစ်ခုချင်းစီကို activate ပြုလုပ်ရန် link ကိုလည်း ပြသပေးထားပါသည်။ အခြား provider များကို မည်သို့ activate ပြုလုပ်ရမည်ကို နောက်ပိုင်းတွင် မြင်တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/first_alg/toolbox_providers.png
 
-To execute an algorithm, you just have to double-click on its name in the
-toolbox. When you double-click on the *Polygon centroids* algorithm, you will
-see the following dialog.
+Algorithm တစ်ခုကို စတင်ရန် toolbox ထဲရှိ algorithm ၏နာမည်ပေါ်တွင် click နှစ်ချက်နှိပ်လိုက်ပါ။ *Polygon centroids* algorithm ကို click နှစ်ချက်နှိပ်သောအခါ အောက်ပါ dialog ကိုမြင်တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/first_alg/centroids.png
 
-All algorithms have a similar interface, which basically contains input
-parameters that you have to fill, and outputs that you have to select where to
-store. In this case, the only input we have is a vector layer with polygons.
+Algorithm များအားလုံး၏ interface သည် ဆင်တူပါသည်။ အခြေခံအားဖြင့် ထည့်သွင်းရမည့် input parameter များ၊ output သိမ်းဆည်းမည့်နေရာရွေးချယ်ခြင်းများ ပါရှိပါသည်။ ဤဥပမာတွင် ထည့်သွင်းရမည့် input သည် polygon များပါဝင်သော vector layer တစ်ခုဖြစ်ပါသည်။
 
-Select the *Polygons* layer as input. The algorithm has a single output, which
-is the centroids layer. There are two options to define where a data output is
-saved: enter a filepath or save it to a temporary filename
+*Polygons* layer ကို input အနေဖြင့် ရွေးပါ။ Algorithm တွင် centroids layer ဆိုသည့် output တစ်ခုသာရှိပါမည်။ Data output ကိုမည်သည့်နေရာတွင် သိမ်းဆည်းမည်ကို သတ်မှတ်ရန် option ၂ ခုရှိပါသည်- ဖိုင်လမ်းကြောင်းတစ်ခုထည့်ပေး၍သိမ်းဆည်းခြင်း သို့မဟုတ် ယာယီဖိုင်တစ်ခုတွင် သိမ်းဆည်းခြင်း တို့ဖြစ်ပါသည်။
 
-In case you want to set a destination and not save the result in a temporary
-file, the format of the output is defined by the filename extension. To select
-a format, just select the corresponding file extension (or add it if you are
-directly typing the filepath instead). If the extension of the filepath you
-entered does not match any of the supported ones, a default extension (usually
-:file:`.dbf` for tables, :file:`.tif` for raster layers and :file:`.shp` for
-vector ones) will be appended to the filepath and the file format corresponding
-to that extension will be used to save the layer or table.
+ရလာဒ်ကို ယာယီဖိုင်တစ်ခုထဲတွင် မသိမ်းဆည်းပဲ နေရာတစ်နေရာရာတွင် သိမ်းဆည်းလိုလျှင် output ၏ format ကို ဖိုင် extension ဖြင့် သတ်မှတ်ပေးပါသည်။ Format တစ်ခုကို ရွေးချယ်ရန် သက်ဆိုင်ရာ ဖိုင် extension ကိုသာ ရွေးချယ်ပါ (သို့မဟုတ် ဖိုင်လမ်းကြောင်းကို တိုက်ရိုက် စာရိုက်ထည့်သည်ဆိုပါက extension ကိုထည့်ပေးပါ)။ သင်ထည့်သွင်းသော extension သည် ကိုက်ညီမှုမရှိပါက default extension (ဇယားများအတွက် :file:`.dbf` ၊ raster layer များအတွက် :file:`.tif` နှင့် vector layer များအတွက် :file:`.shp`) ကို ဖိုင်လမ်းကြောင်းတွင် ထည့်သွင်းပေးမည်ဖြစ်ပြီး layer သို့မဟုတ် ဇယားကို သိမ်းဆည်းရန် ထို default extension နှင့်သက်ဆိုင်သော ဖိုင် format ကိုအသုံးပြုမည်ဖြစ်သည်။
 
-In all the exercises in this guide, we will be saving results to a temporary
-file, since there is no need to save them for a later use. Feel free to save
-them to a permanent location if you want to.
+ဤလမ်းညွှန်ထဲရှိ လေ့ကျင့်ခန်းများအားလုံးတွင် ရလာဒ်များကို ယာယီဖိုင်ထဲတွင် သိမ်းဆည်းမည်ဖြစ်ပါသည်၊ အကြောင်းမှာ ထိုရလာဒ်များကို နောက်ပိုင်းတွင် ပြန်လည်အသုံးပြုရန် သိမ်းဆည်းစရာမလိုသောကြောင့်ဖြစ်သည်။ သင်အလိုရှိပါက ကွန်ပျူတာထဲရှိ နေရာတစ်ခုခုတွင် သိမ်းဆည်းနိုင်ပါသည်။
 
-.. warning:: Temporary files are deleted once you close QGIS. If you create a
-  project with an output that was saved as a temporary output, QGIS will
-  complain when you try to open back the project later, since that output file
-  will not exist.
+.. warning:: ယာယီဖိုင်များသည် QGIS ကိုပိတ်လိုက်သည်နှင့် ပျက်သွားမည်ဖြစ်သည်။ ယာယီ output ပါရှိသော project ဖိုင်တစ်ခုဖန်တီးပြီး ထိုဖိုင်ကို နောက်တစ်ကြိမ်ထပ်ဖွင့်သောအခါ output ဖိုင်သည်ရှိမနေတော့သောကြောင့် QGIS မှမေးမြန်းပါလိမ့်မည်။
 
-Once you have configured the algorithm dialog, press :guilabel:`Run` to run the
-algorithm.
+Algorithm dialog ကို ပြင်ဆင်သတ်မှတ်ပြီးသည်နှင့် algorithm ကို စတင်လုပ်ဆောင်ရန် :guilabel:`Run` ကိုနှိပ်ပါ။
 
-You will get the following output.
+အောက်ပါ output ကို ရရှိပါလိမ့်မည်။
 
 .. figure:: img/first_alg/canvas2.png
 
-The output has the same CRS as the input. Geoalgorithms assumes all input layers
-share the same CRS and do not perform any reprojection. Except in the case of
-some special algorithms (for instance, reprojection ones), the outputs will also
-have that same CRS. We will see more about this soon.
+Output ၏ CRS သည် input ၏ CRS နှင့်အတူတူဖြစ်ပါသည်။ Input layer များအားလုံးသည် တူညီသော CRS ကိုအသုံးပြုပြီး projection ပြောင်းလဲခြင်းမရှိဟု Geoalgorithm များမှ ယူဆပါသည်။ အချို့အထူး algorithm များမှလွဲ၍ (ဥပမာ - reprojection algorithm) output များသည် input နှင့် CRS အတူတူဖြစ်ပါလိမ့်မည်။ ထိုအကြောင်းကို မကြာမီတွင် ပိုမိုလေ့လာရမည်ဖြစ်ပါသည်။
 
-Try yourself saving it using different file formats (use, for instance,
-:file:`shp` and :file:`geojson` as extensions). Also, if you do not want the
-layer to be loaded in QGIS after it is generated, you can check off the checkbox
-that is found below the output path box.
+ထို output ကို အခြားမတူညီသော ဖိုင် format အဖြစ်သို့ ပြောင်းပြီး သိမ်းဆည်းကြည့်ပါ (ဥပမာ- :file:`shp` နှင့် :file:`geojson` extension များကိုအသုံးပြုပါ)။ ထို့အပြင် algorithm ကို run ပြီးသည်နှင့် output ကို QGIS ထဲတွင်မထည့်သွင်းလိုပါက output လမ်းကြောင်း box အောက်တွင် တွေ့ရသော checkbox ကို အမှန်ခြစ်ဖြုတ်ထားနိုင်ပါသည်။

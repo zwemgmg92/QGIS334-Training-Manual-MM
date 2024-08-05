@@ -1,164 +1,109 @@
-Lesson: Georeferencing a Map
-===============================================================================
+သင်ခန်းစာ - မြေပုံတစ်ခုကို Georeference ပြုလုပ်ခြင်း (Lesson: Georeferencing a Map)
+====================================================================================
 
-A common forestry task would be the update of the information for a forestry
-area. It is possible that the previous information for that area dates several
-years back and was collected analogically (that is, in paper) or perhaps it
-was digitized but all you have left is the paper version of that inventory data.
+များသောအားဖြင့်လုပ်ဆောင်လေ့ရှိသော သစ်တောလုပ်ငန်းတစ်ခုသည် သစ်တောဧရိယာတစ်ခုအတွက် update ဖြစ်သော အချက်အလက်များရယူရန်ဖြစ်သည်။ အဆိုပါဧရိယာအတွက် ယခင်အချက်အလက်များသည် လွန်ခဲ့သောနှစ်များစွာအကြာက စာရွက်ပေါ်တွင်စုဆောင်းခဲ့သည့်အချက်အလက်များဖြစ်နိုင်ပါသည်၊ သို့မဟုတ် အချက်အလက်များကို digitize ပြုလုပ်ခဲ့သော်လည်း သင့်တွင် အဆိုပါ inventory data ၏ စာရွက် ဗားရှင်းသာ ကျန်ရှိနေခြင်းမျိုးလည်း ဖြစ်နိုင်ပါသည်။ 
 
-Most likely you would like to use that information in your GIS to, for example,
-compare later with later inventories. This means that you will need to digitize
-the information at hand using your GIS software. But before you can start the
-digitizing, there is an important first step to be done, scanning and
-georeferencing your paper map.
+ထိုအချက်အလက်များကို GIS ထဲတွင် အသုံးပြုလိုပြီး inventory များကို နှိုင်းယှဉ်လိုသည်ဆိုပါက GIS software ထဲတွင် အချက်အလက်များကို လက်ဖြင့် digitize ပြုလုပ်ရန်လိုအပ်ပါလိမ့်မည်။ သို့သော် digitize မစတင်မီတွင် ပထမဦးဆုံးလုပ်ဆောင်ရမည့် အရေးကြီးသောအဆင့်သည် မြေပုံကို scan ပြုလုပ်ခြင်းနှင့် georeference ပြုလုပ်ခြင်းဖြစ်သည်။
 
-**The goal for this lesson:** To learn to use the Georeferencer tool in QGIS.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** QGIS ထဲရှိ Georeferencer tool ကို အသုံးပြုတတ်စေရန်။
 
-:abbr:`★☆☆ (Basic level)` Scan the map
+:abbr:`★☆☆ (Basic level)` မြေပုံကို scan ဖတ်ခြင်း (Scan the map)
 -------------------------------------------------------------------------------
 
-The first task you will have to do is to scan your map. If your map is too big,
-then you can scan it in different parts but keep in mind that you will have to
-repeat preprocessing and georeferencing tasks for each part. So if possible,
-scan the map in as few parts as possible.
+ပထမဦးဆုံးလုပ်ဆောင်ရမည်မှာ မြေပုံကို scan ဖတ်ရန်ဖြစ်သည်။ မြေပုံသည် အလွန်ကြီးနေလျှင် အပိုင်းလိုက် scan ဖတ်ပြီး တစ်ပိုင်းချင်းစီကို georeference ပြုလုပ်ခြင်းကို ထပ်ခါထပ်ခါပြုလုပ်ရပါလိမ့်မည်။ ထို့ကြောင့် မြေပုံကို အပိုင်းနည်းနိုင်သမျှနည်းအောင် scan ဖတ်ပါ။
 
-If you are going to use a different map that the one provided with this manual,
-use your own scanner to scan the map as an image file, a resolution of 300 DPI
-will do. If your map has colors, scan the image in color so that you can later
-use those colors to separate information from your map into different  layers
-(for ex., forest stands, contour lines, roads...).
+သင့်အနေဖြင့် ဤ manual ထဲတွင်ပေးထားသော မြေပုံမဟုတ်ပဲ အခြားမြေပုံတစ်ခုကို အသုံးပြုမည်ဆိုလျှင် ကိုယ်ပိုင် scanner ကိုအသုံးပြုပြီး မြေပုံကို image ဖိုင်အဖြစ် scan ဖတ်ပြီး 300 DPI resolution ထားပါ။ မြေပုံသည် အရောင်ပါရှိသောမြေပုံဖြစ်လျှင် အရောင်ဖြင့် scan ဖတ်ပါ၊ သို့မှသာ နောက်ပိုင်းတွင် အဆိုပါ အရောင်များကိုအသုံးပြုပြီး မြေပုံကို layer အမျိုးမျိုး (ဥပမာ- သစ်တောပင်ထောင်များ၊ ကွန်တိုမျဉ်းများ၊ လမ်းများ၊....) အဖြစ် အချက်အလက်များခွဲထုတ်နိုင်မည်ဖြစ်သည်။
 
-For this exercise you will use a previously scanned map, you can find it as
-:file:`rautjarvi_map.tif` in the data folder :file:`exercise_data/forestry`
+ယခုလေ့ကျင့်ခန်းအတွက် ယခင်က scan ဖတ်ထားပြီးသောမြေပုံကို အသုံးပြုပါမည်။ ထိုမြေပုံကို :file:`exercise_data/forestry` folder ထဲတွင် :file:`rautjarvi_map.tif` အနေဖြင့် တွေ့နိုင်ပါသည်။
 
-:abbr:`★☆☆ (Basic level)` Follow Along: Georeferencing the scanned map
--------------------------------------------------------------------------------
+:abbr:`★☆☆ (Basic level)` လိုက်လုပ်ကြည့်ပါ - Scan ဖတ်ထားသောမြေပုံကို Georeference ပြုလုပ်ခြင်း (Follow Along: Georeferencing the scanned map)
+----------------------------------------------------------------------------------------------------------------------------------------------
 
-#. Open QGIS and set the project's CRS to ``EPSG:3067 - ETRS89 / TM35FIN(E,N)``
-   in :menuselection:`Project --> Properties --> CRS`, which is the currently
-   used CRS in Finland.
+#. QGIS ကိုဖွင့်ပြီး :menuselection:`Project --> Properties --> CRS` ထဲတွင် project ၏ CRS ကို ``EPSG:3067 - ETRS89 / TM35FIN(E,N)`` ဟုသတ်မှတ်ပါ။ ၎င်း CRS သည် Finland တွင် လက်ရှိအသုံးပြုနေသော CRS ဖြစ်သည်။
 
    .. figure:: img/f_1.png
       :align: center
 
-#. Save the QGIS project as :file:`map_digitizing.qgs`.
+#. QGIS project ကို :file:`map_digitizing.qgs` အဖြစ် သိမ်းဆည်းပါ။
 
-You will use the georeferencing tool from QGIS named :guilabel:`Georeferencer`.
-To georeference the map:
+:guilabel:`Georeferencer` ဟုခေါ်သော QGIS မှ georeferencing tool ကိုအသုံးပြုပါမည်။ မြေပုံကို georeference ပြုလုပ်ရန်- 
 
-#. Open the georeference tool, :menuselection:`Layer -->` |georefRun|
-   :menuselection:`Georeferencer...`.
+#. :menuselection:`Layer -->` |georefRun| :menuselection:`Georeferencer...` tool ကိုဖွင့်ပါ။
 
    .. figure:: img/georeferencer.png
       :align: center
 
-#. Add the map image file, :file:`rautjarvi_map.tif`, as the image to georeference,
-   :menuselection:`File --> Open raster`.
-#. Click :guilabel:`OK`.
+#. Georeference ပြုလုပ်မည့် image အဖြစ် :file:`rautjarvi_map.tif` image ဖိုင်ကို :menuselection:`File --> Open raster` မှတဆင့် ထည့်သွင်းပါ။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-Next you should define the transformation settings for georeferencing the map:
+နောက်တစ်ဆင့်အနေဖြင့် မြေပုံကို georeference ပြုလုပ်ရန်အတွက် transformation setting များကို သတ်မှတ်ပေးသင့်ပါသည်-
 
-#. Open :menuselection:`Settings --> Transformation settings`.
-#. Set the :guilabel:`Transformation type` to ``Linear`` and
-   the :guilabel:`Resampling method` to ``Nearest neighbour``.
-#. Press the |setProjection| :sup:`Select CRS` button next to
-   the :guilabel:`Target SRS` option and select the ``EPSG:2392 - KKJ / Finland zone 2`` CRS;
-   it is the CRS that was used in Finland back in 1994 when this map was created.
-#. Click the icon next to the :guilabel:`Output raster` box, go to the folder and
-   create the folder :file:`exercise_data\\forestry\\digitizing` and name the file
-   as :file:`rautjarvi_georef.tif`.
-#. Check |checkbox| :guilabel:`Load in QGIS when done`
-#. Leave the rest of parameters as default.
+#. :menuselection:`Settings --> Transformation settings` ကိုဖွင့်ပါ။
+#. :guilabel:`Transformation type` တွင် ``Linear`` ဟုသတ်မှတ်ပြီး :guilabel:`Resampling method` တွင် ``Nearest neighbour`` ဟုသတ်မှတ်ပါ။
+#. :guilabel:`Target SRS` ဘေးရှိ |setProjection| :sup:`Select CRS` ခလုတ်ကိုနှိပ်ပြီး ``EPSG:2392 - KKJ / Finland zone 2`` CRS ကိုရွေးချယ်ပါ၊ ၎င်းသည် ဤမြေပုံကို ဖန်တီးခဲ့စဉ် 1994 ခုနှစ်တွင် Finland ၌အသုံးပြုခဲ့သော CRS ဖြစ်သည်။
+#. :guilabel:`Output raster` box ဘေးရှိ icon ကိုနှိပ်ပါ၊ :file:`exercise_data\\forestry\\digitizing` folder ကိုဖန်တီးပြီး ဖိုင်အမည်ကို :file:`rautjarvi_georef.tif` ဟုအမည်ပေးပါ။
+#. |checkbox| :guilabel:`Load in QGIS when done` ကိုအမှန်ခြစ်ပါ။
+#. ကျန်ရှိသော parameter များကို default အတိုင်း ချန်ထားခဲ့ပါ။
 
    .. figure:: img/Clipboard10.png
       :align: center
 
-#. Click :guilabel:`OK`.
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-The map contains several cross-hairs marking the coordinates in the map,
-we will use those to georeference this image. You can use the zooming and
-panning tools as you usually do in QGIS to inspect the image in the
-Georeferencer's window.
+မြေပုံထဲရှိ ကိုဩဒိနိတ်များကို အမှတ်အသားလုပ်ထားသော ကြက်ခြေခတ်များစွာ ပါဝင်နေပါသည်၊ အဆိုပါ ကြက်ခြေခတ်များကို georeference ပြုလုပ်ရာတွင် အသုံးပြုပါမည်။ Georeferencer window ထဲတွင် image ကို zoom အချုံ့/အချဲ့လုပ်ခြင်းနှင့် မြင်ကွင်းနေရာရွှေ့ခြင်းများ လုပ်ဆောင်နိုင်ပါသည်။
 
-#. Zoom in to the left lower corner of the map and note that there is a cross-hair
-   with a coordinate pair, X and Y, that as mentioned before are in ``KKJ / Finland
-   zone 2`` CRS. You will use this point as the first ground control point for the
-   georeferencing your map.
-#. Select the :guilabel:`Add point` tool and click in the intersection of the
-   cross-hairs (pan and zoom as needed).
-#. In the :guilabel:`Enter map coordinates` dialogue write the coordinates that
-   appear in the map (X: 2557000 and Y: 6786000) and their CRS
-   (``EPSG:2392 - KKJ / Finland zone 2``)
+#. မြေပုံ၏ ဘယ်ဘက်အောက်ခြေထောင့်သို့ zoom ချဲ့ကြည့်ပါက ``KKJ / Finland zone 2`` CRS တွင်ရှိသော X နှင့် Y ကိုဩဒိနိတ်အတွဲတစ်ခုဖြင့် ကြက်ခြေခတ်တစ်ခုရှိပါမည်။ ထို point ကို georeference ပြုလုပ်ခြင်းအတွက် ပထမဦးဆုံး မြေပြင်ထိန်းချုပ်အမှတ် (ground control point) အဖြစ်အသုံးပြုပါမည်။
+#. :guilabel:`Add point` tool ကိုရွေးချယ်ပြီး ကြက်ခြေခတ်အလယ်ဆုံမှတ်တွင် click နှိပ်ပါ (pan နှင့် zoom ကို လိုအပ်သလိုအသုံးပြုပါ)။
+#. :guilabel:`Enter map coordinates` dialogue ထဲတွင် မြေပုံပေါ်၌တွေ့ရသော ကိုဩဒိနိတ်များ (X: 2557000 and Y: 6786000) ကိုရိုက်ထည့်ပြီး CRS ကို ``EPSG:2392 - KKJ / Finland zone 2`` ထားပါ။
 
    .. figure:: img/fillcoordinates.png
       :align: center
 
-#. Click :guilabel:`OK`.
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-   The first coordinate for the georeferencing is now ready.
+   Georeferencing အတွက် ပထမ ကိုဩဒိနိတ် အဆင်သင့်ဖြစ်နေပြီ ဖြစ်သည်။
 
-#. Look for other black cross-hairs in the image, they are separated 1000
-   meters from each other both in North and East direction. You should be able
-   to calculate the coordinates of those points in relation to the first one.
+#. Image ထဲတွင် အခြား ကြက်ခြေခတ်များကို ရှာဖွေပါ၊ ၎င်းတို့သည် မြောက်ဘက်နှင့်အရှေ့ဘက်လားရာသို့ တစ်ခုနှင့်တစ်ခု 1000 မီတာ အကွာအဝေးဖြင့် ပိုင်းခြားထားပါသည်။ အဆိုပါ point များ၏ ကိုဩဒိနိတ်များကို ပထမ point နှင့်ဆက်စပ်ပြီး တွက်ချက်ပေးနိုင်ပါသည်။
 
-#. Zoom out in the image and move to the right or the top until you find other cross-hair,
-   and estimate how many kilometres you have moved. Try to get ground control
-   points as far from each other as possible.
-#. Digitize at least three more ground control points in the same way you did
-   the first one. You should end up with something similar to this:
+#. Image ကို zoom ချုံ့ပြီး အခြား ကြက်ခတ်တစ်ခုကို မတွေ့ခင်အထိ ညာဘက် သို့မဟုတ် အပေါ်ဘက်သို့ ရွှေ့ပြီး ကီလိုမီတာမည်မျှ ရွှေ့ပြီးသည်ကို ခန့်မှန်းပါ။ Ground control point များကို တစ်ခုနှင့်တစ်ခု ဝေးနိုင်သမျှဝေးအောင် နေရာချပါ။
+#. ပထမ point အတွက်လုပ်ခဲ့သည့်နည်းအတိုင်း နောက်ထပ် ground control point အနည်းဆုံး ၃ ခုကို digitize ပြုလုပ်ပါ။ ပြီးဆုံးပါက အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-
 
    .. figure:: img/Clipboard09.png
       :align: center
 
-With already three digitized ground control points you will be able to see the
-georeferencing error as a red line coming out of the points. The error in pixels
-can be seen also in the :guilabel:`GCP table` in the :guilabel:`dX[pixels]` and
-:guilabel:`dY[pixels]` columns. The error in pixels should not be higher than
-10 pixels. If it is, you should review the points you have digitized and the
-coordinates you have entered to find what the problem is. You can use the image
-above as a guide.
+Digitize ပြုလုပ်ထားပြီးသော ground control point ၃ ခုနှင့်အတူ georeferencing error ကို point များမှ ထွက်လာသော အနီရောင်မျဉ်းတစ်ခုအဖြစ် မြင်တွေ့ရပါလိမ့်မည်။ Pixel ဖြင့်ဖော်ပြသော error ကို :guilabel:`GCP table` ထဲရှိ :guilabel:`dX[pixels]` နှင့် :guilabel:`dY[pixels]` column များထဲတွင်လည်း တွေ့ရနိုင်ပါသည်။ Pixel ဖြင့်ဖော်ပြသော error သည် 10 pixel ထက် မများသင့်ပါ။ အကယ်၍ 10 pixel ထက်များနေပါက digitize လုပ်ထားသော point များနှင့် ထည့်သွင်းထားသော ကိုဩဒိနိတ်များကိုပြန်စစ်ဆေးသင့်ပါသည်။ အထက်ပါ image ကို အကိုးအကားအနေဖြင့် အသုံးပြုနိုင်ပါသည်။
 
-Once you are happy with your control points, you can save them for later use:
+Control point များကို ကျေနပ်မှုရှိပါက ၎င်း point များကို နောက်ပိုင်းတွင်အသုံးပြုနိုင်ရန်အတွက် သိမ်းဆည်းထားနိုင်ပါသည်-
 
-#. Go to :menuselection:`File --> Save GCP points as...`.
-#. In the folder :file:`exercise_data\\forestry\\digitizing`, name the file
-   :file:`rautjarvi_map.tif.points`.
+#. :menuselection:`File --> Save GCP points as...` သို့သွားပါ။
+#. :file:`exercise_data\\forestry\\digitizing` folder ထဲတွင် ဖိုင်ကို :file:`rautjarvi_map.tif.points` ဟုအမည်ပေးပါ။
 
-Finally, georeference your map:
+နောက်ဆုံးတွင် မြေပုံကို georeference ပြုလုပ်ပါ-
 
-#. Go to :menuselection:`File --> Start georeferencing`.
-#. Note that you named the file already as :file:`rautjarvi_georef.tif`
-   when you edited the Georeferencer settings.
+#. :menuselection:`File --> Start georeferencing` သို့သွားပါ။
+#. ဖိုင်ကို :file:`rautjarvi_georef.tif` ဟု အမည်ပေးထားပြီးသားဖြစ်နေပါမည်။
 
-   Now you can see the map in QGIS project as a georeferenced raster.
-   Note that the raster seems to be slightly rotated, but that is simply because
-   the data is in ``KKJ / Finland zone 2`` and your project is in
-   ``ETRS89 / TM35FIN(E,N)``.
+   ယခုအခါ မြေပုံကို QGIS project ထဲတွင် georeference ပြုလုပ်ပြီးသား raster အနေဖြင့် မြင်တွေ့နိုင်ပြီ ဖြစ်ပါသည်။ Raster သည် အနည်းငယ် လှည့်ထားသည့်ပုံစံဖြစ်နေသည်ကို သတိထားမိပါလိမ့်မည်၊ ထိုသို့ဖြစ်ရသည်မှာ data သည် ``KKJ / Finland zone 2`` CRS တွင်ရှိပြီး project သည် ``ETRS89 / TM35FIN(E,N)`` CRS တွင် ရှိနေသောကြောင့်ဖြစ်သည်။
 
-#. To check that your data is properly georeferenced, you can
+#. Data ကို မှန်ကန်စွာ georeference ပြုလုပ်ထား/မထားကို စစ်ဆေးရန်-
 
-   #. Open the aerial image in the :file:`exercise_data\\forestry` folder,
-      named :file:`rautjarvi_aerial.tif`.
-   #. Your map and this image should match quite well: set the map transparency to 50%
-      and compare it to the aerial image.
+   #. :file:`exercise_data\\forestry` folder ထဲရှိ :file:`rautjarvi_aerial.tif` အမည်ဖြင့် ကောင်းကင်ဓာတ်ပုံကိုဖွင့်ပါ။
+   #. သင့်မြေပုံနှင့် ထိုကောင်းကင်ဓာတ်ပုံသည် ကောင်းမွန်စွာ ကိုက်ညီနေသင့်ပါသည်- မြေပုံ၏ အလင်းဖောက်နှုန်းကို 50% သတ်မှတ်ပေးပြီး ကောင်းကင်ဓာတ်ပုံနှင့်နှိုင်းယှဉ်ကြည့်ပါ။
 
    .. figure:: img/Clipboard14.png
       :align: center
 
-#. Save the changes to your QGIS project, you will continue from this point for the
-   next lesson.
+#. QGIS project တွင်ပြုလုပ်ထားသောပြောင်းလဲမှုများကို သိမ်းဆည်းပါ၊ နောက်လာမည့် သင်ခန်းစာအတွက် ယခုသိမ်းဆည်းထားသော နေရာမှ ဆက်လက်လုပ်ဆောင်ပါမည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You have now georeferenced a paper map, making it possible to use it as a map
-layer in QGIS.
+ယခုဆိုလျှင် စာရွက်မြေပုံတစ်ခုကို georeference ပြုလုပ်ပြီးဖြစ်ကာ ၎င်းကို QGIS ထဲတွင် မြေပုံ layer တစ်ခုအဖြစ် အသုံးပြုနိုင်ပြီဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-In the next lesson, you will digitize the forest stands in your map as polygons
-and add the inventory data to them.
+နောက်လာမည့်သင်ခန်းစာတွင် မြေပုံထဲရှိ forest stand (သစ်တောပင်ထောင်) များကို polygon များအနေဖြင့် digitize ပြုလုပ်မည်ဖြစ်ပြီး ၎င်းတို့ထဲတွင် inventory data များထည့်သွင်းမည်ဖြစ်ပါသည်။
 
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE

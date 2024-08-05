@@ -1,48 +1,50 @@
-Numeric calculations in the modeler
-============================================================
+Modeler ထဲတွင် ကိန်းဂဏန်းတွက်ချက်မှု ပြုလုပ်ခြင်း (Numeric calculations in the modeler)
+========================================================================================
 
-.. warning:: Beware, this chapter is not well tested, please report any issue; images are missing
+.. warning:: ဤသင်ခန်းစာကို ကောင်းကောင်း မစမ်းသပ်ရသေးပါ၊ ပြဿနာတစ်စုံတစ်ရာတွေ့ပါက ကျေးဇူးပြု၍ report ပြုလုပ်ပေးပါ၊ ဓာတ်ပုံများမပါဝင်သည်များ ရှိနေပါသည်။
 
-.. note:: In this lesson we will see how to use numeric outputs in the modeler
+.. note:: ဤသင်ခန်းစာ၌ modeler ထဲတွင် ကိန်းဂဏန်း output များအသုံးပြုနည်းကို လေ့လာရမည်ဖြစ်ပါသည်။
 
-For this lesson, we are going to modify the hydrological model that we created in the last chapter (open it in the modeler before starting), so we can automate the calculation of a valid threshold value and we do not have to ask the user to enter it. Since that value refers to the variable in the threshold raster layer, we will extract it from that layer, based on some simple statistical analysis.
 
-Starting with the aforementioned model, let's do the following modifications:
+နောက်ဆုံးအခန်းတွင် ဖန်တီးခဲ့သော hydrological model ကို မွမ်းမံပြင်ဆင်မည်ဖြစ်ပါသည် (မစတင်မီတွင် ထို model ကို modeler ထဲတွင်ဖွင့်ထားပါ)၊ ဆီလျော်သော threshold တန်ဖိုးတစ်ခုတွက်ချက်ခြင်းကို အလိုအလျောက်လုပ်ဆောင်နိုင်မည်ဖြစ်ပြီး အသုံးပြုသူအား တန်ဖိုးထည့်သွင်းပေးရန် မေးမြန်းစရာမလိုတော့ပါ။ အဆိုပါ တန်ဖိုးသည် threshold raster layer ထဲရှိ variable ကို ရည်ညွှန်းသောကြောင့် ရိုးရှင်းသော စာရင်းအင်းဆိုင်ရာ analysis အချို့ပေါ်အခြေခံပြီး တန်ဖိုးကို ထို layer မှထုတ်ယူမည်ဖြစ်ပါသည်။
 
-First, calculate statistics of the flow accumulation layer using the *Raster layer statistics* algorithm.
+အထက်တွင်ဖော်ပြထားသော model ကိုဖွင့်ပြီး အောက်ပါမွမ်းမံပြင်ဆင်မှုများ လုပ်ဆောင်ကြည့်ပါမည်-
+
+ပထမဦးစွာ *Raster layer statistics* algorithm ကိုအသုံးပြုပြီး flow accumulation layer ၏ စာရင်းအင်းအချက်အလက်ကို တွက်ချက်ပါ။
 
 .. figure:: img/modeler_hydro_calculator/stats.png
 
-This will generate a set of statistical values that will now be available for all numeric fields in other algorithms. 
+ရလာဒ်အနေဖြင့် စာရင်းအင်းဆိုင်ရာတန်ဖိုးများကို ထုတ်ပေးမည်ဖြစ်ပြီး၊ ၎င်းတန်ဖိုးများကို အခြားသော algorithm များထဲရှိ ကိန်းဂဏန်းဆိုင်ရာ field များအားလုံးအတွက် အသုံးပြုနိုင်မည်ဖြစ်သည်။
 
-If you edit the  *Channel network* algorithm, as we did in the last lesson, you will see now that you have other options apart from the numeric input that you added.
+ပြီးခဲ့သည့်နောက်ဆုံးသင်ခန်းစာတွင် လုပ်ခဲ့သည့်အတိုင်း *Channel network* algorithm ကို edit ပြုလုပ်ပါက ထည့်သွင်းထားသော ကိန်းဂဏန်းဆိုင်ရာ input များအပြင် အခြားသော option များရှိသည်ကို တွေ့မြင်ရပါလိမ့်မည်။
 
 .. figure:: img/modeler_hydro_calculator/unfolded.png
 
-However, none of this values is suitable for being used as a valid threshold, since they will result in channel networks that will not be very realistic. We can, instead, derive some new parameter based on them, to get a better result. For instance, we can use the mean plus 2 times the standard deviation.
+သို့သော် ထိုတန်ဖိုးများသည် channel network တွင် လက်တွေ့မဆန်သောရလာဒ်များထုတ်ပေးမည်ဖြစ်သောကြောင့် ဆီလျော်သော threshold တစ်ခုအဖြစ် အသုံးပြုရန် မသင့်တော်ပါ။ ထိုအစား ပိုမိုကောင်းမွန်သောရလာဒ်ရရှိရန် ၎င်းတန်ဖိုးများကိုအခြေခံပြီး parameter အသစ်အချို့ကို ထုတ်ယူနိုင်ပါသည်။ ဥပမာအားဖြင့် mean (ပျမ်းမျှကိန်း) ကို standard deviation (စံတိမ်းချက်) ၏ ၂ဆဖြင့် ပေါင်းခြင်းကို အသုံးပြုနိုင်ပါသည်။
 
-To add that arithmetical operation, we can use the calculator that you will find in the *Geoalgorithms/modeler/modeler-tools* group. This group contains algorithms that are not very useful outside of the modeler, but that provide some useful functionality when creating a model.
+ထို ဂဏန်းသင်္ချာဆိုင်ရာလုပ်ဆောင်မှုများ ထည့်သွင်းရန် *Geoalgorithms/modeler/modeler-tools* အုပ်စုထဲတွင်ရှိသော calculator ကိုအသုံးပြုနိုင်ပါသည်။ ထိုအုပ်စုတွင် Modeler ၏ပြင်ပ၌ အသုံးမဝင်သော algorithm များပါဝင်ပါသည်၊ သို့သော် model တစ်ခုဖန်တီးသောအခါ အသုံးဝင်သည့် လုပ်ဆောင်မှုအချို့ ပါဝင်ပါသည်။
 
-The parameters dialog of the calculator algorithm looks like this:
+Calculator algorithm ၏ parameter dialog သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်-
 
 .. figure:: img/modeler_hydro_calculator/calculator.png
 
-As you can see, the dialog is different to the other ones we have seen, but you have in there the same variables that were available in the *Threshold* field in the *Channel network* algorithm. Enter the above formula and click on *OK* to add the algorithm. 
+
+Dialog သည် ကျွန်ုပ်တို့ မြင်ဖူးသော အခြား dialog များနှင့် ကွာခြားပါသည်၊ သို့သော် *Channel network* algorithm ထဲရှိ *Threshold* field ထဲတွင်ရှိသော variable များနှင့်တူညီပါသည်။ အထက်ဖော်ပြပါ formula ကိုရိုက်ထည့်ပြီး algorithm ကိုထည့်သွင်းရန် *OK* ကိုနှိပ်ပါ။
 
 .. figure:: img/modeler_hydro_calculator/calculator_dependencies.png
 
-If you expand the outputs entry, as shown above, you will see that the model is connected to two of the values, namely the mean and the standard deviation, which are the ones that we have used in the formula.
+အထက်ပုံတွင်ပြထားသည့်အတိုင်း output ကို ဖြန့်ကြည့်သောအခါ model သည် တန်ဖိုး ၂ ခုနှင့် ချိတ်ဆက်နေသည်ကို တွေ့ရပါမည်၊ ထိုတန်ဖိုး ၂ ခုသည် formula ထဲတွင်အသုံးပြုခဲ့သော mean နှင့် standard deviation တို့ဖြစ်ပါသည်။
 
-Adding this new algorithm will add a new numeric value. If you go again to the *Channel network* algorithm, you can now select that value in the *Threshold* parameter. 
+ဤ algorithm အသစ်ကို ထည့်သွင်းခြင်းသည် ကိန်းဂဏန်းတန်ဖိုးအသစ်တစ်ခုကို ပေါင်းထည့်ပေးပါလိမ့်မည်။ *Channel network* algorithm ကို ထပ်မံဖွင့်ကြည့်ပါက *Threshold* parameter ထဲတွင် ထိုကိန်းဂဏန်းတန်ဖိုးအသစ်ကို ရွေးချယ်နိုင်မည်ဖြစ်ပါသည်။
 
 .. figure:: img/modeler_hydro_calculator/unfolded2.png
 
-Click on *OK* and your model should look like this.
+*OK* ကိုနှိပ်ပါက model သည် အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည်။
 
 .. figure:: img/modeler_hydro_calculator/calculator_output.png
 
-We are not using the numeric input that we added to the model, so it can be removed. Right--click on it and select *Remove*
+Model ထဲသို့ထည့်သွင်းထားသော ကိန်းဂဏန်း input ကို အသုံးမပြုတော့ပါက ၎င်းပေါ်တွင် Right click နှိပ်ပြီး *Remove* ကိုနှိပ်ကာ ဖယ်ရှားပစ်နိုင်ပါသည်။ 
 
-.. warning:: todo: Add image
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
 
-Our new model is now finished.
+ယခုအခါ Model အသစ်ကို ရရှိပြီဖြစ်ပါသည်။

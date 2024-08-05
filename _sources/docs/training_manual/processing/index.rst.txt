@@ -5,12 +5,12 @@
 
 .. _processing_tm:
 
-The QGIS processing guide
-==========================================
+QGIS Processing လမ်းညွှန် (The QGIS processing guide)
+=======================================================
 
-This module contributed by Victor Olaya and Paolo Cavallini.
+ဤမော်ဂျူးကို Victor Olaya နှင့် Paolo Cavallini တို့မှ ပါဝင်ကူညီရေးသားထားပါသည်။
 
-Contents:
+အကြောင်းအရာများ-
 
 .. toctree::
    :maxdepth: 2

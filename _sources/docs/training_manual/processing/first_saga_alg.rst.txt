@@ -1,109 +1,56 @@
-Running an external algorithm
-============================================================
+ပြင်ပ algorithm တစ်ခုလုပ်ဆောင်ခြင်း (Running an external algorithm)
+====================================================================
+
+.. note:: ဤသင်ခန်းစာတွင် third-party application တစ်ခု၊ အထူးသဖြင့် အဓိက algorithm provider များထဲမှ တစ်ခုဖြစ်သော SAGA ပေါ်တွင် မူတည်သော algorithm များကို မည်ကဲ့သို့ အသုံးပြုရမည်ကို မြင်တွေ့ရပါမည်။
 
 
-.. note:: In this lesson we will see how to use algorithms that depend on a
- third-party application, particularly SAGA, which is one of the main
- algorithm providers.
+ယခုအချိန်ထိ run ခဲ့ပြီးသော algorithm များအားလုံးသည် processing framework ၏ အစိတ်အပိုင်းများဖြစ်ပါသည်။ ၎င်းတို့သည် plugin ထဲတွင် ပါဝင်ပြီးသော *native* algorithm များဖြစ်ပြီး QGIS မှ run ပေးခြင်းဖြစ်သည်။ သို့ရာတွင် processing framework ၏ အကြီးမားဆုံး feature များထဲမှတစ်ခုသည် ပြင်ပ application များမှ algorithm များကို တိုးချဲ့အသုံးပြုနိုင်ခြင်းဖြစ်ပါသည်။ အဆိုပါ algorithm များကို toolbox ထဲတွင် ထည့်သွင်းထားသောကြောင့် ၎င်းတို့ကို QGIS မှအလွယ်တကူ အသုံးပြုနိုင်ပြီး ၎င်းတို့ကို run ရန် QGIS data များအသုံးပြုနိုင်ပါသည်။ 
 
-All the algorithms that we have run so far are part of processing framework.
-That is, they are *native* algorithms implemented in the plugin and run by QGIS
-just like the plugin itself is run. However, one of the greatest features of the
-processing framework is that it can use algorithms from external applications
-and extend the possibilities of those applications. Such algorithms are wrapped
-and included in the toolbox, so you can easily use them from QGIS,
-and use QGIS data to run them.
+အချို့သော algorithm များသည် သင့်ကွန်ပျူတာထဲတွင် third-party application များကို install ပြုလုပ်ထားရန်လိုအပ်ပါသည်။ အထူးစိတ်ဝင်စားစရာကောင်းသော algorithm provider တစ်ခုမှာ SAGA (System for Automated Geospatial Analysis) ဖြစ်ပါသည်။ QGIS မှ SAGA ကို မှန်မှန်ကန်ကန်ခေါ်ယူအသုံးပြုနိုင်ရန် အရာအားလုံးကို ဦးစွာ configure ပြုလုပ်ရန်လိုအပ်ပါသည်။ Configure ပြုလုပ်ရန် မခက်ခဲသော်လည်း ၎င်း၏အလုပ်လုပ်ပုံကို နားလည်ရန် အရေးကြီးပါသည်။ ပြင်ပ application တစ်ခုချင်းစီတွင် ကိုယ်ပိုင် configuration တစ်ခုစီရှိပါသည်၊ အချို့သော ပြင်ပ application များအကြောင်းကို နောက်ပိုင်းတွင် ဆွေးနွေးသွားမည်ဖြစ်ပါသည်။ SAGA သည် အဓိက နောက်ကွယ်မှလုပ်ဆောင်သည့်အရာဖြစ်သောကြောင့် SAGA အကြောင်းကို ယခုအပိုင်းတွင် ဆွေးနွေးသွားမည်ဖြစ်ပါသည်။
 
-Some of the algorithms that you see in the simplified view require third party
-applications to be installed in your system. One algorithm provider of special
-interest is SAGA (System for Automated Geospatial Analysis). First, we need to
-configure everything so QGIS can correctly call SAGA. This is not difficult,
-but it's important to understand how it works. Each external application has
-its own configuration, and later in this same manual we will talk about some
-of the other ones, but SAGA is going to be our main backend, so we will discuss it here.
-
-If you are on Windows, the best way to work with external algorithms is to
-install QGIS using the standalone installer. It will take care of installing
-all the needed dependencies, including SAGA, so if you have used it, there is
-nothing else to do. You can open the settings dialog and go to the *Providers/SAGA* group.
+Windows အသုံးပြုပါက ပြင်ပ algorithm များဖြင့်လုပ်ကိုင်ရန် အကောင်းဆုံးနည်းလမ်းသည် standalone installer အသုံးပြုပြီး QGIS ကို install ပြုလုပ်ခြင်းဖြစ်သည်။ ၎င်းကိုအသုံးပြုပါက SAGA အပါအဝင် လိုအပ်သော dependencies (အမှီအခိုများ) အားလုံးကို install ပြုလုပ်ပေးမည်ဖြစ်ပါသည်၊ ထို့ကြောင့် အခြားအရာများ ထပ်မံလုပ်ဆောင်ရန် မလိုအပ်တော့ပါ။ Setting dialog ထဲရှိ *Providers/SAGA* အုပ်စုသို့ ဝင်ရောက်နိုင်ပါသည်။
 
 .. figure:: img/first_saga_alg/saga_config.png
 
-The SAGA path should already be configured and pointing to the folder where SAGA is installed.
+SAGA ဖိုင်လမ်းကြောင်းသည် SAGA ကို install ပြုလုပ်ထားသော folder သို့ ညွှန်ပေးနေသင့်ပါသည်။
 
-If you have installed QGIS not using the standalone installer, then you must
-enter the path to your SAGA installation (which you must have installed separately)
-there. The required version is SAGA 2.1 [this is changing according to the releases of SAGA].
+Standalone installer အသုံးမပြုပဲ QGIS ကို install ပြုလုပ်ထားပါက SAGA install ပြုလုပ်ထားသော ဖိုင်လမ်းကြောင်း (SAGA ကို သီးခြား install ပြုလုပ်ထားရပါမည်) ကို ထည့်သွင်းပေးရပါမည်။ လိုအပ်သောဗားရှင်းသည် SAGA 2.1 ဖြစ်ပါသည် (SAGA ဖြန့်ချိမှုပေါ်မူတည်ပြီး ပြောင်းလဲနေပါသည်)။
 
-In case you are using Linux, you do not have to set the path to your SAGA installation
-in the processing configuration. Instead, you must install SAGA and make sure that
-the SAGA folder is in PATH, so it can be called from the console (just open a
-console and type ``saga_cmd`` to check it). Under Linux, the target version for
-SAGA is also 2.1, but in some installations (such as the OSGeo Live DVD)
-you might have just 2.0.8 available. There are some 2.1 packages available,
-but they are not commonly installed and might have some issues, so if you prefer
-to use the more common and stable 2.0.8, you can do it by enabling 2.0.8
-compatibility in the configuration dialog, under the *SAGA* group.
+Linux ကိုအသုံးပြုပါက SAGA install ပြုလုပ်ထားသော လမ်းကြောင်းကို processing configuration ထဲတွင် သတ်မှတ်ပေးရန်မလိုအပ်ပါ။ ထိုအစား SAGA ကို install ပြုလုပ်ပြီး SAGA folder ကို PATH အနေဖြင့် ထားရှိပါ၊ သို့မှသာ ၎င်းကို console မှ ခေါ်ယူနိုင်မည်ဖြစ်သည် (console ကို ဖွင့်ပြီး ``saga_cmd`` ဟုရိုက်ထည့်ကာ စစ်ဆေးကြည့်ပါ)။ Linux တွင် SAGA အတွက်ဗားရှင်းသည်လည်း 2.1 ဖြစ်ပါသည်၊ သို့သော် အချို့သော installation များတွင် (OSGeo Live DVD) 2.0.8 သာရှိလျှင် အဆင်ပြေပါသည်။ အချို့သော 2.1 package များရရှိနိုင်သော်လည်း ၎င်းတို့ကို များသောအားဖြင့် install ပြုလုပ်မထားပဲ ၎င်းတို့တွင် issue အချို့ရှိနိုင်ပါသည်၊ ထို့ကြောင့် ပိုမိုအသုံးများပြီး တည်မြဲသော 2.0.8 ဗားရှင်းကို အသုံးပြုလိုပါက *SAGA* အုပ်စုအောက်ရှိ configuration dialog ထဲတွင် 2.0.8 compatibility ကိုဖွင့်ပေးထားနိုင်ပါသည်။
 
 .. figure:: img/first_saga_alg/enable208.png
 
-Once SAGA is installed, you can launch a SAGA algorithm double clicking on its name,
-as with any other algorithm. Since we are using the simplified interface,
-you do not know which algorithms are based on SAGA or in another external
-application, but if you happen to double--click on one of them and the
-corresponding application is not installed, you will see something like this.
+SAGA ကို install ပြုလုပ်ပြီးသည်နှင့် SAGA algorithm တစ်ခုကို click နှစ်ချက်နှိပ်ပြီး ဖွင့်နိုင်ပါသည်။ ရိုးရှင်းသော interface ကိုအသုံးပြုနေသောကြောင့် မည်သည့် algorithm များသည် SAGA ပေါ်အခြေခံထားသလား သို့မဟုတ် အခြားပြင်ပ application ပေါ်တွင် အခြေခံထားသလား ဆိုသည်ကို မသိရှိနိုင်ပါ၊ သို့သော် algorithm တစ်ခုကို click နှစ်ချက်နှိပ်ပြီး သက်ဆိုင်ရာ application ကို install မလုပ်ထားပါက အောက်ပါအတိုင်း တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/first_saga_alg/missing_saga.png
 
-In our case, and assuming that SAGA is correctly installed and configured,
-you should not see this window, and you will get to the parameters dialog instead.
+ဤဥပမာတွင် SAGA ကို မှန်မှန်ကန်ကန် install ပြုလုပ်ထားပြီး configure ပြုလုပ်ထားသည်ဟု ယူဆထားပါသည်၊ ထို့ကြောင့် အထက်ဖော်ပြပါ dialog ပေါ်လာမည်မဟုတ်ပဲ ထိုအစား parameter dialog ပေါ်လာမည်ဖြစ်သည်။
 
-Let's try with a SAGA--based algorithm, the one called *Split shapes layer randomly*.
+SAGA အခြေခံထားသော algorithm တစ်ခုဖြစ်သည့် *Split shapes layer randomly* algorithm ကိုအသုံးပြုကြည့်ပါမည်။
 
 .. figure:: img/first_saga_alg/split.png
 
-Use the points layer in the project corresponding to this lesson as input,
-and the default parameter values, and you will get something like this
-(the split is random, so your result might be different).
+ဤသင်ခန်းစာနှင့်သက်ဆိုင်သော project ထဲရှိ point layer ကို input အနေဖြင့် အသုံးပြုပြီး parameter တန်ဖိုးများကို default အတိုင်းထားပါ။ အောက်ပါပုံစံအတိုင်း ရရှိပါလိမ့်မည် (split ပြုလုပ်ခြင်းသည် ကျပန်းဖြစ်သောကြောင့် ရလာဒ်သည် ကွာခြားနိုင်ပါသည်)။
 
 .. figure:: img/first_saga_alg/split_layer.png
 
-The input layer has been split in two layers, each one with the same number of
-points. This result has been computed by SAGA, and later taken by QGIS and
-added to the QGIS project.
+Input layer ကို layer နှစ်ခုအဖြစ် ခွဲခြားလိုက်ပြီး layer တစ်ခုချင်းစီတွင် point အရေအတွက် တူညီကြပါသည်။ ဤရလာဒ်ကို SAGA မှတွက်ချက်ပြီးနောက် QGIS မှရယူကာ QGIS project ထဲသို့ ထည့်သွင်းပေးခြင်းဖြစ်ပါသည်။
 
-If all goes fine, you will not notice any difference between this SAGA--based
-algorithm and one of the others that we have previously run. However, SAGA might,
-for some reason, not be able to produce a result and not generate the file that
-QGIS is expecting. In that case, there will be problems adding the result to the
-QGIS project, and an error message like this will be shown.
+အရာရာအဆင်ပြေပါက SAGA အခြေခံသော algorithm နှင့် ကျွန်ုပ်တို့ယခင်က run ခဲ့ပြီးသော algorithm များအကြား ခြားနားချက်ကို သင်သတိပြုမိမည်မဟုတ်ပါ။ သို့သော် အချို့သောအကြောင်းများကြောင့် SAGA သည် QGIS မှမျှော်လင့်သော ရလာဒ်ဖိုင်ကို မထုတ်ပေးနိုင်ခြင်းမျိုး ရှိနိုင်ပါသည်။ ထိုကိစ္စမျိုးတွင် QGIS project ထဲသို့ ရလာဒ်ကို ထည့်သွင်းရာတွင် ပြဿနာရှိလိမ့်မည်ဖြစ်ပြီး အောက်ပါ error message ကို ပြသပေးပါလိမ့်မည်။
 
 .. figure:: img/first_saga_alg/missing_result.png
 
-This kind of problems might happen, even if SAGA (or any other application that
-we are calling from the processing framework) is correctly installed, and it is
-important to know how to deal with them. Let's produce one of those error messages.
+SAGA (သို့မဟုတ် processing framework မှ ခေါ်ယူသော အခြား application တစ်ခုခု) ကို မှန်မှန်ကန်ကန် install ပြုလုပ်ထားလျှင်ပင် ထိုကဲ့သို့သော ပြဿနာများ ဖြစ်ကောင်းဖြစ်နိုင်ပြီး ၎င်းပြဿနာများကိုဖြေရှင်းရန် အရေးကြီးပါသည်။ ထို error message များထဲမှ တစ်ခုရအောင် ထုတ်ကြည့်ပါမည်။ 
 
-Open the *Create graticule* algorithm and use the following values.
+*Create graticule* algorithm ကိုဖွင့်ပြီး အောက်ပါတန်ဖိုးများကို အသုံးပြုပါ။
 
 .. figure:: img/first_saga_alg/create_graticule.png
 
 
-We are using  width and height values that is larger than the specified extent,
-so SAGA cannot produce any output. In other words, the parameter values are wrong,
-but they are not checked until SAGA gets them and tries to create the graticule.
-Since it cannot create it, it will not produce the expected layer, and you will
-see the error message shown above.
+Width နှင့် Height တန်ဖိုးများသည် သတ်မှတ်ထားသော extent ထက် ပိုကြီးနေသောကြောင့် SAGA သည် output တစ်ခုခုထုတ်ပေးနိုင်မည်မဟုတ်ပါ။ တစ်နည်းအားဖြင့်ဆိုရသော် parameter တန်ဖိုးများသည် မှားနေခြင်းဖြစ်သည်၊ သို့သော် ၎င်းတန်ဖိုးများကို SAGA မှရယူပြီး graticule မဖန်တီးခင်အထိ စစ်ဆေးပေးမည်မဟုတ်ပါ။ SAGA သည် graticule ကိုမဖန်တီးနိုင်သောကြောင့် မျှော်လင့်သော layer ကို ထုတ်ပေးနိုင်မည်မဟုတ်ပါ၊ ထို့ကြောင့် အထက်တွင်ပြထားသော error message ကို မြင်တွေ့ရပါလိမ့်မည်။
 
-.. note:: In SAGA >= 2.2.3, the command will adjust automatically wrong input data,
- so you'll not get an error. To provoke an error, use negative values for division.
+.. note:: SAGA 2.2.3 နှင့်အထက်ဗားရှင်းတွင် command သည် မှားယွင်းနေသော input data ကို အလိုအလျောက် ချိန်ညှိပေးမည်ဖြစ်သောကြောင့် error ဖြစ်မည်မဟုတ်ပါ။ Error တစ်ခုဖြစ်စေရန် division (စားခြင်း) အတွက် အနုတ် တန်ဖိုးများကို အသုံးပြုပါ။
 
-Understanding this kind of problems will help you solve them and find an explanation
-to what is happening. As you can see in the error message, a test is performed
-to check that the connection with SAGA is working correctly, indicating you
-that there might be a problem in how the algorithm was executed. This applies
-not only to SAGA, but also to other external applications as well.
+ထိုကဲ့သို့သော ပြဿနာများကို နားလည်ခြင်းသည် ပြဿနာများကိုဖြေရှင်းရာတွင်အကူအညီဖြစ်စေပြီး ဖြစ်ပျက်နေမှုများကို ရှင်းပြပေးနိုင်ပါသည်။ Error message တွင် မြင်တွေ့ရသည့်အတိုင်း SAGA နှင့်ချိတ်ဆက်မှုသည် မှန်မှန်ကန်ကန် လုပ်ဆောင်ခြင်း ရှိ/မရှိကို စစ်ဆေးရန် test တစ်ခုလုပ်ဆောင်ပေးပြီး algorithm ကို run ရာတွင် ပြဿနာတစ်ခုရှိနိုင်ကြောင်း ဖော်ပြပေးနေပါသည်။ ထိုလုပ်ဆောင်မှုသည် SAGA တွင်သာမက အခြားသော ပြင်ပ application များတွင်လည်း အတူတူပင်ဖြစ်ပါသည်။
 
-In the next lesson we will introduce the processing log, where information about
-commands run by geoalgorithms is kept, and you will see how to get more detail
-when issues like this appear.
+Geoalgorithm များမှ run သော command များအကြောင်းအချက်အလက်များကို သိမ်းဆည်းသည့်နေရာဖြစ်သော processing log အကြောင်းကို နောက်လာမည့်သင်ခန်းစာတွင် မိတ်ဆက်ပေးမည်ဖြစ်ပါသည်။ ဤကဲ့သို့သော ပြဿနာများ ဖြစ်လာသောအခါ ပိုမိုအသေးစိတ်အချက်အလက်များကို သိရှိနိုင်မည်ဖြစ်ပါသည်။

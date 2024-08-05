@@ -19,241 +19,177 @@ Plugin များသင်ခန်းစာတွင် Google မှ raster 
    :width: 100%
 
 #. အဆိုပါ layer များကို မြေပုံအသစ်တစ်ခုထဲသို့ ထည့်သွင်းပါ၊ သို့မဟုတ် သင့်မူရင်းမြေပုံကိုအသုံးပြုပြီး အဆိုပါ layer များကိုသာ မြင်နိုင်အောင် ဖွင့်ထားပါ။
-#. Before starting to add the WMS layer, deactivate "on the fly"
-   projection (:menuselection:`Project --> Properties... --> CRS` tab,
-   check :guilabel:`No CRS (or unknown/non-Earth projection)`.
-   This may cause the layers to no longer overlap properly, but
-   don't worry: we'll fix that later.
-#. 
-#. To add WMS layers, click on the |dataSourceManager| button to open the
-   :guilabel:`Data Source Manager` dialog and enable the |addWmsLayer|
-   :guilabel:`WMS/WMTS` tab.
+#. WMS layer အား စတင်မထည့်သွင်းမီ "on the fly" projection (:menuselection:`Project --> Properties... --> CRS` tab ၊ :guilabel:`No CRS (or unknown/non-Earth projection)` ကိုအမှန်ခြစ်ပါ) အား ပိတ်ထားပါ။ ထိုသို့လုပ်ခြင်းသည် layer များကို မှန်ကန်စွာ ထပ်နေစေမည်တော့မဟုတ်ပါ၊ သို့သော် စိတ်ပူရန်မလိုပါ- နောက်ပိုင်းတွင် ပြန်လည်ပြင်ဆင်မည်ဖြစ်ပါသည်။
+#. WMS layer များကို ထည့်သွင်းရန် |dataSourceManager| ခလုတ်ကိုနှိပ်ပြီး :guilabel:`Data Source Manager` dialog ကိုဖွင့်ပါ၊ |addWmsLayer|
+   :guilabel:`WMS/WMTS` tab ကိုဖွင့်ပေးပါ။
 
    .. figure:: img/datasourcemanager_wms.png
       :align: center
 
-   Remember how you connected to a SpatiaLite or GeoPackage database at the
-   beginning of the course. The :guilabel:`landuse`, :guilabel:`buildings`, and
-   :guilabel:`roads` layers are stored in a database. To use those layers, you
-   first needed to connect to the database. Using a WMS is similar, with the
-   exception that the layers are on a remote server.
+   သင်တန်း၏အစတွင် SpatiaLite သို့မဟုတ် GeoPackage database တစ်ခုနှင့်ချိတ်ဆက်နည်းကို သတိရပါ။ :guilabel:`landuse` ၊ :guilabel:`buildings` နှင့်
+   :guilabel:`roads` layer များကို database တစ်ခုထဲတွင် သိမ်းဆည်းထားပါသည်။ အဆိုပါ layer များကိုအသုံးပြုရန် database နှင့်ဦးစွာ ချိတ်ဆက်ရန် လိုအပ်ပါသည်။ WMS တစ်ခုကိုအသုံးပြုခြင်းသည်လည်း layer များ remote server တစ်ခုထဲတွင် ရှိနေသည်မှလွဲ၍ ထိုနည်းတူပင်ဖြစ်သည်။
 
-#. To create a new connection to a WMS, click on the :guilabel:`New` button.
+#. WMS တစ်ခုနှင့် ချိတ်ဆက်မှုအသစ်တစ်ခုဖန်တီးရန် :guilabel:`New` ခလုတ်ကိုနှိပ်ပါ။
 
-   You'll need a WMS address to continue. There are several free WMS servers
-   available on the Internet. One of these is `terrestris
-   <https://ows.terrestris.de/osm/service>`_, which makes use of the `OpenStreetMap
-   <https://wiki.openstreetmap.org/wiki/Main_Page>`_ dataset.
+   ဆက်လက်လုပ်ဆောင်ရန်အတွက် WMS address တစ်ခုလိုအပ်ပါသည်။ အင်တာနက်တွင် အခမဲ့ WMS server များစွာ ရှိပါသည်။ ၎င်းတို့ထဲမှ တစ်ခုသည် `terrestris
+   <https://ows.terrestris.de/osm/service>`_ ဖြစ်ပြီး `OpenStreetMap
+   <https://wiki.openstreetmap.org/wiki/Main_Page>`_ dataset များကိုအသုံးပြုထားပါသည်။
 
-#. To make use of this WMS, set it up in your current dialog, like this:
+#. အဆိုပါ WMS ကိုအသုံးပြုရန် လက်ရှိ dialog ထဲတွင် ၎င်းကို အောက်ပါအတိုင်းသတ်မှတ်ပေးပါ-
 
    .. figure:: img/new_wms_connection.png
       :align: center
 
-   * The value of the :guilabel:`Name` field should be ``terrestris``.
-   * The value of the :guilabel:`URL` field should be
-     ``https://ows.terrestris.de/osm/service``.
-#. Click :guilabel:`OK`. You should see the new WMS server listed:
+   * :guilabel:`Name` field တွင် ``terrestris`` ဖြစ်သင့်ပါသည်။
+   * :guilabel:`URL` field တွင် ``https://ows.terrestris.de/osm/service`` ဖြစ်သင့်ပါသည်။
+#. :guilabel:`OK` ကိုနှိပ်ပါ။ WMS server အသစ် ဝင်လာပါလိမ့်မည်-
 
    .. figure:: img/new_connection_listed.png
       :align: center
 
-#. Click :guilabel:`Connect`. In the list below, you should now see these
-   new entries loaded:
+#. :guilabel:`Connect` ကိုနှိပ်ပါ။ စာရင်းထဲတွင် အောက်ပါ entry အသစ်များထည့်သွင်းပေးသွားမည်ဖြစ်သည်-
 
    .. figure:: img/new_wms_entries.png
       :align: center
 
-   These are all the layers hosted by this WMS server.
+   အဆိုပါ layer များအားလုံးသည် ဤ WMS server တွင်ရှိသော layer များဖြစ်သည်။
 
-#. Click once on the :guilabel:`OSM-WMS` layer.
-   This will display the default :guilabel:`Coordinate Reference System` in use
-   and the number of CRSes supported by the dataset:
+#. :guilabel:`OSM-WMS` layer ပေါ်တွင် click တစ်ချက်နှိပ်ပါ။ ထိုအခါ အသုံးပြုထားသော default :guilabel:`Coordinate Reference System` ကိုပြသလိမ့်မည်ဖြစ်ပြီး dataset မှအသုံးပြုနိုင်သော CRS အရေအတွက်ကို ပြသပေးပါလိမ့်မည်-
 
    .. figure:: img/osm_wms_selected.png
       :align: center
 
-   Since we're not using ``EPSG:4326 - WGS 84`` for our map,
-   let's find one that meets our needs.
+   ကျွန်ုပ်တို့မြေပုံအတွက် ``EPSG:4326 - WGS 84`` ကိုအသုံးပြုမည်မဟုတ်သည့်အတွက် အခြားကိုက်ညီမည့် CRS တစ်ခုကို ရှာဖွေကြည့်ပါမည်။
 
-   #. Click the |setProjection|:sup:`Select CRS` button. You will see a standard
-      :guilabel:`Coordinate Reference System Selector` dialog
-      showing all the CRS the data is published with.
-   #. We want a *projected* CRS, so let's choose :guilabel:`WGS 84 / Pseudo-Mercator`
-      with ``EPSG:3857``. You can use the top |search| :guilabel:`Filter` widget.
+   #. |setProjection|:sup:`Select CRS` ခလုတ်ကိုနှိပ်ပါ။ Data နှင့်အတူပါလာသော CRS များအားလုံးကို ပြသပေးသည့် :guilabel:`Coordinate Reference System Selector` dialog တစ်ခုကိုတွေ့ရပါလိမ့်မည်။
+   #. *Projected* CRS တစ်ခုကို လိုချင်သည့်အတွက် ``EPSG:3857`` ဖြင့် :guilabel:`WGS 84 / Pseudo-Mercator` ကိုရွေးချယ်ပါမည်။ အပေါ်ဘက်ရှိ |search| :guilabel:`Filter` widget ကိုလည်း အသုံးပြုနိုင်ပါသည်။
 
          .. figure:: img/pseudo_mercator_selected.png
             :align: center
 
-      #. Click :guilabel:`OK`. The Coordinate Reference System associated with
-         the entry has changed.
+      #. :guilabel:`OK` ကိုနှိပ်ပါ။ Coordinate Reference System ပြောင်းသွားပါလိမ့်မည်။
 
-#. Click :guilabel:`Add` to load the layer in your project using :guilabel:`Layer name``
-   (default is :guilabel:`OpenStreetMap WMS - by terrestris`).
-#. Close the :guilabel:`Data Source Manager` dialog if not done automatically
-#. In the :guilabel:`Layers` panel, click and drag it to the bottom of the list.
-#. Zoom out in order to get a global view of the layers. You will notice that
-   your layers aren't located correctly (near west of Africa).
-   This is because "on the fly" projection is disabled.
+#. :guilabel:`Layer name` (Default သည် :guilabel:`OpenStreetMap WMS - by terrestris` ဖြစ်ပါသည်) ကိုအသုံးပြုပြီး project ထဲသို့ layer ကိုထည့်သွင်းရန် :guilabel:`Add` ကိုနှိပ်ပါ။
+#. :guilabel:`Data Source Manager` dialog ကိုပိတ်ပါ။
+#. :guilabel:`Layers` panel ထဲတွင် ၎င်း WMS layer ကို အောက်ဆုံးသို့ ဖိဆွဲ၍ရွှေ့ပါ။
+#. Layer များကို တစ်ကမ္ဘာလုံးအတိုင်းအတာ မြင်ရနိုင်စေရန် zoom ချုံ့ကြည့်ပါ။ Layer များသည် တည်နေရာမှန်မှန်ကန်ကန် ရှိမနေသည်ကို မြင်ရပါလိမ့်မည် (အာဖရိက၏ အနောက်ဘက် အနား)။ ထိုသို့ဖြစ်ရသည်မှာ "on the fly" projection ကိုပိတ်ထားသောကြောင့်ဖြစ်သည်။
 
    .. figure:: img/reprojection_off.png
       :align: center
       :width: 100%
 
-#. Let's enable the reprojection again, but using the same projection as the
-   :guilabel:`OpenStreetMap WMS` layer, which is :guilabel:`WGS 84 / Pseudo Mercator`.
+#. Projection ထပ်မံ၍ ပြောင်းကြည့်ပါမည်၊ :guilabel:`OpenStreetMap WMS` layer ၏ projection ဖြစ်သော :guilabel:`WGS 84 / Pseudo Mercator` အတိုင်းအတူတူအသုံးပြုပါမည်။
 
-   #. Open the :menuselection:`Project --> Properties... --> CRS` tab
-   #. Uncheck :guilabel:`No CRS (or unknown/non-Earth projection)`
-   #. Choose :guilabel:`WGS 84 / Pseudo Mercator` from the list.
+   #. :menuselection:`Project --> Properties... --> CRS` tab ကိုဖွင့်ပါ
+   #. :guilabel:`No CRS (or unknown/non-Earth projection)` ကိုအမှန်ခြစ်ဖြုတ်ပါ
+   #. စာရင်းထဲမှ :guilabel:`WGS 84 / Pseudo Mercator` ကိုရွေးပါ။
 
       .. figure:: img/enable_projection.png
          :align: center
 
-   #. Click :guilabel:`OK`.
-#. Now right-click on one of your own layers in the :guilabel:`Layers` panel and
-   click :guilabel:`Zoom to layer(s)`. You should see the |majorUrbanName|
-   area:
+   #. :guilabel:`OK` ကိုနှိပ်ပါ။
+#. :guilabel:`Layers` panel ထဲရှိ မိမိ၏ကိုယ်ပိုင် layer တစ်ခုပေါ်တွင် right-click နှိပ်ပြီး :guilabel:`Zoom to layer(s)` ကိုနှိပ်ပါ။ |majorUrbanName| ဧရိယာကို မြင်တွေ့ရမည်ဖြစ်သည်-
 
    .. figure:: img/wms_result.png
       :align: center
       :width: 100%
 
-Note how the WMS layer's streets and our own streets overlap.
-That's a good sign!
+WMS layer ၏ လမ်းများနှင့် မိမိ၏ကိုယ်ပိုင် လမ်း layer သည် ထပ်သွားသည်ကို တွေ့ရပါမည်။
 
-The nature and limitations of WMS
+WMS ၏သဘောသဘာဝနှင့် အကန့်အသတ်များ (The nature and limitations of WMS)
 ...............................................................................
 
-By now you may have noticed that this WMS layer actually has many features in it.
-It has streets, rivers, nature reserves, and so on. What's more, even though it
-looks like it's made up of vectors, it seems to be a raster, but you can't
-change its symbology. Why is that?
+ဤ WMS layer ထဲတွင် feature များစွာ ပါရှိသည်ကို သတိပြုမိပါလိမ့်မည်။ လမ်းများ၊ မြစ်များ၊ သဘာဝကာကွယ်တောများ၊ အစရှိသဖြင့် ပါရှိနေပါသည်။ ၎င်းသည် vector များဖြင့် ဖွဲ့စည်းထားသော်လည်း raster တစ်ခုဖြစ်ပုံရပါသည်၊ သို့သော် ၎င်း၏ သင်္ကေတများကို မပြောင်းလဲနိုင်ပါ။ ဘာကြောင့်ပါလဲ။
 
-This is how a WMS works: it's a map, similar to a normal map on paper, that you
-receive as an image. What usually happens is that you have vector layers, which
-QGIS renders as a map. But using a WMS, those vector layers are on the WMS
-server, which renders it as a map and sends that map to you as an image.  QGIS
-can display this image, but can't change its symbology, because all that is
-handled on the server.
+ဤအရာသည် WMS တစ်ခု၏ အလုပ်လုပ်ပုံဖြစ်ပါသည်- ၎င်းသည် image တစ်ခုအနေဖြင့်သာ ရရှိသော မြေပုံတစ်ခုဖြစ်ပြီး စာရွက်ပေါ်ရှိ ပုံမှန်မြေပုံတစ်ခုနှင့်ဆင်တူပါသည်။ သင့်တွင် vector layer များရှိသောအခါ QGIS သည် မြေပုံတစ်ခုအဖြစ် ပုံဖော်ပြသပေးပါသည်၊ သို့သော် WMS အသုံးပြုခြင်းတွင် အဆိုပါ vector layer များသည် WMS server ပေါ်တွင် ရှိပြီး ၎င်းတို့ကို မြေပုံတစ်ခုအဖြစ်ပုံဖော်ပြသပြီး ထိုမြေပုံကို သင့်ဆီသို့ image တစ်ခုအနေဖြင့် ပြန်ပို့ပေးခြင်းဖြစ်သည်။ QGIS သည် ထို image ကိုပြသပေးနိုင်သော်လည်း ၎င်း၏ သင်္ကေတများကိုမပြောင်းလဲနိုင်ပါ၊ ထိုသို့ဖြစ်ရခြင်းမှာ အားလုံးကို server ပေါ်တွင် ကိုင်တွယ်လုပ်ဆောင်သောကြောင့်ဖြစ်သည်။
 
-This has several advantages, because you don't need to worry about the
-symbology. It's already worked out, and should be nice to look at on any
-competently designed WMS.
+သင်္ကေတနှင့်ပတ်သက်ပြီး စိတ်ပူရန်မလိုအပ်သည့်အတွက် အကျိုးများစွာတော့ရှိပါသည်။ ထိုအတွက် လုပ်ဆောင်ထားပြီးဖြစ်ကာ ကောင်းမွန်စွာဒီဇိုင်းလုပ်ထားသော WMS တစ်ခုခုကို ရှာဖွေကြည့်လျှင်ပိုကောင်းမည်ဖြစ်သည်။
 
-On the other hand, you can't change the symbology if you don't like it, and if
-things change on the WMS server, then they'll change on your map as well. This
-is why you sometimes want to use a Web Feature Service (WFS) instead, which
-gives you vector layers separately, and not as part of a WMS-style map.
+တစ်နည်းအားဖြင့်ဆိုရလျှင် သင့်အနေဖြင့် သင်္ကေတကို မနှစ်သက်လျှင် ပြောင်းလဲ၍မရနိုင်ပါ၊ WMS server ပေါ်တွင် ပြောင်းလဲမှုပြုလုပ်ပါက သင့်မြေပုံတွင်လည်း ပြောင်းလဲသွားမည်ဖြစ်ပါသည်။ ထိုအတွက်ကြောင့် တစ်ခါတရံတွင် WMS အစား  Web Feature Service (WFS) ကိုအသုံးပြုလိုခြင်းဖြစ်သည်၊ WFS သည် WMS-style မြေပုံ၏အစိတ်အပိုင်းအဖြစ်မဟုတ်ပဲ vector layer များကို သီးခြားပေးထားပါသည်။
 
-This will be covered in the next lesson, however.
-First, let's add another WMS layer.
+ထိုအကြောင်းကို နောက်သင်ခန်းစာတွင် လေ့လာရမည်ဖြစ်သည်။ ဦးစွာ နောက်ထပ် WMS layer ကိုထည့်သွင်းကြည့်ပါမည်။
 
 
-:abbr:`★☆☆ (Basic level)` Try Yourself:
+:abbr:`★☆☆ (Basic level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)
 -------------------------------------------------------------------------------
 
-#. Add the ``eAtlas`` WMS server at this URL: ``https://maps.eatlas.org.au/maps/wms``
-#. Load a :guilabel:`World: Hillshading` layer into the map.
-#. You might want to set its :guilabel:`Encoding` to :guilabel:`JPEG`
-   and its :guilabel:`Tile size` option to ``200`` by ``200``, so that it loads faster.
-#. Your map should look like this (you may need to re-order the layers, and apply some transparency):
+#. ``https://maps.eatlas.org.au/maps/wms`` URL မှ ``eAtlas`` WMS server ကိုထည့်သွင်းပါ။
+#. :guilabel:`World: Hillshading` layer ကိုမြေပုံထဲသို့ ထည့်သွင်းပါ။
+#. မြန်ဆန်စေရန်အတွက် :guilabel:`Encoding` တွင် :guilabel:`JPEG` ဟုသတ်မှတ်ပြီး :guilabel:`Tile size` တွင် ``200`` by ``200`` ထားပါ၊ 
+#. သင့်မြေပုံသည် အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည် (layer များကို order ပြန်စီပြီး အလင်းဖောက်နှုန်းအချို့ သုံးပေးရန် လိုအပ်နိုင်ပါသည်)-
 
       .. figure:: img/world_hillshading_result.png
          :align: center
          :width: 100%
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
-   #. Go to the Data Source Manager, WMS / WMTS tab and create a new connection entry
-   #. Use the |search| text box to filter the list of layers and select the corresponding layer
-   #. Remember to check/turn its CRS into :guilabel:`EPSG:3857 - WGS 84 / Pseudo Mercator`
-      as the rest of the map.
+   #. Data Source Manager ထဲရှိ WMS / WMTS tab ထဲတွင် ချိတ်ဆက်မှုအသစ်တစ်ခုဖန်တီးပါ။
+   #. |search| စာသား box ကိုအသုံးပြုပြီး layer များစာရင်းကို filter လုပ်ကာ သက်ဆိုင်ရာ layer ကိုရွေးချယ်ပါ
+   #. ၎င်း၏ CRS ကို မြေပုံ၏အခြား layer များအတိုင်း :guilabel:`EPSG:3857 - WGS 84 / Pseudo Mercator` အဖြစ်ပြောင်းလဲရန် မမေ့ပါနှင့်။
 
       .. figure:: img/add_world_hillshading_layer.png
          :align: center
          :width: 100%
 
-   #. After the layer is loaded, you can modify its :guilabel:`Opacity` value
-      (under the :guilabel:`Transparency` properties tab)
+   #. Layer ကိုထည့်သွင်းပြီးနောက် ၎င်း၏ :guilabel:`Opacity` တန်ဖိုးကို ပြင်ဆင်နိုင်ပါသည် (:guilabel:`Transparency` properties tab အောက်တွင်)
 
-:abbr:`★★★ (Advanced level)` Try Yourself:
+:abbr:`★★★ (Advanced level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)
 -------------------------------------------------------------------------------
 
-Part of the difficulty of using WMS is finding a good (free) server.
+WMS အသုံးပြုရခြင်း၏ အခက်အခဲတစ်စိတ်တစ်ပိုင်းသည် ကောင်းမွန်သော (အခမဲ့ဖြစ်သော) server တစ်ခုရှာဖွေရခြင်းဖြစ်သည်။
 
-* Find a new WMS at `directory.spatineo.com <https://directory.spatineo.com/>`_ (or elsewhere online).
-  It must not have associated fees or restrictions,
-  and must have coverage over the |majorUrbanName| study area.
+* `directory.spatineo.com <https://directory.spatineo.com/>`_ (သို့မဟုတ် အွန်လိုင်းတစ်နေရာရာမှ) မှ WMS အသစ်တစ်ခုကို ရှာပါ။ အခကြေးငွေပေးရခြင်း သို့မဟုတ် တားမြစ်ချက်များ မရှိစေရပါ၊ |majorUrbanName| ဧရိယာကို လွှမ်းခြုံရမည်ဖြစ်သည်။
 
-  Remember that what you need in order to use a WMS is only its URL
-  (and preferably some sort of description).
+  မှတ်ထားရမည်မှာ WMS တစ်ခုကိုအသုံးပြုရန် ၎င်း၏ URL သာလိုအပ်ပါသည် (လိုအပ်လျှင် ဖော်ပြချက်အချို့ ထည့်ပေးနိုင်ပါသည်)။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
-   Spatineo is one of many places you can search for a OGC data.
-   Type in the text area a name, keyword, location of your interest
-   to see if you get some working results.
-   For this lesson, you might want to filter the results to include WMS only.
+   Spatineo သည် OGC data ရှာဖွေပေးနိုင်သော နေရာများထဲမှ တစ်ခုဖြစ်ပါသည်။ ရလာဒ်များရမရ ကြည့်ရှုရန် စာသားဧရိယာထဲတွင် အမည်၊ Keyword၊ စိတ်ဝင်စားသည့်တည်နေရာ ရိုက်ထည့်ကြည့်ပါ။ ဤသင်ခန်းစာအတွက် WMS သာပါဝင်သော ရလာဒ်များကိုသာ filter လုပ်လိုပါသည်။
 
-   You may notice that many WMS servers are not always available.
-   Sometimes this  is temporary, sometimes it is permanent.
-   An example of a WMS server that worked at the time of writing
-   is the :guilabel:`MapServer Demonstration Server` WMS
-   at https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities.
-   It does not require fees or have access constraints, and it is global.
-   Therefore, it does satisfy the requirements.
-   Keep in mind, however, that this is merely an example.
-   There are many other WMS servers to choose from.
+   WMS server များစွာသည် အမြဲတမ်းအသုံးမပြုနိုင်သည်ကို သတိထားမိပါလိမ့်မည်။ တစ်ခါတရံတွင် ယာယီသာဖြစ်ပြီး တစ်ခါတရံတွင် အမြဲတမ်းဖြစ်ပါသည်။ မှတ်တမ်းရေးသားနေချိန်တွင် အလုပ်လုပ်နေသော WMS server ဥပမာတစ်ခုပြောရလျှင် :guilabel:`MapServer Demonstration Server` WMS ဖြစ်ပြီး https://demo.mapserver.org/cgi-bin/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities URL တွင်ရှိပါသည်။ ၎င်းသည် အခကြေးငွေပေးရန်မလိုအပ်သလို သုံးစွဲခွင့်ကန့်သတ်ချက်များလည်း မရှိပါ၊ တစ်ကမ္ဘာလုံးအတွက် အသုံးပြုနိုင်ပါသည်။ ထို့ကြောင့် ၎င်းသည် လိုအပ်ချက်များနှင့်ကိုက်ညီပြီး သုံးစွဲရ အဆင်ပြေပါသည်။ စိတ်ထဲမှတ်သားထားရမည်မှာ ၎င်း WMS သည် ဥပမာတစ်ခုသာဖြစ်ပြီး အခြားရွေးချယ်နိုင်သည့် WMS server များစွာရှိပါသေးသည်။
 
 
-:abbr:`★★★ (Advanced level)` Try Yourself:
+:abbr:`★★★ (Advanced level)` မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:)
 -------------------------------------------------------------------------------
 
-* Add the :guilabel:`bluemarble` layer from the :guilabel:`MapServer Demonstration Server`.
-  Is that a suitable dataset for our study area?
+* :guilabel:`MapServer Demonstration Server` မှ :guilabel:`bluemarble` layer ကိုထည့်သွင်းပါ။ ၎င်းသည် ကျွန်ုပ်တို့ study area အတွက် သင့်လျော်သော dataset တစ်ခုဖြစ်ပါသလား?
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
-   #. Hide all other WMS layers to prevent them from rendering unnecessarily in the background.
-   #. Use the same approach as before to add the new server and the appropriate
-      layer as hosted on that server:
+   #. ပုံဖော်ပြသရန်မလိုအပ်သော အခြား WMS layer များအားလုံးကို ဖျောက်ထားပါ။
+   #. အထက်တွင်ပြသထားသည့်နည်းအတိုင်း server အသစ်ကိုထည့်သွင်းပြီး ထို server ၌ရှိသော သင့်လျော်သော layer ကိုထည့်သွင်းပါ-
 
       .. figure:: img/add_bluemarble_layer.png
          :align: center
 
-   #. If you zoom into the |majorUrbanName| area, you'll notice that this dataset has a low resolution:
+   #. |majorUrbanName| ဧရိယာသို့ zomm ချဲ့ကြည့်လျှင် ဤ dataset သည် resolution နိမ့်နေသည်ကို သင်သတိထားမိပါလိမ့်မည်-
 
       .. figure:: img/low_resolution_dataset.png
          :align: center
 
-      Therefore, it's better not to use this data for the current map.
-      The Blue Marble data is more suitable at global or national scales
+      ထို့ကြောင့် ဤ data ကို လက်ရှိမြေပုံအတွက် အသုံးမပြုလျှင်ပိုကောင်းပါသည်။ Blue Marble data သည် ကမ္ဘာအဆင့် စကေးများနှင့် နိုင်ငံအဆင့် စကေးများတွင်သာ ပိုမိုသင့်တော်ပါသည်။
 
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Using a WMS, you can add inactive maps as backdrops for your existing map data.
+WMS တစ်ခုကိုအသုံးပြုခြင်းဖြင့် သင့် လက်ရှိမြေပုံ data အတွက် နောက်ခံအနေဖြင့် ပြောင်းလဲမှုမရှိသောမြေပုံများ ထည့်သွင်းနိုင်မည်ဖြစ်ပါသည်။
 
-Further Reading
+နောက်ထပ်ဖတ်ရှုရမည်များ (Further Reading)
 -------------------------------------------------------------------------------
 
 * `Spatineo Directory <https://directory.spatineo.com/>`_
 * `OpenStreetMap.org list of WMS servers
   <https://wiki.openstreetmap.org/wiki/WMS>`_
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Now that you've added an inactive map as a backdrop, you'll be glad to know
-that it's also possible to add features (such as the other vector layers you
-added before). Adding features from remote servers is possible by using a Web
-Feature Service (WFS). That's the topic of the next lesson.
-
+ယခုဆိုလျှင် နောက်ခံအနေဖြင့် ပြောင်းလဲမှုမရှိသောမြေပုံတစ်ခုထည့်သွင်းပြီးဖြစ်ပါသည်၊ feature များကိုလည်း ထည့်သွင်းနိုင်ပါသေးသည် (အခြား vector layer များထည့်သွင်းသကဲ့သို့)။ Web Feature Service (WFS) တစ်ခုအသုံးပြုပြီး Remote server များမှ feature များထည့်သွင်းနိုင်ပါသည်။ ထိုအကြောင်းကို နောက်လာမည့် သင်ခန်းစာတွင် သင်ကြားပေးမည်ဖြစ်ပါသည်။
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE
    This will be automatically updated by the find_set_subst.py script.

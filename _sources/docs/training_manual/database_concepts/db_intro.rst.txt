@@ -1,33 +1,23 @@
-Lesson: Introduction to Databases
+သင်ခန်းစာ - Database မိတ်ဆက် (Lesson: Introduction to Databases)
 ===============================================================================
 
-Before using PostgreSQL, let's make sure of our ground by covering general
-database theory. You will not need to enter any of the example code; it's only
-there for illustration purposes.
+PostgreSQL အသုံးမပြုခင်တွင် ယေဘုယျ database သီအိုရီအကြောင်း လေ့လာကြည့်ပါမည်။ ဥပမာပေးထားသော code များကို ရိုက်ထည့်စရာမလိုပါ၊ ၎င်းတို့သည် သာဓကပုံဖော်ပြသခြင်းအတွက်သာ ဖြစ်ပါသည်။
 
-**The goal for this lesson:** To understand fundamental database concepts.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** အခြေခံ database သဘောတရားများကို နားလည်စေရန်။
 
-What is a Database?
+Database တစ်ခုဆိုတာဘာလဲ (What is a Database?)
 -------------------------------------------------------------------------------
 
-A database consists of an organized collection of data for one or more uses,
-typically in digital form. *- Wikipedia*
+Database တစ်ခုသည် data များဖြင့် ဖွဲ့စည်းထားသော အစုအဖွဲ့တစ်ခုဖြစ်ပြီး ဒစ်ဂျစ်တယ်ပုံစံအနေဖြင့် ရှိပါသည်။ *- Wikipedia*
 
 ..
 
-A database management system (DBMS) consists of software that operates
-databases, providing storage, access, security, backup and other facilities.
-*- Wikipedia*
+Database management system (DBMS) တစ်ခုတွင် database များကိုကိုင်တွယ်လုပ်ဆောင်နိုင်သော software များပါဝင်ပြီး data များသိုလှောင်ခြင်း၊ ရယူသုံးစွဲခြင်း၊ လုံခြုံစိတ်ချရမှု၊ backup နှင့် အခြားလုပ်ဆောင်နိုင်စရာများ ပါဝင်ပါသည်။ *- Wikipedia*
 
-Tables
+ဇယားများ (Tables)
 -------------------------------------------------------------------------------
 
-In relational databases and flat file databases, a table is a set of data
-elements (values) that is organized using a model of vertical columns (which
-are identified by their name) and horizontal rows. A table has a specified
-number of columns, but can have any number of rows. Each row is identified
-by the values appearing in a particular column subset which has been
-identified as a candidate key. *- Wikipedia*
+Relational database များနှင့် flat file database များတွင် table တစ်ခုသည် ဒေါင်လိုက် column (အမည်များဖြင့်သတ်မှတ်ထားသော) များနှင့် ရေပြင်ညီ row များဖြင့် ဖွဲ့စည်းထားသော data element (တန်ဖိုးများ) များအစု တစ်ခုဖြစ်ပါသည်။ Table တစ်ခုတွင် သီးသန့် column အရေအတွက်ပါရှိပြီး row အရေအတွက် များစွာ ပါရှိနိုင်ပါသည်။ Row တစ်ခုချင်းစီကို သီးခြား column တစ်ခုထဲတွင်ပေါ်နေသော တန်ဖိုးများဖြင့် သတ်မှတ်ထားပါသည်။ *- Wikipedia*
 
 .. code-block:: sql
 
@@ -37,19 +27,14 @@ identified as a candidate key. *- Wikipedia*
     2 | Horst |  88
   (2 rows)
 
-In SQL databases a table is also known as a **relation.**
+SQL database များတွင် table ကို **relation** ဟုလည်း ခေါ်ပါသည်။
 
 Columns / Fields
 -------------------------------------------------------------------------------
 
-A column is a set of data values of a particular simple type, one for each
-row of the table. The columns provide the structure according to which the
-rows are composed. The term field is often used interchangeably with column,
-although many consider it more correct to use field (or field value) to refer
-specifically to the single item that exists at the intersection between one
-row and one column. *- Wikipedia*
+Column တစ်ခုသည် သီးခြားအမျိုးအစားတစ်ခု၏ data တန်ဖိုးများအစု တစ်ခုဖြစ်ပါသည်။ Column များသည် row များဖွဲ့စည်းထားသည့်အတိုင်း structure ရှိပါသည်။ Field ဆိုသည့် အသုံးအနှုန်းကို column ဖြင့် အပြန်အလှန်အသုံးပြုပါသည်၊ row တစ်ခုနှင့် column တစ်ခု ဆုံရာတွင် ရှိသော item တစ်ခုကို သီးသန့်ရည်ညွှန်းရန်အတွက် field (သို့မဟုတ် field value) ဟုသုံးစွဲခြင်းသည် ပိုမိုမှန်ကန်သည်ဟု အများစုမှမှတ်ယူထားကြပါသည်။ *- Wikipedia*
 
-A column:
+Column တစ်ခု-
 
 .. code-block:: sql
 
@@ -58,39 +43,35 @@ A column:
   | Tim   |
   | Horst |
 
-A field:
+Field တစ်ခု-
 
 .. code-block:: sql
 
   | Horst |
 
-Records
+သိမ်းဆည်းထားမှုများ (Records)
 -------------------------------------------------------------------------------
 
-A record is the information stored in a table row. Each record will have a
-field for each of the columns in the table.
+Record တစ်ခုသည် table row တစ်ခုထဲတွင် သိမ်းဆည်းထားသော အချက်အလက်ဖြစ်ပါသည်။ Record တစ်ခုချင်းစီတွင် table ထဲရှိ column တစ်ခုချင်းစီအတွက် field တစ်ခုရှိပါသည်။
 
 .. code-block:: sql
 
   2 | Horst |  88  <-- one record
 
-Datatypes
+ဒေတာအမျိုးအစားများ (Datatypes)
 -------------------------------------------------------------------------------
 
-Datatypes restrict the kind of information that can be stored in a column.
-*- Tim and Horst*
+Datatypes သည် column တစ်ခုထဲတွင် သိမ်းဆည်းနိုင်သော အချက်အလက်အမျိုးအစားကို ကန့်သတ်ပေးပါသည်။ *- Tim and Horst*
 
-There are many kinds of datatypes. Let's focus on the most common:
+Datatypes အမျိုးအစား များစွာရှိပါသည်။ အသုံးအများဆုံးအရာများမှာ-
 
-* ``String`` - to store free-form text data
-* ``Integer`` - to store whole numbers
-* ``Real`` - to store decimal numbers
-* ``Date`` - to store Horst's birthday so no one forgets
-* ``Boolean`` - to store simple true/false values
+* ``String`` - စာသား data များကို သိမ်းဆည်းရန်
+* ``Integer`` - အပြည့်ကိန်းဂဏန်းများကို သိမ်းဆည်းရန်
+* ``Real`` - ဒဿမဂဏန်းများကို သိမ်းဆည်းရန်
+* ``Date`` - ရက်စွဲများကို သိမ်းဆည်းရန်
+* ``Boolean`` - True/False တန်ဖိုးများကို သိမ်းဆည်းရန်
 
-You can tell the database to allow you to also store nothing in a field. If
-there is nothing in a field, then the field content is referred to as a
-**'null' value**:
+Field တစ်ခုထဲတွင် ဘာမှ မရှိသည့်အရာကို သိမ်းဆည်းရန် database ကိုပြောနိုင်ပါသည်။ Field တစ်ခုထဲတွင် ဘာမှမရှိလျှင် **'null' တန်ဖိုး** အဖြစ် ဖော်ပြမည်ဖြစ်သည်-
 
 .. code-block:: sql
 
@@ -109,26 +90,23 @@ Result:
      4 |       |  40  <-- null for name
     (3 rows)
 
-There are many more datatypes you can use - `check the PostgreSQL manual!
+အသုံးပြုနိုင်သော datatypes များစွာ ရှိပါသေးသည် - `PostgreSQL manual ကို ကြည့်ပါ!
 <https://www.postgresql.org/docs/current/datatype.html>`_
 
-Modelling an Address Database
+လိပ်စာ Database တစ်ခုကို Model လုပ်ခြင်း (Modelling an Address Database)
 -------------------------------------------------------------------------------
 
-Let's use a simple case study to see how a database is constructed. We want to
-create an address database.
+Database တစ်ခု၏တည်ဆောက်ပုံကို မြင်တွေ့နိုင်ရန် ရိုးရှင်းသော case study တစ်ခုလုပ်ကြည့်ပါမည်။ လိပ်စာ database တစ်ခုကို ဖန်တီးလိုခြင်းဖြစ်သည်။
 
-Try Yourself: :abbr:`★☆☆ (Basic level)`
+မိမိကိုယ်တိုင် ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-Write down the properties which make up a simple address and which we would want
-to store in our database.
+Database ထဲတွင် သိမ်းဆည်းလိုသည့် ရိုးရိုးလိပ်စာတစ်ခုတွင် ပါဝင်သော အချက်အလက်များကို ချရေးပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  For our theoretical address table, we might want to store the following
-  properties::
+  လိပ်စာဇယားအတွက် အောက်ပါ property များကို သိမ်းဆည်းလိုခြင်းဖြစ်ပါသည်::
   
       House Number
       Street Name
@@ -137,9 +115,7 @@ to store in our database.
       Postcode
       Country
   
-  When creating the table to represent an address object, we would create columns
-  to represent each of these properties and we would name them with SQL-compliant
-  and possibly shortened names::
+  လိပ်စာတစ်ခုကို ကိုယ်စားပြုရန် ဇယားကို ဖန်တီးသောအခါ အဆိုပါ property တစ်ခုချင်းစီကို ကိုယ်စားပြုမည့် column များကို ဖန်တီးရမည်ဖြစ်ပြီး ၎င်းတို့ကို SQL နှင့်လိုက်လျောညီထွေဖြစ်သော အတိုကောက်အမည် များပေးရမည်ဖြစ်သည်::
   
       house_number
       street_name
@@ -148,33 +124,26 @@ to store in our database.
       postcode
       country
 
-Address Structure
+လိပ်စာဖွဲ့စည်းပုံ (Address Structure)
 ...............................................................................
 
-The properties that describe an address are the columns. The type of
-information stored in each column is its datatype. In the next section we will
-analyse our conceptual address table to see how we can make it better!
+လိပ်စာတစ်ခုကို ဖော်ပြသည့် property များသည် column များဖြစ်ကြပါသည်။ Column တစ်ခုချင်းစီတွင် သိမ်းဆည်းထားသော အချက်အလက်အမျိုးအစားသည် ၎င်း၏ datatype ဖြစ်သည်။ နောက်လာမည့်အပိုင်းတွင် လိပ်စာဇယားကို ပိုမိုကောင်းမွန်အောင် လုပ်ဆောင်ရန် ခွဲခြမ်းစိတ်ဖြာ ကြည့်ပါမည်။
 
-Database Theory
+Database သီအိုရီ (Database Theory)
 -------------------------------------------------------------------------------
 
-The process of creating a database involves creating a model of the real world;
-taking real world concepts and representing them in the database as entities.
+Database တစ်ခုဖန်တီးခြင်း လုပ်ငန်းစဉ်တွင် real world model တစ်ခုဖန်တီးခြင်း၊ real world သဘောတရားများကိုရယူခြင်းနှင့် ၎င်းတို့ကို database ထဲတွင် entity များအဖြစ် ကိုယ်စားပြုဖော်ပြခြင်းများ ပါဝင်ပါသည်။
 
-Normalisation
+ပုံမှန်ဖြစ်စေခြင်း (Normalisation)
 -------------------------------------------------------------------------------
 
-One of the main ideas in a database is to avoid data duplication / redundancy.
-The process of removing redundancy from a database is called Normalisation.
+Database တစ်ခုထဲရှိ အဓိက idea များထဲမှ တစ်ခုသည် data များပုံတူပွားနေခြင်း (data duplication) / မလိုအပ်ပဲပိုလျှံနေခြင်း (redundancy) ကို ရှောင်ရှားရန်ဖြစ်ပါသည်။ Database တစ်ခုမှ redundancy များဖယ်ရှာခြင်းလုပ်ငန်းစဉ်ကို Normalisation ဟုခေါ်ဆိုပါသည်။
 
-Normalization is a systematic way of ensuring that a database structure is
-suitable for general-purpose querying and free of certain undesirable
-characteristics - insertion, update, and deletion anomalies - that could lead
-to a loss of data integrity. *- Wikipedia*
+Normalization သည် data ၏ခိုင်မာမှုကို ဆုံးရှုံးစေနိုင်သည့် မလိုလားအပ်သော characteristics များမပါဝင်စေပဲ query လုပ်ဆောင်ခြင်းအတွက် သင့်တော်သော database structure တစ်ခုကိုရရှိစေသည့် စနစ်ကျသောနည်းလမ်းတစ်ခုဖြစ်ပါသည်။ *- Wikipedia*
 
-There are different kinds of normalisation 'forms'.
+Normalisation ပုံစံ အမျိုးမျိုးရှိပါသည်။
 
-Let's take a look at a simple example:
+ရိုးရှင်းသော ဥပမာတစ်ခုကို ကြည့်ပါမည်-
 
 .. code-block:: sql
 
@@ -201,28 +170,19 @@ Let's take a look at a simple example:
    2 | Horst Duester | 4 Avenue du Roix, Geneva    | 072 121 122
   (2 rows)
 
-Imagine you have many friends with the same street name or city. Every time
-this data is duplicated, it consumes space. Worse still, if a city name
-changes, you have to do a lot of work to update your database.
+သင့်တွင် လမ်းနာမည် သို့မဟုတ် မြို့နာမည် အတူတူဖြစ်သော သူငယ်ချင်းများရှိသည်ဆိုကြပါစို့။ ထို data ကို ပုံတူပွားသည့်အချိန်တိုင်း သိမ်းဆည်းရန် နေရာယူပါသည်။ ပိုဆိုးသည်မှာ မြို့နာမည်ကို ပြောင်းလဲလိုက်ပါက database ကို update လုပ်ရန် အလုပ်များစွာ လုပ်ရတော့မည်ဖြစ်သည်။
 
-Try Yourself: :abbr:`★☆☆ (Basic level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:) :abbr:`★☆☆ (Basic level)`
 -------------------------------------------------------------------------------
-Redesign the theoretical `people` table above to reduce duplication and to
-normalise the data structure.
+အထက်ဖော်ပြပါ `people` table တွင် ပုံတူပွားနေသည်များကို လျှော့ချရန်နှင့် data structure ကို normalize ပြုလုပ်ရန် table ကို ဒီဇိုင်းပြန်ဆွဲပါ။
 
-You can read more about database normalisation `here
-<https://en.wikipedia.org/wiki/Database_normalization>`_
+Database normalisation အကြောင်း `ဤ
+<https://en.wikipedia.org/wiki/Database_normalization>`_ တွင် ပိုမိုဖတ်ရှုနိုင်ပါသည်။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  The major problem with the *people* table is that there is a single address
-  field which contains a person's entire address. Thinking about our theoretical
-  *address* table earlier in this lesson, we know that an address is made up of
-  many different properties. By storing all these properties in one field, we make
-  it much harder to update and query our data. We therefore need to split the
-  address field into the various properties. This would give us a table which has
-  the following structure::
+  *people* table နှင့်ပတ်သက်၍ အဓိကပြဿနာသည် လူတစ်ဦး၏ လိပ်စာတစ်ခုလုံးပါနေသည့် လိပ်စာ field တစ်ခုရှိနေခြင်းဖြစ်သည်။ *address* table တွင် လိပ်စာတစ်ခုကို property များစွာဖြင့် ဖွဲ့စည်းထားခြင်းဖြစ်သည် (အမည်၊ အိမ်နံပါတ်၊ လမ်းအမည်၊ အစရှိသဖြင့် သီးခြားစီရှိနေခြင်းဖြစ်သည်)။ အဆိုပါ property များအားလုံးကို field တစ်ခုထဲတွင် သိမ်းထားသည့်အတွက် data ကို update လုပ်ခြင်းနှင့် query လုပ်ရာတွင် များစွာအခက်အခဲဖြစ်စေပါသည်။ ထို့ကြောင့် ထိုလိပ်စာ field ကို property များစွာအဖြစ်သို့ ခွဲထုတ်ရန် လိုအပ်ပါသည်။ ထိုသို့ခွဲထုတ်ခြင်းဖြင့် အောက်ပါ structure အတိုင်း table တစ်ခုကို ရရှိပါလိမ့်မည်::
 
     id |     name      | house_no |  street_name   |    city    |   phone_no
      --+---------------+----------+----------------+------------+-----------------
@@ -230,20 +190,14 @@ You can read more about database normalisation `here
      2 | Horst Duester |     4    | Avenue du Roix | Geneva     | 072 121 122
 
 
-  In the next section, you will learn about Foreign Key relationships which could
-  be used in this example to further improve our database's structure.
+  နောက်လာမည့်အပိုင်းတွင် database structure တိုးတက်ကောင်းမွန်စေရန်အတွက် အသုံးပြုမည့် Foreign Key relationship များအကြောင်းကို လေ့လာရမည်ဖြစ်သည်။
 
-Indexes
+အညွှန်းကိန်းများ (Indexes)
 -------------------------------------------------------------------------------
 
-A database index is a data structure that improves the speed of data
-retrieval operations on a database table. *- Wikipedia*
+Database index တစ်ခုဆိုသည်မှာ database table တစ်ခုတွင် data များရယူခြင်းကို မြန်ဆန်စေသည့် data structure တစ်ခုဖြစ်ပါသည်။ *- Wikipedia*
 
-Imagine you are reading a textbook and looking for the explanation of a concept
-- and the textbook has no index! You will have to start reading at one cover
-and work your way through the entire book until you find the information you
-need. The index at the back of a book helps you to jump quickly to the page
-with the relevant information:
+သင်သည် textbook စာအုပ်တစ်ခုကို ဖတ်ရှုနေပြီး သဘောတရားတစ်ခု၏ရှင်းလင်းချက်ကို ရှာဖွေနေသည် ဆိုကြပါစို့၊ textbook တွင်လည်း index ကရှိမနေပါ။ ထိုအခါမျိုးတွင် သင်လိုချင်သော အချက်အလက်ကိုရှာတွေ့ရန် စာအုပ်အစမှနေပြီး စာအုပ်တစ်ခုလုံးကို ဖတ်ပြီး ရှာဖွေရပါလိမ့်မည်။ စာအုပ်တစ်အုပ်၏ index သည် သင့်တော်သောအချက်အလက်များရှိသည့် စာမျက်နှာကို မြန်ဆန်စွာ ရှာဖွေရောက်ရှိစေနိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -267,14 +221,12 @@ Now searches on name will be faster:
    "people_pkey" PRIMARY KEY, btree (id)
    "person_name_idx" btree (name)
 
-Sequences
+ကိန်းစဉ်များ (Sequences)
 -------------------------------------------------------------------------------
 
-A sequence is a unique number generator. It is normally used to create a unique
-identifier for a column in a table.
+Sequence တစ်ခုသည် သီးသန့်ဖြစ်သော ဂဏန်းထုတ်ပေးသည့်အရာဖြစ်သည်။ ၎င်းကို ပုံမှန်အားဖြင့် table တစ်ခုထဲရှိ column တစ်ခုအတွက် သီးသန့်ဖြစ်သော identifier တစ်ခုဖန်တီးရာတွင် အသုံးပြုပါသည်။
 
-In this example, id is a sequence - the number is incremented each time a
-record is added to the table:
+ဤဥပမာတွင် id သည် sequence တစ်ခုဖြစ်ပါသည် - table ထဲသို့ record တစ်ခုထည့်သွင်းသည့်အချိန်တိုင်း ဂဏန်တန်ဖိုးတိုးသွားမည်ဖြစ်သည်-
 
 .. code-block:: sql
 
@@ -286,10 +238,7 @@ record is added to the table:
 Entity Relationship Diagramming
 -------------------------------------------------------------------------------
 
-In a normalised database, you typically have many relations (tables). The
-entity-relationship diagram (ER Diagram) is used to design the logical
-dependencies between the relations. Consider our non-normalised `people` table
-from earlier in the lesson:
+Normalize ပြုလုပ်ထားသော database တစ်ခုထဲတွင် relation (table) များစွာ ရှိပါသည်။ Entity-relationship diagram (ER Diagram) ကို relation များအကြား မှီခိုနေမှု (dependency) ကို ဒီဇိုင်းပြုလုပ်ရာတွင် အသုံးပြုပါသည်။ သင်ခန်းစာထဲတွင် အစောပိုင်းက normalize မလုပ်ထားသော `people` table ကိုကြည့်ပါ-
 
 .. code-block:: sql
 
@@ -301,8 +250,7 @@ from earlier in the lesson:
    2  | Horst Duster | 4 Avenue du Roix, Geneva    | 072 121 122
   (2 rows)
 
-With a little work we can split it into two tables, removing the need to repeat
-the street name for individuals who live in the same street:
+လမ်းတစ်လမ်းထဲတွင် နေထိုင်သော တစ်ဦးချင်းစီအတွက် လမ်းနာမည်ကို ထပ်ခါထပ်ခါမရေးတော့ပဲ table နှစ်ခုအဖြစ်သို့ ပိုင်းခြားပေးနိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -313,7 +261,7 @@ the street name for individuals who live in the same street:
    1  | Plein Street
   (1 row)
 
-and:
+ထို့နောက်-
 
 .. code-block:: sql
 
@@ -324,53 +272,47 @@ and:
     1 | Horst Duster |        4 |         1 | 072 121 122
   (1 row)
 
-We can then link the two tables using the 'keys' :kbd:`streets.id` and
-:kbd:`people.streets_id`.
+Table နှစ်ခုကို :kbd:`streets.id` နှင့် :kbd:`people.streets_id` 'keys' များကိုအသုံးပြုပြီး ချိတ်ဆက်ပေးနိုင်ပါသည်။
 
-If we draw an ER Diagram for these two tables it would look something like
-this:
+ထို table နှစ်ခုအတွက် ER Diagram တစ်ခုရေးဆွဲပါက အောက်ပါပုံစံဖြစ်ပါလိမ့်မည်-
 
 .. figure:: img/er-people-streets.png
    :align: center
 
-The ER Diagram helps us to express 'one to many' relationships. In this case
-the arrow symbol show that one street can have many people living on it.
+ER Diagram သည် 'one to many' relationship ကိုဖော်ပြရာတွင် ကူညီပေးပါသည်။ ဤဥပမာတွင် မြားသင်္ကေတသည် လမ်းတစ်လမ်းထဲတွင် လူများစွာ နေထိုင်နိုင်သည်ကို ပြသခြင်းဖြစ်ပါသည်။
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-Our `people` model still has some normalisation issues - try to see if you can
-normalise it further and show your thoughts by means of an ER Diagram.
 
-.. admonition:: Answer
+`people` model တွင် normalisation ပြဿနာအချို့ ရှိနေပါသေးသည်၊ ၎င်းကို နောက်ထပ် normalise ပြုလုပ်နိုင်သလား ကြိုးစားကြည့်ပြီး သင်စဉ်းစားထားသည်များကို ER Diagram ဖြင့်ပြသပါ။
+
+.. admonition:: အဖြေ
   :class: dropdown
 
 
-  Our *people* table currently looks like this::
+  လက်ရှိတွင် *people* table သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်::
   
      id |     name     | house_no | street_id |  phone_no
      ---+--------------+----------+-----------+-------------
       1 | Horst Duster |        4 |         1 | 072 121 122
   
-  The :guilabel:`street_id` column represents a 'one to many' relationship between the
-  people object and the related street object, which is in the *streets* table.
+  :guilabel:`street_id` column သည် people object နှင့် *streets* table ထဲရှိ ဆက်စပ် street object အကြား 'one to many' relationship တစ်ခုကိုကိုယ်စားပြုပါသည်။
   
-  One way to further normalise the table is to split the name field into
-  *first_name* and *last_name*::
+  Table ကို နောက်ထပ် normalise ပြုလုပ်မည့် နည်းတစ်နည်းသည် name field ကို *first_name* နှင့် *last_name* အဖြစ် ပိုင်းခြားရန်ဖြစ်သည်::
   
       id | first_name | last_name  | house_no | street_id |  phone_no
       ---+------------+------------+----------+-----------+------------
        1 |    Horst   |   Duster   |     4    |     1     | 072 121 122
   
-  We can also create separate tables for the town or city name and country,
-  linking them to our *people* table via 'one to many' relationships::
+  Town သို့မဟုတ် city name နှင့် country အတွက် သီးခြား table များကိုလည်း ဖန်တီးပေးနိုင်ပြီး ၎င်းတို့ကို *people* table နှင့် 'one to many' relationship နည်းဖြင့် ချိတ်ဆက်ပေးနိုင်ပါသည်::
   
       id | first_name | last_name | house_no | street_id | town_id | country_id
       ---+------------+-----------+----------+-----------+---------+------------
        1 |    Horst   |   Duster  |     4    |     1     |    2    |     1
   
   
-  An ER Diagram to represent this would look like this:
+  ၎င်းကို ဖော်ပြပေးမည့် ER Diagram သည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-
   
   .. figure:: img/er-people-normalised-example.png
      :align: center
@@ -378,22 +320,15 @@ normalise it further and show your thoughts by means of an ER Diagram.
 Constraints, Primary Keys and Foreign Keys
 -------------------------------------------------------------------------------
 
-A database constraint is used to ensure that data in a relation matches the
-modeller's view of how that data should be stored. For example a constraint on
-your postal code could ensure that the number falls between :kbd:`1000` and
-:kbd:`9999`.
+Relation တစ်ခုထဲရှိ data နှင့် modeller ၏ view ကိုက်ညီစေရန် database constraint တစ်ခုကို အသုံးပြုပါသည်။ ဥပမာ- postal code ပေါ်ရှိ constraint တစ်ခုသည် ဂဏန်းများကို :kbd:`1000` နှင့် :kbd:`9999` အကြားတွင်သာ ကျရောက်စေပါသည်။
 
-A Primary key is one or more field values that make a record unique. Usually
-the primary key is called id and is a sequence.
+Primary key သည် record ကို unique ဖြစ်စေနိုင်သည့် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော field value များဖြစ်သည်။ များသောအားဖြင့် primary key ကို id ဟုခေါ်ပြီး sequence တစ်ခုဖြစ်ပါသည်။
 
-A Foreign key is used to refer to a unique record on another table (using that
-other table's primary key).
+အခြား table ရှိ unique record တစ်ခုကို ရည်ညွှန်းရန် Foreign key ကို အသုံးပြုပါသည် (အခြား table ၏ primary key ကိုအသုံးပြုလျှက်)။
 
-In ER Diagramming, the linkage between tables is normally based on Foreign keys
-linking to Primary keys.
+ER Diagramming တွင် table များအကြား ချိတ်ဆက်မှုသည် Primary key များနှင့် ချိတ်ဆက်နေသော Foreign key များပေါ်တွင် အခြေခံပါသည်။
 
-If we look at our people example, the table definition shows that the street
-column is a foreign key that references the primary key on the streets table:
+ဥပမာကိုကြည့်လျှင် table အဓိပ္ပါယ်ဖွင့်ဆိုချက်တွင် street column သည် foreign key တစ်ခုဖြစ်ပြီး strees table ပေါ်ရှိ primary key ကို အကိုးအကားပြုထားပါသည်-
 
 .. code-block:: sql
 
@@ -415,30 +350,21 @@ column is a foreign key that references the primary key on the streets table:
 Transactions
 -------------------------------------------------------------------------------
 
-When adding, changing, or deleting data in a database, it is always important
-that the database is left in a good state if something goes wrong. Most
-databases provide a feature called transaction support. Transactions allow you
-to create a rollback position that you can return to if your modifications to
-the database did not run as planned.
+Database တစ်ခုထဲတွင် data များထည့်သွင်းခြင်း၊ ပြောင်းလဲခြင်း သို့မဟုတ် ဖျက်ပစ်ခြင်းများ ပြုလုပ်သောအခါ database သည် ကောင်းမွန်သောအခြေအနေတွင် ကျန်ရှိနေစေရန် အရေးကြီးပါသည်။ Database အများစုတွင် transaction support ဟုခေါ်သော feature တစ်ခုပါရှိပါသည်။ Database တွင် ပြောင်းလဲမှုလုပ်ဆောင်ပြီး စီစဉ်ထားသလိုဖြစ်မလာပါက မူလအခြေအနေသို့ပြန်သွားနိုင်သော rollback position တစ်ခုကို Transaction များမှ ဖန်တီးပေးစေနိုင်ပါသည်။
 
-Take a scenario where you have an accounting system. You need to transfer funds
-from one account and add them to another. The sequence of steps would go like
-this:
+သင့်တွင် ငွေကြေးစနစ်တစ်ခုရှိသည်ဟု ယူဆကြည့်ပါ။ သင်သည် အကောင့် တစ်ခုမှ ငွေများကို နောက်ထပ်အကောင့်တစ်ခုသို့ လွှဲပြောင်းရန်လိုအပ်ပါသည်။ လုပ်ငန်းစဉ်အဆင့်များမှာ အောက်ပါအတိုင်းဖြစ်ပါသည်-
 
-* remove R20 from Joe
-* add R20 to Anne
+* Joe ထံမှ R20 နှုတ်ယူလိုက်ပြီး
+* Anne ထံသို့ R20 ထည့်သွင်းပေးမည်
 
-If something goes wrong during the process (e.g. power failure), the
-transaction will be rolled back.
+လုပ်ဆောင်နေစဉ်အတွက် တစ်ခုခုအမှားအယွင်းဖြစ်ခဲ့ပါက (ဥပမာ- ပါဝါပြတ်တောက်မှု) transaction သည် roll back (နောက်ပြန်သွား) ဖြစ်ပါလိမ့်မည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Databases allow you to manage data in a structured way using simple code
-structures.
+Database များသည် ရိုးရှင်းသော code structure များကိုအသုံးပြုပြီး ဖွဲ့စည်းပုံရှိသောနည်းလမ်းဖြင့် data များကို စီမံခန့်ခွဲစေနိုင်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Now that we've looked at how databases work in theory, let's create a new
-database to implement the theory we've covered.
+ယခုအခါ သီအိုရီအရ database များ၏ အလုပ်လုပ်ပုံကို သိရှိခဲ့ရပြီးဖြစ်သည်။ သီအိုရီကို အကောင်အထည်ဖော်ရန် database အသစ်တစ်ခုကို ဖန်တီးကြည့်ကြပါမည်။

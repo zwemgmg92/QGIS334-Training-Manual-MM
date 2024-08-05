@@ -1,50 +1,50 @@
-Using modeler-only tools for creating a model
-=============================================
+Model တစ်ခုဖန်တီးရန်အတွက် modeler ထဲတွင်သာရှိသော tool များအသုံးပြုခြင်း (Using modeler-only tools for creating a model)
+========================================================================================================================
 
-.. note:: This lesson shows how to use some algorithms that are only available in the modeler, to provide additional functionality to models.
+.. note:: ဤသင်ခန်းစာတွင် model များ၌ ထပ်ဆောင်းလုပ်ဆောင်မှုများပြုလုပ်နိုင်ရန် modeler ထဲတွင်သာရရှိနိုင်သော algorithm အချို့အသုံးပြုပုံကို လေ့လာရမည်ဖြစ်ပါသည်။
 
-The goal of this lesson is to use the modeler to create an interpolation algorithm that takes into account the current selection, not just to use only selected features, but to use the extent of that selection to create the interpolated raster layer.
+ဤသင်ခန်းစာ၏ရည်ရွယ်ချက်မှာ လက်ရှိ selection ကိုအသုံးပြုသည့် interpolation algorithm တစ်ခုကို ဖန်တီးရန် modeler ကိုအသုံးပြုခြင်းဖြစ်ပါသည်။ Interpolate (သွယ်ဝိုက်တွက်ချက်ခြင်း) ပြုလုပ်ထားသော raster layer ကိုဖန်တီးရာတွင် select ပြုလုပ်ထားသော feature များကိုသာမက အဆိုပါ selection ၏ extent ကိုပါ အသုံးပြုမည်ဖြစ်သည်။
 
-The interpolation process involves two steps, as it has been already explained in previous lessons: rasterizing the points layer and fill the no-data values that appear in the rasterized layer. In case the points layer has a selection, only selected points will be used, but if the output extent is set to be automatically adjusted, the full extent of the layer will be used. That is, the extent of the layer is always considered to be the full extent of all features, not the one computed from just the selected ones. We will try to fix that by using some additional tools into our model.
+Interpolation လုပ်ငန်းစဉ်တွင် အဆင့် ၂ ဆင့်ပါဝင်ပါသည်၊ ယခင်သင်ခန်းစာများတွင် ရှင်းပြခဲ့သည့်အတိုင်း point layer ကို raster အဖြစ်သို့ပြောင်းလဲခြင်းနှင့် ထို raster ပြောင်းလဲထားသော layer ထဲရှိ no-data တန်ဖိုးများကို ဖြည့်ပေးခြင်း တို့ဖြစ်ပါသည်။ Point layer ထဲတွင် selection ပြုလုပ်ထားလျှင် select ပြုလုပ်ထားသော point များကိုသာ အသုံးပြုမည်ဖြစ်ပါသည်၊ သို့သော် output ၏ extent ကို အလိုအလျောက် ချိန်ညှိရန် သတ်မှတ်ပါက layer ၏ extent အပြည့် ကိုအသုံးပြုပါလိမ့်မည်။ ဆိုလိုသည်မှာ Layer ၏ extent ကို feature များအားလုံး၏ extent အပြည့်အဖြစ် အမြဲတမ်းမှတ်ယူမည်ဖြစ်ပြီး select ပြုလုပ်ထားသော feature များ၏ extent ကိုသာ အသုံးပြုမည်မဟုတ်ပါ။ Model ထဲတွင် tool အချို့အသုံးပြုပြီး ထိုအရာကို ပြင်ဆင်ကြည့်ပါမည်။
 
-Open the modeler and start the model by adding the required inputs. In this case we need a vector layer (restricted to points) and an attribute from it, with the values that we will use for rasterizing.
+Modeler ကိုဖွင့်ပြီး လိုအပ်သော input များထည့်သွင်းပြီး model ကိုစတင်ပါ။ ထို model တွင် vector layer (point များသာ) တစ်ခုနှင့် raster ပြောင်းလဲရန်အတွက်အသုံးပြုမည့်တန်ဖိုးများပါရှိသော ထို layer မှ attribute တစ်ခုလိုအပ်ပါသည်။
 
 .. figure:: img/modeler_only/inputs.png
 
-The next step is to compute the extent of the selected features. That's where we can use the model-only tool called *Vector layer bounds*. First, we will have to create a layer that has the extent of those selected features. Then, we can use this tool on that layer.
+နောက်တစ်ဆင့်အနေဖြင့် select ပြုလုပ်ထားသော feature များ၏ extent ကိုတွက်ချက်ရန်ဖြစ်ပါသည်။ ထိုသို့တွက်ချက်ရန် *Vector layer bounds* ဟုခေါ်သော model-only tool ကိုအသုံးပြုနိုင်ပါသည်။ ပထမဦးစွာ select ပြုလုပ်ထားသော feature များ၏ extent ပါရှိသော layer တစ်ခုကို ဖန်တီးရပါမည်။ ထို့နောက် tool ထဲတွင် ထို layer ကိုထည့်သုံးနိုင်မည်ဖြစ်ပါသည်။
 
-An easy way of creating a layer with the extent of the selected features is to compute a convex hull of the input points layer. It will use only the selected point, so the convex hull will have the same bounding box as the selection. Then we can add the *Vector layer bounds* algorithm, and use the convex hull layer as input. It should look this in the modeler canvas:
+Select ပြုလုပ်ထားသော feature များ၏ extent ပါရှိသော layer တစ်ခုကို ဖန်တီးရန် လွယ်ကူသောနည်းလမ်းသည် input point layer ၏ convex hull တစ်ခုကိုတွက်ချက်ရန်ဖြစ်ပါသည်။ Convex hull တွင် selection နှင့်တူညီသော bounding box (အတိုင်းအတာနယ်နိမိတ်) ရှိစေရန် select ပြုလုပ်ထားသော point ကိုသာ အသုံးပြုပါလိမ့်မည်။ ထို့နောက် *Vector layer bounds* algorithm ကိုထည့်သွင်းပြီး convex hull layer ကို input အဖြစ်အသုံးပြုပါ။ Modeler canvas ထဲတွင် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-
 
 .. figure:: img/modeler_only/convexhull_and_extent.png
 
-The result from the *Vector layer bounds* is a set of four numeric values and a extent object. We will use both the numeric outputs and the extent for this exercise.
+*Vector layer bounds* မှရလာဒ်သည် ကိန်းဂဏန်းတန်ဖိုး ၄ ခုပါဝင်သောအစုတစ်ခုနှင့် extent object တစ်ခုဖြစ်ပါသည်။ ဤလေ့ကျင့်ခန်းအတွက် ကိန်းဂဏန်းရလာဒ်များနှင့် extent နှစ်ခုစလုံးကို အသုံးပြုပါမည်။
 
 .. figure:: img/modeler_only/extent_outputs.png
 
-We can now add the algorithm that rasterizes the vector layer, using the extent from the *Vector layer bounds* algorithm as input.
+ယခုအခါ vector layer ကို raster အဖြစ်သို့ပြောင်းလဲပေးမည့် algorithm ကိုထည့်သွင်းကာ *Vector layer bounds* algorithm မှ extent ကို input အနေဖြင့် အသုံးပြုပါမည်။
 
-Fill the parameters of the algorithm as shown next:
+Algorithm ၏ parameter များတွင် အောက်ပါအတိုင်း ဖြည့်သွင်းပါ-
 
 .. figure:: img/modeler_only/rasterize.png
 
-The canvas should now look like.
+ယခုအခါ canvas ထဲတွင် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်။
 
 .. figure:: img/modeler_only/canvas_rasterize.png
 
-Finally, fill the no-data values of the raster layer using the *Close gaps* algorithm.
+နောက်ဆုံးအဆင့်အနေဖြင့် *Close gaps* algorithm အသုံးပြုပြီး raster layer ၏ no-data တန်ဖိုးများကို ဖြည့်ပါမည်။
 
 .. figure:: img/modeler_only/close_gaps.png
 
-The algorithm is now ready to be saved and added to the toolbox. You can run it and it will generate a raster layer from interpolating the selected points in the input layer, and the layer will have the same extent as the selection.
+Algorithm ကို သိမ်းဆည်းပြီး toolbox ထဲသို့ ထည့်သွင်းနိုင်ပြီဖြစ်ပါသည်။ Algorithm ကို run နိုင်ပြီဖြစ်ပြီး input layer ထဲရှိ select ပြုလုပ်ထားသော point များမှ interpolate ပြုလုပ်ထားသည့် raster layer တစ်ခုကိုထုတ်ပေးပါလိမ့်မည်၊ layer ၏ extent သည် select ပြုလုပ်ထားသည့် extent အတိုင်းအတူတူဖြစ်နေပါလိမ့်မည်။
 
-Here's an improvement to the algorithm. We have used a harcoded value for the cellsize when rasterizing. This value is fine for our test input layer, but might not be for other cases. We could add a new parameter, so the user enters the desired value, but a much better approach would be to have that value automatically computed.
+Algorithm ကို အဆင့်မြှင့်သည့်အနေဖြင့် raster ပြောင်းလဲသောအခါ cellsize အတွက် တန်ဖိုးတစ်ခုကို အသုံးပြုထားပါသည်။ ထိုတန်ဖိုးသည် ယခုစမ်းသပ်သော input layer အတွက်ကောင်းမွန်သော်လည်း အခြားသောကိစ္စများအတွက် ကောင်းမွန်ချင်မှ ကောင်းမွန်ပါလိမ့်မည်။ အသုံးပြုသူမှ အလိုရှိသော တန်ဖိုးကို ထည့်သွင်းနိုင်ရန်အတွက် parameter အသစ်တစ်ခုကို ထည့်သွင်းပေးနိုင်ပါသည်၊ သို့သော် တန်ဖိုးကို အလိုအလျောက်တွက်ချက်ခြင်းသည် ပိုမိုကောင်းမွန်ပါသည်။
 
-We can use the modeler-only calculator, and compute that value from the extent coordinates. For instance, to create a layer with a fixed width of 100 pixels, we can use the following formula in the calculator.
+Modeler-only calculator ကိုအသုံးပြုနိုင်ပြီး extent ကိုဩဒိနိတ်မှ တန်ဖိုးကို တွက်ချက်ပေးနိုင်ပါသည်။ ဥပမာအားဖြင့် ပုံသေအကျယ် 100 pixel ရှိသော layer တစ်ခုကို ဖန်တီးရန် အောက်ပါ formula ကို calculator ထဲတွင် ထည့်သွင်းအသုံးပြုနိုင်ပါသည်။
 
 .. figure:: img/modeler_only/calculator.png
 
-Now we have to edit the rasterize algorithm, so it uses the output of the calculator instead of the hardcoded value.
+ယခုအခါ ပုံသေတန်ဖိုးအစား calculator မှထွက်လာသော output ကိုအသုံးပြုနိုင်စေရန်အတွက် rasterize algorithm ကို edit ပြုလုပ်ရပါမည်။ 
 
-The final algorithm should look like this:
+နောက်ဆုံး algorithm သည် အောက်ပါပုံစံအတိုင်းဖြစ်သင့်ပါသည်-
 
 .. figure:: img/modeler_only/final.png

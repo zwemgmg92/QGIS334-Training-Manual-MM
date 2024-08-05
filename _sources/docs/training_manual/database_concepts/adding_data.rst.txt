@@ -1,43 +1,37 @@
-Lesson: Adding Data to the Model
-===============================================================================
+သင်ခန်းစာ - Model ထဲသို့ Data ထည့်သွင်းခြင်း (Lesson: Adding Data to the Model)
+================================================================================
 
 The models we've created will now need to be populated with the data they're
 intended to contain.
 
-**The goal for this lesson:** To learn how to insert new data into the database
-models.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** Database model များထဲသို့ data အသစ်ထည့်သွင်းနည်းကို လေ့လာရန်။
 
 Insert statement
 -------------------------------------------------------------------------------
 
-How do you add data to a table? The sql :kbd:`INSERT` statement provides the
-functionality for this:
+Table တစ်ခုထဲသို့ data မည်သို့ထည့်သွင်းပါသလဲ? sql :kbd:`INSERT` statement ကိုအသုံးပြုနိုင်ပါသည်-
 
 .. code-block:: sql
 
   insert into streets (name) values ('High street');
 
-A couple of things to note:
+မှတ်သားရမည်များမှာ-
 
-* After the table name (:kbd:`streets`), you list the column names that you
-  will be populating (in this case only the :kbd:`name` column).
-* After the :kbd:`values` keyword, place the list of field values.
-* Strings should be quoted using single quotes.
-* Note that we did not insert a value for the :kbd:`id` column; this
-  is because it is a sequence and will be auto-generated.
-* If you do manually set the :kbd:`id`, you may cause serious problems with
-  the integrity of your database.
+* Table name (:kbd:`streets`) နောက်တွင် column နာမည်များကို list လုပ်ပါသည် (ဤဥပမာတွင် :kbd:`name` column တစ်ခုတည်းသာ)။
+* :kbd:`values` keyword နောက်တွင် field တန်ဖိုးများကို ထည့်ပါ။
+* String (စာသား) များကို single quote (' ') အသုံးပြု၍ ရေးပါ။ 
+* :kbd:`id` column အတွက် တန်ဖိုးမထည့်သွင်းသည်ကို သတိပြုကြည့်ပါ၊ အဘယ်ကြောင့်ဆိုသော :kbd:`id` column သည် sequence တစ်ခုဖြစ်ပြီး အလိုအလျောက်ထုတ်ပေးခြင်းဖြစ်သည်။
+* :kbd:`id` ကို ကိုယ်တိုင်သတ်မှတ်ပါက database ခိုင်မာမှုနှင့်ပတ်သက်ပြီး ပြဿနာကြီးကြီးမားမားဖြစ်စေနိုင်ပါသည်။
 
-You should see :kbd:`INSERT 0 1` if it is successful.
+လုပ်ဆောင်မှုအောင်မြင်ပါက :kbd:`INSERT 0 1` ကိုမြင်တွေ့ရပါမည်။
 
-You can see the result of your insert action by selecting all the data in the
-table:
+Table ထဲရှိ data များအားလုံးကို select လုပ်ခြင်းဖြင့် insert လုပ်ဆောင်ချက်၏ရလာဒ်ကို ကြည့်နိုင်ပါသည်-
 
 .. code-block:: sql
 
   select * from streets;
 
-Result:
+ရလာဒ်မှာ-
 
 .. code-block:: sql
 
@@ -48,76 +42,65 @@ Result:
   (1 row)
 
 
-Try Yourself: :abbr:`★☆☆ (Basic level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:) :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-Use the :kbd:`INSERT` command to add a new street to the :kbd:`streets` table.
+:kbd:`streets` table တွင် street အသစ်တစ်ခု ထည့်သွင်းရန် :kbd:`INSERT` command ကိုအသုံးပြုပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  The SQL command you should use looks like this (you can replace the street name
-  with a name of your choice)::
+  အသုံးပြုရမည့် SQL command သည် အောက်ပါအတိုင်းဖြစ်ပါသည် (street name နေရာတွင် သင့်စိတ်ကြိုက်နာမည်ဖြင့် အစားထိုးပါ)::
 
     insert into streets (name) values ('Low Road');
 
 
-Sequencing Data Addition According to Constraints
+Constraint များအရ Data များအစီအစဉ်တကျပေါင်းထည့်ခြင်း (Sequencing Data Addition According to Constraints)
+---------------------------------------------------------------------------------------------------------
+
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 -------------------------------------------------------------------------------
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
--------------------------------------------------------------------------------
-
-Try to add a person object to the :kbd:`people` table with the following details::
+အောက်ပါအသေးစိတ်အချက်အလက်များဖြင့် :kbd:`people` table ထဲတွင် person object တစ်ခုပေါင်းထည့်ပါ::
 
   Name: Joe Smith
   House Number: 55
   Street: Main Street
   Phone: 072 882 33 21
 
-.. note:: Recall that in this example, we defined phone numbers as strings, not
-    integers.
+.. note:: ဤဥပမာတွင် phone number ကို integer မဟုတ်ပဲ string အနေဖြင့် သတ်မှတ်ခဲ့ပါသည်။
 
-At this point, you should have an error report if you try to do this without
-first creating a record for Main Street in the :kbd:`streets` table.
+:kbd:`streets` table ထဲတွင် Main Street အတွက် record တစ်ခု ဦးစွာမဖန်တီးပဲ လုပ်ဆောင်ပါက error report တစ်ခုရရှိပါလိမ့်မည်။
 
-You should have also noticed that:
+အောက်ပါတို့ကိုလည်း သတိပြုမိသင့်ပါသည်-
 
-* You can't add the street using its name
-* You can't add a street using a street :kbd:`id` before first creating the
-  street record on the streets table
+* Street ၏အမည်ကိုအသုံးပြုပြီး street ကိုထည့်သွင်း၍မရနိုင်ပါ
+* Street table တွင် street record ကို ဦးစွာ မဖန်တီးပဲ street :kbd:`id` အသုံးပြုပြီး street ကိုထည့်သွင်း၍မရနိုင်ပါ
 
-Remember that our two tables are linked via a Primary/Foreign Key pair. This
-means that no valid person can be created without there also being a valid
-corresponding street record.
+Table ၂ ခုသည် Primary/Foreign Key pair ဖြင့် ချိတ်ဆက်ထားပါသည်။ ဆိုလိုသည်မှာ သက်ဆိုင်ရာဆီလျော်သော street record မရှိပဲ person တစ်ဦးကို ဖန်တီး၍မရနိုင်ပါ။
 
-Using the above knowledge, add the new person to the database.
+အထက်ဖော်ပြပါ အချက်များကို အသုံးပြု၍ database ထဲတွင် person အသစ်ထည့်သွင်းပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  Here is the correct SQL statement::
+  မှန်ကန်သော SQL statement မှာ::
   
     insert into streets (name) values('Main Road');
     insert into people (name,house_no, street_id, phone_no)
       values ('Joe Smith',55,2,'072 882 33 21');
   
-  If you look at the streets table again (using a select statement as before),
-  you'll see that the :guilabel:`id` for the ``Main Road`` entry is *2*.
+  Street table ကို ထပ်ကြည့်ပါက (select statement ကိုအသုံးပြု၍) ``Main Road`` entry အတွက် :guilabel:`id` သည် *2* ဖြစ်နေသည်ကို မြင်တွေ့ရပါလိမ့်မည်။
   
-  That's why we could merely enter the number ``2`` above. Even though we're
-  not seeing ``Main Road`` written out fully in the entry above, the
-  database will be able to associate that with the :guilabel:`street_id` value of *2*.
+  ထို့အတွက်ကြောင့် ``2`` အထက် ဂဏန်းကိုသာ ရိုက်ထည့်ပေးနိုင်ခြင်းဖြစ်သည်။ Entry ထဲတွင် ``Main Road`` ဟူသော အပြည့်အစုံရေးသားထားသည်ကို မတွေ့ရသော်လည်း database သည် ၎င်းကို :guilabel:`street_id` တန်ဖိုး *2* ဖြင့် ဆက်စပ်ပေးမည်ဖြစ်သည်။
   
-  If you have already added a new street object, you might find that the
-  new ``Main Road`` has an :guilabel:`id` of *3* not *2*.
+  Street object အသစ်တစ်ခုထည့်သွင်းပြီးပါက ``Main Road`` အသစ်တွင် :guilabel:`id` *2* မဟုတ်ပဲ *3* ဖြစ်နေသည်ကို တွေ့ရပါမည်။
 
 
-Select data
+Data များရွေးချယ်ခြင်း (Select data)
 -------------------------------------------------------------------------------
 
-We have already shown you the syntax for selecting records. Let's look at a few
-more examples:
+Record များကို ရွေးချယ်ခြင်းအတွက် syntax ကို ပြသခဲ့ပြီးဖြစ်ပါသည်။ နောက်ထပ်ဥပမာများကို ထပ်ကြည့်ကြပါစို့-
 
 .. code-block:: sql
 
@@ -132,43 +115,39 @@ more examples:
 
   select * from streets where name='Main Road';
 
-In later sessions we will go into more detail on how to select and filter data.
+နောက်လာမည့်အပိုင်းများတွင် data များ select လုပ်ခြင်းနှင့် filter လုပ်ခြင်းဆိုင်ရာ အသေးစိတ်များကို လေ့လာရမည်ဖြစ်သည်။
 
-Update data
+Data များ Update လုပ်ခြင်း (Update data)
 -------------------------------------------------------------------------------
 
-What if you want to make a change to some existing data? For example, a street
-name is changed:
+ရှိနေပြီးသား data အချို့ကို ပြောင်းလဲမှုများပြုလုပ်လိုပါက မည်သို့လုပ်ဆောင်မလဲ? ဥပမာအားဖြင့် street name ပြောင်းလဲခြင်း-
 
 .. code-block:: sql
 
   update streets set name='New Main Road' where name='Main Road';
 
-Be very careful using such update statements - if more than one record matches
-your :kbd:`WHERE` clause, they will all be updated!
+ထိုကဲ့သို့သော update statement များကို အသုံးပြုရာတွင် များစွာသတိထားပါ၊ သင်ရေးသားသော :kbd:`WHERE` clause တွင် record တစ်ခုထက်ပို၍ ကိုက်ညီနေပါက ကိုက်ညီသည်များအားလုံးကို update လုပ်သွားမည်ဖြစ်သည်။
 
-A better solution is to use the primary key of the table to reference the
-record to be changed:
+ပြောင်းလဲမည့် record ကို ရည်ညွှန်းရန် table ၏ primary key ကိုအသုံးပြုခြင်းသည် ပိုကောင်းသော ဖြေရှင်းနည်းဖြစ်ပါသည်-
 
 .. code-block:: sql
 
   update streets set name='New Main Road' where id=2;
 
-It should return :kbd:`UPDATE 1`.
+:kbd:`UPDATE 1` ပြန်ထုတ်ပေးသင့်ပါသည်။
 
-.. note::  the :kbd:`WHERE` statement criteria are case sensitive :kbd:`Main
-   Road` is not the same as :kbd:`Main road`
+.. note:: :kbd:`WHERE` statement criteria သည် case sensitive (စာလုံးအကြီးအသေး သတိပြု) ဖြစ်ပါသည်၊ :kbd:`Main Road` သည် :kbd:`Main road` နှင့်မတူညီပါ။
 
-Delete Data
+Data များဖျက်ခြင်း (Delete Data)
 -------------------------------------------------------------------------------
 
-In order to delete an object from a table, use the :kbd:`DELETE` command:
+Table တစ်ခုမှ object တစ်ခုကိုဖျက်ရန် :kbd:`DELETE` command ကိုအသုံးပြုပါ-
 
 .. code-block:: sql
 
   delete from people where name = 'Joe Smith';
 
-Let's look at our people table now:
+People table ကိုကြည့်ကြပါစို့-
 
 .. code-block:: sql
 
@@ -178,10 +157,10 @@ Let's look at our people table now:
    ----+------+----------+-----------+----------
   (0 rows)
 
-Try Yourself: :abbr:`★★★ (Advanced level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★★ (Advanced level)`
 -------------------------------------------------------------------------------
 
-Use the skills you have learned to add some new friends to your database:
+Database ထဲသို့ friend အသစ်များကို ထည့်သွင်းရန် လေ့လာခဲ့ပြီးသော နည်းများကိုအသုံးပြုပါ-
 
 .. code-block:: sql
 
@@ -193,15 +172,12 @@ Use the skills you have learned to add some new friends to your database:
    Sally Norman     |       83 |         1 | 072 932 31 32
 
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Now you know how to add new data to the existing models you created previously.
-Remember that if you want to add new kinds of data, you may want to modify
-and/or create new models to contain that data.
+ယခင်ကဖန်တီးခဲ့သော ရှိနေပြီးသား model များထဲသို့ data အသစ်များ မည်သို့ထည့်သွင်းရမည်ကို သိရှိပြီးဖြစ်ပါသည်။ Data အသစ်များထည့်သွင်းလိုပါက data ကိုထည့်သွင်းမည့် model ကို မွမ်းမံပြင်ဆင်နိုင်ပါသည် သို့မဟုတ် model အသစ်များဖန်တီးနိုင်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Now that you've added some data, you'll learn how to use queries to access this
-data in various ways.
+ယခုအခါ data အချို့ကို ထည့်သွင်းပြီးဖြစ်ပါသည်၊ ထို data များကို နည်းအမျိုးမျိုးဖြင့် ရယူသုံးစွဲရန် query များအသုံးပြုနည်းကို နောက်လာမည့်သင်ခန်းစာတွင်လေ့လာရမည်ဖြစ်သည်။

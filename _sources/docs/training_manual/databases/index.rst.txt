@@ -1,12 +1,8 @@
-*******************************************************************************
-Module: Using Spatial Databases in QGIS
-*******************************************************************************
+*******************************************************************************************************
+မော်ဂျူး - QGIS ထဲတွင် Spatial Database များကိုအသုံးပြုခြင်း (Module: Using Spatial Databases in QGIS)
+*******************************************************************************************************
 
-In this module you will learn about how to use Spatial Databases with QGIS to 
-manage, display and manipulate data in the database as well as performing
-analysis by querying. We will primarily use PostgreSQL and PostGIS (which were 
-covered in previous sections), but the same concepts are applicable to other 
-spatial database implementations including SpatiaLite.
+ဤမော်ဂျူးတွင် QGIS ဖြင့် Spatial Database များကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်ပြီး၊ database ထဲတွင် data များကို မည်သို့စီမံခန့်ခွဲရမည်၊ မည်သို့ပြသရမည် နှင့် မည်သို့ကိုင်တွယ်ရမည်ကို လေ့လာရမည့်အပြင် query ဖြင့် analysis များလုပ်ဆောင်ခြင်းကိုလည်း လေ့လာရမည်ဖြစ်သည်။ PostgreSQL နှင့် PostGIS (ပြီးခဲ့သည့်သင်ခန်းစာများတွင်လေ့လာခဲ့ပြီးဖြစ်သည်) ကို အဓိက အသုံးပြုသွားမည်ဖြစ်ပါသည်၊ သို့သော် SpatiaLite ကဲ့သို့သော အခြား spatial database များတွင် အသုံးပြုနိုင်ပြီး သဘောတရားအတူတူပင်ဖြစ်သည်။
 
 .. toctree::
    :maxdepth: 2

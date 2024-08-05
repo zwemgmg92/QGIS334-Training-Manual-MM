@@ -1,80 +1,57 @@
-Interpolation
+သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)
 ============================================================
 
-.. note:: This chapter shows how to interpolate point data, and will show you
-  another real example of performing spatial analysis
+.. note:: ဤသင်ခန်းစာတွင် point data များကို interpolate ပြုလုပ်နည်းကို ပြသပေးမည်ဖြစ်ပြီး spatial analysis လုပ်ဆောင်သည့် လက်တွေ့ဥပမာကို ပြသပေးမည်ဖြစ်ပါသည်။
 
-In this lesson, we are going to interpolate points data to obtain a raster layer.
-Before doing it, we will have to do some data preparation, and after interpolating
-we will add some extra processing to modify the resulting layer, so we will have
-a complete analysis routine.
+ဤသင်ခန်းစာတွင် point data များကို interpolate ပြုလုပ်ပြီး raster layer တစ်ခုကို ဖန်တီးမည်ဖြစ်ပါသည်။ ထို့သို့မလုပ်ဆောင်မီ data ပြင်ဆင်မှုအချို့ကို လုပ်ဆောင်ရပါမည်ဖြစ်ပြီး interpolation လုပ်ဆောင်ပြီးပါက ရလာဒ် layer ကိုမွမ်းမံပြင်ဆင်ရန် ထပ်ဆောင်း processing အချို့ကို ထည့်သွင်းပါမည်၊ သို့မှသာ ပြီးပြည့်စုံသော analysis တစ်ခုကို ရရှိမည်ဖြစ်ပါသည်။
 
-Open the example data for this lesson, which should look like this.
+ဤသင်ခန်းစာအတွက် ဥပမာ data ကိုဖွင့်ပါ၊ အောက်ပါပုံစံအတိုင်း ဖြစ်ပါမည်။
 
 .. figure:: img/interpolation/project.png
 
-The data correspond to crop yield data, as produced by a modern harvester,
-and we will use it to get a raster layer of crop yield. We do not plan to do
-any further analysis with that layer, but just to use it as a background layer
-for easily identifying the most productive areas and also those where
-productivity can be improved.
+ခေတ်မီသီးနှံခြွေစက်တစ်ခုမှ ထွက်ရှိလာသော Crop yield (သီးနှံထွက်နှုန်း) data ဖြစ်ပြီး crop yield raster layer တစ်ခုရရှိရန် ထို data ကိုအသုံးပြုပါမည်။ အဆိုပါ raster layer ဖြင့် နောက်ထပ် analysis များလုပ်ဆောင်ရန် အစီအစဉ်မရှိပါ၊ သို့သော် သီးနှံထွက်နှုန်းအကောင်းဆုံးဧရိယာများနှင့် သီးနှံထွက်နှုန်း တိုးတက်လာနိုင်သောဧရိယာများကို အလွယ်တကူဖော်ထုတ်နိုင်ရန်အတွက် ထို layer ကို background (နောက်ခံ) layer တစ်ခုအဖြစ်သာ အသုံးပြုပါမည်။ 
 
-The first thing to do is to clean--up the layer, since it contains redundant
-points. These are caused by the movement of the harvester, in places where it
-has to do a turn or it changes its speed for some reason. The *Points filter*
-algorithm will be useful for this. We will use it twice, to remove points that
-can be considered outliers both in the upper and lower part of the distribution.
+ပထမဦးဆုံးလုပ်ဆောင်ရမည်မှာ layer တွင် မလိုအပ်သော point များပါရှိသောကြောင့် layer ကို ရှင်းလင်းပေးရမည်ဖြစ်သည်။ ထိုမလိုအပ်သော point များသည် သီးနှံခြွေစက်၏ ရွှေ့လျားမှုကြောင့်ဖြစ်ပြီး အကြောင်းအမျိုးမျိုးကြောင့် မြန်နှုန်းပြောင်းလဲခြင်း သို့မဟုတ် ပြန်ကွေ့လိုက်သောနေရာများဖြစ်ကြပါသည်။ ထိုသို့ရှင်းလင်းရန် *Points filter*
+algorithm သည် အသုံးဝင်ပါသည်။ Point ပြန့်နှံ့မှု၏ အပေါ်ဘက် နှင့် အောက်ဘက် နှစ်ခုလုံးတွင်ရှိနေသော outliers (ကွဲထွက်အစွန်းရောက်မှုများ) အဖြစ်သတ်မှတ်နိုင်သော point များကို ဖယ်ရှားရန် ထို algorithm ကို နှစ်ကြိမ်အသုံးပြုပါမည်။ 
 
-For the first execution, use the following parameter values.
+ပထမဆုံးအကြိမ်အတွက် အောက်ပါ parameter တန်ဖိုးများကို အသုံးပြုပါ။
 
 .. figure:: img/interpolation/filter.png
 
-Now for the next one, use the configuration shown below.
+ဒုတိယအကြိမ်အတွက် အောက်တွင်ပြထားသော configuration ကိုအသုံးပြုပါ။
 
 .. figure:: img/interpolation/filter2.png
 
-Notice that we are not using the original layer as input, but the output of
-the previous run instead.
+မူရင်း layer ကို input အနေဖြင့် အသုံးမပြုပဲ ပထမအကြိမ် run ခဲ့သော output ကို input အဖြစ်အသုံးပြုထားသည်ကို သတိထားကြည့်ပါ။
 
-The final filter layer, with a reduced set of points, should look similar to
-the original one, but it contains a smaller number of points. You can check
-that by comparing their attribute tables.
+Point များလျှော့ချထားသော နောက်ဆုံး filter layer သည် မူရင်း layer နှင့်ဆင်တူဖြစ်သင့်ပါသည်၊ သို့သော် point အရေအတွက်နည်းသွားပါသည်။ ထို layer နှစ်ခု၏ attribute ဇယားများကို ဖွင့်ပြီး နှိုင်းယှဉ်ကြည့်နိုင်ပါသည်။
 
-Now let's rasterize the layer using the *Rasterize* algorithm.
+ယခုအခါ *Rasterize* algorithm ကိုအသုံးပြုပြီး layer ကို raster အဖြစ်သို့ ပြောင်းလဲပါမည်။
 
 .. figure:: img/interpolation/rasterize.png
 
-The *Filtered points* layer refers to the resulting one of the second filter.
-It has the same name as the one produced by the first filter, since the name
-is assigned by the algorithm, but you should not use the first one. Since we
-will not be using it for anything else, you can safely remove it from your
-project to avoid confusion, and leave just the last filtered layer.
+*Filtered points* layer သည် ဒုတိယအကြိမ် filter လုပ်ထားသော ရလာဒ်ဖြစ်ပါသည်။ Algorithm မှ နာမည်ကို သတ်မှတ်ပေးထားသောကြောင့် ၎င်း၏နာမည်သည် ပထမအကြိမ် filter လုပ်ထားသောရလာဒ်နှင့်နာမည်အတူတူဖြစ်ပါသည်၊ သို့သော် ပထမအကြိမ် filer မှနာမည်ကို အသုံးမပြုသင့်ပါ။ ပထမအကြိမ် filter မှရလာဒ်ကို နောက်ထပ်အသုံးပြုစရာမရှိတော့သောကြောင့် ၎င်းကို project မှ ဖယ်ရှားပစ်နိုင်ပြီး နောက်ဆုံး filter လုပ်ထားသော layer ကိုသာ ချန်ထားပါ။
 
-The resulting raster layer looks like this.
+ရလာဒ် raster layer သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်။
 
 .. figure:: img/interpolation/rasterized.png
 
-It is already a raster layer, but it is missing data in some of its cells.
-It only contain valid values in those cells that contained a point from the
-vector layer that we have just rasterized, and a no--data value in all the
-other ones. To fill the missing values, we can use the *Close gaps* algorithm.
+၎င်းရလာဒ်သည် raster layer တစ်ခုဖြစ်နေပြီးသားဖြစ်သော်လည်း cell အချို့တွင် data မပါဝင်သည်များရှိနေပါသည်။ Raster ပြောင်းလဲထားသော vector layer မှ point ပါဝင်သည့် cell များတွင်သာ ဆီလျော်သောတန်ဖိုးများပါဝင်ပြီး အခြားသော cell များအားလုံးတွင် no--data တန်ဖိုးပါဝင်ပါသည်။ တန်ဖိုးမပါဝင်သော cell များကို ဖြည့်ရန် *Close gaps* algorithm ကိုအသုံးပြုနိုင်ပါသည်။
 
 .. figure:: img/interpolation/close_gaps.png
 
-The layer without no--data values looks like this.
+No-data တန်ဖိုးများမပါဝင်သော layer သည် အောက်ပါပုံစံအတိုင်းဖြစ်ပါသည်။
 
 .. figure:: img/interpolation/filled.png
 
-To restrict the area covered by the data to just the region where crop
-yield was measured, we can clip the raster layer with the provided limits layer.
+Data မှလွှမ်းခြုံသောဧရိယာကို crop yield တိုင်းတာခဲ့သော နယ်ပယ်အတိုင်းဖြစ်စေရန် raster layer ကို အကန့်အသတ် layer ဖြင့် clip (ဖြတ်တိ) ပြုလုပ်နိုင်ပါသည်။
 
 .. figure:: img/interpolation/clip.png
 
-And for a smoother result (less accurate but better for rendering in the
-background as a support layer), we can apply a *Gaussian filter* to the layer.
+ပိုမိုချောမွေ့သောရလာဒ် (တိကျမှုနည်းသော်လည်း နောက်ခံအဖြစ်ပုံဖော်ပြသရန် ပိုမိုကောင်းမွန်ပါသည်) ရရှိရန် layer တွင် *Gaussian filter* ကိုအသုံးပြုနိုင်ပါသည်။
 
 .. figure:: img/interpolation/gaussian.png
 
-With the above parameters you will get the following result
+အထက်ဖော်ပြပါ parameter များအသုံးပြုပါက အောက်ပါရလာဒ်ကို ရရှိပါလိမ့်မည်
 
 .. figure:: img/interpolation/filtered_raster.png

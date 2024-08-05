@@ -1,17 +1,16 @@
-Interpolation and contouring
-=============================
+Interpolation နှင့် ကွန်တိုရေးဆွဲခြင်း (Interpolation and contouring)
+======================================================================
 
-Module contributed by Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_
+မော်ဂျူးကို Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_ မှ ပါဝင်ကူညီထားပါသည်။
 
-.. note:: This chapter shows how to use different backends to calculate different interpolations.
+.. note:: ဤသင်ခန်းစာတွင် အမျိုးမျိုးသော interpolation များကိုတွက်ချက်ရန် အမျိုးမျိုးသော backend များအသုံးပြုနည်းကို လေ့လာရပါမည်။
 
 Interpolation
 ---------------
 
-The project shows a gradient in rainfall, from south to north.
-Let's use different methods for interpolation, all based on vector ``points.shp``, parameter ``RAIN``:
+Project သည် တောင်ဘက်မှ မြောက်ဘက်သို့ မိုးရေချိန်ပြောင်းလဲမှုတစ်ခုကို ပြသပါသည်။ ``points.shp`` vector ပေါ်တွင်အခြေခံပြီး ``RAIN`` parameter ဖြင့် interpolation အတွက် နည်းလမ်းအမျိုးမျိုးကိုအသုံးပြုပါမည်-
 
-.. warning:: Set cell size to :kbd:`500` for all analyses.
+.. warning:: Analysis အားလုံးအတွက် cell size ကို :kbd:`500` ဟုသတ်မှတ်ပါ။
 
 - :menuselection:`GRASS --> v.surf.rst`
 - :menuselection:`SAGA --> Multilevel B-Spline Interpolation`
@@ -19,21 +18,20 @@ Let's use different methods for interpolation, all based on vector ``points.shp`
 - :menuselection:`GDAL --> Grid (Inverse Distance to a power)` [Power:4]
 - :menuselection:`GDAL --> Grid (Moving average)` [Radius1&2: 50000]
 
-Then measure variation among methods and correlate it with distance to points:
+နည်းလမ်းများအကြား ပြောင်းလဲမှုကို တိုင်းတာပြီး ၎င်းကို point များသို့အကွာအဝေးဖြင့် အပြန်အလှန်ဆက်စပ်ကြည့်ပါ-
 
 - :menuselection:`GRASS --> r.series` [Unselect Propagate NULLs, Aggregate operation: stddev]
 - :menuselection:`GRASS --> v.to.rast.value` on ``points.shp``
 - :menuselection:`GDAL --> Proximity`
-- :menuselection:`GRASS --> r.covar` to show the correlation matrix; check the
-  significance of the correlation e.g. with http://vassarstats.net/rsig.html.
+- :menuselection:`GRASS --> r.covar` Correlation matrix (အပြန်အလှန်ဆက်နွယ်မှုပြ မက်ထရစ်) ကိုပြသရန်၊ correlation ၏သိသာထင်ရှားမှုကိုစစ်ဆေးရန် ဥပမာ- http://vassarstats.net/rsig.html ဖြင့်။
  
-Thus, areas far from points will have less accurate interpolation.
+ထို့ကြောင့် point များမှဝေးကွာသောဧရိယာများတွင် interpolation တိကျမှု နည်းပါလိမ့်မည်။
 
 Contour
 ---------
 
-Various methods to draw contour lines [always step= 10] on the *stddev* raster:
+*stddev* raster ပေါ်တွင် ကွန်တိုမျဉ်းများ [အမြဲတမ်း step=10] ကိုရေးဆွဲရန် အမျိုးမျိုးသောနည်းလမ်းများမှာ-
 
 - :menuselection:`GRASS --> r.contour.step`
 - :menuselection:`GDAL --> Contour`
-- :menuselection:`SAGA --> Contour lines from grid` [**NB:** in some older SAGA versions, output shp is not valid, known bug]
+- :menuselection:`SAGA --> Contour lines from grid` [**NB:** အချို့ SAGA ဗားရှင်းအဟောင်းများတွင် output shp ဖိုင်သည် ဆီလျော်မှုမရှိပါ]

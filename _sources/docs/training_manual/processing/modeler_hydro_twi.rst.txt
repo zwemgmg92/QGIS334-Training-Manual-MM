@@ -1,38 +1,39 @@
-A model within a model
-======================
+Model တစ်ခုအတွင်းရှိ Model တစ်ခု (A model within a model)
+==========================================================
 
-.. warning:: Beware, this chapter is not well tested, please report any issue; images are missing
+.. warning:: ဤသင်ခန်းစာကို ကောင်းကောင်း မစမ်းသပ်ရသေးပါ၊ ပြဿနာတစ်စုံတစ်ရာတွေ့ပါက ကျေးဇူးပြု၍ report ပြုလုပ်ပေးပါ၊ ဓာတ်ပုံများမပါဝင်သည်များ ရှိနေပါသည်။
 
-.. note:: In this lesson we will see how to use a model within a bigger model.
+.. note:: ဤသင်ခန်းစာ၌ model အကြီးတစ်ခုအတွင်းတွင် model တစ်ခုကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။
 
-We have already created a few models, and in this lesson we are going to see how we can combine them on a single bigger one. A model behaves like any other algorithm, which means that you can add a model that you have already created as part of another one that you create after that.
+ကျွန်ုပ်တို့အနေဖြင့် Model အနည်းငယ်ကို ဖန်တီးခဲ့ပြီးဖြစ်ပါသည်၊ ဤသင်ခန်းစာတွင် ထို model များကို model အကြီးတစ်ခုတွင် မည်သို့ပေါင်းစပ်ရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။ Model တစ်ခုသည် အခြားသော algorithm တစ်ခုကဲ့သို့ လုပ်ဆောင်ပါသည်၊ ဆိုလိုသည်မှာ သင်ဖန်တီးထားခဲ့သော model တစ်ခုကို နောက်ထပ်ဖန်တီးမည့် model တစ်ခု၏အစိတ်အပိုင်းအဖြစ် ထည့်သွင်းပေးနိုင်ပါသည်။ 
 
-In this case, we are going to expand our hydrological model, by adding the mean TWI value in each of the basins that it generates as result. To do that, we need to calculate the TWI, and to compute the statistics. Since we have already created a model to calculate TWI from a DEM, it is a good idea to reuse that model instead of adding the algorithms it contains individually.
+ဤဥပမာတွင် basin တစ်ခုချင်းစီ၏ ပျမ်းမျှ TWI တန်ဖိုးကို hydrological model တွင် ပေါင်းထည့်မည်ဖြစ်သည်။ ထိုသို့လုပ်ဆောင်ရန် TWI တန်ဖိုးကို တွက်ချက်ရန်လိုအပ်ပြီး စာရင်းအင်းချက်အလက်များကို တွက်ချက်ရန်လိုပါသည်။ DEM တစ်ခုမှ TWI တွက်ချက်ပေးသည့် model တစ်ခုကို ဖန်တီးထားခဲ့ပြီးဖြစ်သောကြောင့် model တွင်ပါဝင်သော algorithm တစ်ခုချင်းစီကိုထည့်သွင်းမည့်အစား ထို model ကို ပြန်အသုံးပြုလျှင် ပိုကောင်းပါသည်။
 
-Let's start with the model we used as starting point for the last lesson.
 
-.. warning:: todo: Add image
+ပြီးခဲ့သည့်နောက်ဆုံးသင်ခန်းစာတွင် အစနေရာ အဖြစ်အသုံးပြုခဲ့သော model ဖြင့်စတင်လုပ်ဆောင်ပါမည်။
 
-First, we will add the TWI model. For it to be available, it should have been saved on the models folder, since otherwise it will not be shown in the toolbox or the algorithms list in the modeler. Make sure you have it available.
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
 
-Add it to the current model and use the input DEM as its input. The output is a temporary one, since we just want the TWI layer to compute the statistics. The only output of this model we are creating will still be the vector layer with the watersheds.
+ပထမဦးစွာ TWI model ကိုထည့်သွင်းပါမည်။ ထို model ကို models folder ထဲတွင် သိမ်းဆည်းထားခဲ့သင့်ပါသည်၊ ထိုသို့မဟုတ်ပါက toolbox သို့မဟုတ် modeler ထဲရှိ algorithm စာရင်းထဲတွင် ၎င်းကို ပြသပေးမည်မဟုတ်ပါ။ ထို့ကြောင့် models folder ထဲတွင် သိမ်းဆည်းထားပါ။
 
-Here is the corresponding parameters dialog:
+၎င်း TWI model ကို လက်ရှိ model ထဲသို့ ထည့်သွင်းပြီး input အနေဖြင့် DEM ကိုအသုံးပြုပါ။ စာရင်းအင်းအချက်အလက်များတွက်ချက်ရန် TWI layer ကိုသာ လိုချင်သောကြောင့် output ကို ယာယီအဖြစ်သာထားပါ။ ကျွန်ုပ်တို့ဖန်တီးနေသော ဤ model ၏ တစ်ခုတည်းသော output သည် watershed (ရေဝေရေလဲ) များပါဝင်သော vector layer ဖြစ်ပါလိမ့်မည်။ 
 
-.. warning:: todo: Add image
+သက်ဆိုင်ရာ parameter dialog သည် အောက်ပါအတိုင်းဖြစ်ပါသည်-
 
-Now we have a TWI layer that we can use along with the watersheds vector layer, to generate a new one which contains the values of the TWI corresponding to each watershed.
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
 
-This calculation is done using the *Grid statistics in polygons* algorithm. Use the layers mentioned above as input, to create the final result.
+ယခုအခါ watershed vector layer နှင့်တွဲဖက်အသုံးပြုနိုင်သော TWI layer ကိုရရှိပြီဖြစ်ပြီး watershed တစ်ခုချင်းစီနှင့်သက်ဆိုင်သော TWI တန်ဖိုးများပါဝင်သည့် layer အသစ်တစ်ခုကို ထုတ်ယူမည်ဖြစ်ပါသည်။ 
 
-.. warning:: todo: Add image
+ဤတွက်ချက်မှုအတွက် *Grid statistics in polygons* algorithm ကိုအသုံးပြုပြီး လုပ်ဆောင်ပါမည်။ အထက်တွင်ဖော်ပြထားသော layer များကို input အနေဖြင့် အသုံးပြုပြီး နောက်ဆုံးရလာဒ်ကို ဖန်တီးပါ။
 
-The output of the *Vectorize grid classes* algorithm was originally our final output, but now we just want it as an intermediate result. To change that, we have to edit the algorithm. Just double--click on it to see its parameters dialog, and delete the name of the output. That will make it a temporary output, as it is by default.
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
 
-.. warning:: todo: Add image
+*Vectorize grid classes* algorithm ၏ ရလာဒ်သည် မူလက နောက်ဆုံးရလာဒ်ဖြစ်ခဲ့ပါသည်၊ သို့သော် ယခုအခါ ၎င်းရလာဒ်ကို intermediate ရလာဒ်အနေဖြင့်သာ လိုချင်ပါသည်။ ၎င်းကို ပြောင်းလဲရန် algorithm ကို edit ပြုလုပ်ရမည်ဖြစ်ပါသည်။ ၎င်းကို click နှစ်ချက်နှိပ်ပြီး parameter dialog ကိုဖွင့်ပါ၊ output ၏နာမည်ကို ဖျက်ပစ်ပါ။ ထိုသို့ဖျက်ခြင်းဖြင့် ၎င်းကို ယာယီရလာဒ်အဖြစ် ပြောင်းလဲပေးပါသည်။
 
-This is how the final model should look like:
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
 
-.. warning:: todo: Add image
+နောက်ဆုံး model သည် အောက်ပါပုံစံအတိုင်း ဖြစ်သင့်ပါသည်-
 
-As you see, using a model in another model is nothing special, and you can add it just like you add another algorithm, as long as the model is saved in the models folder and is available in the toolbox.
+.. warning:: todo: ဓာတ်ပုံထည့်သွင်းရန်။
+
+Model တစ်ခုကို အခြားသော model တစ်ခုထဲတွင်အသုံးပြုခြင်းသည် ထွေထွေထူးထူး မဟုတ်ပါ၊ model ကို models folder ထဲတွင် သိမ်းဆည်းထားပြီး toolbox ထဲတွင် model ရှိနေသမျှ အခြား algorithm တစ်ခုကိုထည့်သွင်းသကဲ့သို့ လုပ်ဆောင်နိုင်ပါသည်။

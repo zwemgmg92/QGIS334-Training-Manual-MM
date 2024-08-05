@@ -1,49 +1,23 @@
-HTML outputs
+HTML ရလာဒ်များ (HTML outputs)
 ============================================================
 
 
-.. note:: In this lesson we learn how QGIS handles outputs in HTML format,
-  which are used to produce text outputs and graphs.
+.. note:: ဤသင်ခန်းစာတွင် စာသား output များနှင့် ဂရပ်များထုတ်ယူရာတွင်အသုံးပြုသော HTML format ထဲရှိ output များကို QGIS မှမည်ကဲ့သို့ကိုင်တွယ်သည်ကို လေ့လာရပါမည်။
 
-All the outputs we have produced so far were layers (whether raster or vector).
-However, some algorithms generate outputs in the form of text and graphics.
-All this outputs are wrapped in HTML files and displayed in the so--called
-*Results viewer*, which is another element of the processing framework.
+ယခုအချိန်ထိ ကျွန်ုပ်တို့ထုတ်ယူခဲ့ပြီးသော output များအားလုံးသည် layer (raster သို့မဟုတ် vector) များဖြစ်ပါသည်။ သို့သော် အချို့သော algorithm များသည် စာသားပုံစံ နှင့် ဂရပ်များဖြင့် output များကို ထုတ်ပေးပါသည်။ ဤ output များအားလုံးကို HTML ဖိုင်များထဲတွင် ထည့်သွင်းထားပြီး processing framework ၏ အခြား element တစ်ခုဖြစ်သည့် *Results viewer* ထဲတွင်ပြသပေးပါသည်။
 
-Let's see one of those algorithms to understand how they work.
+ထို algorithm များ၏ အလုပ်လုပ်ပုံကို နားလည်စေရန် ၎င်းတို့မှ algorithm တစ်ခုကို ကြည့်ပါမည်။
 
-Open the project with the data to be used in this lesson and then open the
-*Basic statistics for numeric fields* algorithm. 
+ဤသင်ခန်းစာတွင် အသုံးပြုမည့် data ပါဝင်သော project ဖိုင်ကိုဖွင့်ပါ၊ ထို့နောက် *Basic statistics for numeric fields* algorithm ကိုဖွင့်ပါ။
 
 .. figure:: img/html/paramdialog.png
 
-The algorithm is rather simple, and you just have to select the layer to use
-and one of its field (a numeric one). The output is of type HTML, but the
-corresponding box works exactly like the one that you can find in the case
-of a raster or vector output. You can enter a filepath or leave it blank
-to save to a temporary file. In this case, however, only the ``html`` and
-``htm`` extensions are allowed, so there is no way of altering the output
-format by using a different one.
+Algorithm သည် တော်တော်လေးရိုးရှင်းပါသည်၊ အသုံးပြုမည့် layer ကို ရွေးချယ်ပေးပြီး ၎င်း layer ၏ field တစ်ခုကို (ကိန်းဂဏန်း field) ရွေးချယ်ပေးရန်သာဖြစ်သည်။ Output သည် HTML အမျိုးအစားဖြစ်ပါသည်၊ သို့သော် dialog ၏အလုပ်လုပ်ပုံသည် raster သို့မဟုတ် vector output များကဲ့သို့ပင် အတူတူဖြစ်ပါသည်။ သိမ်းဆည်းမည့် ဖိုင်လမ်းကြောင်း ထည့်သွင်းပေးနိုင်သလို ယာယီဖိုင်အဖြစ်ထားရှိရန် ကွက်လပ်အနေဖြင့် ချန်ထားနိုင်ပါသည်။ ဤ algorithm တွင် ``html`` နှင့် ``htm`` extension များကိုသာ ခွင့်ပြုထားသောကြောင့် output format ကို အခြားတစ်ခုခုပြောင်းလဲအသုံးပြု၍မရနိုင်ပါ။
 
-Run the algorithm selecting the only layer in the project as input, and
-the *POP2000* field, and a new dialog like the one shown next will appear
-once the algorithm is executed and the parameters dialog is closed.
+Project ထဲရှိ layer တစ်ခုကိုသာ input အနေဖြင့် ရွေးချယ်ပြီး *POP2000* field ကိုအသုံးပြုကာ algorithm ကို run ပါ၊ algorithm ကိုစတင်လုပ်ဆောင်သည်နှင့် အောက်ဖော်ပြပါ dialog အသစ်ပေါ်လာမည်ဖြစ်ပြီး parameter dialog သည်ပိတ်သွားမည်ဖြစ်သည်။
 
 .. figure:: img/html/result.png
 
-This is the *Results viewer*. It keeps all the HTML result generated during
-the current session, easily accessible, so you can check them quickly whenever
-you need it. As it happens with layers, if you have saved the output to a
-temporary file, it will be deleted once you close QGIS. If you have saved
-to a non-temporary path, the file will remain, but it will not appear in
-the *Results viewer* the next time you open QGIS.
+ဤ dialog သည် *Results viewer* ဖြစ်ပါသည်။ ၎င်းတွင် လက်ရှိ session အတွင်း ထုတ်ယူထားသော HTML ရလာဒ်များအားလုံးကို သိမ်းဆည်းထားရှိပြီး အလွယ်တကူကြည့်ရှုနိုင်ပါသည်၊ ထို့ကြောင့် ရလာဒ်များကို လိုအပ်သည့်အချိန်တိုင်း မြန်မြန်ဆန်ဆန် စစ်ဆေးကြည့်နိုင်ပါသည်။ ရလာဒ်ကို ယာယီဖိုင်အဖြစ် သိမ်းဆည်းထားပါက QGIS ကိုပိတ်လိုက်သည်နှင့် ရလာဒ်သည် ပျက်သွားမည်ဖြစ်ပါသည်။ ယာယီမဟုတ်သော ဖိုင်လမ်းကြောင်းတွင် သိမ်းဆည်းထားပါက ရလာဒ်ဖိုင်သည် ကျန်ရှိနေမည်ဖြစ်ပါသည်၊ သို့သော် နောက်တစ်ကြိမ် QGIS ကိုဖွင့်သောအခါ ရလာဒ်သည် *Results viewer* ထဲတွင် ပေါ်နေမည်မဟုတ်ပါ။
 
-Some algorithms generate text that cannot be divided into other more
-detailed outputs. That is the case if, for instance, the algorithm captures
-the text output from an external process. In other cases, the output is presented
-as text, but internally is divided into several smaller outputs, usually in
-the form of numeric values. The algorithm that we have just executed is one of them.
-Each one of those values is handled as a single output, and stored in a variable.
-This has no importance at all now, but once we move to the model designer,
-you will see that it will allow us to use those values as numeric inputs for
-other algorithms. 
+အချို့သော algorithm များသည် အခြားပိုမိုအသေးစိတ်သော output များအဖြစ်သို့ မခွဲထုတ်နိုင်သည့် စာသားများကို ထုတ်ပေးပါသည်။ ဥပမာအားဖြင့် algorithm သည် ပြင်ပလုပ်ငန်းစဉ်တစ်ခုမှ စာသား output ကိုရယူသည့်အခါမျိုး ဖြစ်ပါသည်။ အခြား algorithm များတွင် output ကို စာသားအနေဖြင့်ဖော်ပြသော်လည်း အတွင်းပိုင်းတွင် output ငယ်များစွာအဖြစ်သို့ ခွဲထုတ်ပေးပြီး များသောအားဖြင့် ကိန်းဂဏန်းတန်ဖိုးများပုံစံဖြင့် ရှိပါသည်။ ကျွန်ုပ်တို့ ယခုလုပ်ဆောင်ခဲ့သော algorithm သည် ထိုကဲ့သို့သော algorithm များထဲမှ တစ်ခုဖြစ်ပါသည်။ ထိုကိန်းဂဏန်းတန်ဖိုးတစ်ခုချင်းစီကို output တစ်ခုအဖြစ်ကိုင်တွယ်ပြီး variable တစ်ခုထဲတွင် သိမ်းဆည်းထားပါသည်။ ဤအကြောင်းအရာသည် ယခုအတွက်တော့ အရေးမကြီးသော်လည်း model designer အပိုင်းတွင် ထိုတန်ဖိုးများကို အခြား algorithm များအတွက် ကိန်းဂဏန်း input များအဖြစ်အသုံးပြုနိုင်စေသည်ကို မြင်တွေ့ရပါလိမ့်မည်။

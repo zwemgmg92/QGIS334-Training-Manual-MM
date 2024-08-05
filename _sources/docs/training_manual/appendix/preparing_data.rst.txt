@@ -1,235 +1,173 @@
 .. _tm_preparing_data:
 
-Preparing Exercise Data
-=======================
+လေ့ကျင့်ခန်းအတွက် Data များပြင်ဆင်ခြင်း (Preparing Exercise Data)
+==================================================================
 
-.. important:: This process is intended for course conveners, or more experienced
-  QGIS users who wish to create localised sample data sets for their course.
-  Default data sets are provided with the Training Manual, but you may follow
-  these instructions if you wish to replace the default data sets.
+.. important:: ဤလုပ်ငန်းစဉ်ကို သင်တန်းအတွက် နမူနာ dataset များဖန်တီးလိုသော သင်တန်းအကြီးအမှူးများ၊ သို့မဟုတ် အတွေ့အကြုံပိုများသော QGIS အသုံးပြုသူများအတွက် ရည်ရွယ်ပါသည်။ Default dataset များသည် Training Manual နှင့်အတူပါရှိပါသည်၊ သို့သော် default dataset များအစား အခြား dataset များကိုအသုံးပြုလိုပါက ဤလမ်းညွှန်ချက်များအတိုင်း လိုက်နာလုပ်ဆောင်နိုင်ပါသည်။
 
-The :ref:`sample data provided <data_downloadlink>` with the Training Manual
-refers to the town of |majorUrbanName| and its surroundings. |majorUrbanName| is
-located about 2 hours' east of Cape Town in the Western Cape of South Africa.
-The dataset contains feature names in both English and Afrikaans.
+Training Manual နှင့်အတူပါရှိသော :ref:`နမူနာ data <data_downloadlink>` သည် |majorUrbanName| မြို့နှင့် ပတ်ဝန်းကျင်နေရာများအတွက်ဖြစ်ပါသည်။ |majorUrbanName| သည် တောင်အာဖရိက၏ Western Cape ထဲရှိ Cape Town မှ ၂ နာရီခန့်သွားရသော နေရာတွင် တည်ရှိပါသည်။ Dataset ထဲတွင်ပါရှိသော feature နာမည်များသည် အင်္ဂလိပ် နှင့် အာဖရီကန်ဘာသာစကား နှစ်မျိုးလုံးဖြင့် ပါရှိပါသည်။
 
-Anyone can use this dataset without difficulty, but you may prefer to use data
-from your own country or home town. If you choose to do so, your localised
-data will be used in all lessons from Module 3 to Module 7.2. Later modules use
-more complex data sources which may or may not be available for your region.
+ဤ dataset ကို လူတိုင်း အလွယ်တကူအသုံးပြုနိုင်ပါသည်၊ သို့သော် သင့်နိုင်ငံ သို့မဟုတ် သင့်မြို့မှ data ကိုအသုံးပြုလိုပါက မော်ဂျူး ၃ မှ မော်ဂျူး ၇.၂ အထိ သင်ခန်းစာများအားလုံးအတွက် သင့်ကိုယ်ပိုင် data များကို အသုံးပြုနိုင်ပါလိမ့်သည်။ နောက်ပိုင်း မော်ဂျူးများတွင် အသုံးပြုထားသော data များသည် ပိုမိုရှုပ်ထွေးသော data ရင်းမြစ်များဖြစ်ပြီး သင့်ဒေသအတွက် ရှိနိုင်မှ ရှိနိုင်ပါလိမ့်မည်။
 
-.. note:: These instructions assume you have a good knowledge of QGIS and are
-  not intended to be used as teaching material.
+.. note:: ဤညွှန်ကြားချက်များသည် သင့်တွင် QGIS ဗဟုသုတကောင်းကောင်းရှိသည်ဟု ယူဆထားပြီး ၎င်းတို့ကို သင်ထောက်ကူအနေဖြင့် အသုံးပြုရန် မရည်ရွယ်ထားပါ။
 
-Create OSM based vector files
+Vector ဖိုင်များပေါ်အခြေခံသော OSM ဖန်တီးခြင်း (Create OSM based vector files)
 --------------------------------------------------------------------------------
 
-If you wish to replace the default data set with localised data for your course,
-this can easily be done with tools built into QGIS. The region you choose to use
-should have a good mix of urban and rural areas, containing roads of differing
-significance, area boundaries (such as nature reserves or farms) and surface
-water, such as streams and rivers.
+Default dataset ကို သင့်ကိုယ်ပိုင် data ဖြင့်အစားထိုးအသုံးပြုလိုပါက QGIS တွင်ပါရှိသော tool များဖြင့် အလွယ်တကူလုပ်ဆောင်နိုင်ပါသည်။ အသုံးပြုရန် သင်ရွေးချယ်ထားသောဒေသတွင် မြို့ပြနှင့် ကျေးလက်ဧရိယာများရောနှောပါဝင်နေသင့်ပြီး အမျိုးအစားကွဲပြားသောလမ်းများ၊ ဧရိယာနယ်နိမိတ်များ (သဘာဝကာကွယ်တောများ သို့မဟုတ် စိုက်ပျိုးမြေများကဲ့သို့) နှင့် မြစ်ချောင်းများကဲ့သို့ ရေမျက်နှာပြင် များပါဝင်သင့်ပါသည်။ 
 
-#. Open a new QGIS project
-#. Select :menuselection:`Layer --> Data Source Manager` to open the
-   :guilabel:`Data Source Manager` dialog
-#. In the :guilabel:`Browser` tab, expand the :guilabel:`XYZ Tiles` drop-down menu
-   and double-click the :guilabel:`OpenStreetMap` item.
+#. QGIS project အသစ်တစ်ခုကို ဖွင့်ပါ။
+#. :menuselection:`Layer --> Data Source Manager` ကိုရွေးပါ၊ :guilabel:`Data Source Manager` dialog ပွင့်လာပါမည်။
+#. :guilabel:`Browser` tab ထဲတွင် :guilabel:`XYZ Tiles` ကိုအကျယ်ဖြန့်ပြီး :guilabel:`OpenStreetMap` item ကို click နှစ်ချက်နှိပ်ပါ။
 
    .. figure:: img/browser_xyztiles.png
       :align: center
       :scale: 60
 
-   A map of the world is now visible on the map canvas.
-#. Close the :guilabel:`Data Source Manager` dialog
-#. Move to the area you'd like to use as study area
+   ကမ္ဘာ့မြေပုံတစ်ခုကို မြေပုံ canvas ပေါ်တွင် မြင်ရမည်ဖြစ်သည်။
+#. :guilabel:`Data Source Manager` dialog ကိုပိတ်လိုက်ပါ။
+#. Study area အဖြစ် အသုံးပြုလိုသော ဧရိယာသို့ နေရာရွှေ့ပါ။
 
    .. figure:: img/swellendam_neighborhood.png
       :align: center
       :scale: 60
 
-Now that we have the area we'll extract the data from, let's enable the extraction
-tools.
+ယခုအခါ data ထုတ်ယူလိုသော ဧရိယာကို ရရှိပြီဖြစ်ပါသည်၊ data ထုတ်ယူခြင်း tool များကို ဖွင့်ပေးပါမည်။
 
-#. Go to :menuselection:`Plugins --> Manage/Install Plugins...`
-#. In the :guilabel:`All` tab, type ``QuickOSM`` in the search box
-#. Select the QuickOSM plugin, press :guilabel:`Install Plugin` and then :guilabel:`Close`
-   the dialog.
+#. :menuselection:`Plugins --> Manage/Install Plugins...` သို့သွားပါ
+#. :guilabel:`All` tab ထဲရှိ search box တွင် ``QuickOSM`` ဟုရိုက်ထည့်ပါ
+#. QuickOSM plugin ကိုရွေးချယ်ပါ၊ :guilabel:`Install Plugin` ကိုနှိပ်ပါ၊ ထို့နောက်တွင် dialog ကိုပိတ်ရန် :guilabel:`Close` ကိုနှိပ်ပါ။ 
 
    .. figure:: img/quickosm_plugin_download.png
       :align: center
 
-#. Execute the new plugin from :menuselection:`Vector --> QuickOSM --> QuickOSM...` menu
-#. In the :guilabel:`Quick query` tab, select ``building`` in the :guilabel:`Key`
-   drop-down menu
-#. Leave the :guilabel:`Value` field empty, meaning that you are querying all
-   buildings.
-#. Select :guilabel:`Canvas Extent` in the next drop-down menu
-#. Expand the :guilabel:`Advanced` group below and uncheck all
-   geometry types on the right except :guilabel:`Multipolygons`.
-#. Press :guilabel:`Run query`
+#. :menuselection:`Vector --> QuickOSM --> QuickOSM...` menu မှ plugin အသစ်ကို ဖွင့်ပါ
+#. :guilabel:`Quick query` tab ထဲရှိ  :guilabel:`Key` drop-down menu ထဲတွင် ``building`` ကိုရွေးချယ်ပါ
+#. :guilabel:`Value` field ကို အလွတ်အတိုင်းထားရှိပါ၊ building များအားလုံးကို query လုပ်မည်ဟု ဆိုလိုပါသည်။
+#. အောက်ရှိ drop-down menu ထဲတွင် :guilabel:`Canvas Extent` ကိုရွေးချယ်ပါ
+#. :guilabel:`Advanced` အုပ်စုကို ဖြန့်ကြည့်ပြီး ညာဘက်ရှိ ဂျီဩမေတြီအမျိုးအစားများထဲတွင် :guilabel:`Multipolygons` မှလွဲ၍ ကျန်အမျိုးအစားများကို အမှန်ခြစ်ဖြုတ်ပါ။
+#. :guilabel:`Run query` ကိုနှိပ်ပါ
 
    .. figure:: img/building_query_builder.png
       :align: center
 
-   A new ``building`` layer is added to the :guilabel:`Layers` panel, showing
-   buildings in the selected extent.
-#. Proceed as above to extract other data:
+   :guilabel:`Layers` panel ထဲတွင် ``building`` layer အသစ်တစ်ခုကို ထည့်သွင်းပေးမည်ဖြစ်ပြီး ရွေးချယ်ထားသော extent အတွင်းရှိ building များအားလုံးကို ပြသပေးမည်ဖြစ်ပါသည်။
+#. အခြားသော data များကိုထုတ်ယူရန် အထက်ဖော်ပြပါအတိုင်း လုပ်ဆောင်ပါ-
 
-   #. ``Key = landuse`` and ``Multipolygons`` geometry type.
-   #. ``Key = boundary``, ``Value = protected_area`` and ``Multipolygons``
-      geometry type.
-   #. ``Key = natural``, ``Value = water`` and ``Multipolygons`` geometry type.
-   #. ``Key = highway`` and check ``Lines`` and ``Multilines`` geometry types.
-   #. ``Key = waterway``, ``Value = river`` and check ``Lines`` and ``Multilines``
-      geometry types.
-   #. ``Key = place`` and ``Points`` geometry type.
+   #. ``Key = landuse`` နှင့် ``Multipolygons`` ဂျီဩမေတြီအမျိုးအစား
+   #. ``Key = boundary`` ၊ ``Value = protected_area`` နှင့် ``Multipolygons``
+      ဂျီဩမေတြီအမျိုးအစား
+   #. ``Key = natural`` ၊ ``Value = water`` နှင့် ``Multipolygons`` ဂျီဩမေတြီအမျိုးအစား
+   #. ``Key = highway`` နှင့် ``Lines`` နှင့် ``Multilines`` ဂျီဩမေတြီအမျိုးအစားကို အမှန်ခြစ်ပါ
+   #. ``Key = waterway`` ၊ ``Value = river`` နှင့် ``Lines`` နှင့် ``Multilines``
+      ဂျီဩမေတြီအမျိုးအစားကို အမှန်ခြစ်ပါ
+   #. ``Key = place`` နှင့် ``Points`` ဂျီဩမေတြီအမျိုးအစား
 
-This process adds the layers as temporary files (indicated by the
-|indicatorMemory| icon next to their name).
+ဤလုပ်ငန်းစဉ်သည် layer များကို ယာယီဖိုင်များအဖြစ် ထည့်သွင်းပေးပါသည် (layer နာမည်များဘေးတွင် |indicatorMemory| icon ဖြင့် ဖော်ပြထားပါသည်)။
 
 .. figure:: img/osm_data_loaded.png
    :align: center
 
-You can sample the data your region contains in order to see what kind of
-results your region will yield.
+သင့်ဒေသသည် မည်သို့သော ရလာဒ်အမျိုးအစားများ ထုတ်ပေးမည်ကို ကြည့်ရှုနိုင်ရန် သင့်ဒေသတွင်ပါရှိသော data များကို နမူနာယူနိုင်ပါသည်။
 
-We now need to save the resulting data to use during your
-course. We'll be using ESRI Shapefile, GeoPackage and SpatiaLite formats
-depending on the data.
+ရလာဒ် data များကို သင်၏သင်တန်းအတွင်း အသုံးပြုနိုင်ရန်အတွက် သိမ်းဆည်းထားရန်လိုအပ်ပါသည်။ Data ပေါ်မူတည်၍ ESRI Shapefile ၊ GeoPackage နှင့် SpatiaLite format များကို အသုံးပြုပါမည်။
 
-To convert the :guilabel:`place` temporary layer to another format:
+:guilabel:`place` ယာယီ layer ကို အခြား format သို့ ပြောင်းလဲရန်-
 
-#. Click the |indicatorMemory| icon next to the :guilabel:`place` layer
-   to open the :guilabel:`Save Scratch Layer` dialog.
+#. :guilabel:`place` layer ၏ဘေးရှိ |indicatorMemory| icon ကိုနှိပ်ပါ၊ :guilabel:`Save Scratch Layer` dialog ပွင့်လာပါမည်။
 
-   .. note:: If you need to change any of the temporary layer's properties (CRS, extent,
-     fields...), use the :menuselection:`Export
-     --> Save Features as...` contextual menu instead, and ensure the :guilabel:`Add
-     saved file to map` option is checked. This adds a new layer.
+   .. note:: ယာယီ layer တစ်ခုခု၏ ဂုဏ်သတ္တိများ (CRS ၊ extent ၊ field အစရှိသည်တို့) ကိုပြောင်းလဲရန် လိုအပ်ပါက :menuselection:`Export
+     --> Save Features as...` ကိုအသုံးပြုပြီး :guilabel:`Add
+     saved file to map` option ကိုအမှန်ခြစ်ထားပါ။ ထိုသို့လုပ်ခြင်းဖြင့် Layer အသစ်တစ်ခုကို ထည့်သွင်းပေးပါသည်။
 
-#. Select the :guilabel:`ESRI Shapefile` format
-#. Use the :guilabel:`...` button to browse to the :file:`exercise_data/shapefile/`
-   folder and save the file as :file:`places.shp`.
+#. :guilabel:`ESRI Shapefile` format ကိုရွေးချယ်ပါ
+#. :guilabel:`...` ခလုတ်ကိုနှိပ်ပြီး :file:`exercise_data/shapefile/` folder ကိုဖွင့်ကာ ဖိုင်ကို :file:`places.shp` အနေဖြင့် သိမ်းဆည်းပါ။
 
    .. figure:: img/save_osm_place.png
       :align: center
 
-#. Press :guilabel:`OK`
+#. :guilabel:`OK` ကိုနှိပ်ပါ
 
-   In the :guilabel:`Layers` panel, the temporary :guilabel:`place` layer is
-   replaced with the saved :guilabel:`places` shapefile layer and
-   the temporary icon next to it removed.
-#. Double-click the layer to open its :menuselection:`Layer Properties -->
-   Source` tab and update the :guilabel:`Layer name` property to match the file
-   name.
+   :guilabel:`Layers` panel ထဲတွင် ယာယီ :guilabel:`place` layer ကို သိမ်းဆည်းထားသော :guilabel:`places` shapefile layer ဖြင့် အစားထိုးပေးမည်ဖြစ်ပြီး ယာယီ icon ကိုဖယ်ရှားပေးမည်ဖြစ်သည်။
+#. Layer ကို click နှစ်ချက်နှိပ်ပြီး :menuselection:`Layer Properties -->
+   Source` tab ကိုဖွင့်ပြီး :guilabel:`Layer name` property ကို ဖိုင်နာမည်နှင့် ကိုက်ညီစေရန် update လုပ်ပါ။
 
-#. Repeat the process for other layers, renaming them as follows:
+#. အခြားသော layer များအတွက် ထိုအတိုင်းလုပ်ဆောင်ပြီး ၎င်းတို့ကို အောက်ပါအတိုင်း နာမည်ပြောင်းပေးပါ-
 
-   * ``natural_water`` into ``water``
-   * ``waterway_river`` into ``rivers``
-   * ``boundary_protected_area`` into ``protected_areas``
+   * ``natural_water`` ကို ``water`` သို့
+   * ``waterway_river`` ကို ``rivers`` သို့
+   * ``boundary_protected_area`` ကို ``protected_areas`` သို့
 
-   Each resulting data set should be saved in the :file:`exercise_data/shapefile/`
-   directory.
+   ရလာဒ် dataset တစ်ခုချင်းစီကို :file:`exercise_data/shapefile/` ဖိုင်လမ်းကြောင်းထဲတွင် သိမ်းဆည်းထားသင့်ပါသည်။
 
-The next step is to create a GeoPackage file from the :guilabel:`building` layer
-to use during the course:
+နောက်တစ်ဆင့်အနေဖြင့် သင်တန်းအတွင်းအသုံးပြုရန် :guilabel:`building` layer မှ GeoPackage ဖိုင်တစ်ခုဖန်တီးရန် ဖြစ်ပါသည်-
 
-#. Click the |indicatorMemory| icon next to the :guilabel:`building` layer
-#. Select the :guilabel:`GeoPackage` format
-#. Save the file as :file:`training_data.gpkg` under the :file:`exercise_data/`
-   folder
-#. By default, the :guilabel:`Layer name` is filled as the file name.
-   Replace it with ``buildings``.
+#. :guilabel:`building` layer ၏ဘေးရှိ |indicatorMemory| icon ကိုနှိပ်ပါ
+#. :guilabel:`GeoPackage` format ကိုရွေးချယ်ပါ
+#. ဖိုင်ကို :file:`exercise_data/` folder အောက်တွင် :file:`training_data.gpkg` အနေဖြင့် သိမ်းဆည်းပါ
+#. Default အားဖြင့် :guilabel:`Layer name` ကို ဖိုင်နာမည်အတိုင်း ဖြည့်ပေးပါသည်။ ၎င်း :guilabel:`Layer name` ကို ``buildings`` ဟုပြောင်းပါ။
 
    .. figure:: img/save_osm_building.png
       :align: center
 
-#. Press :guilabel:`OK`
-#. Rename the layer in its properties dialog
-#. Repeat the process with the :guilabel:`highway` layer, saving it as ``roads`` in
-   the same GeoPackage database.
+#. :guilabel:`OK` ကိုနှိပ်ပါ
+#. Layer ၏ property dialog ထဲတွင် layer ကို နာမည်ပြောင်းပါ
+#. :guilabel:`highway` layer တွင်လည်း ထိုလုပ်ငန်းစဉ်အတိုင်းလုပ်ဆောင်ပြီး တူညီသော GeoPackage database ထဲတွင် ``roads`` အနေဖြင့် သိမ်းဆည်းပါ။
 
-The last step is to save the remaining temporary file as a SpatiaLite file.
+နောက်ဆုံးအဆင့်အနေဖြင့် ကျန်ရှိနေသော ယာယီဖိုင်ကို SpatiaLite ဖိုင်အဖြစ် သိမ်းဆည်းရန်ဖြစ်ပါသည်။
 
-#. Click the |indicatorMemory| icon next to the :guilabel:`landuse` layer
-#. Select the :guilabel:`SpatiaLite` format
-#. Save the file as :file:`landuse.sqlite` under the :file:`exercise_data/`
-   folder. By default, the :guilabel:`Layer name` is filled as the file name.
-   Do not change it.
+#. :guilabel:`landuse` layer ၏ဘေးရှိ |indicatorMemory| icon ကိုနှိပ်ပါ
+#. :guilabel:`SpatiaLite` format ကိုရွေးချယ်ပါ
+#. ဖိုင်ကို :file:`exercise_data/` folder အောက်တွင် :file:`landuse.sqlite` အဖြစ် သိမ်းဆည်းပါ။ Default အားဖြင့် :guilabel:`Layer name` ကို ဖိုင်နာမည်အတိုင်း ဖြည့်ပေးပါသည်။ ၎င်းကို မပြောင်းလဲပါနှင့်။
 
    .. figure:: img/save_osm_landuse.png
       :align: center
 
-#. Press :guilabel:`OK`
+#. :guilabel:`OK` ကိုနှိပ်ပါ။
 
-You should now have a map which looks something like this (the symbology will
-certainly be very different, because QGIS randomly assigns colors when layers
-are added to the map):
+ယခုအခါ အောက်ပါပုံစံအတိုင်း မြေပုံတစ်ခုကို ရရှိသင့်ပါသည် (Layer များကို မြေပုံထဲသို့ထည့်သွင်းသောအခါ QGIS သည် အရောင်များကျပန်းသတ်မှတ်သောကြောင့် သင်္ကေတသည် ကွဲပြားပါလိမ့်မည်)-
 
 .. figure:: img/post_osm_import.png
    :align: center
 
-The important thing is that you have 7 vector layers matching those
-shown above and that all those layers have some data.
+အထက်တွင်ပြထားသော အဆိုပါ layer ၇ ခုရရှိမည်ဖြစ်ပြီး ထို layer များအားလုံးတွင် data အချို့ရှိရန် အရေးကြီပါသည်။
 
-Create SRTM DEM tiff files
+SRTM DEM tiff ဖိုင်များဖန်တီးခြင်း (Create SRTM DEM tiff files)
 --------------------------------------------------------------------------------
 
-For modules :ref:`tm_create_vector_data` and :ref:`tm_rasters`, you'll also need
-raster images (SRTM DEM) which cover the region you have selected for your
-course.
+:ref:`tm_create_vector_data` နှင့်  :ref:`tm_rasters` မော်ဂျူးများအတွက် သင်ရွေးချယ်ထားသောဒေသကို လွှမ်းခြုံသည့် raster image (SRTM DEM) ကိုလည်း လိုအပ်ပါလိမ့်မည်။
 
-The `CGIAR-CGI <https://srtm.csi.cgiar.org/>`_ provides some SRTM DEM you can download
-from https://srtm.csi.cgiar.org/srtmdata/.
+`CGIAR-CGI <https://srtm.csi.cgiar.org/>`_ သည် SRTM DEM အချို့ကို ထောက်ပံ့ပေးထားပြီး https://srtm.csi.cgiar.org/srtmdata/ မှ ဒေါင်းလုဒ်ပြုလုပ်နိုင်ပါသည်။
 
-You'll need images which cover the entire region you have chosen to use.
-To find the extent coordinates, in QGIS , |zoomToLayer| zoom to the extent of
-the largest layer and pick the values in the |extents| :guilabel:`Extents`
-box of the status bar.
-Keep the :file:`GeoTiff` format. Once the form is filled, click on the
-:guilabel:`Click here to Begin Search >>` button and download the file(s).
 
-Once you have downloaded the required file(s), they should be saved in the
-:file:`exercise_data` directory, under :file:`raster/SRTM` subfolders.
+သင်ရွေးချယ်ထားသော ဒေသတစ်ခုလုံးကို လွှမ်းခြုံသော image များလိုအပ်ပါသည်။ Extent ကိုဩဒိနိတ်များကိုရှာဖွေရန်  QGIS ထဲတွင် အကြီးဆုံး layer ၏ extent ကို |zoomToLayer| zoom ပြုလုပ်ပြီး status bar ၏ |extents| :guilabel:`Extents` အကွက်ထဲရှိ တန်ဖိုးများကို ရယူပါ။ :file:`GeoTiff` format ဖြင့်ထားပါ။ Form ကိုဖြည့်သွင်းပြီးသည်နှင့် :guilabel:`Click here to Begin Search >>` ခလုတ်ကိုနှိပ်ပြီး ဖိုင်(များ)ကို ဒေါင်းလုပ်ပြုလုပ်ပါ။
 
-Create imagery tiff files
+လိုအပ်သောဖိုင်(များ)ကို ဒေါင်းလုဒ်ပြုလုပ်ပြီးသည်နှင့် ဖိုင်များကို :file:`exercise_data` ဖိုင်လမ်းကြောင်းထဲရှိ :file:`raster/SRTM` folder အခွဲအောက်တွင် သိမ်းဆည်းသင့်ပါသည်။
+
+Imagery tiff ဖိုင်များဖန်တီးခြင်း (Create imagery tiff files)
 --------------------------------------------------------------------------------
 
 
-In Module :ref:`tm_create_vector_data`, :ref:`tm_datasources` lesson shows
-close-up images of three school sports fields
-which students are asked to digitize. You'll therefore need to reproduce these
-images using your new SRTM DEM tiff file(s). There is no obligation to use school
-sports fields: any three school land-use types can be used (e.g. different
-school buildings, playgrounds or car parks).
+:ref:`tm_create_vector_data` မော်ဂျူးထဲတွင် :ref:`tm_datasources` သင်ခန်းစာသည် ကျောင်းသားများကို digitize ပြုလုပ်ခိုင်းသော ကျောင်းအားကစားကွင်း ၃ ခု၏ အနီးကပ် image များကို ပြသပါသည်။ ထို့ကြောင့် သင်၏ SRTM DEM tiff ဖိုင်(များ) ကိုအသုံးပြုပြီး အဆိုပါ image များကို ပြန်လည်ထုတ်ယူရန် လိုအပ်ပါလိမ့်မည်။ ကျောင်းအားကစားကွင်းများကိုသာ အသုံးပြုရမည်ဟု မကန့်သတ်ထားပါ- မည်သည့် ကျောင်း land-use အမျိုးအစားများ (ဥပမာ- မတူညီသော ကျောင်းအဆောက်အဦများ၊ ကစားကွင်းများ သို့မဟုတ် ကားပါကင်များ) ၃ ခုကိုမဆို အသုံးပြုနိုင်ပါသည်။
 
-For reference, the image in the example data is:
+အကိုးအကားပြုရန်အတွက် ဥပမာ data ထဲရှိ image သည်-
 
 .. figure:: img/field_outlines.png
    :align: center
 
 
-Replace tokens
+တိုကင်များ အစားထိုးလဲလှယ်ခြင်း (Replace tokens)
 --------------------------------------------------------------------------------
 
-Having created your localized dataset, the final step is to replace the tokens
-in the :file:`substitutions.txt` file so that the appropriate names will appear
-in your localized version of the Training Manual.
+သင့်ဒေသအတွက် dataset ကိုဖန်တီးပြီးပါက နောက်ဆုံးအဆင့်အနေဖြင့် :file:`substitutions.txt` ဖိုင်ထဲတွင် တိုကင်များကို အစားထိုးလဲလှယ်ရန်ဖြစ်ပါသည်၊ သို့မှသာ သင့်ကိုယ်ပိုင် Training Manual ဗားရှင်းတွင် သင့်လျော်သောနာမည်များ ပေါ်နေပါလိမ့်မည်။
 
-The tokens you need to replace are as follows:
+အစားထိုးလဲလှယ်ရန် လိုအပ်သည့် တိုကင်များမှာ အောက်ပါအတိုင်းဖြစ်သည်-
 
-* ``majorUrbanName``: this defaults to "Swellendam". Replace with the name of
-  the major town in your region.
-* ``schoolAreaType1``: this defaults to "athletics field". Replace with the
-  name of the largest school area type in your region.
-* ``largeLandUseArea``: this defaults to "Bontebok National Park". Replace
-  with the name of a large landuse polygon in your region.
-* ``srtmFileName``: this defaults to :file:`srtm_41_19.tif`. Replace this
-  with the filename of your SRTM DEM file.
-* ``localCRS``: this defaults to ``WGS 84 / UTM 34S``. You should replace
-  this with the correct CRS for your region.
+* ``majorUrbanName`` - Default အားဖြင့် "Swellendam" မြို့ ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသရှိ အဓိကမြို့နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။
+* ``schoolAreaType1`` - Default အားဖြင့် "athletics field" ဖြစ်ပါသည်။ ၎င်းးကို သင့်ဒေသရှိ အကြီးဆုံးကျောင်းဧရိယာအမျိုးအစား၏နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။
+* ``largeLandUseArea`` - Default အားဖြင့် "Bontebok National Park" ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသရှိ ကြီးမားသော landuse polygon တစ်ခု၏နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။
+* ``srtmFileName`` - Default အားဖြင့် :file:`srtm_41_19.tif` ဖိုင်ဖြစ်ပါသည်။ ၎င်းကို သင်၏ SRTM DEM ဖိုင်နာမည်ဖြင့် အစားထိုးလဲလှယ်ပါ။
+* ``localCRS`` - Default အားဖြင့် ``WGS 84 / UTM 34S`` CRS ဖြစ်ပါသည်။ ၎င်းကို သင့်ဒေသအတွက် မှန်ကန်သော CRS ဖြင့် အစားထိုးလဲလှယ်သင့်ပါသည်။
 
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE

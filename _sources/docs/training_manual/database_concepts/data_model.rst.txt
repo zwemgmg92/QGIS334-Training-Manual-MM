@@ -1,20 +1,14 @@
-Lesson: Implementing the Data Model
-===============================================================================
+သင်ခန်းစာ - Data Model အကောင်အထည်ဖော်ခြင်း (Lesson: Implementing the Data Model)
+=================================================================================
 
-Now that we've covered all the theory, let's create a new database. This
-database will be used for our exercises for the lessons that will follow
-afterwards.
+သီအိုရီအားလုံးကို လေ့လာပြီးဖြစ်ပါသည်၊ database အသစ်တစ်ခုကို ဖန်တီးကြည့်ပါမည်။ ဤ database ကို နောက်လာမည့် သင်ခန်းစာများအတွက် လေ့ကျင့်ခန်းများတွင် အသုံးပြုသွားမည်ဖြစ်ပါသည်။
 
-**The goal for this lesson:** To install the required software and use it to
-implement our example database.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** လိုအပ်သော software install ပြုလုပ်ပြီး နမူနာ database စတင်ရာတွင် အသုံးပြုရန်။
 
-Install PostgreSQL
+PostgreSQL Install လုပ်ခြင်း (Install PostgreSQL)
 -------------------------------------------------------------------------------
 
-.. note:: You can find PostgreSQL packages and installation instructions for
-  your operating system at https://www.postgresql.org/download/.
-  Please note that the documentation will assume users are running QGIS under
-  Ubuntu.
+.. note:: သင့် ကွန်ပျူတာအတွက် PostgreSQL package များနှင့် installation ညွှန်ကြားချက်များကို  https://www.postgresql.org/download/ တွင် တွေ့နိုင်ပါသည်။ သတိထားရမည်မှာ documentation သည် Ubuntu တွင် run နေသော QGIS အတွက်ဖြစ်ပါသည်။
 
 Under Ubuntu:
 
@@ -22,7 +16,7 @@ Under Ubuntu:
 
   sudo apt install postgresql-9.1
 
-You should get a message like this:
+အောက်ပါအတိုင်း message ရရှိပါလိမ့်မည်-
 
 .. code-block:: bash
 
@@ -41,42 +35,36 @@ You should get a message like this:
   After this operation, 19.0MB of additional disk space will be used.
   Do you want to continue [Y/n]?
 
-Press :kbd:`Y` and :kbd:`Enter` and wait for the download and installation to
-finish.
+:kbd:`Y` ကိုနှိပ်ပြီး :kbd:`Enter` ကိုနှိပ်ပါ၊ ဒေါင်းလုဒ်နှင့် installation ပြီးဆုံးသည်အထိ စောင့်ပါ။
 
-Help
+အကူအညီ (Help)
 -------------------------------------------------------------------------------
 
-PostgreSQL has very good `online
-<https://www.postgresql.org/docs/9.1/index.html>`_ documentation.
+PostgreSQL တွင် အလွန်ကောင်းသော `online
+<https://www.postgresql.org/docs/9.1/index.html>`_ documentation ရှိပါသည်။
 
-Create a database user
+Database user တစ်ခုဖန်တီးခြင်း (Create a database user)
 -------------------------------------------------------------------------------
 
 Under Ubuntu:
 
-After the installation is complete, run this command to become the postgres
-user and then create a new database user:
+Installation ပြီးဆုံးသွားသောအခါ postgres user ဖြစ်လာစေရန် အောက်ပါ command ကို run ပြီးနောက် database user အသစ်တစ်ခုဖန်တီးပါ-
 
 .. code-block:: bash
 
   sudo su - postgres
 
-Type in your normal log in password when prompted (you need to have sudo rights).
+မေးမြန်းလာပါက သာမန် log in password ရိုက်ထည့်ပါ (sudo right များရှိရန်လိုအပ်ပါသည်)။
 
-Now, at the postgres user's bash prompt, create the database user. Make sure
-the user name matches your unix login name: it will make your life much easier,
-as postgres will automatically authenticate you when you are logged in as that
-user:
+ယခုအခါ postgres user ၏ bash prompt တွင် database user ကိုဖန်တီးပါ။ User name သည် unix login name နှင့်ကိုက်ညီရပါမည်- အဆိုပါ user အနေဖြင့် login ဝင်သောအခါ postgres သည် အလိုအလျောက် authenticate လုပ်ပေးပါလိမ့်မည်-
 
 .. code-block:: bash
 
   createuser -d -E -i -l -P -r -s qgis
 
-Enter a password when prompted. You should use a different password to your login
-password.
+မေးမြန်းလာပါက password ရိုက်ထည့်ပါ။ Login password နှင့်မတူသော password တစ်ခုကို အသုံးပြုသင့်ပါသည်။
 
-What do those options mean?
+အဆိုပါ option များသည် ဘာကိုဆိုလိုပါသလဲ?
 
 .. code-block:: bash
 
@@ -88,21 +76,20 @@ What do those options mean?
   -r, --createrole   role can create new roles
   -s, --superuser    role will be superuser
 
-Now you should leave the postgres user's bash shell environment by
-typing:
+ယခုအခါ အောက်ပါကိုရိုက်ပြီး postgres user ၏ bash shell environment မှ ထွက်ပါ-
 
 .. code-block:: bash
 
   exit
 
-Verify the new account
+အကောင့်အသစ်ကို အတည်ပြုခြင်း (Verify the new account)
 -------------------------------------------------------------------------------
 
 ::
 
   psql -l
 
-Should return something like this::
+အောက်ပါပုံစံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်::
 
 
     Name      |  Owner   | Encoding | Collation  |   Ctype    |
@@ -112,25 +99,24 @@ Should return something like this::
     template1 | postgres | UTF8     | en_ZA.utf8 | en_ZA.utf8 |
     (3 rows)
 
-Type :kbd:`Q` to exit.
+ထွက်ရန် :kbd:`Q` ဟုရိုက်ထည့်ပါ။
 
-Create a database
+Database တစ်ခုဖန်တီးခြင်း (Create a database)
 -------------------------------------------------------------------------------
 
-The ``createdb`` command is used to create a new database. It should be run
-from the bash shell prompt:
+Database အသစ်တစ်ခုဖန်တီးရန်  ``createdb`` command ကိုအသုံးပြုပါသည်။ ၎င်းကို bash shell prompt မှ run သင့်ပါသည်-
 
 .. code-block:: psql
 
   createdb address -O qgis
 
-You can verify the existence of your new database by using this command:
+Database အသစ် ရှိမရှိကို အောက်ပါ command အသုံးပြုပြီး အတည်ပြုနိုင်ပါသည်-
 
 .. code-block:: psql
 
   psql -l
 
-Which should return something like this:
+အောက်ပါပုံစံအတိုင်း ပြန်ထုတ်ပေးပါလိမ့်မည်-
 
 .. code-block:: psql
 
@@ -142,57 +128,52 @@ Which should return something like this:
   template1 | postgres | UTF8     | en_ZA.utf8 | en_ZA.utf8 | =c/postgres: postgres=CTc/postgres
   (4 rows)
 
-Type :kbd:`Q` to exit.
+ထွက်ရန် :kbd:`Q` ဟုရိုက်ထည့်ပါ။
 
-Starting a database shell session
+Database shell session တစ်ခုစတင်ခြင်း (Starting a database shell session)
 -------------------------------------------------------------------------------
 
-You can connect to your database easily like this::
+အောက်ပါအတိုင်း database ကို အလွယ်တကူ ချိတ်ဆက်နိုင်ပါသည်::
 
   psql address
 
-To exit out of the psql database shell, type::
+psql database shell မှထွက်ရန် အောက်ပါကို ရိုက်ထည့်ပါ::
 
   \q
 
-For help in using the shell, type::
+Shell အသုံးပြုရာတွင် အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ::
 
   \?
 
-For help in using sql commands, type::
+sql command များအသုံးပြုရာတွင် အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ::
 
   \help
 
-To get help on a specific command, type (for example)::
+သီးသန့် commnad တစ်ခုနှင့်ပတ်သက်ပြီး အကူအညီရယူရန် အောက်ပါကို ရိုက်ထည့်ပါ (ဥပမာ)::
 
   \help create table
 
-See also the `Psql cheat sheet <http://www.postgresonline.com/downloads/special_feature/postgresql90_cheatsheet_A4.pdf>`_.
+`Psql cheat sheet <http://www.postgresonline.com/downloads/special_feature/postgresql90_cheatsheet_A4.pdf>`_ တွင်လည်း ကြည့်ရှုပါ။
 
-Make Tables in SQL
+
+SQL ထဲတွင် ဇယားများပြုလုပ်ခြင်း (Make Tables in SQL)
 -------------------------------------------------------------------------------
 
-Let's start making some tables! We will use our ER Diagram as a guide. First,
-connect to the address db:
+Table အချို့ ပြုလုပ်ကြည့်ပါမည်။ ER Diagram ကို guide အနေဖြင့် အသုံးပြုပါမည်။ ဦးစွာ address db နှင့်ချိတ်ဆက်ပါ-
 
 .. code-block:: sql
 
   psql address
 
-Then create a :file:`streets` table:
+ထို့နောက် :file:`streets` table တစ်ခုကို ဖန်တီးပါ-
 
 .. code-block:: sql
 
   create table streets (id serial not null primary key, name varchar(50));
 
-:kbd:`serial` and :kbd:`varchar` are **data types**. :kbd:`serial` tells
-PostgreSQL to start an integer sequence (auto-number) to populate the :kbd:`id`
-automatically for every new record. :kbd:`varchar(50)` tells PostgreSQL to
-create a character field of 50 characters in length.
+:kbd:`serial` နှင့် :kbd:`varchar` သည် **data types** များဖြစ်ကြပါသည်။ Record အသစ်တိုင်းအတွက် :kbd:`id` အလိုအလျောက်ထုတ်ပေးရန် :kbd:`serial` သည် PostgreSQL ကို integer sequence တစ်ခုအစပြုစေခြင်းဖြစ်ပါသည်။ :kbd:`varchar(50)` သည် အလျား 50 character ရှိသော field တစ်ခုကို ဖန်တီးစေပါသည်။
 
-You will notice that the command ends with a :kbd:`;` - all SQL commands should
-be terminated this way. When you press :kbd:`Enter`, psql will report something
-like this:
+Command တွင် :kbd:`;` ဖြင့်အဆုံးသတ်သည် ကို သတိထားမိပါလိမ့်မည်၊ SQL command အားလုံး ထိုအတိုင်းပင်ဖြစ်ပါသည်။ :kbd:`Enter` နှိပ်သောအခါ psql သည် အောက်ပါအတိုင်း report လုပ်ပေးပါလိမ့်မည်-
 
 .. code-block:: sql
 
@@ -202,20 +183,17 @@ like this:
            "streets_pkey" for table "streets"
   CREATE TABLE
 
-That means your table was created successfully, with a primary key :kbd:`streets_pkey`
-using :kbd:`streets.id`.
+ဆိုလိုသည်မှာ table ကို အောင်မြင်စွာ ဖန်တီးပြီးဖြစ်ကာ primary key :kbd:`streets_pkey` နှင့် :kbd:`streets.id` ကိုအသုံးပြုထားပါသည်။
 
-Note: If you hit return without entering a :kbd:`;`, then you will get a prompt like
-this: :kbd:`address-#`. This is because PG is expecting you to enter more. Enter
-:kbd:`;` to run your command.
+မှတ်ချက်- :kbd:`;` မပါရှိပဲ Enter နှိပ်လျှင် :kbd:`address-#` ကဲ့သို့ prompt တစ်ခုရရှိပါလိမ့်မည်။ အဘယ့်ကြောင့်ဆိုသော PG သည် ထပ်မံရိုက်ထည့်စေလိုသောကြောင့်ဖြစ်သည်။ Commnad ကို run ရန် :kbd:`;` ကိုထည့်ပါ။
 
-To view your table schema, you can do this:
+Table schema ကိုကြည့်ရှုရန် အောက်ပါအတိုင်း လုပ်နိုင်ပါသည်-
 
 .. code-block:: psql
 
   \d streets
 
-Which should show something like this:
+အောက်ပါပုံစံအတိုင်း ပြသသင့်ပါသည်-
 
 .. code-block:: sql
 
@@ -228,13 +206,13 @@ Which should show something like this:
   Indexes:
     "streets_pkey" PRIMARY KEY, btree (id)
 
-To view your table contents, you can do this:
+Table အကြောင်းအရာများကို ကြည့်ရှုရန် အောက်ပါအတိုင်း လုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
   select * from streets;
 
-Which should show something like this:
+အောက်ပါပုံစံအတိုင်း ပြသသင့်ပါသည်-
 
 .. code-block:: sql
 
@@ -242,21 +220,19 @@ Which should show something like this:
    ---+------
    (0 rows)
 
-As you can see, our table is currently empty.
+သင်မြင်တွေ့ရသည့်အတိုင်း Table သည် လက်ရှိတွင် ဗလာ ဖြစ်နေပါသည်။
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-Use the approach shown above to make a table called people:
+အထက်တွင်ဖော်ပြခဲ့သောနည်းအတိုင်း people ဟုခေါ်သော table တစ်ခုပြုလုပ်ပါ-
 
-Add fields such as phone number, home address, name, etc. (these aren't all
-valid names: change them to make them valid). Make sure you give the table an
-ID column with the same data-type as above.
+Phone number ၊ home address ၊ name ၊ အစရှိသည့် field များကို ထည့်သွင်းပါ (နာမည်များဆီလျော်မှုမရှိပါက ဆီလျော်မှုရှိသော နာမည်များ ပြောင်းလဲပါ)။ အထက်တွင်ဖော်ပြခဲ့သည့်အတိုင်း data-type တူညီသော ID column တစ်ခု table တွင် ထည့်သွင်းပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  The SQL required to create the correct people table is::
+  မှန်ကန်သော people table ကိုဖန်တီးရန် လိုအပ်သော SQL မှာ::
 
     create table people (id serial not null primary key,
                          name varchar(50),
@@ -264,7 +240,7 @@ ID column with the same data-type as above.
                          street_id int not null,
                          phone_no varchar null );
 
-  The schema for the table (enter ``\\d people``) looks like this::
+  Table အတွက် schema သည် (``\\d people`` ဟုရိုက်ထည့်ပါ) အောက်ပါအတိုင်းဖြစ်ပါမည်::
 
     Table "public.people"
 
@@ -279,25 +255,22 @@ ID column with the same data-type as above.
     Indexes:
       "people_pkey" PRIMARY KEY, btree (id)
 
-  For illustration purposes, we have purposely omitted the fkey constraint.
+  ပုံဖော်ပြသခြင်းဖြစ်သည့်အတွက် fkey constraint ကို ရည်ရွယ်ချက်ရှိရှိ ချန်ထားပါသည်။
 
-Create Keys in SQL
+SQL ထဲတွင် Key များဖန်တီးခြင်း (Create Keys in SQL)
 -------------------------------------------------------------------------------
 
-The problem with our solution above is that the database doesn't know that
-people and streets have a logical relationship. To express this relationship,
-we have to define a foreign key that points to the primary key of the streets
-table.
+အထက်ပါကိစ္စအတွက် ပြဿနာမှာ database သည် people နှင့် streets တွင် logical relationship တစ်ခုရှိသည်ကို မသိရှိပါ။ ထို relationship ကို ဖော်ပြရန် streets table ၏ primary key ကို ညွှန်ပြသော foreign key တစ်ခုကို သတ်မှတ်ပေးရပါမည်။
 
 .. figure:: img/er-people-streets.png
    :align: center
 
-There are two ways to do this:
+ထိုသို့လုပ်ဆောင်ရန် နည်းလမ်း ၂ ခုရှိပါသည်-
 
-* Add the key after the table has been created
-* Define the key at time of table creation
+* Table ကိုဖန်တီးပြီးမှ key ထည့်သွင်းခြင်း
+* Table ဖန်တီးချိန်တွင် key ကိုသတ်မှတ်ခြင်း
 
-Our table has already been created, so let's do it the first way:
+Table သည် ဖန်တီးပြီးသားဖြစ်နေပါသည်၊ ထို့ကြောင့် ပထမနည်းလမ်းဖြင့် လုပ်ကြည့်ပါမည်-
 
 .. code-block:: sql
 
@@ -305,10 +278,9 @@ Our table has already been created, so let's do it the first way:
     add constraint people_streets_fk foreign key (street_id) references streets(id);
 
 
-That tells the :kbd:`people` table that its :kbd:`street_id` fields must match
-a valid street :kbd:`id` from the :kbd:`streets` table.
+:kbd:`people` table ၏ :kbd:`street_id` field သည် :kbd:`streets` table မှ ဆီလျော်မှုရှိသော street :kbd:`id` နှင့် ကိုက်ညီမှုရှိရမည်ဖြစ်ကြောင်း ဆိုလိုခြင်းဖြစ်ပါသည်။
 
-The more usual way to create a constraint is to do it when you create the table:
+Constraint တစ်ခုကိုဖန်တီးရန် ပုံမှန်နည်းလမ်းမှာ table ဖန်တီးသောအခါ ၎င်းကို ဖန်တီးရန်ဖြစ်သည်-
 
 .. code-block:: psql
 
@@ -320,7 +292,7 @@ The more usual way to create a constraint is to do it when you create the table:
 
   \d people
 
-After adding the constraint, our table schema looks like this now:
+Constraint ထည့်သွင်းပြီးသောအခါ table schema သည် အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါမည်-
 
 .. code-block:: sql
 
@@ -339,11 +311,10 @@ After adding the constraint, our table schema looks like this now:
   Foreign-key constraints:
     "people_streets_fk" FOREIGN KEY (id) REFERENCES streets(id)
 
-Create Indexes in SQL
+SQL ထဲတွင် Index များဖန်တီးခြင်း (Create Indexes in SQL)
 -------------------------------------------------------------------------------
 
-We want lightning fast searches on peoples names. To provide for this, we can
-create an index on the name column of our people table:
+ကျွန်ုပ်တို့သည် People နာမည်များကို လျင်လျင်မြန်မြန်ရှာဖွေလိုပါသည်။ ထိုသို့လုပ်ဆောင်ရန် people table ၏ name column တွင် index တစ်ခုဖန်တီးပေးနိုင်ပါသည်-
 
 .. code-block:: psql
 
@@ -351,7 +322,7 @@ create an index on the name column of our people table:
 
   \d people
 
-Which results in:
+ရလာဒ်အနေဖြင့်-
 
 .. code-block:: sql
 
@@ -371,65 +342,53 @@ Which results in:
   Foreign-key constraints:
    "people_streets_fk" FOREIGN KEY (id) REFERENCES streets(id)
 
-Dropping Tables in SQL
+SQL ထဲတွင် Table များကို ဖြုတ်ချန်/ဖျက်ခြင်း (Dropping Tables in SQL)
 -------------------------------------------------------------------------------
 
-If you want to get rid of a table you can use the :kbd:`drop` command:
+Table တစ်ခုကို ဖျက်ပစ်လိုပါက :kbd:`drop` command ကိုအသုံးပြုနိုင်ပါသည်-
 
 .. code-block:: sql
 
   drop table streets;
 
-In our current example, the above command would not work. Why not?
+လက်ရှိဥပမာတွင် အထက်ပါ commnad သည် အလုပ်မဖြစ်ပါ၊ အဘယ့်ကြောင့်ပါလဲ?
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  The reason the DROP command would not work in this case is because the
-  *people* table has a Foreign Key constraint to the *streets* table. This means
-  that dropping (or deleting) the *streets* table would leave the *people* table
-  with references to non-existent *streets* data.
+  ဤကိစ္စတွင် DROP command အလုပ်မလုပ်ရခြင်း၏ အကြောင်းရင်းမှာ *people* table တွင် *streets* table သို့ချိတ်ထားသော Foreign Key constraint တစ်ခုရှိနေသောကြောင့်ဖြစ်သည်။ ဆိုလိုသည်မှာ *streets* table  ကို drop (သို့မဟုတ် delete) လုပ်ခြင်းသည်  *people* table တွင် *streets* data အကိုးအကားများကျန်ရှိတော့မည်မဟုတ်ပါ။
 
-  It is possible to 'force' the *streets* table to be deleted by using the
-  ``CASCADE`` command, but this would also delete the *people* and any other table
-  which had a relationship to the *streets* table. Use with caution!
+  ``CASCADE`` command အသုံးပြုပြီး *streets* table ကို အတင်းအကြပ် ဖျက်ပစ်နိုင်ပါသည်၊ သို့သော် ထိုသို့လုပ်ခြင်းသည် *people* table ကိုပါ ဖျက်ပစ်လိုက်နိုင်ပြီး *streets* table နှင့် relationship ရှိနေသော အခြား table များကိုပါ ဖျက်ပစ်လိုက်နိုင်ပါသည်။ သတိထား၍ အသုံးပြုပါ။
 
 
-If you used the same :kbd:`drop table` command on the `people` table, it would
-be successful:
+`people` table တွက် :kbd:`drop table` command ကိုအသုံးပြုခဲ့ပါက အဆင်ပြေမည်ဖြစ်သည်-
 
 .. code-block:: sql
 
   drop table people;
 
 
-.. note::  If you actually did enter that command and dropped the :kbd:`people`
-   table, now would be a good time to rebuild it, as you will need it in the
-   next exercises.
+.. note:: သင်သည် အဆိုပါ command ကိုရိုက်ထည့်ပြီး :kbd:`people` table ကို ဖျက်ပစ်ခဲ့ပါက ၎င်း table ကို နောက်လေ့ကျင့်ခန်းများတွင် ပြန်လည်လိုအပ်မည်ဖြစ်သည့်အတွက် ပြန်လည်တည်ဆောက်ပေးပါ။
 
-A word on pgAdmin III
+pgAdmin III အကြောင်း (A word on pgAdmin III)
 -------------------------------------------------------------------------------
 
-We are showing you the SQL commands from the `psql` prompt because it's a very
-useful way to learn about databases. However, there are quicker and easier ways
-to do a lot of what we are showing you. Install pgAdmin III and you can create,
-drop, alter etc tables using 'point and click' operations in a GUI.
+`psql` prompt မှ SQL command များသည် database များအကြောင်းလေ့လာရာတွင် အလွန်အသုံးဝင်သော နည်းလမ်းတစ်ခုဖြစ်ပါသည်။ သို့သော် သင်လေ့လာခဲ့သောအရာများစွာကို လုပ်ဆောင်ရန် ပိုမိုမြန်ဆန်ပြီး လွယ်ကူသော နည်းလမ်းများရှိပါသည်။ pgAdmin III ကို install ပြုလုပ်ပါက table များဖန်တီးခြင်း၊ drop လုပ်ခြင်း၊ ပြောင်းလဲခြင်း အစရှိသည်တို့ကို GUI တစ်ခုထဲတွင် click ပြုလုပ်ပြီး လုပ်ဆောင်နိုင်မည်ဖြစ်ပါသည်။
 
-Under Ubuntu, you can install it like this:
+Ubuntu တွင် အောက်ပါအတိုင်း install လုပ်နိုင်ပါသည်-
 
 .. code-block:: bash
 
   sudo apt install pgadmin3
 
-pgAdmin III will be covered in more detail in another module.
+pgAdmin III အကြောင်းကို နောက်ထပ် မော်ဂျူးတွင် ပိုမိုအသေးစိတ် လေ့လာရမည်ဖြစ်သည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You have now seen how to create a brand new database, starting completely from
-scratch.
+Database အသစ်စက်စက်တစ်ခုကို အစမှအဆုံး မည်သို့ဖန်တီးရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Next you'll learn how to use the DBMS to add new data.
+နောက်လာမည့်သင်ခန်းစာတွင် DBMS ကိုအသုံးပြုပြီး data အသစ်များ မည်သို့ထည့်သွင်းရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။

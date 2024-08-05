@@ -1,155 +1,117 @@
 *******************************************************************************
-Module: Assessment
+မော်ဂျူး - အကဲဖြတ်ခြင်း (Module: Assessment)
 *******************************************************************************
 
-Use your own data for this section. You will need:
+ဤအပိုင်းအတွက် သင့်ကိုယ်ပိုင် data ကိုအသုံးပြုပါ။ အောက်ပါတို့ လိုအပ်ပါလိမ့်မည်-
 
-- a point vector dataset of points of interest, with point names and multiple
-  categories
-- a line vector dataset of roads
-- a polygon vector dataset of land use (using property boundaries)
-- a visual-spectrum image (such as an aerial photograph)
-- a DEM (downloadable from `the CGIAR-CSI <http://srtm.csi.cgiar.org/>`_ if you
-  don't have your own)
+- Point အမည်များနှင့် category များစွာပါဝင်သော point vector dataset တစ်ခု
+- လမ်းများ၏ line vector dataset တစ်ခု
+- မြေအသုံးချမှုပြ polygon vector dataset တစ်ခု (property boundaries ကိုအသုံးပြုပြီး)
+- visual-spectrum ဓာတ်ပုံတစ်ခု (ဥပမာ-ကောင်းကင်ဓာတ်ပုံ)
+- DEM တစ်ခု (မရှိသေးလျှင် `the CGIAR-CSI <http://srtm.csi.cgiar.org/>`_ မှ ဒေါင်းလုဒ်ရယူနိုင်ပါသည်)
 
-Create a base map
+အောက်ခံမြေပုံတစ်ခုဖန်တီးပါ (Create a base map)
 ===============================================================================
 
-Before doing any data analysis, you will need a base map, which will provide
-your analysis result with context.
+မည်သည့် data analysis တစ်ခုမှ မလုပ်ခင်တွင် သင့် analysis ရလာဒ်ကို ဆက်စပ်ပြသပေးမည့် base map တစ်ခုလိုအပ်ပါလိမ့်မည်။
 
-Add the point layer
+Point layer ထည့်သွင်းပါ (Add the point layer)
 -------------------------------------------------------------------------------
 
-* Add in the point layer. Based on the level that you're doing the course at,
-  do only what is listed in the appropriate section below:
+* Point layer ထဲတွင်ထည့်သွင်းပါ။ သင့်အနေဖြင့် သင်တန်း၌လုပ်ဆောင်နေသော အဆင့်ပေါ်မူတည်၍ အောက်ပါ အဆင့်များထဲမှ သင့်တော်ရာအဆင့်ကိုသာ ဆောင်ရွက်ပါ-
 
 :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-* Label the points according to a unique attribute, such as place names.  Use a
-  small font and keep the labels inconspicuous. The information should be
-  available, but shouldn't be a main feature of the map.
-* Classify the points themselves into different colors based on a category.
-  For example, categories could include "tourist destination", "police
-  station", and "town center".
+* Point များကို attribute တစ်ခုခုဖြင့် label တပ်ပါ၊ ဥပမာ- နေရာအမည်များ။ စာလုံးဖောင့်အသေးကို အသုံးပြုပြီး label များကို မထင်မရှားပြုလုပ်ထားပါ။ အချက်အလက်ကို ပြသရုံသာဖြစ်ပြီး မြေပုံ၏အဓိက feature အနေဖြင့်မဖြစ်သင့်ပါ။
+* Point များကို category ပေါ်မူတည်ပြီး အရောင်အမျိုးမျိုးသို့ classify ပြုလုပ်ပါ။ ဥပမာ- category တွင် "tourist destination" ၊ "police station" ၊ နှင့် "town center" တို့ပါဝင်နိုင်ပါသည်။
 
 :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-* Do the same as the :abbr:`★☆☆ (Basic level)` section.
-* Classify the point size by importance: the more significant a feature, the
-  larger its point. However, don't exceed the point size of :kbd:`2.00`.
-* For features that aren't located at a single point (for example,
-  provincial/regional names, or town names at a large scale), don't assign any
-  point at all.
+* :abbr:`★☆☆ (Basic level)` section အတိုင်းလုပ်ဆောင်ပါ။
+* Point အရွယ်အစားကို classify ပြုလုပ်ပါ- feature တစ်ခုသည် သိသာထင်ရှားလေလေ ၎င်း point အရွယ်အစား ကြီးလေလေဖြစ်သည်။ သို့သော် point အရွယ်အစားကို :kbd:`2.00` ထက် မကျော်လွန်ပါစေနှင့်။
+* Point တစ်ခုတည်းတွင် ရှိမနေသော feature များအတွက် (ဥပမာ- ပြည်နယ်/တိုင်း အမည်များ၊ သို့မဟုတ် စကေးအကြီး၌ရှိသော မြို့အမည်များ) မည်သည့် point မျှမသတ်မှတ်ပါနှင့်။
 
 :abbr:`★★★ (Advanced level)`
 ...............................................................................
 
-* Don't use point symbols to symbolize the layer at all. Instead, use labels
-  centered over the points; the point symbols themselves should have no size.
-* Use :guilabel:`Data defined settings` to style the labels into meaningful
-  categories.
-* Add appropriate columns to the attribute data if necessary. When doing so,
-  don't create fictional data - rather, use the :guilabel:`Field Calculator` to
-  populate the new columns, based on appropriate existing values in the
-  dataset.
+* Layer ကို သင်္ကေတပြင်ဆင်ရန် မည်သည့် point သင်္ကေတကိုမျှအသုံးမပြုပါနှင့်။ ထိုအစား point များပေါ်တွင် label ကိုအလယ်၌ထားပြီး အသုံးပြုပါ၊ point သင်္ကေတများတွင် အရွယ်အစားမရှိသင့်ပါ။
+* Label များကို အဓိပ္ပါယ်ရှိသော category များအဖြစ်သို့ style ထည့်သွင်းရန် :guilabel:`Data defined settings` ကိုအသုံးပြုပါ။
+* လိုအပ်ပါက attribute data တွင် သင့်လျော်သော column များထည့်သွင်းပါ။ ထိုသို့လုပ်ဆောင်သောအခါ စိတ်ကူးယဉ်ဆန်သော data များ မဖန်တီးပါနှင့်၊ ထို့အစား dataset ထဲရှိ ရှိနေပြီးသား သင့်လျော်သော တန်ဖိုးများပေါ်အခြေခံပြီး column အသစ်များကိုထည့်သွင်းရန် :guilabel:`Field Calculator` ကိုအသုံးပြုပါ။
 
-Add the line layer
+Line layer ထည့်သွင်းခြင်း (Add the line layer)
 -------------------------------------------------------------------------------
 
-* Add the road layer and then change its symbology. Don't label the roads.
+* Road layer ကိုထည့်သွင်းပြီး ၎င်း၏ သင်္ကေတကို ပြောင်းလဲပါ။ Road များကို label မတပ်ပါနှင့်။
 
 :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-* Change the road symbology to a light color with a broad line. Make it
-  somewhat transparent as well.
+* Road သင်္ကေတကို မျဉ်းကြောင်းထူထူဖြင့် အရောင်ဖျော့သော သင်္ကေတသို့ ပြောင်းလဲပါ။ ၎င်းကို အနည်းငယ် transparent (အလင်းဖောက်) ပြုလုပ်ထားပါ။
 
 :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-* Create a symbol with multiple symbol layers. The resulting symbol should look
-  like a real road. You can use a simple symbol for this; for example, a black
-  line with a thin white solid line running down the center. It can be more
-  elaborate as well, but the resulting map should not look too busy.
-* If your dataset has a high density of roads at the scale you want to show the
-  map at, you should have two road layers: the elaborate road-like symbol, and
-  a simpler symbol at smaller scales. (Use scale-based visibility to make them
-  switch out at appropriate scales.)
-* All symbols should have multiple symbol layers. Use symbols to make them
-  display correctly.
+* သင်္ကေတ layer များစွာဖြင့် သင်္ကေတတစ်ခုကို ဖန်တီးပါ။ ရလာဒ်သင်္ကေတသည် လမ်းအစစ်နှင့် ပုံစံတူသင့်ပါသည်။ ထိုအတွက် ရိုးရှင်းသောသင်္ကေတတစ်ခုကို အသုံးပြုနိုင်ပါသည်- ဥပမာ၊ အလယ်တွင် အဖြူရောင် မျဉ်းအပါး ပါဝင်သော အနက်ရောင် မျဉ်းတစ်ခု။ ၎င်းသင်္ကေတကို ပိုမို၍လည်း ပြင်ဆင်နိုင်ပါသည်၊ သို့သော် ရလာဒ်မြေပုံသည် အလွန်ရှုပ်ရှုပ်ထွေးထွေး ပုံစံဖြစ်မနေသင့်ပါ။
+* မြေပုံပေါ်တွင် သင်ပြသလိုသော စကေး၌ road များ များပြားစွာရှိနေလျှင် road layer နှစ်ခု ရှိသင့်ပါသည်- road ပုံစံ သင်္ကေတ နှင့် စကေးအသေး၌ရှိသော ရိုးရိုးသင်္ကေတတစ်ခု။ (သင့်လျော်သောစကေးများ၌ မြင်ရနိုင်စေရန် စကေးအခြေခံသော မြင်ရနိုင်မှု (scale-based visibility) ကိုအသုံးပြုပါ)
+* သင်္ကေတများအားလုံးတွင် သင်္ကေတ layer အများအပြား ပါရှိသင့်ပါသည်။ ၎င်းတို့ကို မှန်မှန်ကန်ကန် ပြသနိုင်မည့် သင်္ကေတများကိုအသုံးပြုပါ။
 
 :abbr:`★★★ (Advanced level)`
 ...............................................................................
 
-* Do the same as in the :abbr:`★★☆ (Moderate level)` section above.
-* In addition, roads should be classified. When using realistic road-like
-  symbols, each type of road should have an appropriate symbol; for example, a
-  highway should appear to have two lanes in either direction.
+* အထက်ဖော်ပြပါ :abbr:`★★☆ (Moderate level)` section အတိုင်းလုပ်ဆောင်ပါ။
+* ထို့အပြင် road များကို classify လုပ်ထားသင့်ပါသည်။ လမ်းပုံစံအစစ်နှင့်တူသော သင်္ကေတများကိုအသုံးပြုသောအခါ road အမျိုးအစားတစ်ခုချင်းစီတွင် သင့်လျော်သော သင်္ကေတတစ်ခုစီရှိသင့်ပါသည်၊ ဥပမာ- highway လမ်းများသည် လားရာတစ်ဖက်တစ်ချက်စီဖြင့် လမ်း ၂ လမ်းပါရှိသည့်ပုံစံဖြစ်သင့်ပါသည်။
 
-Add the polygon layer
+Polygon layer ထည့်သွင်းခြင်း (Add the polygon layer)
 -------------------------------------------------------------------------------
 
-* Add the land use layer and change its symbology.
+* မြေအသုံးချမှု (land use) layer ကိုထည့်သွင်းပြီး ၎င်း၏ သင်္ကေတကို ပြောင်းလဲပါ။
 
 :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-* Classify the layer according to land use. Use solid colors.
+* Layer ကို land use အရ classify ပြုလုပ်ပါ။ အပိတ် (solid) အရောင်များကို အသုံးပြုပါ။
 
 :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-* Classify the layer according to land use. Where appropriate, incorporate
-  symbol layers, different symbol types, etc. Keep the results looking subdued
-  and uniform, however. Keep in mind that this will be part of a backdrop!
+* Layer ကို land use အရ classify ပြုလုပ်ပါ။ သင့်လျော်သည့်နေရာများတွင် သင်္ကေတ layer များ၊ အမျိုးမျိုး သင်္ကေတအမျိုးအစားများ၊ စသည်တို့ကို ပေါင်းစပ်ပါ။ ဤသို့လုပ်ဆောင်ခြင်းသည် နောက်ခံ (backdrop) တစ်ခု၏ တစ်စိတ်တစ်ပိုင်းသာဖြစ်ပါသည်။
 
 :abbr:`★★★ (Advanced level)`
 ...............................................................................
 
-* Use rule-based classification to classify the land use into general
-  categories, such as "urban", "rural", "nature reserve", etc.
+* Rule-based classification ကိုအသုံးပြုပြီး land use ကို "urban" ၊ "rural" ၊ "nature reserve" အစရှိသည့် ယေဘုယျ category များအဖြစ်သို့ classify ပြုလုပ်ပါ။
 
-Create the raster backdrop
+Raster နောက်ခံ ဖန်တီးခြင်း (Create the raster backdrop)
 -------------------------------------------------------------------------------
 
-* Create a hillshade from the DEM, and use it as an overlay for a classified
-  version of the DEM itself. You could also use the :guilabel:`Relief` plugin
-  (as shown in the lesson on plugins).
+* DEM မှ hillshade တစ်ခုဖန်တီးပါ၊ ထို့နောက် ၎င်းကို classify ပြုလုပ်ထားသော DEM တစ်ခုအတွက် overlay (အဖုံးအအုပ်) အဖြစ်အသုံးပြုပါ။ :guilabel:`Relief` plugin ကိုလည်း အသုံးပြုနိုင်ပါသည် (Plugin များ သင်ခန်းစာတွင် ပြထားသည့်အတိုင်း)။
 
-Finalize the base map
+အောက်ခံမြေပုံကို အပြီးသတ်ခြင်း (Finalize the base map)
 -------------------------------------------------------------------------------
 
-* Using the resources above, create a base map using some or all of the
-  layers. This map should include all the basic information needed to orient
-  the user, as well as being visually unified / "simple".
+* အထက်ပါ resource များကိုအသုံးပြုပြီး layer များအားလုံး သို့မဟုတ် အချို့ကိုသုံးကာ base map တစ်ခုဖန်တီးပါ။ ထိုမြေပုံတွင် အသုံးပြုသူကိုပြသရန်လိုအပ်သော အခြေခံအချက်အလက်များအားလုံး ပါဝင်သင့်သည်သာမက အမြင်ပိုင်းဆိုင်ရာအရလည်း ရိုးရိုးရှင်းရှင်းဖြစ်သင့်ပါသည်။
 
-Analyze the data
+Data ကို ဆန်းစစ်လေ့လာခြင်း (Analyze the data)
 ===============================================================================
 
-* You are looking for a property that satisfies certain criteria.
-* You can decide on your own criteria, which you must document.
-* There are some guidelines for these criteria:
+* သင်သည် criteria အချို့နှင့်ကိုက်ညီသော property တစ်ခုကို ရှာဖွေနေပါသည်။
+* ကိုယ်ပိုင် criteria ကိုဆုံးဖြတ်နိုင်ပါသည်။ Criteria များကိုမှတ်တမ်းပြုလုပ်ထားရပါမည်။
+* အဆိုပါ criteria များအတွက် လမ်းညွှန်ချက်အချို့ရှိပါသည်-
 
-  * the target property should be of (a) certain type(s) of land use
-  * it should be within a given distance from roads, or be crossed by a road
-  * it should be within a given distance from some category of points, like a
-    hospital for example
+  * လိုချင်သည့် property သည် land use အမျိုးအစားတစ်ခုခုဖြစ်သင့်သည်
+  * ၎င်းသည် လမ်းများမှ အကွာအဝေးတစ်ခုအတွင်း ရှိသင့်သည်၊ သို့မဟုတ် လမ်းတစ်ခုမှ ဖြတ်သွားသင့်သည်
+  * ၎င်းသည် point category အချို့မှ အကွာအဝေးတစ်ခုအတွင်း ရှိသင့်သည်၊ ဥပမာ- ဆေးရုံမှ အကွာအဝေးမည်မျှအတွင်း ရှိသင့်သည်။
 
 :abbr:`★★☆ (Moderate level)` / :abbr:`★★★ (Advanced level)`
 -------------------------------------------------------------------------------
 
-* Include raster analysis in your results. Consider at least one derived
-  property of the raster, such as its aspect or slope.
+* သင့်ရလာဒ်ထဲတွင် raster analysis လုပ်ဆောင်ပါ။ Aspect သို့မဟုတ် slope ကဲ့သို့ raster မှတွက်ထုတ်ရသည့် ရလာဒ် အနည်းဆုံးတစ်ခုပါဝင်အောင် လုပ်ဆောင်ပါ။
 
-Final Map
+အပြီးသတ်မြေပုံ (Final Map)
 ===============================================================================
 
-* Use the :guilabel:`Print Layout` to create a final map, which incorporates
-  your analysis results.
-* Include this map in a document along with your documented criteria. If the
-  map has become too visually busy due to the added layer(s), deselect the
-  layers which you feel are the least necessary.
-* Your map must include a title and a legend.
+* Analysis ရလာဒ်များပါဝင်သော အပြီးသတ်မြေပုံတစ်ခုဖန်တီးရန် :guilabel:`Print Layout` ကိုအသုံးပြုပါ၊
+* Criteria မှတ်တမ်းနှင့်အတူ document တစ်ခုထဲတွင် ထိုမြေပုံကိုထည့်သွင်းပါ။ မြေပုံသည် ထည့်သွင်းထားသော layer များကြောင့် အမြင်ပိုင်းအရ အလွန်ရှုပ်ထွေးနေလျှင် မလိုအပ်သော layer များကို select ဖြုတ်ထားနိုင်ပါသည်။
+* မြေပုံတွင် ခေါင်းစဉ်တစ်ခုနှင့် ရည်ညွှန်းချက်တစ်ခု ပါရှိရပါမည်။

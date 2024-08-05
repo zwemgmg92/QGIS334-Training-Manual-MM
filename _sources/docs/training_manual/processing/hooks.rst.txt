@@ -1,23 +1,15 @@
 Pre- and post-execution script hooks
 ====================================
 
-.. note:: This lesson shows how to use pre- and post-execution hooks, which allow
-   to perform additional operations before and after actual processing.
+.. note:: ဤသင်ခန်းစာတွင် processing မလုပ်ဆောင်မီနှင့် လုပ်ဆောင်ပြီးချိန်တွင် ထပ်ဆောင်း operation များဆောင်ရွက်နိုင်စေသော pre- နှင့် post-execution hooks များ အသုံးပြုနည်းကို လေ့လာရပါမည်။
 
-Pre- and post-execution hooks are Processing scripts that run before and after
-actual data processing is performed. This can be used to automate tasks that
-should be performed whenever an algorithm is executed.
+Pre- နှင့် post-execution hooks များသည် တကယ့် data processing မလုပ်ဆောင်မီနှင့် လုပ်ဆောင်ပြီးချိန်တွင် run နိုင်သော Processing script များဖြစ်ကြပါသည်။ Algorithm တစ်ခုကိုလုပ်ဆောင်ချိန်တိုင်း ဆောင်ရွက်သင့်သော task များကို အလိုအလျောက်ဖြစ်စေရန် ၎င်းတို့ကို အသုံးပြုနိုင်ပါသည်။
 
-The syntax of the hooks is identical to the syntax of Processing scripts, see the
-corresponding `chapter <https://docs.qgis.org/testing/en/docs/user_manual/processing/console.html>`_
-in the QGIS User Guide for more details.
+Hooks များ၏ syntax သည် Processing script များ၏ syntax နှင့် တစ်ထပ်တည်းတူညီပါသည်၊ QGIS အသုံးပြုသူလမ်းညွှန်ထဲရှိ သက်ဆိုင်ရာ `အခန်း <https://docs.qgis.org/testing/en/docs/user_manual/processing/console.html>`_ တွင် အသေးစိတ်ကြည့်ရှုနိုင်ပါသည်။
 
-In addition to all scripts features, in hooks you can use a special global
-variable named ``alg``, which represents the algorithm that has just been
-(or is about to be) executed.
+Script feature များအားလုံးအပြင် hook များတွင် ``alg`` ဟုခေါ်သော အထူး variable တစ်ခုကို အသုံးပြုနိုင်ပြီး၊ ထို variable သည် လုပ်ဆောင်ပြီးသည့် (သို့မဟုတ် လုပ်ဆောင်တော့မည့်) algorithm ကို ကိုယ်စားပြုပါသည်။
 
-Here is an example post-execution script. By default, Processing stores analysis results in temporary
-files. This script will copy outputs to a specific directory, so they won't be deleted after closing QGIS.
+အောက်တွင် Post-execution script ဥပမာတစ်ခုပြထားပါသည်။ Default အားဖြင့် Processing သည် analysis ရလာဒ်များကို ယာယီဖိုင်များထဲတွင် သိမ်းဆည်းထားပါသည်။ ဤ script သည် ရလာဒ်များကို သီးခြားဖိုင်လမ်းကြောင်းတစ်ခုထဲသို့ ကူးယူပေးမည်ဖြစ်သောကြောင့် QGIS ပိတ်လိုက်ပြီးလျှင် ရလာဒ်များ ပျက်သွားတော့မည်မဟုတ်ပါ။
 
 ::
 
@@ -33,25 +25,15 @@ files. This script will copy outputs to a specific directory, so they won't be d
             shutil.copytree(dirname, MY_DIRECTORY)
 
 
-In the first two lines we import the required Python packages: ``os`` --- for path
-manipulations, e.g. extracting file name, and ``shutil`` --- for various filesystem
-operations like copying files. In the third line we import Processing outputs. This will be
-explained in more detail later in this lesson.
+ပထမဆုံး စာကြောင်း ၂ ကြောင်းတွင် လိုအပ်သော Python package များ- ဖိုင်လမ်းကြောင်းကိုင်တွယ်ခြင်း (ဥပမာ- ဖိုင်အမည်ကို ဆွဲထုတ်ခြင်း) အတွက် ``os`` နှင့် ဖိုင်ကူးယူခြင်းကဲ့သို့ ဖိုင်စနစ်လုပ်ဆောင်မှုအမျိုးမျိုးအတွက်  ``shutil`` package ကို ထည့်သွင်းပါသည်။ တတိယစာကြောင်းတွင် Processing output များကို ထည့်သွင်းပါသည်။ ထိုအကြောင်းကို ဤသင်ခန်းစာနောက်ပိုင်းတွင် အသေးစိတ်ရှင်းပြပေးပါမည်။
 
-Then we define a ``MY_DIRECTORY`` constant, which is the path to the directory where we
-want to copy analysis results.
+ထို့နောက်တွင် ``MY_DIRECTORY`` ကိန်းသေတစ်ခုကို သတ်မှတ်ပါသည်၊ ၎င်းသည် analysis ရလာဒ်များကိုကူးယူလိုသည့် ဖိုင်လမ်းကြောင်းဖြစ်ပါသည်။
 
-At the end of the script, we have the main hook code. In the loop we iterate over all algorithm outputs
-and check if this output is a file-based output and can be copied. If so, we determine
-top-level directory in which output files are located and then copy all files to
-our directory.
+Script ၏နောက်ဆုံးတွင် အဓိက hook code ရှိပါသည်။ Loop (အဖန်ဖန်ပြန်ကျော့သောလုပ်ဆောင်မှု) ထဲတွင် algorithm ၏ output များအားလုံးကို တစ်ခုချင်းစီ iterate (ထပ်ခါတလဲလဲ) လုပ်ဆောင်ပြီး ဤ output သည် ဖိုင်အခြေခံသော output တစ်ခုဟုတ်/မဟုတ် နှင့် ကူးယူ၍ ရနိုင်/မရနိုင် ကိုစစ်ဆေးပေးပါသည်။ စစ်ဆေးမှုမှန်ကန်ပါက output ဖိုင်များတည်ရှိသော top-level ဖိုင်လမ်းကြောင်းကို ဆုံးဖြတ်ပေးပြီး ဖိုင်များအားလုံးကို ကျွန်ုပ်တို့သတ်မှတ်ထားသော ဖိုင်လမ်းကြောင်းထဲသို့ ကူးယူမည်ဖြစ်ပါသည်။
 
-To activate this hook we need to open the Processing options, find the entry named 
-*Post-execution script file* in the *General* group, and specify the filename of the
-hook script there. the specified hook will be executed after each Processing algorithm.
+အဆိုပါ hook ကို activate လုပ်ရန် Processing option များကိုဖွင့်ပေးရန် လိုအပ်ပါသည်၊ *General* အုပ်စုထဲတွင် *Post-execution script file* ကိုရှာဖွေပြီး hook script ၏ ဖိုင်နာမည်ကို ထိုနေရာတွင် သတ်မှတ်ပါ။ Processing algorithm တစ်ခုစီ run ပြီးလျှင် သတ်မှတ်ပေးထားသော hook ကိုလုပ်ဆောင်ပေးမည်ဖြစ်သည်။
 
-In a similar way, we can implement pre-execution hooks. For example, let's create a hook to
-check input vectors for geometry errors.
+Pre-execution hook များကို အလားတူလုပ်ဆောင်နိုင်ပါသည်။ ဥပမာ- input vector များတွင် ဂျီဩမေတြီအမှားများ ရှိ/မရှိ စစ်ဆေးရန် hook တစ်ခုကိုဖန်တီးကြည့်ပါမည်။
 
 ::
 
@@ -66,13 +48,9 @@ check input vectors for geometry errors.
                 if len(errors) > 0:
                     progress.setInfo('One of the input vectors contains invalid geometries!')
 
-As in the previous example, first we import required QGIS and Processing
-packages.
+ယခင်ဥပမာကဲ့သို့ပင် ပထမဦးစွာ လိုအပ်သော QGIS နှင့် Processing package များကိုထည့်သွင်းပါသည်။
 
-Then we iterate over all the algorithm parameters and if a ParameterVector parameter is found, we
-get the corresponding vector layer object from it. We loop over all the features of the layer and 
-check them for geometry errors. If at least one feature contains an invalid geometry, we print a warning message.
+ထို့နောက် algorithm parameter များအားလုံးကို iterate လုပ်ဆောင်ပြီး ParameterVector parameter တစ်ခုတွေ့ပါက သက်ဆိုင်ရာ vector layer object ကိုရယူပါသည်။ Layer ၏ feature များအားလုံးကို loop လုပ်ပြီး ဂျီဩမေတြီအမှားကို စစ်ဆေးပါသည်။ Feature တစ်ခုတွင် ဆီလျော်မှုမရှိသော ဂျီဩမေတြီတစ်ခု ပါရှိပါက သတိပေးချက်စာတိုတစ်ခုကို ပြသပေးပါမည်။
 
-To activate this hook we need enter its filename in the *Pre-execution script
-file* option in the Processing configuration dialog. 
-The hook will be executed before running any Processing algorithm.
+ဤ hook ကို activate ပြုလုပ်ရန် Processing configuration dialog ထဲရှိ *Pre-execution script
+file* option ထဲတွင် hook ၏ဖိုင်နာမည်ကို ထည့်သွင်းပေးရန်လိုအပ်ပါသည်။ Processing algorithm တစ်ခုခု မ run မီတွင် hook ကို လုပ်ဆောင်မည်ဖြစ်သည်။

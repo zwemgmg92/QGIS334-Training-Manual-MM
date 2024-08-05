@@ -1,17 +1,14 @@
 *******************************************************************************
-Module: Forestry Application
+မော်ဂျူး - သစ်တောကဏ္ဍဆိုင်ရာ အသုံးချမှုများ (Module: Forestry Application)
 *******************************************************************************
 
-In modules 1 through 13, you have already learned quite a lot about QGIS and how to work with it. If
-you are interested in learning about some basic forestry applications of GIS, following this
-module will give you the ability to apply what you have learned and will show you
-some new useful tools.
+မော်ဂျူး ၁ မှ ၁၃ အထိတွင် QGIS နှင့်မည်သို့အလုပ်လုပ်ဆောင်ရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။ သင့်အနေဖြင့် အခြေခံသစ်တောကဏ္ဍဆိုင်ရာများတွင် GIS အသုံးချမှုအကြောင်း စိတ်ဝင်စားပါက ယခု မော်ဂျူးသည် သင်လေ့လာပြီးသည်များကို အသုံးချရမည့်စွမ်းဆောင်ရည်နှင့် အသုံးဝင်သော အချို့ tool အသစ်များကို ပြသပေးမည်ဖြစ်ပါသည်။
 
 .. figure:: img/EUlogo_en.png
    :align: center
    :width: 15 em
 
-The development of this module has been sponsored by the European Union.
+ယခုမော်ဂျူးအား European Union ပံ့ပိုးကူညီပေးထားပါသည်။
 	
 .. toctree::
    :maxdepth: 2

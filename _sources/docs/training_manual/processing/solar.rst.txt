@@ -1,31 +1,31 @@
-Planning a solar farm
-======================
+ဆိုလာတပ်ဆင်မှုတစ်ခုအတွက် စီစဉ်ခြင်း (Planning a solar farm)
+=============================================================
 
-Module contributed by Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_
+မော်ဂျူးကို Paolo Cavallini - `Faunalia <https://www.faunalia.eu>`_ မှ ပါဝင်ကူညီထားပါသည်။
 
-.. note:: This chapter shows how to use several criteria to locate the areas suitable for installing a photovoltaic power station
+.. note:: ဤသင်ခန်းစာတွင် photovoltaic (အလင်းရောင်ဖြင့် လျှပ်စစ်ထုတ်ပေးနိုင်သော) power station တစ်ခုဆောက်လုပ်ရန် သင့်လျော်သည့်ဧရိယာများကို ရှာဖွေရန် criteria (သတ်မှတ်ချက်) များစွာကို မည်ကဲ့သို့အသုံးပြုရမည်ကို လေ့လာရပါမည်။
 
-First of all, create an aspect map from DTM:
+ပထမဦးစွာ DTM မှ aspect (မျက်နှာမူရာအရပ်) မြေပုံတစ်ခုဖန်တီးပါ-
 
 - :menuselection:`GRASS --> r.aspect` [Data type: int; cell size:100]
 
-In GRASS, aspect is calculated in degrees, counterclockwise starting from East. To extract only South facing slopes (270 degrees +- 45), we can reclassify it:
+GRASS တွင် aspect ကို ဒီဂရီဖြင့်တွက်ချက်ပြီး အရှေ့ဘက်မှစတင်ပြီး နာရီလက်တံပြောင်းပြန် သွားပါသည်။ တောင်ဘက်ကိုသာ မျက်နှာမူသော slope (270 ဒီဂရီ +- 45) များကို ထုတ်ယူရန် ၎င်းကို reclassify ပြုလုပ်နိုင်ပါသည်-
 
 - :menuselection:`GRASS --> r.reclass`
 
-with the following rules::
+အောက်ပါ rule များဖြင့်::
 
      225 thru 315 = 1 south
      * = NULL
 
-You can use the text file ``reclass_south.txt`` provided. Note that with these simple text files we can create also very complex reclassifications.
+ပေးထားသော ``reclass_south.txt`` စာသားဖိုင်ကို အသုံးပြုနိုင်ပါသည်။ ထိုသို့သော ရိုးရိုးစာသားဖိုင်များဖြင့် အလွန်ရှုပ်ထွေးသော reclassification များကိုလည်း ဖန်တီးနိုင်သည်ကို မှတ်သားထားပါ။
 
-We want to build a large farm, so we select only large (> 100 ha) contiguous areas:
+Solar Farm ကြီးကြီးတစ်ခုတည်ဆောက်လိုသောကြောင့် ကျယ်ပြန့်ပြီးကပ်လျက်ရှိသောဧရိယာ (100 ဟက်တာအထက်) များကိုသာ ရွေးချယ်ပါသည်-
 
 - :menuselection:`GRASS --> r.reclass.greater`
 
-Finally, we convert to a vector:
+နောက်ဆုံးတွင် vector တစ်ခုအဖြစ်သို့ ပြောင်းလဲပါသည်-
 
 - :menuselection:`GRASS --> r.to.vect` [Feature type: area; Smooth corners: yes]
 
-**Exercise for the reader**: repeat the analysis, replacing GRASS commands with analogous from other programs.
+**ဖတ်ရှုသူများအတွက် လေ့ကျင့်ခန်း** - GRASS command များကို အခြားသောပရိုဂရမ်များမှ ဆင်တူဖြစ်သော command များဖြင့် အစားထိုးပြီး analysis ကိုထပ်မံလုပ်ဆောင်ပါ။

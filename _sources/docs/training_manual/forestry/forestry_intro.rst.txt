@@ -1,37 +1,22 @@
-Lesson: Forestry Module Presentation
-===============================================================================
+သင်ခန်းစာ - သစ်တောကဏ္ဍဆိုင်ရာ မော်ဂျူး တင်ပြချက် (Lesson: Forestry Module Presentation)
+========================================================================================
 
-Following this module about a forestry application requires the knowledge you
-have learned through the modules 1 to 11 of this training manual. The exercises
-in the following lessons assume you are already capable of doing many of the basic
-operations in QGIS and only tools that have not been used before are presented in
-more detail.
+Forestry application အကြောင်းဖြစ်သော ယခုမော်ဂျူးကို လေ့လာရန် ဤသင်တန်းလက်စွဲ၏ မော်ဂျူး ၁ မှ ၁၁ အထိ လေ့လာထားရန်လိုအပ်ပါသည်။ နောက်လာမည့် သင်ခန်းစာများတွင်ပါရှိသော လေ့ကျင့်ခန်းများသည် သင့်ကို QGIS ထဲရှိ အခြေခံ operation များစွာကို လုပ်ဆောင်နိုင်စွမ်းရှိပြီးသားဟု မှတ်ယူမည်ဖြစ်ပြီး ယခင်က အသုံးမပြုရသေးသော tool များကိုသာလျှင် အသေးစိတ်ရှင်းပြပေးမည်ဖြစ်သည်။
 
-Nevertheless, the module follows a basic level throughout the lessons so that
-if you have previous experience with QGIS, you can probably follow the
-instructions without problems.
+ယခုမော်ဂျူးသည် အခြေခံအဆင့် သင်ခန်းစာများ ဖြစ်သည့်အတွက် ယခင်က QGIS အသုံးပြုဖူးသည့်အတွေ့အကြုံရှိလျှင် ပြဿနာမရှိပဲ လိုက်လုပ်နိုင်မည်ဖြစ်သည်။
 
-Note that you need to download an additional data package for this module.
+ယခုမော်ဂျူးအတွက် ထပ်ဆောင်း data package တစ်ခုကို ဒေါင်းလုဒ်ပြုလုပ်ရန် လိုအပ်ပါသည်။
 
-Forestry Sample Data
+သစ်တောကဏ္ဍနမူနာဒေတာ (Forestry Sample Data)
 -------------------------------------------------------------------------------
 
-.. note:: The sample data used in this module is part of the training manual
- data set and is available in the :file:`exercise_data\\forestry\\` folder.
+.. note:: ယခုမော်ဂျူးတွင် အသုံးပြုသော နမူနာ data သည် သင်တန်းလက်စွဲ data set ၏ တစ်ပိုင်းတစ်ပိုင်းဖြစ်ပြီး  :file:`exercise_data\\forestry\\` folder ထဲတွင် တွေ့နိုင်ပါသည်။
 
-The forestry related sample data (forestry map, forest data), has been provided
-by the `EVO-HAMK forestry school <https://www.hamk.fi/campuses-and-maps/evo/?lang=en>`_.
-The datasets have been modified to adapt to the lessons needs.
+သစ်တောနှင့်ပတ်သက်သော နမူနာ data (သစ်တောမြေပုံ၊ သစ်တော data) များကို `EVO-HAMK forestry school <https://www.hamk.fi/campuses-and-maps/evo/?lang=en>`_ မှ ပံ့ပိုးပေးထားပါသည်။ Dataset များကို သင်ခန်းစာလိုအပ်ချက်များနှင့်ကိုက်ညီအောင် မွမ်းမံပြင်ဆင်ထားပါသည်။
 
-The general sample data (aerial images, LiDAR data, basic maps) has been
-obtained from the National Land Survey of Finland open data service, and adapted
-for the purposes of the exercises. The open data file download service can be
-accessed in English `here <https://tiedostopalvelu.maanmittauslaitos.fi/tp/kartta?lang=en>`_.
+ယေဘုယျ နမူနာ data (ကောင်းကင်ဓာတ်ပုံများ၊ LiDAR data ၊ အခြေခံမြေပုံများ) များကို National Land Survey of Finland open data service မှ ရယူထားပြီး လေ့ကျင့်ခန်းများအတွက် အကိုးအကားယူထားပါသည်။ Open data file download service ကို အင်္ဂလိပ်ဘာသာဖြင့် `ဤတွင် <https://tiedostopalvelu.maanmittauslaitos.fi/tp/kartta?lang=en>`_ ဝင်ရောက်ရယူနိုင်ပါသည်။
 
 
 .. warning::
 
-   As for the rest of the training manual, this module includes instructions on adding,
-   deleting and altering GIS datasets. We have provided training datasets for this purpose.
-   Before using the techniques described here on your own data, always ensure you have
-   proper backups!
+   ယခုမော်ဂျူးတွင် GIS dataset များ ထည့်သွင်းခြင်း၊ ဖျက်ခြင်းနှင့် ပြောင်းလဲခြင်းများအတွက် ညွှန်ကြားချက်များပါဝင်ပါသည်။ ထိုအတွက် သင်တန်း dataset များကို ပံ့ပိုးပေးထားပါသည်။ ယခုဖော်ပြထားသော နည်းလမ်းများကို သင့်ကိုယ်ပိုင် data များနှင့်အသုံးပြုမည်ဆိုပါက အသုံးမပြုခင်တွင် သင့် data ကို အမြဲတမ်း backup ပြုလုပ်ထားပါ။

@@ -1,26 +1,18 @@
-Vector simplification and smoothing
-====================================
+Vector ကိုရိုးရှင်းအောင်လုပ်ခြင်းနှင့် ချောမွေ့အောင်လုပ်ခြင်း (Vector simplification and smoothing)
+====================================================================================================
 
-Module contributed by Paolo Cavallini - `Faunalia <https://www.faunalia.eu/en>`_
+မော်ဂျူးကို Paolo Cavallini - `Faunalia <https://www.faunalia.eu/en>`_ မှ ပါဝင်ကူညီထားပါသည်။
 
-.. note:: This chapter shows how simplify vectors, and smooth out sharp corners.
+.. note:: ဤသင်ခန်းစာတွင် vector များကို ရိုးရှင်းအောင်ပြုလုပ်နည်းနှင့် ချွန်သော ဒေါင့်များကို ချောမွေ့အောင် ပြုလုပ်နည်းများကို လေ့လာရပါမည်။
 
-Sometimes we need a simplified version of a vector, to have a smaller file size
-and get rid of unnecessary details. Many tools do this in a very rough way, and
-miss the adjacency and sometimes the topological correctness of polygons. GRASS
-is the ideal tool for this: being a topological GIS, adjacency and correctness
-are preserved even at very high simplification levels.
-In our case, we have a vector resulting from a raster, thus showing a "saw" pattern
-at borders. Applying a simplification results in straight lines:
+တစ်ခါတရံတွင် vector တစ်ခုကို ဖိုင်အရွယ်အစားသေးသေးနှင့် မလိုအပ်သောအသေးစိတ်များမပါဝင်ပဲ ရိုးရှင်းသောပုံစံဖြင့် လိုအပ်သည်များရှိပါသည်။ ၎င်းကို အကြမ်းမျဉ်းအားဖြင့်လုပ်ဆောင်ရန် tool များစွာရှိပြီး၊ နီးကပ်စွာရှိမှု (adjacency) နှင့် တစ်ခါတရံ polygon များ၏ topology ဆိုင်ရာမှန်ကန်မှု ပျောက်ဆုံးတတ်ပါသည်။ ထိုအတွက် GRASS သည် အကောင်းဆုံး tool ဖြစ်ပြီး အလွန်မြင့်သော ရိုးရှင်းမှုအဆင့်များတွင်ပင် adjacency နှင့် topology ဆိုင်ရာမှန်ကန်မှုကို ထိန်းသိမ်းထားပေးသော topology ဆိုင်ရာ GIS တစ်ခုဖြစ်ပါသည်။ ဤဥပမာတွင် raster တစ်ခုမှရရှိထားသော vector layer တစ်ခုရှိပြီး နယ်နိမိတ်များတွင် "လွှ" ပုံစံ ပြသနေပါသည်။ ၎င်းကို ရိုးရှင်းအောင်ပြုလုပ်ပါက မျဉ်းအဖြောင့်များအနေဖြင့် ရလာဒ်ထွက်လာပါမည်-
 
 - :menuselection:`GRASS --> v.generalize` [Maximal tolerance value: 30 m]
 
-We can also do the reverse, and make a layer more complex, smoothing out sharp corners:
+ပြောင်းပြန်ပြန်လုပ်ကာ Layer တစ်ခုကို ပိုမိုရှုပ်ထွေးအောင် လုပ်နိုင်ပါသည်၊ ချွန်ထက်သောဒေါင့်များကို ချောမွေ့အောင် လုပ်နိုင်ပါသည်-
 
 - :menuselection:`GRASS --> v.generalize` [method: chaiken]
 
-Try to apply this second command both to original vector and to the one from the
-first analysis, and see the difference. Note that adjacency is not lost.
+ဤဒုတိယ command ကို မူရင်း vector နှင့် ပထမ analysis မှ vector နှစ်ခုစလုံးတွင် အသုံးပြုကြည့်ပြီး ကွာခြားချက်ကို ကြည့်ပါ။ Adjacency (နီးကပ်စွာရှိမှု) ဆုံးရှုံးမှုမရှိသည်ကို တွေ့ရပါမည်။
 
-This second option can be applied e.g. to contour lines resulting from a coarse
-raster, to GPS tracks with sparse vertices, etc.
+ကြမ်းသော raster တစ်ခုမှရရှိလာသော ကွန်တိုမျဉ်းများ၊ vertex နည်းနည်းသာပါသော GPS track များ၊ စသည်တို့တွင် ဤဒုတိယ option ကို အသုံးချနိုင်ပါသည်။

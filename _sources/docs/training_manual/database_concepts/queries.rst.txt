@@ -1,16 +1,11 @@
-Lesson: Queries
+သင်ခန်းစာ - Query များ (Lesson: Queries)
 ===============================================================================
 
-When you write a :kbd:`SELECT ...` command it is commonly known as a query -
-you are interrogating the database for information.
+:kbd:`SELECT ...` command တစ်ခုကိုရေးသားသောအခါ ၎င်းကို query ဟု လူသိများပါသည် - အချက်အလက်များအတွက် database ကို စိစစ်မေးမြန်းခြင်း ဖြစ်ပါသည်။
 
-**The goal of this lesson:** To learn how to create queries that will return
-useful information.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** အသုံးဝင်သော အချက်အလက်များကို ပြန်ထုတ်ပေးမည့် query များဖန်တီးနည်းကို လေ့လာရန်။
 
-.. note:: If you did not do so in the previous lesson, add the following people
-  objects to your :kbd:`people` table. If you receive any errors related to
-  foreign key constraints, you will need to add the 'Main Road' object to your
-  streets table first
+.. note:: ယခင်သင်ခန်းစာတွင် မလုပ်ခဲ့ရပါက အောက်ပါ people object များကို :kbd:`people` table ထဲသို့ ထည့်သွင်းပါ။ Foreign key constraint များနှင့်ပတ်သက်သော error တစ်ခုခု ရရှိပါက streets table ထဲသို့ 'Main Road' object ကို ဦးစွာ ထည့်သွင်းပေးရန် လိုအပ်ပါလိမ့်မည်။
 
 .. code-block:: sql
 
@@ -24,16 +19,16 @@ useful information.
               values ('Sally Norman',83,1,'072 932 31 32');
 
 
-Ordering Results
+ရလာဒ်များကို စီ ခြင်း (Ordering Results)
 -------------------------------------------------------------------------------
 
-Let's retrieve a list of people ordered by their house numbers:
+အိမ်နံပါတ်များဖြင့် စီ ထားသော People စာရင်းတစ်ခုကို ဆွဲထုတ်ကြည့်ကြပါစို့- 
 
 .. code-block:: sql
 
   select name, house_no from people order by house_no;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -45,13 +40,13 @@ Result:
      Sally Norman |       83
     (4 rows)
 
-You can sort the results by the values of more than one column:
+ရလာဒ်များကို column တစ်ခုထက်မကသော တန်ဖိုးများဖြင့် sort လုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
 	select name, house_no from people order by name, house_no;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -64,15 +59,12 @@ Result:
     (4 rows)
 
 
-Filtering
+စစ်ထုတ်ခြင်း (Filtering)
 -------------------------------------------------------------------------------
 
-Often you won't want to see every single record in the database - especially if
-there are thousands of records and you are only interested in seeing one or
-two.
+Database ထဲရှိ record တစ်ခုစီတိုင်းကို မြင်တွေ့လိုခြင်းမရှိပဲ ထောင်ပေါင်းများစွာသော record များထဲမှ တစ်ခု သို့မဟုတ် နှစ်ခုကိုသာ မြင်တွေ့လိုပါသည်။
 
-Here is an example of a numerical filter which only returns objects whose
-``house_no`` is less than 50:
+``house_no`` 50 ထက်နည်းသော object များကိုသာ ပြန်ထုတ်ပေးသော ကိန်းဂဏန်း filter တစ်ခု၏ ဥပမာကို အောက်တွင်ပြထားပါသည်-
 
 .. code-block:: sql
 
@@ -84,8 +76,7 @@ Here is an example of a numerical filter which only returns objects whose
      Roger Jones |       33
     (2 rows)
 
-You can combine filters (defined using the ``WHERE`` clause) with sorting
-(defined using the ``ORDER BY`` clause):
+Filter များ (``WHERE`` clause ဖြင့်သတ်မှတ်ထားသော) ကို sorting (``ORDER BY`` clause ဖြင့်သတ်မှတ်ထားသော) ဖြင့် ပေါင်းစပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -97,7 +88,7 @@ You can combine filters (defined using the ``WHERE`` clause) with sorting
      Roger Jones |       33
     (2 rows)
 
-You can also filter based on text data:
+စာသား data အပေါ်မူတည်၍လည်း filter လုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -109,12 +100,9 @@ You can also filter based on text data:
      Roger Jones |       33
     (2 rows)
 
-Here we used the :kbd:`LIKE` clause to find all names with an :kbd:`s` in them.
-You'll notice that this query is case-sensitive, so the :kbd:`Sally Norman` entry
-has not been returned.
+နာမည်တွင် :kbd:`s` ပါသော နာမည်အားလုံးကိုရှာဖွေရန်  :kbd:`LIKE` clause ကိုအသုံးပြုပါသည်။ ထို query သည် case-sensitive ဖြစ်သည်ကို သတိပြုမိပါလိမ့်မည်၊ ထို့ကြောင့် :kbd:`Sally Norman` entry ကို ပြန်ထုတ်ပေးခြင်းမရှိပါ။
 
-If you want to search for a string of letters regardless of case, you can do a
-case in-sensitive search using the :kbd:`ILIKE` clause:
+စာသားများ string တစ်ခုကို စာလုံးအကြီးအသေးကို မစဉ်းစားပဲ ရှာဖွေလိုပါက :kbd:`ILIKE` clause ကိုအသုံးပြုပြီး case in-sensitive ရှာဖွေမှုတစ်ခုကို ပြုလုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -126,15 +114,12 @@ case in-sensitive search using the :kbd:`ILIKE` clause:
      Sally Norman |       83
     (2 rows)
 
-That query returned every **people** object with an :kbd:`r` or :kbd:`R` in their
-name.
+ထို query သည် နာမည်တွင် :kbd:`r` သို့မဟုတ် :kbd:`R` ပါဝင်သော **people** object တိုင်းကို ထုတ်ပေးမည်ဖြစ်ပါသည်။
 
-Joins
+ချိတ်ဆက်မှုများ (Joins)
 -------------------------------------------------------------------------------
 
-What if you want to see the person's details and their street's name instead of
-the ID? In order to do that, you need to join the two tables together in a single
-query. Lets look at an example:
+Person ၏ အသေးစိတ်အချက်အလက်များနှင့် ID အစား ၎င်းတို့၏ street နာမည်ကို မြင်တွေ့လိုပါက မည်သို့လုပ်မည်နည်း? ထိုသို့လုပ်ဆောင်ရန် query တစ်ခုထဲတွင် table နှစ်ခုကို join လုပ်ပေးရန် လိုအပ်ပါသည်။ ဥပမာ-
 
 .. code-block:: sql
 
@@ -142,13 +127,9 @@ query. Lets look at an example:
   from people,streets
   where people.street_id=streets.id;
 
-.. note::  With joins, you will always state the two tables the information is
-   coming from, in this case people and streets. You also need to specify
-   which two keys must match (foreign key & primary key). If you don't specify
-   that, you will get a list of all possible combinations of people and
-   streets, but no way to know who actually lives on which street!
+.. note:: Join ပြုလုပ်လျှင် အချက်အလက်များပါရှိသော table နှစ်ခုကို အမြဲတမ်း ဖော်ပြပေးရပါမည်၊ ဤဥပမာတွင် people နှင့် streets တို့ဖြစ်ပါသည်။ ကိုက်ညီမှုရှိရမည့် key နှစ်ခု (foreign key နှင့် primary key) ကိုလည်း သတ်မှတ်ပေးရန်လိုအပ်ပါသည်။ ၎င်းကို သတ်မှတ်မပေးထားပါက ဖြစ်နိုင်ချေရှိသော people နှင့် streets ပေါင်းစပ်မှုများအားလုံးကို ရရှိပါလိမ့်မည်၊ ထို့အတွက်ကြောင့် မည်သည့် street တွင် မည်သူက အမှန်တကယ်နေထိုင်သည်ကို သိရှိနိုင်တော့မည်မဟုတ်ပါ။
 
-Here is what the correct output will look like:
+ရလာဒ် အမှန်သည် အောက်ပါပုံစံအတိုင်း ဖြစ်ပါလိမ့်မည်-
 
 .. code-block:: sql
 
@@ -160,17 +141,14 @@ Here is what the correct output will look like:
      Jane Smith   |       55 | Main Road
     (4 rows)
 
-We will revisit joins as we create more complex queries later. Just remember
-they provide a simple way to combine the information from two or more tables.
+နောက်ပိုင်း ပိုမိုရှုပ်ထွေးသော query များကို ဖန်တီးသည့်အချိန်တွင် join ထပ်လုပ်ပါမည်။ နှစ်ခု သို့မဟုတ် နှစ်ခုထက်ပိုသော table များမှ အချက်အလက်များကို ပေါင်းစည်းရန် ရိုးရှင်းသော နည်းလမ်းတစ်ခုဖြစ်ပါသည်။
 
 Sub-Select
 -------------------------------------------------------------------------------
 
-Sub-selections allow you to select objects from one table based on the data
-from another table which is linked via a foreign key relationship. In our case,
-we want to find people who live on a specific street.
+Foreign key relationship တစ်ခုဖြင့် ချိတ်ဆက်ထားသော အခြား table မှ data များပေါ်မူတည်ပြီး table တစ်ခုမှ object များကို select လုပ်ရန် Sub-selection ကိုအသုံးပြုနိုင်ပါသည်။ ဤဥပမာတွင် သီးသန့် street တစ်ခုတွင် နေထိုင်သော people များကို ရှာဖွေလိုပါသည်။
 
-First, let's do a little tweaking of our data:
+ဦးစွာပထမ data ကို အနည်းငယ်ညှိကြည့်ပါမည်-
 
 .. code-block:: sql
 
@@ -180,8 +158,7 @@ First, let's do a little tweaking of our data:
   update people set street_id = 2 where id=2;
   update people set street_id = 3 where id=3;
 
-Let's take a quick look at our data after those changes: we can reuse our query
-from the previous section:
+အဆိုပါပြောင်းလဲမှုများပြုလုပ်ပြီးနောက် data ကို ကြည့်ကြပါစို့- ယခင်သင်ခန်းစာမှ query ကို ပြန်လည်အသုံးပြုနိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -189,7 +166,7 @@ from the previous section:
   from people,streets
   where people.street_id=streets.id;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -201,8 +178,7 @@ Result:
      Joe Bloggs   |        3 | Low Street
     (4 rows)
 
-Now let's show you a sub-selection on this data. We want to show only people who
-live in ``street_id`` number :kbd:`1`:
+ယခုအခါ ထို data တွင် sub-selection တစ်ခုလုပ်ကြည့်ပါမည်။ ``street_id`` :kbd:`1` တွင် နေထိုင်သော people များကိုသာ ပြသလိုပါသည်-
 
 .. code-block:: sql
 
@@ -214,7 +190,7 @@ live in ``street_id`` number :kbd:`1`:
     ) as streets_subset
   where people.street_id = streets_subset.id;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -224,22 +200,18 @@ Result:
      Sally Norman
     (2 rows)
 
-Although this is a very simple example and unnecessary with our small data-sets,
-it illustrates how useful and important sub-selections can be when querying
-large and complex data-sets.
+ဤဥပမာသည် အလွန်ရိုးရှင်းပြီး data-sets အသေးများတွင် မလိုအပ်သော်လည်း ကြီးမားပြီး ရှုပ်ထွေးသော data-sets များကို query လုပ်ဆောင်သောအခါ sub-selection ၏ အသုံးဝင်မှုနှင့် အရေးပါမှုကို ပြသပေးပါသည်။
 
-Aggregate Queries
+Query များကို စုပေါင်းခြင်း (Aggregate Queries)
 -------------------------------------------------------------------------------
 
-One of the powerful features of a database is its ability to summarise the data
-in its tables. These summaries are called aggregate queries. Here is a typical
-example which tells us how many people objects are in our people table:
+Database တစ်ခု၏ အစွမ်းထက်သော feature များထဲမှတစ်ခုသည် table များထဲရှိ data များကို summarise (အနှစ်ချုပ်) ပြုလုပ်နိုင်ခြင်းဖြစ်သည်။ ထို summary များကို aggregate query များဟု ခေါ်ဆိုပါသည်။ အောက်ပါဥပမာသည် people table ထဲတွင် people object မည်မျှရှိသည်ကို ပြောပြပေးပါသည်- 
 
 .. code-block:: sql
 
   select count(*) from people;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -248,7 +220,7 @@ Result:
        4
   (1 row)
 
-If we want the counts to be summarised by street name we can do this:
+Street name ဖြင့် အနှစ်ချုပ်ထားသော အရေအတွက်ကို လိုချင်ပါက အောက်ပါအတိုင်းပြုလုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -256,7 +228,7 @@ If we want the counts to be summarised by street name we can do this:
   from people
   group by street_id;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -267,26 +239,24 @@ Result:
          1 |         2
     (3 rows)
 
-.. note::  Because we have not used an :kbd:`ORDER BY` clause, the order of your
-  results may not match what is shown here.
+.. note:: :kbd:`ORDER BY` clause ကိုအသုံးမပြုထားသောကြောင့် သင့်ရလာဒ်များ၏ order သည် ဤဥပမာတွင် ပြထားသည်နှင့် ကိုက်ညီချင်မှ ကိုက်ညီပါလိမ့်မည်။
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ - (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-Summarise the people by street name and show the actual street names instead
-of the street_ids.
+Street name ဖြင့် people များကို summarise ပြုလုပ်ပြီး street_ids အစား street name အမှန်များကိုပြသပေးပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
   :class: dropdown
 
-  Here is the correct SQL statement you should use::
+  မှန်ကန်သော SQL statement မှာ::
 
     select count(people.name), streets.name
     from people, streets
     where people.street_id=streets.id
     group by streets.name;
 
-  Result::
+  ရလာဒ်::
 
        count |    name
        ------+-------------
@@ -295,18 +265,15 @@ of the street_ids.
            1 | Main Road
        (3 rows)
 
-  You will notice that we have prefixed field names with table names (e.g.
-  people.name and streets.name). This needs to be done whenever the field name
-  is ambiguous (i.e. not unique across all tables in the database).
+  Field name များကို table name များဖြင့် prefix (ရှေ့ဆက်) ထည့်သွင်းထားသည်ကို သတိပြုမိပါလိမ့်မည် (ဥပမာ- people.name နှင့် streets.name)။ Field name သည် ဒွိဟဖြစ်နေသည့် အချိန်တိုင်းတွင် ၎င်းကို ပြုလုပ်ရန်လိုအပ်ပါသည် (ဥပမာ- database ထဲရှိ table များအားလုံးအကြား unique ဖြစ်မနေလျှင်) 
 
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You've seen how to use queries to return the data in your database in a way
-that allows you to extract useful information from it.
+Database ထဲမှ အသုံးဝင်သော အချက်အလက်များကို ဆွဲထုတ်ရန် query များအသုံးပြုနည်းကို မြင်တွေ့ခဲ့ရပြီးဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Next you'll see how to create views from the queries that you've written.
+နောက်လာမည့်သင်ခန်းစာတွင် သင်ရေးသားထားသော query များမှ view များကို မည်သို့ဖန်တီးရမည်ကို လေ့လာရမည်ဖြစ်သည်။

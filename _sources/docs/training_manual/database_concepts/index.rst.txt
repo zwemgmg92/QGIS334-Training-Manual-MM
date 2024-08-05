@@ -1,11 +1,8 @@
-*******************************************************************************
-Module: Database Concepts with PostgreSQL
-*******************************************************************************
+**********************************************************************************************
+မော်ဂျူး - PostgreSQL ဖြင့် Database သဘောတရားများ (Module: Database Concepts with PostgreSQL)
+**********************************************************************************************
 
-Relational Databases are an important part of any GIS system. In this module, 
-you'll learn about Relational Database Management System (RDBMS) concepts and 
-you will use PostgreSQL to create a new database to store data, as well as 
-learning about other typical RDBMS functions.
+Relational Database များသည် မည်သည့် GIS စနစ်အတွက်မဆို အရေးကြီးသော အစိတ်အပိုင်းတစ်ခုဖြစ်ပါသည်။ ဤမော်ဂျူးတွင် Relational Database Management System (RDBMS) သဘောတရားများကို လေ့လာရမည်ဖြစ်ပြီး data များကိုသိုလှောင်ရန် database အသစ်တစ်ခုဖန်တီးရာတွင် PostgreSQL ကိုအသုံးပြုသွားမည်ဖြစ်ပါသည်၊ ထို့အပြင် အခြားသော ထင်ရှားသည့် RDBMS function များကိုအကြောင်းကိုလည်း လေ့လာရမည်ဖြစ်ပါသည်။
 
 .. toctree::
    :maxdepth: 2

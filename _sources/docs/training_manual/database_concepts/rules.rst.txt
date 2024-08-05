@@ -1,24 +1,20 @@
-Lesson: Rules
+သင်ခန်းစာ - စည်းမျဉ်းများ (Lesson: Rules)
 ===============================================================================
 
-Rules allow the "query tree" of an incoming query to be rewritten. One common
-usage is to implement views, including updatable view. *- Wikipedia*
+Rule များသည် query တစ်ခု၏ "query tree" ကိုရေးသားပေးနိုင်ပါသည်။ အသုံးများသောတစ်ခုမှာ update ပြုလုပ်နိုင်သော view များဖန်တီးခြင်းဖြစ်သည်။ *- Wikipedia*
 
-**The goal for this lesson:** To learn how to create new rules for the
-database.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** Database အတွက် rule အသစ်များဖန်တီးနည်းကို လေ့လာရန်။
 
-Creating a logging rule
------------------------
+မှတ်တမ်း စည်းမျဉ်းတစ်ခုဖန်တီးခြင်း (Creating a logging rule)
+-------------------------------------------------------------
 
-Say you want to log every change of phone_no in your people table in to a
-people_log table. So you set up a new table:
+People table ထဲရှိ phone_no ပြောင်းလဲမှုတိုင်းကို people_log table ထဲတွင် မှတ်တမ်းရေးသားလိုသည်ဆိုပါစို့။ Table အသစ်တစ်ခုကို set up ပြုလုပ်ပါမည်-
 
 .. code-block:: sql
 
   create table people_log (name text, time timestamp default NOW());
 
-In the next step, create a rule that logs every change of a phone_no in the
-people table into the people_log table:
+နောက်တစ်ဆင့်အနေဖြင့် people table ထဲရှိ phone_no ပြောင်းလဲမှုတိုင်းကို people_log table ထဲတွင် မှတ်တမ်းရေးသားမည့် rule တစ်ခုကို ဖန်တီးပါ-
 
 .. code-block:: sql
 
@@ -26,13 +22,13 @@ people table into the people_log table:
     where NEW.phone_no <> OLD.phone_no
     do insert into people_log values (OLD.name);
 
-To test that the rule works, let's modify a phone number:
+Rule အလုပ်ဖြစ်/မဖြစ် စမ်းသပ်ရန် phone number တစ်ခုကို ပြင်ကြည့်ပါမည်-
 
 .. code-block:: sql
 
   update people set phone_no = '082 555 1234' where id = 2;
 
-Check that the :kbd:`people` table was updated correctly:
+:kbd:`people` table သည် မှန်မှန်ကန်ကန် update ဖြစ်/မဖြစ် စစ်ဆေးကြည့်ပါ-
 
 .. code-block:: sql
 
@@ -43,8 +39,7 @@ Check that the :kbd:`people` table was updated correctly:
       2 | Joe Bloggs |        3 |         2 | 082 555 1234
     (1 row)
 
-Now, thanks to the rule we created, the :kbd:`people_log` table will look like
-this:
+ဖန်တီးလိုက်သော rule ကြောင့် :kbd:`people_log` table သည်အောက်ပါပုံစံအတိုင်း ဖြစ်နေပါလိမ့်မည်-
 
 .. code-block:: sql
 
@@ -55,17 +50,14 @@ this:
      Joe Bloggs | 2014-01-11 14:15:11.953141
     (1 row)
 
-.. note::  The value of the :kbd:`time` field will depend on the current date
-   and time.
+.. note:: :kbd:`time` field ၏တန်ဖိုးသည် လက်ရှိ ရက်စွဲနှင့် အချိန်ပေါ်တွင် မူတည်ပါသည်။
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Rules allow you to automatically add or change data in your database to reflect
-changes in other parts of the database.
+Rule များသည် database ထဲတွင် data များအလိုအလျှောက်ထည့်သွင်းခြင်း သို့မဟုတ် ပြောင်းလဲခြင်းများလုပ်ဆောင်ပေးနိုင်ပြီး အဆိုပါ ပြောင်းလဲမှုများကို database ၏အခြားအပိုင်းများတွင် သက်ရောက်စေပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-The next module will introduce you to Spatial Database using PostGIS,
-which takes these database concepts and applies them to GIS data.
+ဤ database သဘောတရားများဖြင့် GIS data များတွင် အသုံးချမည့် PostGIS အသုံးပြုသော Spatial Database အပိုင်းကို နောက်လာမည့် မော်ဂျူးတွင် မိတ်ဆက်ပေးမည်ဖြစ်ပါသည်။

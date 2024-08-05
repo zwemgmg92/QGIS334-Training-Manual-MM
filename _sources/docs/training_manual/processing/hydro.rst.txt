@@ -1,115 +1,88 @@
 .. _tm_hydro_analysis:
 
-Hydrological analysis
+ဇလဗေဒဆိုင်ရာ ဆန်းစစ်လေ့လာခြင်း (Hydrological analysis)
 ============================================================
 
 
-.. note:: In this lesson we will perform some hydrological analysis.
-  This analysis will be used in some of the following lessons, as it constitutes
-  a very good example of an analysis workflow, and we will use it to demonstrate
-  some advanced features.
+.. note:: ဤသင်ခန်းစာတွင် hydrology ဆိုင်ရာ analysis အချို့ကို လုပ်ဆောင်ပါမည်။ ဤ analysis သည် အလွန်ကောင်းသောဥပမာတစ်ခုဖြစ်သောကြောင့် နောက်လာမည့်သင်ခန်းစာအချို့တွင် အသုံးပြုသွားမည်ဖြစ်ပြီး အဆင့်မြင့် feature အချို့ကို သရုပ်ပြသရန်အတွက် ၎င်းကို အသုံးပြုသွားပါမည်။
 
-Objectives: Starting with a DEM, we are going to extract a channel network,
-delineate watersheds and calculate some statistics. 
+ရည်ရွယ်ချက်များ- DEM တစ်ခုမှ channel network (ရေစီးကြောင်းကွန်ယက်) တစ်ခုဆွဲထုတ်ခြင်း၊ watersheds (ရေဝေရေလဲ) ဧရိယာဖော်ထုတ်ခြင်းနှင့် စာရင်းအင်းအချို့တွက်ချက်ခြင်းများကို လုပ်ဆောင်မည်ဖြစ်ပါသည်။ 
 
-#. The first thing is to load the project with the lesson data, which just contains a DEM.
+#. ပထမဆုံးအနေဖြင့် DEM တစ်ခုသာပါဝင်သော ဤသင်ခန်းစာ၏ project ဖိုင်ကို ဖွင့်ပါ။
 
    .. figure:: img/hydro/dem.png
 
-#. The first module to execute is *Catchment area* (in some SAGA versions it is called
-   *Flow accumulation (Top Down)*). You can use any of the others named *Catchment area*.
-   They have different algorithms underneath, but the results are basically the same.
+#. ပထမဆုံးလုပ်ဆောင်ရမည့် မော်ဂျူးသည် *Catchment area* (အချို့သော SAGA ဗားရှင်းများတွင် ၎င်းကို *Flow accumulation (Top Down)* ဟုခေါ်ဆိုပါသည်) ဖြစ်ပါသည်။ *Catchment area* အမည်ပါသော အခြားတစ်ခုခုကိုလည်း အသုံးပြုနိုင်ပါသည်။ ၎င်းတို့တွင် အတွင်းပိုင်း၌ မတူညီသော algorithm များပါရှိသော်လည်း အခြေခံအားဖြင့် ရလာဒ်များသည် အတူတူပင်ဖြစ်ပါသည်။
 
-#. Select the DEM in the :guilabel:`Elevation` field, and leave the default values for
-   the rest of the parameters.
+#. :guilabel:`Elevation` field ထဲတွင် DEM ကိုရွေးပါ၊ ကျန်သော parameter များကို default တန်ဖိုးများအတိုင်း ထားရှိပါ။
 
    .. figure:: img/hydro/catchmentarea.png
 
-   Some algorithms calculate many layers, but the *Catchment Area* layer is the only one we will be using.
-   You can get rid of the other ones if you want.
+   အချို့သော algorithm များသည် layer များစွာကို တွက်ချက်ပေးပါသည်၊ သို့သော် *Catchment Area* တွင် layer တစ်ခုတည်းသာအသုံးပြုပါသည်။
 
-   The rendering of the layer is not very informative. 
+   Layer ပုံဖော်ပြသခြင်းကိုကြည့်ပါက အချက်အလက်များစွာမသိရှိနိုင်ပါ။
 
    .. figure:: img/hydro/catchmentlayer.png
 
-   To know why, you can have a look at the histogram and you will see that values
-   are not evenly distributed (there are a few cells with very high value, those
-   corresponding to the channel network). Use the :guilabel:`Raster calculator` algorithm
-   to calculate the logarithm of the catchment value area and you will get a layer
-   with much more information
+   Histogram ကိုကြည့်ပါက တန်ဖိုးများသည် ညီမျှစွာ ပြန့်နှံ့မှုမရှိသည်ကို မြင်တွေ့ရပါလိမ့်မည် (channel network နှင့်သက်ဆိုင်သော cell အနည်းငယ်တွင် တန်ဖိုးအလွန်မြင့်နေပါသည်)။ :guilabel:`Raster calculator` algorithm ကိုအသုံးပြုပြီး catchment တန်ဖိုးဧရိယာ၏ လော်ဂရပ်သမ် (log) ကိုတွက်ချက်ပါက အချက်အလက်များပိုမိုပါရှိသော layer တစ်ခုကို ရရှိပါလိမ့်မည်။
 
    .. figure:: img/hydro/catchmentlayerlog.png
 
-#. The catchment area (also known as flow accumulation) can be used to set a
-   threshold for channel initiation. This can be done using the :guilabel:`Channel network`
-   algorithm.
+#. Channel initiation (ရေစီးကြောင်းအစပြုမှု) အတွက် threshold (သတ်မှတ်ချက်) တစ်ခုကိုသတ်မှတ်ပေးရန် catchment area (flow accumulation ဟုလည်းခေါ်ပါသည်) ကိုအသုံးပြုနိုင်ပါသည်။ :guilabel:`Channel network` algorithm ကိုအသုံးပြု၍ လုပ်ဆောင်နိုင်ပါသည်။
    
-   * :guilabel:`Initiation grid`: use the catchment area layer and not the logarithm one.
-   * :guilabel:`Initiation threshold`: ``10.000.000``
-   * :guilabel:`Initiation type`: *Greater than* 
+   * :guilabel:`Initiation grid` - catchment area layer ကိုအသုံးပြုပါသည်၊ log တွက်ချက်ထားသော layer ကိုအသုံးမပြုပါ။
+   * :guilabel:`Initiation threshold` - ``10.000.000``
+   * :guilabel:`Initiation type` - *Greater than* 
 
    .. figure:: img/hydro/channelnetwork.png 
 
-   If you increase the :guilabel:`Initiation threshold` value, you will get a more sparse
-   channel network. If you decrease it, you will get a denser one.
-   With the proposed value, this is what you get.
+   :guilabel:`Initiation threshold` တန်ဖိုးကို မြှင့်လိုက်ပါက ပိုမိုကျဲပါးသော channel network တစ်ခုကို ရရှိပါလိမ့်မည်။ တန်ဖိုးကို လျှော့ချပါက ပိုမိုစိတ်သော channel network တစ်ခုကိုရရှိပါလိမ့်မည်။ ပေးထားသောတန်ဖိုးကိုအသုံးပြုပါက အောက်ပါအတိုင်းရရှိပါမည်။
 
    .. figure:: img/hydro/channelnetworklayer.png 
 
-   The image above shows just the resulting vector layer and the DEM, but there
-   should be also a raster layer with the same channel network. That raster
-   will be, in fact, the layer we will be using.
+   အထက်ဖော်ပြပါပုံတွင် ရလာဒ် channel network vector layer နှင့် DEM ကိုသာ ပြသထားပါသည်၊ သို့သော် ရလာဒ် channel network အတိုင်းပါရှိသည့် raster layer တစ်ခုလည်း ရှိသင့်ပါသည်။ ထို raster သည် ကျွန်ုပ်တို့အမှန်တကယ်အသုံးပြုမည့် raster layer ဖြစ်ပါလိမ့်မည်။
 
-#. Now, we will use the :guilabel:`Watersheds basins` algorithm to delineate the subbasins
-   corresponding to that channel network, using as outlet points all the junctions
-   in it. Here is how you have to set the corresponding parameters dialog.
+#. ရလာဒ် channel network နှင့်သက်ဆိုင်သော basin အခွဲများကို ဖော်ထုတ်ရန် channel network ထဲရှိ ဆုံမှတ်များအားလုံးကို outlet point များအနေဖြင့်အသုံးပြုပြီး :guilabel:`Watersheds basins` algorithm ဖြင့်လုပ်ဆောင်ပါမည်။ သက်ဆိုင်ရာ prameter များကို အောက်ပါအတိုင်း သတ်မှတ်ရပါမည်။ 
 
    .. figure:: img/hydro/watersheds.png 
 
 
-   And this is what you will get.
+   ရလာဒ်သည် အောက်ပါပုံအတိုင်းဖြစ်ပါသည်။
 
    .. figure:: img/hydro/watershedslayer.png 
 
-#. This is a raster result.
-   You can vectorise it using the :guilabel:`Vectorising grid classes` algorithm.
+#. ထိုရလာဒ်သည် raster layer တစ်ခုဖြစ်ပါသည်။ ၎င်းကို :guilabel:`Vectorising grid classes` algorithm အသုံးပြု၍ vector အဖြစ်သို့ ပြောင်းလဲနိုင်ပါသည်။
 
    .. figure:: img/hydro/vectorising.png 
 
    .. figure:: img/hydro/watershedslayervector.png 
 
 
-Now, let's try to compute statistics about the elevation values in one of the
-subbasins. The idea is to have a layer that just represents the elevation
-within that subbasin and then pass it to the module that calculates those statistics.
+Basin အခွဲများတစ်ခုချင်းစီရှိ elevation တန်ဖိုးများနှင့်ပတ်သက်သော စာရင်းအင်းအချက်အလက်များကို တွက်ချက်ပါမည်။ Basin အခွဲအတွင်းရှိ elevation ကိုသာ ကိုယ်စားပြုသော layer တစ်ခုရယူပြီး ထို layer ကို စာရင်းအင်းအချက်အလက်များတွက်ချက်မည့် မော်ဂျူးဆီသို့ ပို့ဆောင်ပေးမည်ဖြစ်သည်။
 
-#. First, let's clip the original DEM with the polygon representing a subbasin.
-   We will use the :guilabel:`Clip raster with polygon` algorithm. If we select a single
-   subbasin polygon and then call the clipping algorithm, we can clip the DEM to
-   the area covered by that polygon, since the algorithm is aware of the selection.
+#. ဦးစွာ မူရင်း DEM ကို basin အခွဲ polygon တစ်ခုဖြင့် clip (ဖြတ်တိ) ပြုလုပ်ပါမည်။ :guilabel:`Clip raster with polygon` algorithm ကိုအသုံးပြုပါမည်။ Basin အခွဲ polygon တစ်ခုကိုသာ select လုပ်ပြီး clipping algorithm ကိုလုပ်ဆောင်ပါက ထို select လုပ်ထားသော polygon ဧရိယာအတိုင်း DEM ကို clip ပြုလုပ်နိုင်ပါသည်။
 
-   #. Select a polygon
+   #. Polygon တစ်ခုကို select လုပ်ပါ။
 
       .. figure:: img/hydro/selectedpolygon.png 
 
-   #. Call the clipping algorithm with the following parameters:
+   #. Clipping algorithm ကို အောက်ပါ prameter များအတိုင်းဖြည့်သွင်း၍ run ပါ။
 
       .. figure:: img/hydro/clipgrid.png 
 
-      The element selected in the input field is, of course, the DEM we want to clip.
+      Input field ထဲတွင်ရွေးချယ်ထားသောအရာသည် clip ပြုလုပ်လိုသော DEM ဖြစ်ပါသည်။
 
-      You will get something like this.
+      အောက်ပါပုံစံအတိုင်းရရှိပါလိမ့်မည်။
 
       .. figure:: img/hydro/clippeddem.png 
 
-#. This layer is ready to be used in the :guilabel:`Raster layer statistics` algorithm.
+#. ထိုရလာဒ် layer ကို :guilabel:`Raster layer statistics` algorithm ထဲတွင် ထည့်သွင်းအသုံးပြုနိုင်ပြီဖြစ်ပါသည်။
 
    .. figure:: img/hydro/rasterstats.png 
 
-   The resulting statistics are the following ones.
+   ရလာဒ် စာရင်းအင်းအချက်အလက်များသည် အောက်ပါအတိုင်းဖြစ်ပါသည်။
 
    .. figure:: img/hydro/stats.png 
 
-We will use both the basin calculations procedure and the statistics
-calculation in other lessons, to find out how other elements can help us
-automate both of them and work more effectively.
+
+Basin တွက်ချက်ခြင်းလုပ်ငန်းစဉ်နှင့် စာရင်းအင်းအချက်အလက်များတွက်ချက်ခြင်း နှစ်မျိုးစလုံးကို အလိုအလျောက်လုပ်ဆောင်ပေးပြီး အလုပ်ပိုမိုထိရောက်စေနိုင်မည့် အခြားလုပ်ဆောင်ချက်များကို နောက်လာမည့်အခြားသင်ခန်းစာများတွင် လေ့လာရမည်ဖြစ်ပါသည်။

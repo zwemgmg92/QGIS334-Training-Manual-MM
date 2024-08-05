@@ -1,42 +1,26 @@
-Setting-up the processing framework
-====================================
+Processing framework ပြင်ဆင်သတ်မှတ်ခြင်း (Setting-up the processing framework)
+===============================================================================
 
-The first thing to do before using the processing framework is to configure it.
-There is not much to set-up, so this is an easy task.
+Processing framework အသုံးမပြုမီ ပထမဦးဆုံး ၎င်းကို configure ပြုလုပ်ရမည်ဖြစ်သည်။ Set-up ပြုလုပ်ရန် များစွာမရှိသောကြောင့် လွယ်ကူပါသည်။ 
 
-Later on we will show how to configure the external applications that are used
-for extending the list of available algorithms, but for now we are just going
-to work with the framework itself.
+ရရှိနိုင်သော algorithm များကိုတိုးချဲ့အသုံးပြုနိုင်ရန် ပြင်ပ application များကို configure ပြုလုပ်နည်းကို နောက်ပိုင်းတွင်ပြသသွားမည်ဖြစ်ပါသည်၊ သို့သော် ယခုအတွက်တော့ framework အသုံးပြုခြင်းကိုသာ လေ့လာသွားမည်ဖြစ်ပါသည်။
 
-The processing framework is a core QGIS plugin, which means that it should
-already be installed in your system, since it is included with QGIS. In case it
-is active, you should see a menu called :guilabel:`Processing` in your menu bar.
-There you can access all the framework components.
+Processing framework သည် ပင်မ QGIS plugin တစ်ခုဖြစ်ပါသည်၊ ဆိုလိုသည်မှာ QGIS တွင်အတူ ပါရှိသောကြောင့် ကွန်ပျူတာစနစ်တွင် install ပြုလုပ်ပြီးသားဖြစ်နေသင့်ပါသည်။ Processing framework သည် active ဖြစ်နေလျှင် Menu ဘားတွင် :guilabel:`Processing` ဟုခေါ်သော menu တစ်ခုတွေ့ရပါလိ့မ်မည်။ ထို menu ထဲတွင် framework အစိတ်အပိုင်းများအားလုံးကို ရရှိနိုင်ပါသည်။
 
 .. figure:: img/set_up/menu.png
 
-If you cannot find that menu, you have to enable the plugin by going to the
-plugin manager and activating it.
+အဆိုပါ menu ကို ရှာမတွေ့လျှင် plugin manager ထဲတွင် plugin ကို ဖွင့်ပေးရမည်ဖြစ်ပြီး activate လုပ်ပေးရပါမည်။
 
 .. figure:: img/set_up/installer.png
 
-The main element that we are going to work with is the toolbox. Click on the
-corresponding menu entry and you will see the toolbox docked at the right side
-of the QGIS window.
+လုပ်ဆောင်ရမည့် အဓိကအစိတ်အပိုင်းသည် toolbox ဖြစ်ပါသည်။ သက်ဆိုင်ရာ menu entry ပေါ်တွင် click နှိပ်ပါက toolbox သည် QGIS window ၏ညာဘက်အခြမ်းတွင် ပေါ်နေသည်ကို တွေ့ရပါလိမ့်မည်။
 
 .. figure:: img/set_up/toolbox.png
 
 
-The toolbox contains a list of all the available algorithms, divided in groups
-called *Providers*. Providers can be (de)activated in the
-:menuselection:`Settings --> Options --> Processing`. We will discuss that
-dialog later in this manual.
+အသုံးပြုနိုင်သော algorithm များအားလုံးကို Toolbox တွင် စာရင်းပြုစုထားပြီး *Providers* ဟုခေါ်သော အုပ်စုများ ခွဲထားပါသည်။ Providers များကို :menuselection:`Settings --> Options --> Processing` ထဲတွင် activate သို့မဟုတ် deactivate ပြုလုပ်နိုင်ပါသည်။ ထို dialog အကြောင်းကို နောက်ပိုင်းတွင် ဆွေးနွေးသွားမည်ဖြစ်ပါသည်။
 
-By default, only providers that do not rely on third-party applications (that is,
-those that only require QGIS elements to be run) are active. Algorithms requiring
-external applications might need additional configuration. Configuring providers
-is explained in a later chapter in this manual.
+Default အားဖြင့် third-party application များအပေါ်မမှီခိုသော provider များ (လုပ်ဆောင်ရန် QGIS element များသာလိုအပ်သော) သာ active ဖြစ်နေပါသည်။ ပြင်ပ application များကို လိုအပ်သော algorithm များကို ထပ်ဆောင်း configuration ပြုလုပ်ပေးရန် လိုအပ်ပါသည်။ Provider များ configure ပြုလုပ်ခြင်းကို နောက်ပိုင်းရှိသင်ခန်းစာတစ်ခုထဲတွင် ရှင်းပြထားပါသည်။
 
-If you have reached this point, now you are ready to use geoalgorithms. There is
-no need to configure anything else by now. We can already run our first algorithm,
-which we will do in the next lesson.
+ယခုအခါ geoalgorithm များကို အသုံးပြုရန် အသင့်ဖြစ်နေပြီ ဖြစ်ပါသည်။ ယခုအချိန်ထိတော့ တစ်ခုခု configure ပြုလုပ်ရန် မလိုအပ်သေးပါ။ ပထမဦးဆုံး algorithm ကို run နိုင်ပြီဖြစ်ကာ နောက်လာမည့် သင်ခန်းစာတွင် လုပ်ဆောင်သွားမည်ဖြစ်ပါသည်။
+

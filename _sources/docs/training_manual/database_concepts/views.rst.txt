@@ -1,17 +1,14 @@
-Lesson: Views
+သင်ခန်းစာ - View များ (Lesson: Views)
 ===============================================================================
 
-When you write a query, you need to spend a lot of time and effort formulating
-it. With views, you can save the definition of an SQL query in a reusable
-'virtual table'.
+Query တစ်ခုရေးသားသောအခါ အချိန်နှင့်အားစိုက်မှုများစွာ လိုအပ်ပါသည်။ View များအသုံးပြု၍ SQL query တစ်ခု၏ အဓိပ္ပါယ်သတ်မှတ်ချက်ကို ပြန်လည်အသုံးပြုနိုင်သော 'virtual table' ထဲတွင် သိမ်းဆည်းထားနိုင်ပါသည်။
 
-**The goal for this lesson:** To save a query as a view.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** Query တစ်ခုကို View တစ်ခုအနေဖြင့် သိမ်းဆည်းရန်။
 
-Creating a View
+View တစ်ခုဖန်တီးခြင်း (Creating a View)
 -------------------------------------------------------------------------------
 
-You can treat a view just like a table, but its data is sourced from a query.
-Let's make a simple view based on the above:
+View တစ်ခုကို table တစ်ခုကဲ့သို့ လုပ်ဆောင်နိုင်ပါသည်၊ သို့သော် ၎င်း၏ data ရင်းမြစ်သည် query တစ်ခုမှလာပါသည်။ ယခင်သင်ခန်းစာရှိ query ကိုအခြေခံပြီး ရိုးရှင်းသော view တစ်ခုဖန်တီးကြည့်ပါမည်-
 
 .. code-block:: sql
 
@@ -20,14 +17,13 @@ Let's make a simple view based on the above:
     from people, streets where people.street_id=streets.id
     group by people.street_id, streets.name;
 
-As you can see the only change is the :kbd:`create view roads_count_v as` part
-at the beginning. We can now select data from that view:
+မြင်တွေ့ရသည့်အတိုင်း အစပိုင်းတွင်ရေးသားထားသော :kbd:`create view roads_count_v as` အပိုင်းသာလျှင် ပြောင်းလဲသွားပါသည်။ အဆိုပါ view မှ data များကို select လုပ်နိုင်ပြီဖြစ်ပါသည်-
 
 .. code-block:: sql
 
   select * from roads_count_v;
 
-Result:
+ရလာဒ်-
 
 .. code-block:: sql
 
@@ -38,11 +34,10 @@ Result:
          1 | Low Street
     (3 rows)
 
-Modifying a View
+View တစ်ခုကို မွမ်းမံပြင်ဆင်ခြင်း (Modifying a View)
 -------------------------------------------------------------------------------
 
-A view is not fixed, and it contains no 'real data'. This means you can easily
-change it without impacting on any data in your database:
+View ကို ပုံသေသတ်မှတ်မထားပါ၊ ၎င်းတွင် 'data အစစ်' များမပါဝင်ပါ။ ဆိုလိုသည်မှာ database ထဲရှိ data များကိုထိခိုက်မှုမရှိစေပဲ view ကို အလွယ်တကူပြောင်းလဲမှုပြုလုပ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
@@ -52,11 +47,9 @@ change it without impacting on any data in your database:
     GROUP BY people.street_id, streets.name
     ORDER BY streets.name;
 
-(This example also shows the best practice convention of using UPPER CASE for
-all SQL keywords.)
+(ဤဥပမာတွင် SQl keyword များအားလုံးအတွက် UPPER CASE အသုံးပြုခြင်းကို ပြသထားပါသည်)
 
-You will see that we have added an :kbd:`ORDER BY` clause so that our view rows
-are nicely sorted:
+View row များကို ကောင်းမွန်စွာ sort ပြုလုပ်စေရန် :kbd:`ORDER BY` clause ကိုထည့်သွင်းထားသည်ကို မြင်တွေ့ရပါမည်-
 
 .. code-block:: sql
 
@@ -69,22 +62,21 @@ are nicely sorted:
          1 | Main Road
     (3 rows)
 
-Dropping a View
+View တစ်ခုကို ဖယ်ရှားခြင်း (Dropping a View)
 -------------------------------------------------------------------------------
 
-If you no longer need a view, you can delete it like this:
+View တစ်ခုကို မလိုအပ်တော့ပါက အောက်ပါအတိုင်း ဖျက်ပစ်နိုင်ပါသည်-
 
 .. code-block:: sql
 
   drop view roads_count_v;
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-Using views, you can save a query and access its results as if it were a table.
+View များကိုအသုံးပြုပြီး query တစ်ခုကို သိမ်းဆည်းနိုင်သလို ရလာဒ်များကို table တစ်ခုကဲ့သို့ ရယူသုံးစွဲနိုင်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Sometimes, when changing data, you want your changes to have effects elsewhere
-in the database. The next lesson will show you how to do this.
+တစ်ခါတရံတွင် data များကို ပြောင်းလဲသောအခါ database ထဲတွင်ပါ ပြောင်းလဲလိုသည်များရှိပါသည်။ နောက်လာမည့်သင်ခန်းစာတွင် ၎င်းကို မည်သို့လုပ်ဆောင်ရမည်ကို လေ့လာရမည်ဖြစ်ပါသည်။

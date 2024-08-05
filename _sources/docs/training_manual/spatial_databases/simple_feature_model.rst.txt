@@ -1,53 +1,42 @@
-Lesson: Simple Feature Model
+သင်ခန်းစာ - ရိုးရှင်းသော Feature Model (Lesson: Simple Feature Model)
 ===============================================================================
 
-How can we store and represent geographic features in a database? In this
-lesson we'll cover one approach, the Simple Feature Model as defined by the
-OGC.
+Database တစ်ခုထဲတွင် geographic feature များကို မည်သို့ သိုလှောင်သိမ်းဆည်းပြီး မည်သို့ ကိုယ်စားပြုဖော်ပြမည်နည်း? ဤသင်ခန်းစာတွင် OGC မှသတ်မှတ်ထားသော Simple Feature Model နည်းလမ်းတစ်ခုကို ပြသပေးမည်ဖြစ်ပါသည်။
 
-**The goal for this lesson:** To learn what the SFS Model is and how to use it.
+**ဤသင်ခန်းစာအတွက် ရည်မှန်းချက်-** SFS Model ဆိုတာဘာလဲနှင့် ၎င်းကို မည်သို့အသုံးပြုရမည်ကို လေ့လာရန်။
 
-What is OGC
+OGC ဆိုတာဘာလဲ (What is OGC)
 -------------------------------------------------------------------------------
 
-The Open Geospatial Consortium (OGC), an international voluntary consensus
-standards organization, originated in 1994. In the OGC, more than 370+
-commercial, governmental, nonprofit and research organizations worldwide
-collaborate in an open consensus process encouraging development and
-implementation of standards for geospatial content and services, GIS data
-processing and data sharing. *- Wikipedia*
+Open Geospatial Consortium (OGC) သည် အပြည်ပြည်ဆိုင်ရာ သဘောတူညီမှု စံနှုန်းအဖွဲ့အစည်းတစ်ခုဖြစ်ပြီး 1994 ခုနှစ်တွင် စတင်ဖွဲ့စည်းခဲ့ပါသည်။ OGC တွင် တစ်ကမ္ဘာလုံးရှိ ပုဂ္ဂလိကအဖွဲ့အစည်းများ၊ အစိုးရအဖွဲ့အစည်းများ၊ အမြတ်အစွန်းအတွက် မရည်ရွယ်သော အဖွဲ့အစည်းများနှင့် သုတေသနအဖွဲ့အစည်းများ ၃၇၀ ကျော် ပူးပေါင်းပါဝင်ပြီး ပထဝီဝင်ဆိုင်ရာအကြောင်းအရာများနှင့်ဝန်ဆောင်မှုများ၊ GIS data processing နှင့် data မျှဝေခြင်းများအတွက် စံချိန်စံနှုန်းများအကောင်အထည်ဖော်ဆောင်ခြင်းနှင့် ဖွံ့ဖြိုးတိုးတက်မှုများအားကောင်းစေရန် ပွင့်လင်းမြင်သာသောသဘောတူညီမှု လုပ်ငန်းစဉ်ကို လုပ်ဆောင်ကြပါသည်။ *- Wikipedia*
 
-What is the SFS Model
+SFS Model ဆိုတာဘာလဲ (What is the SFS Model)
 -------------------------------------------------------------------------------
 
-The Simple Feature for SQL (SFS) Model is a *non-topological* way to store
-geospatial data in a database and defines functions for accessing, operating,
-and constructing these data.
+SQL အတွက် Simple Feature (SFS) Model ဆိုသည်မှာ database တစ်ခုထဲတွင် geospatial data များကို သိမ်းဆည်းရန် *ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံမဟုတ်သော* *(non-topological)* နည်းလမ်းတစ်ခုဖြစ်ပြီး အဆိုပါ data များကို ရယူသုံးစွဲခြင်း၊ လုပ်ကိုင်ဆောင်ရွက်ခြင်းနှင့် တည်ဆောက်ခြင်းများအတွက် function များကို သတ်မှတ်ပေးပါသည်။
 
 .. figure:: img/ogc_sfs.png
    :align: center
 
-The model defines geospatial data from Point, Linestring, and Polygon types
-(and aggregations of them to Multi objects).
+Model သည် Point ၊ Linestring နှင့် Polygon အမျိုးအစားများမှ geospatial data များကို သတ်မှတ်ပေးပါသည် (ထိုအမျိုးအစားများကို object များစွာအဖြစ်သို့ စုပေါင်းပေးပါသည်)။
 
-For further information, have a look at the `OGC Simple Feature for SQL
-<https://www.ogc.org/standards/sfs>`_ standard.
+နောက်ထပ်အချက်အလက်များအတွက် `OGC Simple Feature for SQL
+<https://www.ogc.org/standards/sfs>`_ standard တွင် ကြည့်ရှုပါ။
 
-Add a geometry field to table
+ဇယားထဲသို့ ဂျီဩမေတြီ field တစ်ခုထည့်သွင်းခြင်း (Add a geometry field to table)
 -------------------------------------------------------------------------------
 
-Let's add a point field to our people table:
+People table ထဲသို့ point field တစ်ခု ထည့်သွင်းကြည့်ပါမည်-
 
 .. code-block:: sql
 
   alter table people add column the_geom geometry;
 
 
-Add a constraint based on geometry type
--------------------------------------------------------------------------------
+ဂျီဩမေတြီအမျိုးအစားပေါ်အခြေခံပြီး constraint (ကန့်သတ်ချက်) တစ်ခုထည့်သွင်းခြင်း (Add a constraint based on geometry type)
+-------------------------------------------------------------------------------------------------------------------------
 
-You will notice that the geometry field type does not implicitly specify what
-*type* of geometry for the field - for that we need a constraint:
+ဂျီဩမေတြီ field အမျိုးအစားကို တိတိကျကျသတ်မှတ်ထားခြင်းမရှိသည်ကို သတိထားမိပါလိမ့်မည်- ထို့အတွက် constraint တစ်ခုလိုအပ်ပါသည်-
 
 .. code-block:: sql
 
@@ -56,17 +45,14 @@ You will notice that the geometry field type does not implicitly specify what
       check(st_geometrytype(the_geom) = 'ST_Point'::text
             OR the_geom IS NULL);
 
-This adds a constraint to the table so that it will only accept a point geometry
-or a null value.
+ထို code သည် point ဂျီဩမေတြီတစ်ခု သို့မဟုတ် null တန်ဖိုးတစ်ခုကိုသာ လက်ခံသော constraint တစ်ခုကို table ထဲသို့ ထည့်သွင်းပေးမည်ဖြစ်သည်။
 
-Try Yourself: :abbr:`★★★ (Advanced level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★★ (Advanced level)`
 -------------------------------------------------------------------------------
 
-Create a new table called cities and give it some appropriate columns,
-including a geometry field for storing polygons (the city boundaries). Make
-sure it has a constraint enforcing geometries to be polygons.
+Cities ဟုခေါ်သော table အသစ်တစ်ခုကို ဖန်တီးပြီး သင့်လျော်သော column အချို့ကို ထည့်သွင်းပါ၊ polygon များ (city နယ်နိမိတ်များ) သိမ်းဆည်းရန်အတွက် ဂျီဩမေတြီ field တစ်ခုပါဝင်အောင် ထည့်သွင်းပါ။ ဂျီဩမေတြီများသည် polygon များဖြစ်ရမည်ဆိုသည့် constraint တစ်ခု ပါရှိအောင် ထည့်သွင်းပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
    ::
@@ -80,45 +66,39 @@ sure it has a constraint enforcing geometries to be polygons.
 
 
 
-Populate geometry_columns table
+geometry_columns ဇယားအား ဖြည့်သွင်းခြင်း (Populate geometry_columns table)
 -------------------------------------------------------------------------------
 
-At this point you should also add an entry into the ``geometry_columns`` table:
+ဤအဆင့်တွင် ``geometry_columns`` table ထဲသို့ entry တစ်ခုကိုလည်း ထည့်သွင်းသင့်ပါသည်-
 
 .. code-block:: sql
 
   insert into geometry_columns values
     ('','public','people','the_geom',2,4326,'POINT');
 
-Why? :kbd:`geometry_columns` is used by certain applications to be aware of
-which tables in the database contain geometry data.
+အကြောင်းရင်းမှာ database ထဲရှိ မည်သည့် table များထဲတွင် ဂျီဩမေတြီ data များပါဝင်သည်ကို သိရှိစေရန် :kbd:`geometry_columns` ကိုအသုံးပြုသောကြောင့်ဖြစ်သည်။
 
 .. note::
 
-   If the above ``INSERT`` statement causes an error, run this
-   query first:
+   အထက်ဖော်ပြပါ ``INSERT`` statement သည် error ဖြစ်နေပါက အောက်ပါ query ကို ဦးစွာ run ပါ-
    
    .. code-block:: sql
 
      select * from geometry_columns;
 
-   If the column :kbd:`f_table_name` contains the value :kbd:`people`, then
-   this table has already been registered and you don't need to do anything
-   more.
+   :kbd:`f_table_name` column တွင် :kbd:`people` တန်ဖိုးပါဝင်ပါက ထို table သည် register ပြုလုပ်ပြီးသားဖြစ်ကာ နောက်ထပ်မည်သည့်အရာမှ ထပ်လုပ်ရန် မလိုအပ်တော့ပါ။
 
-The value ``2`` refers to the number of dimensions; in this case, two: **X**
-and **Y**.
+တန်ဖိုး ``2`` သည် dimension အရေအတွက်ကို ရည်ညွှန်းပါသည်၊ ဤဥပမာတွင် **X**
+နှင့် **Y** ဖြစ်ပါသည်။
 
-The value :kbd:`4326` refers to the projection we are using; in this case, WGS
-84, which is referred to by the number 4326 (refer to the earlier discussion
-about the EPSG).
+:kbd:`4326` သည် အသုံးပြုနေသော projection ကို ရည်ညွှန်းပါသည်၊ ဤဥပမာတွင် 4326 သည် WGS84 ဖြစ်ပါသည် (EPSG အကြောင်းရှင်းပြထားသော အပိုင်းကို ကိုးကားပါ)။
 
-Try Yourself: :abbr:`★☆☆ (Basic level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★☆☆ (Basic level)`
 ...............................................................................
 
-Add an appropriate `geometry_columns` entry for your new cities layer
+Cities layer အသစ်အတွက် သင့်လျော်သော `geometry_columns` entry တစ်ခုကို ထည့်သွင်းပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
    ::
@@ -128,10 +108,10 @@ Add an appropriate `geometry_columns` entry for your new cities layer
 
 
 
-Add geometry record to table using SQL
--------------------------------------------------------------------------------
+SQL အသုံးပြု၍ ဇယားထဲသို့ ဂျီဩမေတြီ record ထည့်သွင်းခြင်း (Add geometry record to table using SQL)
+--------------------------------------------------------------------------------------------------
 
-Now that our tables are geo-enabled, we can store geometries in them:
+ယခုအခါ table များသည် geo-enable ဖြစ်နေပြီး table များထဲတွင် ဂျီဩမေတြီများကို သိမ်းဆည်းနိုင်ပြီဖြစ်ပါသည်-
 
 .. code-block:: sql
 
@@ -142,38 +122,27 @@ Now that our tables are geo-enabled, we can store geometries in them:
                    '072 812 31 28',
                    'SRID=4326;POINT(33 -33)');
 
-.. note::  In the new entry above, you will need to specify which projection
-   (SRID) you want to use. This is because you entered the geometry of the new
-   point using a plain string of text, which does not automatically add the
-   correct projection information. Obviously, the new point needs to use the
-   same SRID as the data-set it is being added to, so you need to specify it.
+.. note:: အထက်တွင် ထည့်သွင်းထားသော entry အသစ်ထဲတွင် သင်အသုံးပြုလိုသော projection (SRID) ကို သတ်မှတ်ပေးရန် လိုအပ်ပါလိမ့်မည်။ Point အသစ်၏ ဂျီဩမေတြီကို ထည့်သွင်းရာတွင် စာသား string ကိုအသုံးပြုထားသောကြောင့် မှန်ကန်သော projection အချက်အလက်ကို အလိုအလျောက်ထည့်သွင်းပေးမည်မဟုတ်ပါ။ Point အသစ်သည် ထည့်သွင်းထားပြီးသော data-set နှင့် SRID တူညီရန် လိုအပ်ပါသည်။
 
-   If at this point you were using a graphical interface, for example,
-   specifying the projection for each point would be automatic. In other words,
-   you usually won't need to worry about using the correct projection for every
-   point you want to add if you've already specified it for that data-set, as we
-   did earlier.
+   ဤနေရာတွင် graphical interface တစ်ခုကို အသုံးပြုသည်ဆိုပါက point တစ်ခုချင်းစီအတွက် projection သတ်မှတ်ခြင်းသည် အလိုအလျောက်ဖြစ်ပါလိမ့်မည်။ တစ်နည်းအားဖြင့် data-set အတွက် projection သတ်မှတ်ထားပြီးသားဖြစ်ပါက ထည့်သွင်းလိုသော point တိုင်းအတွက် မှန်ကန်သော projection သတ်မှတ်ရန် မလိုအပ်တော့ပါ။
 
-Now is probably a good time to open QGIS and try to view your :kbd:`people`
-table. Also, we should try editing / adding / deleting records and then
-performing select queries in the database to see how the data has changed.
+ယခုအခါ QGIS ကိုဖွင့်ပြီး :kbd:`people` table ကိုဖွင့်ကြည့်ပါ။ ထို့အပြင် record များကို edit လုပ်ခြင်း၊ ပေါင်းထည့်ခြင်း၊ ဖျက်ပစ်ခြင်းများကိုလည်း စမ်းလုပ်ကြည့်ပါ၊ ထို့နောက် data ပြောင်းလဲသွားမှုများကို ကြည့်ရှုရန် database ထဲတွင် select query များလုပ်ဆောင်ကြည့်ပါ။
 
-To load a PostGIS layer in QGIS, use the :menuselection:`Layer --> Add PostGIS
-Layers` menu option or toolbar button:
+QGIS ထဲတွင် PostGIS layer တစ်ခု ထည့်သွင်းရန် :menuselection:`Layer --> Add PostGIS Layers` menu option သို့မဟုတ် toolbar ခလုတ်ကို အသုံးပြုပါ-
 
   |addPostgisLayer|
 
-This will open the dialog:
+အောက်ပါ dialog ပွင့်လာပါလိမ့်မည်-
 
 .. figure:: img/add_postgis_layer_dialog.png
    :align: center
 
-Click on the :guilabel:`New` button to open this dialog:
+အောက်ပါ dialog ကိုဖွင့်ရန် :guilabel:`New` ခလုတ်ကို နှိပ်ပါ-
 
 .. figure:: img/new_postgis_connection.png
    :align: center
 
-Then define a new connection, e.g.::
+ထို့နောက် connection အသစ်တစ်ခုကို သတ်မှတ်ပါ၊ ဥပမာ-::
 
   Name: myPG
   Service:
@@ -183,21 +152,16 @@ Then define a new connection, e.g.::
   User:
   Password:
 
-To see whether QGIS has found the :kbd:`address` database and that your
-username and password are correct, click :guilabel:`Test Connect`. If it works,
-check the boxes next to :guilabel:`Save Username` and :guilabel:`Save Password`.
-Then click :guilabel:`OK` to create this connection.
+QGIS သည် :kbd:`address` database ကို ရှာတွေ့/မတွေ့ကြည့်ရှုရန်နှင့် username နှင့် password မှန်ကန်မှုရှိ/မရှိ ကြည့်ရှုရန် :guilabel:`Test Connect` ကိုနှိပ်ပါ။ ၎င်းသည် အလုပ်ဖြစ်ပါက :guilabel:`Save Username` နှင့် :guilabel:`Save Password` ဘေးရှိ box များတွင် အမှန်ခြစ်ခြစ်ပါ။ ထို့နောက် connection ကိုဖန်တီးရန် :guilabel:`OK` ကိုနှိပ်ပါ။
 
-Back in the :guilabel:`Add PostGIS Layers` dialog, click :guilabel:`Connect`
-and add layers to your project as usual.
+:guilabel:`Add PostGIS Layers` dialog ထဲတွင် :guilabel:`Connect` ကိုနှိပ်ပြီး project ထဲသို့ layer များကိုထည့်သွင်းပါ။
 
-Try Yourself: :abbr:`★★☆ (Moderate level)`
+မိမိကိုယ်တိုင်ကြိုးစားကြည့်ပါ (Try Yourself:) :abbr:`★★☆ (Moderate level)`
 ...............................................................................
 
-Formulate a query that shows a person's name, street name and position (from the
-the_geom column) as plain text.
+Person တစ်ဦး၏ name ၊ street name နှင့် တည်နေရာ (the_geom column မှ) ကို plain text အနေဖြင့် ပြသသည့် query တစ်ခုကို ရေးသားပါ။
 
-.. admonition:: Answer
+.. admonition:: အဖြေ
    :class: dropdown
 
    ::
@@ -208,7 +172,7 @@ the_geom column) as plain text.
      from   streets, people
      where  people.street_id=streets.id;
 
-   Result::
+   ရလာဒ်-::
 
             name     | street_name |   geometry
        --------------+-------------+---------------
@@ -219,19 +183,18 @@ the_geom column) as plain text.
         Fault Towers | Main Road   | POINT(33 -33)
        (5 rows)
 
-   As you can see, our constraint allows nulls to be added into the database.
+   မြင်တွေ့ရသည့်အတိုင်း constraint သည် database ထဲသို့ null တန်ဖိုးများကို ထည့်သွင်းခွင့်ပြုပါသည်။
 
 
-In Conclusion
+နိဂုံးချုပ် (In Conclusion)
 -------------------------------------------------------------------------------
 
-You have seen how to add spatial objects to your database and view them in GIS
-software.
+Spatial object များကို database ထဲသို့ မည်သို့ထည့်သွင်းရမည်နှင့် ၎င်းတို့ကို GIS software ထဲတွင် မည်သို့ကြည့်ရှုရမည်ကို လေ့လာခဲ့ပြီးဖြစ်ပါသည်။
 
-What's Next?
+နောက်ထပ်ဘာအကြောင်းအရာလဲ (What's Next?)
 -------------------------------------------------------------------------------
 
-Next you'll see how to import data into, and export data from, your database.
+နောက်လာမည့်သင်ခန်းစာတွင် database ထဲသို့ data များထည့်သွင်းနည်းနှင့် database ထဲမှ data များ export ထုတ်ယူနည်းများကို လေ့လာရမည်ဖြစ်ပါသည်။
 
 
 .. Substitutions definitions - AVOID EDITING PAST THIS LINE
